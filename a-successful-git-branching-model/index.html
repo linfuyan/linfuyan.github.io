@@ -6,30 +6,24 @@
   <title>一个成功的 Git 分支模型 | linfuyan&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="原文来自：A successful Git branching model译文来自：一个成功的 Git 分支模型
-这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。
-
-本文中我会展示一种开发模型，一年前该模型就已经被我用">
+这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一个成功的 Git 分支模型">
 <meta property="og:url" content="http://yoursite.com/a-successful-git-branching-model/index.html">
 <meta property="og:site_name" content="linfuyan's blog">
 <meta property="og:description" content="原文来自：A successful Git branching model译文来自：一个成功的 Git 分支模型
-这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。
-
-本文中我会展示一种开发模型，一年前该模型就已经被我用">
+这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-1.png">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-2.png">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-3.png">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-4.png">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-5.png">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-6.png">
-<meta property="og:updated_time" content="2015-08-27T04:49:05.000Z">
+<meta property="og:updated_time" content="2015-08-27T10:16:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个成功的 Git 分支模型">
 <meta name="twitter:description" content="原文来自：A successful Git branching model译文来自：一个成功的 Git 分支模型
-这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。
-
-本文中我会展示一种开发模型，一年前该模型就已经被我用">
+这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。">
   
     <link rel="alternative" href="/atom.xml" title="linfuyan&#39;s blog" type="application/atom+xml">
   
@@ -249,6 +243,7 @@
       
         <p>原文来自：<a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="external">A successful Git branching model</a><br>译文来自：<a href="http://www.juvenxu.com/2010/11/28/a-successful-git-branching-model/" target="_blank" rel="external">一个成功的 Git 分支模型</a></p>
 <p>这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。</p>
+<a id="more"></a>
 <hr>
 <p>本文中我会展示一种开发模型，一年前该模型就已经被我用在所有的项目中（包括工作中的项目和私有项目），结果是非常成功的。我早就想为此写点东西，可直到现在才有时间。本文不会讲述任何项目的细节，只会涉及到分支策略和发布管理。</p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-1.png" alt="一个成功的 Git 分支模型"></p>

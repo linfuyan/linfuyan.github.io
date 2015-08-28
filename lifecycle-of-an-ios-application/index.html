@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-5.png">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-6.png">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-7.png">
-<meta property="og:updated_time" content="2015-08-28T11:40:12.000Z">
+<meta property="og:updated_time" content="2015-08-28T11:43:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS App 生命周期">
 <meta name="twitter:description" content="对于iOS应用程序，关键的是要知道你的应用程序是否正在前台或后台运行。由于系统资源在iOS设备上较为有限，一个应用程序必须在后台与前台有不同的行为。操作系统也会限制你的应用程序在后台的运行，以提高电池寿命，并提高用户与前台应用程序的体验。当应用程序在前台和后台之间切换时，操作系统将会通知您的应用程序。你可以通过这些通知来修改你的应用程序的行为。
@@ -244,6 +244,7 @@
       
         <p>对于iOS应用程序，关键的是要知道你的应用程序是否正在前台或后台运行。由于系统资源在iOS设备上较为有限，一个应用程序必须在后台与前台有不同的行为。操作系统也会限制你的应用程序在后台的运行，以提高电池寿命，并提高用户与前台应用程序的体验。当应用程序在前台和后台之间切换时，操作系统将会通知您的应用程序。你可以通过这些通知来修改你的应用程序的行为。</p>
 <p>当你的应用程序在前台活动时，系统会发送触摸事件给它进行处理。在UIKit的基础设施做了大部分的事件传递给你的自定义对象工作。所有您需要做的是覆盖在相应的对象的方法来处理这​​些事件。对于控件，UIKit会通过处理你的触摸事件，或者其他一些有趣的事情发生时调用您的自定义代码，比如当文本字段中的值更改。</p>
+<a id="more"></a>
 <h4 id="1-_应用程序的状态">1. 应用程序的状态</h4><p><code>Not running</code> (未运行)：程序没启动。</p>
 <p><code>Inactive</code>(未激活)：程序在前台运行，不过没有接收到事件。在没有事件处理情况下程序通常停留在这个状态。</p>
 <p><code>Active</code>(激活)：程序在前台运行而且接收到了事件。这也是前台的一个正常的模式。</p>

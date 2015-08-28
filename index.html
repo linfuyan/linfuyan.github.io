@@ -220,55 +220,6 @@
       
         <p>Git 仓库可以通过 git:// 来访问，目前类似 Github，Gitcafe，Coding等基于 Git 的托管服务都提供有配置 SSH 密钥，来访问托管仓库的功能。本文中将通过为 Github 账号配置 SSH 密钥来访问仓库为例，说明 SSH 密钥配置过程。</p>
 <p>SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密码。下面的步骤将带你生成一个 SSH 密钥，并将其添加到你的 Github 账号。</p>
-<h2 id="步骤1：检查_SSH_密钥">步骤1：检查 SSH 密钥</h2><p>首先，需要检查电脑上是否有已经存在的 SSH 密钥。打开终端并输入：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">ls</span> -<span class="keyword">al</span> ~/.ssh</span><br><span class="line"># Lists the <span class="keyword">files</span> in your .ssh directory, <span class="keyword">if</span> they exist</span><br></pre></td></tr></table></figure>
-<p>查看文件夹中列出的文件中是否已经有 SSH 公钥。默认情况下，公钥的文件名会是下面中的一个：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; id_dsa<span class="class">.pub</span></span><br><span class="line">&gt; id_ecdsa<span class="class">.pub</span></span><br><span class="line">&gt; id_ed25519<span class="class">.pub</span></span><br><span class="line">&gt; id_rsa.pub</span><br></pre></td></tr></table></figure>
-<p>如果你看到列出的文件已经存在一对公钥和私钥(如：id_rsa.pub 和 id_rsa)，而你打算用来连接 Github，那么可以跳过步骤2，直接查看步骤3。</p>
-<blockquote>
-<p>提示：如果你收到一个 ~/.ssh 不存在的错误，别担心，我们在步骤2中将创建它。</p>
-</blockquote>
-<h2 id="步骤2：生成新的_SSH_密钥">步骤2：生成新的 SSH 密钥</h2><p>1、继续打开终端，复制并粘贴下面的文本。确保用你的 Github 邮箱替换掉其中的地址。</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh-keygen -t rsa -b <span class="number">4096</span> -<span class="constant">C </span><span class="string">"your_email@example.com"</span></span><br><span class="line"><span class="comment"># Creates a new ssh key, using the provided email as a label</span></span><br><span class="line"><span class="comment"># Generating public/private rsa key pair.</span></span><br></pre></td></tr></table></figure>
-<p>2、强烈建议保持默认设置，因此你在被提示”输入文件以保存密钥”时，直接按<strong>回车</strong>继续：</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter <span class="built_in">file</span> <span class="operator">in</span> which <span class="built_in">to</span> save <span class="operator">the</span> key (/Users/you/.ssh/id_rsa): [Press enter]</span><br></pre></td></tr></table></figure>
-<p>3、提示输入口令：</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (<span class="constant">empty</span> <span class="keyword">for</span> no passphrase): [Type <span class="operator">a</span> passphrase]</span><br><span class="line"><span class="comment"># Enter same passphrase again: [Type passphrase again]</span></span><br></pre></td></tr></table></figure>
-<p>4、输口令以后，你将得到一个 SSH 密钥的指纹或者<code>ID</code>。看起来像这样：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Your identification has been saved in /Users/you/.ssh/id_rsa.</span><br><span class="line"><span class="preprocessor"># Your public key has been saved in /Users/you/.ssh/id_rsa.pub.</span></span><br><span class="line"><span class="preprocessor"># The key fingerprint is:</span></span><br><span class="line"><span class="preprocessor"># <span class="number">01</span>:<span class="number">0f</span>:f4:<span class="number">3</span>b:ca:<span class="number">85</span>:d6:<span class="number">17</span>:a1:<span class="number">7</span>d:f0:<span class="number">68</span>:<span class="number">9</span>d:f0:a2:db your_email@example.com</span></span><br></pre></td></tr></table></figure>
-<h2 id="步骤3：添加密钥到_ssh-agent">步骤3：添加密钥到 ssh-agent</h2><p>配置 ssh-agent 程序来使用 SSH 密钥，可以避免每次被提示输入口令：</p>
-<p>1、确保 ssh-agent 是可用的：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># start the ssh-agent in the background</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br><span class="line"><span class="comment"># Agent pid 59566</span></span><br></pre></td></tr></table></figure>
-<p>2、添加密钥到 ssh-agent</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh-add ~<span class="regexp">/.ssh/id</span>_rsa</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>提示：如果你在步骤2中没有生成新的 SSH 密钥，而是使用已经存在的密钥，那你需要替换上面命令中的 id_rsa 为你已经存在的私钥文件的名称。</p>
-</blockquote>
-<h3 id="步骤4：添加_SSH_密钥到你的账号">步骤4：添加 SSH 密钥到你的账号</h3><p>配置你的 Github 账号来使用 SSH 密钥：</p>
-<p>复制 SSH 密钥到剪贴板，记住你可能将密钥命名为 id_dsa.pub， id_ecdsa.pub 或者 id_ed25519.pub，那么需要修改下列命令中的文件名：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pbcopy &lt; ~<span class="regexp">/.ssh/id</span>_rsa.pub</span><br><span class="line"><span class="comment"># Copies the contents of the id_rsa.pub file to your clipboard</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>提示：也可以直接用文本编辑器等打开公钥文件，然后复制其中的内容。</p>
-<p>警告：在复制过程中一定不能添加任何新行或者空格。</p>
-</blockquote>
-<p>添加复制的密钥到 Github：</p>
-<p>1、找到账户管理，点击其中的“设置”。</p>
-<p>2、找到 SSH 密钥，点击添加 SSH 密钥。</p>
-<p>3、在标题输入框中添加新密钥的描述文本。例如，如果你在使用个人的 Mac，可以设置密钥名称为 “Personal MacBook Air”。</p>
-<p>4、在密钥输入框中粘贴刚才复制的密钥。</p>
-<p>5、点击添加。</p>
-<p>6、输入 Github 账号密码来确认。</p>
-<h3 id="测试连接">测试连接</h3><p>为了确保一切工作正常，接下来将 SSH 到 Github。这么做的时候，你需要使用密码来验证。这个密码就是你之前创建的 SSH 密钥的口令。</p>
-<p>1、打开终端并输入：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh -<span class="constant">T </span>git<span class="variable">@github</span>.com</span><br><span class="line"><span class="comment"># Attempts to ssh to GitHub</span></span><br></pre></td></tr></table></figure>
-<p>2、第一次你将看到下面的警告：</p>
-<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity <span class="keyword">of</span> host <span class="attribute">'github</span>.com (<span class="number">207.97</span>.<span class="number">227.239</span>)' can<span class="attribute">'t</span> be established.</span><br><span class="line"># RSA key fingerprint <span class="keyword">is</span> <span class="number">16</span>:<span class="number">27</span>:ac:a5:<span class="number">76</span>:<span class="number">28</span>:<span class="number">2</span>d:<span class="number">36</span>:<span class="number">63</span>:<span class="number">1</span>b:<span class="number">56</span>:<span class="number">4</span>d:eb:df:a6:<span class="number">48</span>.</span><br><span class="line"># Are you sure you want <span class="keyword">to</span> continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
-<p>核实你看到的消息中的指纹，并输入: <code>yes</code>：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span></span><br><span class="line"><span class="comment"># provide shell access.</span></span><br></pre></td></tr></table></figure>
-<p>3、如果出现上面的信息，并且用户是你 ，那么你的 SSH 密钥就安装成功了。如果你收到了关于 <code>access denied</code> 的消息，那么就是失败了，那么请确认前面的步骤，重新来过。</p>
-<p>以上为 Mac 平台生成 SSH 密钥的步骤，Windows、Linux 平台略有不同。</p>
-<p>原文链接：<a href="https://help.github.com/articles/generating-ssh-keys/#platform-mac" target="_blank" rel="external">Generating SSH keys</a></p>
-
       
     </div>
     
@@ -285,6 +236,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/generating-ssh-keys/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

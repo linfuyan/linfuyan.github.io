@@ -24,7 +24,7 @@ Android 构建系统的灵活性使得可以在不修改应用程序核心源文
 
 Android 构建系统的灵活性使得可以在不修改应用程序核心源文件的情况下">
 <meta property="og:image" content="https://developer.android.com/images/build.png">
-<meta property="og:updated_time" content="2015-08-29T09:09:48.000Z">
+<meta property="og:updated_time" content="2015-08-29T09:21:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 构建系统概览">
 <meta name="twitter:description" content="Android 构建系统是一个用来构建、测试、运行和打包应用程序的工具箱。构建系统可以作为 Android Studio 菜单中的集成工具运行，也可以独立地从命令行运行。构建系统可以用来：
@@ -251,7 +251,7 @@ Android 构建系统的灵活性使得可以在不修改应用程序核心源文
 <li>使用相同的项目和模块来为应用程序创建拥有不同特性的多个 APK。</li>
 <li>跨源的集合来复用代码和资源。</li>
 </ul>
-<p>Android 构建系统的灵活性使得可以在不修改应用程序核心源文件的情况下实现这些目标。想要构建一个 Android Studio 项目，参见<a href="https://developer.android.com/tools/building/building-studio.html" target="_blank" rel="external">从 Android Studio 构建和运行</a>。想要在 Android Studio 项目中配置自定义的构建设置，参见<a href="configuring-gradle-builds">配置 Gradle 构建</a>。</p>
+<p>Android 构建系统的灵活性使得可以在不修改应用程序核心源文件的情况下实现这些目标。想要构建一个 Android Studio 项目，参见<a href="https://developer.android.com/tools/building/building-studio.html" target="_blank" rel="external">从 Android Studio 构建和运行</a>。想要在 Android Studio 项目中配置自定义的构建设置，参见<a href="http://www.linfuyan.com/configuring-gradle-builds" target="_blank" rel="external">配置 Gradle 构建</a>。</p>
 <a id="more"></a>
 <h2 id="构建进程详解">构建进程详解</h2><p>整个构建过程包含有许多工具和过程产生中间文件，并最终生成一个 .apk 文件。如果你使用 Android Studio 进行开发，那么当你每次为项目或者模块运行 Gradle 构建任务时，完整的构建过程就完成了。由于许多的构建过程是可配置和扩展的，因此理解每个覆盖下发生了对于理解构建过程的灵活性是很有用的。下面的图标描述整个构建中包含的不同的工具和过程：</p>
 <p><img src="https://developer.android.com/images/build.png" alt="Android 构建工具与过程"></p>

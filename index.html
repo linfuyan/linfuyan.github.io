@@ -215,65 +215,15 @@
         <p>本文说明如何在 Mac OSX 环境下，使用 Jenkins 对基于 CocoaPods 进行依赖管理的 iOS 项目做自动打包与持续集成，并将最终的安装包发布到 fir.im 上供下载。</p>
 <h4 id="前置说明">前置说明</h4><ol>
 <li>实现 iOS 项目自动打包，需要有 Mac OSX 环境。本文中使用的是一台普通的 Mac mini，并安装 Mac OSX 10.10 Yosemite。</li>
-<li>本文中使用的自动打包脚本依赖于 <code>xcodebuild</code> 及 <code>xcrun</code>，故需要确保安装 Xcode，并且系统中安装有 Xcode 的命令行工具。具体命令行如何打包，可以查看 <a href="http://" target="_blank" rel="external">iOS 命令行打包</a></li>
+<li>本文中使用的自动打包脚本依赖于 <code>xcodebuild</code> 及 <code>xcrun</code>，故需要确保安装 Xcode，并且系统中安装有 Xcode 的命令行工具。具体命令行如何打包，可以查看 <a href="http://">iOS 命令行打包</a></li>
 <li>本文中代码的版本控制工具使用 Git。Mac OSX 安装完成 Xcode 以后自带 Git，故不用另外安装。</li>
-<li>iOS 项目使用 CocoaPods 进行依赖管理，故 Mac OSX 需要安装 CocoaPods。具体可以查看 <a href="http://" target="_blank" rel="external">CocoaPods 使用</a></li>
-<li>需要确保 Jenkins 服务器所在的机器上拥有对应的证书和 Profile 文件，才能够顺利打包。什么是证书和 Profile 文件，可以查看 <a href="http://" target="_blank" rel="external">iOS 证书和 Profile 文件</a></li>
-<li>在 Mac OSX 下安装并配置好 Jenkins。Jenkins 的安装不在本文论述范围内，具体可以查看 <a href="http://" target="_blank" rel="external">Mac OSX 安装 Jenkins</a></li>
-<li>Jenkins 配置好相关插件，本文中使用到 <code>Git plugin</code>， <code>Git client plugin</code>， <code>Xcode integration</code> 等插件。如何安装 Jenkins 插件，可以查看 <a href="http://" target="_blank" rel="external">Jenkins 插件安装</a></li>
+<li>iOS 项目使用 CocoaPods 进行依赖管理，故 Mac OSX 需要安装 CocoaPods。具体可以查看 <a href="http://">CocoaPods 使用</a></li>
+<li>需要确保 Jenkins 服务器所在的机器上拥有对应的证书和 Profile 文件，才能够顺利打包。什么是证书和 Profile 文件，可以查看 <a href="http://">iOS 证书和 Profile 文件</a></li>
+<li>在 Mac OSX 下安装并配置好 Jenkins。Jenkins 的安装不在本文论述范围内，具体可以查看 <a href="http://">Mac OSX 安装 Jenkins</a></li>
+<li>Jenkins 配置好相关插件，本文中使用到 <code>Git plugin</code>， <code>Git client plugin</code>， <code>Xcode integration</code> 等插件。如何安装 Jenkins 插件，可以查看 <a href="http://">Jenkins 插件安装</a></li>
 <li>本文中代码所使用的文件目录结构如下。不同的文档结构会对 Jenkins 中嵌入的 Shell 脚本造成影响。即在实际项目源码位于根目录再下一级目录。</li>
 </ol>
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Art				<span class="comment">// 项目目录</span></span><br><span class="line">    <span class="string">|--Art		// 实际项目源码目录</span></span><br><span class="line">    	<span class="string">|--Art</span></span><br><span class="line">    	<span class="string">|--project.xcdoeproj</span></span><br><span class="line">    	<span class="string">|--project.xcworkspace</span></span><br><span class="line">    	<span class="string">|--Podfile</span></span><br><span class="line">    	<span class="string">|--...</span></span><br><span class="line">    <span class="string">|--bin			// 存放部分二进制文件的目录，实际中并未使用</span></span><br><span class="line">    <span class="string">|--doc			// 本项目相关的文档目录</span></span><br></pre></td></tr></table></figure>
-<h2 id="具体步骤">具体步骤</h2><h3 id="新建项目">新建项目</h3><p>使用具有配置权限的用户登录 Jenkins，选择”新建”，”构建一个自由风格的软件项目”，并确定。这里新建了一个名为 <code>iOS-project-ci</code> 的 job。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-1.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
-<h3 id="配置构建基本信息">配置构建基本信息</h3><p>填写相关 job 的信息，如名称、描述。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-2.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
-<p>可以选择构建过程，并进行一些设置。这里选择”参数化构建过程”，添加一个 <code>Text Parameter</code>，并做相关设置。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-3.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-4.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
-<p>高级项目选项，本文中没有做任何设置。</p>
-<h3 id="配置项目源码">配置项目源码</h3><p>源码管理中选择 Git，配置仓库地址，认证账户，需要构建的分支等。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-5.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
-<p>根据项目需要构建触发器，本文中没有做任何设置，项目的构建由用户手动触发。</p>
-<h3 id="配置构建过程">配置构建过程</h3><h4 id="配置_CocoaPods">配置 CocoaPods</h4><p>由于本文中项目代码目录没有在根目录下，且使用 CocoaPods 进行依赖管理，故先增加一个 Shell 脚本的构建步骤。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-6.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
-<p>其中 <code>cd Art</code> 是进入到 Podfile 文件所在目录，即实际项目源码目录。 <code>pod install</code> 用于更新实际项目的源码依赖。完整的 pod 更新可能会很好使，可以考虑 <code>pod install --no-repo-update</code></p>
-<h4 id="配置_Xcode_integration">配置 Xcode integration</h4><p>新增 Xcode integration 构建过程</p>
-<p><strong>基础配置</strong></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-7.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
-<ol>
-<li>本文的项目中使用 <code>workspace</code>， 所以 Target 可以不填。</li>
-<li>Configuration 是在 Xcode 中的配置，默认有 Debug 和 Release，这里的 InHouse 为我自己在项目中的配置，使用企业签名的对应用进行打包。</li>
-<li>将应用打包成 .ipa 文件。</li>
-<li>这里设置 .ipa 文件的名称。其中 $BUILD_NUMBER 为 Jenkins 提供的系统变量，为当前的构建版本号。</li>
-<li>这里设置 构建过程输出目录。其中 $WORKSPACE 为 Jenkins 提供的系统变量，为构建根目录。</li>
-</ol>
-<p><strong>代码签名及密钥配置</strong></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-8.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
-<p>本文中采用在 Xcode 项目中新增共享 scheme 的方式，在 scheme 内部对代码签名和 Profile 做了配置，同时 Jenkins 所在的 Mac OSX 中有对应的证书和 Profile，所以1，2中不需要做特殊配置，如果配置，将替换 scheme中的配置。</p>
-<p>在打包的过程中，命令会由于系统的安全设置提醒输入密码，3中可以设置密钥所在路径及系统用户密码。</p>
-<blockquote>
-<p>具体如何新增共享 scheme 及配置，可以查看<a href="http://" target="_blank" rel="external">iOS 配置 scheme 和 configuration</a></p>
-</blockquote>
-<p><strong>Xcode 高级构建配置</strong></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-9.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
-<ol>
-<li>这里的 <code>Art-Ci</code> 就是我在 Xcode 项目中新建的 scheme。</li>
-<li>本文中的项目包含有 workspace，这里设置对应路径，注意不需要带上 .xcworkspace 后缀。</li>
-<li>Xcode 项目所在目录</li>
-<li>Xcode 项目文件，这里需要带上 .xcodeproj 后缀。</li>
-<li>设置构建输出目录。</li>
-</ol>
-<h4 id="发布到_fir-im">发布到 fir.im</h4><p>添加一个 Shell 构建步骤，输入如下命令：</p>
-<p><code>fir p $WORKSPACE/build/art_$BUILD_NUMBER.ipa -c &quot;$release_note&quot;</code></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-10.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
-<p>这里发布到 fir.im，使用了其官方提供的 fir-cli 工具。 <code>$WORKSPACE/build/art_$BUILD_NUMBER.ipa</code> 获取到最终打包的 .ipa 文件路径， $release_note 为我们在”带参数构建”中添加的参数。 fir-cli 的使用，具体查看<a href="http://blog.fir.im/fir_cli/" target="_blank" rel="external">官方工具 fir-cli 使用说明</a></p>
-<p>完成以上配置，应用并保存配置。</p>
-<h4 id="添加其他构建后步骤">添加其他构建后步骤</h4><p>可以在构建完成以后，配置邮件通知等操作以便及时将构建结果通知到相应的人员。</p>
-<h4 id="启动构建">启动构建</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-11.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-12.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
-<p>设置参数，点击”开始构建”，构建过程便被触发。如果构建成功，最终 iOS 应用将被发布到 fir.im 上，并进行访问。例如，本文中的项目最终可以通过 <a href="fir.im/yiwai">http://fir.im/yiwai</a> 来访问并下载安装。</p>
-
       
     </div>
     
@@ -290,6 +240,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/continuous-integration-of-ios-application-with-jenkins-git-cocoapods-fir.im/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

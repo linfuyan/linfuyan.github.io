@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-10.png">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-11.png">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-12.png">
-<meta property="og:updated_time" content="2015-08-29T06:59:35.000Z">
+<meta property="og:updated_time" content="2015-08-29T07:02:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成">
 <meta name="twitter:description" content="本文说明如何在 Mac OSX 环境下，使用 Jenkins 对基于 CocoaPods 进行依赖管理的 iOS 项目做自动打包与持续集成，并将最终的安装包发布到 fir.im 上供下载。
@@ -259,6 +259,7 @@
 <li>本文中代码所使用的文件目录结构如下。不同的文档结构会对 Jenkins 中嵌入的 Shell 脚本造成影响。即在实际项目源码位于根目录再下一级目录。</li>
 </ol>
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Art				<span class="comment">// 项目目录</span></span><br><span class="line">    <span class="string">|--Art		// 实际项目源码目录</span></span><br><span class="line">    	<span class="string">|--Art</span></span><br><span class="line">    	<span class="string">|--project.xcdoeproj</span></span><br><span class="line">    	<span class="string">|--project.xcworkspace</span></span><br><span class="line">    	<span class="string">|--Podfile</span></span><br><span class="line">    	<span class="string">|--...</span></span><br><span class="line">    <span class="string">|--bin			// 存放部分二进制文件的目录，实际中并未使用</span></span><br><span class="line">    <span class="string">|--doc			// 本项目相关的文档目录</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="具体步骤">具体步骤</h2><h3 id="新建项目">新建项目</h3><p>使用具有配置权限的用户登录 Jenkins，选择”新建”，”构建一个自由风格的软件项目”，并确定。这里新建了一个名为 <code>iOS-project-ci</code> 的 job。</p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-1.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
 <h3 id="配置构建基本信息">配置构建基本信息</h3><p>填写相关 job 的信息，如名称、描述。</p>
@@ -307,7 +308,7 @@
 <h4 id="添加其他构建后步骤">添加其他构建后步骤</h4><p>可以在构建完成以后，配置邮件通知等操作以便及时将构建结果通知到相应的人员。</p>
 <h4 id="启动构建">启动构建</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-11.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-12.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
-<p>设置参数，点击”开始构建”，构建过程便被触发。如果构建成功，最终 iOS 应用将被发布到 fir.im 上，并进行访问。例如，本文中的项目最终可以通过 <a href="fir.im/yiwai">http://fir.im/yiwai</a> 来访问并下载安装。</p>
+<p>设置参数，点击”开始构建”，构建过程便被触发。如果构建成功，最终 iOS 应用将被发布到 fir.im 上，并进行访问。例如，本文中的项目最终可以通过 <a href="http://fir.im/yiwai" target="_blank" rel="external">http://fir.im/yiwai</a> 来访问并下载安装。</p>
 
       
     </div>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ReactiveX 之 Operator | 悠城札记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原文：http://reactivex.io/documentation/operators.html
+对译文有建议，请发邮件或下方评论给我，万分感谢。
+更新历史：1月13日
+
+每个特定语言版本的响应式扩展实现了一套具体的操作集合。虽然有一些重叠，依然有一些操作只在特定的版本中实现，并且每种语言趋向于将相似的操作命名成其他语言中已经为大家所熟悉的名称。
+这篇文章列举出响应式扩展集合中被认为核心的操">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReactiveX 之 Operator">
+<meta property="og:url" content="http://yoursite.com/reactivex-operator/index.html">
+<meta property="og:site_name" content="悠城札记">
+<meta property="og:description" content="原文：http://reactivex.io/documentation/operators.html
+对译文有建议，请发邮件或下方评论给我，万分感谢。
+更新历史：1月13日
+
+每个特定语言版本的响应式扩展实现了一套具体的操作集合。虽然有一些重叠，依然有一些操作只在特定的版本中实现，并且每种语言趋向于将相似的操作命名成其他语言中已经为大家所熟悉的名称。
+这篇文章列举出响应式扩展集合中被认为核心的操">
+<meta property="og:updated_time" content="2015-09-07T13:29:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ReactiveX 之 Operator">
+<meta name="twitter:description" content="原文：http://reactivex.io/documentation/operators.html
+对译文有建议，请发邮件或下方评论给我，万分感谢。
+更新历史：1月13日
+
+每个特定语言版本的响应式扩展实现了一套具体的操作集合。虽然有一些重叠，依然有一些操作只在特定的版本中实现，并且每种语言趋向于将相似的操作命名成其他语言中已经为大家所熟悉的名称。
+这篇文章列举出响应式扩展集合中被认为核心的操">
+  
+    <link rel="alternative" href="/atom.xml" title="悠城札记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://tp2.sinaimg.cn/1132654561/180/5670253112/1" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">linfuyan</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 15px;">Android Studio</a> <a href="/tags/Android开发/" style="font-size: 10px;">Android开发</a> <a href="/tags/App/" style="font-size: 15px;">App</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Gradle/" style="font-size: 15px;">Gradle</a> <a href="/tags/Operator/" style="font-size: 10px;">Operator</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/cocoapods/" style="font-size: 10px;">cocoapods</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/fir-im/" style="font-size: 10px;">fir.im</a> <a href="/tags/frp/" style="font-size: 15px;">frp</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/google/" style="font-size: 15px;">google</a> <a href="/tags/iOS/" style="font-size: 15px;">iOS</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/reactivex/" style="font-size: 15px;">reactivex</a> <a href="/tags/rxjava/" style="font-size: 15px;">rxjava</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/产品口味/" style="font-size: 10px;">产品口味</a> <a href="/tags/代码规范/" style="font-size: 10px;">代码规范</a> <a href="/tags/代码评审/" style="font-size: 20px;">代码评审</a> <a href="/tags/代码风格/" style="font-size: 10px;">代码风格</a> <a href="/tags/价值/" style="font-size: 10px;">价值</a> <a href="/tags/全栈工程师/" style="font-size: 10px;">全栈工程师</a> <a href="/tags/分支模型/" style="font-size: 10px;">分支模型</a> <a href="/tags/原则/" style="font-size: 10px;">原则</a> <a href="/tags/响应式编程/" style="font-size: 15px;">响应式编程</a> <a href="/tags/工作流/" style="font-size: 10px;">工作流</a> <a href="/tags/应用程序/" style="font-size: 10px;">应用程序</a> <a href="/tags/开发工具/" style="font-size: 10px;">开发工具</a> <a href="/tags/持续集成/" style="font-size: 10px;">持续集成</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/构建变种/" style="font-size: 10px;">构建变种</a> <a href="/tags/构建类型/" style="font-size: 10px;">构建类型</a> <a href="/tags/构建系统/" style="font-size: 15px;">构建系统</a> <a href="/tags/生命周期/" style="font-size: 10px;">生命周期</a> <a href="/tags/程序员/" style="font-size: 10px;">程序员</a> <a href="/tags/编码规范/" style="font-size: 10px;">编码规范</a> <a href="/tags/聪明人/" style="font-size: 10px;">聪明人</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://runoob.com">菜鸟教程</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://vqianduan.com">微前端</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://zuimeiui.com">最美UI</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">linfuyan</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://tp2.sinaimg.cn/1132654561/180/5670253112/1" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">linfuyan</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-reactivex-operator" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/reactivex-operator/" class="article-date">
+  	<time datetime="2015-09-07T21:24:44.000Z" itemprop="datePublished">2015-09-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ReactiveX 之 Operator
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Operator/">Operator</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frp/">frp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactivex/">reactivex</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rxjava/">rxjava</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/响应式编程/">响应式编程</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/开发技术/">开发技术</a><a class="article-category-link" href="/categories/开发技术/rxjava/">rxjava</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>原文：<a href="http://reactivex.io/documentation/operators.html" target="_blank" rel="external">http://reactivex.io/documentation/operators.html</a></p>
+<p>对译文有建议，请发邮件或下方评论给我，万分感谢。</p>
+<p>更新历史：1月13日</p>
+</blockquote>
+<p>每个特定语言版本的响应式扩展实现了一套具体的操作集合。虽然有一些重叠，依然有一些操作只在特定的版本中实现，并且每种语言趋向于将相似的操作命名成其他语言中已经为大家所熟悉的名称。</p>
+<p>这篇文章列举出响应式扩展集合中被认为核心的操作，并链接到更多说明的页面上。这些页面将解释这些操作如何工作，哪些特定版本的响应式扩展又是怎样实现这些操作。</p>
+<a id="more"></a>
+<h2 id="创建Observable">创建<em>Observable</em></h2><p>创建新的<em>Observable</em>的<em>Operator</em>。</p>
+<ul>
+<li><code>Create</code> - 通过编程方式调用<em>observer</em>的方法，从零创建<em>Observable</em></li>
+<li><code>Defer</code> - 直到<em>observer</em>订阅，为每个<em>observer</em>创建全新的<em>Observable</em></li>
+<li><code>Empty/Never/Throw</code> - 创建具有精确与有限行为的<em>Observable</em></li>
+<li><code>From</code> - 转化其他对象或者数据结构为<em>Observable</em></li>
+<li><code>Interval</code> - 创建产生整型数序列的<em>Observable</em>，序列元素间的间隔为interval</li>
+<li><code>Just</code> - 转化对象或者对象的集合成为<em>Observable</em>，且<em>Observable</em>产生的值为这些对象或是对象的集合</li>
+<li><code>Range</code> - 创建一个可以产生整型数序列区间的<em>Observable</em></li>
+<li><code>Repeat</code> - 创建可以重复产生特殊项或项目序列的<em>Observable</em></li>
+<li><code>Start</code> - 创建产生函数返回值的<em>Observable</em></li>
+<li><code>Timer</code> - 创建一段给定时间以后产生单一项的<em>Observable</em></li>
+</ul>
+<h2 id="变换Observable">变换<em>Observable</em></h2><p>变换<em>Observable</em>产生的项的<em>Operator</em>。</p>
+<ul>
+<li><code>Buffer</code> - 周期性的收集<em>Observable</em>中的项放入bundle中，并产生这些bundle而不是一次性产生这些项</li>
+<li><code>FlatMap</code> - 将<em>Observable</em>所产生的多个项目变换为多个<em>Observable</em>，然后将这些<em>Observable</em>的产生值拉平为一个<em>Observable</em></li>
+<li><code>GroupBy</code> - 将<em>Observable</em>分隔为<em>Observable</em>的集合，这些新的<em>Observable</em>通过key来对原来的<em>Observable</em>组织成不同的项的组</li>
+<li><code>Map</code> - 将<em>Observable</em>产生的每个项应用函数变换映射</li>
+<li><code>Scan</code> - 对<em>Observable</em>产生的每个项进行函数变换，有序的产生成功的值</li>
+<li><code>Window</code> - 周期性的将<em>Observable</em>产生的项进行分隔成子集，放入<em>Observable window</em>，并产生这些<em>window</em>而不是一次性产生这些项</li>
+</ul>
+<h2 id="过滤Observable">过滤<em>Observable</em></h2><p>选择性的从源<em>Observable</em>中产生项的<em>Operator</em>。</p>
+<ul>
+<li><code>Debounce</code> - 在一段特定的时间之内从<em>Observable</em>中只产生一个项</li>
+<li><code>Distinct</code> - 过滤掉<em>Observable</em>中产生的重复的项</li>
+<li><code>ElementAt</code> - 从<em>Observable</em>中拿到第N个项</li>
+<li><code>Filter</code> - 从<em>Observable</em>中产生符合预设条件的项</li>
+<li><code>First</code> - 从<em>Observable</em>中产生第一个项或者产生符合条件的第一个项</li>
+<li><code>IgnoreElements</code> - 直到结束是通知，否则忽略<em>Observable</em>产生的所有项</li>
+<li><code>Last</code> - 产生<em>Observable</em>中的最后一项</li>
+<li><code>Sample</code> - 在特定的时间间隔内从<em>Observable</em>产生最近的项</li>
+<li><code>Skip</code> - 跳过<em>Observable</em>产生的前n个项</li>
+<li><code>SkipLast</code> - 跳过<em>Observable</em>产生的最后n个项</li>
+<li><code>Take</code> - 产生<em>Observable</em>产生的前n个项</li>
+<li><code>TakeLast</code> - 产生<em>Observable</em>产生的最后n个项</li>
+</ul>
+<h2 id="组合Observable">组合<em>Observable</em></h2><p>操作多个源<em>Observable</em>来创建新的<em>Observable</em>的<em>Operator</em></p>
+<ul>
+<li><code>And/Then/When</code> - 以<code>Pattern</code>和<code>Plan</code>的形式，组合两个或多个<em>Observable</em>产生的项集</li>
+<li><code>CombineLatest</code> - 不论两个<em>Observable</em>中产生了项，通过特定的函数来组合每个<em>Observable</em>中的最后一项，并产生他们的结果</li>
+<li><code>Join</code> - </li>
+<li><code>Merge</code> -</li>
+<li><code>StartWith</code> - </li>
+<li><code>Switch</code> - </li>
+<li><code>Zip</code> - 通过特定的函数将多个<em>Observable</em>的产生项组合成单一项，每个组合依赖于函数结果。</li>
+</ul>
+<h2 id="错误处理Operator">错误处理<em>Operator</em></h2><p>帮助从<em>Observable</em>错误通知中修复的<em>Operator</em></p>
+<ul>
+<li><code>Catch</code> - 通过没有错误的继续产生序列来从<code>onError</code>通知中修复</li>
+<li><code>Retry</code> - 如果源<em>Observable</em>发送了<code>onError</code>通知，重新订阅它并期待它可以没有错误的完成</li>
+</ul>
+<h2 id="Observable工具集Operator"><em>Observable</em>工具集<em>Operator</em></h2><p>一系列操作<em>Observable</em>的有用的工具箱<em>Operator</em></p>
+<ul>
+<li><code>Delay</code> - 将<em>Observable</em>产生项延迟一个特定的时间</li>
+<li><code>Do</code> - 注册一个动作来响应<em>Observable</em>的生命周期事件</li>
+<li><code>Materialize/Dematerialize</code> - 将产生的项或者发出的通知看成产生项，或者逆转这个过程</li>
+<li><code>ObserveOn</code> - 明确<em>Observer</em>观察<em>Observable</em>所在的<em>Scheduler</em></li>
+<li><code>SubscribeOn</code> - 明确<em>Observable</em>被订阅后所使用的<em>Scheduler</em></li>
+<li><code>TimeInterval</code> - 将产生项的<em>Observable</em>转化为这些项之间产生的时间间隔</li>
+<li><code>Timeout</code> - 镜像源<em>Observable</em>，并在特定的时间范围内没有项产生时发出错误通知</li>
+<li><code>Timestamp</code> - 给每个<em>Observable</em>产生项附加时间戳</li>
+<li><code>Using</code> - 创建一个与<em>Observable</em>具有相同寿命的一次性资源</li>
+</ul>
+<h2 id="条件和布尔Operator">条件和布尔<em>Operator</em></h2><p>评估一个或多个<em>Observable</em>或<em>Observable</em>产生的项</p>
+<ul>
+<li><code>All</code> - 确定是否所有的<em>Observable</em>产生项符合标准</li>
+<li><code>Amb</code> - 有两个或者多个源<em>Observable</em>，只对其中的第一个<em>Observable</em>产生其项</li>
+<li><code>Contains</code> - 确定<em>Observable</em>是否包含一个特殊的项</li>
+<li><code>DefaultIfEmpty</code> - 从源<em>Observable</em>产生项，如果为空，则产生默认项</li>
+<li><code>SequenceEqual</code> - 确定是否两个<em>Observable</em>产生同样的项序列</li>
+<li><code>SkipUntil</code> - 丢弃一个<em>Observable</em>所有的产生项，直到第二个<em>Observable</em>产生了项</li>
+<li><code>SkipWhile</code> - 丢弃一个<em>Observable</em>所有产生项，直到某个特定条件不成立</li>
+<li><code>TakeUntil</code> - 当第二个<em>Observable</em>产生了项，第一个<em>Observable</em>丢弃所有的产生项</li>
+<li><code>TakeWhile</code> - 当某个特定条件不成立，<em>Observable</em>丢弃所有的产生项</li>
+</ul>
+<h2 id="数学与聚合Operator">数学与聚合<em>Operator</em></h2><p>操作<em>Observable</em>所有产生项的序列的<em>Operator</em></p>
+<ul>
+<li><code>Average</code> - 计算<em>Observable</em>所有产生项的平均值，并产生这个平均值</li>
+<li><code>Concat</code> - 拼接两个或者多个<em>Observable</em></li>
+<li><code>Count</code> - 计算源<em>Observable</em>产生的项的个数，并产生这个值</li>
+<li><code>Max</code> - 确定并产生<em>Observable</em>产生值中的最大值</li>
+<li><code>Min</code> - 确定并产生<em>Observable</em>产生值中的最小值</li>
+<li><code>Reduce</code> - 对<em>Observable</em>产生的每个项应用函数变换，并且有序的产生最终变换结果</li>
+<li><code>Sum</code> - 计算<em>Observable</em>所有产生项的和，并产生这个和的值</li>
+</ul>
+<h2 id="Connectable_Observable_Operator"><em>Connectable Observable Operator</em></h2><p>特殊的<em>Observable</em>具有更多的动态的精确控制的订阅方式。</p>
+<ul>
+<li><code>Connect</code> - 指示一个可连接的<em>Observable</em>开始产生项到它的订阅者</li>
+<li><code>Publish</code> - 转化一个普通的<em>Observable</em>为一个可连接的<em>Observable</em></li>
+<li><code>RefCount</code> - 使一个可链接的<em>Observable</em>的行为跟普通的<em>Observable</em>一样</li>
+<li><code>Replay</code> - 确保所有观察者看到的产生项序列一样，即使它们在<em>Observable</em>产生项以后才订阅</li>
+</ul>
+<h2 id="Blocking_Observable_Operator"><em>Blocking Observable Operator</em></h2><ul>
+<li><code>To</code> - 将<em>Observable</em>转化为其他对象或者数据结构</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/reactivex-observable/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ReactiveX 之 Observable</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="reactivex-operator" data-title="ReactiveX 之 Operator" data-url="http://yoursite.com/reactivex-operator/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"linfuyan"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 linfuyan
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

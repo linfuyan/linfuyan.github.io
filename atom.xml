@@ -1,0 +1,1470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[悠城札记]]></title>
+  
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2015-09-17T01:41:59.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name><![CDATA[linfuyan]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[iOS 技能树]]></title>
+    <link href="http://yoursite.com/iOS-skills/"/>
+    <id>http://yoursite.com/iOS-skills/</id>
+    <published>2015-09-17T01:36:00.000Z</published>
+    <updated>2015-09-17T01:41:59.000Z</updated>
+    <content type="html"><![CDATA[<p>以下是和团队小伙伴们一起整理的 iOS 开发中涉及到技能。贴出来，一方面希望能够获取更多的建议，用来完善目前团队的技术组成；另一方面，比对这些技能，有感兴趣的同学，且觉得能够胜任，愿意来<a href="http://www.feibo.cn/" target="_blank" rel="external">我们公司</a>一试的同学，欢迎投简历。</p>
+<p>同时，<a href="http://www.linfuyan.com/Android-skills" target="_blank" rel="external">Android 技能</a>请猛戳这里。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/iOS-skills.png" alt="iOS 技能树"></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>以下是和团队小伙伴们一起整理的 iOS 开发中涉及到技能。贴出来，一方面希望能够获取更多的建议，用来完善目前团队的技术组成；另一方面，比对这些技能，有感兴趣的同学，且觉得能够胜任，愿意来<a href="http://www.feibo.cn/" target="_blan]]>
+    </summary>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="学习路线" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
+    
+      <category term="技能" scheme="http://yoursite.com/tags/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="进阶" scheme="http://yoursite.com/tags/%E8%BF%9B%E9%98%B6/"/>
+    
+      <category term="开发技术" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android 技能树]]></title>
+    <link href="http://yoursite.com/Android-skills/"/>
+    <id>http://yoursite.com/Android-skills/</id>
+    <published>2015-09-17T01:25:00.000Z</published>
+    <updated>2015-09-17T01:51:47.000Z</updated>
+    <content type="html"><![CDATA[<p>以下是和团队小伙伴们一起整理的 Android 开发中涉及到技能。贴出来，一方面希望能够获取更多的建议，用来完善目前团队的技术组成；另一方面，比对这些技能，有感兴趣的同学，且觉得能够胜任，愿意来<a href="http://www.feibo.cn/" target="_blank" rel="external">我们公司</a>一试的同学，欢迎投简历。</p>
+<p>同时，<a href="http://www.linfuyan.com/iOS-skills" target="_blank" rel="external">iOS 技能</a>请猛戳这里。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Android-skills.png" alt="Android 技能树"></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>以下是和团队小伙伴们一起整理的 Android 开发中涉及到技能。贴出来，一方面希望能够获取更多的建议，用来完善目前团队的技术组成；另一方面，比对这些技能，有感兴趣的同学，且觉得能够胜任，愿意来<a href="http://www.feibo.cn/" target="_]]>
+    </summary>
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="学习路线" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
+    
+      <category term="技能" scheme="http://yoursite.com/tags/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="进阶" scheme="http://yoursite.com/tags/%E8%BF%9B%E9%98%B6/"/>
+    
+      <category term="开发技术" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Android" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Are you trying to connect to a TLS-enabled daemon without TLS？]]></title>
+    <link href="http://yoursite.com/faq/docker-trying-to-connect-to-a-tls-enabled-daemon-without-tls/"/>
+    <id>http://yoursite.com/faq/docker-trying-to-connect-to-a-tls-enabled-daemon-without-tls/</id>
+    <published>2015-09-16T08:34:00.000Z</published>
+    <updated>2015-09-16T09:54:26.000Z</updated>
+    <content type="html"><![CDATA[<p>在 Mac 上通过 boot2docker 启动 docker 时，运行 docker 命令出现下面的提示：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Post http:///var/run/docker.sock/v1.19/containers/<span class="operator"><span class="keyword">create</span>: dial unix /<span class="keyword">var</span>/run/docker.sock: <span class="keyword">no</span> such <span class="keyword">file</span> <span class="keyword">or</span> <span class="keyword">directory</span>. </span><br><span class="line"><span class="keyword">Are</span> you trying <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> a TLS-enabled daemon <span class="keyword">without</span> TLS?</span></span><br></pre></td></tr></table></figure>
+<p>这时候需要重启 boot2docker：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">boot2docker </span>stop</span><br><span class="line">$ <span class="keyword">boot2docker </span>start</span><br></pre></td></tr></table></figure>
+<p>然后根据提示设置变量，如下图：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-docker-tls.png" alt="在 Mac 上通过 boot2docker 启动 docker 时异常"></p>
+<p>OK，最后在终端中输入：<code>docker version</code> 验证是否成功。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>在 Mac 上通过 boot2docker 启动 docker 时，运行 docker 命令出现下面的提示：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="]]>
+    </summary>
+    
+      <category term="Docker" scheme="http://yoursite.com/tags/Docker/"/>
+    
+      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
+    
+      <category term="TLS" scheme="http://yoursite.com/tags/TLS/"/>
+    
+      <category term="boot2docker" scheme="http://yoursite.com/tags/boot2docker/"/>
+    
+      <category term="FAQ" scheme="http://yoursite.com/categories/FAQ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Mac OS X 上 使用 Docker 安装 Hexo]]></title>
+    <link href="http://yoursite.com/hexo-your-blog/dockerize-hexo-on-mac/"/>
+    <id>http://yoursite.com/hexo-your-blog/dockerize-hexo-on-mac/</id>
+    <published>2015-09-10T06:57:42.000Z</published>
+    <updated>2015-09-16T09:54:01.000Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>这篇中介绍如何在 Mac OS X 上使用 Docker 来安装 Hexo。</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>这篇中介绍如何在 Mac OS X 上使用 Docker 来安装 Hexo。</p>
+</blockquote>
+]]>
+    </summary>
+    
+      <category term="Docker" scheme="http://yoursite.com/tags/Docker/"/>
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
+    
+      <category term="个人" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA/"/>
+    
+      <category term="博客" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="安装" scheme="http://yoursite.com/tags/%E5%AE%89%E8%A3%85/"/>
+    
+      <category term="软件工具" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Hexo" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Mac OS X 上 Hexo 安装]]></title>
+    <link href="http://yoursite.com/hexo-your-blog/install-hexo-on-mac/"/>
+    <id>http://yoursite.com/hexo-your-blog/install-hexo-on-mac/</id>
+    <published>2015-09-10T06:38:20.000Z</published>
+    <updated>2015-09-16T08:00:29.000Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>这篇文章描述 Mac OS X 环境下的 Hexo 安装，其他的系统环境安装略有不同。可以参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">官方文档</a>。</p>
+</blockquote>
+<h2 id="安装前提">安装前提</h2><p>Hexo 依赖于 Node.js 及 Git，故在安装 Hexo 前必须检查并安装 Node.js 及 Git。</p>
+<h3 id="安装_Git">安装 Git</h3><p>安装 Git 的方法也是多种多样，这边简单提一下，大家可以寻着这些思路来自己完成 Git 的安装。</p>
+<p><strong>方案一、</strong>通过 Xcode 来安装 Git</p>
+<ol>
+<li>从 AppStore 下载 Xcode。</li>
+<li>打开 Xcode -&gt; Preferences 点击下载选项，下载 Command Line Tools 安装。</li>
+</ol>
+<p><strong>方案二、</strong>安装 SourceTree 等客户端。</p>
+<p><strong>方案三、</strong>通过 <a href="http://code.google.com/p/git-osx-installer/" target="_blank" rel="external">git-osx-installer</a> 安装。</p>
+<p>安装完成以后，在终端中输入 <code>git --version</code> 查看 Git 版本，来确认是否安装成功。</p>
+<blockquote>
+<p>在开始 Git 的使用之前，需要有一些公共的参数配置，如 username， email 等。这些不在本文讨论范围。</p>
+</blockquote>
+<h3 id="安装_Node-js">安装 Node.js</h3><p>node.js 的安装也是方法多样，这里简单提下思路。</p>
+<p><strong>方案一、</strong><a href="https://nodejs.org/en/download/" target="_blank" rel="external">官方</a>的 .pkg 文件安装，个人觉得是最方便的。</p>
+<p><strong>方案二、</strong>下载 <a href="https://github.com/nodejs/node" target="_blank" rel="external">node.js 源码</a>，自己编译。</p>
+<p><strong>方案三、</strong>通过 Homebrew 安装。</p>
+<p><strong>方案四、</strong>通过 nvm 安装。</p>
+<h3 id="安装_Hexo">安装 Hexo</h3><p>所有必备的应用程序安装完以后，就可用 npm 安装 Hexo 了。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> hexo-cli</span></span><br></pre></td></tr></table></figure>
+<p>这节也比较简单，也可以查看<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo 官网</a>的对应章节。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>这篇文章描述 Mac OS X 环境下的 Hexo 安装，其他的系统环境安装略有不同。可以参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">官方文档</a>]]>
+    </summary>
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
+    
+      <category term="个人" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA/"/>
+    
+      <category term="博客" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="安装" scheme="http://yoursite.com/tags/%E5%AE%89%E8%A3%85/"/>
+    
+      <category term="软件工具" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Hexo" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hexo 简介]]></title>
+    <link href="http://yoursite.com/hexo-your-blog/hexo-introduce/"/>
+    <id>http://yoursite.com/hexo-your-blog/hexo-introduce/</id>
+    <published>2015-09-10T03:10:20.000Z</published>
+    <updated>2015-09-10T06:26:31.000Z</updated>
+    <content type="html"><![CDATA[<p>这篇文章是<a href="http://www.linfuyan.com/hexo-your-blog" target="_blank" rel="external">《一步一步打造自己的 Hexo 博客》</a>系列的开篇，为了让这篇《 Hexo 简介》看上去足够充实，当然会有许多的内容来源于网络，甚至有的我也以找不到出处或者考证其真实性。这里想稍稍补充一下自己寻找博客，并最终落脚 Hexo 之旅。</p>
+<p>我想很多技术人员都会有写一些博客的想法，而最初我曾尝试过在 CSDN，JavaEye(现在已经是 ItEye 了，不小心暴露年龄)，但实在难以忍受的是上面的排版，当然还有网络时快时慢等等，写文章之外需要忍受其他许许多多的不痛快。虽然这也只是我没有写技术博客的原因之一，但没有坚持下来却是实实在在的事情了。</p>
+<p>后来继续开始写一些东西，是在我发现了 Markdown 这个好东西，10分钟内入门，不用再手动选择插入图片、链接，不用再选中斜体、加粗，不用选字号… 我想我是一个极懒的人。现在，我只需要打开 Mou，一路写下来，轻巧方便，再也不用担心烦杂的操作，不用担心联网的问题了。</p>
+<p>有了 Markdown，我便开始寻找能够支持 Markdown 的博客， Wordpress、Typecho… Markdown 是支持的，但却要么庞大、要么不尽如人意(写完文章以后，需要手动再复制粘贴到内容编辑器里面保存等)。直到 Github Pages，再到现在的 Hexo，当 Hexo 搭建，并配置完成以后，再写文章、发布，就是本地的一条命令了，简直再方便不过。</p>
+<a id="more"></a>
+<p>说了这么多，回到 Hexo 介绍上来，这些摘自 <a href="https://hexo.io" target="_blank" rel="external">Hexo 官网</a>。</p>
+<h2 id="什么是_Hexo？">什么是 Hexo？</h2><blockquote>
+<h3 id="快速、简洁且高效的博客框架">快速、简洁且高效的博客框架</h3></blockquote>
+<h2 id="Hexo_有什么优势？">Hexo 有什么优势？</h2><blockquote>
+<h4 id="超快速度">超快速度</h4><p>Node.js 所带来的超快生成速度，让上百个页面在几秒瞬间完成渲染。</p>
+<h4 id="支持_Markdown">支持 Markdown</h4><p>Hexo 支持 Github Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。</p>
+<h4 id="一键部署">一键部署</h4><p>只需一条指令即可部署到 Github Pages，Heroku 或者其他网站。</p>
+<h4 id="丰富的插件">丰富的插件</h4><p>Hexo 用用强大的插件系统，安装插件可以让 Hexo 支持 Jade，CoffeeScript。</p>
+</blockquote>
+<h2 id="Hexo_适合谁？">Hexo 适合谁？</h2><p>这是一个免费开源的博客程序，任何人都可以使用和修改。但是不同于 Wordpress，Hexo 由于需要使用Github, Git, Markdown, Node.js 这样的工具，好多插件、widget 都需要自己安装、设置。所以适合那些有一定计算机基础，喜欢折腾的人。但是，不要恐惧，只要跟着本教程走，就能很方便地让自己的博客飞起来。<a href="http://zipperary.com/2013/05/28/Hexo-guide-1/" target="_blank" rel="external">摘自：Hexo系列教程：（一）Hexo介绍</a></p>
+<p>好吧，这篇就写到这里。想了解关于 Hexo 的更多，不方便找谷歌，就度娘就是啦。后面我们将开始自己的 Hexo 博客打造之旅。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>这篇文章是<a href="http://www.linfuyan.com/hexo-your-blog">《一步一步打造自己的 Hexo 博客》</a>系列的开篇，为了让这篇《 Hexo 简介》看上去足够充实，当然会有许多的内容来源于网络，甚至有的我也以找不到出处或者考证其真实性。这里想稍稍补充一下自己寻找博客，并最终落脚 Hexo 之旅。</p>
+<p>我想很多技术人员都会有写一些博客的想法，而最初我曾尝试过在 CSDN，JavaEye(现在已经是 ItEye 了，不小心暴露年龄)，但实在难以忍受的是上面的排版，当然还有网络时快时慢等等，写文章之外需要忍受其他许许多多的不痛快。虽然这也只是我没有写技术博客的原因之一，但没有坚持下来却是实实在在的事情了。</p>
+<p>后来继续开始写一些东西，是在我发现了 Markdown 这个好东西，10分钟内入门，不用再手动选择插入图片、链接，不用再选中斜体、加粗，不用选字号… 我想我是一个极懒的人。现在，我只需要打开 Mou，一路写下来，轻巧方便，再也不用担心烦杂的操作，不用担心联网的问题了。</p>
+<p>有了 Markdown，我便开始寻找能够支持 Markdown 的博客， Wordpress、Typecho… Markdown 是支持的，但却要么庞大、要么不尽如人意(写完文章以后，需要手动再复制粘贴到内容编辑器里面保存等)。直到 Github Pages，再到现在的 Hexo，当 Hexo 搭建，并配置完成以后，再写文章、发布，就是本地的一条命令了，简直再方便不过。</p>]]>
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+      <category term="markdown" scheme="http://yoursite.com/tags/markdown/"/>
+    
+      <category term="个人" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA/"/>
+    
+      <category term="博客" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="软件工具" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Hexo" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[iOS 开发者证书制作、App ID 与推送配置及 Provisioning Profiles 创建]]></title>
+    <link href="http://yoursite.com/ios-cer-appid-push-profile/"/>
+    <id>http://yoursite.com/ios-cer-appid-push-profile/</id>
+    <published>2015-09-08T13:59:00.000Z</published>
+    <updated>2015-09-08T14:10:33.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="概述">概述</h2><p>1. <strong>开发者证书</strong></p>
+<p>分为开发和发布两种，类型为 <code>iPhone Development</code>， <code>iPhone Distribution</code>。这个是最基础的，开发证书用于真机调试，发布证书则用于上传到 AppStore，是一个基础证书，用来证明开发者身份。</p>
+<p>2. <strong>App ID</strong></p>
+<p>这是每一个应用的独立标识，在设置项中可以配置该应用的权限，比如是否用到了 PassBook，GameCenter，以及更为场景的 push 服务。如果选中了 push 服务，那么就可以创建生成下面第3条所提到的推送证书，所以，在所有和推送相关的配置中，首先要做的就是先开通支持推送服务的 App ID。</p>
+<p>3. <strong>推送证书</strong></p>
+<p>分为开发和发布两种，类型分别为 <code>Apple Development iOS Push Services</code>， <code>Apple Production iOS Push Services</code>，该证书在 App ID 配置中创建生成，和开发者证书一样，放在服务端程序上。</p>
+<p>4. <strong>Provisioning Porfiles</strong></p>
+<p>在后续部分中，简称为 profile 文件。该文件将 App ID，开发者证书，硬件绑定在一起。在开发者中心配置好后可以添加到 Xcode 上，也可以直接在 Xcode 上连接开发者中心生成，真机调试时需要在 profile 文件中添加真机的 <code>udid</code>，是真机调试和上架 AppStore 所必需的。</p>
+<a id="more"></a>
+<p>平常我们的制作流程一般都是按照这样的顺序：</p>
+<ol>
+<li>利用开发者账号登录开发者中心</li>
+<li>创建开发者证书、App ID</li>
+<li>在 App ID 中开通推送服务</li>
+<li>在开通推送服务的选项下面创建推送证书</li>
+<li>之后在 profile 文件中绑定所有的证书ID，添加调试真机等</li>
+</ol>
+<h2 id="制作开发者证书">制作开发者证书</h2><p>要制作开发者证书，首先登录开发者中心，找到证书配置版块，点击证书，显示如下页面：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS_cer_list.png" alt="开发者证书列表"></p>
+<p>点击右上角加号，进入创建页面：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS_cer_create.png" alt="开发者证书创建"></p>
+<p>创建开发证书和发布证书步骤是一样的，开发证书用于真机调试，发布证书用于提交到 AppStore，这里以开发证书的制作为例。</p>
+<p>选择 “iOS App Development” 选项，点击下方的继续按钮，提示需要创建证书签名请求( CSR )。</p>
+<h3 id="手动创建证书签名请求(_CSR_)">手动创建证书签名请求( CSR )</h3><p>在 Mac 上的应用程序文件夹中，打开钥匙串访问。</p>
+<p>在钥匙串访问的下拉菜单中，选择 “钥匙串访问” &gt; “证书助理” &gt; “从证书颁发机构请求证书…”。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_csr_1.png" alt="创建 CSR"></p>
+<ul>
+<li><p>在”证书助理”窗口，输入如下信息：</p>
+<ul>
+<li>在用户邮箱地址中，输入邮箱地址。</li>
+<li>常用名称中，输入私钥的名称。</li>
+<li>保留 CA 点子邮件地址为空。</li>
+<li>在请求选项组中，选中”存储到磁盘”</li>
+</ul>
+</li>
+<li><p>点击”继续”完成 CSR 的创建。</p>
+</li>
+</ul>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_csr_2.png" alt="创建 CSR"></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_csr_3.png" alt="创建 CSR"></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_csr_4.png" alt="创建 CSR"></p>
+<blockquote>
+<p>CSR 文件尽量每个证书都制作一次，将常用名称区分开来，因为该常用名称是证书中的密钥的名字，之后在开发者中心将该 CSR 文件提交。</p>
+</blockquote>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_csr_5.png" alt="上传 CSR"></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_csr_6.png" alt="生成 cer"></p>
+<p>上传 CSR 到开发者中心，就会生成开发者证书。将开发者证书下载保存，双击安装。可以在钥匙串访问的登录证书中可以查看，其中专用密钥的名字即为 CSR 请求文件中的常用名称。同样的方法可以配置发布证书。</p>
+<blockquote>
+<p>在生成不同的证书的时候可以上传同一个 CSR 文件。(这边似乎不会有什么影响?)</p>
+</blockquote>
+<h2 id="App_ID_与推送证书配置">App ID 与推送证书配置</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/app_id.png" alt="App ID 版块"></p>
+<p>进入 App ID 版块，点击右上角的加号，添加新的应用：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_app_id_1.png" alt="创建 App ID"></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_app_id_2.png" alt="创建 App ID"></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_app_id_3.png" alt="创建 App ID"></p>
+<p>新建 App ID 时，勾选 push 可选项，为该 App ID 所对应的应用添加推送功能，。</p>
+<p>新应用添加完毕，选择该应用进行编辑，此时其中的 <code>Push Notifications</code> 为可配置的。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_app_id_4.png" alt="创建 App ID"></p>
+<p>根据上一节中”制作开发者证书”的步骤，完成上图中证书的创建，然后下载保存，并双击安装。</p>
+<blockquote>
+<p>虽然在创建证书版块也可以直接创建推送证书，但是还是建议在 App ID 中勾选 push 服务后再在此处创建，这样可以避免因为忘了开通 push 服务而导致推送不可用的情况发生。</p>
+</blockquote>
+<h2 id="创建_profile_文件">创建 profile 文件</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_profiles_1.png" alt="创建 profiles"></p>
+<p>打开 provisioning profiles 版块，点击右上角加号创建 profile 文件。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_profiles_2.png" alt="创建 profiles"></p>
+<p>可以选择开发、发布及 Ad Hoc 三种 profile 文件。开发 profile 文件用于真机测试，发布 profile 文件则用于提交发布。Ad Hoc 这里暂不讨论。</p>
+<p>会自动选择匹配的 App ID。另外下拉项中还可以选择 wildCard 格式，该格式为自动生成，使用 * 通配符，适用于批量的，没有推送，PassCard 等服务的应用；我们选择我们刚刚创建的 App ID, 之后下一步选择证书：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_profiles_3.png" alt="创建 profiles"></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_profiles_4.png" alt="创建 profiles"></p>
+<p>继续，这里有一个区别，因为开发 profile 文件用于真机调试，所以我们需要绑定真机。由于之前已经有添加过设备，所以这里直接全选添加。如果没有的话，需要将真机的 udid 复制出来在此添加。发布 profile 文件则没有这一步。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_profiles_5.png" alt="创建 profiles"></p>
+<p>填写 profile 文件名称，点击生成：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_profiles_6.png" alt="创建 profiles"></p>
+<p>最终生成 .mobileprovision 文件，可以点击下载保存。双击安装。</p>
+<p>在 Xcode 中可以看到效果如下：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_profiles_7.png" alt="创建 profiles"></p>
+<p>到这里为止，iOS 开发者证书的制作，配置 App ID 和推送证书，以及 profile 文件的创建就都完成了。</p>
+<p>本文根据 <a href="http://blog.csdn.net/holydancer/article/details/9219333" target="_blank" rel="external">《苹果所有常用证书，appID,Provisioning Profiles配置说明及制作图文教程（精）》</a> 进行整理。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="概述">概述</h2><p>1. <strong>开发者证书</strong></p>
+<p>分为开发和发布两种，类型为 <code>iPhone Development</code>， <code>iPhone Distribution</code>。这个是最基础的，开发证书用于真机调试，发布证书则用于上传到 AppStore，是一个基础证书，用来证明开发者身份。</p>
+<p>2. <strong>App ID</strong></p>
+<p>这是每一个应用的独立标识，在设置项中可以配置该应用的权限，比如是否用到了 PassBook，GameCenter，以及更为场景的 push 服务。如果选中了 push 服务，那么就可以创建生成下面第3条所提到的推送证书，所以，在所有和推送相关的配置中，首先要做的就是先开通支持推送服务的 App ID。</p>
+<p>3. <strong>推送证书</strong></p>
+<p>分为开发和发布两种，类型分别为 <code>Apple Development iOS Push Services</code>， <code>Apple Production iOS Push Services</code>，该证书在 App ID 配置中创建生成，和开发者证书一样，放在服务端程序上。</p>
+<p>4. <strong>Provisioning Porfiles</strong></p>
+<p>在后续部分中，简称为 profile 文件。该文件将 App ID，开发者证书，硬件绑定在一起。在开发者中心配置好后可以添加到 Xcode 上，也可以直接在 Xcode 上连接开发者中心生成，真机调试时需要在 profile 文件中添加真机的 <code>udid</code>，是真机调试和上架 AppStore 所必需的。</p>]]>
+    
+    </summary>
+    
+      <category term="App ID" scheme="http://yoursite.com/tags/App-ID/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+      <category term="profile" scheme="http://yoursite.com/tags/profile/"/>
+    
+      <category term="provision" scheme="http://yoursite.com/tags/provision/"/>
+    
+      <category term="push" scheme="http://yoursite.com/tags/push/"/>
+    
+      <category term="图文教程" scheme="http://yoursite.com/tags/%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="开发者证书" scheme="http://yoursite.com/tags/%E5%BC%80%E5%8F%91%E8%80%85%E8%AF%81%E4%B9%A6/"/>
+    
+      <category term="配置" scheme="http://yoursite.com/tags/%E9%85%8D%E7%BD%AE/"/>
+    
+      <category term="开发技术" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[ReactiveX 之 Operator]]></title>
+    <link href="http://yoursite.com/reactivex-operator/"/>
+    <id>http://yoursite.com/reactivex-operator/</id>
+    <published>2015-09-07T13:24:44.000Z</published>
+    <updated>2015-09-07T13:29:12.000Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>原文：<a href="http://reactivex.io/documentation/operators.html" target="_blank" rel="external">http://reactivex.io/documentation/operators.html</a></p>
+<p>对译文有建议，请发邮件或下方评论给我，万分感谢。</p>
+<p>更新历史：1月13日</p>
+</blockquote>
+<p>每个特定语言版本的响应式扩展实现了一套具体的操作集合。虽然有一些重叠，依然有一些操作只在特定的版本中实现，并且每种语言趋向于将相似的操作命名成其他语言中已经为大家所熟悉的名称。</p>
+<p>这篇文章列举出响应式扩展集合中被认为核心的操作，并链接到更多说明的页面上。这些页面将解释这些操作如何工作，哪些特定版本的响应式扩展又是怎样实现这些操作。</p>
+<a id="more"></a>
+<h2 id="创建Observable">创建<em>Observable</em></h2><p>创建新的<em>Observable</em>的<em>Operator</em>。</p>
+<ul>
+<li><code>Create</code> - 通过编程方式调用<em>observer</em>的方法，从零创建<em>Observable</em></li>
+<li><code>Defer</code> - 直到<em>observer</em>订阅，为每个<em>observer</em>创建全新的<em>Observable</em></li>
+<li><code>Empty/Never/Throw</code> - 创建具有精确与有限行为的<em>Observable</em></li>
+<li><code>From</code> - 转化其他对象或者数据结构为<em>Observable</em></li>
+<li><code>Interval</code> - 创建产生整型数序列的<em>Observable</em>，序列元素间的间隔为interval</li>
+<li><code>Just</code> - 转化对象或者对象的集合成为<em>Observable</em>，且<em>Observable</em>产生的值为这些对象或是对象的集合</li>
+<li><code>Range</code> - 创建一个可以产生整型数序列区间的<em>Observable</em></li>
+<li><code>Repeat</code> - 创建可以重复产生特殊项或项目序列的<em>Observable</em></li>
+<li><code>Start</code> - 创建产生函数返回值的<em>Observable</em></li>
+<li><code>Timer</code> - 创建一段给定时间以后产生单一项的<em>Observable</em></li>
+</ul>
+<h2 id="变换Observable">变换<em>Observable</em></h2><p>变换<em>Observable</em>产生的项的<em>Operator</em>。</p>
+<ul>
+<li><code>Buffer</code> - 周期性的收集<em>Observable</em>中的项放入bundle中，并产生这些bundle而不是一次性产生这些项</li>
+<li><code>FlatMap</code> - 将<em>Observable</em>所产生的多个项目变换为多个<em>Observable</em>，然后将这些<em>Observable</em>的产生值拉平为一个<em>Observable</em></li>
+<li><code>GroupBy</code> - 将<em>Observable</em>分隔为<em>Observable</em>的集合，这些新的<em>Observable</em>通过key来对原来的<em>Observable</em>组织成不同的项的组</li>
+<li><code>Map</code> - 将<em>Observable</em>产生的每个项应用函数变换映射</li>
+<li><code>Scan</code> - 对<em>Observable</em>产生的每个项进行函数变换，有序的产生成功的值</li>
+<li><code>Window</code> - 周期性的将<em>Observable</em>产生的项进行分隔成子集，放入<em>Observable window</em>，并产生这些<em>window</em>而不是一次性产生这些项</li>
+</ul>
+<h2 id="过滤Observable">过滤<em>Observable</em></h2><p>选择性的从源<em>Observable</em>中产生项的<em>Operator</em>。</p>
+<ul>
+<li><code>Debounce</code> - 在一段特定的时间之内从<em>Observable</em>中只产生一个项</li>
+<li><code>Distinct</code> - 过滤掉<em>Observable</em>中产生的重复的项</li>
+<li><code>ElementAt</code> - 从<em>Observable</em>中拿到第N个项</li>
+<li><code>Filter</code> - 从<em>Observable</em>中产生符合预设条件的项</li>
+<li><code>First</code> - 从<em>Observable</em>中产生第一个项或者产生符合条件的第一个项</li>
+<li><code>IgnoreElements</code> - 直到结束是通知，否则忽略<em>Observable</em>产生的所有项</li>
+<li><code>Last</code> - 产生<em>Observable</em>中的最后一项</li>
+<li><code>Sample</code> - 在特定的时间间隔内从<em>Observable</em>产生最近的项</li>
+<li><code>Skip</code> - 跳过<em>Observable</em>产生的前n个项</li>
+<li><code>SkipLast</code> - 跳过<em>Observable</em>产生的最后n个项</li>
+<li><code>Take</code> - 产生<em>Observable</em>产生的前n个项</li>
+<li><code>TakeLast</code> - 产生<em>Observable</em>产生的最后n个项</li>
+</ul>
+<h2 id="组合Observable">组合<em>Observable</em></h2><p>操作多个源<em>Observable</em>来创建新的<em>Observable</em>的<em>Operator</em></p>
+<ul>
+<li><code>And/Then/When</code> - 以<code>Pattern</code>和<code>Plan</code>的形式，组合两个或多个<em>Observable</em>产生的项集</li>
+<li><code>CombineLatest</code> - 不论两个<em>Observable</em>中产生了项，通过特定的函数来组合每个<em>Observable</em>中的最后一项，并产生他们的结果</li>
+<li><code>Join</code> - </li>
+<li><code>Merge</code> -</li>
+<li><code>StartWith</code> - </li>
+<li><code>Switch</code> - </li>
+<li><code>Zip</code> - 通过特定的函数将多个<em>Observable</em>的产生项组合成单一项，每个组合依赖于函数结果。</li>
+</ul>
+<h2 id="错误处理Operator">错误处理<em>Operator</em></h2><p>帮助从<em>Observable</em>错误通知中修复的<em>Operator</em></p>
+<ul>
+<li><code>Catch</code> - 通过没有错误的继续产生序列来从<code>onError</code>通知中修复</li>
+<li><code>Retry</code> - 如果源<em>Observable</em>发送了<code>onError</code>通知，重新订阅它并期待它可以没有错误的完成</li>
+</ul>
+<h2 id="Observable工具集Operator"><em>Observable</em>工具集<em>Operator</em></h2><p>一系列操作<em>Observable</em>的有用的工具箱<em>Operator</em></p>
+<ul>
+<li><code>Delay</code> - 将<em>Observable</em>产生项延迟一个特定的时间</li>
+<li><code>Do</code> - 注册一个动作来响应<em>Observable</em>的生命周期事件</li>
+<li><code>Materialize/Dematerialize</code> - 将产生的项或者发出的通知看成产生项，或者逆转这个过程</li>
+<li><code>ObserveOn</code> - 明确<em>Observer</em>观察<em>Observable</em>所在的<em>Scheduler</em></li>
+<li><code>SubscribeOn</code> - 明确<em>Observable</em>被订阅后所使用的<em>Scheduler</em></li>
+<li><code>TimeInterval</code> - 将产生项的<em>Observable</em>转化为这些项之间产生的时间间隔</li>
+<li><code>Timeout</code> - 镜像源<em>Observable</em>，并在特定的时间范围内没有项产生时发出错误通知</li>
+<li><code>Timestamp</code> - 给每个<em>Observable</em>产生项附加时间戳</li>
+<li><code>Using</code> - 创建一个与<em>Observable</em>具有相同寿命的一次性资源</li>
+</ul>
+<h2 id="条件和布尔Operator">条件和布尔<em>Operator</em></h2><p>评估一个或多个<em>Observable</em>或<em>Observable</em>产生的项</p>
+<ul>
+<li><code>All</code> - 确定是否所有的<em>Observable</em>产生项符合标准</li>
+<li><code>Amb</code> - 有两个或者多个源<em>Observable</em>，只对其中的第一个<em>Observable</em>产生其项</li>
+<li><code>Contains</code> - 确定<em>Observable</em>是否包含一个特殊的项</li>
+<li><code>DefaultIfEmpty</code> - 从源<em>Observable</em>产生项，如果为空，则产生默认项</li>
+<li><code>SequenceEqual</code> - 确定是否两个<em>Observable</em>产生同样的项序列</li>
+<li><code>SkipUntil</code> - 丢弃一个<em>Observable</em>所有的产生项，直到第二个<em>Observable</em>产生了项</li>
+<li><code>SkipWhile</code> - 丢弃一个<em>Observable</em>所有产生项，直到某个特定条件不成立</li>
+<li><code>TakeUntil</code> - 当第二个<em>Observable</em>产生了项，第一个<em>Observable</em>丢弃所有的产生项</li>
+<li><code>TakeWhile</code> - 当某个特定条件不成立，<em>Observable</em>丢弃所有的产生项</li>
+</ul>
+<h2 id="数学与聚合Operator">数学与聚合<em>Operator</em></h2><p>操作<em>Observable</em>所有产生项的序列的<em>Operator</em></p>
+<ul>
+<li><code>Average</code> - 计算<em>Observable</em>所有产生项的平均值，并产生这个平均值</li>
+<li><code>Concat</code> - 拼接两个或者多个<em>Observable</em></li>
+<li><code>Count</code> - 计算源<em>Observable</em>产生的项的个数，并产生这个值</li>
+<li><code>Max</code> - 确定并产生<em>Observable</em>产生值中的最大值</li>
+<li><code>Min</code> - 确定并产生<em>Observable</em>产生值中的最小值</li>
+<li><code>Reduce</code> - 对<em>Observable</em>产生的每个项应用函数变换，并且有序的产生最终变换结果</li>
+<li><code>Sum</code> - 计算<em>Observable</em>所有产生项的和，并产生这个和的值</li>
+</ul>
+<h2 id="Connectable_Observable_Operator"><em>Connectable Observable Operator</em></h2><p>特殊的<em>Observable</em>具有更多的动态的精确控制的订阅方式。</p>
+<ul>
+<li><code>Connect</code> - 指示一个可连接的<em>Observable</em>开始产生项到它的订阅者</li>
+<li><code>Publish</code> - 转化一个普通的<em>Observable</em>为一个可连接的<em>Observable</em></li>
+<li><code>RefCount</code> - 使一个可链接的<em>Observable</em>的行为跟普通的<em>Observable</em>一样</li>
+<li><code>Replay</code> - 确保所有观察者看到的产生项序列一样，即使它们在<em>Observable</em>产生项以后才订阅</li>
+</ul>
+<h2 id="Blocking_Observable_Operator"><em>Blocking Observable Operator</em></h2><ul>
+<li><code>To</code> - 将<em>Observable</em>转化为其他对象或者数据结构</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>原文：<a href="http://reactivex.io/documentation/operators.html">http://reactivex.io/documentation/operators.html</a></p>
+<p>对译文有建议，请发邮件或下方评论给我，万分感谢。</p>
+<p>更新历史：1月13日</p>
+</blockquote>
+<p>每个特定语言版本的响应式扩展实现了一套具体的操作集合。虽然有一些重叠，依然有一些操作只在特定的版本中实现，并且每种语言趋向于将相似的操作命名成其他语言中已经为大家所熟悉的名称。</p>
+<p>这篇文章列举出响应式扩展集合中被认为核心的操作，并链接到更多说明的页面上。这些页面将解释这些操作如何工作，哪些特定版本的响应式扩展又是怎样实现这些操作。</p>]]>
+    
+    </summary>
+    
+      <category term="Operator" scheme="http://yoursite.com/tags/Operator/"/>
+    
+      <category term="frp" scheme="http://yoursite.com/tags/frp/"/>
+    
+      <category term="reactivex" scheme="http://yoursite.com/tags/reactivex/"/>
+    
+      <category term="rxjava" scheme="http://yoursite.com/tags/rxjava/"/>
+    
+      <category term="响应式编程" scheme="http://yoursite.com/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="开发技术" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="rxjava" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/rxjava/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[ReactiveX 之 Observable]]></title>
+    <link href="http://yoursite.com/reactivex-observable/"/>
+    <id>http://yoursite.com/reactivex-observable/</id>
+    <published>2015-09-07T13:06:12.000Z</published>
+    <updated>2015-09-07T13:12:42.000Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>原文：<a href="http://reactivex.io/documentation/observable.html" target="_blank" rel="external">http://reactivex.io/documentation/observable.html</a></p>
+<p>对译文有建议，请发邮件或下方评论给我，万分感谢。</p>
+<p>更新历史：1月13日</p>
+</blockquote>
+<p>在RxJava中一个对象实现了<em>Observer</em>接口则被一个<em>Observable</em>类对象所订阅。订阅者则针对<em>Obserable</em>对象产生的值（包括项及项的序列）做响应。这种模式便利了异步操作，因为不用在等待<em>Obserable</em>产生对象时进行阻塞，它以订阅者的形式创建了一个哨兵，用于在<em>Observable</em>在将来的时间产生任何输出时提供合适的响应。</p>
+<p>这篇文章解释什么是响应式模式以及什么是<em>Observable</em>与观察者(观察者怎样对<em>Observable</em>进行订阅)。</p>
+<blockquote>
+<p>文档中的解释将采用”marble diagrams”的形式。下图说明”marble diagrams”怎样展示<em>Observable</em>以及<em>Observable</em>之间的转换。</p>
+<p><img src="http://reactivex.io/assets/operators/legend.png" alt="Observables"></p>
+</blockquote>
+<a id="more"></a>
+<h1 id="背景">背景</h1><p>在许多软件编程任务中，你或多或少都希望自己编写的代码能够逐步的运行完成，因为你是一个一个的写下来的。但是在响应式编程范式中，许多代码并行的执行，其结果将在后来被观察者以任意的顺序捕获下来。在这种情况下，你不是调用一个方法，而是以<em>Observable</em>的形式为获取和转换数据定义一种机制，并将<em>Observable</em>订阅给订阅者。在预置的机制下当<em>Observable</em>产生的值到达时，观察者的哨兵捕获并对此进行响应。</p>
+<p>这种解决方案的优点在于，当你有许多没有相互依赖的任务需要运行时，你可以在同一时刻启动它们，而不是需要在一个任务开始之前，等待其中的一个任务的结束。这样，你执行所有任务的所花费的时间只是其中耗时最长的任务的时间。</p>
+<p>有许多种形式来描述这种异步编程和设计的模型。这篇文档将使用下面的形式：<em>Subscriber</em>(有时是<em>Observer</em>)订阅<em>Observable</em>类对象。也就是<em>Subscriber</em>对象订阅<em>Observable</em>。<em>Observable</em>产生值，并通过调用<em>Subscriber</em>的方法来发送通知给<em>Subscriber</em>。</p>
+<p>在其他文档或者上下文，有时我们也会将<em>Subscriber</em>称为<em>watcher</em>或<em>reactor</em>。这个模型通常被被认为是<a href="http://en.wikipedia.org/wiki/Reactor_pattern" target="_blank" rel="external">响应模式</a>。</p>
+<h1 id="建立订阅者">建立订阅者</h1><p>这篇文档通常使用Groovy来做代码示例，实际上，你可以在任何基于JVM的语言上使用RxJava，如Clojure，Scala，JRuby或是Java本身。</p>
+<p>与典型的响应式编程中无序的异步、并行不同，在传统的方法调用中，流程一般是这样的：</p>
+<ol>
+<li>调用一个方法。</li>
+<li>将方法的返回值保存在一个变量中。</li>
+<li>使用这个变量以及它的新值做一些有用的事情。</li>
+</ol>
+<p>或是用代码表示：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// make the <span class="operator"><span class="keyword">call</span>, assign its <span class="keyword">return</span> <span class="keyword">value</span> <span class="keyword">to</span> <span class="string">`returnVal`</span></span><br><span class="line">returnVal = someMethod(itsParameters);</span></span><br><span class="line">// <span class="operator"><span class="keyword">do</span> something useful <span class="keyword">with</span> returnVal</span></span><br></pre></td></tr></table></figure>
+<p>在异步模型中，流程则更像是这样：</p>
+<ol>
+<li>定义一个方法来使用异步调用的返回值进行处理，这个方法是<em>Subscriber</em>的一部分。</li>
+<li>用一个<em>Observable</em>类对象来定义异步调用本身。</li>
+<li>通过订阅来将<em>Subscriber</em>关联<em>Observable</em>(这也同时初始化方法调用)。</li>
+<li>继续你的业务逻辑；无论方法调用何时返回，<em>Subscriber</em>的方法开始对<em>Observable</em>所产生的项(返回值)进行操作。</li>
+</ol>
+<p>用代码表示是这样：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// defines, but does not invoke, the Subscriber's onNext handler</span></span><br><span class="line"><span class="comment">// (in this example, the Subscriber is very simple and has only an onNext handler)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myOnNext</span> =</span> &#123; it -&gt; do something useful <span class="keyword">with</span> it &#125;;</span><br><span class="line"><span class="comment">// defines, but does not invoke, the Observable</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myObservable</span> =</span> someObservable(itsParameters);</span><br><span class="line"><span class="comment">// subscribes the Subscriber to the Observable, and invokes the Observable</span></span><br><span class="line">myObservable.subscribe(myOnNext);</span><br><span class="line"><span class="comment">// go on about my business</span></span><br></pre></td></tr></table></figure>
+<h1 id="onNext,onCompleted,以及onError">onNext,onCompleted,以及onError</h1><p><code>subscribe()</code>方法可以接受1-3个方法，或者是一个<code>Subscriber</code>对象，或是任何实现了<code>Observer</code>接口（包含了这3个方法）的对象：</p>
+<p><strong>onNext</strong>:当<em>Observable</em>产生了一个值时，<em>Observable</em>将调用它的<em>Subscriber</em>上的这个方法。这个方法将<em>Observable</em>所产生的值作为它的参数。</p>
+<p><strong>onError</strong>:当<em>Observable</em>无法产生所预期的数据或是遇到了其他一些错误，<em>Observable</em>将调用它的<em>Subscriber</em>上的这个方法。这会使<em>Observable</em>停止，且不再掉调用<code>onNext</code>和<code>onCompleted</code>。<code>onError</code>将产生错误的误差指示作为它的参数。</p>
+<p><strong>onCompleted</strong>:在没有发生任何错误的情形下，<em>Observable</em>将在最后一次调用<code>onNext</code>之后调用其观察者的这个方法。</p>
+<p>一个更加完整的<code>subscribe()</code>示例如下所示：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myOnNext</span>     =</span> &#123; item -&gt; <span class="comment">/* do something useful with item */</span> &#125;;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myError</span>      =</span> &#123; throwable -&gt; <span class="comment">/* react sensibly to a failed call */</span> &#125;;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myComplete</span>   =</span> &#123; <span class="comment">/* clean up after the final response */</span> &#125;;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myObservable</span> =</span> someMethod(itsParameters);</span><br><span class="line">myObservable.subscribe(myOnNext, myError, myComplete);</span><br><span class="line"><span class="comment">// go on about my business</span></span><br></pre></td></tr></table></figure>
+<h1 id="Unsubscribing(退订)">Unsubscribing(退订)</h1><p>在一些响应式扩展实现中，有专门的观察者接口，<code>Subscriber</code>来实现<code>unsubscribe()</code>方法。你可以调用这个方法来表明<em>Subscriber</em>不再对当前订阅的任何<em>Observable</em>感兴趣了。当不再有其他对其感兴趣的<em>Observer</em>，这些<em>Observable</em>可以选择停止产生新的值。</p>
+<p>这个退订的结果会级联的影响到<em>Observer</em>所订阅的<em>Observable</em>上的操作链，这将导致操作链上的每个链接都停止产生项目。但这个并无法保证立即发生，当不再有<em>Subscriber</em>关注这些产生的值时，在短时间内，<em>Observable</em>可能仍然会产生新的值。</p>
+<h1 id="命名规范的注意事项">命名规范的注意事项</h1><p>每一种特定语言的响应式扩展的实现都有自己的命名怪癖。这之间没有统一的命名标准，但在每个实现之间有许多的共性。</p>
+<p>此外，在某些上下文中这些名称具有不同的含义，或者在一些特定的语言实现中显得尴尬。</p>
+<p>举个例子：存在<code>onEvent</code>的命名模式(如：<code>onNext</code>, <code>onCompleted</code>, <code>onError</code>)。在许多上下文中，这些命名表明的是被注册的事件处理器上的方法。在<em>ReactiveX</em>中，这些命名则表示事件处理器本身。</p>
+<h1 id="“热”和”冷”Observable">“热”和”冷”<em>Observable</em></h1><p><em>Observable</em>什么时候开始产生它的值序列呢？这个依赖于<em>Observable</em>。一个”热”的<em>Observable</em>将在它被新建之后便开始产生值，因此，任何订阅这种<em>Observable</em>的<em>Observer</em>将从这些序列的中间开始观察。另一方面，一个”冷”的<em>Observable</em>在开发产生值之前，会一直等待<em>Observer</em>订阅它。这样可以保证一个<em>Observer</em>看到从头开始的完整序列。</p>
+<p>在响应式扩展的某些实现中，存在称为<em>Connectable</em>的<em>Observable</em>。这样的<em>Observable</em>直到它的<code>connect</code>方法被调用才开始产生值，不能是否有<em>Observer</em>已经订阅它。</p>
+<h1 id="组装Observable_Operator">组装<em>Observable Operator</em></h1><p><em>Observable</em>和<em>Observer</em>仅仅是响应式扩展的开始。它是标准观察者模式的轻量扩展，比起一个简单的回调，它更适合与处理事件序列。</p>
+<p>响应式扩展的真正力量在于，所有的<em>Operator</em>可以被变换，组合，操作，并和<em>Observable</em>所产生的值序列一起工作。</p>
+<p>这些响应式扩展操作能让你通过利用所有回调的优点，以声明的方式将异步序列组织在一起。同时避免传统异步编程系统中的嵌套回调处理。</p>
+<p>该文章将不同的操作及他们的示例用户组织在如下的页面中：</p>
+<ul>
+<li><a href="">Creating创建</a></li>
+<li><a href="">Transforming变换</a></li>
+<li><a href="">Filtering过滤</a></li>
+<li><a href="">Combining组合</a></li>
+<li><a href="">Error Handling错误处理</a></li>
+<li><a href="">Utility工具</a></li>
+<li><a href="">Conditional and Boolean条件与布尔</a></li>
+<li><a href="">Mathematical and Aggregate</a></li>
+<li><a href="">Backpressure</a></li>
+<li><a href="">Connectable Observables</a></li>
+<li><a href="">Blocking Observables</a></li>
+</ul>
+<p>这些页面所包含的信息一些操作并不是响应式扩展的核心组成部分，但却是一些特定语言的实现或是可选模块。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>原文：<a href="http://reactivex.io/documentation/observable.html">http://reactivex.io/documentation/observable.html</a></p>
+<p>对译文有建议，请发邮件或下方评论给我，万分感谢。</p>
+<p>更新历史：1月13日</p>
+</blockquote>
+<p>在RxJava中一个对象实现了<em>Observer</em>接口则被一个<em>Observable</em>类对象所订阅。订阅者则针对<em>Obserable</em>对象产生的值（包括项及项的序列）做响应。这种模式便利了异步操作，因为不用在等待<em>Obserable</em>产生对象时进行阻塞，它以订阅者的形式创建了一个哨兵，用于在<em>Observable</em>在将来的时间产生任何输出时提供合适的响应。</p>
+<p>这篇文章解释什么是响应式模式以及什么是<em>Observable</em>与观察者(观察者怎样对<em>Observable</em>进行订阅)。</p>
+<blockquote>
+<p>文档中的解释将采用”marble diagrams”的形式。下图说明”marble diagrams”怎样展示<em>Observable</em>以及<em>Observable</em>之间的转换。</p>
+<p><img src="http://reactivex.io/assets/operators/legend.png" alt="Observables"></p>
+</blockquote>]]>
+    
+    </summary>
+    
+      <category term="frp" scheme="http://yoursite.com/tags/frp/"/>
+    
+      <category term="reactivex" scheme="http://yoursite.com/tags/reactivex/"/>
+    
+      <category term="rxjava" scheme="http://yoursite.com/tags/rxjava/"/>
+    
+      <category term="响应式编程" scheme="http://yoursite.com/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="开发技术" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="rxjava" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/rxjava/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[深入浅出 RxJava (二、操作符)]]></title>
+    <link href="http://yoursite.com/grokking-rxjava-part-2/"/>
+    <id>http://yoursite.com/grokking-rxjava-part-2/</id>
+    <published>2015-08-30T14:20:35.000Z</published>
+    <updated>2015-09-08T14:16:13.000Z</updated>
+    <content type="html"><![CDATA[<p>在<a href="http://www.linfuyan.com/grokking-rxjava-part-1" target="_blank" rel="external">第一篇博客</a>中，我介绍了 RxJava 的一些基础知识，同时也介绍了 map() 操作符。当然如果你并没有意愿去使用 RxJava 我一点都不诧异，毕竟才接触了这么点儿。看完这篇博客，我相信你肯定想立即在你的项目中使用 RxJava 了，这边博客将介绍许多 RxJava 中的操作符， RxJava 的强大性就来自于它所定义的操作符。</p>
+<a id="more"></a>
+<p>首先先看一个例子：</p>
+<h3 id="准备工作">准备工作</h3><p>假设我有这样的一个方法：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这个方法根据输入的字符串返回一个网站的 url 列表</span></span><br><span class="line">Observable&lt;<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt;&gt; query(<span class="built_in">String</span> text);</span><br></pre></td></tr></table></figure>
+<p>现在我希望构建一个健壮系统，它可以查询字符串并且显示结果。根据上一篇博客的内容，我们可能会写出下面的代码：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">query<span class="params">(<span class="string">"Hello, world!"</span>)</span></span><br><span class="line">    .subscribe<span class="params">(urls -&gt; &#123;</span><br><span class="line">        for <span class="params">(String url : urls)</span> &#123;</span><br><span class="line">            System.out.println<span class="params">(url)</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span>;</span><br></pre></td></tr></table></figure>
+<p>这种代码当然是不能容忍的，因为上面的代码使我们丧失了变化数据流的能力。一旦我们想要更改每一个 URL，只能在 Subscriber 中来做。我们竟然没有使用如此酷的 map() 操作符！！！</p>
+<p>当然，我可以使用 map 操作符，map 的输入是 urls 列表，处理的时候还是要 for each 遍历，一样很蛋疼。</p>
+<h3 id="万幸的是">万幸的是</h3><p>我们有 Observable.from() 方法，它接收一个集合作为输入，然后每次输出一个元素给 subscriber：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Observable.from<span class="params">(<span class="string">"url1"</span>, <span class="string">"url2"</span>, <span class="string">"url3"</span>)</span></span><br><span class="line">    .subscribe<span class="params">(url -&gt; System.out.println<span class="params">(url)</span>)</span>;</span><br></pre></td></tr></table></figure>
+<p>我们来把这个方法使用到刚才的场景：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">query<span class="params">(<span class="string">"Hello, world!"</span>)</span></span><br><span class="line">    .subscribe<span class="params">(urls -&gt; &#123;</span><br><span class="line">        Observable.from<span class="params">(urls)</span></span><br><span class="line">            .subscribe<span class="params">(url -&gt; System.out.println<span class="params">(url)</span>)</span>;</span><br><span class="line">    &#125;)</span>;</span><br></pre></td></tr></table></figure>
+<p>虽然去掉了 for each 循环，但是代码依然看起来很乱。多个嵌套的 subscription 不仅看起来很丑，难以修改，更严重的是它会破坏我们现在还没有讲到的 RxJava 的特性。</p>
+<h3 id="改进">改进</h3><p>救星来了，他就是 flatMap()。</p>
+<p>Observable.flatMap() 接收了一个 Observable 的输出作为输入，同时输出另外一个 Observable。直接看代码：</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">query(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    <span class="built_in">.</span>flatMap(<span class="literal">new</span> Func1&lt;<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt;, Observable&lt;<span class="built_in">String</span>&gt;&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        <span class="keyword">public</span> Observable&lt;<span class="built_in">String</span>&gt; call(<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; urls) &#123;</span><br><span class="line">            <span class="keyword">return</span> Observable<span class="built_in">.</span>from(urls);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">.</span>subscribe(url <span class="subst">-&gt; </span>System<span class="built_in">.</span>out<span class="built_in">.</span>println(url));</span><br></pre></td></tr></table></figure>
+<p>这里我贴出了整个的函数代码，以方便你了解发生了什么，使用 lambda 可以大大简化代码长度：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">query<span class="params">(<span class="string">"Hello, world!"</span>)</span></span><br><span class="line">    .flatMap<span class="params">(urls -&gt; Observable.from<span class="params">(urls)</span>)</span></span><br><span class="line">    .subscribe<span class="params">(url -&gt; System.out.println<span class="params">(url)</span>)</span>;</span><br></pre></td></tr></table></figure>
+<p>flatMap() 是不是看起来很奇怪？为什么它要返回另外一个 Observable 呢？理解 flatMap 的关键点在于，flatMap 输出的新的 Observable 正是我们在 Subscriber 想要接收的。现在 Subscriber 不再收到 List<string>，而是收到一系列单个的字符串，就像 Observable.from() 的输出一样。</string></p>
+<p>这部分也是我当初学 RxJava 的时候最难理解的部分，一旦我突然领悟了， RxJava 的很多疑问也就一并解决了。</p>
+<h3 id="还可以更好">还可以更好</h3><p>flatMap() 实在不能更赞了，它可以返回任何它想返回的 Observable 对象。</p>
+<p>比如下面的方法：</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 返回网站的标题，如果<span class="number">404</span>了返回<span class="literal">null</span></span><br><span class="line">Observable&lt;<span class="built_in">String</span>&gt; getTitle(<span class="built_in">String</span> URL)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>接着前面的例子，现在我不想打印 URL 了，而是要打印收到的每个网站的标题。问题来了，我的方法每次只能传入一个 URL，并且返回值不是一个 String，而是一个输出 String 的 Observable 对象。使用 flatMap() 可以简单的解决这个问题。</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">query(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    <span class="built_in">.</span>flatMap(urls <span class="subst">-&gt; </span>Observable<span class="built_in">.</span>from(urls))</span><br><span class="line">    <span class="built_in">.</span>flatMap(<span class="literal">new</span> Func1&lt;<span class="built_in">String</span>, Observable&lt;<span class="built_in">String</span>&gt;&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        <span class="keyword">public</span> Observable&lt;<span class="built_in">String</span>&gt; call(<span class="built_in">String</span> url) &#123;</span><br><span class="line">            <span class="keyword">return</span> getTitle(url);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">.</span>subscribe(title <span class="subst">-&gt; </span>System<span class="built_in">.</span>out<span class="built_in">.</span>println(title));</span><br></pre></td></tr></table></figure>
+<p>使用 lambda：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">query<span class="params">(<span class="string">"Hello, world!"</span>)</span></span><br><span class="line">    .flatMap<span class="params">(urls -&gt; Observable.from<span class="params">(urls)</span>)</span></span><br><span class="line">    .flatMap<span class="params">(url -&gt; getTitle<span class="params">(url)</span>)</span></span><br><span class="line">    .subscribe<span class="params">(title -&gt; System.out.println<span class="params">(title)</span>)</span>;</span><br></pre></td></tr></table></figure>
+<p>是不是感觉很不可思议？我竟然能将多个独立的返回 Observable 对象的方法组合在一起！帅呆了！</p>
+<p>不止这些，我还将两个 API 的调用组合到一个链式调用中了。我们可以将任意多个 API 调用链接起来。大家应该都应该知道同步所有的 API 调用，然后将所有 API 调用的回调结果组合成需要展示的数据是一件多么蛋疼的事情。这里我们成功的避免了 callback hell （多层嵌套的回调，导致代码难以阅读维护）。现在所有的逻辑都包装成了这种简单的响应式调用。</p>
+<h3 id="丰富的操作符">丰富的操作符</h3><p>目前为止，我们已经接触了两个操作符， RxJava 中还有更多的操作符，那么我们如何使用其他的操作符来改进我们的代码呢？</p>
+<p>getTitle() 返回 null 如果 url 不存在。我们不想输出 “null”，那么我们可以从返回的 title 列表中过滤掉 null 值！</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">query<span class="params">(<span class="string">"Hello, world!"</span>)</span></span><br><span class="line">    .flatMap<span class="params">(urls -&gt; Observable.from<span class="params">(urls)</span>)</span></span><br><span class="line">    .flatMap<span class="params">(url -&gt; getTitle<span class="params">(url)</span>)</span></span><br><span class="line">    .filter<span class="params">(title -&gt; title != null)</span></span><br><span class="line">    .subscribe<span class="params">(title -&gt; System.out.println<span class="params">(title)</span>)</span>;</span><br></pre></td></tr></table></figure>
+<p>filter() 输出和输入相同的元素，并且会过滤掉那些不满足检查条件的。</p>
+<p>如果我们只想要最多5个结果：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">query<span class="params">(<span class="string">"Hello, world!"</span>)</span></span><br><span class="line">    .flatMap<span class="params">(urls -&gt; Observable.from<span class="params">(urls)</span>)</span></span><br><span class="line">    .flatMap<span class="params">(url -&gt; getTitle<span class="params">(url)</span>)</span></span><br><span class="line">    .filter<span class="params">(title -&gt; title != null)</span></span><br><span class="line">    .take<span class="params">(<span class="number">5</span>)</span></span><br><span class="line">    .subscribe<span class="params">(title -&gt; System.out.println<span class="params">(title)</span>)</span>;</span><br></pre></td></tr></table></figure>
+<p>take() 输出最多指定数量的结果。</p>
+<p>如果我们想在打印之前，把每个标题保存到磁盘：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">query<span class="params">(<span class="string">"Hello, world!"</span>)</span></span><br><span class="line">    .flatMap<span class="params">(urls -&gt; Observable.from<span class="params">(urls)</span>)</span></span><br><span class="line">    .flatMap<span class="params">(url -&gt; getTitle<span class="params">(url)</span>)</span></span><br><span class="line">    .filter<span class="params">(title -&gt; title != null)</span></span><br><span class="line">    .take<span class="params">(<span class="number">5</span>)</span></span><br><span class="line">    .doOnNext<span class="params">(title -&gt; saveTitle<span class="params">(title)</span>)</span></span><br><span class="line">    .subscribe<span class="params">(title -&gt; System.out.println<span class="params">(title)</span>)</span>;</span><br></pre></td></tr></table></figure>
+<p>doOnNext()允许我们在每次输出一个元素之前做一些额外的事情，比如这里的保存标题。</p>
+<p>看到这里操作数据流是多么简单了么。你可以添加任意多的操作，并且不会搞乱你的代码。</p>
+<p>RxJava 包含了大量的操作符。操作符的数量是有点吓人，但是很值得你去挨个看一下，这样你可以知道有哪些操作符可以使用。弄懂这些操作符可能会花一些时间，但是一旦弄懂了，你就完全掌握了 RxJava 的威力。</p>
+<p>你甚至可以编写自定义的操作符！这篇博客不打算讲自定义操作符，如果你想的话，请自行 Google 吧。</p>
+<h3 id="感觉如何？">感觉如何？</h3><p>好吧，你是一个怀疑主义者，并且还很难被说服，那为什么你要关心这些操作符呢？</p>
+<p>因为操作符可以让你对数据流做任何操作。</p>
+<p>将一系列的操作符链接起来就可以完成复杂的逻辑。代码被分解成一系列可以组合的片段。这就是响应式函数编程的魅力。用的越多，就会越多的改变你的编程思维。</p>
+<p>另外，RxJava 也使我们处理数据的方式变得更简单。在最后一个例子里，我们调用了两个 API，对 API 返回的数据进行了处理，然后保存到磁盘。但是我们的 Subscriber 并不知道这些，它只是认为自己在接收一个 Observable<string> 对象。良好的封装性也带来了编码的便利！</string></p>
+<p>在第三部分中，我将介绍 RxJava 的另外一些很酷的特性，比如错误处理和并发，这些特性并不会直接用来处理数据。</p>
+<p>原文链接：<a href="http://blog.danlew.net/2014/09/22/grokking-rxjava-part-2/" target="_blank" rel="external">Grokking RxJava, Part 2: Operator, Operator</a><br>译文来源：<a href="http://http://blog.csdn.net/lzyzsd/article/details/44094895" target="_blank" rel="external">深入浅出RxJava（二：操作符）</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>在<a href="http://www.linfuyan.com/grokking-rxjava-part-1">第一篇博客</a>中，我介绍了 RxJava 的一些基础知识，同时也介绍了 map() 操作符。当然如果你并没有意愿去使用 RxJava 我一点都不诧异，毕竟才接触了这么点儿。看完这篇博客，我相信你肯定想立即在你的项目中使用 RxJava 了，这边博客将介绍许多 RxJava 中的操作符， RxJava 的强大性就来自于它所定义的操作符。</p>]]>
+    
+    </summary>
+    
+      <category term="reactivex" scheme="http://yoursite.com/tags/reactivex/"/>
+    
+      <category term="rxandroid" scheme="http://yoursite.com/tags/rxandroid/"/>
+    
+      <category term="rxjava" scheme="http://yoursite.com/tags/rxjava/"/>
+    
+      <category term="反应式编程" scheme="http://yoursite.com/tags/%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="操作符" scheme="http://yoursite.com/tags/%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
+    
+      <category term="开发技术" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="rxjava" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/rxjava/"/>
+    
+      <category term="深入浅出RxJava" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/rxjava/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BARxJava/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成]]></title>
+    <link href="http://yoursite.com/continuous-integration-of-ios-application-with-jenkins-git-cocoapods-fir.im/"/>
+    <id>http://yoursite.com/continuous-integration-of-ios-application-with-jenkins-git-cocoapods-fir.im/</id>
+    <published>2015-08-29T06:55:23.000Z</published>
+    <updated>2015-08-29T07:02:28.000Z</updated>
+    <content type="html"><![CDATA[<p>本文说明如何在 Mac OSX 环境下，使用 Jenkins 对基于 CocoaPods 进行依赖管理的 iOS 项目做自动打包与持续集成，并将最终的安装包发布到 fir.im 上供下载。</p>
+<h4 id="前置说明">前置说明</h4><ol>
+<li>实现 iOS 项目自动打包，需要有 Mac OSX 环境。本文中使用的是一台普通的 Mac mini，并安装 Mac OSX 10.10 Yosemite。</li>
+<li>本文中使用的自动打包脚本依赖于 <code>xcodebuild</code> 及 <code>xcrun</code>，故需要确保安装 Xcode，并且系统中安装有 Xcode 的命令行工具。具体命令行如何打包，可以查看 <a href="http://" target="_blank" rel="external">iOS 命令行打包</a></li>
+<li>本文中代码的版本控制工具使用 Git。Mac OSX 安装完成 Xcode 以后自带 Git，故不用另外安装。</li>
+<li>iOS 项目使用 CocoaPods 进行依赖管理，故 Mac OSX 需要安装 CocoaPods。具体可以查看 <a href="http://" target="_blank" rel="external">CocoaPods 使用</a></li>
+<li>需要确保 Jenkins 服务器所在的机器上拥有对应的证书和 Profile 文件，才能够顺利打包。什么是证书和 Profile 文件，可以查看 <a href="http://" target="_blank" rel="external">iOS 证书和 Profile 文件</a></li>
+<li>在 Mac OSX 下安装并配置好 Jenkins。Jenkins 的安装不在本文论述范围内，具体可以查看 <a href="http://" target="_blank" rel="external">Mac OSX 安装 Jenkins</a></li>
+<li>Jenkins 配置好相关插件，本文中使用到 <code>Git plugin</code>， <code>Git client plugin</code>， <code>Xcode integration</code> 等插件。如何安装 Jenkins 插件，可以查看 <a href="http://" target="_blank" rel="external">Jenkins 插件安装</a></li>
+<li>本文中代码所使用的文件目录结构如下。不同的文档结构会对 Jenkins 中嵌入的 Shell 脚本造成影响。即在实际项目源码位于根目录再下一级目录。</li>
+</ol>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Art				<span class="comment">// 项目目录</span></span><br><span class="line">    <span class="string">|--Art		// 实际项目源码目录</span></span><br><span class="line">    	<span class="string">|--Art</span></span><br><span class="line">    	<span class="string">|--project.xcdoeproj</span></span><br><span class="line">    	<span class="string">|--project.xcworkspace</span></span><br><span class="line">    	<span class="string">|--Podfile</span></span><br><span class="line">    	<span class="string">|--...</span></span><br><span class="line">    <span class="string">|--bin			// 存放部分二进制文件的目录，实际中并未使用</span></span><br><span class="line">    <span class="string">|--doc			// 本项目相关的文档目录</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="具体步骤">具体步骤</h2><h3 id="新建项目">新建项目</h3><p>使用具有配置权限的用户登录 Jenkins，选择”新建”，”构建一个自由风格的软件项目”，并确定。这里新建了一个名为 <code>iOS-project-ci</code> 的 job。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-1.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<h3 id="配置构建基本信息">配置构建基本信息</h3><p>填写相关 job 的信息，如名称、描述。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-2.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p>可以选择构建过程，并进行一些设置。这里选择”参数化构建过程”，添加一个 <code>Text Parameter</code>，并做相关设置。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-3.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-4.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p>高级项目选项，本文中没有做任何设置。</p>
+<h3 id="配置项目源码">配置项目源码</h3><p>源码管理中选择 Git，配置仓库地址，认证账户，需要构建的分支等。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-5.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p>根据项目需要构建触发器，本文中没有做任何设置，项目的构建由用户手动触发。</p>
+<h3 id="配置构建过程">配置构建过程</h3><h4 id="配置_CocoaPods">配置 CocoaPods</h4><p>由于本文中项目代码目录没有在根目录下，且使用 CocoaPods 进行依赖管理，故先增加一个 Shell 脚本的构建步骤。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-6.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p>其中 <code>cd Art</code> 是进入到 Podfile 文件所在目录，即实际项目源码目录。 <code>pod install</code> 用于更新实际项目的源码依赖。完整的 pod 更新可能会很好使，可以考虑 <code>pod install --no-repo-update</code></p>
+<h4 id="配置_Xcode_integration">配置 Xcode integration</h4><p>新增 Xcode integration 构建过程</p>
+<p><strong>基础配置</strong></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-7.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<ol>
+<li>本文的项目中使用 <code>workspace</code>， 所以 Target 可以不填。</li>
+<li>Configuration 是在 Xcode 中的配置，默认有 Debug 和 Release，这里的 InHouse 为我自己在项目中的配置，使用企业签名的对应用进行打包。</li>
+<li>将应用打包成 .ipa 文件。</li>
+<li>这里设置 .ipa 文件的名称。其中 $BUILD_NUMBER 为 Jenkins 提供的系统变量，为当前的构建版本号。</li>
+<li>这里设置 构建过程输出目录。其中 $WORKSPACE 为 Jenkins 提供的系统变量，为构建根目录。</li>
+</ol>
+<p><strong>代码签名及密钥配置</strong></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-8.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p>本文中采用在 Xcode 项目中新增共享 scheme 的方式，在 scheme 内部对代码签名和 Profile 做了配置，同时 Jenkins 所在的 Mac OSX 中有对应的证书和 Profile，所以1，2中不需要做特殊配置，如果配置，将替换 scheme中的配置。</p>
+<p>在打包的过程中，命令会由于系统的安全设置提醒输入密码，3中可以设置密钥所在路径及系统用户密码。</p>
+<blockquote>
+<p>具体如何新增共享 scheme 及配置，可以查看<a href="http://" target="_blank" rel="external">iOS 配置 scheme 和 configuration</a></p>
+</blockquote>
+<p><strong>Xcode 高级构建配置</strong></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-9.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<ol>
+<li>这里的 <code>Art-Ci</code> 就是我在 Xcode 项目中新建的 scheme。</li>
+<li>本文中的项目包含有 workspace，这里设置对应路径，注意不需要带上 .xcworkspace 后缀。</li>
+<li>Xcode 项目所在目录</li>
+<li>Xcode 项目文件，这里需要带上 .xcodeproj 后缀。</li>
+<li>设置构建输出目录。</li>
+</ol>
+<h4 id="发布到_fir-im">发布到 fir.im</h4><p>添加一个 Shell 构建步骤，输入如下命令：</p>
+<p><code>fir p $WORKSPACE/build/art_$BUILD_NUMBER.ipa -c &quot;$release_note&quot;</code></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-10.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p>这里发布到 fir.im，使用了其官方提供的 fir-cli 工具。 <code>$WORKSPACE/build/art_$BUILD_NUMBER.ipa</code> 获取到最终打包的 .ipa 文件路径， $release_note 为我们在”带参数构建”中添加的参数。 fir-cli 的使用，具体查看<a href="http://blog.fir.im/fir_cli/" target="_blank" rel="external">官方工具 fir-cli 使用说明</a></p>
+<p>完成以上配置，应用并保存配置。</p>
+<h4 id="添加其他构建后步骤">添加其他构建后步骤</h4><p>可以在构建完成以后，配置邮件通知等操作以便及时将构建结果通知到相应的人员。</p>
+<h4 id="启动构建">启动构建</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-11.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-12.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p>设置参数，点击”开始构建”，构建过程便被触发。如果构建成功，最终 iOS 应用将被发布到 fir.im 上，并进行访问。例如，本文中的项目最终可以通过 <a href="http://fir.im/yiwai" target="_blank" rel="external">http://fir.im/yiwai</a> 来访问并下载安装。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>本文说明如何在 Mac OSX 环境下，使用 Jenkins 对基于 CocoaPods 进行依赖管理的 iOS 项目做自动打包与持续集成，并将最终的安装包发布到 fir.im 上供下载。</p>
+<h4 id="前置说明">前置说明</h4><ol>
+<li>实现 iOS 项目自动打包，需要有 Mac OSX 环境。本文中使用的是一台普通的 Mac mini，并安装 Mac OSX 10.10 Yosemite。</li>
+<li>本文中使用的自动打包脚本依赖于 <code>xcodebuild</code> 及 <code>xcrun</code>，故需要确保安装 Xcode，并且系统中安装有 Xcode 的命令行工具。具体命令行如何打包，可以查看 <a href="http://">iOS 命令行打包</a></li>
+<li>本文中代码的版本控制工具使用 Git。Mac OSX 安装完成 Xcode 以后自带 Git，故不用另外安装。</li>
+<li>iOS 项目使用 CocoaPods 进行依赖管理，故 Mac OSX 需要安装 CocoaPods。具体可以查看 <a href="http://">CocoaPods 使用</a></li>
+<li>需要确保 Jenkins 服务器所在的机器上拥有对应的证书和 Profile 文件，才能够顺利打包。什么是证书和 Profile 文件，可以查看 <a href="http://">iOS 证书和 Profile 文件</a></li>
+<li>在 Mac OSX 下安装并配置好 Jenkins。Jenkins 的安装不在本文论述范围内，具体可以查看 <a href="http://">Mac OSX 安装 Jenkins</a></li>
+<li>Jenkins 配置好相关插件，本文中使用到 <code>Git plugin</code>， <code>Git client plugin</code>， <code>Xcode integration</code> 等插件。如何安装 Jenkins 插件，可以查看 <a href="http://">Jenkins 插件安装</a></li>
+<li>本文中代码所使用的文件目录结构如下。不同的文档结构会对 Jenkins 中嵌入的 Shell 脚本造成影响。即在实际项目源码位于根目录再下一级目录。</li>
+</ol>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Art				<span class="comment">// 项目目录</span></span><br><span class="line">    <span class="string">|--Art		// 实际项目源码目录</span></span><br><span class="line">    	<span class="string">|--Art</span></span><br><span class="line">    	<span class="string">|--project.xcdoeproj</span></span><br><span class="line">    	<span class="string">|--project.xcworkspace</span></span><br><span class="line">    	<span class="string">|--Podfile</span></span><br><span class="line">    	<span class="string">|--...</span></span><br><span class="line">    <span class="string">|--bin			// 存放部分二进制文件的目录，实际中并未使用</span></span><br><span class="line">    <span class="string">|--doc			// 本项目相关的文档目录</span></span><br></pre></td></tr></table></figure>]]>
+    
+    </summary>
+    
+      <category term="cocoapods" scheme="http://yoursite.com/tags/cocoapods/"/>
+    
+      <category term="fir.im" scheme="http://yoursite.com/tags/fir-im/"/>
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+      <category term="jenkins" scheme="http://yoursite.com/tags/jenkins/"/>
+    
+      <category term="持续集成" scheme="http://yoursite.com/tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+    
+      <category term="软件工具" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="jenkins" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/jenkins/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[深入浅出 RxJava (一、基础篇)]]></title>
+    <link href="http://yoursite.com/grokking-rxjava-part-1/"/>
+    <id>http://yoursite.com/grokking-rxjava-part-1/</id>
+    <published>2015-08-29T02:21:20.000Z</published>
+    <updated>2015-09-07T15:07:19.000Z</updated>
+    <content type="html"><![CDATA[<p><a href="https://github.com/ReactiveX/RxJava" target="_blank" rel="external">RxJava</a> 正在 Android 开发者中变的越来越流行。唯一的问题就是上手不容易，尤其是大部分人之前都是使用命令式编程语言。但是一旦你弄明白了，你就会发现 RxJava 真是太棒了。</p>
+<p>这里仅仅是帮助你了解 RxJava，整个系列共有四篇文章，希望你看完这四篇文章之后能够了解 RxJava 背后的思想，并且喜欢上 RxJava。</p>
+<a id="more"></a>
+<h3 id="基础">基础</h3><p>RxJava 最核心的两个东西是 Observables （被观察者，事件源）和 Subscribers （观察者）。 Observables 发出一系列事件，Subscribers 处理这些事件。这里的事件可以是任何你感兴趣的东西（触摸事件，web接口调用返回的数据。。。）</p>
+<p>一个 Observable 可以发出零个或者多个事件，直到结束或者出错。每发出一个事件，就会调用它的 Subscriber 的 onNext 方法，最后调用 Subscriber.onNext() 或者 Subscriber.onError() 结束。</p>
+<p>Rxjava 的看起来很像设计模式中的观察者模式，但是有一点明显不同，那就是如果一个 Observerble 没有任何的 Subscriber，那么这个 Observable 是不会发出任何事件的。</p>
+<h4 id="Hello_World">Hello World</h4><p>创建一个 Observable 对象很简单，直接调用 Observable.create 即可。</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Observable&lt;String&gt; myObservable = Observable.create(</span><br><span class="line">    new Observable.OnSubscribe&lt;String&gt;() &#123;</span><br><span class="line">        <span class="variable">@Override</span></span><br><span class="line">        public void call(Subscriber&lt;? super String&gt; <span class="sub"><span class="keyword">sub</span>) &#123;</span></span><br><span class="line">            <span class="sub"><span class="keyword">sub</span>.onNext("Hello, world!");</span></span><br><span class="line">            <span class="sub"><span class="keyword">sub</span>.onCompleted();</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>这里定义的 Observable 对象仅仅发出一个 Hello World 字符串，然后就结束了。接着我们创建一个 Subscriber 来处理 Observable 对象发出的字符串。</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Subscriber&lt;String&gt; mySubscriber = <span class="keyword">new</span> Subscriber&lt;String&gt;() &#123;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onNext</span><span class="params">(String s)</span> </span>&#123; System.out.println(s); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onCompleted</span><span class="params">()</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123; &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这里 subscriber 仅仅就是打印 observable 发出的字符串。通过 subscribe 函数就可以将我们定义的 myObservable 对象和 mySubscriber 对象关联起来，这样就完成了 subscriber 对 observable 的订阅。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">myObservable</span><span class="class">.subscribe</span>(<span class="tag">mySubscriber</span>);</span><br></pre></td></tr></table></figure>
+<p>一旦 mySubscriber 订阅了 myObservable， myObservable 就是调用 mySubscriber 对象的 onNext 和 onComplete 方法，mySubscriber 就会打印出 Hello World！</p>
+<h4 id="更简洁的代码">更简洁的代码</h4><p>是不是觉得仅仅为了打印一个 hello world 要写这么多代码太啰嗦？我这里主要是为了展示 RxJava 背后的原理而采用了这种比较啰嗦的写法，RxJava 其实提供了很多便捷的函数来帮助我们减少代码。</p>
+<p>首先来看看如何简化 Observable 对象的创建过程。RxJava 内置了很多简化创建 Observable 对象的函数，比如 Observable.just 就是用来创建只发出一个事件就结束的 Observable 对象，上面创建 Observable 对象的代码可以简化为一行。</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">Observable</span>&lt;<span class="keyword">String&gt; </span>myObservable = Observable.just(<span class="string">"Hello, world!"</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>接下来看看如何简化 Subscriber，上面的例子中，我们其实并不关心 OnComplete 和 OnError，我们只需要在 onNext 的时候做一些处理，这时候就可以使用 Action1 类。</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Action1&lt;<span class="keyword">String</span>&gt; onNextAction = <span class="keyword">new</span> Action1&lt;<span class="keyword">String</span>&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> call(<span class="keyword">String</span> s) &#123;</span><br><span class="line">        System.out.<span class="built_in">println</span>(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>subscribe 方法有一个重载版本，接受三个 Action1 类型的参数，分别对应 OnNext， OnComplete， OnError 函数。</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myObservable.subscribe(<span class="keyword">on</span>NextAction, <span class="keyword">on</span>ErrorAction, <span class="keyword">on</span>CompleteAction);</span><br></pre></td></tr></table></figure>
+<p>这里我们并不关心 onError 和 onComplete，所以只需要第一个参数就可以</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">myObservable.subscribe(onNextAction);</span><br><span class="line"><span class="regexp">//</span> <span class="constant">Outputs </span><span class="string">"Hello, world!"</span></span><br></pre></td></tr></table></figure>
+<p>上面的代码最终可以写成这样：</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Observable.just(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    .subscribe(<span class="keyword">new</span> Action1&lt;<span class="keyword">String</span>&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> call(<span class="keyword">String</span> s) &#123;</span><br><span class="line">              System.out.<span class="built_in">println</span>(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<p>使用 java8 的 lambda 可以使代码更简洁。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Observable</span><span class="class">.just</span>("<span class="tag">Hello</span>, <span class="tag">world</span>!")</span><br><span class="line">    <span class="class">.subscribe</span>(<span class="tag">s</span> <span class="tag">-</span>&gt; <span class="tag">System</span><span class="class">.out</span><span class="class">.println</span>(<span class="tag">s</span>));</span><br></pre></td></tr></table></figure>
+<p>Android 开发中，强烈推荐使用<a href="https://github.com/evant/gradle-retrolambda" target="_blank" rel="external">retrolambda</a>这个 gradle 插件，这样你就可以在你的代码中使用 lambda 了。</p>
+<h3 id="变换">变换</h3><p>让我们做一些更有趣的事情吧！<br>比如我想在 hello world 中加上我的签名，你可能会想到去修改 Observable 对象：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Observable</span><span class="class">.just</span>("<span class="tag">Hello</span>, <span class="tag">world</span>! <span class="tag">-Dan</span>")</span><br><span class="line">    <span class="class">.subscribe</span>(<span class="tag">s</span> <span class="tag">-</span>&gt; <span class="tag">System</span><span class="class">.out</span><span class="class">.println</span>(<span class="tag">s</span>));</span><br></pre></td></tr></table></figure>
+<p>如果你能够改变 Observable 对象，这当然是可以的，但是如果你不能修改 Observable 对象呢？比如 Observable 对象是第三方库提供的？比如我的 Observable 对象被多个 Subscriber 订阅，但是我只想在对某个订阅者做修改呢？<br>那么在 Subscriber 中对事件进行修改怎么样呢？比如下面的代码：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Observable.just<span class="params">(<span class="string">"Hello, world!"</span>)</span></span><br><span class="line">    .subscribe<span class="params">(s -&gt; System.out.println<span class="params">(s + <span class="string">" -Dan"</span>)</span>)</span>;</span><br></pre></td></tr></table></figure>
+<p>这种方式仍然不能让人满意，因为我希望我的 Subscribers 越轻量越好，因为我有可能会在 mainThread 中运行 subscriber。另外，根据响应式函数编程的概念， Subscribers 更应该做的事情是“响应”，响应 Observable 发出的事件，而不是去修改。如果我能在某些中间步骤中对 “Hello World！” 进行变换是不是很酷？</p>
+<h3 id="操作符（Operators）">操作符（Operators）</h3><p>操作符就是为了解决对 Observable 对象的变换的问题，操作符用于在 Observable 和最终的 Subscriber 之间修改 Observable 发出的事件。RxJava 提供了很多很有用的操作符。</p>
+<p>比如 map 操作符，就是用来把把一个事件转换为另一个事件的。</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Observable<span class="built_in">.</span>just(<span class="string">"Hello, world!"</span>)</span><br><span class="line">  <span class="built_in">.</span><span class="built_in">map</span>(<span class="literal">new</span> Func1&lt;<span class="built_in">String</span>, <span class="built_in">String</span>&gt;() &#123;</span><br><span class="line">      @Override</span><br><span class="line">      <span class="keyword">public</span> <span class="built_in">String</span> call(<span class="built_in">String</span> s) &#123;</span><br><span class="line">          <span class="keyword">return</span> s + <span class="string">" -Dan"</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">.</span>subscribe(s <span class="subst">-&gt; </span>System<span class="built_in">.</span>out<span class="built_in">.</span>println(s));</span><br></pre></td></tr></table></figure>
+<p>使用 lambda 可以简化为：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Observable.just<span class="params">(<span class="string">"Hello, world!"</span>)</span></span><br><span class="line">    .map<span class="params">(s -&gt; s + <span class="string">" -Dan"</span>)</span></span><br><span class="line">    .subscribe<span class="params">(s -&gt; System.out.println<span class="params">(s)</span>)</span>;</span><br></pre></td></tr></table></figure>
+<p>是不是很酷？ map() 操作符就是用于变换 Observable 对象的， map 操作符返回一个 Observable 对象，这样就可以实现链式调用，在一个 Observable 对象上多次使用 map 操作符，最终将最简洁的数据传递给 Subscriber 对象。</p>
+<h4 id="map操作符进阶">map操作符进阶</h4><p>map 操作符更有趣的一点是它不必返回 Observable 对象返回的类型，你可以使用 map 操作符返回一个发出新的数据类型的 observable 对象。</p>
+<p>比如上面的例子中，subscriber 并不关心返回的字符串，而是想要字符串的 hash 值。</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Observable<span class="built_in">.</span>just(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    <span class="built_in">.</span><span class="built_in">map</span>(<span class="literal">new</span> Func1&lt;<span class="built_in">String</span>, <span class="built_in">Integer</span>&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">Integer</span> call(<span class="built_in">String</span> s) &#123;</span><br><span class="line">            <span class="keyword">return</span> s<span class="built_in">.</span>hashCode();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">.</span>subscribe(i <span class="subst">-&gt; </span>System<span class="built_in">.</span>out<span class="built_in">.</span>println(<span class="built_in">Integer</span><span class="built_in">.</span>toString(i)));</span><br></pre></td></tr></table></figure>
+<p>很有趣吧？我们初始的 Observable 返回的是字符串，最终的 Subscriber 收到的却是 Integer，当然使用 lambda 可以进一步简化代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Observable</span><span class="class">.just</span>("<span class="tag">Hello</span>, <span class="tag">world</span>!")</span><br><span class="line">    <span class="class">.map</span>(<span class="tag">s</span> <span class="tag">-</span>&gt; <span class="tag">s</span><span class="class">.hashCode</span>())</span><br><span class="line">    <span class="class">.subscribe</span>(<span class="tag">i</span> <span class="tag">-</span>&gt; <span class="tag">System</span><span class="class">.out</span><span class="class">.println</span>(<span class="tag">Integer</span><span class="class">.toString</span>(<span class="tag">i</span>)));</span><br></pre></td></tr></table></figure>
+<p>前面说过，Subscriber 做的事情越少越好，我们再增加一个 map 操作符：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Observable</span><span class="class">.just</span>("<span class="tag">Hello</span>, <span class="tag">world</span>!")</span><br><span class="line">    <span class="class">.map</span>(<span class="tag">s</span> <span class="tag">-</span>&gt; <span class="tag">s</span><span class="class">.hashCode</span>())</span><br><span class="line">    <span class="class">.map</span>(<span class="tag">i</span> <span class="tag">-</span>&gt; <span class="tag">Integer</span><span class="class">.toString</span>(<span class="tag">i</span>))</span><br><span class="line">    <span class="class">.subscribe</span>(<span class="tag">s</span> <span class="tag">-</span>&gt; <span class="tag">System</span><span class="class">.out</span><span class="class">.println</span>(<span class="tag">s</span>));</span><br></pre></td></tr></table></figure>
+<h3 id="不服？">不服？</h3><p>是不是觉得我们的例子太简单，不足以说服你？你需要明白下面的两点:</p>
+<p>1. Observable 和 Subscriber 可以做任何事情。</p>
+<p>Observable 可以是一个数据库查询， Subscriber 用来显示查询结果； Observable 可以是屏幕上的点击事件， Subscriber 用来响应点击事件； Observable 可以是一个网络请求， Subscriber 用来显示请求结果。</p>
+<p>2. Observable 和 Subscriber 是独立于中间的变换过程的。</p>
+<p>在 Observable 和 Subscriber 中间可以增减任何数量的 map。整个系统是高度可组合的，操作数据是一个很简单的过程。</p>
+<p>原文链接：<a href="http://blog.danlew.net/2014/09/15/grokking-rxjava-part-1/" target="_blank" rel="external">Grokking RxJava, Part 1: The Basics</a><br>译文来源：<a href="http://blog.csdn.net/lzyzsd/article/details/41833541" target="_blank" rel="external">深入浅出RxJava（一：基础篇）</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><a href="https://github.com/ReactiveX/RxJava">RxJava</a> 正在 Android 开发者中变的越来越流行。唯一的问题就是上手不容易，尤其是大部分人之前都是使用命令式编程语言。但是一旦你弄明白了，你就会发现 RxJava 真是太棒了。</p>
+<p>这里仅仅是帮助你了解 RxJava，整个系列共有四篇文章，希望你看完这四篇文章之后能够了解 RxJava 背后的思想，并且喜欢上 RxJava。</p>]]>
+    
+    </summary>
+    
+      <category term="reactivex" scheme="http://yoursite.com/tags/reactivex/"/>
+    
+      <category term="rxandroid" scheme="http://yoursite.com/tags/rxandroid/"/>
+    
+      <category term="rxjava" scheme="http://yoursite.com/tags/rxjava/"/>
+    
+      <category term="反应式编程" scheme="http://yoursite.com/tags/%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="开发技术" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="rxjava" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/rxjava/"/>
+    
+      <category term="深入浅出RxJava" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/rxjava/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BARxJava/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[生成 SSH 密钥]]></title>
+    <link href="http://yoursite.com/generating-ssh-keys/"/>
+    <id>http://yoursite.com/generating-ssh-keys/</id>
+    <published>2015-08-28T12:39:40.000Z</published>
+    <updated>2015-09-07T08:59:13.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/800px-SSH_Communications_Security_logo.svg.png" alt="生成 SSH 密钥"></p>
+<p>Git 仓库可以通过 git:// 来访问，目前类似 Github，Gitcafe，Coding等基于 Git 的托管服务都提供有配置 SSH 密钥，来访问托管仓库的功能。本文中将通过为 Github 账号配置 SSH 密钥来访问仓库为例，说明 SSH 密钥配置过程。</p>
+<p>SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密码。下面的步骤将带你生成一个 SSH 密钥，并将其添加到你的 Github 账号。</p>
+<a id="more"></a>
+<h2 id="步骤1：检查_SSH_密钥">步骤1：检查 SSH 密钥</h2><p>首先，需要检查电脑上是否有已经存在的 SSH 密钥。打开终端并输入：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">ls</span> -<span class="keyword">al</span> ~/.ssh</span><br><span class="line"># Lists the <span class="keyword">files</span> in your .ssh directory, <span class="keyword">if</span> they exist</span><br></pre></td></tr></table></figure>
+<p>查看文件夹中列出的文件中是否已经有 SSH 公钥。默认情况下，公钥的文件名会是下面中的一个：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; id_dsa<span class="class">.pub</span></span><br><span class="line">&gt; id_ecdsa<span class="class">.pub</span></span><br><span class="line">&gt; id_ed25519<span class="class">.pub</span></span><br><span class="line">&gt; id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>如果你看到列出的文件已经存在一对公钥和私钥(如：id_rsa.pub 和 id_rsa)，而你打算用来连接 Github，那么可以跳过步骤2，直接查看步骤3。</p>
+<blockquote>
+<p>提示：如果你收到一个 ~/.ssh 不存在的错误，别担心，我们在步骤2中将创建它。</p>
+</blockquote>
+<h2 id="步骤2：生成新的_SSH_密钥">步骤2：生成新的 SSH 密钥</h2><p>1、继续打开终端，复制并粘贴下面的文本。确保用你的 Github 邮箱替换掉其中的地址。</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh-keygen -t rsa -b <span class="number">4096</span> -<span class="constant">C </span><span class="string">"your_email@example.com"</span></span><br><span class="line"><span class="comment"># Creates a new ssh key, using the provided email as a label</span></span><br><span class="line"><span class="comment"># Generating public/private rsa key pair.</span></span><br></pre></td></tr></table></figure>
+<p>2、强烈建议保持默认设置，因此你在被提示”输入文件以保存密钥”时，直接按<strong>回车</strong>继续：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter <span class="built_in">file</span> <span class="operator">in</span> which <span class="built_in">to</span> save <span class="operator">the</span> key (/Users/you/.ssh/id_rsa): [Press enter]</span><br></pre></td></tr></table></figure>
+<p>3、提示输入口令：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (<span class="constant">empty</span> <span class="keyword">for</span> no passphrase): [Type <span class="operator">a</span> passphrase]</span><br><span class="line"><span class="comment"># Enter same passphrase again: [Type passphrase again]</span></span><br></pre></td></tr></table></figure>
+<p>4、输口令以后，你将得到一个 SSH 密钥的指纹或者<code>ID</code>。看起来像这样：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Your identification has been saved in /Users/you/.ssh/id_rsa.</span><br><span class="line"><span class="preprocessor"># Your public key has been saved in /Users/you/.ssh/id_rsa.pub.</span></span><br><span class="line"><span class="preprocessor"># The key fingerprint is:</span></span><br><span class="line"><span class="preprocessor"># <span class="number">01</span>:<span class="number">0f</span>:f4:<span class="number">3</span>b:ca:<span class="number">85</span>:d6:<span class="number">17</span>:a1:<span class="number">7</span>d:f0:<span class="number">68</span>:<span class="number">9</span>d:f0:a2:db your_email@example.com</span></span><br></pre></td></tr></table></figure>
+<h2 id="步骤3：添加密钥到_ssh-agent">步骤3：添加密钥到 ssh-agent</h2><p>配置 ssh-agent 程序来使用 SSH 密钥，可以避免每次被提示输入口令：</p>
+<p>1、确保 ssh-agent 是可用的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># start the ssh-agent in the background</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br><span class="line"><span class="comment"># Agent pid 59566</span></span><br></pre></td></tr></table></figure>
+<p>2、添加密钥到 ssh-agent</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh-add ~<span class="regexp">/.ssh/id</span>_rsa</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>提示：如果你在步骤2中没有生成新的 SSH 密钥，而是使用已经存在的密钥，那你需要替换上面命令中的 id_rsa 为你已经存在的私钥文件的名称。</p>
+</blockquote>
+<h2 id="步骤4：添加_SSH_密钥到你的账号">步骤4：添加 SSH 密钥到你的账号</h2><p>配置你的 Github 账号来使用 SSH 密钥：</p>
+<p>复制 SSH 密钥到剪贴板，记住你可能将密钥命名为 id_dsa.pub， id_ecdsa.pub 或者 id_ed25519.pub，那么需要修改下列命令中的文件名：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pbcopy &lt; ~<span class="regexp">/.ssh/id</span>_rsa.pub</span><br><span class="line"><span class="comment"># Copies the contents of the id_rsa.pub file to your clipboard</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>提示：也可以直接用文本编辑器等打开公钥文件，然后复制其中的内容。</p>
+<p>警告：在复制过程中一定不能添加任何新行或者空格。</p>
+</blockquote>
+<p>添加复制的密钥到 Github：</p>
+<p>1、找到账户管理，点击其中的“设置”。</p>
+<p>2、找到 SSH 密钥，点击添加 SSH 密钥。</p>
+<p>3、在标题输入框中添加新密钥的描述文本。例如，如果你在使用个人的 Mac，可以设置密钥名称为 “Personal MacBook Air”。</p>
+<p>4、在密钥输入框中粘贴刚才复制的密钥。</p>
+<p>5、点击添加。</p>
+<p>6、输入 Github 账号密码来确认。</p>
+<h2 id="步骤5：测试连接">步骤5：测试连接</h2><p>为了确保一切工作正常，接下来将 SSH 到 Github。这么做的时候，你需要使用密码来验证。这个密码就是你之前创建的 SSH 密钥的口令。</p>
+<p>1、打开终端并输入：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh -<span class="constant">T </span>git<span class="variable">@github</span>.com</span><br><span class="line"><span class="comment"># Attempts to ssh to GitHub</span></span><br></pre></td></tr></table></figure>
+<p>2、第一次你将看到下面的警告：</p>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity <span class="keyword">of</span> host <span class="attribute">'github</span>.com (<span class="number">207.97</span>.<span class="number">227.239</span>)' can<span class="attribute">'t</span> be established.</span><br><span class="line"># RSA key fingerprint <span class="keyword">is</span> <span class="number">16</span>:<span class="number">27</span>:ac:a5:<span class="number">76</span>:<span class="number">28</span>:<span class="number">2</span>d:<span class="number">36</span>:<span class="number">63</span>:<span class="number">1</span>b:<span class="number">56</span>:<span class="number">4</span>d:eb:df:a6:<span class="number">48</span>.</span><br><span class="line"># Are you sure you want <span class="keyword">to</span> continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
+<p>核实你看到的消息中的指纹，并输入: <code>yes</code>：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span></span><br><span class="line"><span class="comment"># provide shell access.</span></span><br></pre></td></tr></table></figure>
+<p>3、如果出现上面的信息，并且用户是你 ，那么你的 SSH 密钥就安装成功了。如果你收到了关于 <code>access denied</code> 的消息，那么就是失败了，那么请确认前面的步骤，重新来过。</p>
+<p>以上为 Mac 平台生成 SSH 密钥的步骤，Windows、Linux 平台略有不同。</p>
+<p>原文链接：<a href="https://help.github.com/articles/generating-ssh-keys/#platform-mac" target="_blank" rel="external">Generating SSH keys</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/800px-SSH_Communications_Security_logo.svg.png" alt="生成 SSH 密钥"></p>
+<p>Git 仓库可以通过 git:// 来访问，目前类似 Github，Gitcafe，Coding等基于 Git 的托管服务都提供有配置 SSH 密钥，来访问托管仓库的功能。本文中将通过为 Github 账号配置 SSH 密钥来访问仓库为例，说明 SSH 密钥配置过程。</p>
+<p>SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密码。下面的步骤将带你生成一个 SSH 密钥，并将其添加到你的 Github 账号。</p>]]>
+    
+    </summary>
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+      <category term="Github" scheme="http://yoursite.com/tags/Github/"/>
+    
+      <category term="ssh" scheme="http://yoursite.com/tags/ssh/"/>
+    
+      <category term="软件工具" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="ssh" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/ssh/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[iOS App 生命周期]]></title>
+    <link href="http://yoursite.com/lifecycle-of-an-ios-application/"/>
+    <id>http://yoursite.com/lifecycle-of-an-ios-application/</id>
+    <published>2015-08-28T11:27:20.000Z</published>
+    <updated>2015-08-28T11:43:46.000Z</updated>
+    <content type="html"><![CDATA[<p>对于iOS应用程序，关键的是要知道你的应用程序是否正在前台或后台运行。由于系统资源在iOS设备上较为有限，一个应用程序必须在后台与前台有不同的行为。操作系统也会限制你的应用程序在后台的运行，以提高电池寿命，并提高用户与前台应用程序的体验。当应用程序在前台和后台之间切换时，操作系统将会通知您的应用程序。你可以通过这些通知来修改你的应用程序的行为。</p>
+<p>当你的应用程序在前台活动时，系统会发送触摸事件给它进行处理。在UIKit的基础设施做了大部分的事件传递给你的自定义对象工作。所有您需要做的是覆盖在相应的对象的方法来处理这​​些事件。对于控件，UIKit会通过处理你的触摸事件，或者其他一些有趣的事情发生时调用您的自定义代码，比如当文本字段中的值更改。</p>
+<a id="more"></a>
+<h4 id="1-_应用程序的状态">1. 应用程序的状态</h4><p><code>Not running</code> (未运行)：程序没启动。</p>
+<p><code>Inactive</code>(未激活)：程序在前台运行，不过没有接收到事件。在没有事件处理情况下程序通常停留在这个状态。</p>
+<p><code>Active</code>(激活)：程序在前台运行而且接收到了事件。这也是前台的一个正常的模式。</p>
+<p><code>Backgroud</code>(后台)：程序在后台而且能执行代码，大多数程序进入这个状态后会在在这个状态上停留一会。时间到之后会进入挂起状态(Suspended)。有的程序经过特殊的请求后可以长期处于Backgroud状态。</p>
+<p><code>Suspended</code>(挂起)：程序在后台不能执行代码。系统会自动把程序变成这个状态而且不会发出通知。当挂起时，程序还是停留在内存中的，当系统内存低时，系统就把挂起的程序清除掉，为前台程序提供更多的内存。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-1.png" alt="iOS 应用生命周期"></p>
+<h4 id="2-_各个程序运行状态时代理的回调">2. 各个程序运行状态时代理的回调</h4><p><strong>2.1 告诉代理进程启动但还没进入状态保存</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application willFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"①告诉代理进程启动但还没进入状态保存"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.2 告诉代理启动基本完成程序准备开始运行</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.window</span> = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[[<span class="built_in">UIScreen</span> mainScreen] bounds]];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"②告诉代理启动基本完成程序准备开始运行"</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Override point for customization after application launch.</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.window</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.window</span> makeKeyAndVisible];</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.3 当应用程序将要入非活动状态执行，在此期间，应用程序不接收消息或事件，比如来电话</strong></p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="type">void</span>)applicationWillResignActive:(<span class="type">UIApplication</span> *)application</span><br><span class="line">&#123;</span><br><span class="line">    // <span class="type">Sent</span> <span class="keyword">when</span> the application <span class="keyword">is</span> about to move <span class="keyword">from</span> active to inactive state. <span class="type">This</span> can occur <span class="keyword">for</span> certain types <span class="keyword">of</span> temporary interruptions (such <span class="keyword">as</span> an incoming phone call <span class="keyword">or</span> <span class="type">SMS</span> message) <span class="keyword">or</span> <span class="keyword">when</span> the user quits the application <span class="keyword">and</span> it begins the transition to the background state.</span><br><span class="line">    // <span class="type">Use</span> this <span class="keyword">method</span> to pause ongoing tasks, disable timers, <span class="keyword">and</span> throttle down <span class="type">OpenGL</span> <span class="type">ES</span> frame rates. <span class="type">Games</span> should use this <span class="keyword">method</span> to pause the game.</span><br><span class="line">    <span class="type">NSLog</span>(@<span class="string">"③当应用程序将要入非活动状态执行，在此期间，应用程序不接收消息或事件，比如来电话"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.4 当应用程序进入活动状态执行</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)applicationDidBecomeActive:(<span class="built_in">UIApplication</span> *)application</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"④当应用程序进入活动状态执行"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.5 当程序被推送到后台的时候调用。所以要设置后台继续运行，则在这个函数里面设置即可</strong></p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="type">void</span>)applicationDidEnterBackground:(<span class="type">UIApplication</span> *)application</span><br><span class="line">&#123;</span><br><span class="line">    // <span class="type">Use</span> this <span class="keyword">method</span> to release <span class="literal">shared</span> resources, save user data, invalidate timers, <span class="keyword">and</span> store enough application state information to restore your application to its current state <span class="keyword">in</span> <span class="keyword">case</span> it <span class="keyword">is</span> terminated later.</span><br><span class="line">    // <span class="type">If</span> your application supports background execution, this <span class="keyword">method</span> <span class="keyword">is</span> called instead <span class="keyword">of</span> applicationWillTerminate: <span class="keyword">when</span> the user quits.</span><br><span class="line">    <span class="type">NSLog</span>(@<span class="string">"⑤当程序被推送到后台的时候调用"</span>);</span><br><span class="line">    </span><br><span class="line">    [application beginBackgroundTaskWithExpirationHandler:^&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="type">NSLog</span>(@<span class="string">"begin Background Task With Expiration Handler"</span>);</span><br><span class="line">        </span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.6 当程序从后台将要重新回到前台时候调用</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)applicationWillEnterForeground:(<span class="built_in">UIApplication</span> *)application</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"⑥当程序从后台将要重新回到前台时候调用"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.7 当程序将要退出是被调用，通常是用来保存数据和一些退出前的清理工作。这个需要要设置UIApplicationExitsOnSuspend的键值</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)applicationWillTerminate:(<span class="built_in">UIApplication</span> *)application</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"⑦当程序将要退出是被调用"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.8 当程序载入后执行</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">-</span> (<span class="tag">void</span>)<span class="rule"><span class="attribute">applicationDidFinishLaunching</span>:<span class="value">(UIApplication *)application</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function">NSLog</span>(@<span class="string">"⑧当程序载入后执行"</span>)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>程序启动时：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2014</span>-<span class="number">07</span>-<span class="number">01</span> <span class="number">15</span>:<span class="number">55</span>:<span class="number">14.706</span> LifeCycle[<span class="number">5845</span>:<span class="number">60</span>b] ①告诉代理进程启动但还没进入状态保存</span><br><span class="line"></span><br><span class="line"><span class="number">2014</span>-<span class="number">07</span>-<span class="number">01</span> <span class="number">15</span>:<span class="number">55</span>:<span class="number">14.708</span> LifeCycle[<span class="number">5845</span>:<span class="number">60</span>b] ②告诉代理启动基本完成程序准备开始运行</span><br><span class="line"></span><br><span class="line"><span class="number">2014</span>-<span class="number">07</span>-<span class="number">01</span> <span class="number">15</span>:<span class="number">55</span>:<span class="number">14.709</span> LifeCycle[<span class="number">5845</span>:<span class="number">60</span>b] ④当应用程序进入活动状态执行</span><br></pre></td></tr></table></figure>
+<p>按下Home键返回主界面：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2014</span>-<span class="number">07</span>-<span class="number">01</span> <span class="number">15</span>:<span class="number">56</span>:<span class="number">11.756</span> LifeCycle[<span class="number">5845</span>:<span class="number">60</span>b] ③当应用程序将要入非活动状态执行</span><br><span class="line"></span><br><span class="line"><span class="number">2014</span>-<span class="number">07</span>-<span class="number">01</span> <span class="number">15</span>:<span class="number">56</span>:<span class="number">11.814</span> LifeCycle[<span class="number">5845</span>:<span class="number">60</span>b] ⑤当程序被推送到后台的时候调用</span><br></pre></td></tr></table></figure>
+<p>再次打开程序：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2014</span>-<span class="number">07</span>-<span class="number">01</span> <span class="number">15</span>:<span class="number">57</span>:<span class="number">19.200</span> LifeCycle[<span class="number">5845</span>:<span class="number">60</span>b] ⑥当程序从后台将要重新回到前台时候调用</span><br><span class="line"></span><br><span class="line"><span class="number">2014</span>-<span class="number">07</span>-<span class="number">01</span> <span class="number">15</span>:<span class="number">57</span>:<span class="number">19.201</span> LifeCycle[<span class="number">5845</span>:<span class="number">60</span>b] ④当应用程序进入活动状态执行</span><br></pre></td></tr></table></figure>
+<h4 id="3-_加载应用程序进入前台">3. 加载应用程序进入前台</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-2.png" alt="iOS 应用生命周期"></p>
+<h4 id="4-_加载应用程序进入后台">4. 加载应用程序进入后台</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-3.png" alt="iOS 应用生命周期"></p>
+<h4 id="5-_基于警告式响应中断">5. 基于警告式响应中断</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-4.png" alt="iOS 应用生命周期"></p>
+<p>当出现这种中断时，我们需要在<code>- (void)applicationWillResignActive:(UIApplication *)application</code> 方法中进行如下操作：</p>
+<ol>
+<li><p>停止timer 和其他周期性的任务</p>
+</li>
+<li><p>停止任何正在运行的请求</p>
+</li>
+<li><p>暂停视频的播放</p>
+</li>
+<li><p>如果是游戏那就暂停它</p>
+</li>
+<li><p>减少OpenGL ES的帧率</p>
+</li>
+<li><p>挂起任何分发的队列和不重要的操作队列（你可以继续处理网络请求或其他时间敏感的后台任务）</p>
+</li>
+</ol>
+<p>当程序回到active状态，我们需要在<code>- (void)applicationDidBecomeActive:(UIApplication *)application</code> 方法中重新开始上述任务。不过游戏要回到暂停状态，不能自动开始。</p>
+<h4 id="6-_进入后台运行">6. 进入后台运行</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-5.png" alt="iOS 应用生命周期"></p>
+<p>当应用程序进入后台时，我们应该做些什么？</p>
+<p>保存用户数据或状态信息，所有没写到磁盘的文件或信息，在进入后台时，最后都写到磁盘去，因为程序可能在后台被杀死。</p>
+<p>释放尽可能释放的内存。</p>
+<p><code>- (void)applicationDidEnterBackground:(UIApplication *)application</code> 方法有大概5秒的时间让你完成这些任务。如果超过时间还有未完成的任务，你的程序就会被终止而且从内存中清除。</p>
+<p>如果还需要长时间的运行任务，可以在该方法中调用</p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">[<span class="keyword">application</span> beginBackgroundTaskWithExpirationHandler:^&#123;</span><br><span class="line">        </span><br><span class="line">        NSLog<span class="list">(<span class="keyword">@</span><span class="string">"begin Background Task With Expiration Handler"</span>)</span><span class="comment">;</span></span><br><span class="line">        </span><br><span class="line">    &#125;]<span class="comment">;</span></span></span><br></pre></td></tr></table></figure>
+<p>应用程序在后台时的内存使用：请求后台运行时间和启动线程来运行长时间运行的任务。</p>
+<p>在后台时，每个应用程序都应该释放最大的内存。系统努力的保持更多的应用程序在后台同时 运行。不过当内存不足时，会终止一些挂起的程序来回收内存，那些内存最大的程序首先被终止。</p>
+<p>事实上，应用程序应该的对象如果不再使用了，那就应该尽快的去掉强引用，这样编译器可以回收这些内存。如果你想缓存一些对象提升程序的性能，你可以在进入后台时，把这些对象去掉强引用。</p>
+<p>下面这样的对象应该尽快的去掉强引用：</p>
+<ol>
+<li><p>图片对象</p>
+</li>
+<li><p>你可以重新加载的 大的视频或数据文件</p>
+</li>
+<li><p>任何没用而且可以轻易创建的对象</p>
+</li>
+</ol>
+<p>在后台时，为了减少程序占用的内存，系统会自动在回收一些系统帮助你开辟的内存。比如：</p>
+<ol>
+<li><p>系统回收Core Animation的后备存储。</p>
+</li>
+<li><p>去掉任何系统引用的缓存图片</p>
+</li>
+<li><p>去掉系统管理数据缓存强引用</p>
+</li>
+</ol>
+<h4 id="7-_返回前台运行">7. 返回前台运行</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-6.png" alt="iOS 应用生命周期"></p>
+<p>在暂停状态的应用程序必须准备处理任何排队的通知时，它返回到前台或后台执行状态。暂停的应用程序不执行任何代码，因此不能处理与方向的变化，时间的变化，偏好的变化，以及许多其他会影响应用程序的外观或状态的通知。为了确保这些更改不会丢失，系统排队许多相关的通知，并把它们传递给应用程序，只要它开始再次执行代码（无论是在前景或背景）。为了防止由偏快转为超载与它恢复时通知您的应用程序，该系统凝聚事件，并提供一个单一的通知（每个相关类型），反映了净变化，因为你的应用程序被暂停。</p>
+<h4 id="8-_程序终止">8. 程序终止</h4><p>程序只要符合以下情况之一，只要进入后台或挂起状态就会终止：</p>
+<ol>
+<li><p>iOS4.0以前的系统</p>
+</li>
+<li><p>app是基于iOS4.0之前系统开发的。</p>
+</li>
+<li><p>设备不支持多任务</p>
+</li>
+<li><p>在Info.plist文件中，程序包含了 <code>UIApplicationExitsOnSuspend</code> 键。</p>
+</li>
+</ol>
+<p>app如果终止了，系统会调用app的代理的方法 <code>- (void)applicationWillTerminate:(UIApplication *)application</code>，这样可以让你可以做一些清理工作。你可以保存一些数据或app的状态。这个方法也有5秒钟的限制。超时后方法会返回程序从内存中清除。</p>
+<p>注意：用户可以手工关闭应用程序。</p>
+<h4 id="9-_The_Main_Run_Loop_主运行循环">9. The Main Run Loop 主运行循环</h4><p>Main Run Loop负责处理用户相关的事件。UIApplication对象在程序启动时启动main run Loop，它处理事件和更新视图的界面。看Main Run Loop就知道，它是运行在程序的主线程上的。这样保证了接收到用户相关操作的事件是按顺序处理的。 </p>
+<p>用户操作设备，相关的操作事件被系统生成并通过UIKit的指定端口分发。事件在内部排成队列，一个个的分发到Main run loop 去做处理。UIApplication对象是第一个接收到时间的对象，它决定事件如何被处理。触摸事件分发到主窗口，窗口再分发到对应出发触摸事件的View。其他的事件通过其他途径分发给其他对象变量做处理。 </p>
+<p>大部分的事件可以在你的应用里分发，类似于触摸事件，远程操控事件（线控耳机等）都是由app的 responder objects 对象处理的。Responder objects 在你的app里到处都是，比如：UIApplication 对象，view对象，view controller 对象，都是resopnder objects。大部分事件的目标都指定了resopnder object，不过事件也可以传递给其他对象。比如，如果view对象不处理事件，可以传给父类view或者view controller。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-7.png" alt="iOS 应用生命周期"></p>
+<p>英文原文：<a href="https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/ManagingYourApplicationsFlow/ManagingYourApplicationsFlow.html#//apple_ref/doc/uid/TP40007072-CH4-SW20" target="_blank" rel="external">App States and Multitasking</a><br>译文出处：<a href="http://www.cnblogs.com/EverNight/p/3818570.html" target="_blank" rel="external">iOS App的生命周期</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>对于iOS应用程序，关键的是要知道你的应用程序是否正在前台或后台运行。由于系统资源在iOS设备上较为有限，一个应用程序必须在后台与前台有不同的行为。操作系统也会限制你的应用程序在后台的运行，以提高电池寿命，并提高用户与前台应用程序的体验。当应用程序在前台和后台之间切换时，操作系统将会通知您的应用程序。你可以通过这些通知来修改你的应用程序的行为。</p>
+<p>当你的应用程序在前台活动时，系统会发送触摸事件给它进行处理。在UIKit的基础设施做了大部分的事件传递给你的自定义对象工作。所有您需要做的是覆盖在相应的对象的方法来处理这​​些事件。对于控件，UIKit会通过处理你的触摸事件，或者其他一些有趣的事情发生时调用您的自定义代码，比如当文本字段中的值更改。</p>]]>
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+      <category term="应用程序" scheme="http://yoursite.com/tags/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/"/>
+    
+      <category term="生命周期" scheme="http://yoursite.com/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+    
+      <category term="开发技术" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[一个成功的 Git 分支模型]]></title>
+    <link href="http://yoursite.com/a-successful-git-branching-model/"/>
+    <id>http://yoursite.com/a-successful-git-branching-model/</id>
+    <published>2015-08-27T04:34:56.000Z</published>
+    <updated>2015-08-28T12:03:40.000Z</updated>
+    <content type="html"><![CDATA[<p>原文来自：<a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="external">A successful Git branching model</a><br>译文来自：<a href="http://www.juvenxu.com/2010/11/28/a-successful-git-branching-model/" target="_blank" rel="external">一个成功的 Git 分支模型</a></p>
+<p>这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。</p>
+<hr>
+<p>本文中我会展示一种开发模型，一年前该模型就已经被我用在所有的项目中（包括工作中的项目和私有项目），结果是非常成功的。我早就想为此写点东西，可直到现在才有时间。本文不会讲述任何项目的细节，只会涉及到分支策略和发布管理。</p>
+<a id="more"></a>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-1.png" alt="一个成功的 Git 分支模型"></p>
+<p>本文使用 Git 作为所有源码的版本控制工具。</p>
+<h2 id="为什么是_Git？">为什么是 Git？</h2><p>要全面了解 Git 与其它集中式版本控制系统相比的优劣，可以参考这个页面。这方面的争论可谓是硝烟弥漫。作为一个开发者，所有这些工具中我最钟情于 Git。Git 的的确确改变了人们考虑合并及分支的方式。在我之前所处的经典 CVS/Subversion 世界中，合并/分支总是被认为是有点可怕的事情（“小心合并冲突，丫会恶心到你”），因此你只应偶尔干这种事情。</p>
+<p>但有了 Git，这类事情就变得非常简单，分支及合并甚至被认为是你日常版本控制操作的核心之一。例如，在 CVS/Subversion 的书中，分支及合并往往在后面的章节才被介绍（针对高级用户），但在每一本 Git 的书中，该内容已经在前3章中介绍（基础）。</p>
+<p>简单及易重复性带来的好处就是，分支及合并变得不再可怕。版本控制工具本该帮助我们方便的进行和分支及合并操作。</p>
+<p>简单介绍下工具后，让我们来看开发模型。我讲介绍的模型本质上只是一组步骤，每个团队成员都必须遵循这些步骤以形成一个可靠管理的软件开发过程。</p>
+<h3 id="去中心化但仍保持中心化">去中心化但仍保持中心化</h3><p>在这个分支模型中我们使用的，且被证实工作得很好的仓库配置，其核心是一个中心“真理”仓库。注意只有该仓库才被认为是中心库（由于 Git 是 DVCS [分布式版本控制系统]，在技术层面没有中心库这一东西）。之后我们用 origin 指代该仓库，因为大多数 Git 用户都熟悉这个名称。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-2.png" alt="一个成功的 Git 分支模型"></p>
+<p>每个开发者都对 origin 做 push 和 pull 操作。不过除了这种中心化的 push-pull 关系外，每个开发者还可以从其他开发者或者小组处 pull 变更。例如，可能两个或更多的开发者一起开发一个大的特性，在往 origin 永久性的 push 工作代码之前，他们之间可以执行一些去中心化的操作。在上图中，分别有 Alice 和 Bob、Alice 和 David、Clair 和 David这些小组。</p>
+<p>从技术上来说，这仅仅是 Alice 定义一个 Git remote，名字为 bob，指向 Bob 的仓库，反过来也一样。</p>
+<h3 id="主要分支">主要分支</h3><p>此开发模型的核心主要受现有的模型启发。中心仓库包含了两个主要分支，这两个分支的寿命是无限的：</p>
+<ul>
+<li>master</li>
+<li>develop</li>
+</ul>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-3.png" alt="一个成功的 Git 分支模型"></p>
+<p>每个 Git 用于都应该熟悉 origin 上的 master 分支。与 master 分支平行存在的，是另外一个名为 develop 的分支。</p>
+<p>我们认为 origin/develop 分支上的 HEAD 源码反映了开发过程中最新的提交变更。有人会称之为“集成分支”。该分支是自动化每日构建的代码源。</p>
+<p>当 develop 分支上的源码到达一个稳定的状态时，就可以发布版本。所有 develop 上的变更都应该以某种方式合并回 master 分支，并且使用发布版本号打上标签。稍后我们会讨论具体操作细节。</p>
+<p>因此，每次有变化被合并到 master 分支时，根据定义这就是一次新的产品版本发布。我们趋向于严格遵守该规范，所以理论上来说，每次 master 有提交时，我们都可以使用一个 Git 钩子（hook）脚本来自动构建并部署软件至产品环境服务器。</p>
+<h3 id="支持性分支">支持性分支</h3><p>紧接着主要分支 master 和 develop，我们的开发模型使用多种支持性分支来帮助团队成员间实现并行开发、追踪产品特性、准备产品版本发布、以及快速修复产品问题。与主要分支不同的是，这些分支的寿命是有限的，它们最终都会被删除。</p>
+<p>我们会用到的分支有这几类：</p>
+<ul>
+<li>特性分支（feature branch）</li>
+<li>发布分支（release branch）</li>
+<li>热补丁分支（hotfix branch）</li>
+</ul>
+<p>上述每种分支都有特定的用途，它们各自关于源自什么分支、合并回什么分支，都有严格的规定。稍后我们逐个进行介绍。</p>
+<p>从技术角度来说，这些分支一点都不“特殊”。分支按照我们对其的使用方式进行分类。技术角度它们都一样是平常的 Git 分支。</p>
+<h3 id="特性分支">特性分支</h3><p>可能的分支来源：develop<br>必须合并回：develop<br>分支命令约定：任何除 master, develop, <code>release-*</code>, 或 <code>hotfix-*</code> 以外的名称</p>
+<p>特性分支（有时也被称作 topic 分支）是用来为下一发布版本开发新特性。当开始开发一个特性的时候，该特性会成为哪个发布版本的一部分，往往还不知道。特性分支的重点是，只要特性还在开发，该分支就会一直存在，不过它最终会被合并回 develop 分支（将该特性加入到发布版本中），或者被丢弃（如果试验的结果令人失望）。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-4.png" alt="一个成功的 Git 分支模型"></p>
+<p>特性分支往往只存在于开发者的仓库中，而不会出现在 origin。</p>
+<h4 id="创建一个特性分支">创建一个特性分支</h4><p>开始开发新特性的时候，从 develop 分支创建特性分支。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -<span class="tag">b</span> myfeature develop</span><br><span class="line">Switch to <span class="tag">a</span> new branch “myfeature”</span><br></pre></td></tr></table></figure>
+<h4 id="合并完成的特性回_develop">合并完成的特性回 develop</h4><p>完成的特性应该被合并回 develop 分支以将特性加入到下一个发布版本中：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout develop</span><br><span class="line"><span class="keyword">Switch </span>to <span class="keyword">branch </span>‘develop’</span><br><span class="line">$ git merge –no-ff myfeature</span><br><span class="line"><span class="label">Updating</span> ea1b82a..<span class="number">05</span>e9557</span><br><span class="line">(Summary of changes)</span><br><span class="line">$ git <span class="keyword">branch </span>-d myfeature</span><br><span class="line"><span class="label">Deleted</span> <span class="keyword">branch </span>myfeature (was <span class="number">05</span>e9557).</span><br><span class="line">$ git <span class="keyword">push </span>origin develop</span><br></pre></td></tr></table></figure>
+<p>上述代码中的 –no-ff 标记会使合并永远创建一个新的 commit 对象，即使该合并能以 fast-forward 的方式进行。这么做可以避免丢失特性分支存在的历史信息，同时也能清晰的展现一组 commit 一起构成一个特性。比较下面的图：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-5.png" alt="一个成功的 Git 分支模型"></p>
+<p>在第2张图中，已经无法一眼从 Git 历史中看到哪些 commit 对象构成了一个特性——你需要阅读日志以获得该信息。在这种情况下，回退（revert）整个特性（一组commit）就会比较麻烦，而如果使用了 –no-diff 就会简单很多。</p>
+<p>是的，这么做会造成一些（空的） commit 对象，但这么做是利大于弊的。</p>
+<p>可惜的是，我没能找到方法让 –no-diff 成为默认的 git merge 行为参数，但其实应该这么做。</p>
+<h3 id="发布分支">发布分支</h3><p>可能的分支来源：develop<br>必须合并回：develop 和 master<br>分支命名约定：release-*</p>
+<p>发布分支为准备新的产品版本发布做支持。它允许你在最后时刻检查所有的细节。此外，它还允许你修复小 bug 以及准备版本发布的元数据（例如版本号，构建日期等等）。在发布分支做这些事情之后，develop 分支就会显得比较干净，也方便为下一大版本发布接受特性。</p>
+<p>从 develop 分支创建发布分支的时间通常是 develop 分支（差不多）能反映新版本所期望状态的时候。至少说，这是时候版本发布所计划的特性都已经合并回了 develop 分支。而未来其它版本发布计划的特性则不应该合并，它们必须等到当前的版本分支创建好之后才能合并。</p>
+<p>正是在发布分支创建的时候，对应的版本发布才获得一个版本号——不能更早。在该时刻之前， develop 分支反映的是“下一版本”的相关变更，但不知道这“下一版本”到底会成为0.3还是1.0，直到发布分支被创建。版本号是在发布分支创建时，基于项目版本号规则确定的。</p>
+<h4 id="创建一个发布分支">创建一个发布分支</h4><p>发布分支从 develop 分支创建。例如，假设1.1.5是当前的产品版本，同时我们即将发布下个版本。develop 分支的状态已经是准备好“下一版本”发布了，我们也决定下个版本是1.2（而不是1.1.6或者2.0）。因此我们创建发布分支，并且为其赋予一个能体现新版本号的名称：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -<span class="tag">b</span> releases-<span class="number">1.2</span> develop</span><br><span class="line">Switched to <span class="tag">a</span> new branch “release-<span class="number">1.2</span>”</span><br><span class="line">$ ./bump-version<span class="class">.sh</span> <span class="number">1.2</span></span><br><span class="line">Files modified successfully. version bumped to <span class="number">1.2</span>.</span><br><span class="line">$ git commit -<span class="tag">a</span> -m “Bumped version number to <span class="number">1.2</span>”</span><br><span class="line">[release-<span class="number">1.2</span> <span class="number">74</span>d9424] Bumped version number to <span class="number">1.2</span></span><br><span class="line"><span class="number">1</span> files changed. <span class="number">1</span> <span class="function"><span class="title">insertions</span><span class="params">(+)</span></span>. <span class="number">1</span> <span class="function"><span class="title">deletions</span><span class="params">(-)</span></span></span><br></pre></td></tr></table></figure>
+<p>创建新分支并转到该分支之后，我们设定版本号。这里的 bump-version.sh 是一个虚构的 shell 脚本，它修改一些本地工作区的文件以体现新的版本号。（当然这也可以手动完成——这里只是说要有一些文件变更）接着，提交新版本号。</p>
+<p>新的发布分支可能存在一段时间，直到该版本明确对外交付。这段时间内，该分支上可能会有一些 bug 的修复（而不是在 develop 分支上）。在该分支上添加新特性是严格禁止的。新特性必须合并到 develop 分支，然后等待下一个版本发布。</p>
+<h4 id="结束一个发布分支">结束一个发布分支</h4><p>当发布分支达到一个可以正式发布的状态时，我们就需要执行一些操作。首先，将发布分支合并至 master （记住，我们之前定义 master 分支上的每一个 commit 都对应一个新版本）。接着，master 分支上的 commit 必须被打上标签（tag），以方便将来寻找历史版本。最后，发布分支上的变更需要合并回 develop，这样将来的版本也能包含相关的 bug 修复。</p>
+<p>前两步在 Git 中的操作：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">Switched to branch ‘master’</span><br><span class="line">$ git <span class="operator"><span class="keyword">merge</span> –<span class="keyword">no</span>-ff <span class="keyword">release</span>-<span class="number">1.2</span></span><br><span class="line"><span class="keyword">Merge</span> made <span class="keyword">by</span> <span class="keyword">recursive</span>.</span><br><span class="line">(Summary <span class="keyword">of</span> changes)</span><br><span class="line">$ git tag -a <span class="number">1.2</span></span></span><br></pre></td></tr></table></figure>
+<p>现在版本发布完成了，而且为未来的查阅提供了标签。</p>
+<p><strong>提醒：</strong>你可能同时也会想要用 -s 或者 -u <key> 来对标签进行签名。</key></p>
+<p>为了能保留发布分支上的变更，我们还需要将分支合并回 develop。在 Git 中：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout develop</span><br><span class="line">Switched to branch ‘develop’</span><br><span class="line">$ git <span class="operator"><span class="keyword">merge</span> –<span class="keyword">no</span>-ff <span class="keyword">release</span>-<span class="number">1.2</span></span><br><span class="line"><span class="keyword">Merge</span> made <span class="keyword">by</span> <span class="keyword">recursive</span>.</span><br><span class="line">(Summary <span class="keyword">of</span> changes)</span></span><br></pre></td></tr></table></figure>
+<p>这一操作可能会导致合并冲突（可能性还很大，因为我们改变了版本号）。如果发现，则修复之并提交。</p>
+<p>现在工作才算真正完成了，最后一步是删除发布分支，因为我们已不再需要它：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">branch </span>-d release-<span class="number">1</span>.<span class="number">2</span></span><br><span class="line"><span class="label">Deleted</span> <span class="keyword">branch </span>release-<span class="number">1</span>.<span class="number">2</span> (was ff452fe).</span><br></pre></td></tr></table></figure>
+<h3 id="热补丁分支">热补丁分支</h3><p>可能的分支来源：master<br>必须合并回：develop 和 master<br>分支命名约定：hotfix-*</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-6.png" alt="一个成功的 Git 分支模型"></p>
+<p>热补丁分支和发布分支十分类似，它的目的也是发布一个新的产品版本，尽管是不在计划中的版本发布。当产品版本发现未预期的问题的时候，就需要理解着手处理，这个时候就要用到热补丁分支。当产品版本的重大 bug 需要立即解决的时候，我们从对应版本的标签创建出一个热补丁分支。</p>
+<p>使用热补丁分支的主要作用是（ develop 分支上的）团队成员可以继续工作，而另外的人可以在热补丁分支上进行快速的产品 bug 修复。</p>
+<h4 id="创建一个热补丁分支">创建一个热补丁分支</h4><p>热补丁分支从 master 分支创建。例如，假设1.2是当前正在被使用的产品版本，由于一个严重的 bug，产品引起了很多问题。同时，develop 分支还处于不稳定状态，无法发布新的版本。这时我们可以创建一个热补丁分支，并在该分支上修复问题：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b hotfix-<span class="number">1.2</span><span class="number">.1</span> master</span><br><span class="line">Switched to a <span class="keyword">new</span> branch “hotfix-<span class="number">1.2</span><span class="number">.1</span>″</span><br><span class="line">$ ./bump-version.sh <span class="number">1.2</span><span class="number">.1</span></span><br><span class="line">Files modified successfully, version bumped to <span class="number">1.2</span><span class="number">.1</span>.</span><br><span class="line">$ git commit -a -m “Bumped version number to <span class="number">1.2</span><span class="number">.1</span>″</span><br><span class="line">[hotfix-<span class="number">1.2</span><span class="number">.1</span> <span class="number">41e61</span>bb] Bumped version number to <span class="number">1.2</span><span class="number">.1</span></span><br><span class="line"><span class="number">1</span> files changed, <span class="number">1</span> insertions(+), <span class="number">1</span> deletions(-)</span><br></pre></td></tr></table></figure>
+<p>不要忘了在创建热补丁分之后设定一个新的版本号！</p>
+<p>然后，修复 bug 并使用一个或者多个单独的 commit 提交。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m “Fixed severe production problem”</span><br><span class="line">[hotfix-<span class="number">1.2</span>.<span class="number">1</span> abbe5d6] Fixed severe production problem</span><br><span class="line"><span class="number">5</span> files changed, <span class="number">32</span> <span class="function"><span class="title">insertions</span><span class="params">(+)</span></span>, <span class="number">17</span> <span class="function"><span class="title">deletions</span><span class="params">(-)</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="结束一个热补丁分支">结束一个热补丁分支</h4><p>修复完成后，热补丁分支需要合并回 master，但同时它还需要被合并回 develop，这样相关的修复代码才会同时被包含在下个版本中。这与我们完成发布分支很类似。</p>
+<p>首先，更新 master 分支并打上标签。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">Switched to branch ‘master’</span><br><span class="line">$ git <span class="operator"><span class="keyword">merge</span> –<span class="keyword">no</span>-ff hotfix-<span class="number">1.2</span><span class="number">.1</span></span><br><span class="line"><span class="keyword">Merge</span> made <span class="keyword">by</span> <span class="keyword">recursive</span>.</span><br><span class="line">(Summary <span class="keyword">of</span> changes)</span><br><span class="line">$ git tag -a <span class="number">1.2</span><span class="number">.1</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>提醒：</strong>你可能同时也会想要用 -s 或者 -u <key> 来对标签进行签名。</key></p>
+<p>接着，将修复代码合并到 develop：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout develop</span><br><span class="line">Switched to branch ‘develop’</span><br><span class="line">$ git <span class="operator"><span class="keyword">merge</span> –<span class="keyword">no</span>-ff hotfix-<span class="number">1.2</span><span class="number">.1</span></span><br><span class="line"><span class="keyword">Merge</span> made <span class="keyword">by</span> <span class="keyword">recursive</span>.</span><br><span class="line">(Summary <span class="keyword">of</span> changes)</span></span><br></pre></td></tr></table></figure>
+<p>这里还有个例外情况，如果这个时候有发布分支存在，热补丁分支的变更则应该合并至发布分支，而不是 develop。将热补丁合并到发布分支，也意味着当发布分支结束的时候，变更最终会被合并到 develop。（如果 develop 上的开发工作急需热补丁并无法等待发布分支完成，这时你也已经可以安全地将热补丁合并到 develop 分支。）</p>
+<p>最后，删除临时的热补丁分支：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d hotfix-<span class="number">1.2</span><span class="number">.1</span></span><br><span class="line">Deleted branch hotfix-<span class="number">1.2</span><span class="number">.1</span> (was abbe5d6).</span><br></pre></td></tr></table></figure>
+<h3 id="小结">小结</h3><p>虽然这个分支模型中没有什么特别新鲜的东西，但本文起始处的“全景图”事实上在我们的项目中起到了非常大的作用。它帮助建立了优雅的，易理解的概念模型，使得团队成员能够快速建立并理解一个公用的分支和发布过程。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>原文来自：<a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a><br>译文来自：<a href="http://www.juvenxu.com/2010/11/28/a-successful-git-branching-model/">一个成功的 Git 分支模型</a></p>
+<p>这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。</p>
+<hr>
+<p>本文中我会展示一种开发模型，一年前该模型就已经被我用在所有的项目中（包括工作中的项目和私有项目），结果是非常成功的。我早就想为此写点东西，可直到现在才有时间。本文不会讲述任何项目的细节，只会涉及到分支策略和发布管理。</p>]]>
+    
+    </summary>
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+      <category term="分支模型" scheme="http://yoursite.com/tags/%E5%88%86%E6%94%AF%E6%A8%A1%E5%9E%8B/"/>
+    
+      <category term="工作流" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/"/>
+    
+      <category term="软件工具" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Git" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[程序员真正的价值]]></title>
+    <link href="http://yoursite.com/the-real-value-of-programmers/"/>
+    <id>http://yoursite.com/the-real-value-of-programmers/</id>
+    <published>2015-08-26T03:13:14.000Z</published>
+    <updated>2015-08-27T10:25:58.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/14064631_iVnR.jpg" alt="程序员真正的价值"></p>
+<blockquote>
+<p>问：池老师，我是个不爱互动的人，但是您所有的文章我都看了，非常感谢您的引导，我入手了人生第一台 MBP。现在问题来了，但是找不到更合适的人解答，只能求助于您了，如果您有时间的话。问题是这样的：我有个32bit unix file（开启一个服务进程），在 Mac 上执行时错误提示是：exec format error，但是在 Linux 服务器却可以执行，为何？Mac 上有可以运行的方案吗？期待您的回复，不胜感激。</p>
+<p>答：Linux 和 OS X 是不同的操作系统，可以尝试在 OS X 里重新编译这个文件。</p>
+<p>问：非常感谢！如果没有文件源码是不是就只能认命了？</p>
+<p>答：可以在 Mac 上装 Docker，然后对服务进行端口映射就可以了。</p>
+<p>答：茅塞顿开。谢池老师。</p>
+</blockquote>
+<p>以上是我和一位读者的对话，这位小伙子在拿到答案之后像一缕烟尘一样消失无踪，之后再也没有出现过。</p>
+<a id="more"></a>
+<p>在微信上加了很多 MacTalk 的读者之后，经常会收到一些奇奇怪怪的问题，关于职场、关于选择、关于朋友、关于 Mac、关于技术等等，不一而足。但是我能回答的却很少。问题不好没法回答，问题太复杂没法回答，问题领域超出我的认知也没法回答，耗时太长的问题我也没 时间回答，实在是惭愧的紧。好在偶尔也能够帮助一些小伙伴解决一些实际问题，心理上略感安慰，比如上面这个问题。</p>
+<p>把这段程序员之间的对话翻译一下，大致是这么个故事：</p>
+<p>一位读者有一个32位的 Unix 可执行文件，可以在某种版本的 Linux 服务器上正常运行，运行这个文件作用就是起个进程，开端口，然后与其他程序进行交互。但是这个文件拿到 Mac 上完全没办法运行。就在他趴在 Mac 上愁肠百结万念俱灰的时候，突然想到了「池老师」。不就是这个老家伙把 Mac 夸的像一朵玫瑰一样，让每个程序员都去采摘么？现在扎手了，你不管谁管？于是他给我发来消息，意思就是管也得管，不管也得管，您看着办。</p>
+<p>我拿到问题一看，不难。Linux 和 OS X 虽然师出同门，都是从老前辈 Unix 那儿毕业的，但是后来毕竟各练各的，在 Linux 编译好的程序不可能在 OS X 上用，但是在 OS X 上重新编译一下可能就没事了。我把这个想法告诉了这位程序员，得到的反馈是：对不起哥，没有源代码！</p>
+<p>我被这个冷酷的回复震惊了，立刻意识到刚才的想法并不是最优解决方案，因为在重新编译的过程中，各种包的依赖关系和编译错误足以让你焦头烂额，我随即提供了 B 计划：在 OS X 上安装 Docker，轻量级的容器 Docker 可以运行各种版本的 Linux，把文件扔到 Docker 里，然后通过主机和 Docker 之间的端口映射即可轻松解决这一问题。</p>
+<p>虽然这里面会涉及很多技术细节，但是方向是没有问题的，所以这位程序员立刻表示「茅塞顿开」，然后「biu」的一声就在屏幕对面消失了，没有留给我说「不客气」的机会。</p>
+<p>这个问题装个 Linux 虚拟机也可以解决，但是虚拟机过于耗费资源，而且不如 Docker 灵活，所以不是最佳解决方案。Docker 是。</p>
+<p>做为一个程序员，我们除了要掌握多门程序语言和多种数据库，了解前端技术、后端技术，通晓网络七层架构，知道 TCP/IP三次握手和四次挥手，编写漂亮的代码，设计优美的架构… 之外，我们还要解决研发、程序运行和产品上线过程中遇到的各种问题，而且被要求以最 小的代价来解决问题… 我们容易吗？</p>
+<p>除了编程技巧和程序设计能力，解决问题的稳准狠是衡量一个程序员是否优秀的重要因素之一，也是资深技术 人员真正的价值所在。在科技浪潮澎湃、技术信息扑面而来的今天，一位刚毕业的大学生如果足够勤奋，他可以在两三个月之内掌握一门编程语言，并编写出像模像 样的软件，他们的学习速度甚至超过了我们这些老程序员，但是解决问题的能力是无法速成的，只能依靠时间、经验和惨痛的教训历练而成。有时候还需要灵感和运气。</p>
+<p>很多军迷读了大量的军事著作和历史小说，常常羡慕那些名将的风采，并浩叹自己「生不逢时」。但是名将不是那么容易炼成的。历史上叱诧风 云的名将凤毛麟角，他们亲自持刀上阵追击敌人，见识战场的惨烈，目睹敌人的尸体，看到战友被杀，知道被刀看中会流血死去，他们冷酷无情，坚如磐石，在全军即将崩溃的时候发现敌人的弱点并进行攻击，在瞬息万变的战场进行决断，在多次失败后从无数士兵的尸体里站起来重新出发去挑战那个战胜你的对手，在所有人对你说「指导员，我们上吧」的时候，坚定的说出那三个字：再等等！</p>
+<p>如果你做不到这些，那还是做个最终会被张飞枪挑的小兵吧。</p>
+<p>优秀的程序员同样如此，菜鸟常常羡慕高手在谈笑之间让难题灰飞烟灭，而自己却苦苦思索而不得入门之法，殊不知这些高手同样经历了名将的那些腥风血雨。他们在 清晨的微光里编写代码，在轰鸣的机房中调试程序，他们彻夜不眠就是为了解决一个 bug，他们要承受数据丢失或上线失败的痛苦，默默吞下眼泪，准备下一次的战斗。不停的学习、实践和思索，成千上万个小时之后，高手史成。</p>
+<p>同样的问题，高手的解决思路和小球是截然不同的。一般来说，只要不是世界难题，给足时间、空间和人力，都能解决。如果你遇到问题告诉上级，这个问题交给我了，两年之内搞的妥妥哒，那就不要怪项目组组团把你打出翔来，因为大家要的是分分钟解决，不是两年。在这个唯快不破的年代，我们没有这么多的时间，所以要通过逆向思维、经验教训、辗转腾挪、借力打力等方式以最小的代价快速解决问题。这才是老程序员的价值。</p>
+<p>再举个例子，一个运行良好的线上应用在你修改 bug 增加功能之后重新上线出现了一些莫名其妙的问题，比如占用资源增加或运行一段时间宕机等等，怎么解决？</p>
+<p>常规的做法就是通过阅读日志、模拟线上环境和调试程序来定位错误。容易的 bug 用这些方式基本就能搞定了，但是更隐蔽的 bug 会耗费大量的时间和人力。更好的方式是什么？</p>
+<p>首先，排查是程序问题还是环境问题，把线上程序恢复到运行正常时的老版本，如果出现了同样的问题，那就是生产环境发生了改变。如果运行正常，要么是你修改老 bug 时引入了新 bug，要么是新增加的代码出现了问题。</p>
+<p>其次，阅读产品的 changelog，根据代码提交的时间线构建系统，通过二分法排查，定位是哪部分代码引起的问题。</p>
+<p>第三，排除了所有的不可能，剩下的无论看起来如何不可能，就是它干的。</p>
+<p>以上只是一个简单的例子，实际的情况可能比这个例子复杂一百倍，需要我们综合使用各种方式进行交叉比对和错误排查才能解决。这仅仅是遇到问题解决问题，更多的时候是需要你提出问题，并解决问题，那是更高的境界。</p>
+<p>很多人学了那么多编程语言，写了十几年程序，最终依然无法做到以最小的代价解决问题，不禁让人扼腕叹息。</p>
+<p>程序员真正的价值是什么？以最小的代价解决问题！知行合一，方可无敌于天下。</p>
+<p>原文作者：池建强 (微信公众号：MacTalk)</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/14064631_iVnR.jpg" alt="程序员真正的价值"></p>
+<blockquote>
+<p>问：池老师，我是个不爱互动的人，但是您所有的文章我都看了，非常感谢您的引导，我入手了人生第一台 MBP。现在问题来了，但是找不到更合适的人解答，只能求助于您了，如果您有时间的话。问题是这样的：我有个32bit unix file（开启一个服务进程），在 Mac 上执行时错误提示是：exec format error，但是在 Linux 服务器却可以执行，为何？Mac 上有可以运行的方案吗？期待您的回复，不胜感激。</p>
+<p>答：Linux 和 OS X 是不同的操作系统，可以尝试在 OS X 里重新编译这个文件。</p>
+<p>问：非常感谢！如果没有文件源码是不是就只能认命了？</p>
+<p>答：可以在 Mac 上装 Docker，然后对服务进行端口映射就可以了。</p>
+<p>答：茅塞顿开。谢池老师。</p>
+</blockquote>
+<p>以上是我和一位读者的对话，这位小伙子在拿到答案之后像一缕烟尘一样消失无踪，之后再也没有出现过。</p>]]>
+    
+    </summary>
+    
+      <category term="价值" scheme="http://yoursite.com/tags/%E4%BB%B7%E5%80%BC/"/>
+    
+      <category term="程序员" scheme="http://yoursite.com/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
+    
+      <category term="深度文摘" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E6%96%87%E6%91%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[如何辨认身边的聪明人？]]></title>
+    <link href="http://yoursite.com/how-to-identify-smart-people-around-you/"/>
+    <id>http://yoursite.com/how-to-identify-smart-people-around-you/</id>
+    <published>2015-08-24T08:04:27.000Z</published>
+    <updated>2015-08-27T10:28:04.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/cmr.jpg" alt="如何辨认身边的聪明人？"></p>
+<p>谢邀。</p>
+<p>我来谈一下个人分辨周围聪明人的一些主要标准。</p>
+<p>首先要明确的是一些基本原则。</p>
+<p><strong>首先，具有特定领域的专业知识不代表聪明。</strong>比如一个下水道工人和一个挖掘机工人，各自都是各自职业领域的老手，哪个更聪明？这就不好说了。所以分辨的标准不应该是针对特定领域的，而应该是普适的。</p>
+<p><strong>再比如看学历，也不一定靠谱。</strong>我们抛开盖茨、乔布斯这些辍学的不谈，一个本科生和一个博士生哪个聪明？这也不好说，说不定本科生本科期间就做出了不错的科研成果，但是本科毕业没有继续做科研而直接去工作了，那他一定比博士生笨或者聪明吗？说不准的。</p>
+<p><strong>还有比如看出身，也不靠谱。</strong>因为个人经历和交友圈的关系，我周围的很多朋友都是名校出身，北清复交牛剑HYPS什么的很多，很多聚会上名校学生的数量远比非名校的多，那这种情况下出身本身就不具有太大的分辨性。虽然名校出来的普遍会让人觉得聪明点（具体原因可以参考下文），但是即使是同一个学校出来的人，也会有很容易被识别出来的聪明程度的差别。</p>
+<a id="more"></a>
+<p>那么我会通过什么来辨别聪明人呢？我有<strong>六个标准，两两一组分为基础指标，现实指标，和高层指标三个类别。基础、现实、高层的分类不是想说明轻重和高低，只是为了方便大家理解。</strong></p>
+<p><strong>基础指标的第一个标准，是元认知（Metacognition）能力。</strong></p>
+<blockquote>
+<p>元认知能力，就是“对于认知的认知”和“关于知识的知识”，简单来说就是对于自我的认知过程的思考。关于元认知，网上有不少资料，大家可以通过搜索引擎找一下通俗的材料，感兴趣的也可以找相关的心理学文献读一下。</p>
+<p>具有强元认知能力的人，通常表现是学习能力很强，因为他们对于自己的认知和学习过程很了解，能够在快速的自我思考和自省后产生出优化过的学习策略。</p>
+<p>他们对自己的认知能力有较强的管控能力，懂得利用自己的认知能力的优势和已有知识框架来调节和评估新知识的摄入，这些人能够很快的把新知识融入到已有的知识当中。<strong>用乔布斯的话说，就是把已经划出的点连起来，而元认知能力高的人连得特别快。</strong></p>
+</blockquote>
+<p><strong>基础指标的第二个标准，是有具有逻辑性的思维跳跃能力。</strong></p>
+<blockquote>
+<p>一般的交谈过程，通常就是先讲A，再讲B，再讲C，再讲D……</p>
+<p>但是我发觉，当和一些比较聪明的人聊天的时候，或者看其他的聪明人聊天的时候，通常不是一步一步走，而是跨着大步跳的，也就是先讲A，再讲D，再讲F，再讲J……这样。<strong>这种ADFJ的交谈方式，和前面的ABCD的交谈方式在逻辑上是一样的，并不是随机的思维跳跃，而是一些中间的逻辑步骤，因为交谈的双方都已经提前想到，并且一个眼神一个动作就心照不宣了，所以不需要每一步都讲一遍，直接说下一步就好了。</strong></p>
+<p>比如之前有个我觉得比我聪明好多的做医生的朋友来我家做客，我在厨房做饭，客人们在闲聊，中间聊到癌症的事情。我就想到个段子，然后说“骑摩托车戴安全帽也能增加得癌症的概率。”这个段子其实说的还是蛮直接的，我也觉得对方肯定听得懂，所以就没有补充或者继续讲，而那位医生朋友就直接回了一句“是啊，上次和主任一起去查房，主任就说其中一位老太太比其他病人更可能得癌症，因为she has the syndrome of having too many birthdays。”然后大家就会心一笑。</p>
+<p>跟聪明程度相仿的人交谈起来跳跃的节奏是很舒适的，逻辑上也能很自然的过渡。但是如果两个人节奏差别过大，一方要经常说完A后补充说B和C才能继续说D，甚至中间还要加个B1、B2，那就是另外一种情况了。</p>
+</blockquote>
+<p><strong>现实指标的第一个标准，是好奇心。</strong></p>
+<blockquote>
+<p>其实，前面提到的元认知和思维跳跃，都属于聪明的下层建筑，而最能直观体现一个人是否聪明的标准是好奇心。</p>
+<p>一个聪明人，通常是对生活中各种事情充满了广泛的好奇的，也正是这种好奇，让他有更多的机会获得新的知识。</p>
+<p><strong>好奇心和聪明程度是个鸡和蛋的情况。</strong>一个人的学习能力再强，如果好奇心不够，那他也不会去了解各种新东西；而如果一个人缺乏对事物的广泛了解，他就很难看到那些自己不理解的东西，也就不容易产生较强的好奇心。</p>
+</blockquote>
+<p>用苏格拉底的话说，“我唯一知道的事，就是我一无所知。”</p>
+<p><strong>现实指标的第二个标准，是用简单的语言解释复杂的问题的能力。</strong></p>
+<blockquote>
+<p>经常能在包括知乎等网络社区，看到一些专业人士解释专业的或者技术性的问题，他们会很热心的花很多时间讲问题背后的原理，列出各种外行人很难看懂的公式、推导过程和专业术语，自己解答的很辛苦，读者大多没看懂，双方都不开心——“我都花了这么多功夫讲了你们怎么还是听不懂”和“你讲了这么一大堆不明觉厉，我还是不懂。”</p>
+<p>而我接触到的一些很聪明的人，很多都在自己的专业领域有深入的研究，而这些聪明人的共同特点是在解释专业问题时会刻意避免使用别人可能听不懂的大词、黑话和专业用语。</p>
+<p><strong>刻意的选用简单的语言，至少说明两个问题，一是说话的人懂得换位思考，能够从对方角度分析和评价自己的表达，是对于知识的学习具有评估能力的体现；</strong>其次，很多专业用语和大词其实是专家直接沟通的工具，<strong>当你面对的听众不是专家的时候，你就不能用这些工具“偷懒”，这样对于说话者的要求就更高了，对于知识掌握程度的要求也更高。</strong>知乎上的一些比较有名的心理学、统计学、健身等等专业领域的用户，解答问题时通常都有这样的特点。</p>
+<p>有个很有意思的年度科普活动叫作火焰挑战（flame challenge），组织方每年会出一个题目，然后要求参赛者制作一个视频，把这个题目用一个11岁小孩能听懂的话解释清楚。听起来很有趣，但是做起来还是很难的，历年的题目有“火焰是什么”、“颜色是什么”等。各位可以试试自己解释下“火焰是什么”这个题目，然后想一下你的解释能不能让一个11岁的小孩听懂。知乎上就有类似的题目，各位可以去看看那些题目下的回答是不是用简单的语言说清楚了的。</p>
+</blockquote>
+<p><strong>高层指标的第一个标准，是对于观点的态度。</strong></p>
+<blockquote>
+<p>具体表现在几个方面，比如对于自己不了解的领域少发表观点，这其实是上面说到的懂得越多越有好奇心的一种侧面体现；还有就是能够容纳不同的观点，甚至完全相反的观点，这其实是上面提到的换位思考能力的一种侧面体现；还有就是不迷信、不执迷不悟，当新的信息和证据证明自己原来的观点是错误的时候，能够改变自己的观点。</p>
+<p>这几点说起来不难，其实大家都会说，但是自身做起来的时候真的蛮难的，因为这还要涉及到情商、面子等社交属性。</p>
+</blockquote>
+<p><strong>高层指标的第二个标准，是对于别人的态度。</strong></p>
+<blockquote>
+<p>一个人是不是善良，是很重要的一个标准。当然，准确的来说，善良并不代表聪明，聪明的坏人多了去了，事实上，想要做一个成功的坏人，也是需要聪明的，不够聪明的话坏事都做不到太大。</p>
+<p>但是“好人”和“坏人”是很主观的判断。通常情况下，每个人在自己心中都是好人，连恐怖份子都不把自己当坏人的，他们在自己眼中是自由斗士和真理的捍卫者，是非常“高尚”的。</p>
+<p>所以<strong>我说的善良，其实是对于别人的态度，就是说他是否能够通过分享、辅导、以身作则等方式帮助别人改善和提高，达成共赢的局面。</strong>帮助别人提高，想想都是极难的，大概是要把前面的五个标准都完成的差不多才能做到。</p>
+</blockquote>
+<p>当然不能排除存在那些很聪明，但是坚持“不但我要成功，而且我要别人都失败”的人，不过这种人我还真是不感兴趣，这样的人是不是聪明无所谓，我总是会尽量避免的。</p>
+<p>本文转自知乎社区，作者”谢熊猫君”。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/cmr.jpg" alt="如何辨认身边的聪明人？"></p>
+<p>谢邀。</p>
+<p>我来谈一下个人分辨周围聪明人的一些主要标准。</p>
+<p>首先要明确的是一些基本原则。</p>
+<p><strong>首先，具有特定领域的专业知识不代表聪明。</strong>比如一个下水道工人和一个挖掘机工人，各自都是各自职业领域的老手，哪个更聪明？这就不好说了。所以分辨的标准不应该是针对特定领域的，而应该是普适的。</p>
+<p><strong>再比如看学历，也不一定靠谱。</strong>我们抛开盖茨、乔布斯这些辍学的不谈，一个本科生和一个博士生哪个聪明？这也不好说，说不定本科生本科期间就做出了不错的科研成果，但是本科毕业没有继续做科研而直接去工作了，那他一定比博士生笨或者聪明吗？说不准的。</p>
+<p><strong>还有比如看出身，也不靠谱。</strong>因为个人经历和交友圈的关系，我周围的很多朋友都是名校出身，北清复交牛剑HYPS什么的很多，很多聚会上名校学生的数量远比非名校的多，那这种情况下出身本身就不具有太大的分辨性。虽然名校出来的普遍会让人觉得聪明点（具体原因可以参考下文），但是即使是同一个学校出来的人，也会有很容易被识别出来的聪明程度的差别。</p>]]>
+    
+    </summary>
+    
+      <category term="原则" scheme="http://yoursite.com/tags/%E5%8E%9F%E5%88%99/"/>
+    
+      <category term="聪明人" scheme="http://yoursite.com/tags/%E8%81%AA%E6%98%8E%E4%BA%BA/"/>
+    
+      <category term="深度文摘" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E6%96%87%E6%91%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[团队做代码评审中审查清单的使用实践]]></title>
+    <link href="http://yoursite.com/stop-more-bugs-with-our-code-review-checklist/"/>
+    <id>http://yoursite.com/stop-more-bugs-with-our-code-review-checklist/</id>
+    <published>2015-08-23T09:28:34.000Z</published>
+    <updated>2015-09-07T08:49:54.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/062749_2Ex2_12.gif" alt="团队做代码评审中审查清单的使用实践"></p>
+<p>在我们关于高效代码审查的博文中，我们建议使用一个检查清单。在代码审查中，检查清单是一个非常好的工具——它们保证了审查可以在你的团队中始终如一的进行。它们也是一种保证常见问题能够被发现并被解决的便利方式。</p>
+<p>软件工程学院的研究表明，程序员们会犯15-20种常见的错误。所以，通过把这些错误加入到检查清单当中，你可以确保不论什么时候，只要这些错误发生了，你就能发现它们，并且可以帮助你杜绝这些错误。</p>
+<a id="more"></a>
+<p>为了帮助你开始创建一个清单，这里列出了一些典型的内容：</p>
+<h2 id="代码审查清单">代码审查清单</h2><h3 id="常规项">常规项</h3><ul>
+<li>代码能够工作么？它有没有实现预期的功能，逻辑是否正确等。</li>
+<li>所有的代码是否简单易懂？</li>
+<li>代码符合你所遵循的编程规范么？这通常包括大括号的位置，变量名和函数名，行的长度，缩进，格式和注释。</li>
+<li>是否存在多余的或是重复的代码？</li>
+<li>代码是否尽可能的模块化了？</li>
+<li>是否有可以被替换的全局变量？</li>
+<li>是否有被注释掉的代码？</li>
+<li>循环是否设置了长度和正确的终止条件？</li>
+<li>是否有可以被库函数替代的代码？</li>
+<li>是否有可以删除的日志或调试代码？</li>
+</ul>
+<h3 id="安全">安全</h3><ul>
+<li>所有的数据输入是否都进行了检查（检测正确的类型，长度，格式和范围）并且进行了编码？</li>
+<li>在哪里使用了第三方工具，返回的错误是否被捕获？</li>
+<li>输出的值是否进行了检查并且编码？</li>
+<li>无效的参数值是否能够处理？</li>
+</ul>
+<h3 id="文档">文档</h3><ul>
+<li>是否有注释，并且描述了代码的意图？</li>
+<li>所有的函数都有注释吗？</li>
+<li>对非常规行为和边界情况处理是否有描述？</li>
+<li>第三方库的使用和函数是否有文档？</li>
+<li>数据结构和计量单位是否进行了解释？</li>
+<li>是否有未完成的代码？如果是的话，是不是应该移除，或者用合适的标记进行标记比如‘TODO’？</li>
+</ul>
+<h3 id="测试">测试</h3><ul>
+<li>代码是否可以测试？比如，不要添加太多的或是隐藏的依赖关系，不能够初始化对象，测试框架可以使用方法等。</li>
+<li>是否存在测试，它们是否可以被理解？比如，至少达到你满意的代码覆盖(code coverage)。</li>
+<li>单元测试是否真正的测试了代码是否可以完成预期的功能？</li>
+<li>是否检查了数组的“越界“错误？</li>
+<li>是否有可以被已经存在的API所替代的测试代码？</li>
+</ul>
+<p><strong>你同样需要把特定语言中有可能引起错误的问题添加到清单中。</strong></p>
+<p>这个清单故意没有详尽的列出所有可能会发生的错误。你不希望你的清单是这样的，太长了以至于从来没人会去用它。仅仅包含常见的问题会比较好。</p>
+<h2 id="优化你的清单">优化你的清单</h2><p>把使用清单作为你的起点，针对特定的使用案例，你需要对其进行优化。一个比较棒的方式就是让你的团队记录下那些在代码审查过程中临时发现的问题，有了这些数据，你就能够确定你的团队常犯的错误，然后你就可以量身定制一个审查清单。确保你删除了那些没有出现过的错误。（你也可以保留那些出现概率很小，但是非常关键的项目，比如安全相关的问题）。</p>
+<h2 id="得到认可并且保持更新">得到认可并且保持更新</h2><p>基本规则是，清单上的任何条目都必须明确，而且，如果可能的话，对于一些条目你可以对其进行二元判定。这样可以防止判断的不一致。和你的团队分享这份清单并且让他们认同你清单的内容是个好主意。同样的，要定期检查你的清单，以确保各条目仍然是有意义的。</p>
+<p>有了一个好的清单，可以提高你在代码审查过程中发现的缺陷个数。这可以帮助你提高代码标准，避免质量参差不齐的代码审查。</p>
+<p>原文来自：<a href="http://blog.fogcreek.com/increase-defect-detection-with-our-code-review-checklist-example/" target="_blank" rel="external">Stop More Bugs with our Code Review Checklist</a><br>译文来自：<a href="http://blog.jobbole.com/83595/" target="_blank" rel="external">程序员必备的代码审查（Code Review）清单</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/062749_2Ex2_12.gif" alt="团队做代码评审中审查清单的使用实践"></p>
+<p>在我们关于高效代码审查的博文中，我们建议使用一个检查清单。在代码审查中，检查清单是一个非常好的工具——它们保证了审查可以在你的团队中始终如一的进行。它们也是一种保证常见问题能够被发现并被解决的便利方式。</p>
+<p>软件工程学院的研究表明，程序员们会犯15-20种常见的错误。所以，通过把这些错误加入到检查清单当中，你可以确保不论什么时候，只要这些错误发生了，你就能发现它们，并且可以帮助你杜绝这些错误。</p>]]>
+    
+    </summary>
+    
+      <category term="代码评审" scheme="http://yoursite.com/tags/%E4%BB%A3%E7%A0%81%E8%AF%84%E5%AE%A1/"/>
+    
+      <category term="最佳实践" scheme="http://yoursite.com/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
+    
+      <category term="开发技术" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="经验实践" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E7%BB%8F%E9%AA%8C%E5%AE%9E%E8%B7%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[为什么Google要执行严格的编码编写规范]]></title>
+    <link href="http://yoursite.com/google-coding-standards/"/>
+    <id>http://yoursite.com/google-coding-standards/</id>
+    <published>2015-08-22T04:21:20.000Z</published>
+    <updated>2015-09-07T08:46:56.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-编码风格.jpg" alt="为什么Google要执行严格的编码编写规范"></p>
+<p>本篇是<a href="http://www.linfuyan.com/google-code-review" target="_blank" rel="external">谷歌是如何做代码审查的</a>的续篇。</p>
+<p>我们在谷歌所做事情中另外一个让我感到异常有效、有用的制度是严格的编码规范。</p>
+<p>在到Google工作之前，我一直认为编码规范没有什么用处。我坚信这些规范都是官僚制度下产生的浪费大家的编程时间、影响人们开发效率的东西。</p>
+<p>我是大错特错了。</p>
+<a id="more"></a>
+<p>在谷歌，我可以查看任何的代码，进入所有谷歌的代码库，我有权查看它们。事实上，这种权限是很少人能拥有的。但是，让我感到惊讶的却是，如此多的编码规范—缩进，命名，文件结构，注释风格—这一切让我出乎意料的轻松的阅读任意一段代码，并轻易的看懂它们。这让我震惊—因为我以为这些规范是微不足道的东西。它们不可能有这么大的作用—但它们却起到了这么大的作用。当你发现只通过看程序的基本语法结构就能读懂一段代码，这种时间上的节省不能不让人震撼！</p>
+<p>反对编码规范的人很多，下面是一些常见的理由，对于这些理由，我以前是深信不疑。</p>
+<p><strong>这是浪费时间！</strong></p>
+<p>我是一个优秀的程序员，我不愿意浪费时间干这些愚蠢的事。我的技术很好，我可以写出清晰的、易于理解的代码。为什么我要浪费时间遵守这些愚蠢的规范？答案是：统一是有价值的。就像我前面说的—你看到的任何的一行代码—不论是由你写的，还是由你身边的同事，还是由一个跟你相差11个时区的距离人写的—它们都有统一的结构，相同的命名规范—这带来的效果是巨大的。你只需要花这么少的功夫就能看懂一个你不熟悉(或完全未见过)的程序，因为你一见它们就会觉得面熟。</p>
+<p><strong>我是个艺术家！</strong></p>
+<p>这种话很滑稽，但它反映了一种常见的抱怨。我们程序员对于自己的编码风格通常怀有很高的自负。我写出的的代码的确能反映出我的一些特质，它是我思考的一种体现。它是我的技能和创造力的印证。如果你强迫我遵守什么愚蠢的规范，这是在打压我的创造力。可问题是，你的风格里的重要的部分，它对你的思想和创造力的体现，并不是藏身于这些微不足道的句法形式里。(如果是的话，那么，你是一个相当糟糕的程序员。)规范事实上可以让人们可以更容易的看出你的创造力—因为他们看明白了你的作品，人们对你的认识不会因不熟悉的编码形式而受到干扰。</p>
+<p>所有人都能穿的鞋不会合任何人的脚！</p>
+<p>如果你使用的编码规范并不是为你的项目专门设计的，它对你的项目也许并不是最佳方案。这没事。同样，这只是语法：非最优并不表示是不好。对你的项目来说它不是最理想的，但并不能表明它不值得遵守。不错，对于你的项目，你并没有从中获得该有的好处，但对于一个大型公司来说，它带来的好处是巨大的。除此之外，专门针对某个项目制定编码规范一般效果会更好。一个项目拥有自己的编码风格无可厚非。但是，根据我的经验，在一个大型公司里，你最好有一个统一的编码规范，特定项目可以扩展自己特定的项目方言和结构。<br>我善长制定编码规范！</p>
+<p>这应该是最常见的抱怨类型了。它是其它几种反对声音的混合体，但它却有自身态度的直接表现。有一部分反对者深信，他们是比制定编码规范的人更好的程序员，俯身屈从这些小学生制定的规范，将会降低代码的质量。对于此，客气点说，就是胡扯。纯属傲慢自大，荒唐可笑。事实上他们的意思就是，没有人配得上给他们制定规范，对他们的代码的任何改动都是一种破坏。如果参照任何一种合理的编码规范，你都不能写出合格的代码，那只能说你是个烂程序员。<br>当你按照某种编码规范进行编程时，必然会有某些地方让你摇头不爽。肯定会在某些地方你的编码风格会优于这些规范。但是，这不重要。在某些地方，编码规范也有优于你的编程风格的时候。但是，这也不重要。只要这规范不是完全的不可理喻，在程序的可理解性上得到的好处会大大的补偿你的损失。</p>
+<p>但是，如果编码规范真的是完全不可理喻呢？</p>
+<p>如果是这样，那就麻烦了：你被糟蹋了。但这并不是因为这荒谬的编码规范。这是因为你在跟一群蠢货一起工作。想通过把编码规范制定的足够荒谬来阻止一个优秀的程序员写出优秀的代码，这需要努力。这需要一个执著的、冷静的、进了水的大脑。如果这群蠢货能强行颁布不可用的编码规范，那他们就能干出其它很多傻事情。如果你为这群蠢货干活，你的确被糟蹋了—不论你干什么、有没有规范。(我并不是说罕有公司被一群蠢货管理；事实很不幸，我们这个世界从来就不缺蠢货，而且很多蠢货都拥有自己的公司。)</p>
+<p>译文出处: <a href="http://www.vaikan.com/google-coding-standards/" target="_blank" rel="external">为什么谷歌要执行严格的代码编写规范</a><br>英文原文: <a href="http://scientopia.org/blogs/goodmath/2011/07/14/stuff-everyone-should-do-part-2-coding-standards/" target="_blank" rel="external">Stuff Everyone Should Do (part 2): Coding Standards</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-编码风格.jpg" alt="为什么Google要执行严格的编码编写规范"></p>
+<p>本篇是<a href="http://www.linfuyan.com/google-code-review">谷歌是如何做代码审查的</a>的续篇。</p>
+<p>我们在谷歌所做事情中另外一个让我感到异常有效、有用的制度是严格的编码规范。</p>
+<p>在到Google工作之前，我一直认为编码规范没有什么用处。我坚信这些规范都是官僚制度下产生的浪费大家的编程时间、影响人们开发效率的东西。</p>
+<p>我是大错特错了。</p>]]>
+    
+    </summary>
+    
+      <category term="google" scheme="http://yoursite.com/tags/google/"/>
+    
+      <category term="代码评审" scheme="http://yoursite.com/tags/%E4%BB%A3%E7%A0%81%E8%AF%84%E5%AE%A1/"/>
+    
+      <category term="代码风格" scheme="http://yoursite.com/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
+    
+      <category term="编码规范" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+    
+      <category term="开发技术" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="经验实践" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E7%BB%8F%E9%AA%8C%E5%AE%9E%E8%B7%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Google是如何做代码审查的]]></title>
+    <link href="http://yoursite.com/google-code-review/"/>
+    <id>http://yoursite.com/google-code-review/</id>
+    <published>2015-08-21T11:07:28.000Z</published>
+    <updated>2015-09-07T08:46:34.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-code-review.png" alt="Google是如何做代码审查的"></p>
+<p>在上一篇文章中提到过，我已经不在Google工作了。我还没有想清楚应该去哪里—有两三个非常好的工作机会摆在我面前。因为在这段做决定时间里，我不再受雇于任何人，我想可以写一些专业性的东西，一些很有趣，但也会在同事和管理工作中导致关系紧张的东西。</p>
+<p>Google是一个非常优秀的公司。他们做出了很多令人称赞的东西—既是公司外部，人们可以看到的东西，也是公司内部。有一些在公司内部并不属于保密的事情，在外部并没有给予足够广泛的讨论。这就是我今天要说的。</p>
+<a id="more"></a>
+<p>让Google的程序如此优秀的一个最重要的事情看起来是非常的简单：代码审查。并不是只有Google做这个事情—代码审查已经被广泛的认可为一种非常好的做法，很多人都在这样做。但我还没有看到第二家这样大的公司能把这种事情运用的如此普遍。在Google，<strong>没有程序</strong>，任何产品、任何项目的程序代码，可以在没有经过有效的代码审查前提交到代码库里的。</p>
+<p><strong>所有人</strong>都要经过代码审查。并且很正规的：这种事情应该成为任何重要的软件开发工作中一个基本制度。并不单指产品程序——所有东西。它不需要很多的工作，但它的效果是巨大的。</p>
+<p>从代码审查里能得到什么？</p>
+<p>很显然：在代码提交前，用第二群眼睛检查一遍，防止bug混入。这是对其最常见的理解，是对代码审查的好处的最广泛的认识。但是，依我的经验来看，这反倒是它<strong>最不重要</strong>的一点。人们确实在代码审查中找到了bug。可是，这些在代码审查中能发现的绝大部分bug，很显然，都是微不足道的bug，程序的作者花几分钟的时间就能发现它们。真正需要花时间去发现的bug不是在代码审查里能找到的。</p>
+<p>代码审查的最大的功用是纯社会性的。如果你在编程，而且知道将会有同事检查你的代码，你编程态度就完全不一样了。你写出的代码将更加整洁，有更好的注释，更好的程序结构——因为你知道，那个你很在意的人将会查看你的程序。没有代码审查，你知道人们最终还是会看你的程序。但这种事情不是立即发生的事，它不会给你带来同等的紧迫感，它不会给你相同的个人评判的那种感受。</p>
+<p>还有一个非常重要的好处。代码审查能传播知识。在很多的开发团队里，经常每一个人负责一个核心模块，每个人都只关注他自己的那个模块。除非是同事的模块影响了自己的程序，他们从不相互交流。这种情况的后果是，每个模块只有一个人熟悉里面的代码。如果这个人休假或——但愿不是——辞职了，其他人则束手无策。通过代码审查，至少会有两个人熟悉这些程序——作者，以及审查者。审查者并不能像程序的作者一样对程序十分了解——但他会熟悉程序的设计和架构，这是极其重要的。</p>
+<p>当然，没有什么事情能简单的做下来的。依我的经验，在你能正确的进行代码审查前，你需要花时间锻炼学习。我发现人们在代码审查时经常会犯一些错误，导致不少麻烦——尤其在一些缺乏经验的审查者中经常的出现，他们给了人们一个很遭的代码审查的体验，成为了人们接受代码审查制度的一个障碍。</p>
+<p>最重要的一个原则：代码审查用意是在代码提交前找到其中的问题——你要发现是它的正确。在代码审查中最常犯的错误——几乎每个新手都会犯的错误——是，审查者根据自己的编程习惯来评判别人的代码。</p>
+<p>对于一个问题，通常我们能找出十几种方法去解决。对于一种解决方案，我们能有百万种编码方案来实现它。作为一个审查者，你的任务不是来确保被审查的代码都采用的是你的编码风格——因为它不可能跟你写的一样。作为一段代码的审查者的任务是确保由作者自己写出的代码是正确的。一旦这个原则被打破，你最终将会倍感折磨，深受挫折——这可不是我们想要的结果。</p>
+<p>问题在于，这种错误是如此的普遍而易犯。如果你是个程序员，当你遇到一个问题，你能想到一种解决方案——你就把你想到的方案作为标准答案。但事情不是这样的——作为一个好的审查者，你需要明白这个道理。</p>
+<p>代码审查的第二个易犯的毛病是，人们觉得有压力，感觉非要说点什么才好。你知道作者用了大量的时间和精力来实现这些程序——不该说点什么吗？</p>
+<p>不，你不需要。</p>
+<p>只说一句“哇，不错呀”，任何时候都不会不合适。如果你总是力图找出一点什么东西来批评，你这样做的结果只会损害自己的威望。当你不厌其烦的找出一些东西来，只是为了说些什么，被审查人就会知道，你说这些话只是为了填补寂静。你的评论将不再被人重视。</p>
+<p>第三是速度。你不能匆匆忙忙的进行一次代码审查——但你也要能迅速的完成。你的同伴在等你。如果你和你的同事并不想花太多时间进行代码复查，你们很快的完成，那被审查者会觉得很沮丧，这种代码审查带来的只有失望的感觉。就好象是打搅了大家，使大家放下手头的工作来进行审查。事情不该是这样。你并不需要推掉手头上的任何事情来做代码审查。但如果中途耽误了几个小时，你中间还要休息一会，喝杯茶，冲个澡，或谈会儿闲话。当你回到审查现场，你可以继续下去，把事情做完。如果你真是这样，我想没有人愿意在那干等着你。</p>
+<p>译文出处: <a href="http://scientopia.org/blogs/goodmath/2011/07/06/things-everyone-should-do-code-review/" target="_blank" rel="external">Things Everyone Should Do: Code Review</a><br>原文出处: <a href="http://www.vaikan.com/things-everyone-should-do-code-review/" target="_blank" rel="external">http://www.vaikan.com/things-everyone-should-do-code-review/</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-code-review.png" alt="Google是如何做代码审查的"></p>
+<p>在上一篇文章中提到过，我已经不在Google工作了。我还没有想清楚应该去哪里—有两三个非常好的工作机会摆在我面前。因为在这段做决定时间里，我不再受雇于任何人，我想可以写一些专业性的东西，一些很有趣，但也会在同事和管理工作中导致关系紧张的东西。</p>
+<p>Google是一个非常优秀的公司。他们做出了很多令人称赞的东西—既是公司外部，人们可以看到的东西，也是公司内部。有一些在公司内部并不属于保密的事情，在外部并没有给予足够广泛的讨论。这就是我今天要说的。</p>]]>
+    
+    </summary>
+    
+      <category term="google" scheme="http://yoursite.com/tags/google/"/>
+    
+      <category term="代码规范" scheme="http://yoursite.com/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+    
+      <category term="代码评审" scheme="http://yoursite.com/tags/%E4%BB%A3%E7%A0%81%E8%AF%84%E5%AE%A1/"/>
+    
+      <category term="开发技术" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="经验实践" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E7%BB%8F%E9%AA%8C%E5%AE%9E%E8%B7%B5/"/>
+    
+  </entry>
+  
+</feed>

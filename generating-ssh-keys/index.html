@@ -106,7 +106,7 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
       
       <p class="article-byline">
         <a href="/generating-ssh-keys/" class="article-date">
-  <time datetime="2015-08-28T20:39:40.000Z" itemprop="datePublished">2015-08-28</time>
+  <time datetime="2015-08-28T12:39:40.000Z" itemprop="datePublished">2015-08-28</time>
 </a>
       </p>
       <div class="article-entry" itemprop="articleBody">
@@ -134,13 +134,13 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
 <p>1、确保 ssh-agent 是可用的：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># start the ssh-agent in the background</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br><span class="line"><span class="comment"># Agent pid 59566</span></span><br></pre></td></tr></table></figure>
 <p>2、添加密钥到 ssh-agent</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh-add ~<span class="regexp">/.ssh/id</span>_rsa</span><br></pre></td></tr></table></figure>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh-add ~<span class="regexp">/.ssh/id</span>_rsa</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>提示：如果你在步骤2中没有生成新的 SSH 密钥，而是使用已经存在的密钥，那你需要替换上面命令中的 id_rsa 为你已经存在的私钥文件的名称。</p>
 </blockquote>
 <h2 id="步骤4：添加_SSH_密钥到你的账号">步骤4：添加 SSH 密钥到你的账号</h2><p>配置你的 Github 账号来使用 SSH 密钥：</p>
 <p>复制 SSH 密钥到剪贴板，记住你可能将密钥命名为 id_dsa.pub， id_ecdsa.pub 或者 id_ed25519.pub，那么需要修改下列命令中的文件名：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pbcopy &lt; ~<span class="regexp">/.ssh/id</span>_rsa.pub</span><br><span class="line"><span class="comment"># Copies the contents of the id_rsa.pub file to your clipboard</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pbcopy &lt; ~<span class="regexp">/.ssh/id</span>_rsa.pub</span><br><span class="line"><span class="comment"># Copies the contents of the id_rsa.pub file to your clipboard</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>提示：也可以直接用文本编辑器等打开公钥文件，然后复制其中的内容。</p>
 <p>警告：在复制过程中一定不能添加任何新行或者空格。</p>
@@ -154,7 +154,7 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
 <p>6、输入 Github 账号密码来确认。</p>
 <h2 id="步骤5：测试连接">步骤5：测试连接</h2><p>为了确保一切工作正常，接下来将 SSH 到 Github。这么做的时候，你需要使用密码来验证。这个密码就是你之前创建的 SSH 密钥的口令。</p>
 <p>1、打开终端并输入：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh -<span class="constant">T </span>git<span class="variable">@github</span>.com</span><br><span class="line"><span class="comment"># Attempts to ssh to GitHub</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh -<span class="constant">T</span> git<span class="variable">@github</span>.com</span><br><span class="line"><span class="comment"># Attempts to ssh to GitHub</span></span><br></pre></td></tr></table></figure>
 <p>2、第一次你将看到下面的警告：</p>
 <figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity <span class="keyword">of</span> host <span class="attribute">'github</span>.com (<span class="number">207.97</span>.<span class="number">227.239</span>)' can<span class="attribute">'t</span> be established.</span><br><span class="line"># RSA key fingerprint <span class="keyword">is</span> <span class="number">16</span>:<span class="number">27</span>:ac:a5:<span class="number">76</span>:<span class="number">28</span>:<span class="number">2</span>d:<span class="number">36</span>:<span class="number">63</span>:<span class="number">1</span>b:<span class="number">56</span>:<span class="number">4</span>d:eb:df:a6:<span class="number">48</span>.</span><br><span class="line"># Are you sure you want <span class="keyword">to</span> continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
 <p>核实你看到的消息中的指纹，并输入: <code>yes</code>：</p>
@@ -165,7 +165,7 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
 
       </div>
       <footer class="article-footer">
-        <!-- <a data-url="http://yoursite.com/generating-ssh-keys/" data-id="cieqj953600570epc9p3fyzpl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        <!-- <a data-url="http://yoursite.com/generating-ssh-keys/" data-id="cieqp48kb0057xjfybsa338a0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
         
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li></ul>
@@ -297,7 +297,7 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/FAQ/">FAQ</a></p>
               <p class="item-title"><a href="/faq/npm-taobao-registry/" class="title">npm 官网镜像无法连接怎么办?</a></p>
-              <p class="item-date"><time datetime="2015-09-19T11:34:29.000Z" itemprop="datePublished">2015-09-19</time></p>
+              <p class="item-date"><time datetime="2015-09-19T03:34:29.000Z" itemprop="datePublished">2015-09-19</time></p>
             </div>
           </li>
         
@@ -317,7 +317,7 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/iOS/">iOS</a></p>
               <p class="item-title"><a href="/iOS-skills/" class="title">iOS 技能树</a></p>
-              <p class="item-date"><time datetime="2015-09-17T09:36:00.000Z" itemprop="datePublished">2015-09-17</time></p>
+              <p class="item-date"><time datetime="2015-09-17T01:36:00.000Z" itemprop="datePublished">2015-09-17</time></p>
             </div>
           </li>
         
@@ -337,7 +337,7 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
               <p class="item-title"><a href="/Android-skills/" class="title">Android 技能树</a></p>
-              <p class="item-date"><time datetime="2015-09-17T09:25:00.000Z" itemprop="datePublished">2015-09-17</time></p>
+              <p class="item-date"><time datetime="2015-09-17T01:25:00.000Z" itemprop="datePublished">2015-09-17</time></p>
             </div>
           </li>
         
@@ -357,7 +357,7 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/FAQ/">FAQ</a></p>
               <p class="item-title"><a href="/faq/docker-trying-to-connect-to-a-tls-enabled-daemon-without-tls/" class="title">Are you trying to connect to a TLS-enabled daemon without TLS？</a></p>
-              <p class="item-date"><time datetime="2015-09-16T16:34:00.000Z" itemprop="datePublished">2015-09-16</time></p>
+              <p class="item-date"><time datetime="2015-09-16T08:34:00.000Z" itemprop="datePublished">2015-09-16</time></p>
             </div>
           </li>
         
@@ -376,7 +376,7 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/Hexo/">Hexo</a></p>
               <p class="item-title"><a href="/hexo-your-blog/dockerize-hexo-on-mac/" class="title">Mac OS X 上 使用 Docker 安装 Hexo</a></p>
-              <p class="item-date"><time datetime="2015-09-10T14:57:42.000Z" itemprop="datePublished">2015-09-10</time></p>
+              <p class="item-date"><time datetime="2015-09-10T06:57:42.000Z" itemprop="datePublished">2015-09-10</time></p>
             </div>
           </li>
         

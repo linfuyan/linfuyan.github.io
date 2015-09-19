@@ -117,7 +117,7 @@
       
       <p class="article-byline">
         <a href="/a-successful-git-branching-model/" class="article-date">
-  <time datetime="2015-08-27T12:34:56.000Z" itemprop="datePublished">2015-08-27</time>
+  <time datetime="2015-08-27T04:34:56.000Z" itemprop="datePublished">2015-08-27</time>
 </a>
       </p>
       <div class="article-entry" itemprop="articleBody">
@@ -173,7 +173,7 @@
 <p>从 develop 分支创建发布分支的时间通常是 develop 分支（差不多）能反映新版本所期望状态的时候。至少说，这是时候版本发布所计划的特性都已经合并回了 develop 分支。而未来其它版本发布计划的特性则不应该合并，它们必须等到当前的版本分支创建好之后才能合并。</p>
 <p>正是在发布分支创建的时候，对应的版本发布才获得一个版本号——不能更早。在该时刻之前， develop 分支反映的是“下一版本”的相关变更，但不知道这“下一版本”到底会成为0.3还是1.0，直到发布分支被创建。版本号是在发布分支创建时，基于项目版本号规则确定的。</p>
 <h4 id="创建一个发布分支">创建一个发布分支</h4><p>发布分支从 develop 分支创建。例如，假设1.1.5是当前的产品版本，同时我们即将发布下个版本。develop 分支的状态已经是准备好“下一版本”发布了，我们也决定下个版本是1.2（而不是1.1.6或者2.0）。因此我们创建发布分支，并且为其赋予一个能体现新版本号的名称：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -<span class="tag">b</span> releases-<span class="number">1.2</span> develop</span><br><span class="line">Switched to <span class="tag">a</span> new branch “release-<span class="number">1.2</span>”</span><br><span class="line">$ ./bump-version<span class="class">.sh</span> <span class="number">1.2</span></span><br><span class="line">Files modified successfully. version bumped to <span class="number">1.2</span>.</span><br><span class="line">$ git commit -<span class="tag">a</span> -m “Bumped version number to <span class="number">1.2</span>”</span><br><span class="line">[release-<span class="number">1.2</span> <span class="number">74</span>d9424] Bumped version number to <span class="number">1.2</span></span><br><span class="line"><span class="number">1</span> files changed. <span class="number">1</span> <span class="function"><span class="title">insertions</span><span class="params">(+)</span></span>. <span class="number">1</span> <span class="function"><span class="title">deletions</span><span class="params">(-)</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b releases-1.2 develop</span><br><span class="line">Switched to a new branch “<span class="operator"><span class="keyword">release</span>-<span class="number">1.2</span>”</span><br><span class="line">$ ./bump-<span class="keyword">version</span>.sh <span class="number">1.2</span></span><br><span class="line">Files modified successfully. <span class="keyword">version</span> bumped <span class="keyword">to</span> <span class="number">1.2</span>.</span><br><span class="line">$ git <span class="keyword">commit</span> -a -<span class="keyword">m</span> “Bumped <span class="keyword">version</span> <span class="built_in">number</span> <span class="keyword">to</span> <span class="number">1.2</span>”</span><br><span class="line">[<span class="keyword">release</span>-<span class="number">1.2</span> <span class="number">74</span>d9424] Bumped <span class="keyword">version</span> <span class="built_in">number</span> <span class="keyword">to</span> <span class="number">1.2</span></span><br><span class="line"><span class="number">1</span> files <span class="keyword">changed</span>. <span class="number">1</span> insertions(+). <span class="number">1</span> deletions(-)</span></span><br></pre></td></tr></table></figure>
 <p>创建新分支并转到该分支之后，我们设定版本号。这里的 bump-version.sh 是一个虚构的 shell 脚本，它修改一些本地工作区的文件以体现新的版本号。（当然这也可以手动完成——这里只是说要有一些文件变更）接着，提交新版本号。</p>
 <p>新的发布分支可能存在一段时间，直到该版本明确对外交付。这段时间内，该分支上可能会有一些 bug 的修复（而不是在 develop 分支上）。在该分支上添加新特性是严格禁止的。新特性必须合并到 develop 分支，然后等待下一个版本发布。</p>
 <h4 id="结束一个发布分支">结束一个发布分支</h4><p>当发布分支达到一个可以正式发布的状态时，我们就需要执行一些操作。首先，将发布分支合并至 master （记住，我们之前定义 master 分支上的每一个 commit 都对应一个新版本）。接着，master 分支上的 commit 必须被打上标签（tag），以方便将来寻找历史版本。最后，发布分支上的变更需要合并回 develop，这样将来的版本也能包含相关的 bug 修复。</p>
@@ -208,7 +208,7 @@
 
       </div>
       <footer class="article-footer">
-        <!-- <a data-url="http://yoursite.com/a-successful-git-branching-model/" data-id="cieqj954g00720epcf9jamtv9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        <!-- <a data-url="http://yoursite.com/a-successful-git-branching-model/" data-id="cieqp48l10072xjfypkrgle7g" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
         
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分支模型/">分支模型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作流/">工作流</a></li></ul>
@@ -340,7 +340,7 @@
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/FAQ/">FAQ</a></p>
               <p class="item-title"><a href="/faq/npm-taobao-registry/" class="title">npm 官网镜像无法连接怎么办?</a></p>
-              <p class="item-date"><time datetime="2015-09-19T11:34:29.000Z" itemprop="datePublished">2015-09-19</time></p>
+              <p class="item-date"><time datetime="2015-09-19T03:34:29.000Z" itemprop="datePublished">2015-09-19</time></p>
             </div>
           </li>
         
@@ -360,7 +360,7 @@
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/iOS/">iOS</a></p>
               <p class="item-title"><a href="/iOS-skills/" class="title">iOS 技能树</a></p>
-              <p class="item-date"><time datetime="2015-09-17T09:36:00.000Z" itemprop="datePublished">2015-09-17</time></p>
+              <p class="item-date"><time datetime="2015-09-17T01:36:00.000Z" itemprop="datePublished">2015-09-17</time></p>
             </div>
           </li>
         
@@ -380,7 +380,7 @@
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
               <p class="item-title"><a href="/Android-skills/" class="title">Android 技能树</a></p>
-              <p class="item-date"><time datetime="2015-09-17T09:25:00.000Z" itemprop="datePublished">2015-09-17</time></p>
+              <p class="item-date"><time datetime="2015-09-17T01:25:00.000Z" itemprop="datePublished">2015-09-17</time></p>
             </div>
           </li>
         
@@ -400,7 +400,7 @@
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/FAQ/">FAQ</a></p>
               <p class="item-title"><a href="/faq/docker-trying-to-connect-to-a-tls-enabled-daemon-without-tls/" class="title">Are you trying to connect to a TLS-enabled daemon without TLS？</a></p>
-              <p class="item-date"><time datetime="2015-09-16T16:34:00.000Z" itemprop="datePublished">2015-09-16</time></p>
+              <p class="item-date"><time datetime="2015-09-16T08:34:00.000Z" itemprop="datePublished">2015-09-16</time></p>
             </div>
           </li>
         
@@ -419,7 +419,7 @@
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/Hexo/">Hexo</a></p>
               <p class="item-title"><a href="/hexo-your-blog/dockerize-hexo-on-mac/" class="title">Mac OS X 上 使用 Docker 安装 Hexo</a></p>
-              <p class="item-date"><time datetime="2015-09-10T14:57:42.000Z" itemprop="datePublished">2015-09-10</time></p>
+              <p class="item-date"><time datetime="2015-09-10T06:57:42.000Z" itemprop="datePublished">2015-09-10</time></p>
             </div>
           </li>
         

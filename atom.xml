@@ -18,7 +18,7 @@
     <title><![CDATA[npm 官网镜像无法连接怎么办?]]></title>
     <link href="http://yoursite.com/faq/npm-taobao-registry/"/>
     <id>http://yoursite.com/faq/npm-taobao-registry/</id>
-    <published>2015-09-19T11:34:29.000Z</published>
+    <published>2015-09-19T03:34:29.000Z</published>
     <updated>2015-09-19T03:45:14.000Z</updated>
     <content type="html"><![CDATA[<p>在安装 Hexo 是需要先安装 Node.js，这个过程中会因为 npm 无法连接到官方 registry 而导致失败。</p>
 <p>后来在网上搜到有淘宝的镜像，具体的配置方法有如下几种：</p>
@@ -54,7 +54,7 @@
     <title><![CDATA[iOS 技能树]]></title>
     <link href="http://yoursite.com/iOS-skills/"/>
     <id>http://yoursite.com/iOS-skills/</id>
-    <published>2015-09-17T09:36:00.000Z</published>
+    <published>2015-09-17T01:36:00.000Z</published>
     <updated>2015-09-17T01:41:59.000Z</updated>
     <content type="html"><![CDATA[<p>以下是和团队小伙伴们一起整理的 iOS 开发中涉及到技能。贴出来，一方面希望能够获取更多的建议，用来完善目前团队的技术组成；另一方面，比对这些技能，有感兴趣的同学，且觉得能够胜任，愿意来<a href="http://www.feibo.cn/" target="_blank" rel="external">我们公司</a>一试的同学，欢迎投简历。</p>
 <p>同时，<a href="http://www.linfuyan.com/Android-skills" target="_blank" rel="external">Android 技能</a>请猛戳这里。</p>
@@ -84,7 +84,7 @@
     <title><![CDATA[Android 技能树]]></title>
     <link href="http://yoursite.com/Android-skills/"/>
     <id>http://yoursite.com/Android-skills/</id>
-    <published>2015-09-17T09:25:00.000Z</published>
+    <published>2015-09-17T01:25:00.000Z</published>
     <updated>2015-09-17T01:51:47.000Z</updated>
     <content type="html"><![CDATA[<p>以下是和团队小伙伴们一起整理的 Android 开发中涉及到技能。贴出来，一方面希望能够获取更多的建议，用来完善目前团队的技术组成；另一方面，比对这些技能，有感兴趣的同学，且觉得能够胜任，愿意来<a href="http://www.feibo.cn/" target="_blank" rel="external">我们公司</a>一试的同学，欢迎投简历。</p>
 <p>同时，<a href="http://www.linfuyan.com/iOS-skills" target="_blank" rel="external">iOS 技能</a>请猛戳这里。</p>
@@ -114,7 +114,7 @@
     <title><![CDATA[Are you trying to connect to a TLS-enabled daemon without TLS？]]></title>
     <link href="http://yoursite.com/faq/docker-trying-to-connect-to-a-tls-enabled-daemon-without-tls/"/>
     <id>http://yoursite.com/faq/docker-trying-to-connect-to-a-tls-enabled-daemon-without-tls/</id>
-    <published>2015-09-16T16:34:00.000Z</published>
+    <published>2015-09-16T08:34:00.000Z</published>
     <updated>2015-09-16T09:54:26.000Z</updated>
     <content type="html"><![CDATA[<p>在 Mac 上通过 boot2docker 启动 docker 时，运行 docker 命令出现下面的提示：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Post http:///var/run/docker.sock/v1.19/containers/<span class="operator"><span class="keyword">create</span>: dial unix /<span class="keyword">var</span>/run/docker.sock: <span class="keyword">no</span> such <span class="keyword">file</span> <span class="keyword">or</span> <span class="keyword">directory</span>. </span><br><span class="line"><span class="keyword">Are</span> you trying <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> a TLS-enabled daemon <span class="keyword">without</span> TLS?</span></span><br></pre></td></tr></table></figure>
@@ -145,7 +145,7 @@
     <title><![CDATA[Mac OS X 上 使用 Docker 安装 Hexo]]></title>
     <link href="http://yoursite.com/hexo-your-blog/dockerize-hexo-on-mac/"/>
     <id>http://yoursite.com/hexo-your-blog/dockerize-hexo-on-mac/</id>
-    <published>2015-09-10T14:57:42.000Z</published>
+    <published>2015-09-10T06:57:42.000Z</published>
     <updated>2015-09-16T09:54:01.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>这篇中介绍如何在 Mac OS X 上使用 Docker 来安装 Hexo。</p>
@@ -180,7 +180,7 @@
     <title><![CDATA[Mac OS X 上 Hexo 安装]]></title>
     <link href="http://yoursite.com/hexo-your-blog/install-hexo-on-mac/"/>
     <id>http://yoursite.com/hexo-your-blog/install-hexo-on-mac/</id>
-    <published>2015-09-10T14:38:20.000Z</published>
+    <published>2015-09-10T06:38:20.000Z</published>
     <updated>2015-09-16T08:00:29.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>这篇文章描述 Mac OS X 环境下的 Hexo 安装，其他的系统环境安装略有不同。可以参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">官方文档</a>。</p>
@@ -232,7 +232,7 @@
     <title><![CDATA[Hexo 简介]]></title>
     <link href="http://yoursite.com/hexo-your-blog/hexo-introduce/"/>
     <id>http://yoursite.com/hexo-your-blog/hexo-introduce/</id>
-    <published>2015-09-10T11:10:20.000Z</published>
+    <published>2015-09-10T03:10:20.000Z</published>
     <updated>2015-09-10T06:26:31.000Z</updated>
     <content type="html"><![CDATA[<p>这篇文章是<a href="http://www.linfuyan.com/hexo-your-blog" target="_blank" rel="external">《一步一步打造自己的 Hexo 博客》</a>系列的开篇，为了让这篇《 Hexo 简介》看上去足够充实，当然会有许多的内容来源于网络，甚至有的我也以找不到出处或者考证其真实性。这里想稍稍补充一下自己寻找博客，并最终落脚 Hexo 之旅。</p>
 <p>我想很多技术人员都会有写一些博客的想法，而最初我曾尝试过在 CSDN，JavaEye(现在已经是 ItEye 了，不小心暴露年龄)，但实在难以忍受的是上面的排版，当然还有网络时快时慢等等，写文章之外需要忍受其他许许多多的不痛快。虽然这也只是我没有写技术博客的原因之一，但没有坚持下来却是实实在在的事情了。</p>
@@ -277,7 +277,7 @@
     <title><![CDATA[iOS 开发者证书制作、App ID 与推送配置及 Provisioning Profiles 创建]]></title>
     <link href="http://yoursite.com/ios-cer-appid-push-profile/"/>
     <id>http://yoursite.com/ios-cer-appid-push-profile/</id>
-    <published>2015-09-08T21:59:00.000Z</published>
+    <published>2015-09-08T13:59:00.000Z</published>
     <updated>2015-09-08T14:10:33.000Z</updated>
     <content type="html"><![CDATA[<h2 id="概述">概述</h2><p>1. <strong>开发者证书</strong></p>
 <p>分为开发和发布两种，类型为 <code>iPhone Development</code>， <code>iPhone Distribution</code>。这个是最基础的，开发证书用于真机调试，发布证书则用于上传到 AppStore，是一个基础证书，用来证明开发者身份。</p>
@@ -396,7 +396,7 @@
     <title><![CDATA[ReactiveX 之 Operator]]></title>
     <link href="http://yoursite.com/reactivex-operator/"/>
     <id>http://yoursite.com/reactivex-operator/</id>
-    <published>2015-09-07T21:24:44.000Z</published>
+    <published>2015-09-07T13:24:44.000Z</published>
     <updated>2015-09-07T13:29:12.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>原文：<a href="http://reactivex.io/documentation/operators.html" target="_blank" rel="external">http://reactivex.io/documentation/operators.html</a></p>
@@ -534,7 +534,7 @@
     <title><![CDATA[ReactiveX 之 Observable]]></title>
     <link href="http://yoursite.com/reactivex-observable/"/>
     <id>http://yoursite.com/reactivex-observable/</id>
-    <published>2015-09-07T21:06:12.000Z</published>
+    <published>2015-09-07T13:06:12.000Z</published>
     <updated>2015-09-07T13:12:42.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>原文：<a href="http://reactivex.io/documentation/observable.html" target="_blank" rel="external">http://reactivex.io/documentation/observable.html</a></p>
@@ -635,7 +635,7 @@
     <title><![CDATA[深入浅出 RxJava (二、操作符)]]></title>
     <link href="http://yoursite.com/grokking-rxjava-part-2/"/>
     <id>http://yoursite.com/grokking-rxjava-part-2/</id>
-    <published>2015-08-30T22:20:35.000Z</published>
+    <published>2015-08-30T14:20:35.000Z</published>
     <updated>2015-09-08T14:16:13.000Z</updated>
     <content type="html"><![CDATA[<p>在<a href="http://www.linfuyan.com/grokking-rxjava-part-1" target="_blank" rel="external">第一篇博客</a>中，我介绍了 RxJava 的一些基础知识，同时也介绍了 map() 操作符。当然如果你并没有意愿去使用 RxJava 我一点都不诧异，毕竟才接触了这么点儿。看完这篇博客，我相信你肯定想立即在你的项目中使用 RxJava 了，这边博客将介绍许多 RxJava 中的操作符， RxJava 的强大性就来自于它所定义的操作符。</p>
 <a id="more"></a>
@@ -643,19 +643,19 @@
 <h3 id="准备工作">准备工作</h3><p>假设我有这样的一个方法：</p>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这个方法根据输入的字符串返回一个网站的 url 列表</span></span><br><span class="line">Observable&lt;<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt;&gt; query(<span class="built_in">String</span> text);</span><br></pre></td></tr></table></figure>
 <p>现在我希望构建一个健壮系统，它可以查询字符串并且显示结果。根据上一篇博客的内容，我们可能会写出下面的代码：</p>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">query<span class="params">(<span class="string">"Hello, world!"</span>)</span></span><br><span class="line">    .subscribe<span class="params">(urls -&gt; &#123;</span><br><span class="line">        for <span class="params">(String url : urls)</span> &#123;</span><br><span class="line">            System.out.println<span class="params">(url)</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">query(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    .subscribe(urls -&gt; &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">String</span> url : urls) &#123;</span><br><span class="line">            System.out.<span class="built_in">println</span>(url);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
 <p>这种代码当然是不能容忍的，因为上面的代码使我们丧失了变化数据流的能力。一旦我们想要更改每一个 URL，只能在 Subscriber 中来做。我们竟然没有使用如此酷的 map() 操作符！！！</p>
 <p>当然，我可以使用 map 操作符，map 的输入是 urls 列表，处理的时候还是要 for each 遍历，一样很蛋疼。</p>
 <h3 id="万幸的是">万幸的是</h3><p>我们有 Observable.from() 方法，它接收一个集合作为输入，然后每次输出一个元素给 subscriber：</p>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Observable.from<span class="params">(<span class="string">"url1"</span>, <span class="string">"url2"</span>, <span class="string">"url3"</span>)</span></span><br><span class="line">    .subscribe<span class="params">(url -&gt; System.out.println<span class="params">(url)</span>)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Observable.<span class="keyword">from</span>(<span class="string">"url1"</span>, <span class="string">"url2"</span>, <span class="string">"url3"</span>)</span><br><span class="line">    .subscribe(url -&gt; System.<span class="keyword">out</span>.println(url));</span><br></pre></td></tr></table></figure>
 <p>我们来把这个方法使用到刚才的场景：</p>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">query<span class="params">(<span class="string">"Hello, world!"</span>)</span></span><br><span class="line">    .subscribe<span class="params">(urls -&gt; &#123;</span><br><span class="line">        Observable.from<span class="params">(urls)</span></span><br><span class="line">            .subscribe<span class="params">(url -&gt; System.out.println<span class="params">(url)</span>)</span>;</span><br><span class="line">    &#125;)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">query(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    .subscribe(urls<span class="function"> -&gt;</span> &#123;</span><br><span class="line">        Observable.<span class="keyword">from</span>(urls)</span><br><span class="line">            .subscribe(url<span class="function"> -&gt;</span> System.out.println(url));</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
 <p>虽然去掉了 for each 循环，但是代码依然看起来很乱。多个嵌套的 subscription 不仅看起来很丑，难以修改，更严重的是它会破坏我们现在还没有讲到的 RxJava 的特性。</p>
 <h3 id="改进">改进</h3><p>救星来了，他就是 flatMap()。</p>
 <p>Observable.flatMap() 接收了一个 Observable 的输出作为输入，同时输出另外一个 Observable。直接看代码：</p>
 <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">query(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    <span class="built_in">.</span>flatMap(<span class="literal">new</span> Func1&lt;<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt;, Observable&lt;<span class="built_in">String</span>&gt;&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        <span class="keyword">public</span> Observable&lt;<span class="built_in">String</span>&gt; call(<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; urls) &#123;</span><br><span class="line">            <span class="keyword">return</span> Observable<span class="built_in">.</span>from(urls);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">.</span>subscribe(url <span class="subst">-&gt; </span>System<span class="built_in">.</span>out<span class="built_in">.</span>println(url));</span><br></pre></td></tr></table></figure>
 <p>这里我贴出了整个的函数代码，以方便你了解发生了什么，使用 lambda 可以大大简化代码长度：</p>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">query<span class="params">(<span class="string">"Hello, world!"</span>)</span></span><br><span class="line">    .flatMap<span class="params">(urls -&gt; Observable.from<span class="params">(urls)</span>)</span></span><br><span class="line">    .subscribe<span class="params">(url -&gt; System.out.println<span class="params">(url)</span>)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">query</span>("<span class="tag">Hello</span>, <span class="tag">world</span>!")</span><br><span class="line">    <span class="class">.flatMap</span>(<span class="tag">urls</span> <span class="tag">-</span>&gt; <span class="tag">Observable</span><span class="class">.from</span>(<span class="tag">urls</span>))</span><br><span class="line">    <span class="class">.subscribe</span>(<span class="tag">url</span> <span class="tag">-</span>&gt; <span class="tag">System</span><span class="class">.out</span><span class="class">.println</span>(<span class="tag">url</span>));</span><br></pre></td></tr></table></figure>
 <p>flatMap() 是不是看起来很奇怪？为什么它要返回另外一个 Observable 呢？理解 flatMap 的关键点在于，flatMap 输出的新的 Observable 正是我们在 Subscriber 想要接收的。现在 Subscriber 不再收到 List<string>，而是收到一系列单个的字符串，就像 Observable.from() 的输出一样。</string></p>
 <p>这部分也是我当初学 RxJava 的时候最难理解的部分，一旦我突然领悟了， RxJava 的很多疑问也就一并解决了。</p>
 <h3 id="还可以更好">还可以更好</h3><p>flatMap() 实在不能更赞了，它可以返回任何它想返回的 Observable 对象。</p>
@@ -664,18 +664,18 @@
 <p>接着前面的例子，现在我不想打印 URL 了，而是要打印收到的每个网站的标题。问题来了，我的方法每次只能传入一个 URL，并且返回值不是一个 String，而是一个输出 String 的 Observable 对象。使用 flatMap() 可以简单的解决这个问题。</p>
 <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">query(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    <span class="built_in">.</span>flatMap(urls <span class="subst">-&gt; </span>Observable<span class="built_in">.</span>from(urls))</span><br><span class="line">    <span class="built_in">.</span>flatMap(<span class="literal">new</span> Func1&lt;<span class="built_in">String</span>, Observable&lt;<span class="built_in">String</span>&gt;&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        <span class="keyword">public</span> Observable&lt;<span class="built_in">String</span>&gt; call(<span class="built_in">String</span> url) &#123;</span><br><span class="line">            <span class="keyword">return</span> getTitle(url);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">.</span>subscribe(title <span class="subst">-&gt; </span>System<span class="built_in">.</span>out<span class="built_in">.</span>println(title));</span><br></pre></td></tr></table></figure>
 <p>使用 lambda：</p>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">query<span class="params">(<span class="string">"Hello, world!"</span>)</span></span><br><span class="line">    .flatMap<span class="params">(urls -&gt; Observable.from<span class="params">(urls)</span>)</span></span><br><span class="line">    .flatMap<span class="params">(url -&gt; getTitle<span class="params">(url)</span>)</span></span><br><span class="line">    .subscribe<span class="params">(title -&gt; System.out.println<span class="params">(title)</span>)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">query</span>("<span class="tag">Hello</span>, <span class="tag">world</span>!")</span><br><span class="line">    <span class="class">.flatMap</span>(<span class="tag">urls</span> <span class="tag">-</span>&gt; <span class="tag">Observable</span><span class="class">.from</span>(<span class="tag">urls</span>))</span><br><span class="line">    <span class="class">.flatMap</span>(<span class="tag">url</span> <span class="tag">-</span>&gt; <span class="tag">getTitle</span>(<span class="tag">url</span>))</span><br><span class="line">    <span class="class">.subscribe</span>(<span class="tag">title</span> <span class="tag">-</span>&gt; <span class="tag">System</span><span class="class">.out</span><span class="class">.println</span>(<span class="tag">title</span>));</span><br></pre></td></tr></table></figure>
 <p>是不是感觉很不可思议？我竟然能将多个独立的返回 Observable 对象的方法组合在一起！帅呆了！</p>
 <p>不止这些，我还将两个 API 的调用组合到一个链式调用中了。我们可以将任意多个 API 调用链接起来。大家应该都应该知道同步所有的 API 调用，然后将所有 API 调用的回调结果组合成需要展示的数据是一件多么蛋疼的事情。这里我们成功的避免了 callback hell （多层嵌套的回调，导致代码难以阅读维护）。现在所有的逻辑都包装成了这种简单的响应式调用。</p>
 <h3 id="丰富的操作符">丰富的操作符</h3><p>目前为止，我们已经接触了两个操作符， RxJava 中还有更多的操作符，那么我们如何使用其他的操作符来改进我们的代码呢？</p>
 <p>getTitle() 返回 null 如果 url 不存在。我们不想输出 “null”，那么我们可以从返回的 title 列表中过滤掉 null 值！</p>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">query<span class="params">(<span class="string">"Hello, world!"</span>)</span></span><br><span class="line">    .flatMap<span class="params">(urls -&gt; Observable.from<span class="params">(urls)</span>)</span></span><br><span class="line">    .flatMap<span class="params">(url -&gt; getTitle<span class="params">(url)</span>)</span></span><br><span class="line">    .filter<span class="params">(title -&gt; title != null)</span></span><br><span class="line">    .subscribe<span class="params">(title -&gt; System.out.println<span class="params">(title)</span>)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">query(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    .flatMap(urls<span class="function"> -&gt;</span> Observable.<span class="keyword">from</span>(urls))</span><br><span class="line">    .flatMap(url<span class="function"> -&gt;</span> getTitle(url))</span><br><span class="line">    .filter(title<span class="function"> -&gt;</span> title != <span class="literal">null</span>)</span><br><span class="line">    .subscribe(title<span class="function"> -&gt;</span> System.out.println(title));</span><br></pre></td></tr></table></figure>
 <p>filter() 输出和输入相同的元素，并且会过滤掉那些不满足检查条件的。</p>
 <p>如果我们只想要最多5个结果：</p>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">query<span class="params">(<span class="string">"Hello, world!"</span>)</span></span><br><span class="line">    .flatMap<span class="params">(urls -&gt; Observable.from<span class="params">(urls)</span>)</span></span><br><span class="line">    .flatMap<span class="params">(url -&gt; getTitle<span class="params">(url)</span>)</span></span><br><span class="line">    .filter<span class="params">(title -&gt; title != null)</span></span><br><span class="line">    .take<span class="params">(<span class="number">5</span>)</span></span><br><span class="line">    .subscribe<span class="params">(title -&gt; System.out.println<span class="params">(title)</span>)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">query(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    <span class="built_in">.</span>flatMap(urls <span class="subst">-&gt; </span>Observable<span class="built_in">.</span>from(urls))</span><br><span class="line">    <span class="built_in">.</span>flatMap(url <span class="subst">-&gt; </span>getTitle(url))</span><br><span class="line">    <span class="built_in">.</span>filter(title <span class="subst">-&gt; </span>title != <span class="built_in">null</span>)</span><br><span class="line">    <span class="built_in">.</span><span class="keyword">take</span>(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">.</span>subscribe(title <span class="subst">-&gt; </span>System<span class="built_in">.</span>out<span class="built_in">.</span>println(title));</span><br></pre></td></tr></table></figure>
 <p>take() 输出最多指定数量的结果。</p>
 <p>如果我们想在打印之前，把每个标题保存到磁盘：</p>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">query<span class="params">(<span class="string">"Hello, world!"</span>)</span></span><br><span class="line">    .flatMap<span class="params">(urls -&gt; Observable.from<span class="params">(urls)</span>)</span></span><br><span class="line">    .flatMap<span class="params">(url -&gt; getTitle<span class="params">(url)</span>)</span></span><br><span class="line">    .filter<span class="params">(title -&gt; title != null)</span></span><br><span class="line">    .take<span class="params">(<span class="number">5</span>)</span></span><br><span class="line">    .doOnNext<span class="params">(title -&gt; saveTitle<span class="params">(title)</span>)</span></span><br><span class="line">    .subscribe<span class="params">(title -&gt; System.out.println<span class="params">(title)</span>)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">query(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    <span class="built_in">.</span>flatMap(urls <span class="subst">-&gt; </span>Observable<span class="built_in">.</span>from(urls))</span><br><span class="line">    <span class="built_in">.</span>flatMap(url <span class="subst">-&gt; </span>getTitle(url))</span><br><span class="line">    <span class="built_in">.</span>filter(title <span class="subst">-&gt; </span>title != <span class="built_in">null</span>)</span><br><span class="line">    <span class="built_in">.</span><span class="keyword">take</span>(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">.</span>doOnNext(title <span class="subst">-&gt; </span>saveTitle(title))</span><br><span class="line">    <span class="built_in">.</span>subscribe(title <span class="subst">-&gt; </span>System<span class="built_in">.</span>out<span class="built_in">.</span>println(title));</span><br></pre></td></tr></table></figure>
 <p>doOnNext()允许我们在每次输出一个元素之前做一些额外的事情，比如这里的保存标题。</p>
 <p>看到这里操作数据流是多么简单了么。你可以添加任意多的操作，并且不会搞乱你的代码。</p>
 <p>RxJava 包含了大量的操作符。操作符的数量是有点吓人，但是很值得你去挨个看一下，这样你可以知道有哪些操作符可以使用。弄懂这些操作符可能会花一些时间，但是一旦弄懂了，你就完全掌握了 RxJava 的威力。</p>
@@ -714,7 +714,7 @@
     <title><![CDATA[Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成]]></title>
     <link href="http://yoursite.com/continuous-integration-of-ios-application-with-jenkins-git-cocoapods-fir.im/"/>
     <id>http://yoursite.com/continuous-integration-of-ios-application-with-jenkins-git-cocoapods-fir.im/</id>
-    <published>2015-08-29T14:55:23.000Z</published>
+    <published>2015-08-29T06:55:23.000Z</published>
     <updated>2015-08-29T07:02:28.000Z</updated>
     <content type="html"><![CDATA[<p>本文说明如何在 Mac OSX 环境下，使用 Jenkins 对基于 CocoaPods 进行依赖管理的 iOS 项目做自动打包与持续集成，并将最终的安装包发布到 fir.im 上供下载。</p>
 <h4 id="前置说明">前置说明</h4><ol>
@@ -817,7 +817,7 @@
     <title><![CDATA[深入浅出 RxJava (一、基础篇)]]></title>
     <link href="http://yoursite.com/grokking-rxjava-part-1/"/>
     <id>http://yoursite.com/grokking-rxjava-part-1/</id>
-    <published>2015-08-29T10:21:20.000Z</published>
+    <published>2015-08-29T02:21:20.000Z</published>
     <updated>2015-09-07T15:07:19.000Z</updated>
     <content type="html"><![CDATA[<p><a href="https://github.com/ReactiveX/RxJava" target="_blank" rel="external">RxJava</a> 正在 Android 开发者中变的越来越流行。唯一的问题就是上手不容易，尤其是大部分人之前都是使用命令式编程语言。但是一旦你弄明白了，你就会发现 RxJava 真是太棒了。</p>
 <p>这里仅仅是帮助你了解 RxJava，整个系列共有四篇文章，希望你看完这四篇文章之后能够了解 RxJava 背后的思想，并且喜欢上 RxJava。</p>
@@ -834,7 +834,7 @@
 <p>一旦 mySubscriber 订阅了 myObservable， myObservable 就是调用 mySubscriber 对象的 onNext 和 onComplete 方法，mySubscriber 就会打印出 Hello World！</p>
 <h4 id="更简洁的代码">更简洁的代码</h4><p>是不是觉得仅仅为了打印一个 hello world 要写这么多代码太啰嗦？我这里主要是为了展示 RxJava 背后的原理而采用了这种比较啰嗦的写法，RxJava 其实提供了很多便捷的函数来帮助我们减少代码。</p>
 <p>首先来看看如何简化 Observable 对象的创建过程。RxJava 内置了很多简化创建 Observable 对象的函数，比如 Observable.just 就是用来创建只发出一个事件就结束的 Observable 对象，上面创建 Observable 对象的代码可以简化为一行。</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">Observable</span>&lt;<span class="keyword">String&gt; </span>myObservable = Observable.just(<span class="string">"Hello, world!"</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight golo"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="typename">Observable</span>&lt;String&gt; myObservable = <span class="typename">Observable</span>.just(<span class="string">"Hello, world!"</span>);</span><br></pre></td></tr></table></figure>
 <p>接下来看看如何简化 Subscriber，上面的例子中，我们其实并不关心 OnComplete 和 OnError，我们只需要在 onNext 的时候做一些处理，这时候就可以使用 Action1 类。</p>
 <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Action1&lt;<span class="keyword">String</span>&gt; onNextAction = <span class="keyword">new</span> Action1&lt;<span class="keyword">String</span>&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> call(<span class="keyword">String</span> s) &#123;</span><br><span class="line">        System.out.<span class="built_in">println</span>(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>subscribe 方法有一个重载版本，接受三个 Action1 类型的参数，分别对应 OnNext， OnComplete， OnError 函数。</p>
@@ -849,13 +849,13 @@
 <h3 id="变换">变换</h3><p>让我们做一些更有趣的事情吧！<br>比如我想在 hello world 中加上我的签名，你可能会想到去修改 Observable 对象：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Observable</span><span class="class">.just</span>("<span class="tag">Hello</span>, <span class="tag">world</span>! <span class="tag">-Dan</span>")</span><br><span class="line">    <span class="class">.subscribe</span>(<span class="tag">s</span> <span class="tag">-</span>&gt; <span class="tag">System</span><span class="class">.out</span><span class="class">.println</span>(<span class="tag">s</span>));</span><br></pre></td></tr></table></figure>
 <p>如果你能够改变 Observable 对象，这当然是可以的，但是如果你不能修改 Observable 对象呢？比如 Observable 对象是第三方库提供的？比如我的 Observable 对象被多个 Subscriber 订阅，但是我只想在对某个订阅者做修改呢？<br>那么在 Subscriber 中对事件进行修改怎么样呢？比如下面的代码：</p>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Observable.just<span class="params">(<span class="string">"Hello, world!"</span>)</span></span><br><span class="line">    .subscribe<span class="params">(s -&gt; System.out.println<span class="params">(s + <span class="string">" -Dan"</span>)</span>)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Observable</span><span class="class">.just</span>("<span class="tag">Hello</span>, <span class="tag">world</span>!")</span><br><span class="line">    <span class="class">.subscribe</span>(<span class="tag">s</span> <span class="tag">-</span>&gt; <span class="tag">System</span><span class="class">.out</span><span class="class">.println</span>(<span class="tag">s</span> + " <span class="tag">-Dan</span>"));</span><br></pre></td></tr></table></figure>
 <p>这种方式仍然不能让人满意，因为我希望我的 Subscribers 越轻量越好，因为我有可能会在 mainThread 中运行 subscriber。另外，根据响应式函数编程的概念， Subscribers 更应该做的事情是“响应”，响应 Observable 发出的事件，而不是去修改。如果我能在某些中间步骤中对 “Hello World！” 进行变换是不是很酷？</p>
 <h3 id="操作符（Operators）">操作符（Operators）</h3><p>操作符就是为了解决对 Observable 对象的变换的问题，操作符用于在 Observable 和最终的 Subscriber 之间修改 Observable 发出的事件。RxJava 提供了很多很有用的操作符。</p>
 <p>比如 map 操作符，就是用来把把一个事件转换为另一个事件的。</p>
 <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Observable<span class="built_in">.</span>just(<span class="string">"Hello, world!"</span>)</span><br><span class="line">  <span class="built_in">.</span><span class="built_in">map</span>(<span class="literal">new</span> Func1&lt;<span class="built_in">String</span>, <span class="built_in">String</span>&gt;() &#123;</span><br><span class="line">      @Override</span><br><span class="line">      <span class="keyword">public</span> <span class="built_in">String</span> call(<span class="built_in">String</span> s) &#123;</span><br><span class="line">          <span class="keyword">return</span> s + <span class="string">" -Dan"</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">.</span>subscribe(s <span class="subst">-&gt; </span>System<span class="built_in">.</span>out<span class="built_in">.</span>println(s));</span><br></pre></td></tr></table></figure>
 <p>使用 lambda 可以简化为：</p>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Observable.just<span class="params">(<span class="string">"Hello, world!"</span>)</span></span><br><span class="line">    .map<span class="params">(s -&gt; s + <span class="string">" -Dan"</span>)</span></span><br><span class="line">    .subscribe<span class="params">(s -&gt; System.out.println<span class="params">(s)</span>)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Observable</span><span class="class">.just</span>("<span class="tag">Hello</span>, <span class="tag">world</span>!")</span><br><span class="line">    <span class="class">.map</span>(<span class="tag">s</span> <span class="tag">-</span>&gt; <span class="tag">s</span> + " <span class="tag">-Dan</span>")</span><br><span class="line">    <span class="class">.subscribe</span>(<span class="tag">s</span> <span class="tag">-</span>&gt; <span class="tag">System</span><span class="class">.out</span><span class="class">.println</span>(<span class="tag">s</span>));</span><br></pre></td></tr></table></figure>
 <p>是不是很酷？ map() 操作符就是用于变换 Observable 对象的， map 操作符返回一个 Observable 对象，这样就可以实现链式调用，在一个 Observable 对象上多次使用 map 操作符，最终将最简洁的数据传递给 Subscriber 对象。</p>
 <h4 id="map操作符进阶">map操作符进阶</h4><p>map 操作符更有趣的一点是它不必返回 Observable 对象返回的类型，你可以使用 map 操作符返回一个发出新的数据类型的 observable 对象。</p>
 <p>比如上面的例子中，subscriber 并不关心返回的字符串，而是想要字符串的 hash 值。</p>
@@ -899,7 +899,7 @@
     <title><![CDATA[生成 SSH 密钥]]></title>
     <link href="http://yoursite.com/generating-ssh-keys/"/>
     <id>http://yoursite.com/generating-ssh-keys/</id>
-    <published>2015-08-28T20:39:40.000Z</published>
+    <published>2015-08-28T12:39:40.000Z</published>
     <updated>2015-09-07T08:59:13.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/800px-SSH_Communications_Security_logo.svg.png" alt="生成 SSH 密钥"></p>
 <p>Git 仓库可以通过 git:// 来访问，目前类似 Github，Gitcafe，Coding等基于 Git 的托管服务都提供有配置 SSH 密钥，来访问托管仓库的功能。本文中将通过为 Github 账号配置 SSH 密钥来访问仓库为例，说明 SSH 密钥配置过程。</p>
@@ -925,13 +925,13 @@
 <p>1、确保 ssh-agent 是可用的：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># start the ssh-agent in the background</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br><span class="line"><span class="comment"># Agent pid 59566</span></span><br></pre></td></tr></table></figure>
 <p>2、添加密钥到 ssh-agent</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh-add ~<span class="regexp">/.ssh/id</span>_rsa</span><br></pre></td></tr></table></figure>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh-add ~<span class="regexp">/.ssh/id</span>_rsa</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>提示：如果你在步骤2中没有生成新的 SSH 密钥，而是使用已经存在的密钥，那你需要替换上面命令中的 id_rsa 为你已经存在的私钥文件的名称。</p>
 </blockquote>
 <h2 id="步骤4：添加_SSH_密钥到你的账号">步骤4：添加 SSH 密钥到你的账号</h2><p>配置你的 Github 账号来使用 SSH 密钥：</p>
 <p>复制 SSH 密钥到剪贴板，记住你可能将密钥命名为 id_dsa.pub， id_ecdsa.pub 或者 id_ed25519.pub，那么需要修改下列命令中的文件名：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pbcopy &lt; ~<span class="regexp">/.ssh/id</span>_rsa.pub</span><br><span class="line"><span class="comment"># Copies the contents of the id_rsa.pub file to your clipboard</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pbcopy &lt; ~<span class="regexp">/.ssh/id</span>_rsa.pub</span><br><span class="line"><span class="comment"># Copies the contents of the id_rsa.pub file to your clipboard</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>提示：也可以直接用文本编辑器等打开公钥文件，然后复制其中的内容。</p>
 <p>警告：在复制过程中一定不能添加任何新行或者空格。</p>
@@ -945,7 +945,7 @@
 <p>6、输入 Github 账号密码来确认。</p>
 <h2 id="步骤5：测试连接">步骤5：测试连接</h2><p>为了确保一切工作正常，接下来将 SSH 到 Github。这么做的时候，你需要使用密码来验证。这个密码就是你之前创建的 SSH 密钥的口令。</p>
 <p>1、打开终端并输入：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh -<span class="constant">T </span>git<span class="variable">@github</span>.com</span><br><span class="line"><span class="comment"># Attempts to ssh to GitHub</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh -<span class="constant">T</span> git<span class="variable">@github</span>.com</span><br><span class="line"><span class="comment"># Attempts to ssh to GitHub</span></span><br></pre></td></tr></table></figure>
 <p>2、第一次你将看到下面的警告：</p>
 <figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity <span class="keyword">of</span> host <span class="attribute">'github</span>.com (<span class="number">207.97</span>.<span class="number">227.239</span>)' can<span class="attribute">'t</span> be established.</span><br><span class="line"># RSA key fingerprint <span class="keyword">is</span> <span class="number">16</span>:<span class="number">27</span>:ac:a5:<span class="number">76</span>:<span class="number">28</span>:<span class="number">2</span>d:<span class="number">36</span>:<span class="number">63</span>:<span class="number">1</span>b:<span class="number">56</span>:<span class="number">4</span>d:eb:df:a6:<span class="number">48</span>.</span><br><span class="line"># Are you sure you want <span class="keyword">to</span> continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
 <p>核实你看到的消息中的指纹，并输入: <code>yes</code>：</p>
@@ -977,7 +977,7 @@
     <title><![CDATA[iOS App 生命周期]]></title>
     <link href="http://yoursite.com/lifecycle-of-an-ios-application/"/>
     <id>http://yoursite.com/lifecycle-of-an-ios-application/</id>
-    <published>2015-08-28T19:27:20.000Z</published>
+    <published>2015-08-28T11:27:20.000Z</published>
     <updated>2015-08-28T11:43:46.000Z</updated>
     <content type="html"><![CDATA[<p>对于iOS应用程序，关键的是要知道你的应用程序是否正在前台或后台运行。由于系统资源在iOS设备上较为有限，一个应用程序必须在后台与前台有不同的行为。操作系统也会限制你的应用程序在后台的运行，以提高电池寿命，并提高用户与前台应用程序的体验。当应用程序在前台和后台之间切换时，操作系统将会通知您的应用程序。你可以通过这些通知来修改你的应用程序的行为。</p>
 <p>当你的应用程序在前台活动时，系统会发送触摸事件给它进行处理。在UIKit的基础设施做了大部分的事件传递给你的自定义对象工作。所有您需要做的是覆盖在相应的对象的方法来处理这​​些事件。对于控件，UIKit会通过处理你的触摸事件，或者其他一些有趣的事情发生时调用您的自定义代码，比如当文本字段中的值更改。</p>
@@ -1100,7 +1100,7 @@
     <title><![CDATA[一个成功的 Git 分支模型]]></title>
     <link href="http://yoursite.com/a-successful-git-branching-model/"/>
     <id>http://yoursite.com/a-successful-git-branching-model/</id>
-    <published>2015-08-27T12:34:56.000Z</published>
+    <published>2015-08-27T04:34:56.000Z</published>
     <updated>2015-08-28T12:03:40.000Z</updated>
     <content type="html"><![CDATA[<p>原文来自：<a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="external">A successful Git branching model</a><br>译文来自：<a href="http://www.juvenxu.com/2010/11/28/a-successful-git-branching-model/" target="_blank" rel="external">一个成功的 Git 分支模型</a></p>
 <p>这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。</p>
@@ -1154,7 +1154,7 @@
 <p>从 develop 分支创建发布分支的时间通常是 develop 分支（差不多）能反映新版本所期望状态的时候。至少说，这是时候版本发布所计划的特性都已经合并回了 develop 分支。而未来其它版本发布计划的特性则不应该合并，它们必须等到当前的版本分支创建好之后才能合并。</p>
 <p>正是在发布分支创建的时候，对应的版本发布才获得一个版本号——不能更早。在该时刻之前， develop 分支反映的是“下一版本”的相关变更，但不知道这“下一版本”到底会成为0.3还是1.0，直到发布分支被创建。版本号是在发布分支创建时，基于项目版本号规则确定的。</p>
 <h4 id="创建一个发布分支">创建一个发布分支</h4><p>发布分支从 develop 分支创建。例如，假设1.1.5是当前的产品版本，同时我们即将发布下个版本。develop 分支的状态已经是准备好“下一版本”发布了，我们也决定下个版本是1.2（而不是1.1.6或者2.0）。因此我们创建发布分支，并且为其赋予一个能体现新版本号的名称：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -<span class="tag">b</span> releases-<span class="number">1.2</span> develop</span><br><span class="line">Switched to <span class="tag">a</span> new branch “release-<span class="number">1.2</span>”</span><br><span class="line">$ ./bump-version<span class="class">.sh</span> <span class="number">1.2</span></span><br><span class="line">Files modified successfully. version bumped to <span class="number">1.2</span>.</span><br><span class="line">$ git commit -<span class="tag">a</span> -m “Bumped version number to <span class="number">1.2</span>”</span><br><span class="line">[release-<span class="number">1.2</span> <span class="number">74</span>d9424] Bumped version number to <span class="number">1.2</span></span><br><span class="line"><span class="number">1</span> files changed. <span class="number">1</span> <span class="function"><span class="title">insertions</span><span class="params">(+)</span></span>. <span class="number">1</span> <span class="function"><span class="title">deletions</span><span class="params">(-)</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b releases-1.2 develop</span><br><span class="line">Switched to a new branch “<span class="operator"><span class="keyword">release</span>-<span class="number">1.2</span>”</span><br><span class="line">$ ./bump-<span class="keyword">version</span>.sh <span class="number">1.2</span></span><br><span class="line">Files modified successfully. <span class="keyword">version</span> bumped <span class="keyword">to</span> <span class="number">1.2</span>.</span><br><span class="line">$ git <span class="keyword">commit</span> -a -<span class="keyword">m</span> “Bumped <span class="keyword">version</span> <span class="built_in">number</span> <span class="keyword">to</span> <span class="number">1.2</span>”</span><br><span class="line">[<span class="keyword">release</span>-<span class="number">1.2</span> <span class="number">74</span>d9424] Bumped <span class="keyword">version</span> <span class="built_in">number</span> <span class="keyword">to</span> <span class="number">1.2</span></span><br><span class="line"><span class="number">1</span> files <span class="keyword">changed</span>. <span class="number">1</span> insertions(+). <span class="number">1</span> deletions(-)</span></span><br></pre></td></tr></table></figure>
 <p>创建新分支并转到该分支之后，我们设定版本号。这里的 bump-version.sh 是一个虚构的 shell 脚本，它修改一些本地工作区的文件以体现新的版本号。（当然这也可以手动完成——这里只是说要有一些文件变更）接着，提交新版本号。</p>
 <p>新的发布分支可能存在一段时间，直到该版本明确对外交付。这段时间内，该分支上可能会有一些 bug 的修复（而不是在 develop 分支上）。在该分支上添加新特性是严格禁止的。新特性必须合并到 develop 分支，然后等待下一个版本发布。</p>
 <h4 id="结束一个发布分支">结束一个发布分支</h4><p>当发布分支达到一个可以正式发布的状态时，我们就需要执行一些操作。首先，将发布分支合并至 master （记住，我们之前定义 master 分支上的每一个 commit 都对应一个新版本）。接着，master 分支上的 commit 必须被打上标签（tag），以方便将来寻找历史版本。最后，发布分支上的变更需要合并回 develop，这样将来的版本也能包含相关的 bug 修复。</p>
@@ -1211,7 +1211,7 @@
     <title><![CDATA[程序员真正的价值]]></title>
     <link href="http://yoursite.com/the-real-value-of-programmers/"/>
     <id>http://yoursite.com/the-real-value-of-programmers/</id>
-    <published>2015-08-26T11:13:14.000Z</published>
+    <published>2015-08-26T03:13:14.000Z</published>
     <updated>2015-08-27T10:25:58.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/14064631_iVnR.jpg" alt="程序员真正的价值"></p>
 <blockquote>
@@ -1271,7 +1271,7 @@
     <title><![CDATA[如何辨认身边的聪明人？]]></title>
     <link href="http://yoursite.com/how-to-identify-smart-people-around-you/"/>
     <id>http://yoursite.com/how-to-identify-smart-people-around-you/</id>
-    <published>2015-08-24T16:04:27.000Z</published>
+    <published>2015-08-24T08:04:27.000Z</published>
     <updated>2015-08-27T10:28:04.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/cmr.jpg" alt="如何辨认身边的聪明人？"></p>
 <p>谢邀。</p>
@@ -1346,7 +1346,7 @@
     <title><![CDATA[团队做代码评审中审查清单的使用实践]]></title>
     <link href="http://yoursite.com/stop-more-bugs-with-our-code-review-checklist/"/>
     <id>http://yoursite.com/stop-more-bugs-with-our-code-review-checklist/</id>
-    <published>2015-08-23T17:28:34.000Z</published>
+    <published>2015-08-23T09:28:34.000Z</published>
     <updated>2015-09-07T08:49:54.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/062749_2Ex2_12.gif" alt="团队做代码评审中审查清单的使用实践"></p>
 <p>在我们关于高效代码审查的博文中，我们建议使用一个检查清单。在代码审查中，检查清单是一个非常好的工具——它们保证了审查可以在你的团队中始终如一的进行。它们也是一种保证常见问题能够被发现并被解决的便利方式。</p>
@@ -1414,7 +1414,7 @@
     <title><![CDATA[为什么Google要执行严格的编码编写规范]]></title>
     <link href="http://yoursite.com/google-coding-standards/"/>
     <id>http://yoursite.com/google-coding-standards/</id>
-    <published>2015-08-22T12:21:20.000Z</published>
+    <published>2015-08-22T04:21:20.000Z</published>
     <updated>2015-09-07T08:46:56.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-编码风格.jpg" alt="为什么Google要执行严格的编码编写规范"></p>
 <p>本篇是<a href="http://www.linfuyan.com/google-code-review" target="_blank" rel="external">谷歌是如何做代码审查的</a>的续篇。</p>

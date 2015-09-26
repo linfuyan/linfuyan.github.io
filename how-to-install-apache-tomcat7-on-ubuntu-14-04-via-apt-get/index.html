@@ -3,17 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: reactivex | 悠城札记</title>
+  <title>如何在 Ubuntu 14.04 上通过 apt-get 安装 Apache Tomcat 7 | 悠城札记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="悠城札记">
-<meta property="og:url" content="http://yoursite.com/tags/reactivex/index.html">
+  <meta name="description" content="翻译自：https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-7-on-ubuntu-14-04-via-apt-get
+关于 Apache TomcatApache Tomcat 是一个服务器应用，通常用来部署 Java 应用到 Web 。 Tomcat 是 Java Servlet 与 JSP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何在 Ubuntu 14.04 上通过 apt-get 安装 Apache Tomcat 7">
+<meta property="og:url" content="http://yoursite.com/how-to-install-apache-tomcat7-on-ubuntu-14-04-via-apt-get/index.html">
 <meta property="og:site_name" content="悠城札记">
-<meta property="og:description">
+<meta property="og:description" content="翻译自：https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-7-on-ubuntu-14-04-via-apt-get
+关于 Apache TomcatApache Tomcat 是一个服务器应用，通常用来部署 Java 应用到 Web 。 Tomcat 是 Java Servlet 与 JSP">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_3.png">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_1.png">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_2.png">
+<meta property="og:updated_time" content="2015-09-26T15:46:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="悠城札记">
-<meta name="twitter:description">
+<meta name="twitter:title" content="如何在 Ubuntu 14.04 上通过 apt-get 安装 Apache Tomcat 7">
+<meta name="twitter:description" content="翻译自：https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-7-on-ubuntu-14-04-via-apt-get
+关于 Apache TomcatApache Tomcat 是一个服务器应用，通常用来部署 Java 应用到 Web 。 Tomcat 是 Java Servlet 与 JSP">
   
   
     <link rel="icon" href="/favicon.png">
@@ -81,171 +88,146 @@
           <section id="main">
             <div class="main-body-header">
 
-              <h1 class="header"><i class="icon fa fa-tag"></i>标签：<em>reactivex</em></h1>
+              <h1 class="header"><a class="page-title-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/软件工具/tomcat/">tomcat</a></h1>
             </div>
             <div class="main-body-content">
               
-  
-  
-    
-    
+  <article id="post-how-to-install-apache-tomcat7-on-ubuntu-14-04-via-apt-get" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
       
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year"><i class="icon fa fa-calendar-o"></i>2015</a>
-        </div>
-        <div class="archives">
-    
-    
-    
-      <div class="article-row">
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/reactivex-operator/" class="thumbnail">
+        <header class="article-header">
+          
   
-    <span class="thumbnail-image thumbnail-none"></span>
+    <h1 class="article-title" itemprop="name">
+      如何在 Ubuntu 14.04 上通过 apt-get 安装 Apache Tomcat 7
+    </h1>
   
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/how-to-install-apache-tomcat7-on-ubuntu-14-04-via-apt-get/" class="article-date">
+  <time datetime="2015-09-26T15:32:00.000Z" itemprop="datePublished">2015-09-26</time>
 </a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/rxjava/">rxjava</a></p>
-        <p class="date"><time datetime="2015-09-07T13:24:44.000Z" itemprop="datePublished">2015-09-07</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/reactivex-operator/" class="title">ReactiveX 之 Operator</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        
-原文：http://reactivex.io/documentation/operators.html
-对译文有建议，请发邮件或下方评论给我，万分感谢。
-更新历史：1月13日
-
-每个特定语言版本的响应式扩展实现了一套具体的操作集合。虽然有一些重叠，依然有一些操作只在特定的版本中实现，并且每种语言趋向于将相似的操作命名成其他语言中已经为大家所熟悉的名称。
-这篇文章列举出响应式扩展集合中被认为核心的操作，并链接到更多说明的页面上。这些页面将解释这些操作如何工作，哪些特定版本的响应式扩展又是怎样实现这些操作。
       </p>
+      <div class="article-entry" itemprop="articleBody">
+        <p>翻译自：<a href="https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-7-on-ubuntu-14-04-via-apt-get" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-7-on-ubuntu-14-04-via-apt-get</a></p>
+<h4 id="关于_Apache_Tomcat">关于 Apache Tomcat</h4><p>Apache Tomcat 是一个服务器应用，通常用来部署 Java 应用到 Web 。 Tomcat 是 Java Servlet 与 JSP 技术的一个开源实现，由 Apache 软件基金会发布。</p>
+<p>这个教程涵盖了在 Ubuntu 14.04 上 Tomcat 7.0.x 版本的安装和基础配置。</p>
+<p>有两种基本的途径来安装 Tomcat 到 Ubuntu 上：</p>
+<ul>
+<li>通过 apt-get 工具来安装，这是最简单的方法。</li>
+<li>从 Apache Tomcat 网站下载二进制发布包。本教程不涵盖这种方法。</li>
+</ul>
+<p>在这个教程中，我们将使用最简单地方法： <code>apt-get</code> 。这将从官方的 Ubuntu 资源仓库安装最新的 Tomcat 发布包，这个包可能不是 Tomcat 的最新发布版本。如果你想要确保安装 Tomcat 的最新版，你可以下载最新的二进制发布包。</p>
+<a id="more"></a>
+<h3 id="步骤一_-_先决条件">步骤一 - 先决条件</h3><p>在你开始这个向导之前，在你的服务器上需要配置一个独立的非 root 用户账号。你可以按照 Ubuntu 14.04 上搭建服务器中的 1-4 步来学习完成它。我们这里使用创建的 <code>demo</code> 用户来完成后续的教程。</p>
+<h3 id="步骤二_-_安装_Tomcat">步骤二 - 安装 Tomcat</h3><p>首先，你需要升级 apt-get 软件包列表：</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br></pre></td></tr></table></figure>
+<p>现在你已经准备好安装 Tomcat。运行以下命令，开始安装：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install tomcat7</span><br></pre></td></tr></table></figure>
+<p>输入 <code>yes</code> 来安装 Tomcat 。这将同时安装 Tomcat 和它的依赖，例如 Java，同时，它将创建一个 <code>tomcat7</code> 用户，并以默认设置启动 Tomcat 。</p>
+<p>这时候， Tomcat 并没有完全安装完成，但你可以通过在浏览器中输入本地域名或IP地址之后加 <code>:8080</code> 的方法来访问默认页面。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">http:</span><span class="comment">//your_ip_address:8080</span></span><br></pre></td></tr></table></figure>
+<p>你会看到一个闪屏页面，显示 “It works” ，和其他附加信息。现在，我们要深入到 Tomcat 的安装过程。</p>
+<h3 id="步骤三_-_安装额外软件包">步骤三 - 安装额外软件包</h3><p><em>注意：</em>如果你对 Tomcat 足够了解，且不需要 Web 管理接口，文档和示例，那这个章节不是必须的。如果你是第一次接触 Tomcat ，请继续。</p>
+<p>通过以下代码，你将安装 Tomcat 的在线文档， Web接 口（管理 Web 应用），以及一些示例应用。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get <span class="operator"><span class="keyword">install</span> tomcat7-docs tomcat7-<span class="keyword">admin</span> tomcat7-examples</span></span><br></pre></td></tr></table></figure>
+<p>输入 <code>yes</code> 来安装这些软件包。后面我们会讲到这些工具的用法和配置。接下来，我们要安装 JDK 。</p>
+<h3 id="步骤四_-_安装_JDK_(可选)">步骤四 - 安装 JDK (可选)</h3><p>如果你打算在服务器上开发应用，你需要安装本章节中提到的软件。</p>
+<p>JDK 确保我们可以开发运行在 Tomcat 服务器上的 Java 应用。运行以下命令来安装 <code>openjdk-7-jdk</code>:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install <span class="keyword">default</span>-jdk</span><br></pre></td></tr></table></figure>
+<p>作为 JDK 的附件， Tomcat 文档上建议同时安装用来构建 Java 应用 Apache Ant 工具及包括 Git 在内的源码控制系统。通过下面的命令来安装它们：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install ant git</span><br></pre></td></tr></table></figure>
+<p>Apache Ant 的更多信息，可查阅其<a href="http://ant.apache.org/manual/index.html" target="_blank" rel="external">官方文档</a>。 Git 使用教程可以参考<a href="https://www.digitalocean.com/community/articles/how-to-use-git-effectively" target="_blank" rel="external">这里</a>。</p>
+<h3 id="步骤五_-_配置_Tomcat_Web_管理器">步骤五 - 配置 Tomcat Web 管理器</h3><p>想要使用步骤三中安装的 Web 应用管理器，需要先登录到 Tomcat 服务器。首先需要编辑修改 <code>tomcat-users.xml</code> ：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano <span class="regexp">/etc/</span>tomcat7<span class="regexp">/tomcat-users.xml</span></span><br></pre></td></tr></table></figure>
+<p>该文件充满了用于说明如何配置的注释。你需要删除下面两行之间的所有注释。如需要用作参考，则保留。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;tomcat-users&gt;</span></span><br><span class="line"><span class="tag">&lt;/tomcat-users&gt;</span></span><br></pre></td></tr></table></figure>
+<p>你需要添加一个用户，可以访问 <code>manager-gui</code> 和 <code>admin-gui</code> （我们在步骤三种安装的管理界面）。你可以通过如下的配置来定义一个用户。如果需要，确保修改用户名和密码。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">tomcat-users</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">user</span> <span class="attribute">username</span>=<span class="value">"admin"</span> <span class="attribute">password</span>=<span class="value">"password"</span> <span class="attribute">roles</span>=<span class="value">"manager-gui,admin-gui"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">tomcat-users</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>保存并退出 <code>tomcat-users.xml</code> 文件。重启 Tomcat 服务，以便修改配置生效。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">sudo</span> service tomcat7 restart</span><br></pre></td></tr></table></figure>
+<h3 id="步骤六_-_访问_Web_界面">步骤六 - 访问 Web 界面</h3><p>现在，我们已经配置了一个管理员用户，从 Web 浏览器访问 Web 管理器页面。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">http:</span><span class="comment">//your-ip_address:8080</span></span><br></pre></td></tr></table></figure>
+<p>你可以看到的页面如下：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_3.png" alt="image"></p>
+<p>从上面可以看到，里面有四个链接到步骤三中安装的软件包：</p>
+<ul>
+<li>tomcat7-docs: Tomcat 的在线文档。通过 <code>http://your_ip_address:8080/docs/</code> 来访问</li>
+<li>tomcat7-examples: Tomcat 7 Servlet 和 JSP 示例。你可以点击这些示例 Web 应用来了解它们是怎么工作的（通过源码可以了解它们是怎么实现的）。通过 <code>http://your_ip_address:8080/examples/</code> 来访问</li>
+<li>tomcat7-admin ( Web 应用管理器): Tomcat Web 应用管理器。通过这里来管理你的 Java 应用。</li>
+<li>tomcat7-admin (主机管理器): Tomcat 虚拟主机管理器。</li>
+</ul>
+<p>通过打开链接 <code>http://your_ip_address:8080/manager/html</code> ，来查看 Web 应用管理器：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_1.png" alt="image"></p>
+<p>这个Web应用管理器使用来管理Java应用的。你可以在这里执行应用的启动，停止，重新加载，部署，下架等操作。还可以对应用做一些诊断（如内存泄露）。最后，你服务器的相关信息被显示在页面的最底部。</p>
+<p>通过打开链接 <code>http://your_ip_address:8080/host-manager/html</code> ，来查看虚拟主机管理器：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_2.png" alt="image"></p>
+<p>在虚拟主机管理页面，你可以为应用程序添加虚拟主机。</p>
+<h3 id="结束">结束</h3><p>Tomcat 的安装到此结束。你现在就可以免费得来部署自己的 Web 应用。</p>
+
+      </div>
+      <footer class="article-footer">
+        <!-- <a data-url="http://yoursite.com/how-to-install-apache-tomcat7-on-ubuntu-14-04-via-apt-get/" data-id="cif192p180000rpnckoes0fkz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        
+        
+      </footer>
+      
+        
+<nav id="article-nav">
+  
+  
+    <a href="/what-is-jenkins/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">什么是 Jenkins?</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+      
+      
+        <div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+      
     </div>
   </article>
-
-    
-  
-    
-    
-    
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/reactivex-observable/" class="thumbnail">
-  
-    <span style="background-image:url(http://reactivex.io/assets/operators/legend.png
-)" alt="ReactiveX 之 Observable" class="thumbnail-image"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/rxjava/">rxjava</a></p>
-        <p class="date"><time datetime="2015-09-07T13:06:12.000Z" itemprop="datePublished">2015-09-07</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/reactivex-observable/" class="title">ReactiveX 之 Observable</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        
-原文：http://reactivex.io/documentation/observable.html
-对译文有建议，请发邮件或下方评论给我，万分感谢。
-更新历史：1月13日
-
-在RxJava中一个对象实现了Observer接口则被一个Observable类对象所订阅。订阅者则针对Obserable对象产生的值（包括项及项的序列）做响应。这种模式便利了异步操作，因为不用在等待Obserable产生对象时进行阻塞，它以订阅者的形式创建了一个哨兵，用于在Observable在将来的时间产生任何输出时提供合适的响应。
-这篇文章解释什么是响应式模式以及什么是Observable与观察者(观察者怎样对Observable进行订阅)。
-
-文档中的解释将采用”marble diagrams”的形式。下图说明”marble diagrams”怎样展示Observable以及Observable之间的转换。
-
-
-      </p>
-    </div>
-  </article>
-
-    
-      </div>
-    
-  
-    
-    
-    
-    
-      <div class="article-row">
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/grokking-rxjava-part-2/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/rxjava/">rxjava</a></p>
-        <p class="date"><time datetime="2015-08-30T14:20:35.000Z" itemprop="datePublished">2015-08-30</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/grokking-rxjava-part-2/" class="title">深入浅出 RxJava (二、操作符)</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        在第一篇博客中，我介绍了 RxJava 的一些基础知识，同时也介绍了 map() 操作符。当然如果你并没有意愿去使用 RxJava 我一点都不诧异，毕竟才接触了这么点儿。看完这篇博客，我相信你肯定想立即在你的项目中使用 RxJava 了，这边博客将介绍许多 RxJava 中的操作符， RxJava 的强大性就来自于它所定义的操作符。
-      </p>
-    </div>
-  </article>
-
-    
-  
-    
-    
-    
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/grokking-rxjava-part-1/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/rxjava/">rxjava</a></p>
-        <p class="date"><time datetime="2015-08-29T02:21:20.000Z" itemprop="datePublished">2015-08-29</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/grokking-rxjava-part-1/" class="title">深入浅出 RxJava (一、基础篇)</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        RxJava 正在 Android 开发者中变的越来越流行。唯一的问题就是上手不容易，尤其是大部分人之前都是使用命令式编程语言。但是一旦你弄明白了，你就会发现 RxJava 真是太棒了。
-这里仅仅是帮助你了解 RxJava，整个系列共有四篇文章，希望你看完这四篇文章之后能够了解 RxJava 背后的思想，并且喜欢上 RxJava。
-      </p>
-    </div>
-  </article>
-
-    
-      </div>
-    
-  
-  
-    </div></section>
-  
   
 
+  
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-how-to-install-apache-tomcat7-on-ubuntu-14-04-via-apt-get" data-title="如何在 Ubuntu 14.04 上通过 apt-get 安装 Apache Tomcat 7" data-url="http://yoursite.com/how-to-install-apache-tomcat7-on-ubuntu-14-04-via-apt-get/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'linfuyan'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+  
 
             </div>
           </section>
@@ -261,7 +243,20 @@
       
     </ul>
   </div>
-  <!--  -->
+  <!-- 
+    
+<nav id="article-nav">
+  
+  
+    <a href="/what-is-jenkins/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">什么是 Jenkins?</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+   -->
   <div class="widgets-container">
     
       

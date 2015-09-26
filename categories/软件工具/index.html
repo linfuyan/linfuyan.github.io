@@ -61,7 +61,7 @@
               
                 <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
               
-                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/rxjava/">rxjava</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li></ul></li></ul>
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/rxjava/">rxjava</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
                   
             </ul>
             <nav id="sub-nav">
@@ -105,6 +105,45 @@
   <article class="article article-summary">
     <div class="article-summary-inner">
       
+<a href="/how-to-install-apache-tomcat7-on-ubuntu-14-04-via-apt-get/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_3.png
+)" alt="如何在 Ubuntu 14.04 上通过 apt-get 安装 Apache Tomcat 7" class="thumbnail-image"></span>
+  
+</a>
+
+      <div class="article-meta">
+        <p class="category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/tomcat/">tomcat</a></p>
+        <p class="date"><time datetime="2015-09-26T15:32:00.000Z" itemprop="datePublished">2015-09-26</time></p>
+      </div>
+      <h2 class="article-title">
+        <a href="/how-to-install-apache-tomcat7-on-ubuntu-14-04-via-apt-get/" class="title">如何在 Ubuntu 14.04 上通过 apt-get 安装 Apache Tomcat 7</a>
+      </h2>
+      <p class="article-excerpt">
+        
+        翻译自：https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-7-on-ubuntu-14-04-via-apt-get
+关于 Apache TomcatApache Tomcat 是一个服务器应用，通常用来部署 Java 应用到 Web 。 Tomcat 是 Java Servlet 与 JSP 技术的一个开源实现，由 Apache 软件基金会发布。
+这个教程涵盖了在 Ubuntu 14.04 上 Tomcat 7.0.x 版本的安装和基础配置。
+有两种基本的途径来安装 Tomcat 到 Ubuntu 上：
+
+通过 apt-get 工具来安装，这是最简单的方法。
+从 Apache Tomcat 网站下载二进制发布包。本教程不涵盖这种方法。
+
+在这个教程中，我们将使用最简单地方法： apt-get 。这将从官方的 Ubuntu 资源仓库安装最新的 Tomcat 发布包，这个包可能不是 Tomcat 的最新发布版本。如果你想要确保安装 Tomcat 的最新版，你可以下载最新的二进制发布包。
+      </p>
+    </div>
+  </article>
+
+    
+  
+    
+    
+    
+    
+        
+  <article class="article article-summary">
+    <div class="article-summary-inner">
+      
 <a href="/what-is-jenkins/" class="thumbnail">
   
     <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/jenkins-basic-structure.jpg
@@ -129,10 +168,14 @@
   </article>
 
     
+      </div>
+    
   
     
     
     
+    
+      <div class="article-row">
     
         
   <article class="article article-summary">
@@ -162,14 +205,10 @@
   </article>
 
     
-      </div>
-    
   
     
     
     
-    
-      <div class="article-row">
     
         
   <article class="article article-summary">
@@ -198,10 +237,14 @@
   </article>
 
     
+      </div>
+    
   
     
     
     
+    
+      <div class="article-row">
     
         
   <article class="article article-summary">
@@ -231,14 +274,10 @@
   </article>
 
     
-      </div>
-    
   
     
     
     
-    
-      <div class="article-row">
     
         
   <article class="article article-summary">
@@ -273,10 +312,14 @@
   </article>
 
     
+      </div>
+    
   
     
     
     
+    
+      <div class="article-row">
     
         
   <article class="article article-summary">
@@ -306,14 +349,10 @@
   </article>
 
     
-      </div>
-    
   
     
     
     
-    
-      <div class="article-row">
     
         
   <article class="article article-summary">
@@ -352,10 +391,14 @@ Jenkins 配置好相关插件，本文中使用到 Git plugin， Git client plug
   </article>
 
     
+      </div>
+    
   
     
     
     
+    
+      <div class="article-row">
     
         
   <article class="article article-summary">
@@ -385,14 +428,10 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
   </article>
 
     
-      </div>
-    
   
     
     
     
-    
-      <div class="article-row">
     
         
   <article class="article article-summary">
@@ -418,38 +457,6 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
 这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。
 
 本文中我会展示一种开发模型，一年前该模型就已经被我用在所有的项目中（包括工作中的项目和私有项目），结果是非常成功的。我早就想为此写点东西，可直到现在才有时间。本文不会讲述任何项目的细节，只会涉及到分支策略和发布管理。
-      </p>
-    </div>
-  </article>
-
-    
-  
-    
-    
-    
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/configuring-gradle-builds/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-as-gradlesync.png
-)" alt="配置 Gradle 构建" class="thumbnail-image"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/Gradle/">Gradle</a></p>
-        <p class="date"><time datetime="2015-08-14T01:27:43.000Z" itemprop="datePublished">2015-08-14</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/configuring-gradle-builds/" class="title">配置 Gradle 构建</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        本节基于Android 构建系统概览和从 Android Studio 构建并运行来展示如何基于产品口味和构建类型来使用构建变种。
-构建配置基础Android Studio 项目包含一个顶级的构建文件以及每个模块下的一个构建文件。构建文件名为 build.gradle，他们是普通的文本文件，通过 Gradle 的 Android 插件提供的元素，使用 Groovy 语法来配置构建过程。大多数情况下，你只需要在模块层级上来编辑构建文件。例如在项目 BuildSystemExample 的 app 模块的构建文件看起来像这样：
       </p>
     </div>
   </article>
@@ -498,6 +505,26 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/how-to-install-apache-tomcat7-on-ubuntu-14-04-via-apt-get/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_3.png
+)" alt="如何在 Ubuntu 14.04 上通过 apt-get 安装 Apache Tomcat 7" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/tomcat/">tomcat</a></p>
+              <p class="item-title"><a href="/how-to-install-apache-tomcat7-on-ubuntu-14-04-via-apt-get/" class="title">如何在 Ubuntu 14.04 上通过 apt-get 安装 Apache Tomcat 7</a></p>
+              <p class="item-date"><time datetime="2015-09-26T15:32:00.000Z" itemprop="datePublished">2015-09-26</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -579,26 +606,6 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/why-are-software-development-task-estimations-regularly-off-by-a-factor-of-2-3/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/gcgl01.png
-)" alt="为什么预期的软件开发周期总是不够?" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/深度文摘/">深度文摘</a></p>
-              <p class="item-title"><a href="/why-are-software-development-task-estimations-regularly-off-by-a-factor-of-2-3/" class="title">为什么预期的软件开发周期总是不够?</a></p>
-              <p class="item-date"><time datetime="2015-09-23T03:56:57.000Z" itemprop="datePublished">2015-09-23</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -618,7 +625,7 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -628,7 +635,7 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">17</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">17</span></li></ul>
     </div>
   </div>
 

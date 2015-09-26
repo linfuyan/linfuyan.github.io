@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: reactivex | 悠城札记</title>
+  <title>Category: tomcat | 悠城札记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="悠城札记">
-<meta property="og:url" content="http://yoursite.com/tags/reactivex/index.html">
+<meta property="og:url" content="http://yoursite.com/categories/软件工具/tomcat/index.html">
 <meta property="og:site_name" content="悠城札记">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -81,7 +81,7 @@
           <section id="main">
             <div class="main-body-header">
 
-              <h1 class="header"><i class="icon fa fa-tag"></i>标签：<em>reactivex</em></h1>
+              <h1 class="header"><i class="icon fa fa-folder-open"></i>分类：<em class="page-title-link">tomcat</em></h1>
             </div>
             <div class="main-body-content">
               
@@ -105,134 +105,31 @@
   <article class="article article-summary">
     <div class="article-summary-inner">
       
-<a href="/reactivex-operator/" class="thumbnail">
+<a href="/how-to-install-apache-tomcat7-on-ubuntu-14-04-via-apt-get/" class="thumbnail">
   
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/rxjava/">rxjava</a></p>
-        <p class="date"><time datetime="2015-09-07T13:24:44.000Z" itemprop="datePublished">2015-09-07</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/reactivex-operator/" class="title">ReactiveX 之 Operator</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        
-原文：http://reactivex.io/documentation/operators.html
-对译文有建议，请发邮件或下方评论给我，万分感谢。
-更新历史：1月13日
-
-每个特定语言版本的响应式扩展实现了一套具体的操作集合。虽然有一些重叠，依然有一些操作只在特定的版本中实现，并且每种语言趋向于将相似的操作命名成其他语言中已经为大家所熟悉的名称。
-这篇文章列举出响应式扩展集合中被认为核心的操作，并链接到更多说明的页面上。这些页面将解释这些操作如何工作，哪些特定版本的响应式扩展又是怎样实现这些操作。
-      </p>
-    </div>
-  </article>
-
-    
-  
-    
-    
-    
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/reactivex-observable/" class="thumbnail">
-  
-    <span style="background-image:url(http://reactivex.io/assets/operators/legend.png
-)" alt="ReactiveX 之 Observable" class="thumbnail-image"></span>
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_3.png
+)" alt="如何在 Ubuntu 14.04 上通过 apt-get 安装 Apache Tomcat 7" class="thumbnail-image"></span>
   
 </a>
 
       <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/rxjava/">rxjava</a></p>
-        <p class="date"><time datetime="2015-09-07T13:06:12.000Z" itemprop="datePublished">2015-09-07</time></p>
+        <p class="category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/tomcat/">tomcat</a></p>
+        <p class="date"><time datetime="2015-09-26T15:32:00.000Z" itemprop="datePublished">2015-09-26</time></p>
       </div>
       <h2 class="article-title">
-        <a href="/reactivex-observable/" class="title">ReactiveX 之 Observable</a>
+        <a href="/how-to-install-apache-tomcat7-on-ubuntu-14-04-via-apt-get/" class="title">如何在 Ubuntu 14.04 上通过 apt-get 安装 Apache Tomcat 7</a>
       </h2>
       <p class="article-excerpt">
         
-        
-原文：http://reactivex.io/documentation/observable.html
-对译文有建议，请发邮件或下方评论给我，万分感谢。
-更新历史：1月13日
+        翻译自：https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-7-on-ubuntu-14-04-via-apt-get
+关于 Apache TomcatApache Tomcat 是一个服务器应用，通常用来部署 Java 应用到 Web 。 Tomcat 是 Java Servlet 与 JSP 技术的一个开源实现，由 Apache 软件基金会发布。
+这个教程涵盖了在 Ubuntu 14.04 上 Tomcat 7.0.x 版本的安装和基础配置。
+有两种基本的途径来安装 Tomcat 到 Ubuntu 上：
 
-在RxJava中一个对象实现了Observer接口则被一个Observable类对象所订阅。订阅者则针对Obserable对象产生的值（包括项及项的序列）做响应。这种模式便利了异步操作，因为不用在等待Obserable产生对象时进行阻塞，它以订阅者的形式创建了一个哨兵，用于在Observable在将来的时间产生任何输出时提供合适的响应。
-这篇文章解释什么是响应式模式以及什么是Observable与观察者(观察者怎样对Observable进行订阅)。
+通过 apt-get 工具来安装，这是最简单的方法。
+从 Apache Tomcat 网站下载二进制发布包。本教程不涵盖这种方法。
 
-文档中的解释将采用”marble diagrams”的形式。下图说明”marble diagrams”怎样展示Observable以及Observable之间的转换。
-
-
-      </p>
-    </div>
-  </article>
-
-    
-      </div>
-    
-  
-    
-    
-    
-    
-      <div class="article-row">
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/grokking-rxjava-part-2/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/rxjava/">rxjava</a></p>
-        <p class="date"><time datetime="2015-08-30T14:20:35.000Z" itemprop="datePublished">2015-08-30</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/grokking-rxjava-part-2/" class="title">深入浅出 RxJava (二、操作符)</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        在第一篇博客中，我介绍了 RxJava 的一些基础知识，同时也介绍了 map() 操作符。当然如果你并没有意愿去使用 RxJava 我一点都不诧异，毕竟才接触了这么点儿。看完这篇博客，我相信你肯定想立即在你的项目中使用 RxJava 了，这边博客将介绍许多 RxJava 中的操作符， RxJava 的强大性就来自于它所定义的操作符。
-      </p>
-    </div>
-  </article>
-
-    
-  
-    
-    
-    
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/grokking-rxjava-part-1/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/rxjava/">rxjava</a></p>
-        <p class="date"><time datetime="2015-08-29T02:21:20.000Z" itemprop="datePublished">2015-08-29</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/grokking-rxjava-part-1/" class="title">深入浅出 RxJava (一、基础篇)</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        RxJava 正在 Android 开发者中变的越来越流行。唯一的问题就是上手不容易，尤其是大部分人之前都是使用命令式编程语言。但是一旦你弄明白了，你就会发现 RxJava 真是太棒了。
-这里仅仅是帮助你了解 RxJava，整个系列共有四篇文章，希望你看完这四篇文章之后能够了解 RxJava 背后的思想，并且喜欢上 RxJava。
+在这个教程中，我们将使用最简单地方法： apt-get 。这将从官方的 Ubuntu 资源仓库安装最新的 Tomcat 发布包，这个包可能不是 Tomcat 的最新发布版本。如果你想要确保安装 Tomcat 的最新版，你可以下载最新的二进制发布包。
       </p>
     </div>
   </article>
@@ -245,6 +142,7 @@
     </div></section>
   
   
+
 
 
             </div>

@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-09-26T15:26:35.000Z</updated>
+  <updated>2015-09-26T15:46:19.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,87 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[如何在 Ubuntu 14.04 上通过 apt-get 安装 Apache Tomcat 7]]></title>
+    <link href="http://yoursite.com/how-to-install-apache-tomcat7-on-ubuntu-14-04-via-apt-get/"/>
+    <id>http://yoursite.com/how-to-install-apache-tomcat7-on-ubuntu-14-04-via-apt-get/</id>
+    <published>2015-09-26T15:32:00.000Z</published>
+    <updated>2015-09-26T15:46:19.000Z</updated>
+    <content type="html"><![CDATA[<p>翻译自：<a href="https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-7-on-ubuntu-14-04-via-apt-get" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-7-on-ubuntu-14-04-via-apt-get</a></p>
+<h4 id="关于_Apache_Tomcat">关于 Apache Tomcat</h4><p>Apache Tomcat 是一个服务器应用，通常用来部署 Java 应用到 Web 。 Tomcat 是 Java Servlet 与 JSP 技术的一个开源实现，由 Apache 软件基金会发布。</p>
+<p>这个教程涵盖了在 Ubuntu 14.04 上 Tomcat 7.0.x 版本的安装和基础配置。</p>
+<p>有两种基本的途径来安装 Tomcat 到 Ubuntu 上：</p>
+<ul>
+<li>通过 apt-get 工具来安装，这是最简单的方法。</li>
+<li>从 Apache Tomcat 网站下载二进制发布包。本教程不涵盖这种方法。</li>
+</ul>
+<p>在这个教程中，我们将使用最简单地方法： <code>apt-get</code> 。这将从官方的 Ubuntu 资源仓库安装最新的 Tomcat 发布包，这个包可能不是 Tomcat 的最新发布版本。如果你想要确保安装 Tomcat 的最新版，你可以下载最新的二进制发布包。</p>
+<a id="more"></a>
+<h3 id="步骤一_-_先决条件">步骤一 - 先决条件</h3><p>在你开始这个向导之前，在你的服务器上需要配置一个独立的非 root 用户账号。你可以按照 Ubuntu 14.04 上搭建服务器中的 1-4 步来学习完成它。我们这里使用创建的 <code>demo</code> 用户来完成后续的教程。</p>
+<h3 id="步骤二_-_安装_Tomcat">步骤二 - 安装 Tomcat</h3><p>首先，你需要升级 apt-get 软件包列表：</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br></pre></td></tr></table></figure>
+<p>现在你已经准备好安装 Tomcat。运行以下命令，开始安装：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install tomcat7</span><br></pre></td></tr></table></figure>
+<p>输入 <code>yes</code> 来安装 Tomcat 。这将同时安装 Tomcat 和它的依赖，例如 Java，同时，它将创建一个 <code>tomcat7</code> 用户，并以默认设置启动 Tomcat 。</p>
+<p>这时候， Tomcat 并没有完全安装完成，但你可以通过在浏览器中输入本地域名或IP地址之后加 <code>:8080</code> 的方法来访问默认页面。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">http:</span><span class="comment">//your_ip_address:8080</span></span><br></pre></td></tr></table></figure>
+<p>你会看到一个闪屏页面，显示 “It works” ，和其他附加信息。现在，我们要深入到 Tomcat 的安装过程。</p>
+<h3 id="步骤三_-_安装额外软件包">步骤三 - 安装额外软件包</h3><p><em>注意：</em>如果你对 Tomcat 足够了解，且不需要 Web 管理接口，文档和示例，那这个章节不是必须的。如果你是第一次接触 Tomcat ，请继续。</p>
+<p>通过以下代码，你将安装 Tomcat 的在线文档， Web接 口（管理 Web 应用），以及一些示例应用。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get <span class="operator"><span class="keyword">install</span> tomcat7-docs tomcat7-<span class="keyword">admin</span> tomcat7-examples</span></span><br></pre></td></tr></table></figure>
+<p>输入 <code>yes</code> 来安装这些软件包。后面我们会讲到这些工具的用法和配置。接下来，我们要安装 JDK 。</p>
+<h3 id="步骤四_-_安装_JDK_(可选)">步骤四 - 安装 JDK (可选)</h3><p>如果你打算在服务器上开发应用，你需要安装本章节中提到的软件。</p>
+<p>JDK 确保我们可以开发运行在 Tomcat 服务器上的 Java 应用。运行以下命令来安装 <code>openjdk-7-jdk</code>:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install <span class="keyword">default</span>-jdk</span><br></pre></td></tr></table></figure>
+<p>作为 JDK 的附件， Tomcat 文档上建议同时安装用来构建 Java 应用 Apache Ant 工具及包括 Git 在内的源码控制系统。通过下面的命令来安装它们：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install ant git</span><br></pre></td></tr></table></figure>
+<p>Apache Ant 的更多信息，可查阅其<a href="http://ant.apache.org/manual/index.html" target="_blank" rel="external">官方文档</a>。 Git 使用教程可以参考<a href="https://www.digitalocean.com/community/articles/how-to-use-git-effectively" target="_blank" rel="external">这里</a>。</p>
+<h3 id="步骤五_-_配置_Tomcat_Web_管理器">步骤五 - 配置 Tomcat Web 管理器</h3><p>想要使用步骤三中安装的 Web 应用管理器，需要先登录到 Tomcat 服务器。首先需要编辑修改 <code>tomcat-users.xml</code> ：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano <span class="regexp">/etc/</span>tomcat7<span class="regexp">/tomcat-users.xml</span></span><br></pre></td></tr></table></figure>
+<p>该文件充满了用于说明如何配置的注释。你需要删除下面两行之间的所有注释。如需要用作参考，则保留。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;tomcat-users&gt;</span></span><br><span class="line"><span class="tag">&lt;/tomcat-users&gt;</span></span><br></pre></td></tr></table></figure>
+<p>你需要添加一个用户，可以访问 <code>manager-gui</code> 和 <code>admin-gui</code> （我们在步骤三种安装的管理界面）。你可以通过如下的配置来定义一个用户。如果需要，确保修改用户名和密码。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">tomcat-users</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">user</span> <span class="attribute">username</span>=<span class="value">"admin"</span> <span class="attribute">password</span>=<span class="value">"password"</span> <span class="attribute">roles</span>=<span class="value">"manager-gui,admin-gui"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">tomcat-users</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>保存并退出 <code>tomcat-users.xml</code> 文件。重启 Tomcat 服务，以便修改配置生效。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">sudo</span> service tomcat7 restart</span><br></pre></td></tr></table></figure>
+<h3 id="步骤六_-_访问_Web_界面">步骤六 - 访问 Web 界面</h3><p>现在，我们已经配置了一个管理员用户，从 Web 浏览器访问 Web 管理器页面。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">http:</span><span class="comment">//your-ip_address:8080</span></span><br></pre></td></tr></table></figure>
+<p>你可以看到的页面如下：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_3.png" alt="image"></p>
+<p>从上面可以看到，里面有四个链接到步骤三中安装的软件包：</p>
+<ul>
+<li>tomcat7-docs: Tomcat 的在线文档。通过 <code>http://your_ip_address:8080/docs/</code> 来访问</li>
+<li>tomcat7-examples: Tomcat 7 Servlet 和 JSP 示例。你可以点击这些示例 Web 应用来了解它们是怎么工作的（通过源码可以了解它们是怎么实现的）。通过 <code>http://your_ip_address:8080/examples/</code> 来访问</li>
+<li>tomcat7-admin ( Web 应用管理器): Tomcat Web 应用管理器。通过这里来管理你的 Java 应用。</li>
+<li>tomcat7-admin (主机管理器): Tomcat 虚拟主机管理器。</li>
+</ul>
+<p>通过打开链接 <code>http://your_ip_address:8080/manager/html</code> ，来查看 Web 应用管理器：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_1.png" alt="image"></p>
+<p>这个Web应用管理器使用来管理Java应用的。你可以在这里执行应用的启动，停止，重新加载，部署，下架等操作。还可以对应用做一些诊断（如内存泄露）。最后，你服务器的相关信息被显示在页面的最底部。</p>
+<p>通过打开链接 <code>http://your_ip_address:8080/host-manager/html</code> ，来查看虚拟主机管理器：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_2.png" alt="image"></p>
+<p>在虚拟主机管理页面，你可以为应用程序添加虚拟主机。</p>
+<h3 id="结束">结束</h3><p>Tomcat 的安装到此结束。你现在就可以免费得来部署自己的 Web 应用。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>翻译自：<a href="https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-7-on-ubuntu-14-04-via-apt-get">https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-7-on-ubuntu-14-04-via-apt-get</a></p>
+<h4 id="关于_Apache_Tomcat">关于 Apache Tomcat</h4><p>Apache Tomcat 是一个服务器应用，通常用来部署 Java 应用到 Web 。 Tomcat 是 Java Servlet 与 JSP 技术的一个开源实现，由 Apache 软件基金会发布。</p>
+<p>这个教程涵盖了在 Ubuntu 14.04 上 Tomcat 7.0.x 版本的安装和基础配置。</p>
+<p>有两种基本的途径来安装 Tomcat 到 Ubuntu 上：</p>
+<ul>
+<li>通过 apt-get 工具来安装，这是最简单的方法。</li>
+<li>从 Apache Tomcat 网站下载二进制发布包。本教程不涵盖这种方法。</li>
+</ul>
+<p>在这个教程中，我们将使用最简单地方法： <code>apt-get</code> 。这将从官方的 Ubuntu 资源仓库安装最新的 Tomcat 发布包，这个包可能不是 Tomcat 的最新发布版本。如果你想要确保安装 Tomcat 的最新版，你可以下载最新的二进制发布包。</p>]]>
+    
+    </summary>
+    
+      <category term="软件工具" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="tomcat" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/tomcat/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[什么是 Jenkins?]]></title>
@@ -1327,84 +1408,6 @@
       <category term="rxjava" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/rxjava/"/>
     
       <category term="深入浅出RxJava" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/rxjava/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BARxJava/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[生成 SSH 密钥]]></title>
-    <link href="http://yoursite.com/generating-ssh-keys/"/>
-    <id>http://yoursite.com/generating-ssh-keys/</id>
-    <published>2015-08-28T12:39:40.000Z</published>
-    <updated>2015-09-07T08:59:13.000Z</updated>
-    <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/800px-SSH_Communications_Security_logo.svg.png" alt="生成 SSH 密钥"></p>
-<p>Git 仓库可以通过 git:// 来访问，目前类似 Github，Gitcafe，Coding等基于 Git 的托管服务都提供有配置 SSH 密钥，来访问托管仓库的功能。本文中将通过为 Github 账号配置 SSH 密钥来访问仓库为例，说明 SSH 密钥配置过程。</p>
-<p>SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密码。下面的步骤将带你生成一个 SSH 密钥，并将其添加到你的 Github 账号。</p>
-<a id="more"></a>
-<h2 id="步骤1：检查_SSH_密钥">步骤1：检查 SSH 密钥</h2><p>首先，需要检查电脑上是否有已经存在的 SSH 密钥。打开终端并输入：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">ls</span> -<span class="keyword">al</span> ~/.ssh</span><br><span class="line"># Lists the <span class="keyword">files</span> in your .ssh directory, <span class="keyword">if</span> they exist</span><br></pre></td></tr></table></figure>
-<p>查看文件夹中列出的文件中是否已经有 SSH 公钥。默认情况下，公钥的文件名会是下面中的一个：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; id_dsa<span class="class">.pub</span></span><br><span class="line">&gt; id_ecdsa<span class="class">.pub</span></span><br><span class="line">&gt; id_ed25519<span class="class">.pub</span></span><br><span class="line">&gt; id_rsa.pub</span><br></pre></td></tr></table></figure>
-<p>如果你看到列出的文件已经存在一对公钥和私钥(如：id_rsa.pub 和 id_rsa)，而你打算用来连接 Github，那么可以跳过步骤2，直接查看步骤3。</p>
-<blockquote>
-<p>提示：如果你收到一个 ~/.ssh 不存在的错误，别担心，我们在步骤2中将创建它。</p>
-</blockquote>
-<h2 id="步骤2：生成新的_SSH_密钥">步骤2：生成新的 SSH 密钥</h2><p>1、继续打开终端，复制并粘贴下面的文本。确保用你的 Github 邮箱替换掉其中的地址。</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh-keygen -t rsa -b <span class="number">4096</span> -<span class="constant">C </span><span class="string">"your_email@example.com"</span></span><br><span class="line"><span class="comment"># Creates a new ssh key, using the provided email as a label</span></span><br><span class="line"><span class="comment"># Generating public/private rsa key pair.</span></span><br></pre></td></tr></table></figure>
-<p>2、强烈建议保持默认设置，因此你在被提示”输入文件以保存密钥”时，直接按<strong>回车</strong>继续：</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter <span class="built_in">file</span> <span class="operator">in</span> which <span class="built_in">to</span> save <span class="operator">the</span> key (/Users/you/.ssh/id_rsa): [Press enter]</span><br></pre></td></tr></table></figure>
-<p>3、提示输入口令：</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (<span class="constant">empty</span> <span class="keyword">for</span> no passphrase): [Type <span class="operator">a</span> passphrase]</span><br><span class="line"><span class="comment"># Enter same passphrase again: [Type passphrase again]</span></span><br></pre></td></tr></table></figure>
-<p>4、输口令以后，你将得到一个 SSH 密钥的指纹或者<code>ID</code>。看起来像这样：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Your identification has been saved in /Users/you/.ssh/id_rsa.</span><br><span class="line"><span class="preprocessor"># Your public key has been saved in /Users/you/.ssh/id_rsa.pub.</span></span><br><span class="line"><span class="preprocessor"># The key fingerprint is:</span></span><br><span class="line"><span class="preprocessor"># <span class="number">01</span>:<span class="number">0f</span>:f4:<span class="number">3</span>b:ca:<span class="number">85</span>:d6:<span class="number">17</span>:a1:<span class="number">7</span>d:f0:<span class="number">68</span>:<span class="number">9</span>d:f0:a2:db your_email@example.com</span></span><br></pre></td></tr></table></figure>
-<h2 id="步骤3：添加密钥到_ssh-agent">步骤3：添加密钥到 ssh-agent</h2><p>配置 ssh-agent 程序来使用 SSH 密钥，可以避免每次被提示输入口令：</p>
-<p>1、确保 ssh-agent 是可用的：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># start the ssh-agent in the background</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br><span class="line"><span class="comment"># Agent pid 59566</span></span><br></pre></td></tr></table></figure>
-<p>2、添加密钥到 ssh-agent</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh-add ~<span class="regexp">/.ssh/id</span>_rsa</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>提示：如果你在步骤2中没有生成新的 SSH 密钥，而是使用已经存在的密钥，那你需要替换上面命令中的 id_rsa 为你已经存在的私钥文件的名称。</p>
-</blockquote>
-<h2 id="步骤4：添加_SSH_密钥到你的账号">步骤4：添加 SSH 密钥到你的账号</h2><p>配置你的 Github 账号来使用 SSH 密钥：</p>
-<p>复制 SSH 密钥到剪贴板，记住你可能将密钥命名为 id_dsa.pub， id_ecdsa.pub 或者 id_ed25519.pub，那么需要修改下列命令中的文件名：</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pbcopy &lt; ~<span class="regexp">/.ssh/id</span>_rsa.pub</span><br><span class="line"><span class="comment"># Copies the contents of the id_rsa.pub file to your clipboard</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>提示：也可以直接用文本编辑器等打开公钥文件，然后复制其中的内容。</p>
-<p>警告：在复制过程中一定不能添加任何新行或者空格。</p>
-</blockquote>
-<p>添加复制的密钥到 Github：</p>
-<p>1、找到账户管理，点击其中的“设置”。</p>
-<p>2、找到 SSH 密钥，点击添加 SSH 密钥。</p>
-<p>3、在标题输入框中添加新密钥的描述文本。例如，如果你在使用个人的 Mac，可以设置密钥名称为 “Personal MacBook Air”。</p>
-<p>4、在密钥输入框中粘贴刚才复制的密钥。</p>
-<p>5、点击添加。</p>
-<p>6、输入 Github 账号密码来确认。</p>
-<h2 id="步骤5：测试连接">步骤5：测试连接</h2><p>为了确保一切工作正常，接下来将 SSH 到 Github。这么做的时候，你需要使用密码来验证。这个密码就是你之前创建的 SSH 密钥的口令。</p>
-<p>1、打开终端并输入：</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh -<span class="constant">T</span> git<span class="variable">@github</span>.com</span><br><span class="line"><span class="comment"># Attempts to ssh to GitHub</span></span><br></pre></td></tr></table></figure>
-<p>2、第一次你将看到下面的警告：</p>
-<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity <span class="keyword">of</span> host <span class="attribute">'github</span>.com (<span class="number">207.97</span>.<span class="number">227.239</span>)' can<span class="attribute">'t</span> be established.</span><br><span class="line"># RSA key fingerprint <span class="keyword">is</span> <span class="number">16</span>:<span class="number">27</span>:ac:a5:<span class="number">76</span>:<span class="number">28</span>:<span class="number">2</span>d:<span class="number">36</span>:<span class="number">63</span>:<span class="number">1</span>b:<span class="number">56</span>:<span class="number">4</span>d:eb:df:a6:<span class="number">48</span>.</span><br><span class="line"># Are you sure you want <span class="keyword">to</span> continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
-<p>核实你看到的消息中的指纹，并输入: <code>yes</code>：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span></span><br><span class="line"><span class="comment"># provide shell access.</span></span><br></pre></td></tr></table></figure>
-<p>3、如果出现上面的信息，并且用户是你 ，那么你的 SSH 密钥就安装成功了。如果你收到了关于 <code>access denied</code> 的消息，那么就是失败了，那么请确认前面的步骤，重新来过。</p>
-<p>以上为 Mac 平台生成 SSH 密钥的步骤，Windows、Linux 平台略有不同。</p>
-<p>原文链接：<a href="https://help.github.com/articles/generating-ssh-keys/#platform-mac" target="_blank" rel="external">Generating SSH keys</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/800px-SSH_Communications_Security_logo.svg.png" alt="生成 SSH 密钥"></p>
-<p>Git 仓库可以通过 git:// 来访问，目前类似 Github，Gitcafe，Coding等基于 Git 的托管服务都提供有配置 SSH 密钥，来访问托管仓库的功能。本文中将通过为 Github 账号配置 SSH 密钥来访问仓库为例，说明 SSH 密钥配置过程。</p>
-<p>SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密码。下面的步骤将带你生成一个 SSH 密钥，并将其添加到你的 Github 账号。</p>]]>
-    
-    </summary>
-    
-      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
-    
-      <category term="Github" scheme="http://yoursite.com/tags/Github/"/>
-    
-      <category term="ssh" scheme="http://yoursite.com/tags/ssh/"/>
-    
-      <category term="软件工具" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="ssh" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/ssh/"/>
     
   </entry>
   

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>什么是 Jenkins? | 悠城札记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="什么是JenkinsJenkins 是一款一流的应用软件，用于监控重复任务的执行，包括一个软件项目的构建、由 cron 执行的工作等。在此基础之上，Jenkins 现在专注于以下两个方向：
+
+持续构建/测试软件项目，类似于 CruiseControl 或者 DamageControl 。简而言之， Jenkins 提供一个使用简单地持续集成系统，使得开发人员更方便的集成项目修改，让用户更容易地获取">
+<meta property="og:type" content="article">
+<meta property="og:title" content="什么是 Jenkins?">
+<meta property="og:url" content="http://yoursite.com/what-is-jenkins/index.html">
+<meta property="og:site_name" content="悠城札记">
+<meta property="og:description" content="什么是JenkinsJenkins 是一款一流的应用软件，用于监控重复任务的执行，包括一个软件项目的构建、由 cron 执行的工作等。在此基础之上，Jenkins 现在专注于以下两个方向：
+
+持续构建/测试软件项目，类似于 CruiseControl 或者 DamageControl 。简而言之， Jenkins 提供一个使用简单地持续集成系统，使得开发人员更方便的集成项目修改，让用户更容易地获取">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jenkins-basic-structure.jpg">
+<meta property="og:updated_time" content="2015-09-26T15:23:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="什么是 Jenkins?">
+<meta name="twitter:description" content="什么是JenkinsJenkins 是一款一流的应用软件，用于监控重复任务的执行，包括一个软件项目的构建、由 cron 执行的工作等。在此基础之上，Jenkins 现在专注于以下两个方向：
+
+持续构建/测试软件项目，类似于 CruiseControl 或者 DamageControl 。简而言之， Jenkins 提供一个使用简单地持续集成系统，使得开发人员更方便的集成项目修改，让用户更容易地获取">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  
+  
+    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+  
+  
+
+
+  
+
+  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+            <h2 class="subtitle-wrap">
+              <p class="subtitle">一个努力让自己日臻优秀的程序员心得</p>
+            </h2>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/rxjava/">rxjava</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Jenkins/">Jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li></ul></li></ul>
+                  
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header"><a class="page-title-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/软件工具/Jenkins/">Jenkins</a></h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-what-is-jenkins" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      什么是 Jenkins?
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/what-is-jenkins/" class="article-date">
+  <time datetime="2015-09-26T15:13:09.000Z" itemprop="datePublished">2015-09-26</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <h3 id="什么是Jenkins">什么是Jenkins</h3><p>Jenkins 是一款一流的应用软件，用于监控重复任务的执行，包括一个软件项目的构建、由 <code>cron</code> 执行的工作等。在此基础之上，Jenkins 现在专注于以下两个方向：</p>
+<ul>
+<li><strong>持续构建/测试软件项目</strong>，类似于 <code>CruiseControl</code> 或者 <code>DamageControl</code> 。简而言之， Jenkins 提供一个使用简单地持续集成系统，使得开发人员更方便的集成项目修改，让用户更容易地获取较新的构建版本。自动化持续构建极大提高了生产力。</li>
+<li><strong>监控外部运行任务的执行</strong>，比如配置在本地或者远程的 <code>cron</code> 或 <code>procmail</code> 任务。拿 <code>cron</code> 举个例子，你将收到的是一些包含输出结果的常规电子邮件，提醒你勤快地处理它们，当它们出错时，也可以第一时间提醒你。 Jenkins 保存这些输出，并使得出现问题时的通知变得简单。</li>
+</ul>
+<h3 id="特性">特性</h3><p>Jenkins 所提供(拥有)的特性如下：</p>
+<ol>
+<li><strong>易于安装</strong>：只需要一个名为 jenkins.war 的 Java jar 包，或者将它发布到 servlet 容器。不需要其他附件安装，不需要数据库。</li>
+<li><strong>易于配置</strong>：整个 Jenkins 的配置都可以通过它友好的 Web 界面来完成。不在需要别扭的 XML 手动配置，如果你依然愿意，可以继续使用。</li>
+<li><strong>修改设置的支持</strong>： Jenkins 可以从 <code>Subversion/CVS</code> 生成一系列的修改列表来完成构建。这种方式也非常的前卫，因为减少了从存储库加载资源的步骤。</li>
+<li><strong>永久的链接地址</strong>： Jenkins 为大部分的页面提供了简洁可读的 URL ，包括诸如” <code>latest build/latest successful build</code> “这样的永久性链接，可以很轻易的从其他地方链接过来。</li>
+<li><strong>RSS/邮件/即时通行集成</strong>：通过 RSS 或者邮件来获取失败时的实时通知，轻而易举地监控构建结果。</li>
+<li><strong>标记构建过程</strong>：当构建完成以后，可以对其进行标记存储。</li>
+<li><strong>JUnit/TestNG 测试报告</strong>： JUnit 的测试报告及历史信息，可以表格形式总结与展示，比如构建在什么时候开始出错等等。历史趋势以图表形式绘制出来。</li>
+<li><strong>分布式构建</strong>： Jenkins 可以分配构建/测试到多台电脑商。</li>
+<li><strong>文件指纹</strong>： Jenkins 可以跟踪那次构建生成了哪些 jar 包，哪些构建使用了哪个版本的 jar 包等等。这些对不是 Jenkins 内部产生的 jar 包也有效，非常适合于项目中的依赖跟踪。</li>
+<li><strong>插件支持</strong>： Jenkins 可以轻易地通过第三方插件进行扩展。你甚至可以为自己的团队使用编写合适的 Jenkins 插件。</li>
+</ol>
+<h3 id="Jenkins_由来">Jenkins 由来</h3><p>目前持续集成（ CI ）已成为当前许多软件开发团队在整个软件开发生命周期内侧重于保证代码质量的常见做法。它是一种实践，只在缓和和稳固软件的构建过程，并且能够帮助你的开发团队应对如下挑战：</p>
+<ul>
+<li>软件构建自动化：配置完成后， CI 系统会依照预先定制的时间表，或者针对某一特定事件，对目标软件进行构建。</li>
+<li>构建可持续的自动化检查： CI 系统能持续地获取新增或者修改后签入的源代码，也就是说，当软件开发团队需要周期性的检查新增或修改后的代码时， CI 系统会不断确认这些新代码是否破坏了原有软件的成功构建。这减少了开发者们在检查彼此相互依存的代码中变化情况需要花费的时间和精力。</li>
+<li>构建可持续的自动化测试：构建检查的扩展部分，构建后执行预先制定的一套测试规则，完成后触发通知给相关的当事人。</li>
+<li>生成后后续过程的自动化：当自动化检查和测试成功完成以后，软件构建的周期中可能需要一些额外的任务，诸如生成文档，打包软件，部署构建到一个运行环境或者软件仓库。这样，构件才能更迅速地提供给用户使用。</li>
+</ul>
+<p>部署一个 CI 系统需要的最低要求是，一个可获取的源代码仓库，一个包含构建脚本的项目。</p>
+<p>CI 系统的基本结构，如下：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jenkins-basic-structure.jpg" alt="image"></p>
+<p>该系统的各个组成部分是按如下顺序发挥作用的：</p>
+<ol>
+<li>开发这检入代码到源代码仓库。</li>
+<li>CI 系统会为每一个项目创建一个单独的工作区。当预设或请求一次新的构建时，它将把源代码仓库的源码存放到对应的工作区。</li>
+<li>CI 系统会在对应的工作区内执行构建过程。</li>
+<li>如果配置存在，构建完成后， CI 系统会在一个新的构建中执行定义的一套测试。完成后出发通知（RSS，邮箱等等）给相关的当事人。</li>
+<li>如果配置存在，在构建成功后，这个构建会被打包并转移到一个部署目标（如应用服务器）或存储为软件仓库中的一个新版本。软件仓库可以是 CI 系统的一部分，也可以是一个外部的仓库，诸如一个文件或者服务器或者像 Java.net 、 SourceForge 之类的网站。</li>
+<li>CI 系统通常会根据请求发起相应地操作，诸如及时构建、生成报告，或者检索一些构建好的构件。</li>
+</ol>
+<p>Jenkins 就是这样的一个 CI 系统。它的主要目标在于监控软件开发流程，快速显示问题。所以能保证开发人员以及相关人员省时省力提高开发效率。</p>
+<p>在整个开发过程中， CI 的作用主要是控制：当系统在代码库中探测到修改是，它将运行构建的任务委托给构建过程本身。如果构建失败了，那么 CI 将通知相关人员，然后继续监视存储库。</p>
+<h4 id="参考">参考</h4><ol>
+<li><a href="http://www.cnblogs.com/zz0412/p/jenkins01.html" target="_blank" rel="external">Jenkins是什么</a></li>
+<li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins" target="_blank" rel="external">Meet Jenkins</a></li>
+</ol>
+
+      </div>
+      <footer class="article-footer">
+        <!-- <a data-url="http://yoursite.com/what-is-jenkins/" data-id="cif189rt6000upxncc9uiw0pa" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CI/">CI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jenkins/">Jenkins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/持续集成/">持续集成</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/构建/">构建</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自动化/">自动化</a></li></ul>
+
+      </footer>
+      
+        
+<nav id="article-nav">
+  
+  
+    <a href="/hexo-your-blog/add-weixin-qrcode-to-hueman-sidebar/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">在 Hueman 主题添加侧边栏添加微信公众号二维码</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+      
+      
+        <div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+      
+    </div>
+  </article>
+  
+
+  
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-what-is-jenkins" data-title="什么是 Jenkins?" data-url="http://yoursite.com/what-is-jenkins/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'linfuyan'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
+      
+        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
+      
+    </ul>
+  </div>
+  <!-- 
+    
+<nav id="article-nav">
+  
+  
+    <a href="/hexo-your-blog/add-weixin-qrcode-to-hueman-sidebar/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">在 Hueman 主题添加侧边栏添加微信公众号二维码</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+   -->
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+    <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/>  
+  </div>
+
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/what-is-jenkins/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/jenkins-basic-structure.jpg
+)" alt="什么是 Jenkins?" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/Jenkins/">Jenkins</a></p>
+              <p class="item-title"><a href="/what-is-jenkins/" class="title">什么是 Jenkins?</a></p>
+              <p class="item-date"><time datetime="2015-09-26T15:13:09.000Z" itemprop="datePublished">2015-09-26</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/hexo-your-blog/add-weixin-qrcode-to-hueman-sidebar/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg
+)" alt="在 Hueman 主题添加侧边栏添加微信公众号二维码" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/Hexo/">Hexo</a></p>
+              <p class="item-title"><a href="/hexo-your-blog/add-weixin-qrcode-to-hueman-sidebar/" class="title">在 Hueman 主题添加侧边栏添加微信公众号二维码</a></p>
+              <p class="item-date"><time datetime="2015-09-26T14:38:53.000Z" itemprop="datePublished">2015-09-26</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/declarative-programming-intro/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/categaries-of-programming-paradigm.jpg
+)" alt="声明式编程范式初探" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/基础理论/">基础理论</a></p>
+              <p class="item-title"><a href="/declarative-programming-intro/" class="title">声明式编程范式初探</a></p>
+              <p class="item-date"><time datetime="2015-09-26T14:03:09.000Z" itemprop="datePublished">2015-09-26</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/default_apache.png
+)" alt="如何在Ubuntu 14.04 上安装Linux, Apache, MySQL, PHP (LAMP)组件" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/LAMP/">LAMP</a></p>
+              <p class="item-title"><a href="/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04/" class="title">如何在Ubuntu 14.04 上安装Linux, Apache, MySQL, PHP (LAMP)组件</a></p>
+              <p class="item-date"><time datetime="2015-09-26T13:29:00.000Z" itemprop="datePublished">2015-09-26</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/why-are-software-development-task-estimations-regularly-off-by-a-factor-of-2-3/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/gcgl01.png
+)" alt="为什么预期的软件开发周期总是不够?" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/深度文摘/">深度文摘</a></p>
+              <p class="item-title"><a href="/why-are-software-development-task-estimations-regularly-off-by-a-factor-of-2-3/" class="title">为什么预期的软件开发周期总是不够?</a></p>
+              <p class="item-date"><time datetime="2015-09-23T03:56:57.000Z" itemprop="datePublished">2015-09-23</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-float">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/14-04/" style="font-size: 10px;">14.04</a> <a href="/tags/Android/" style="font-size: 12.5px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 12.5px;">Android Studio</a> <a href="/tags/Android开发/" style="font-size: 10px;">Android开发</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/App/" style="font-size: 12.5px;">App</a> <a href="/tags/App-ID/" style="font-size: 10px;">App ID</a> <a href="/tags/CI/" style="font-size: 10px;">CI</a> <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Gradle/" style="font-size: 12.5px;">Gradle</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Hueman/" style="font-size: 10px;">Hueman</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/LAMP/" style="font-size: 10px;">LAMP</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Operator/" style="font-size: 10px;">Operator</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/TLS/" style="font-size: 10px;">TLS</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/boot2docker/" style="font-size: 10px;">boot2docker</a> <a href="/tags/cocoapods/" style="font-size: 10px;">cocoapods</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/fir-im/" style="font-size: 10px;">fir.im</a> <a href="/tags/frp/" style="font-size: 12.5px;">frp</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/google/" style="font-size: 12.5px;">google</a> <a href="/tags/iOS/" style="font-size: 17.5px;">iOS</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/profile/" style="font-size: 10px;">profile</a> <a href="/tags/provision/" style="font-size: 10px;">provision</a> <a href="/tags/push/" style="font-size: 10px;">push</a> <a href="/tags/reactivex/" style="font-size: 17.5px;">reactivex</a> <a href="/tags/registry/" style="font-size: 10px;">registry</a> <a href="/tags/rxandroid/" style="font-size: 12.5px;">rxandroid</a> <a href="/tags/rxjava/" style="font-size: 17.5px;">rxjava</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/taobao/" style="font-size: 10px;">taobao</a> <a href="/tags/个人/" style="font-size: 15px;">个人</a> <a href="/tags/二维码/" style="font-size: 10px;">二维码</a> <a href="/tags/产品口味/" style="font-size: 10px;">产品口味</a> <a href="/tags/代码规范/" style="font-size: 10px;">代码规范</a> <a href="/tags/代码评审/" style="font-size: 15px;">代码评审</a> <a href="/tags/代码风格/" style="font-size: 10px;">代码风格</a> <a href="/tags/价值/" style="font-size: 10px;">价值</a> <a href="/tags/估计/" style="font-size: 10px;">估计</a> <a href="/tags/全栈工程师/" style="font-size: 10px;">全栈工程师</a> <a href="/tags/分支模型/" style="font-size: 10px;">分支模型</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/原则/" style="font-size: 10px;">原则</a> <a href="/tags/反应式编程/" style="font-size: 12.5px;">反应式编程</a> <a href="/tags/周期/" style="font-size: 10px;">周期</a> <a href="/tags/命令式/" style="font-size: 10px;">命令式</a> <a href="/tags/响应式编程/" style="font-size: 12.5px;">响应式编程</a> <a href="/tags/图文教程/" style="font-size: 10px;">图文教程</a> <a href="/tags/基础/" style="font-size: 15px;">基础</a> <a href="/tags/声明式/" style="font-size: 10px;">声明式</a> <a href="/tags/学习路线/" style="font-size: 12.5px;">学习路线</a> <a href="/tags/安装/" style="font-size: 15px;">安装</a> <a href="/tags/工作流/" style="font-size: 10px;">工作流</a> <a href="/tags/应用程序/" style="font-size: 10px;">应用程序</a> <a href="/tags/开发/" style="font-size: 10px;">开发</a> <a href="/tags/开发工具/" style="font-size: 10px;">开发工具</a> <a href="/tags/开发者证书/" style="font-size: 10px;">开发者证书</a> <a href="/tags/微信公众号/" style="font-size: 10px;">微信公众号</a> <a href="/tags/技能/" style="font-size: 12.5px;">技能</a> <a href="/tags/持续集成/" style="font-size: 12.5px;">持续集成</a> <a href="/tags/操作符/" style="font-size: 10px;">操作符</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/构建/" style="font-size: 10px;">构建</a> <a href="/tags/构建变种/" style="font-size: 10px;">构建变种</a> <a href="/tags/构建类型/" style="font-size: 10px;">构建类型</a> <a href="/tags/构建系统/" style="font-size: 12.5px;">构建系统</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/生命周期/" style="font-size: 10px;">生命周期</a> <a href="/tags/程序员/" style="font-size: 10px;">程序员</a> <a href="/tags/管理/" style="font-size: 10px;">管理</a> <a href="/tags/编码规范/" style="font-size: 10px;">编码规范</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a> <a href="/tags/聪明人/" style="font-size: 10px;">聪明人</a> <a href="/tags/自动化/" style="font-size: 10px;">自动化</a> <a href="/tags/范式/" style="font-size: 10px;">范式</a> <a href="/tags/解决方案/" style="font-size: 10px;">解决方案</a> <a href="/tags/语言/" style="font-size: 10px;">语言</a> <a href="/tags/软件/" style="font-size: 10px;">软件</a> <a href="/tags/进阶/" style="font-size: 12.5px;">进阶</a> <a href="/tags/配置/" style="font-size: 10px;">配置</a> <a href="/tags/错误/" style="font-size: 10px;">错误</a> <a href="/tags/镜像/" style="font-size: 10px;">镜像</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Jenkins/">Jenkins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">17</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/14-04/">14.04</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Studio/">Android Studio</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android开发/">Android开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/">Apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/App/">App</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/App-ID/">App ID</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI/">CI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gradle/">Gradle</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hueman/">Hueman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jenkins/">Jenkins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LAMP/">LAMP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Operator/">Operator</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TLS/">TLS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot2docker/">boot2docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocoapods/">cocoapods</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/facebook/">facebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fir-im/">fir.im</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google/">google</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/">jenkins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/profile/">profile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/provision/">provision</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/push/">push</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactivex/">reactivex</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/registry/">registry</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxandroid/">rxandroid</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjava/">rxjava</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/taobao/">taobao</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人/">个人</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品口味/">产品口味</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码规范/">代码规范</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码评审/">代码评审</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码风格/">代码风格</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/价值/">价值</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/估计/">估计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/全栈工程师/">全栈工程师</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分支模型/">分支模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原则/">原则</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/反应式编程/">反应式编程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/周期/">周期</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命令式/">命令式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式编程/">响应式编程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图文教程/">图文教程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/声明式/">声明式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习路线/">学习路线</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安装/">安装</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作流/">工作流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/应用程序/">应用程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发/">开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发工具/">开发工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发者证书/">开发者证书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信公众号/">微信公众号</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技能/">技能</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/持续集成/">持续集成</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作符/">操作符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最佳实践/">最佳实践</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建/">构建</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建变种/">构建变种</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建类型/">构建类型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建系统/">构建系统</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生命周期/">生命周期</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/程序员/">程序员</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/管理/">管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编码规范/">编码规范</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程/">编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/聪明人/">聪明人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动化/">自动化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/范式/">范式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/解决方案/">解决方案</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语言/">语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件/">软件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/进阶/">进阶</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/错误/">错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/镜像/">镜像</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://hexo.io">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2015 linfuyan</p>
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice </a> 
+        <!-- CNZZ 统计 -->
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
+  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+
+
+<script src="/js/html-patch.js" type="text/javascript"></script>
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

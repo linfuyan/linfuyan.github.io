@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-09-26T14:57:37.000Z</updated>
+  <updated>2015-09-26T15:23:57.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,11 +15,84 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[什么是 Jenkins?]]></title>
+    <link href="http://yoursite.com/what-is-jenkins/"/>
+    <id>http://yoursite.com/what-is-jenkins/</id>
+    <published>2015-09-26T15:13:09.000Z</published>
+    <updated>2015-09-26T15:23:57.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="什么是Jenkins">什么是Jenkins</h3><p>Jenkins 是一款一流的应用软件，用于监控重复任务的执行，包括一个软件项目的构建、由 <code>cron</code> 执行的工作等。在此基础之上，Jenkins 现在专注于以下两个方向：</p>
+<ul>
+<li><strong>持续构建/测试软件项目</strong>，类似于 <code>CruiseControl</code> 或者 <code>DamageControl</code> 。简而言之， Jenkins 提供一个使用简单地持续集成系统，使得开发人员更方便的集成项目修改，让用户更容易地获取较新的构建版本。自动化持续构建极大提高了生产力。</li>
+<li><strong>监控外部运行任务的执行</strong>，比如配置在本地或者远程的 <code>cron</code> 或 <code>procmail</code> 任务。拿 <code>cron</code> 举个例子，你将收到的是一些包含输出结果的常规电子邮件，提醒你勤快地处理它们，当它们出错时，也可以第一时间提醒你。 Jenkins 保存这些输出，并使得出现问题时的通知变得简单。</li>
+</ul>
+<h3 id="特性">特性</h3><p>Jenkins 所提供(拥有)的特性如下：</p>
+<ol>
+<li><strong>易于安装</strong>：只需要一个名为 jenkins.war 的 Java jar 包，或者将它发布到 servlet 容器。不需要其他附件安装，不需要数据库。</li>
+<li><strong>易于配置</strong>：整个 Jenkins 的配置都可以通过它友好的 Web 界面来完成。不在需要别扭的 XML 手动配置，如果你依然愿意，可以继续使用。</li>
+<li><strong>修改设置的支持</strong>： Jenkins 可以从 <code>Subversion/CVS</code> 生成一系列的修改列表来完成构建。这种方式也非常的前卫，因为减少了从存储库加载资源的步骤。</li>
+<li><strong>永久的链接地址</strong>： Jenkins 为大部分的页面提供了简洁可读的 URL ，包括诸如” <code>latest build/latest successful build</code> “这样的永久性链接，可以很轻易的从其他地方链接过来。</li>
+<li><strong>RSS/邮件/即时通行集成</strong>：通过 RSS 或者邮件来获取失败时的实时通知，轻而易举地监控构建结果。</li>
+<li><strong>标记构建过程</strong>：当构建完成以后，可以对其进行标记存储。</li>
+<li><strong>JUnit/TestNG 测试报告</strong>： JUnit 的测试报告及历史信息，可以表格形式总结与展示，比如构建在什么时候开始出错等等。历史趋势以图表形式绘制出来。</li>
+<li><strong>分布式构建</strong>： Jenkins 可以分配构建/测试到多台电脑商。</li>
+<li><strong>文件指纹</strong>： Jenkins 可以跟踪那次构建生成了哪些 jar 包，哪些构建使用了哪个版本的 jar 包等等。这些对不是 Jenkins 内部产生的 jar 包也有效，非常适合于项目中的依赖跟踪。</li>
+<li><strong>插件支持</strong>： Jenkins 可以轻易地通过第三方插件进行扩展。你甚至可以为自己的团队使用编写合适的 Jenkins 插件。</li>
+</ol>
+<h3 id="Jenkins_由来">Jenkins 由来</h3><p>目前持续集成（ CI ）已成为当前许多软件开发团队在整个软件开发生命周期内侧重于保证代码质量的常见做法。它是一种实践，只在缓和和稳固软件的构建过程，并且能够帮助你的开发团队应对如下挑战：</p>
+<ul>
+<li>软件构建自动化：配置完成后， CI 系统会依照预先定制的时间表，或者针对某一特定事件，对目标软件进行构建。</li>
+<li>构建可持续的自动化检查： CI 系统能持续地获取新增或者修改后签入的源代码，也就是说，当软件开发团队需要周期性的检查新增或修改后的代码时， CI 系统会不断确认这些新代码是否破坏了原有软件的成功构建。这减少了开发者们在检查彼此相互依存的代码中变化情况需要花费的时间和精力。</li>
+<li>构建可持续的自动化测试：构建检查的扩展部分，构建后执行预先制定的一套测试规则，完成后触发通知给相关的当事人。</li>
+<li>生成后后续过程的自动化：当自动化检查和测试成功完成以后，软件构建的周期中可能需要一些额外的任务，诸如生成文档，打包软件，部署构建到一个运行环境或者软件仓库。这样，构件才能更迅速地提供给用户使用。</li>
+</ul>
+<p>部署一个 CI 系统需要的最低要求是，一个可获取的源代码仓库，一个包含构建脚本的项目。</p>
+<p>CI 系统的基本结构，如下：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jenkins-basic-structure.jpg" alt="image"></p>
+<p>该系统的各个组成部分是按如下顺序发挥作用的：</p>
+<ol>
+<li>开发这检入代码到源代码仓库。</li>
+<li>CI 系统会为每一个项目创建一个单独的工作区。当预设或请求一次新的构建时，它将把源代码仓库的源码存放到对应的工作区。</li>
+<li>CI 系统会在对应的工作区内执行构建过程。</li>
+<li>如果配置存在，构建完成后， CI 系统会在一个新的构建中执行定义的一套测试。完成后出发通知（RSS，邮箱等等）给相关的当事人。</li>
+<li>如果配置存在，在构建成功后，这个构建会被打包并转移到一个部署目标（如应用服务器）或存储为软件仓库中的一个新版本。软件仓库可以是 CI 系统的一部分，也可以是一个外部的仓库，诸如一个文件或者服务器或者像 Java.net 、 SourceForge 之类的网站。</li>
+<li>CI 系统通常会根据请求发起相应地操作，诸如及时构建、生成报告，或者检索一些构建好的构件。</li>
+</ol>
+<p>Jenkins 就是这样的一个 CI 系统。它的主要目标在于监控软件开发流程，快速显示问题。所以能保证开发人员以及相关人员省时省力提高开发效率。</p>
+<p>在整个开发过程中， CI 的作用主要是控制：当系统在代码库中探测到修改是，它将运行构建的任务委托给构建过程本身。如果构建失败了，那么 CI 将通知相关人员，然后继续监视存储库。</p>
+<h4 id="参考">参考</h4><ol>
+<li><a href="http://www.cnblogs.com/zz0412/p/jenkins01.html" target="_blank" rel="external">Jenkins是什么</a></li>
+<li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins" target="_blank" rel="external">Meet Jenkins</a></li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="什么是Jenkins">什么是Jenkins</h3><p>Jenkins 是一款一流的应用软件，用于监控重复任务的执行，包括一个软件项目的构建、由 <code>cron</code> 执行的工作等。在此基础之上，Jenkins 现在专注于以下两个方向：</p>
+]]>
+    </summary>
+    
+      <category term="CI" scheme="http://yoursite.com/tags/CI/"/>
+    
+      <category term="Jenkins" scheme="http://yoursite.com/tags/Jenkins/"/>
+    
+      <category term="持续集成" scheme="http://yoursite.com/tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+    
+      <category term="构建" scheme="http://yoursite.com/tags/%E6%9E%84%E5%BB%BA/"/>
+    
+      <category term="测试" scheme="http://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="自动化" scheme="http://yoursite.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
+    
+      <category term="软件工具" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Jenkins" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/Jenkins/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[在 Hueman 主题添加侧边栏添加微信公众号二维码]]></title>
     <link href="http://yoursite.com/hexo-your-blog/add-weixin-qrcode-to-hueman-sidebar/"/>
     <id>http://yoursite.com/hexo-your-blog/add-weixin-qrcode-to-hueman-sidebar/</id>
     <published>2015-09-26T14:38:53.000Z</published>
-    <updated>2015-09-26T14:57:37.000Z</updated>
+    <updated>2015-09-26T14:57:45.000Z</updated>
     <content type="html"><![CDATA[<p>这篇文章中，我们来在 Hueman 主题的侧边栏中添加微信公众号的二维码。</p>
 <p>1. 找到 themes/hueman 下的配置文件 _config.yml，添加 weixin 变量配置为二维码地址。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置关注微信公众号</span></span><br><span class="line">weixin: http://<span class="number">7</span>sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_<span class="keyword">for</span>_gh_3ad92a8<span class="built_in">fc</span>23c_860.jpg</span><br></pre></td></tr></table></figure>
@@ -1332,129 +1405,6 @@
       <category term="软件工具" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
     
       <category term="ssh" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/ssh/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[iOS App 生命周期]]></title>
-    <link href="http://yoursite.com/lifecycle-of-an-ios-application/"/>
-    <id>http://yoursite.com/lifecycle-of-an-ios-application/</id>
-    <published>2015-08-28T11:27:20.000Z</published>
-    <updated>2015-08-28T11:43:46.000Z</updated>
-    <content type="html"><![CDATA[<p>对于iOS应用程序，关键的是要知道你的应用程序是否正在前台或后台运行。由于系统资源在iOS设备上较为有限，一个应用程序必须在后台与前台有不同的行为。操作系统也会限制你的应用程序在后台的运行，以提高电池寿命，并提高用户与前台应用程序的体验。当应用程序在前台和后台之间切换时，操作系统将会通知您的应用程序。你可以通过这些通知来修改你的应用程序的行为。</p>
-<p>当你的应用程序在前台活动时，系统会发送触摸事件给它进行处理。在UIKit的基础设施做了大部分的事件传递给你的自定义对象工作。所有您需要做的是覆盖在相应的对象的方法来处理这​​些事件。对于控件，UIKit会通过处理你的触摸事件，或者其他一些有趣的事情发生时调用您的自定义代码，比如当文本字段中的值更改。</p>
-<a id="more"></a>
-<h4 id="1-_应用程序的状态">1. 应用程序的状态</h4><p><code>Not running</code> (未运行)：程序没启动。</p>
-<p><code>Inactive</code>(未激活)：程序在前台运行，不过没有接收到事件。在没有事件处理情况下程序通常停留在这个状态。</p>
-<p><code>Active</code>(激活)：程序在前台运行而且接收到了事件。这也是前台的一个正常的模式。</p>
-<p><code>Backgroud</code>(后台)：程序在后台而且能执行代码，大多数程序进入这个状态后会在在这个状态上停留一会。时间到之后会进入挂起状态(Suspended)。有的程序经过特殊的请求后可以长期处于Backgroud状态。</p>
-<p><code>Suspended</code>(挂起)：程序在后台不能执行代码。系统会自动把程序变成这个状态而且不会发出通知。当挂起时，程序还是停留在内存中的，当系统内存低时，系统就把挂起的程序清除掉，为前台程序提供更多的内存。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-1.png" alt="iOS 应用生命周期"></p>
-<h4 id="2-_各个程序运行状态时代理的回调">2. 各个程序运行状态时代理的回调</h4><p><strong>2.1 告诉代理进程启动但还没进入状态保存</strong></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application willFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"①告诉代理进程启动但还没进入状态保存"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>2.2 告诉代理启动基本完成程序准备开始运行</strong></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.window</span> = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[[<span class="built_in">UIScreen</span> mainScreen] bounds]];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"②告诉代理启动基本完成程序准备开始运行"</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Override point for customization after application launch.</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.window</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.window</span> makeKeyAndVisible];</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>2.3 当应用程序将要入非活动状态执行，在此期间，应用程序不接收消息或事件，比如来电话</strong></p>
-<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="type">void</span>)applicationWillResignActive:(<span class="type">UIApplication</span> *)application</span><br><span class="line">&#123;</span><br><span class="line">    // <span class="type">Sent</span> <span class="keyword">when</span> the application <span class="keyword">is</span> about to move <span class="keyword">from</span> active to inactive state. <span class="type">This</span> can occur <span class="keyword">for</span> certain types <span class="keyword">of</span> temporary interruptions (such <span class="keyword">as</span> an incoming phone call <span class="keyword">or</span> <span class="type">SMS</span> message) <span class="keyword">or</span> <span class="keyword">when</span> the user quits the application <span class="keyword">and</span> it begins the transition to the background state.</span><br><span class="line">    // <span class="type">Use</span> this <span class="keyword">method</span> to pause ongoing tasks, disable timers, <span class="keyword">and</span> throttle down <span class="type">OpenGL</span> <span class="type">ES</span> frame rates. <span class="type">Games</span> should use this <span class="keyword">method</span> to pause the game.</span><br><span class="line">    <span class="type">NSLog</span>(@<span class="string">"③当应用程序将要入非活动状态执行，在此期间，应用程序不接收消息或事件，比如来电话"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>2.4 当应用程序进入活动状态执行</strong></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)applicationDidBecomeActive:(<span class="built_in">UIApplication</span> *)application</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"④当应用程序进入活动状态执行"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>2.5 当程序被推送到后台的时候调用。所以要设置后台继续运行，则在这个函数里面设置即可</strong></p>
-<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="type">void</span>)applicationDidEnterBackground:(<span class="type">UIApplication</span> *)application</span><br><span class="line">&#123;</span><br><span class="line">    // <span class="type">Use</span> this <span class="keyword">method</span> to release <span class="literal">shared</span> resources, save user data, invalidate timers, <span class="keyword">and</span> store enough application state information to restore your application to its current state <span class="keyword">in</span> <span class="keyword">case</span> it <span class="keyword">is</span> terminated later.</span><br><span class="line">    // <span class="type">If</span> your application supports background execution, this <span class="keyword">method</span> <span class="keyword">is</span> called instead <span class="keyword">of</span> applicationWillTerminate: <span class="keyword">when</span> the user quits.</span><br><span class="line">    <span class="type">NSLog</span>(@<span class="string">"⑤当程序被推送到后台的时候调用"</span>);</span><br><span class="line">    </span><br><span class="line">    [application beginBackgroundTaskWithExpirationHandler:^&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="type">NSLog</span>(@<span class="string">"begin Background Task With Expiration Handler"</span>);</span><br><span class="line">        </span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>2.6 当程序从后台将要重新回到前台时候调用</strong></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)applicationWillEnterForeground:(<span class="built_in">UIApplication</span> *)application</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"⑥当程序从后台将要重新回到前台时候调用"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>2.7 当程序将要退出是被调用，通常是用来保存数据和一些退出前的清理工作。这个需要要设置UIApplicationExitsOnSuspend的键值</strong></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)applicationWillTerminate:(<span class="built_in">UIApplication</span> *)application</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"⑦当程序将要退出是被调用"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>2.8 当程序载入后执行</strong></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">-</span> (<span class="tag">void</span>)<span class="rule"><span class="attribute">applicationDidFinishLaunching</span>:<span class="value">(UIApplication *)application</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function">NSLog</span>(@<span class="string">"⑧当程序载入后执行"</span>)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>程序启动时：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2014</span>-<span class="number">07</span>-<span class="number">01</span> <span class="number">15</span>:<span class="number">55</span>:<span class="number">14.706</span> LifeCycle[<span class="number">5845</span>:<span class="number">60</span>b] ①告诉代理进程启动但还没进入状态保存</span><br><span class="line"></span><br><span class="line"><span class="number">2014</span>-<span class="number">07</span>-<span class="number">01</span> <span class="number">15</span>:<span class="number">55</span>:<span class="number">14.708</span> LifeCycle[<span class="number">5845</span>:<span class="number">60</span>b] ②告诉代理启动基本完成程序准备开始运行</span><br><span class="line"></span><br><span class="line"><span class="number">2014</span>-<span class="number">07</span>-<span class="number">01</span> <span class="number">15</span>:<span class="number">55</span>:<span class="number">14.709</span> LifeCycle[<span class="number">5845</span>:<span class="number">60</span>b] ④当应用程序进入活动状态执行</span><br></pre></td></tr></table></figure>
-<p>按下Home键返回主界面：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2014</span>-<span class="number">07</span>-<span class="number">01</span> <span class="number">15</span>:<span class="number">56</span>:<span class="number">11.756</span> LifeCycle[<span class="number">5845</span>:<span class="number">60</span>b] ③当应用程序将要入非活动状态执行</span><br><span class="line"></span><br><span class="line"><span class="number">2014</span>-<span class="number">07</span>-<span class="number">01</span> <span class="number">15</span>:<span class="number">56</span>:<span class="number">11.814</span> LifeCycle[<span class="number">5845</span>:<span class="number">60</span>b] ⑤当程序被推送到后台的时候调用</span><br></pre></td></tr></table></figure>
-<p>再次打开程序：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2014</span>-<span class="number">07</span>-<span class="number">01</span> <span class="number">15</span>:<span class="number">57</span>:<span class="number">19.200</span> LifeCycle[<span class="number">5845</span>:<span class="number">60</span>b] ⑥当程序从后台将要重新回到前台时候调用</span><br><span class="line"></span><br><span class="line"><span class="number">2014</span>-<span class="number">07</span>-<span class="number">01</span> <span class="number">15</span>:<span class="number">57</span>:<span class="number">19.201</span> LifeCycle[<span class="number">5845</span>:<span class="number">60</span>b] ④当应用程序进入活动状态执行</span><br></pre></td></tr></table></figure>
-<h4 id="3-_加载应用程序进入前台">3. 加载应用程序进入前台</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-2.png" alt="iOS 应用生命周期"></p>
-<h4 id="4-_加载应用程序进入后台">4. 加载应用程序进入后台</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-3.png" alt="iOS 应用生命周期"></p>
-<h4 id="5-_基于警告式响应中断">5. 基于警告式响应中断</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-4.png" alt="iOS 应用生命周期"></p>
-<p>当出现这种中断时，我们需要在<code>- (void)applicationWillResignActive:(UIApplication *)application</code> 方法中进行如下操作：</p>
-<ol>
-<li><p>停止timer 和其他周期性的任务</p>
-</li>
-<li><p>停止任何正在运行的请求</p>
-</li>
-<li><p>暂停视频的播放</p>
-</li>
-<li><p>如果是游戏那就暂停它</p>
-</li>
-<li><p>减少OpenGL ES的帧率</p>
-</li>
-<li><p>挂起任何分发的队列和不重要的操作队列（你可以继续处理网络请求或其他时间敏感的后台任务）</p>
-</li>
-</ol>
-<p>当程序回到active状态，我们需要在<code>- (void)applicationDidBecomeActive:(UIApplication *)application</code> 方法中重新开始上述任务。不过游戏要回到暂停状态，不能自动开始。</p>
-<h4 id="6-_进入后台运行">6. 进入后台运行</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-5.png" alt="iOS 应用生命周期"></p>
-<p>当应用程序进入后台时，我们应该做些什么？</p>
-<p>保存用户数据或状态信息，所有没写到磁盘的文件或信息，在进入后台时，最后都写到磁盘去，因为程序可能在后台被杀死。</p>
-<p>释放尽可能释放的内存。</p>
-<p><code>- (void)applicationDidEnterBackground:(UIApplication *)application</code> 方法有大概5秒的时间让你完成这些任务。如果超过时间还有未完成的任务，你的程序就会被终止而且从内存中清除。</p>
-<p>如果还需要长时间的运行任务，可以在该方法中调用</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">[<span class="keyword">application</span> beginBackgroundTaskWithExpirationHandler:^&#123;</span><br><span class="line">        </span><br><span class="line">        NSLog<span class="list">(<span class="keyword">@</span><span class="string">"begin Background Task With Expiration Handler"</span>)</span><span class="comment">;</span></span><br><span class="line">        </span><br><span class="line">    &#125;]<span class="comment">;</span></span></span><br></pre></td></tr></table></figure>
-<p>应用程序在后台时的内存使用：请求后台运行时间和启动线程来运行长时间运行的任务。</p>
-<p>在后台时，每个应用程序都应该释放最大的内存。系统努力的保持更多的应用程序在后台同时 运行。不过当内存不足时，会终止一些挂起的程序来回收内存，那些内存最大的程序首先被终止。</p>
-<p>事实上，应用程序应该的对象如果不再使用了，那就应该尽快的去掉强引用，这样编译器可以回收这些内存。如果你想缓存一些对象提升程序的性能，你可以在进入后台时，把这些对象去掉强引用。</p>
-<p>下面这样的对象应该尽快的去掉强引用：</p>
-<ol>
-<li><p>图片对象</p>
-</li>
-<li><p>你可以重新加载的 大的视频或数据文件</p>
-</li>
-<li><p>任何没用而且可以轻易创建的对象</p>
-</li>
-</ol>
-<p>在后台时，为了减少程序占用的内存，系统会自动在回收一些系统帮助你开辟的内存。比如：</p>
-<ol>
-<li><p>系统回收Core Animation的后备存储。</p>
-</li>
-<li><p>去掉任何系统引用的缓存图片</p>
-</li>
-<li><p>去掉系统管理数据缓存强引用</p>
-</li>
-</ol>
-<h4 id="7-_返回前台运行">7. 返回前台运行</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-6.png" alt="iOS 应用生命周期"></p>
-<p>在暂停状态的应用程序必须准备处理任何排队的通知时，它返回到前台或后台执行状态。暂停的应用程序不执行任何代码，因此不能处理与方向的变化，时间的变化，偏好的变化，以及许多其他会影响应用程序的外观或状态的通知。为了确保这些更改不会丢失，系统排队许多相关的通知，并把它们传递给应用程序，只要它开始再次执行代码（无论是在前景或背景）。为了防止由偏快转为超载与它恢复时通知您的应用程序，该系统凝聚事件，并提供一个单一的通知（每个相关类型），反映了净变化，因为你的应用程序被暂停。</p>
-<h4 id="8-_程序终止">8. 程序终止</h4><p>程序只要符合以下情况之一，只要进入后台或挂起状态就会终止：</p>
-<ol>
-<li><p>iOS4.0以前的系统</p>
-</li>
-<li><p>app是基于iOS4.0之前系统开发的。</p>
-</li>
-<li><p>设备不支持多任务</p>
-</li>
-<li><p>在Info.plist文件中，程序包含了 <code>UIApplicationExitsOnSuspend</code> 键。</p>
-</li>
-</ol>
-<p>app如果终止了，系统会调用app的代理的方法 <code>- (void)applicationWillTerminate:(UIApplication *)application</code>，这样可以让你可以做一些清理工作。你可以保存一些数据或app的状态。这个方法也有5秒钟的限制。超时后方法会返回程序从内存中清除。</p>
-<p>注意：用户可以手工关闭应用程序。</p>
-<h4 id="9-_The_Main_Run_Loop_主运行循环">9. The Main Run Loop 主运行循环</h4><p>Main Run Loop负责处理用户相关的事件。UIApplication对象在程序启动时启动main run Loop，它处理事件和更新视图的界面。看Main Run Loop就知道，它是运行在程序的主线程上的。这样保证了接收到用户相关操作的事件是按顺序处理的。 </p>
-<p>用户操作设备，相关的操作事件被系统生成并通过UIKit的指定端口分发。事件在内部排成队列，一个个的分发到Main run loop 去做处理。UIApplication对象是第一个接收到时间的对象，它决定事件如何被处理。触摸事件分发到主窗口，窗口再分发到对应出发触摸事件的View。其他的事件通过其他途径分发给其他对象变量做处理。 </p>
-<p>大部分的事件可以在你的应用里分发，类似于触摸事件，远程操控事件（线控耳机等）都是由app的 responder objects 对象处理的。Responder objects 在你的app里到处都是，比如：UIApplication 对象，view对象，view controller 对象，都是resopnder objects。大部分事件的目标都指定了resopnder object，不过事件也可以传递给其他对象。比如，如果view对象不处理事件，可以传给父类view或者view controller。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-7.png" alt="iOS 应用生命周期"></p>
-<p>英文原文：<a href="https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/ManagingYourApplicationsFlow/ManagingYourApplicationsFlow.html#//apple_ref/doc/uid/TP40007072-CH4-SW20" target="_blank" rel="external">App States and Multitasking</a><br>译文出处：<a href="http://www.cnblogs.com/EverNight/p/3818570.html" target="_blank" rel="external">iOS App的生命周期</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>对于iOS应用程序，关键的是要知道你的应用程序是否正在前台或后台运行。由于系统资源在iOS设备上较为有限，一个应用程序必须在后台与前台有不同的行为。操作系统也会限制你的应用程序在后台的运行，以提高电池寿命，并提高用户与前台应用程序的体验。当应用程序在前台和后台之间切换时，操作系统将会通知您的应用程序。你可以通过这些通知来修改你的应用程序的行为。</p>
-<p>当你的应用程序在前台活动时，系统会发送触摸事件给它进行处理。在UIKit的基础设施做了大部分的事件传递给你的自定义对象工作。所有您需要做的是覆盖在相应的对象的方法来处理这​​些事件。对于控件，UIKit会通过处理你的触摸事件，或者其他一些有趣的事情发生时调用您的自定义代码，比如当文本字段中的值更改。</p>]]>
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
-    
-      <category term="应用程序" scheme="http://yoursite.com/tags/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/"/>
-    
-      <category term="生命周期" scheme="http://yoursite.com/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
-    
-      <category term="开发技术" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="iOS" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/iOS/"/>
     
   </entry>
   

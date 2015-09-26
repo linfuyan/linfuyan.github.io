@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-09-26T13:46:28.000Z</updated>
+  <updated>2015-09-26T14:10:51.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,13 +15,129 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[声明式编程范式初探]]></title>
+    <link href="http://yoursite.com/declarative-programming-intro/"/>
+    <id>http://yoursite.com/declarative-programming-intro/</id>
+    <published>2015-09-26T14:03:09.000Z</published>
+    <updated>2015-09-26T14:10:51.000Z</updated>
+    <content type="html"><![CDATA[<p>语言编程语言可以分成两类：</p>
+<ul>
+<li>命令式</li>
+<li>声明式</li>
+</ul>
+<p>事实上，凡是非命令式的编程都可归为声明式编程。因此，命令式、函数式和逻辑式是最核心的三种范式。为清楚起见，我们用一幅图来表示它们之间的关系。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/categaries-of-programming-paradigm.jpg" alt="编程范式的简单分类"></p>
+<p>与命令式编程相对的声明式编程（ declarative programming ）。顾名思义，声明式编程由若干规范（ specification ）的声明组成的，即一系列陈述句：‘已知这，求解那’，强调‘做什么’而非‘怎么做’。声明式编程是人脑思维方式的抽象，即利用数理逻辑或既定规范对已知条件进行推理或运算。</p>
+<a id="more"></a>
+<h4 id="声明式编程的发源">声明式编程的发源</h4><p>声明式编程发轫于人工智能的研究，主要包括函数式编程（ functional programming ，简称 FP ）和逻辑式编程（ logic programming ，简称 LP ）。其中，函数式编程将计算描述为数学函数的求值，而逻辑式编程通过提供一系列事实和规则来推导或论证结论。</p>
+<p>其实支持它们的语言出现得并不比命令式的晚多少——最早的函数式语言 Lisp （ <strong>LIS</strong>t <strong>P</strong>rocessor ）已有半个世纪的历史，最早之一的逻辑式语言 Prolog （ <strong>PRO</strong>gramming in <strong>LOG</strong>ic ）也与 C 同龄。只是由于大多数更多地用于学术研究而非商业应用，颇有些‘养在深闺人未识’的味道。</p>
+<p>起源的不同决定了这两大类范式代表着迥然不同的编程理念和风格：命令式编程是行动导向（ Action-Oriented ）的，因而算法是显性而目标是隐性的；声明式编程是目标驱动（ Goal-Driven ）的，因而目标是显性而算法是隐性的。为便于说明，我们分别用三种代表性的语言来实现阶乘（ factorial ）运算。</p>
+<h4 id="阶乘的三种编程实现">阶乘的三种编程实现</h4><p>C(命令式) –</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">factorial</span><span class="params">(<span class="keyword">int</span> n)</span> </span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (; n &gt; <span class="number">0</span>; --n) f *= n;</span><br><span class="line">	<span class="keyword">return</span> f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Liap(函数式) –</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(defun factorial(<span class="keyword">n</span>)</span><br><span class="line">  (<span class="keyword">if</span> (= <span class="keyword">n</span> 0)</span><br><span class="line">	1                               <span class="comment">//  若n等于0，则n!等于1</span></span><br><span class="line">	(* <span class="keyword">n</span> (factorial(- <span class="keyword">n</span> 1)))))      <span class="comment">//  否则n!等于n* (n-1)</span></span><br></pre></td></tr></table></figure>
+<p>Prolog(逻辑式) –</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 0! 等于1</span></span><br><span class="line">factorial(0,1).</span><br><span class="line"><span class="comment">// 若M等于N-1且 M!等于Fm且F等于N*Fm，则N! 等于F</span></span><br><span class="line">factorial(<span class="keyword">N</span>,F) :-   <span class="keyword">M</span> is <span class="keyword">N</span>-1, factorial(<span class="keyword">M</span>,Fm), F is <span class="keyword">N</span> * Fm.</span><br></pre></td></tr></table></figure>
+<p>以上三段代码区别在哪里？ C 明确给出了阶乘的迭代算法，而 Lisp 仅描述了阶乘的递归定义， Prolog 则陈述了两个关于阶乘的断言。</p>
+<h4 id="声明式编程的本质">声明式编程的本质</h4><p>我们最早接触的变量是代数方程中的 x、y、z 等，本质上是抽象化的符号，变量值是该符号在给定约束条件下的允许值。而命令式编程中的变量本质上是抽象化的内存，变量值是该内存的储存内容。通俗地说，前者好比姓名，所指之人是固定的；后者好比住址，所住之人是变化的。此外，等号在代数中是一种约束，而在许多命令式语言中则表示赋值。因此 i = i + 1 可以在命令式编程中出现，但绝不可能在数学推理中出现 —— 除非在反证法中。</p>
+<p>声明式编程让我们重回数学思维：函数式编程类似代数中的表达式变换和计算，逻辑式编程则类似数理逻辑推理。其中的变量也如数学中的一样，是抽象符号而非内存地址，因此没有赋值运算，不会产生变量被改写的副作用（ side-effect ），也不存在内存分配和释放的问题。这既简化了代码，也减少了调试——不妨想一想，有多少bug是由于某个变量被意外改写或内存管理不慎而造成的？</p>
+<p><strong>声明式语言与命令式语言的相通之处</strong></p>
+<ul>
+<li>首先，所有高级语言都建立于低级语言之上，最终转化为机器语言，声明式语言也不例外。</li>
+<li>其次，声明式语言与命令式语言并非泾渭分明，而是互相交叉渗透的。一些‘非纯粹’ 的声明式语言也提供变量赋值和流程控制，而一些命令式语言也在逐渐发展，通过利用其他程序或增加新的语言特征来实现声明式编程。</li>
+</ul>
+<p>总的说来，在命令式语言中融入声明式的元素应当是一种趋势。尤其是函数式，它的一些特征已经在许多命令式语言中得到了支持。比较而言，声明式编程重目标、轻过程，专注问题的分析和表达而不致陷入算法的迷宫，其代码也更加简洁清晰、易于修改和维护。从这种意义上说，声明式语言天然地就比命令式语言更高级。</p>
+<blockquote>
+<p>既然声明式编程有这么多好处，为什么命令式语言不仅占大多数，而且流行程度也不减呢？</p>
+<p>编程语言的流行程度与其擅长的领域关系密切。声明式语言——尤其是函数式语言和逻辑式语言——擅长基于数理逻辑的应用，如人工智能、符号处理、数据库、编译器等，对基于业务逻辑的、尤其是交互式或事件驱动型的应用就不那么得心应手了。而大多数软件是面向用户的，交互性强、多为事件驱动、业务逻辑千差万别，显然命令式语言在此更有用武之地。</p>
+</blockquote>
+<p>值得指出的是，声明式编程并不仅仅局限于函数式和逻辑式。比方说， C# 中的 attribute 、 Java 中的 annotation 和 XDoclet 库等采用的也是具有声明式特征的属性导向式编程（ Attribute-Oriented Programming ，简称 @OP ）。再比如， Prograph 、 SISAL 等数据流语言（ dataflow language ）采用的数据流式编程（ Dataflow Programming ）与函数式编程有不少共同点，同样属于声明式的范畴。还有一些语言如 Oz 、 CHIP 等支持与逻辑式编程相交的约束式编程（ Constraint Programming ）。此外，大家熟悉的数据库语言 SQL ，样式语言 XSLT、 CSS，标记语言 HTML 、 XML 、 SVG ，规范语言 IDL （ Interface Description Language ）等等都是声明式的。算上它们，声明式语言所占的比例也是非常可观的。此前之所以没有提及，一方面，不少声明式语言采用的范式并没有专门的名称；另一方面，这些语言大多是领域特定语言，并且不少并非图灵完备的，有的连运算都没有。毕竟，目前我们的重点还是放在通用编程语言上。</p>
+<p>其实用 Lisp 实现阶乘的方法也可以用在 C 上：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">factorial</span><span class="params">(<span class="keyword">int</span> n)</span> </span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n == <span class="number">0</span> ? <span class="number">1</span> : <span class="function">n * <span class="title">factorial</span><span class="params">(n - <span class="number">1</span>)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是 C 的递归实现。除了细微的语法差别外，二者的确很相似，这说明用命令式语言也可以讲出声明式的味道。实际上，命令式语言提倡迭代而不鼓励递归，早期的 Fortran 甚至都不支持递归。一则迭代比递归更符合命令式的思维模式，因为前者贴近机器语言而后者贴近数学语言；二则除尾递归（ tail recursion ）外，一般递归比迭代的开销（ overhead ）大。相反，声明式语言提倡递归而不支持迭代。就语法而言，它不允许迭代中的循环变量；就视角而言，迭代着眼微观过程而递归着眼宏观规律。</p>
+<p>归根结底，<strong>编程是寻求一种机制，将指定的输入转化为指定的输出。</strong>三种范式对此提供了截然不同的解决方案：</p>
+<ul>
+<li>命令式把程序看作一个自动机，输入是初始状态，输出是最终状态，编程就是设计一系列指令，通过自动机执行以完成状态转变；</li>
+<li>函数式把程序看作一个数学函数，输入是自变量，输出是因变量，编程就是设计一系列函数，通过表达式变换以完成计算；</li>
+<li>逻辑式把程序看作一个逻辑证明，输入是题设，输出是结论，编程就是设计一系列命题，通过逻辑推理以完成证明。</li>
+</ul>
+<p>绘成表格如下：</p>
+<table>
+<thead>
+<tr>
+<th>范式</th>
+<th>程序</th>
+<th>输入</th>
+<th>输出</th>
+<th>程序设计</th>
+<th>程序运行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>命令式</td>
+<td>自动机</td>
+<td>初始状态</td>
+<td>最终状态</td>
+<td>设计指令</td>
+<td>命令执行</td>
+</tr>
+<tr>
+<td>函数式</td>
+<td>数学函数</td>
+<td>自变量</td>
+<td>因变量</td>
+<td>设计函数</td>
+<td>表达式变换</td>
+</tr>
+<tr>
+<td>逻辑式</td>
+<td>逻辑证明</td>
+<td>题设</td>
+<td>结论</td>
+<td>设计命题</td>
+<td>逻辑推理</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>语言编程语言可以分成两类：</p>
+<ul>
+<li>命令式</li>
+<li>声明式</li>
+</ul>
+<p>事实上，凡是非命令式的编程都可归为声明式编程。因此，命令式、函数式和逻辑式是最核心的三种范式。为清楚起见，我们用一幅图来表示它们之间的关系。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/categaries-of-programming-paradigm.jpg" alt="编程范式的简单分类"></p>
+<p>与命令式编程相对的声明式编程（ declarative programming ）。顾名思义，声明式编程由若干规范（ specification ）的声明组成的，即一系列陈述句：‘已知这，求解那’，强调‘做什么’而非‘怎么做’。声明式编程是人脑思维方式的抽象，即利用数理逻辑或既定规范对已知条件进行推理或运算。</p>]]>
+    
+    </summary>
+    
+      <category term="命令式" scheme="http://yoursite.com/tags/%E5%91%BD%E4%BB%A4%E5%BC%8F/"/>
+    
+      <category term="声明式" scheme="http://yoursite.com/tags/%E5%A3%B0%E6%98%8E%E5%BC%8F/"/>
+    
+      <category term="编程" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="范式" scheme="http://yoursite.com/tags/%E8%8C%83%E5%BC%8F/"/>
+    
+      <category term="语言" scheme="http://yoursite.com/tags/%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="开发技术" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="基础理论" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[如何在Ubuntu 14.04 上安装Linux, Apache, MySQL, PHP (LAMP)组件]]></title>
     <link href="http://yoursite.com/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04/"/>
     <id>http://yoursite.com/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04/</id>
     <published>2015-09-26T13:29:00.000Z</published>
-    <updated>2015-09-26T13:46:28.000Z</updated>
+    <updated>2015-09-26T13:52:05.000Z</updated>
     <content type="html"><![CDATA[<p>翻译自：<a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04</a></p>
 <h4 id="介绍">介绍</h4><p>“ LAMP “组件是一组典型的安装在一起的开源软件，用于服务器搭建动态网站和 Web 应用。实际上，这是一个首字母缩写的组合，代表了 Linux 操作系统安装 <strong>A</strong>pache Web 服务器。网站的数据存储在 <strong>M</strong>ySQL 数据库中，并由 <strong>P</strong>HP 提供动态内容。</p>
+<a id="more"></a>
 <p>在这篇向导中，我们将在 Ubuntu 14.04 Droplet 上搭建 LAMP 。 Ubuntu 提供了我们的第一个需求：一个 <strong>L</strong>inux 操作系统。</p>
 <h3 id="先决条件">先决条件</h3><p>在你开始这个向导之前，在你的服务器上需要配置一个独立的非 root 用户账号。你可以按照<a href="https://www.digitalocean.com/community/articles/initial-server-setup-with-ubuntu-14-04" target="_blank" rel="external">Ubuntu 14.04上搭建服务器</a>中的1-4步来学习完成它。</p>
 <h3 id="步骤一_-_安装Apache">步骤一 - 安装<strong>A</strong>pache</h3><p>Apache web 服务器是目前世界上最流行的 web 服务器，是挂载站点的最佳默认选择。</p>
@@ -106,7 +222,9 @@
 <p>如果你需要查看配置信息，可以再次建立这个文件。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>翻译自：<a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04" target="_]]>
+    <![CDATA[<p>翻译自：<a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04">https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04</a></p>
+<h4 id="介绍">介绍</h4><p>“ LAMP “组件是一组典型的安装在一起的开源软件，用于服务器搭建动态网站和 Web 应用。实际上，这是一个首字母缩写的组合，代表了 Linux 操作系统安装 <strong>A</strong>pache Web 服务器。网站的数据存储在 <strong>M</strong>ySQL 数据库中，并由 <strong>P</strong>HP 提供动态内容。</p>]]>
+    
     </summary>
     
       <category term="14.04" scheme="http://yoursite.com/tags/14-04/"/>
@@ -1408,66 +1526,6 @@
       <category term="软件工具" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
     
       <category term="Git" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[程序员真正的价值]]></title>
-    <link href="http://yoursite.com/the-real-value-of-programmers/"/>
-    <id>http://yoursite.com/the-real-value-of-programmers/</id>
-    <published>2015-08-26T03:13:14.000Z</published>
-    <updated>2015-08-27T10:25:58.000Z</updated>
-    <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/14064631_iVnR.jpg" alt="程序员真正的价值"></p>
-<blockquote>
-<p>问：池老师，我是个不爱互动的人，但是您所有的文章我都看了，非常感谢您的引导，我入手了人生第一台 MBP。现在问题来了，但是找不到更合适的人解答，只能求助于您了，如果您有时间的话。问题是这样的：我有个32bit unix file（开启一个服务进程），在 Mac 上执行时错误提示是：exec format error，但是在 Linux 服务器却可以执行，为何？Mac 上有可以运行的方案吗？期待您的回复，不胜感激。</p>
-<p>答：Linux 和 OS X 是不同的操作系统，可以尝试在 OS X 里重新编译这个文件。</p>
-<p>问：非常感谢！如果没有文件源码是不是就只能认命了？</p>
-<p>答：可以在 Mac 上装 Docker，然后对服务进行端口映射就可以了。</p>
-<p>答：茅塞顿开。谢池老师。</p>
-</blockquote>
-<p>以上是我和一位读者的对话，这位小伙子在拿到答案之后像一缕烟尘一样消失无踪，之后再也没有出现过。</p>
-<a id="more"></a>
-<p>在微信上加了很多 MacTalk 的读者之后，经常会收到一些奇奇怪怪的问题，关于职场、关于选择、关于朋友、关于 Mac、关于技术等等，不一而足。但是我能回答的却很少。问题不好没法回答，问题太复杂没法回答，问题领域超出我的认知也没法回答，耗时太长的问题我也没 时间回答，实在是惭愧的紧。好在偶尔也能够帮助一些小伙伴解决一些实际问题，心理上略感安慰，比如上面这个问题。</p>
-<p>把这段程序员之间的对话翻译一下，大致是这么个故事：</p>
-<p>一位读者有一个32位的 Unix 可执行文件，可以在某种版本的 Linux 服务器上正常运行，运行这个文件作用就是起个进程，开端口，然后与其他程序进行交互。但是这个文件拿到 Mac 上完全没办法运行。就在他趴在 Mac 上愁肠百结万念俱灰的时候，突然想到了「池老师」。不就是这个老家伙把 Mac 夸的像一朵玫瑰一样，让每个程序员都去采摘么？现在扎手了，你不管谁管？于是他给我发来消息，意思就是管也得管，不管也得管，您看着办。</p>
-<p>我拿到问题一看，不难。Linux 和 OS X 虽然师出同门，都是从老前辈 Unix 那儿毕业的，但是后来毕竟各练各的，在 Linux 编译好的程序不可能在 OS X 上用，但是在 OS X 上重新编译一下可能就没事了。我把这个想法告诉了这位程序员，得到的反馈是：对不起哥，没有源代码！</p>
-<p>我被这个冷酷的回复震惊了，立刻意识到刚才的想法并不是最优解决方案，因为在重新编译的过程中，各种包的依赖关系和编译错误足以让你焦头烂额，我随即提供了 B 计划：在 OS X 上安装 Docker，轻量级的容器 Docker 可以运行各种版本的 Linux，把文件扔到 Docker 里，然后通过主机和 Docker 之间的端口映射即可轻松解决这一问题。</p>
-<p>虽然这里面会涉及很多技术细节，但是方向是没有问题的，所以这位程序员立刻表示「茅塞顿开」，然后「biu」的一声就在屏幕对面消失了，没有留给我说「不客气」的机会。</p>
-<p>这个问题装个 Linux 虚拟机也可以解决，但是虚拟机过于耗费资源，而且不如 Docker 灵活，所以不是最佳解决方案。Docker 是。</p>
-<p>做为一个程序员，我们除了要掌握多门程序语言和多种数据库，了解前端技术、后端技术，通晓网络七层架构，知道 TCP/IP三次握手和四次挥手，编写漂亮的代码，设计优美的架构… 之外，我们还要解决研发、程序运行和产品上线过程中遇到的各种问题，而且被要求以最 小的代价来解决问题… 我们容易吗？</p>
-<p>除了编程技巧和程序设计能力，解决问题的稳准狠是衡量一个程序员是否优秀的重要因素之一，也是资深技术 人员真正的价值所在。在科技浪潮澎湃、技术信息扑面而来的今天，一位刚毕业的大学生如果足够勤奋，他可以在两三个月之内掌握一门编程语言，并编写出像模像 样的软件，他们的学习速度甚至超过了我们这些老程序员，但是解决问题的能力是无法速成的，只能依靠时间、经验和惨痛的教训历练而成。有时候还需要灵感和运气。</p>
-<p>很多军迷读了大量的军事著作和历史小说，常常羡慕那些名将的风采，并浩叹自己「生不逢时」。但是名将不是那么容易炼成的。历史上叱诧风 云的名将凤毛麟角，他们亲自持刀上阵追击敌人，见识战场的惨烈，目睹敌人的尸体，看到战友被杀，知道被刀看中会流血死去，他们冷酷无情，坚如磐石，在全军即将崩溃的时候发现敌人的弱点并进行攻击，在瞬息万变的战场进行决断，在多次失败后从无数士兵的尸体里站起来重新出发去挑战那个战胜你的对手，在所有人对你说「指导员，我们上吧」的时候，坚定的说出那三个字：再等等！</p>
-<p>如果你做不到这些，那还是做个最终会被张飞枪挑的小兵吧。</p>
-<p>优秀的程序员同样如此，菜鸟常常羡慕高手在谈笑之间让难题灰飞烟灭，而自己却苦苦思索而不得入门之法，殊不知这些高手同样经历了名将的那些腥风血雨。他们在 清晨的微光里编写代码，在轰鸣的机房中调试程序，他们彻夜不眠就是为了解决一个 bug，他们要承受数据丢失或上线失败的痛苦，默默吞下眼泪，准备下一次的战斗。不停的学习、实践和思索，成千上万个小时之后，高手史成。</p>
-<p>同样的问题，高手的解决思路和小球是截然不同的。一般来说，只要不是世界难题，给足时间、空间和人力，都能解决。如果你遇到问题告诉上级，这个问题交给我了，两年之内搞的妥妥哒，那就不要怪项目组组团把你打出翔来，因为大家要的是分分钟解决，不是两年。在这个唯快不破的年代，我们没有这么多的时间，所以要通过逆向思维、经验教训、辗转腾挪、借力打力等方式以最小的代价快速解决问题。这才是老程序员的价值。</p>
-<p>再举个例子，一个运行良好的线上应用在你修改 bug 增加功能之后重新上线出现了一些莫名其妙的问题，比如占用资源增加或运行一段时间宕机等等，怎么解决？</p>
-<p>常规的做法就是通过阅读日志、模拟线上环境和调试程序来定位错误。容易的 bug 用这些方式基本就能搞定了，但是更隐蔽的 bug 会耗费大量的时间和人力。更好的方式是什么？</p>
-<p>首先，排查是程序问题还是环境问题，把线上程序恢复到运行正常时的老版本，如果出现了同样的问题，那就是生产环境发生了改变。如果运行正常，要么是你修改老 bug 时引入了新 bug，要么是新增加的代码出现了问题。</p>
-<p>其次，阅读产品的 changelog，根据代码提交的时间线构建系统，通过二分法排查，定位是哪部分代码引起的问题。</p>
-<p>第三，排除了所有的不可能，剩下的无论看起来如何不可能，就是它干的。</p>
-<p>以上只是一个简单的例子，实际的情况可能比这个例子复杂一百倍，需要我们综合使用各种方式进行交叉比对和错误排查才能解决。这仅仅是遇到问题解决问题，更多的时候是需要你提出问题，并解决问题，那是更高的境界。</p>
-<p>很多人学了那么多编程语言，写了十几年程序，最终依然无法做到以最小的代价解决问题，不禁让人扼腕叹息。</p>
-<p>程序员真正的价值是什么？以最小的代价解决问题！知行合一，方可无敌于天下。</p>
-<p>原文作者：池建强 (微信公众号：MacTalk)</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/14064631_iVnR.jpg" alt="程序员真正的价值"></p>
-<blockquote>
-<p>问：池老师，我是个不爱互动的人，但是您所有的文章我都看了，非常感谢您的引导，我入手了人生第一台 MBP。现在问题来了，但是找不到更合适的人解答，只能求助于您了，如果您有时间的话。问题是这样的：我有个32bit unix file（开启一个服务进程），在 Mac 上执行时错误提示是：exec format error，但是在 Linux 服务器却可以执行，为何？Mac 上有可以运行的方案吗？期待您的回复，不胜感激。</p>
-<p>答：Linux 和 OS X 是不同的操作系统，可以尝试在 OS X 里重新编译这个文件。</p>
-<p>问：非常感谢！如果没有文件源码是不是就只能认命了？</p>
-<p>答：可以在 Mac 上装 Docker，然后对服务进行端口映射就可以了。</p>
-<p>答：茅塞顿开。谢池老师。</p>
-</blockquote>
-<p>以上是我和一位读者的对话，这位小伙子在拿到答案之后像一缕烟尘一样消失无踪，之后再也没有出现过。</p>]]>
-    
-    </summary>
-    
-      <category term="价值" scheme="http://yoursite.com/tags/%E4%BB%B7%E5%80%BC/"/>
-    
-      <category term="程序员" scheme="http://yoursite.com/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
-    
-      <category term="深度文摘" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E6%96%87%E6%91%98/"/>
     
   </entry>
   

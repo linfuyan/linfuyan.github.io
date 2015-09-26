@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-09-19T06:59:38.000Z</updated>
+  <updated>2015-09-26T13:46:28.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,175 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[如何在Ubuntu 14.04 上安装Linux, Apache, MySQL, PHP (LAMP)组件]]></title>
+    <link href="http://yoursite.com/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04/"/>
+    <id>http://yoursite.com/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04/</id>
+    <published>2015-09-26T13:29:00.000Z</published>
+    <updated>2015-09-26T13:46:28.000Z</updated>
+    <content type="html"><![CDATA[<p>翻译自：<a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04</a></p>
+<h4 id="介绍">介绍</h4><p>“ LAMP “组件是一组典型的安装在一起的开源软件，用于服务器搭建动态网站和 Web 应用。实际上，这是一个首字母缩写的组合，代表了 Linux 操作系统安装 <strong>A</strong>pache Web 服务器。网站的数据存储在 <strong>M</strong>ySQL 数据库中，并由 <strong>P</strong>HP 提供动态内容。</p>
+<p>在这篇向导中，我们将在 Ubuntu 14.04 Droplet 上搭建 LAMP 。 Ubuntu 提供了我们的第一个需求：一个 <strong>L</strong>inux 操作系统。</p>
+<h3 id="先决条件">先决条件</h3><p>在你开始这个向导之前，在你的服务器上需要配置一个独立的非 root 用户账号。你可以按照<a href="https://www.digitalocean.com/community/articles/initial-server-setup-with-ubuntu-14-04" target="_blank" rel="external">Ubuntu 14.04上搭建服务器</a>中的1-4步来学习完成它。</p>
+<h3 id="步骤一_-_安装Apache">步骤一 - 安装<strong>A</strong>pache</h3><p>Apache web 服务器是目前世界上最流行的 web 服务器，是挂载站点的最佳默认选择。</p>
+<p>我们将通过 Ubuntu 的包管理器 <code>apt</code> 来便捷地安装 Apache。这个包管理器让我们可以毫无痛苦的从 Ubuntu 维护的存储库中来安装大多数的软件。更多关于 <code>apt</code> 的信息，可以看这里<a href="https://www.digitalocean.com/community/articles/how-to-manage-packages-in-ubuntu-and-debian-with-apt-get-apt-cache" target="_blank" rel="external">如何使用 apt</a>。</p>
+<p>为了我们的目标，我们可以从输入这些命令开始：</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line">sudo apt-<span class="built_in">get</span> install apache2</span><br></pre></td></tr></table></figure>
+<p>由于我们使用 <code>sudo</code> 命令，这些操作在 root 权限下执行。这将要求你输入常规用户的密码来验证你的意图。</p>
+<p>在此之后，你的 web 服务器就安装好了。</p>
+<p>你可以马上做一些验证来确定一起如预期进行。在浏览器中输入你服务器的公网IP地址：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">http:</span><span class="comment">//your_server_IP_address</span></span><br></pre></td></tr></table></figure>
+<p>你将看到默认的 Ubuntu 14.04 Apache 页面，这个页面展示的目的是出于测试及显示信息。看起来他是这样的：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/default_apache.png" alt="image"></p>
+<p>如果你看到这个页面，说明你的 web 服务器正确安装了。</p>
+<h4 id="如何找到你的服务器的公网_IP_地址">如何找到你的服务器的公网 IP 地址</h4><p>如果你不知道服务器的公网IP地址是什么，可以有多重方式来找到。通常，这个地址是你用来通过SSH来连接你的服务器的。</p>
+<p>在命令行下，有一些方法来找到。首先，你可以使用 <code>iproute2</code> 工具来获取地址，输入以下命令：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ip</span> addr show eth0 | grep inet | awk <span class="string">'&#123; print <span class="variable">$2</span>; &#125;'</span> | sed <span class="string">'s/\/.*$//'</span></span><br></pre></td></tr></table></figure>
+<p>这个将返回一行或两行输出。这两个都是正确地地址，但是你的电脑只能用其中之一，因此放松地尝试每一个。</p>
+<p>另一种方法是通过外部的第三方工具来查看你的服务器。你可以通过访问一个确定的服务器来查看自己的IP地址。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="string">http:</span><span class="comment">//icanhazip.com</span></span><br></pre></td></tr></table></figure>
+<p>不论你用哪种方法获取到了自己的IP地址，你可以在浏览器的地址栏中来访问服务器。</p>
+<h3 id="步骤二_-_安装_MySQL">步骤二 - 安装 <strong>M</strong>ySQL</h3><p>现在我们已经安装了 web 服务器，并正常运行，是时候安装 MySQL 了。 MySQL 是一个数据库管理系统。最基本的，它用来组织和访问用来存储我们站点信息的数据库。</p>
+<p>我们再次用 <code>apt</code> 工具来获取和安装软件。这次，我们还需要安装一些其他的辅助工具包，来让安装的组件相互通信:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get <span class="operator"><span class="keyword">install</span> mysql-<span class="keyword">server</span> php5-mysql</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong>在这里，你不需要在执行这个命令之前，执行 <code>sudo apt-get update</code> 。因为我们在之前安装 Apache 的时候已经执行过了。你电脑上的包索引已经是最新的了。</p>
+<p>在安装过程中，你的服务器会让你为 MySQL 的 root 用户选择并设置密码。这在 MySQL 中是一个具有管理员权限的账号。这个有点类似于操作系统中的 root 账号（尽管如此，你目前所配置的账号仅针对 MySQL ）。</p>
+<p>当安装结束，我们需要运行一些额外的命令，来保证我们的 MySQL 环境足够安全。</p>
+<p>首先，我们需要告诉 MySQL 来创建它用于存储信息的数据库目录结构。你需要输入：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">sudo</span> mysql_install_db</span><br></pre></td></tr></table></figure>
+<p>然后我们要运行一些简单地安全脚本来消除默认的危险配置，并锁定数据的访问。通过输入如下命令，来开始使用交互脚本：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">sudo</span> mysql_secure_installation</span><br></pre></td></tr></table></figure>
+<p>你会被要求输入所设置的 MySQL 的 root 账号密码。接下来，会被问到是否想要修改密码，如果你对现有的密码满意，输入 <code>n</code> 代表 <code>no</code> 并提交。</p>
+<p>接下来的问题中，你只需简单地回车来使用默认配置。这样做会移除一些测试用户和数据库，禁止 root 用户远程登录，加载这些新的配置，以便我们的修改在 MySQL 中立即生效。</p>
+<p>到这里，你的数据库系统已经建立，可以继续下一步。</p>
+<h3 id="步骤三_-_安装_PHP">步骤三 - 安装 <strong>P</strong>HP</h3><p>PHP 是我们安装的一个组件，用于处理代码以显示动态内容。它可以运行脚本，连接到 MySQL 数据库来获取信息，并传输处理好的内容到web服务器来显示。</p>
+<p>我们可以再次利用 <code>apt</code> 工具来安装我们的组件。同样，我们会包含一些辅助包：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install php5 libapache2-<span class="keyword">mod</span>-php5 php5-mcrypt</span><br></pre></td></tr></table></figure>
+<p>这样安装 PHP 将不会有任何问题，我们将马上测试。</p>
+<p>在大部分情况下，当请求文件夹时，我们需要修改 Apache 服务器上处理文件的方式。现在，如果一个用户向服务器请求目录， Apache 会首先寻找名为 <code>index.html</code> 的文件。我们需要告诉我们的 web 服务器优先处理 PHP 文件，因此我们让 Apache 首先寻找 <code>index.php</code> 。</p>
+<p>要完成这个，输入以下命令来在文本编辑器中打开 <code>dir.conf</code> 文件：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano <span class="regexp">/etc/</span>apache2<span class="regexp">/mods-enabled/</span>dir.conf</span><br></pre></td></tr></table></figure>
+<p>找到如下代码：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule mod_dir.c&gt;</span><br><span class="line">    DirectoryIndex index<span class="class">.html</span> index<span class="class">.cgi</span> index<span class="class">.pl</span> index<span class="class">.php</span> index<span class="class">.xhtml</span> index<span class="class">.htm</span></span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
+<p>我们将其中的 <code>index.php</code> 移到第一项的位置，在 <code>DirectoryIndex</code> 之后，如下所示：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule mod_dir.c&gt;</span><br><span class="line">	DirectoryIndex index<span class="class">.php</span> index<span class="class">.html</span> index<span class="class">.cgi</span> index<span class="class">.pl</span> index<span class="class">.xhtml</span> index<span class="class">.htm</span></span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
+<p>当操作完成，按下 <code>CTRL-X</code> 保存并退出文件。你需要输入 <code>Y</code> 来确认保存，并点击回车来确认文件保存位置。</p>
+<p>在这之后，我们需要重启 Apache web 服务器来使配置修改生效。输入以下命令来完成：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">sudo</span> service apache2 restart</span><br></pre></td></tr></table></figure>
+<h4 id="安装_PHP_模块">安装 PHP 模块</h4><p>为了扩展 PHP 的功能，我们可以选择安装一些额外的模块。</p>
+<p>查看可选的 PHP 模块和库，可以在系统中输入如下命令：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="operator"><span class="keyword">cache</span> <span class="keyword">search</span> php5-</span></span><br></pre></td></tr></table></figure>
+<p>结果是所有你可以安装的可选组件，并给出每项的简短介绍。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">php5-cgi - server-side, HTML-embedded scripting <span class="keyword">language</span> (CGI binary)</span><br><span class="line">php5-cli - <span class="keyword">command</span>-<span class="built_in">line</span> interpreter <span class="keyword">for</span> the php5 scripting <span class="keyword">language</span></span><br><span class="line">php5-common - Common <span class="keyword">files</span> <span class="keyword">for</span> packages built from the php5 <span class="keyword">source</span></span><br><span class="line">php5-curl - CURL module <span class="keyword">for</span> php5</span><br><span class="line">php5-dbg - Debug symbols <span class="keyword">for</span> PHP5</span><br><span class="line">php5-dev - Files <span class="keyword">for</span> PHP5 module development</span><br><span class="line">php5-gd - GD module <span class="keyword">for</span> php5</span><br><span class="line">. . .</span><br></pre></td></tr></table></figure>
+<p>如果想要获取每个模块更多的信息，你可以在互联网上搜索或者通过如下命令查看包内的详细介绍：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="operator"><span class="keyword">cache</span> <span class="keyword">show</span> package_name</span></span><br></pre></td></tr></table></figure>
+<p>这将会有许多输出，其中有个名为 <code>Description-en</code> 的区域对模块所提供的功能有详细的解释。</p>
+<p>比如说，想要知道 <code>php5-cli</code> 模块的用处，我们可以输入：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="operator"><span class="keyword">cache</span> <span class="keyword">show</span> php5-cli</span></span><br></pre></td></tr></table></figure>
+<p>从大片的输出信息中，你会看到与如下类似的的内容：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">. . .</span><br><span class="line">SHA256: <span class="number">91</span>cfdbda65df65c9a4a5bd3478d6e7d3e92c53efcddf3436bbe9bbe27eca409d</span><br><span class="line">Description-en: <span class="command"><span class="keyword">command</span>-line <span class="title">interpreter</span> <span class="title">for</span> <span class="title">the</span> <span class="title">php5</span> <span class="title">scripting</span> <span class="title">language</span></span></span><br><span class="line">This package provides <span class="operator">the</span> /usr/bin/php5 <span class="command"><span class="keyword">command</span> <span class="title">interpreter</span>, <span class="title">useful</span> <span class="title">for</span></span></span><br><span class="line">testing PHP scripts <span class="built_in">from</span> <span class="operator">a</span> <span class="built_in">shell</span> <span class="operator">or</span> performing general <span class="built_in">shell</span> scripting tasks.</span><br><span class="line">.</span><br><span class="line">The following extensions are built <span class="operator">in</span>: bcmath bz2 calendar Core ctype <span class="built_in">date</span></span><br><span class="line">dba dom ereg exif fileinfo <span class="built_in">filter</span> <span class="keyword">ftp</span> gettext hash iconv libxml mbstring</span><br><span class="line">mhash openssl pcntl pcre Phar posix Reflection session shmop SimpleXML soap</span><br><span class="line">sockets SPL standard sysvmsg sysvsem sysvshm tokenizer wddx xml xmlreader</span><br><span class="line">xmlwriter zip zlib.</span><br><span class="line">.</span><br><span class="line">PHP (recursive acronym <span class="keyword">for</span> PHP: Hypertext Preprocessor) is <span class="operator">a</span> widely-used</span><br><span class="line"><span class="built_in">open</span> source general-purpose scripting language that is especially suited</span><br><span class="line"><span class="keyword">for</span> web development <span class="operator">and</span> can be embedded <span class="keyword">into</span> HTML.</span><br><span class="line">Description-md5: f8450d3b28653dcf1a4615f3b1d4e347</span><br><span class="line">Homepage: <span class="keyword">http</span>://www.php.net/</span><br><span class="line">. . .</span><br></pre></td></tr></table></figure>
+<p>搜索之后，如果你决定要安装某些包，你可以像之前安装软件一样，使用 <code>apt-get</code> 命令来安装这些包。</p>
+<p>假设我们想要安装所需的 <code>php5-cli</code> 包，我们输入：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install php5-cli</span><br></pre></td></tr></table></figure>
+<p>如果你想要安装多个模块，你可以在 <code>apt-get install</code> 命令之后，列出每个包名，包名之间以空格隔开。像这样：</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install <span class="keyword">package</span><span class="number">1</span> <span class="keyword">package</span><span class="number">2</span> ...</span><br></pre></td></tr></table></figure>
+<p>到此，我们的组件安装并配置完毕。接下来，我们要测试 PHP。</p>
+<h3 id="步骤四_-_在_Web_服务器上测试_PHP">步骤四 - 在 Web 服务器上测试 PHP</h3><p>为了测试我们的系统已经正确配置 PHP ，我们可以新建一个基本的 PHP 脚本。</p>
+<p>这个脚本命名为 <code>inifo.php</code> 。为了 Apache 可以正确找到并处理它，它将被保存在名为 <code>web root</code> 的确定目录中。</p>
+<p>在 Ubuntu 14.04中，这个目录是 <code>/var/www/html/</code> 。通过以下命令在目标位置新建文件。</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano <span class="regexp">/var/</span>www<span class="regexp">/html/i</span>nfo.php</span><br></pre></td></tr></table></figure>
+<p>这将打开一个空文件，我们需要在文件中输入如下有效的PHP代码：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="preprocessor">&lt;?php</span></span><br><span class="line">	phpinfo();</span><br><span class="line"><span class="preprocessor">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>操作完成，保存并关闭文件。</p>
+<p>现在要测试我们的服务器是否可以正确显示由 PHP 脚本生成的内容。在 web 浏览器中访问这个页面，这时，你需要服务器的公网 IP 地址。</p>
+<p>你需要访问的地址如下：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">http:</span><span class="comment">//your_server_IP_address/info.php</span></span><br></pre></td></tr></table></figure>
+<p>你看到的页面显示如下：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/default_php.png" alt="image"></p>
+<p>这个页面给出了你 web 服务器上的 PHP 信息。这对于你调试，并确保配置信息正确非常有用。</p>
+<p>如果这个成功，那么 PHP 已经可以正常运行。</p>
+<p>测试完毕，你需要删除这个文件。因为，这会向未授权用户泄露你服务器的信息。输入以下命令：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm <span class="regexp">/var/</span>www<span class="regexp">/html/i</span>nfo.php</span><br></pre></td></tr></table></figure>
+<p>如果你需要查看配置信息，可以再次建立这个文件。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>翻译自：<a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04" target="_]]>
+    </summary>
+    
+      <category term="14.04" scheme="http://yoursite.com/tags/14-04/"/>
+    
+      <category term="Apache" scheme="http://yoursite.com/tags/Apache/"/>
+    
+      <category term="LAMP" scheme="http://yoursite.com/tags/LAMP/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+      <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
+    
+      <category term="软件工具" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="LAMP" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/LAMP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[为什么预期的软件开发周期总是不够?]]></title>
+    <link href="http://yoursite.com/why-are-software-development-task-estimations-regularly-off-by-a-factor-of-2-3/"/>
+    <id>http://yoursite.com/why-are-software-development-task-estimations-regularly-off-by-a-factor-of-2-3/</id>
+    <published>2015-09-23T03:56:57.000Z</published>
+    <updated>2015-09-23T04:00:52.000Z</updated>
+    <content type="html"><![CDATA[<p>有国外开发者在 Quora 提了这个问题：“为什么软件开发周期通常是预期的两三倍？” 并补充问：“这是开发人员的错误？ 是管理失误？ 是因为做事方法不对， 或者说缺乏好的方法？还是说这就是软件开发流程的特点？” Michael Wolfe 在2012年1月28日给的回复，非常经典，截至我们发布时已有8016个赞。以下是译文。</p>
+<p>让我们先沿着海岸线，从旧金山（SF）走路去洛杉矶（LA），去拜访我们住在Newport Beach的朋友，我拿出地图在上面画出了行进路线。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/gcgl01.png" alt="为什么预期的软件开发周期总是不够？"></p>
+<p>全程大约有400英里，如果我们每天走10小时每小时4公里的话，只用10天就可以到达目的地。立刻打电话给我们的朋友预定下周六的晚餐，告诉他们下周六晚上六点我们一定会准时出现，朋友们已经等不及了！</p>
+<p>第二天清晨，我们带着准备冒险的兴奋起床，背起行囊，拿出地图，准备计划我们冒险的第一天，看一眼地图，噢，不！</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/gcgl02.png" alt="为什么预期的软件开发周期总是不够？"></p>
+<p>哇，海岸线上有这么多迂回曲折的线路。每天行进40英里的话，10天后只能勉强到达Half Moon Bay（半月湾？）。这趟旅行至少有500英里，而不是400。赶紧打电话给我们的朋友，将晚餐顺延至下下周周二。人还是应该现实一点。朋友们有点失望，不过仍然盼望见到我们，况且花 12 天从 SF 到 LA 也不赖。</p>
+<p>把不开心的事丢到一边，准备出发。两小时过后，我们才刚刚走出动物园。出了什么事？我们低头看了一下脚下的路：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/gcg03.jpg" alt="为什么预期的软件开发周期总是不够？"></p>
+<p>天哪，这样走路也太慢了！有沙子、海水、阶梯、溪流，还有海边愤怒的海狮！这样我们只能按每小时2公里的速度前进，只有我们预估一般的速度。要么我们现在每天走20小时，要么再把晚餐推迟一个星期。好吧，让我们各退一步：每天走12个小时，把晚餐安排到下下周的周末。只好再打电话给朋友告诉他们这个情况。朋友们有些不高兴，但还是表示可以，到时候见。</p>
+<p>在辛苦走了12小时后，我们准备在 Moss Beach 扎营休息。靠，要把帐篷在风中立起来根本不可能。直到半夜才开始休息。不过没什么大不了：明天在加快点速度就可以了。</p>
+<p>第二天早上睡过头了，早上10点才醒，起来浑身酸痛精疲力尽。艹，今天没法走12个小时了，先走10个小时，明天可以走14个小时。收拾东西出发。</p>
+<p>再缓慢行进了几个小时之后，我发现伙伴脚有点跛。妈的，是水泡。必须现在解决它，在这些问题开始减慢我们的速度前，必须将它们扼杀在萌芽状态。我慢跑了45分钟到达内陆3英里远的Pescadero，买了一些创可贴再快速跑回去给朋友包扎了一下。我快累坏了，太阳也快下山了，又浪费了一天的时间。到我们准备休息前今天只走了6英里。但是我们确实需要补充一下供给。一切都很好，明天我们就能赶上。</p>
+<p>第二天醒来，扎紧脚上的绷带准备出发。转角之后突然发现，靠！这是个啥？</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/gcgl04.jpg" alt="为什么预期的软件开发周期总是不够？"></p>
+<p>你妹的地图上怎么没标出它！现在我们只能往内陆走3英里，绕过这些被联邦政府用栅栏保护起来的区域，中途迷路了两次，在中午前才好不容易又回到了海岸线。今天的时间过了一大半，而我们才前进了差不多1英里。好吧，不过我们不会再打电话给朋友推迟了，今天我们会一直走到午夜试着赶上进度。</p>
+<p>晚上在大雾里断断续续地睡了一夜。一大早被我的伙伴叫醒，他一阵阵的头疼，还有点发烧，我问他能不能坚持一下。“你在想什么呢，混蛋，我已经连续三天在这么冷的雾中赶路，没有休息过了。“好吧，今天看来只能黄了，只能在原地好好恢复了。现在我们已经有经验了，今天好好休息明天再走14个小时，还有几天的时间，我们一定能够做到！</p>
+<p>第二天我们昏昏沉沉地起来了。我看了一眼随身的地图：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/gcgl05.png" alt="为什么预期的软件开发周期总是不够？"></p>
+<p>天啊！我们已经走了10天旅程里的第5天还没有离开海湾区域！太荒唐了！我们要重新估计一下准确的时间再打给朋友，搞不好会被骂，但至少得找一个现实一点的目标。</p>
+<p>同伴说，我们在四天里走了40英里，这趟旅程至少又600英里，那就至少要60天，安全一点的说法说不定要70天，“没门…是，以前我是没走路从SF去过LA，但肯定不会要70天的时间，如果告诉他们我们要到复活节才能到，那要被他们笑死的“，我说。</p>
+<p>我接着说，“如果你能保证每天走16个小时，我们就能把落下的时间补回来！我知道很困难，但现在是最关键的时刻，别抱怨了！”伙伴对我吼道 “一开始又不是我告诉别人下周日我们就能到的！因为你犯的这个错差点要我的命！”</p>
+<p>两个人就这样不说话了。我还是没打出电话，等我的伙伴明天冷静一点我再决定，我也愿意做一些更合理的承诺。</p>
+<p>第二天上午，我们一直待在各自的帐篷中直到一场暴风雨袭来。我们赶紧收拾好东西直到10点才摆脱危险。浑身酸痛，又长了好多新水泡。之前发生的事谁也没提，直到发现我那愚蠢的伙伴把水壶落下了，又被我指责了一顿，我们不得不再花30分钟回去取它。</p>
+<p>我心里记得我们的厕纸已经快用完了，下次到一个小镇的时候应该囤一点。在我们又转个弯后，才发现一条湍急的河流挡住了去路，这时我突然感到肚子一阵难受……</p>
+<p>本文来自伯乐在线：<a href="http://blog.jobbole.com/45756/" target="_blank" rel="external">趣文：为什么软件开发周期通常是预期的两三倍？</a>，译者：</p>
+<p>英文出处：<a href="http://www.quora.com/Engineering-Management/Why-are-software-development-task-estimations-regularly-off-by-a-factor-of-2-3" target="_blank" rel="external">Engineering Management: Why are software development task estimations regularly off by a factor of 2-3?</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>有国外开发者在 Quora 提了这个问题：“为什么软件开发周期通常是预期的两三倍？” 并补充问：“这是开发人员的错误？ 是管理失误？ 是因为做事方法不对， 或者说缺乏好的方法？还是说这就是软件开发流程的特点？” Michael Wolfe 在2012年1月28日给的回复，非]]>
+    </summary>
+    
+      <category term="估计" scheme="http://yoursite.com/tags/%E4%BC%B0%E8%AE%A1/"/>
+    
+      <category term="周期" scheme="http://yoursite.com/tags/%E5%91%A8%E6%9C%9F/"/>
+    
+      <category term="开发" scheme="http://yoursite.com/tags/%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="管理" scheme="http://yoursite.com/tags/%E7%AE%A1%E7%90%86/"/>
+    
+      <category term="软件" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+      <category term="项目" scheme="http://yoursite.com/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="深度文摘" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E6%96%87%E6%91%98/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Hexo 安装出现 Cannot find module 错误]]></title>
@@ -1299,149 +1468,6 @@
       <category term="程序员" scheme="http://yoursite.com/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
     
       <category term="深度文摘" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E6%96%87%E6%91%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[如何辨认身边的聪明人？]]></title>
-    <link href="http://yoursite.com/how-to-identify-smart-people-around-you/"/>
-    <id>http://yoursite.com/how-to-identify-smart-people-around-you/</id>
-    <published>2015-08-24T08:04:27.000Z</published>
-    <updated>2015-08-27T10:28:04.000Z</updated>
-    <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/cmr.jpg" alt="如何辨认身边的聪明人？"></p>
-<p>谢邀。</p>
-<p>我来谈一下个人分辨周围聪明人的一些主要标准。</p>
-<p>首先要明确的是一些基本原则。</p>
-<p><strong>首先，具有特定领域的专业知识不代表聪明。</strong>比如一个下水道工人和一个挖掘机工人，各自都是各自职业领域的老手，哪个更聪明？这就不好说了。所以分辨的标准不应该是针对特定领域的，而应该是普适的。</p>
-<p><strong>再比如看学历，也不一定靠谱。</strong>我们抛开盖茨、乔布斯这些辍学的不谈，一个本科生和一个博士生哪个聪明？这也不好说，说不定本科生本科期间就做出了不错的科研成果，但是本科毕业没有继续做科研而直接去工作了，那他一定比博士生笨或者聪明吗？说不准的。</p>
-<p><strong>还有比如看出身，也不靠谱。</strong>因为个人经历和交友圈的关系，我周围的很多朋友都是名校出身，北清复交牛剑HYPS什么的很多，很多聚会上名校学生的数量远比非名校的多，那这种情况下出身本身就不具有太大的分辨性。虽然名校出来的普遍会让人觉得聪明点（具体原因可以参考下文），但是即使是同一个学校出来的人，也会有很容易被识别出来的聪明程度的差别。</p>
-<a id="more"></a>
-<p>那么我会通过什么来辨别聪明人呢？我有<strong>六个标准，两两一组分为基础指标，现实指标，和高层指标三个类别。基础、现实、高层的分类不是想说明轻重和高低，只是为了方便大家理解。</strong></p>
-<p><strong>基础指标的第一个标准，是元认知（Metacognition）能力。</strong></p>
-<blockquote>
-<p>元认知能力，就是“对于认知的认知”和“关于知识的知识”，简单来说就是对于自我的认知过程的思考。关于元认知，网上有不少资料，大家可以通过搜索引擎找一下通俗的材料，感兴趣的也可以找相关的心理学文献读一下。</p>
-<p>具有强元认知能力的人，通常表现是学习能力很强，因为他们对于自己的认知和学习过程很了解，能够在快速的自我思考和自省后产生出优化过的学习策略。</p>
-<p>他们对自己的认知能力有较强的管控能力，懂得利用自己的认知能力的优势和已有知识框架来调节和评估新知识的摄入，这些人能够很快的把新知识融入到已有的知识当中。<strong>用乔布斯的话说，就是把已经划出的点连起来，而元认知能力高的人连得特别快。</strong></p>
-</blockquote>
-<p><strong>基础指标的第二个标准，是有具有逻辑性的思维跳跃能力。</strong></p>
-<blockquote>
-<p>一般的交谈过程，通常就是先讲A，再讲B，再讲C，再讲D……</p>
-<p>但是我发觉，当和一些比较聪明的人聊天的时候，或者看其他的聪明人聊天的时候，通常不是一步一步走，而是跨着大步跳的，也就是先讲A，再讲D，再讲F，再讲J……这样。<strong>这种ADFJ的交谈方式，和前面的ABCD的交谈方式在逻辑上是一样的，并不是随机的思维跳跃，而是一些中间的逻辑步骤，因为交谈的双方都已经提前想到，并且一个眼神一个动作就心照不宣了，所以不需要每一步都讲一遍，直接说下一步就好了。</strong></p>
-<p>比如之前有个我觉得比我聪明好多的做医生的朋友来我家做客，我在厨房做饭，客人们在闲聊，中间聊到癌症的事情。我就想到个段子，然后说“骑摩托车戴安全帽也能增加得癌症的概率。”这个段子其实说的还是蛮直接的，我也觉得对方肯定听得懂，所以就没有补充或者继续讲，而那位医生朋友就直接回了一句“是啊，上次和主任一起去查房，主任就说其中一位老太太比其他病人更可能得癌症，因为she has the syndrome of having too many birthdays。”然后大家就会心一笑。</p>
-<p>跟聪明程度相仿的人交谈起来跳跃的节奏是很舒适的，逻辑上也能很自然的过渡。但是如果两个人节奏差别过大，一方要经常说完A后补充说B和C才能继续说D，甚至中间还要加个B1、B2，那就是另外一种情况了。</p>
-</blockquote>
-<p><strong>现实指标的第一个标准，是好奇心。</strong></p>
-<blockquote>
-<p>其实，前面提到的元认知和思维跳跃，都属于聪明的下层建筑，而最能直观体现一个人是否聪明的标准是好奇心。</p>
-<p>一个聪明人，通常是对生活中各种事情充满了广泛的好奇的，也正是这种好奇，让他有更多的机会获得新的知识。</p>
-<p><strong>好奇心和聪明程度是个鸡和蛋的情况。</strong>一个人的学习能力再强，如果好奇心不够，那他也不会去了解各种新东西；而如果一个人缺乏对事物的广泛了解，他就很难看到那些自己不理解的东西，也就不容易产生较强的好奇心。</p>
-</blockquote>
-<p>用苏格拉底的话说，“我唯一知道的事，就是我一无所知。”</p>
-<p><strong>现实指标的第二个标准，是用简单的语言解释复杂的问题的能力。</strong></p>
-<blockquote>
-<p>经常能在包括知乎等网络社区，看到一些专业人士解释专业的或者技术性的问题，他们会很热心的花很多时间讲问题背后的原理，列出各种外行人很难看懂的公式、推导过程和专业术语，自己解答的很辛苦，读者大多没看懂，双方都不开心——“我都花了这么多功夫讲了你们怎么还是听不懂”和“你讲了这么一大堆不明觉厉，我还是不懂。”</p>
-<p>而我接触到的一些很聪明的人，很多都在自己的专业领域有深入的研究，而这些聪明人的共同特点是在解释专业问题时会刻意避免使用别人可能听不懂的大词、黑话和专业用语。</p>
-<p><strong>刻意的选用简单的语言，至少说明两个问题，一是说话的人懂得换位思考，能够从对方角度分析和评价自己的表达，是对于知识的学习具有评估能力的体现；</strong>其次，很多专业用语和大词其实是专家直接沟通的工具，<strong>当你面对的听众不是专家的时候，你就不能用这些工具“偷懒”，这样对于说话者的要求就更高了，对于知识掌握程度的要求也更高。</strong>知乎上的一些比较有名的心理学、统计学、健身等等专业领域的用户，解答问题时通常都有这样的特点。</p>
-<p>有个很有意思的年度科普活动叫作火焰挑战（flame challenge），组织方每年会出一个题目，然后要求参赛者制作一个视频，把这个题目用一个11岁小孩能听懂的话解释清楚。听起来很有趣，但是做起来还是很难的，历年的题目有“火焰是什么”、“颜色是什么”等。各位可以试试自己解释下“火焰是什么”这个题目，然后想一下你的解释能不能让一个11岁的小孩听懂。知乎上就有类似的题目，各位可以去看看那些题目下的回答是不是用简单的语言说清楚了的。</p>
-</blockquote>
-<p><strong>高层指标的第一个标准，是对于观点的态度。</strong></p>
-<blockquote>
-<p>具体表现在几个方面，比如对于自己不了解的领域少发表观点，这其实是上面说到的懂得越多越有好奇心的一种侧面体现；还有就是能够容纳不同的观点，甚至完全相反的观点，这其实是上面提到的换位思考能力的一种侧面体现；还有就是不迷信、不执迷不悟，当新的信息和证据证明自己原来的观点是错误的时候，能够改变自己的观点。</p>
-<p>这几点说起来不难，其实大家都会说，但是自身做起来的时候真的蛮难的，因为这还要涉及到情商、面子等社交属性。</p>
-</blockquote>
-<p><strong>高层指标的第二个标准，是对于别人的态度。</strong></p>
-<blockquote>
-<p>一个人是不是善良，是很重要的一个标准。当然，准确的来说，善良并不代表聪明，聪明的坏人多了去了，事实上，想要做一个成功的坏人，也是需要聪明的，不够聪明的话坏事都做不到太大。</p>
-<p>但是“好人”和“坏人”是很主观的判断。通常情况下，每个人在自己心中都是好人，连恐怖份子都不把自己当坏人的，他们在自己眼中是自由斗士和真理的捍卫者，是非常“高尚”的。</p>
-<p>所以<strong>我说的善良，其实是对于别人的态度，就是说他是否能够通过分享、辅导、以身作则等方式帮助别人改善和提高，达成共赢的局面。</strong>帮助别人提高，想想都是极难的，大概是要把前面的五个标准都完成的差不多才能做到。</p>
-</blockquote>
-<p>当然不能排除存在那些很聪明，但是坚持“不但我要成功，而且我要别人都失败”的人，不过这种人我还真是不感兴趣，这样的人是不是聪明无所谓，我总是会尽量避免的。</p>
-<p>本文转自知乎社区，作者”谢熊猫君”。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/cmr.jpg" alt="如何辨认身边的聪明人？"></p>
-<p>谢邀。</p>
-<p>我来谈一下个人分辨周围聪明人的一些主要标准。</p>
-<p>首先要明确的是一些基本原则。</p>
-<p><strong>首先，具有特定领域的专业知识不代表聪明。</strong>比如一个下水道工人和一个挖掘机工人，各自都是各自职业领域的老手，哪个更聪明？这就不好说了。所以分辨的标准不应该是针对特定领域的，而应该是普适的。</p>
-<p><strong>再比如看学历，也不一定靠谱。</strong>我们抛开盖茨、乔布斯这些辍学的不谈，一个本科生和一个博士生哪个聪明？这也不好说，说不定本科生本科期间就做出了不错的科研成果，但是本科毕业没有继续做科研而直接去工作了，那他一定比博士生笨或者聪明吗？说不准的。</p>
-<p><strong>还有比如看出身，也不靠谱。</strong>因为个人经历和交友圈的关系，我周围的很多朋友都是名校出身，北清复交牛剑HYPS什么的很多，很多聚会上名校学生的数量远比非名校的多，那这种情况下出身本身就不具有太大的分辨性。虽然名校出来的普遍会让人觉得聪明点（具体原因可以参考下文），但是即使是同一个学校出来的人，也会有很容易被识别出来的聪明程度的差别。</p>]]>
-    
-    </summary>
-    
-      <category term="原则" scheme="http://yoursite.com/tags/%E5%8E%9F%E5%88%99/"/>
-    
-      <category term="聪明人" scheme="http://yoursite.com/tags/%E8%81%AA%E6%98%8E%E4%BA%BA/"/>
-    
-      <category term="深度文摘" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E6%96%87%E6%91%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[团队做代码评审中审查清单的使用实践]]></title>
-    <link href="http://yoursite.com/stop-more-bugs-with-our-code-review-checklist/"/>
-    <id>http://yoursite.com/stop-more-bugs-with-our-code-review-checklist/</id>
-    <published>2015-08-23T09:28:34.000Z</published>
-    <updated>2015-09-07T08:49:54.000Z</updated>
-    <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/062749_2Ex2_12.gif" alt="团队做代码评审中审查清单的使用实践"></p>
-<p>在我们关于高效代码审查的博文中，我们建议使用一个检查清单。在代码审查中，检查清单是一个非常好的工具——它们保证了审查可以在你的团队中始终如一的进行。它们也是一种保证常见问题能够被发现并被解决的便利方式。</p>
-<p>软件工程学院的研究表明，程序员们会犯15-20种常见的错误。所以，通过把这些错误加入到检查清单当中，你可以确保不论什么时候，只要这些错误发生了，你就能发现它们，并且可以帮助你杜绝这些错误。</p>
-<a id="more"></a>
-<p>为了帮助你开始创建一个清单，这里列出了一些典型的内容：</p>
-<h2 id="代码审查清单">代码审查清单</h2><h3 id="常规项">常规项</h3><ul>
-<li>代码能够工作么？它有没有实现预期的功能，逻辑是否正确等。</li>
-<li>所有的代码是否简单易懂？</li>
-<li>代码符合你所遵循的编程规范么？这通常包括大括号的位置，变量名和函数名，行的长度，缩进，格式和注释。</li>
-<li>是否存在多余的或是重复的代码？</li>
-<li>代码是否尽可能的模块化了？</li>
-<li>是否有可以被替换的全局变量？</li>
-<li>是否有被注释掉的代码？</li>
-<li>循环是否设置了长度和正确的终止条件？</li>
-<li>是否有可以被库函数替代的代码？</li>
-<li>是否有可以删除的日志或调试代码？</li>
-</ul>
-<h3 id="安全">安全</h3><ul>
-<li>所有的数据输入是否都进行了检查（检测正确的类型，长度，格式和范围）并且进行了编码？</li>
-<li>在哪里使用了第三方工具，返回的错误是否被捕获？</li>
-<li>输出的值是否进行了检查并且编码？</li>
-<li>无效的参数值是否能够处理？</li>
-</ul>
-<h3 id="文档">文档</h3><ul>
-<li>是否有注释，并且描述了代码的意图？</li>
-<li>所有的函数都有注释吗？</li>
-<li>对非常规行为和边界情况处理是否有描述？</li>
-<li>第三方库的使用和函数是否有文档？</li>
-<li>数据结构和计量单位是否进行了解释？</li>
-<li>是否有未完成的代码？如果是的话，是不是应该移除，或者用合适的标记进行标记比如‘TODO’？</li>
-</ul>
-<h3 id="测试">测试</h3><ul>
-<li>代码是否可以测试？比如，不要添加太多的或是隐藏的依赖关系，不能够初始化对象，测试框架可以使用方法等。</li>
-<li>是否存在测试，它们是否可以被理解？比如，至少达到你满意的代码覆盖(code coverage)。</li>
-<li>单元测试是否真正的测试了代码是否可以完成预期的功能？</li>
-<li>是否检查了数组的“越界“错误？</li>
-<li>是否有可以被已经存在的API所替代的测试代码？</li>
-</ul>
-<p><strong>你同样需要把特定语言中有可能引起错误的问题添加到清单中。</strong></p>
-<p>这个清单故意没有详尽的列出所有可能会发生的错误。你不希望你的清单是这样的，太长了以至于从来没人会去用它。仅仅包含常见的问题会比较好。</p>
-<h2 id="优化你的清单">优化你的清单</h2><p>把使用清单作为你的起点，针对特定的使用案例，你需要对其进行优化。一个比较棒的方式就是让你的团队记录下那些在代码审查过程中临时发现的问题，有了这些数据，你就能够确定你的团队常犯的错误，然后你就可以量身定制一个审查清单。确保你删除了那些没有出现过的错误。（你也可以保留那些出现概率很小，但是非常关键的项目，比如安全相关的问题）。</p>
-<h2 id="得到认可并且保持更新">得到认可并且保持更新</h2><p>基本规则是，清单上的任何条目都必须明确，而且，如果可能的话，对于一些条目你可以对其进行二元判定。这样可以防止判断的不一致。和你的团队分享这份清单并且让他们认同你清单的内容是个好主意。同样的，要定期检查你的清单，以确保各条目仍然是有意义的。</p>
-<p>有了一个好的清单，可以提高你在代码审查过程中发现的缺陷个数。这可以帮助你提高代码标准，避免质量参差不齐的代码审查。</p>
-<p>原文来自：<a href="http://blog.fogcreek.com/increase-defect-detection-with-our-code-review-checklist-example/" target="_blank" rel="external">Stop More Bugs with our Code Review Checklist</a><br>译文来自：<a href="http://blog.jobbole.com/83595/" target="_blank" rel="external">程序员必备的代码审查（Code Review）清单</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/062749_2Ex2_12.gif" alt="团队做代码评审中审查清单的使用实践"></p>
-<p>在我们关于高效代码审查的博文中，我们建议使用一个检查清单。在代码审查中，检查清单是一个非常好的工具——它们保证了审查可以在你的团队中始终如一的进行。它们也是一种保证常见问题能够被发现并被解决的便利方式。</p>
-<p>软件工程学院的研究表明，程序员们会犯15-20种常见的错误。所以，通过把这些错误加入到检查清单当中，你可以确保不论什么时候，只要这些错误发生了，你就能发现它们，并且可以帮助你杜绝这些错误。</p>]]>
-    
-    </summary>
-    
-      <category term="代码评审" scheme="http://yoursite.com/tags/%E4%BB%A3%E7%A0%81%E8%AF%84%E5%AE%A1/"/>
-    
-      <category term="最佳实践" scheme="http://yoursite.com/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
-    
-      <category term="开发技术" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="经验实践" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E7%BB%8F%E9%AA%8C%E5%AE%9E%E8%B7%B5/"/>
     
   </entry>
   

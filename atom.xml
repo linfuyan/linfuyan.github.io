@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-09-26T15:23:57.000Z</updated>
+  <updated>2015-09-26T15:26:35.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yoursite.com/what-is-jenkins/"/>
     <id>http://yoursite.com/what-is-jenkins/</id>
     <published>2015-09-26T15:13:09.000Z</published>
-    <updated>2015-09-26T15:23:57.000Z</updated>
+    <updated>2015-09-26T15:26:35.000Z</updated>
     <content type="html"><![CDATA[<h3 id="什么是Jenkins">什么是Jenkins</h3><p>Jenkins 是一款一流的应用软件，用于监控重复任务的执行，包括一个软件项目的构建、由 <code>cron</code> 执行的工作等。在此基础之上，Jenkins 现在专注于以下两个方向：</p>
 <ul>
 <li><strong>持续构建/测试软件项目</strong>，类似于 <code>CruiseControl</code> 或者 <code>DamageControl</code> 。简而言之， Jenkins 提供一个使用简单地持续集成系统，使得开发人员更方便的集成项目修改，让用户更容易地获取较新的构建版本。自动化持续构建极大提高了生产力。</li>
@@ -71,7 +71,7 @@
     
       <category term="CI" scheme="http://yoursite.com/tags/CI/"/>
     
-      <category term="Jenkins" scheme="http://yoursite.com/tags/Jenkins/"/>
+      <category term="jenkins" scheme="http://yoursite.com/tags/jenkins/"/>
     
       <category term="持续集成" scheme="http://yoursite.com/tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
     
@@ -83,7 +83,7 @@
     
       <category term="软件工具" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
     
-      <category term="Jenkins" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/Jenkins/"/>
+      <category term="jenkins" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/jenkins/"/>
     
   </entry>
   

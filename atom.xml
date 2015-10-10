@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-10-10T14:49:19.000Z</updated>
+  <updated>2015-10-10T16:50:54.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Hexo 如何保持页面文件不被渲染]]></title>
+    <link href="http://yoursite.com/keep-pages-at-your-hexo-blog/"/>
+    <id>http://yoursite.com/keep-pages-at-your-hexo-blog/</id>
+    <published>2015-10-10T16:35:14.000Z</published>
+    <updated>2015-10-10T16:50:54.000Z</updated>
+    <content type="html"><![CDATA[<p>假设要保持 keep.html 文件原样输出，不被渲染：</p>
+<p>1. 将 keep.html 文件放在 <code>source</code> 目录下。</p>
+<p>2. 打开 <code>_confi.yml</code> 配置文件，添加 <code>skip_render:</code>，并声明 keep.html 文件如下：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">skip_render</span>: <span class="string">keep.html</span></span><br></pre></td></tr></table></figure>
+<p>3. 如果需要保持多个文件，可以按照如下声明：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">skip_render</span>: <span class="string">[file1, files, ...]</span></span><br></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<p>假设要保持 keep.html 文件原样输出，不被渲染：</p>
+<p>1. 将 keep.html 文件放在 <code>source</code> 目录下。</p>
+<p>2. 打开 <code>_confi.yml</code> 配置文件，添加 <code>skip_]]>
+    </summary>
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+      <category term="skip render" scheme="http://yoursite.com/tags/skip-render/"/>
+    
+      <category term="渲染" scheme="http://yoursite.com/tags/%E6%B8%B2%E6%9F%93/"/>
+    
+      <category term="页面" scheme="http://yoursite.com/tags/%E9%A1%B5%E9%9D%A2/"/>
+    
+      <category term="FAQ" scheme="http://yoursite.com/categories/FAQ/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Android 6.0 特性及主要 API 变更]]></title>
@@ -1365,85 +1395,6 @@
       <category term="开发技术" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
     
       <category term="rxjava" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/rxjava/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[深入浅出 RxJava (二、操作符)]]></title>
-    <link href="http://yoursite.com/grokking-rxjava-part-2/"/>
-    <id>http://yoursite.com/grokking-rxjava-part-2/</id>
-    <published>2015-08-30T14:20:35.000Z</published>
-    <updated>2015-09-08T14:16:13.000Z</updated>
-    <content type="html"><![CDATA[<p>在<a href="http://www.linfuyan.com/grokking-rxjava-part-1" target="_blank" rel="external">第一篇博客</a>中，我介绍了 RxJava 的一些基础知识，同时也介绍了 map() 操作符。当然如果你并没有意愿去使用 RxJava 我一点都不诧异，毕竟才接触了这么点儿。看完这篇博客，我相信你肯定想立即在你的项目中使用 RxJava 了，这边博客将介绍许多 RxJava 中的操作符， RxJava 的强大性就来自于它所定义的操作符。</p>
-<a id="more"></a>
-<p>首先先看一个例子：</p>
-<h3 id="准备工作">准备工作</h3><p>假设我有这样的一个方法：</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这个方法根据输入的字符串返回一个网站的 url 列表</span></span><br><span class="line">Observable&lt;<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt;&gt; query(<span class="built_in">String</span> text);</span><br></pre></td></tr></table></figure>
-<p>现在我希望构建一个健壮系统，它可以查询字符串并且显示结果。根据上一篇博客的内容，我们可能会写出下面的代码：</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">query(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    .subscribe(urls -&gt; &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">String</span> url : urls) &#123;</span><br><span class="line">            System.out.<span class="built_in">println</span>(url);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-<p>这种代码当然是不能容忍的，因为上面的代码使我们丧失了变化数据流的能力。一旦我们想要更改每一个 URL，只能在 Subscriber 中来做。我们竟然没有使用如此酷的 map() 操作符！！！</p>
-<p>当然，我可以使用 map 操作符，map 的输入是 urls 列表，处理的时候还是要 for each 遍历，一样很蛋疼。</p>
-<h3 id="万幸的是">万幸的是</h3><p>我们有 Observable.from() 方法，它接收一个集合作为输入，然后每次输出一个元素给 subscriber：</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Observable.<span class="keyword">from</span>(<span class="string">"url1"</span>, <span class="string">"url2"</span>, <span class="string">"url3"</span>)</span><br><span class="line">    .subscribe(url -&gt; System.<span class="keyword">out</span>.println(url));</span><br></pre></td></tr></table></figure>
-<p>我们来把这个方法使用到刚才的场景：</p>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">query(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    .subscribe(urls<span class="function"> -&gt;</span> &#123;</span><br><span class="line">        Observable.<span class="keyword">from</span>(urls)</span><br><span class="line">            .subscribe(url<span class="function"> -&gt;</span> System.out.println(url));</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-<p>虽然去掉了 for each 循环，但是代码依然看起来很乱。多个嵌套的 subscription 不仅看起来很丑，难以修改，更严重的是它会破坏我们现在还没有讲到的 RxJava 的特性。</p>
-<h3 id="改进">改进</h3><p>救星来了，他就是 flatMap()。</p>
-<p>Observable.flatMap() 接收了一个 Observable 的输出作为输入，同时输出另外一个 Observable。直接看代码：</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">query(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    <span class="built_in">.</span>flatMap(<span class="literal">new</span> Func1&lt;<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt;, Observable&lt;<span class="built_in">String</span>&gt;&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        <span class="keyword">public</span> Observable&lt;<span class="built_in">String</span>&gt; call(<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; urls) &#123;</span><br><span class="line">            <span class="keyword">return</span> Observable<span class="built_in">.</span>from(urls);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">.</span>subscribe(url <span class="subst">-&gt; </span>System<span class="built_in">.</span>out<span class="built_in">.</span>println(url));</span><br></pre></td></tr></table></figure>
-<p>这里我贴出了整个的函数代码，以方便你了解发生了什么，使用 lambda 可以大大简化代码长度：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">query</span>("<span class="tag">Hello</span>, <span class="tag">world</span>!")</span><br><span class="line">    <span class="class">.flatMap</span>(<span class="tag">urls</span> <span class="tag">-</span>&gt; <span class="tag">Observable</span><span class="class">.from</span>(<span class="tag">urls</span>))</span><br><span class="line">    <span class="class">.subscribe</span>(<span class="tag">url</span> <span class="tag">-</span>&gt; <span class="tag">System</span><span class="class">.out</span><span class="class">.println</span>(<span class="tag">url</span>));</span><br></pre></td></tr></table></figure>
-<p>flatMap() 是不是看起来很奇怪？为什么它要返回另外一个 Observable 呢？理解 flatMap 的关键点在于，flatMap 输出的新的 Observable 正是我们在 Subscriber 想要接收的。现在 Subscriber 不再收到 List<string>，而是收到一系列单个的字符串，就像 Observable.from() 的输出一样。</string></p>
-<p>这部分也是我当初学 RxJava 的时候最难理解的部分，一旦我突然领悟了， RxJava 的很多疑问也就一并解决了。</p>
-<h3 id="还可以更好">还可以更好</h3><p>flatMap() 实在不能更赞了，它可以返回任何它想返回的 Observable 对象。</p>
-<p>比如下面的方法：</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 返回网站的标题，如果<span class="number">404</span>了返回<span class="literal">null</span></span><br><span class="line">Observable&lt;<span class="built_in">String</span>&gt; getTitle(<span class="built_in">String</span> URL)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>接着前面的例子，现在我不想打印 URL 了，而是要打印收到的每个网站的标题。问题来了，我的方法每次只能传入一个 URL，并且返回值不是一个 String，而是一个输出 String 的 Observable 对象。使用 flatMap() 可以简单的解决这个问题。</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">query(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    <span class="built_in">.</span>flatMap(urls <span class="subst">-&gt; </span>Observable<span class="built_in">.</span>from(urls))</span><br><span class="line">    <span class="built_in">.</span>flatMap(<span class="literal">new</span> Func1&lt;<span class="built_in">String</span>, Observable&lt;<span class="built_in">String</span>&gt;&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        <span class="keyword">public</span> Observable&lt;<span class="built_in">String</span>&gt; call(<span class="built_in">String</span> url) &#123;</span><br><span class="line">            <span class="keyword">return</span> getTitle(url);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">.</span>subscribe(title <span class="subst">-&gt; </span>System<span class="built_in">.</span>out<span class="built_in">.</span>println(title));</span><br></pre></td></tr></table></figure>
-<p>使用 lambda：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">query</span>("<span class="tag">Hello</span>, <span class="tag">world</span>!")</span><br><span class="line">    <span class="class">.flatMap</span>(<span class="tag">urls</span> <span class="tag">-</span>&gt; <span class="tag">Observable</span><span class="class">.from</span>(<span class="tag">urls</span>))</span><br><span class="line">    <span class="class">.flatMap</span>(<span class="tag">url</span> <span class="tag">-</span>&gt; <span class="tag">getTitle</span>(<span class="tag">url</span>))</span><br><span class="line">    <span class="class">.subscribe</span>(<span class="tag">title</span> <span class="tag">-</span>&gt; <span class="tag">System</span><span class="class">.out</span><span class="class">.println</span>(<span class="tag">title</span>));</span><br></pre></td></tr></table></figure>
-<p>是不是感觉很不可思议？我竟然能将多个独立的返回 Observable 对象的方法组合在一起！帅呆了！</p>
-<p>不止这些，我还将两个 API 的调用组合到一个链式调用中了。我们可以将任意多个 API 调用链接起来。大家应该都应该知道同步所有的 API 调用，然后将所有 API 调用的回调结果组合成需要展示的数据是一件多么蛋疼的事情。这里我们成功的避免了 callback hell （多层嵌套的回调，导致代码难以阅读维护）。现在所有的逻辑都包装成了这种简单的响应式调用。</p>
-<h3 id="丰富的操作符">丰富的操作符</h3><p>目前为止，我们已经接触了两个操作符， RxJava 中还有更多的操作符，那么我们如何使用其他的操作符来改进我们的代码呢？</p>
-<p>getTitle() 返回 null 如果 url 不存在。我们不想输出 “null”，那么我们可以从返回的 title 列表中过滤掉 null 值！</p>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">query(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    .flatMap(urls<span class="function"> -&gt;</span> Observable.<span class="keyword">from</span>(urls))</span><br><span class="line">    .flatMap(url<span class="function"> -&gt;</span> getTitle(url))</span><br><span class="line">    .filter(title<span class="function"> -&gt;</span> title != <span class="literal">null</span>)</span><br><span class="line">    .subscribe(title<span class="function"> -&gt;</span> System.out.println(title));</span><br></pre></td></tr></table></figure>
-<p>filter() 输出和输入相同的元素，并且会过滤掉那些不满足检查条件的。</p>
-<p>如果我们只想要最多5个结果：</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">query(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    <span class="built_in">.</span>flatMap(urls <span class="subst">-&gt; </span>Observable<span class="built_in">.</span>from(urls))</span><br><span class="line">    <span class="built_in">.</span>flatMap(url <span class="subst">-&gt; </span>getTitle(url))</span><br><span class="line">    <span class="built_in">.</span>filter(title <span class="subst">-&gt; </span>title != <span class="built_in">null</span>)</span><br><span class="line">    <span class="built_in">.</span><span class="keyword">take</span>(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">.</span>subscribe(title <span class="subst">-&gt; </span>System<span class="built_in">.</span>out<span class="built_in">.</span>println(title));</span><br></pre></td></tr></table></figure>
-<p>take() 输出最多指定数量的结果。</p>
-<p>如果我们想在打印之前，把每个标题保存到磁盘：</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">query(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    <span class="built_in">.</span>flatMap(urls <span class="subst">-&gt; </span>Observable<span class="built_in">.</span>from(urls))</span><br><span class="line">    <span class="built_in">.</span>flatMap(url <span class="subst">-&gt; </span>getTitle(url))</span><br><span class="line">    <span class="built_in">.</span>filter(title <span class="subst">-&gt; </span>title != <span class="built_in">null</span>)</span><br><span class="line">    <span class="built_in">.</span><span class="keyword">take</span>(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">.</span>doOnNext(title <span class="subst">-&gt; </span>saveTitle(title))</span><br><span class="line">    <span class="built_in">.</span>subscribe(title <span class="subst">-&gt; </span>System<span class="built_in">.</span>out<span class="built_in">.</span>println(title));</span><br></pre></td></tr></table></figure>
-<p>doOnNext()允许我们在每次输出一个元素之前做一些额外的事情，比如这里的保存标题。</p>
-<p>看到这里操作数据流是多么简单了么。你可以添加任意多的操作，并且不会搞乱你的代码。</p>
-<p>RxJava 包含了大量的操作符。操作符的数量是有点吓人，但是很值得你去挨个看一下，这样你可以知道有哪些操作符可以使用。弄懂这些操作符可能会花一些时间，但是一旦弄懂了，你就完全掌握了 RxJava 的威力。</p>
-<p>你甚至可以编写自定义的操作符！这篇博客不打算讲自定义操作符，如果你想的话，请自行 Google 吧。</p>
-<h3 id="感觉如何？">感觉如何？</h3><p>好吧，你是一个怀疑主义者，并且还很难被说服，那为什么你要关心这些操作符呢？</p>
-<p>因为操作符可以让你对数据流做任何操作。</p>
-<p>将一系列的操作符链接起来就可以完成复杂的逻辑。代码被分解成一系列可以组合的片段。这就是响应式函数编程的魅力。用的越多，就会越多的改变你的编程思维。</p>
-<p>另外，RxJava 也使我们处理数据的方式变得更简单。在最后一个例子里，我们调用了两个 API，对 API 返回的数据进行了处理，然后保存到磁盘。但是我们的 Subscriber 并不知道这些，它只是认为自己在接收一个 Observable<string> 对象。良好的封装性也带来了编码的便利！</string></p>
-<p>在第三部分中，我将介绍 RxJava 的另外一些很酷的特性，比如错误处理和并发，这些特性并不会直接用来处理数据。</p>
-<p>原文链接：<a href="http://blog.danlew.net/2014/09/22/grokking-rxjava-part-2/" target="_blank" rel="external">Grokking RxJava, Part 2: Operator, Operator</a><br>译文来源：<a href="http://http://blog.csdn.net/lzyzsd/article/details/44094895" target="_blank" rel="external">深入浅出RxJava（二：操作符）</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>在<a href="http://www.linfuyan.com/grokking-rxjava-part-1">第一篇博客</a>中，我介绍了 RxJava 的一些基础知识，同时也介绍了 map() 操作符。当然如果你并没有意愿去使用 RxJava 我一点都不诧异，毕竟才接触了这么点儿。看完这篇博客，我相信你肯定想立即在你的项目中使用 RxJava 了，这边博客将介绍许多 RxJava 中的操作符， RxJava 的强大性就来自于它所定义的操作符。</p>]]>
-    
-    </summary>
-    
-      <category term="reactivex" scheme="http://yoursite.com/tags/reactivex/"/>
-    
-      <category term="rxandroid" scheme="http://yoursite.com/tags/rxandroid/"/>
-    
-      <category term="rxjava" scheme="http://yoursite.com/tags/rxjava/"/>
-    
-      <category term="反应式编程" scheme="http://yoursite.com/tags/%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="操作符" scheme="http://yoursite.com/tags/%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
-    
-      <category term="开发技术" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="rxjava" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/rxjava/"/>
-    
-      <category term="深入浅出RxJava" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/rxjava/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BARxJava/"/>
     
   </entry>
   

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android 6.0 特性及主要 API 变更 | 悠城札记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="伴随着新的特性和功能， Android 6.0 (API 级别 23)带来了一系列系统和 API 行为的变更。这篇文章中将介绍一些在应用程序中需要理解和注意的主要变更点。
+
+如果你之前已经发布过 Android 应用程序，要意识到这些变更对应用程序的影响。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 6.0 特性及主要 API 变更">
+<meta property="og:url" content="http://yoursite.com/android-m-changes/index.html">
+<meta property="og:site_name" content="悠城札记">
+<meta property="og:description" content="伴随着新的特性和功能， Android 6.0 (API 级别 23)带来了一系列系统和 API 行为的变更。这篇文章中将介绍一些在应用程序中需要理解和注意的主要变更点。
+
+如果你之前已经发布过 Android 应用程序，要意识到这些变更对应用程序的影响。">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/text-selection.gif">
+<meta property="og:updated_time" content="2015-10-10T14:49:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 6.0 特性及主要 API 变更">
+<meta name="twitter:description" content="伴随着新的特性和功能， Android 6.0 (API 级别 23)带来了一系列系统和 API 行为的变更。这篇文章中将介绍一些在应用程序中需要理解和注意的主要变更点。
+
+如果你之前已经发布过 Android 应用程序，要意识到这些变更对应用程序的影响。">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  
+  
+    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+  
+  
+
+
+  
+
+  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+            <h2 class="subtitle-wrap">
+              <p class="subtitle">一个努力让自己日臻优秀的程序员心得</p>
+            </h2>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/rxjava/">rxjava</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
+                  
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header"><a class="page-title-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/开发技术/Android/">Android</a></h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-android-m-changes" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      Android 6.0 特性及主要 API 变更
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/android-m-changes/" class="article-date">
+  <time datetime="2015-10-10T03:52:00.000Z" itemprop="datePublished">2015-10-10</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <p>伴随着新的特性和功能， Android 6.0 (API 级别 23)带来了一系列系统和 API 行为的变更。这篇文章中将介绍一些在应用程序中需要理解和注意的主要变更点。</p>
+<blockquote>
+<p>如果你之前已经发布过 Android 应用程序，要意识到这些变更对应用程序的影响。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="运行时权限">运行时权限</h2><p>这个版本中引入了新的权限模型，现在用户可以在运行时直接管理应用程序的权限。这个模型基于用户对权限控制的更多可见性，同时为应用程序的开发者提供更流畅的应用安装和自动升级。用户可以为已安装的每个应用程序独立的授予或者取消权限。</p>
+<p>在运行于目标版本 Android 6.0 (API 级别 23) 及以上的应用程序中，必须在运行时检查并请求权限。通过新的 <code>checkSelfPermission()</code> 方法来确定你的应用程序是否已经被授权。通过新的 <code>requestPermissions()</code> 方法来请求权限。即使你的应用程序运行的目标版本不是 Android 6.0 (API 级别 23)，你也应该在新的授权模型下来测试应用程序。</p>
+<p>在应用程序中支持新的权限模型的更多详细信息，可以查看<a href="https://developer.android.com/training/permissions/index.html" target="_blank" rel="external">使用系统权限</a>。如何在应用程序中使用权限，相关提示可以查看<a href="https://developer.android.com/training/permissions/best-practices.html#testing" target="_blank" rel="external">权限最佳实践</a>。</p>
+<h2 id="休眠与应用挂起(_Doze_and_App_Standby_)">休眠与应用挂起( Doze and App Standby )</h2><p>这个版本为空闲的设备和应用程序引入了电源节能优化。这个特性将影响所有应用程序，故确保自己的应用程序在这些新模式下进行测试。</p>
+<ul>
+<li><p><strong>休眠</strong>：如果用户将设备拔下，并将其静置，关闭屏幕，经过一段时间，设备将进入休眠模式。这时候，设备试图让系统保持在一个睡眠的状态。这种模式下，设备周期性的恢复平常的操作，以便应用程序同步，系统则可以处理一些延时的操作。</p>
+</li>
+<li><p><strong>应用挂起</strong>：应用挂起则允许系统当用户不再使用应用程序时，将其定义为空闲。当用户经过一段时间没有触摸应用程序时，系统可以做这个决定。设备被拔线时，系统禁用网络访问，停止应用程序的同步及操作，则被认为是空闲。</p>
+</li>
+</ul>
+<p>学习更多关于电源节能的变更，查看<a href="https://developer.android.com/training/monitoring-device-state/doze-standby.html" target="_blank" rel="external">对休眠与应用挂起的优化</a>。</p>
+<h2 id="移除_Apache_HTTP_客户端">移除 Apache HTTP 客户端</h2><p>Android 6.0 发布版移除了对 Apache HTTP 客户端的支持。如果你的应用程序使用该客户端，并且目标运行版本为 Android 2.3 (API 级别9) 及以上，需要使用 <code>HttpURLConnection</code> 类来代替。这个 API 更加的高效，因为它通过对用户透明的压缩、响应缓存来减少网络开销，并最小化电量消耗。要继续使用 Apache HTTP 的 API，你需要在 <code>build.gradle</code> 文件中声明下面的编译期依赖：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">android</span> &#123;</span><br><span class="line">    <span class="title">useLibrary</span> <span class="string">'org.apache.http.legacy'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="BoringSSL">BoringSSL</h2><p>Android 从 OpenSSL 转移到了 <a href="https://boringssl.googlesource.com/boringssl/" target="_blank" rel="external">BoringSSL</a> 库。如果你在应用程序中使用 Android NDK，千万不要将加密库链接到除 NDK API 之外的任何库，如 <code>libcrypto.so</code> 和 <code>libssl.so</code>。这些库不是公开 API，有可能在没有收到通知的情况下在发布版和设备间发生变更或中断。这种情况你将把自己暴露在安全威胁下。你应该修改自己的本地代码来通过 JNI 调用 Java 加密 API 或者静态链接你选择的一个加密库。</p>
+<h2 id="访问硬件标识符">访问硬件标识符</h2><p>为了给用户更多的数据保护，从这个版本开始， Android 移除了通过 WiFi 和蓝牙 API 来在应用程序中可编程的访问本地硬件标示符。现在 <code>WifiInfo.getMacAddress()</code> 和 <code>BluetoothAdapter.getAddress()</code> 方法都将返回 <code>02:00:00:00:00:00</code> 常量。</p>
+<p>要通过蓝牙和 WiFi 扫描来访问附近外部设备的硬件标示符，应用程序需要 <code>ACCESS_FINE_LOCATION</code> 和 <code>ACCESS_COARSE_LOCATION</code> 权限：</p>
+<ul>
+<li><a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html#getScanResults\(\" target="_blank" rel="external"><code>WifiManager.getScanResults()</code></a>)</li>
+<li><a href="https://developer.android.com/reference/android/bluetooth/BluetoothDevice.html#ACTION_FOUND" target="_blank" rel="external"><code>BluetoothDevice.ACTION_FOUND</code></a></li>
+<li><a href="https://developer.android.com/reference/android/bluetooth/le/BluetoothLeScanner.html#startScan\(android.bluetooth.le.ScanCallback\" target="_blank" rel="external"><code>BluetoothLeScanner.startScan()</code></a>)</li>
+</ul>
+<blockquote>
+<p><strong>注意：</strong>在一个运行 Android 6.0 (API 级别 23) 的设备初始化后台的 WiFi 或蓝牙扫描时，操作对于外部设备是可见的，且被赋予一个随机的 MAC 地址。</p>
+</blockquote>
+<h2 id="通知">通知</h2><p>这个版本移除了 <code>Notification.setLatestEventInfo()</code> 方法。使用 Notification.Builder 类来代替构造方法。要重复的更新通知，要重用 Notification.Builder 实例。调用 build() 方法来获取更新过的 Notification 实例。</p>
+<p><code>adb shell dumpsys nnotification</code> 命令不在答应通知文本。使用 <code>adb shell dumpsys notification --noredcat</code> 命令来在同志对象中打印文本。</p>
+<h2 id="AudioManager_变更">AudioManager 变更</h2><p>通过 AudioManager 类来直接设置音量或者使流静音已经不再支持。 setStreamSolo() 方法被弃用，你需要调用 requestAudioFocus() 来代替。类似的， setStreamMute() 方法被弃用，替换为 adjustStreamVolume() 方法并传递方向值 ADJUST_MUTE 或 ADJUST_UNMUTE。</p>
+<h2 id="文本选择">文本选择</h2><p>当用户在应用程序中选择文本时，你可以在<a href="http://www.google.com/design/spec/patterns/selection.html#selection-text-selection" target="_blank" rel="external">悬浮工具栏</a>中显示文本选择工作，如剪切、复制、粘贴。用户交互实现与<a href="https://developer.android.com/guide/topics/ui/menus.html#CABforViews" target="_blank" rel="external">为独立视图启动上下文动作模式</a>中描述的上下文动作栏类似。</p>
+<p>为文本选择实现悬浮工具栏，需要在已存在的应用程序中做如下修改：</p>
+<ol>
+<li><p>在 View 或者 Activity 对象中，通过修改 <code>startActionMode(Callback)</code> 为 <code>startActionMode(Callback, ActionMode.TYPE_FLOATING)</code> 来改变 ActionMode。 </p>
+</li>
+<li><p>使已经存在的 <code>ActionMode.Callback</code> 的实现继承自 ActionMode.Callback2 。</p>
+</li>
+<li><p>重载 onGetContentRect() 方法来提供内容 Rect 对象(如文本选择矩形)在视图中的坐标。</p>
+</li>
+<li><p>如果矩形位置不在有效，并且这是需要刷新的唯一元素，则调用 invalidateContentRect() 方法。</p>
+</li>
+</ol>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/text-selection.gif" alt="文本选择"></p>
+<p>如果你在使用 Android 22.2 修订版的兼容包，悬浮工具栏不是向后兼容的，且使用默认的 ActionMode 对象。这导致悬浮工具栏无法显示。在 AppCompatActivity 中启用 ActionMode，首先调用 getDelegate() ，然后在返回的 AppCompatDelegate 对象中调用 setHandleNativeActionModesEnabled()，并设置输入参数为 <code>false</code>。这个调用为框架返回可控的 ActionMode 对象。在运行 Android 6.0 (API 级别 23) 的设备上，这允许框架支持 ActionBar 或悬浮工具栏模式。在 Android 5.1 (API 级别 22) 或更低版本，只有 ActionBar 是支持的。</p>
+<h2 id="浏览器书签变更">浏览器书签变更</h2><p>这个版本移除了对全局书签的支持。 <code>android.provider.Browser.getAllBookmark()</code> 和 <code>android.provider.Browser.saveBookmark()</code> 方法被移除。同样的， <code>READ_HISTORY_BOOKMARKS</code> 和 <code>WRITE_HISTORY_BOOKMARKS</code> 权限被移除。如果你的应用程序的目标运行版本为 Android 6.0 (API 级别 23) 或者更高，不要从全局提供者访问书签或者使用书签权限。现在，你的应用程序需要内部保存书签数据。</p>
+<h2 id="Android_Keystore_变更">Android Keystore 变更</h2><p>在这个版本中， <a href="https://developer.android.com/training/articles/keystore.html" target="_blank" rel="external">Android Keystore 提供器</a> 不在支持 DSA。 ECDSA 则仍然被支持。</p>
+<p>当安全锁屏被禁用或重置时，不要求加密的 key 将不再被删除。要求加密的 key 则会在这些事件中被删除。</p>
+<h2 id="Wi-Fi_和_网络变更">Wi-Fi 和 网络变更</h2><p>这个版本为 Wi-Fi 和 网络 API 引入了下面的行为变更：</p>
+<ul>
+<li>应用程序只有在创建了 WifiConfiguration 对象以后，才能更变这些对象的状态。当 WifiConfiguration 被用户或者其他应用程序创建时，你将不允许修改和删除这些 WifiConfiguration 对象。</li>
+<li>在之前的版本中，如果应用程序使用 enableNetwork() ，并设置 <code>disableAllOthers=true</code> 来强制设备连接到指定的 Wi-Fi 网络，设备将和其他网络断开。这个版本中，这些设备将不再和其他网络断开。如果应用程序的 <code>targetSdkVersion</code> 是 20 或者更低，则会连接被选中的 Wi-Fi 网络。如果应用程序的 <code>targetSdkVersion</code> 是 21 或者更高，使用多网络 API (如 openConnection()， bindSocket() 及新的 bindProcessToNetwork() 方法)来确保它的网络通信是发给被选中的网络。</li>
+</ul>
+<h2 id="摄像头服务变更">摄像头服务变更</h2><p>在这个版本中，在摄像头服务中访问共享资源的模式发生了变更，不再是以前的”先到先得”，而是具备高优先级的将优先处理。服务行为的变更包括：</p>
+<ul>
+<li><p>访问摄像头子系统的资源，包括打开和配置摄像设备，依赖于客户端应用进程的优先级。用户可见或者在前台活动的应用程序进程往往具备更高的优先级，使得摄像资源更易获得，也更加可靠。</p>
+</li>
+<li><p>当更高优先级的应用程序视图使用摄像头时，具有低权限的活动摄像头客户端应用程序可能被中断。在被弃用的 Camera API 中，错误会在被中断客户端的 onError() 中被调用。在 Camera2 API 中，错误结果则在 onDisconnected() 中被调用。</p>
+</li>
+<li><p>在具备适合摄像头硬件的设备上，不同的应用进程可以同时独立地打开和使用独立的摄像头设备。虽然如此，多进程使用时，同时访问摄像头会造成设备性能的急剧下降，这将被摄像头服务所检测到并不被允许。这个变更使得由于较低优先级而被中断的客户端，即使当没有其他应用直接访问时，也会试图访问一样的设备。</p>
+</li>
+<li><p>改变当前用户会导致之前用户账号的应用程序中活动那个的摄像头客户端被中断。对摄像头的访问是被当前设备用户所限制的。实际上，这意味着当用户切换到不同的账户下时，原来的”访客”账号所使用的摄像头子系统是不可能继续运行的。</p>
+</li>
+</ul>
+<h2 id="运行时">运行时</h2><p>通过 newInstance() 方法 ART 运行时现在正确的实现了访问规则。这个变更修复了之前版本中 Dalvik 检查访问规则时的错误。如果你的应用程序使用 newInstance() 方法，且你想要覆盖访问检查，调用 setAccessible() 方便，并设置参数为 <code>true</code>。如果你的应用程序使用 <a href="https://developer.android.com/tools/support-library/features.html#v7-appcompat" target="_blank" rel="external">v7 兼容库</a> 和 <a href="https://developer.android.com/tools/support-library/features.html#v7-recyclerview" target="_blank" rel="external">v7 recyclerview 库</a>。你需要升级应用程序中的相关库到最新版本。否则，需要确保 XML 中所引用的自定义类已经被升级，其构造方法是可访问的。</p>
+<p>这个版本升级了动态链接器的行为。动态连接器现在可以理解库的 <code>soname</code> 和 它的路径之间的区别，且实现了通过 <code>soname</code> 来搜索。在加载时，之前可用的应用程序可能会被提示具有不可用的 <code>DT_NEEDED</code> 条目(通常是在构建机器文件系统中的绝对路径)。</p>
+<p><code>dlopen(3) RTLD_LOCAL</code> 标志现在被正确实现了。 <code>RTLD_LOCAL</code> 是默认的，因此调用 <code>dlopen(3)</code> 是不明确使用 <code>RTLD_LOCAL</code> 是有效的(除非应用之前有明确使用 <code>RTLD_GLOBAL</code> )。使用 <code>RTLD_LOCAL</code> ，标记在调用 <code>dlopen(3)</code> 加载库之前是不可用的(这与被 <code>DT_NEEDED</code> 条目引用恰恰相反)。</p>
+<p>在之前版本的 Android，如果你的应用请求系统来加载包含文本重定位段的动态链接库，系统会显示警告，但允许继续加载库。从这个版本开始，如果你的目标运行 SDK 版本为 23 或以上，系统会拒绝这个库。为了辅助检测库是否被成功加载，应用程序需要为 <code>dlopen(3)</code> 失败添加日志，并在 <code>dlerror(3)</code> 返回值中包含问题的描述文本。学习更多关于如何处理文本重定位段，可以查看这个<a href="https://wiki.gentoo.org/wiki/Hardened/Textrels_Guide" target="_blank" rel="external">指南</a>。</p>
+<h2 id="APK_验证">APK 验证</h2><p>Android 平台现在执行更加严格的 APK 验证。如果一个文件在清单文件中被声明，但在 APK 中却没有，那么这个 APK 被认为是无效的。如果任意的内容被移除， APK 需要重新签名。</p>
+<h2 id="USB_连接">USB 连接</h2><p>通过 USB 端口的设备连接现在默认被设置为充电模式。想要通过 USB 连接来访问设备和它的内容，用户需要为这些交互提供明确的授权。如果你的应用程序支持用户通过 USB 端口与设备交互，需要确保这些交互被明确启用。</p>
+<h2 id="Android_for_Work_变更">Android for Work 变更</h2><p>这个版本包括下面的 Android for Work 行为变更：</p>
+<ul>
+<li><p><strong>个人上下文中的联系人</strong>。Google 拨号器通话记录现在可以在用户查看已通话记录时显示当前联系人。在 Google 拨号器中通过设置 <code>setCrossProfileCallerIdDisabled()</code> 为 <code>true</code> 来隐藏当前联系人。当设置 <code>setBluetoothContactSharingDisabled()</code> 为 <code>false</code> 时，当前联系人能通过蓝牙显示在设备联系人中。默认情况下，其设置为 <code>true</code>。</p>
+</li>
+<li><p><strong>移除 Wi-Fi 配置</strong>：由外部拥有者添加(如通过 addNetworkd() 方法)的 Wi-Fi 配置现在在当前 profile 被删除时也将被移除。</p>
+</li>
+<li><p><strong>紧闭 Wi-Fi 配置</strong>：如果 <code>WIFI_DEVICE_OWNER_CONFIGS_LOCKDOWN</code> 为非空时，任何由活动的设备拥有者创建的 Wi-Fi 配置将不能用户被修改和删除。用户可以创建和修改自己的 Wi-Fi 配置。活动的设备拥有者拥有编辑和移除任意 Wi-Fi 配置的特权，包括不是由他们创建的配置。</p>
+</li>
+<li><p><strong>通过 Google 账号下载使用策略控制器</strong>：当一个要求 WPC 应用程序来管理的 Google 账号被添加到管理上下文之外的设备中时，添加账号流程会提示用户安装合适的 WPC。这些行为也可以应用到通过在初始设备创建向导中 <strong>设置 &gt; 账号</strong> 添加的账号。</p>
+</li>
+<li><p><strong>制定 DevicePolicyManager API 行为变更</strong>：</p>
+<ul>
+<li>调用 <code>setCameraDisabled()</code> 方法来影响当前调用用户的摄像头。</li>
+<li>此外， <code>setKeyguardDisabledFeatures()</code> 方法对 Profile 用户是可用的，与设备拥有者一样。</li>
+<li>Profile 拥有者可以设置键盘守卫的约束：<ul>
+<li>KEYGUARD_DISABLE_TRUST_AGENTS 和 KEYGUARD_DISABLE_FINGERPRINT 将影响到 profile 父用户的键盘守卫设置。</li>
+<li>KEYGUARD_DISABLE_UNREDACTED_NOTIFICATIONS 只会影响在 profile 中由应用程序生成的通知。</li>
+</ul>
+</li>
+<li>createAndInitializeUser() 和 createUser() 方法已经被弃用。</li>
+<li>当给定用户的应用程序在前台运行时， setScreenCaptureDisabled() 方法将阻塞辅助结构。</li>
+<li>SHA-256 的默认值为 EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM 。为保持兼容性， SHA-1 仍然被支持，但在将来会被移除。 EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM 则仅接受 SHA-256。</li>
+<li>原来存在的设备初始化 API 在 Android 6.0 (API 级别 23) 中被移除了。</li>
+<li>EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS 被移除，因此 NFC bump provisioning 无法通过编程的方式解锁重置被保护的设备。</li>
+<li>现在在被管理的设备中通过 NFC 可以使用 EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE 来传递数据给设备拥有者的应用程序。</li>
+<li>Android M 上的 Android for Work API 是经过优化的，包括 Work 配置，辅助层及其他。新的 DevicePolicyManager 权限 API 不会影响 Android 之前版本的应用程序。</li>
+<li>当用户通过 ACTION_PROVISION_MANAGED_PROFILE 或者 ACTION_PROVISION_MANAGED_DEVICE 意图，从创建流程中的同步部分返回时，系统将返回 RESULT_CANCELED 结果码。</li>
+</ul>
+</li>
+<li><p><strong>其他 API 变更</strong>：</p>
+<ul>
+<li>数据用法： <code>android.app.usage.NetworkUsageStates</code> 类重命名为 NetworkStats。</li>
+</ul>
+</li>
+<li><strong>全局设置变更</strong>：<ul>
+<li>下面的设置不能继续通过 setGlobalSettings() 方法设置：<ul>
+<li><code>BLUETOOTH_ON</code></li>
+<li><code>DEVELOPMENT_SETTINGS_ENABLED</code></li>
+<li><code>MODE_RINGER</code></li>
+<li><code>NETWORK_PREFERENCE</code></li>
+<li><code>WIFI_ON</code></li>
+</ul>
+</li>
+<li>下面全局设置可以通过 setGlobalSettings() 方法设置：<ul>
+<li>WIFI_DEVICE_OWNER_CONFIGS_LOCKDOWN</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>原文：<a href="https://developer.android.com/about/versions/marshmallow/android-6.0-changes.html" target="_blank" rel="external">Android 6.0 Changes</a></p>
+
+      </div>
+      <footer class="article-footer">
+        <!-- <a data-url="http://yoursite.com/android-m-changes/" data-id="cifl77q2700002ynch9qsfuyg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/6/">6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Marshmallow/">Marshmallow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/变更/">变更</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/更新/">更新</a></li></ul>
+
+      </footer>
+      
+  
+  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- linfuyan 文章 -->
+	<ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-3371913913447815"
+      data-ad-slot="7769806683"
+      data-ad-format="auto"></ins>
+	<script>
+	  (adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+  
+
+
+      
+        
+<nav id="article-nav">
+  
+  
+    <a href="/2-minute-introduction-to-rx/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">响应式编程2分钟简介</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+      
+      
+        <div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+      
+    </div>
+  </article>
+  
+
+  
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-android-m-changes" data-title="Android 6.0 特性及主要 API 变更" data-url="http://yoursite.com/android-m-changes/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'linfuyan'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
+      
+        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
+      
+    </ul>
+  </div>
+  <!-- 
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2-minute-introduction-to-rx/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">响应式编程2分钟简介</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+   -->
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+    <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/>  
+  </div>
+
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/android-m-changes/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/text-selection.gif
+)" alt="Android 6.0 特性及主要 API 变更" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
+              <p class="item-title"><a href="/android-m-changes/" class="title">Android 6.0 特性及主要 API 变更</a></p>
+              <p class="item-date"><time datetime="2015-10-10T03:52:00.000Z" itemprop="datePublished">2015-10-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2-minute-introduction-to-rx/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/2_minute_rx_1.png
+)" alt="响应式编程2分钟简介" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/响应式编程/">响应式编程</a></p>
+              <p class="item-title"><a href="/2-minute-introduction-to-rx/" class="title">响应式编程2分钟简介</a></p>
+              <p class="item-date"><time datetime="2015-09-28T03:40:00.000Z" itemprop="datePublished">2015-09-28</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/how-to-install-apache-tomcat7-on-ubuntu-14-04-via-apt-get/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_3.png
+)" alt="如何在 Ubuntu 14.04 上通过 apt-get 安装 Apache Tomcat 7" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/tomcat/">tomcat</a></p>
+              <p class="item-title"><a href="/how-to-install-apache-tomcat7-on-ubuntu-14-04-via-apt-get/" class="title">如何在 Ubuntu 14.04 上通过 apt-get 安装 Apache Tomcat 7</a></p>
+              <p class="item-date"><time datetime="2015-09-26T15:32:00.000Z" itemprop="datePublished">2015-09-26</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/what-is-jenkins/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/jenkins-basic-structure.jpg
+)" alt="什么是 Jenkins?" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/jenkins/">jenkins</a></p>
+              <p class="item-title"><a href="/what-is-jenkins/" class="title">什么是 Jenkins?</a></p>
+              <p class="item-date"><time datetime="2015-09-26T15:13:09.000Z" itemprop="datePublished">2015-09-26</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/hexo-your-blog/add-weixin-qrcode-to-hueman-sidebar/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg
+)" alt="在 Hueman 主题添加侧边栏添加微信公众号二维码" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/Hexo/">Hexo</a></p>
+              <p class="item-title"><a href="/hexo-your-blog/add-weixin-qrcode-to-hueman-sidebar/" class="title">在 Hueman 主题添加侧边栏添加微信公众号二维码</a></p>
+              <p class="item-date"><time datetime="2015-09-26T14:38:53.000Z" itemprop="datePublished">2015-09-26</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-float">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/14-04/" style="font-size: 10px;">14.04</a> <a href="/tags/6/" style="font-size: 10px;">6</a> <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 12.5px;">Android Studio</a> <a href="/tags/Android开发/" style="font-size: 10px;">Android开发</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/App/" style="font-size: 12.5px;">App</a> <a href="/tags/App-ID/" style="font-size: 10px;">App ID</a> <a href="/tags/CI/" style="font-size: 10px;">CI</a> <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Gradle/" style="font-size: 12.5px;">Gradle</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Hueman/" style="font-size: 10px;">Hueman</a> <a href="/tags/LAMP/" style="font-size: 10px;">LAMP</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Marshmallow/" style="font-size: 10px;">Marshmallow</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Operator/" style="font-size: 10px;">Operator</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/TLS/" style="font-size: 10px;">TLS</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/boot2docker/" style="font-size: 10px;">boot2docker</a> <a href="/tags/cocoapods/" style="font-size: 10px;">cocoapods</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/fir-im/" style="font-size: 10px;">fir.im</a> <a href="/tags/frp/" style="font-size: 12.5px;">frp</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/google/" style="font-size: 12.5px;">google</a> <a href="/tags/iOS/" style="font-size: 17.5px;">iOS</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/jenkins/" style="font-size: 12.5px;">jenkins</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/profile/" style="font-size: 10px;">profile</a> <a href="/tags/provision/" style="font-size: 10px;">provision</a> <a href="/tags/push/" style="font-size: 10px;">push</a> <a href="/tags/reactivex/" style="font-size: 17.5px;">reactivex</a> <a href="/tags/registry/" style="font-size: 10px;">registry</a> <a href="/tags/rx/" style="font-size: 10px;">rx</a> <a href="/tags/rxandroid/" style="font-size: 12.5px;">rxandroid</a> <a href="/tags/rxjava/" style="font-size: 17.5px;">rxjava</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/taobao/" style="font-size: 10px;">taobao</a> <a href="/tags/个人/" style="font-size: 15px;">个人</a> <a href="/tags/二维码/" style="font-size: 10px;">二维码</a> <a href="/tags/产品口味/" style="font-size: 10px;">产品口味</a> <a href="/tags/代码规范/" style="font-size: 10px;">代码规范</a> <a href="/tags/代码评审/" style="font-size: 15px;">代码评审</a> <a href="/tags/代码风格/" style="font-size: 10px;">代码风格</a> <a href="/tags/价值/" style="font-size: 10px;">价值</a> <a href="/tags/估计/" style="font-size: 10px;">估计</a> <a href="/tags/全栈工程师/" style="font-size: 10px;">全栈工程师</a> <a href="/tags/分支模型/" style="font-size: 10px;">分支模型</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/原则/" style="font-size: 10px;">原则</a> <a href="/tags/反应式编程/" style="font-size: 12.5px;">反应式编程</a> <a href="/tags/变更/" style="font-size: 10px;">变更</a> <a href="/tags/周期/" style="font-size: 10px;">周期</a> <a href="/tags/命令式/" style="font-size: 10px;">命令式</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/响应式编程/" style="font-size: 12.5px;">响应式编程</a> <a href="/tags/图文教程/" style="font-size: 10px;">图文教程</a> <a href="/tags/基础/" style="font-size: 15px;">基础</a> <a href="/tags/声明式/" style="font-size: 10px;">声明式</a> <a href="/tags/学习路线/" style="font-size: 12.5px;">学习路线</a> <a href="/tags/安装/" style="font-size: 15px;">安装</a> <a href="/tags/工作流/" style="font-size: 10px;">工作流</a> <a href="/tags/应用程序/" style="font-size: 10px;">应用程序</a> <a href="/tags/开发/" style="font-size: 10px;">开发</a> <a href="/tags/开发工具/" style="font-size: 10px;">开发工具</a> <a href="/tags/开发者证书/" style="font-size: 10px;">开发者证书</a> <a href="/tags/微信公众号/" style="font-size: 10px;">微信公众号</a> <a href="/tags/技能/" style="font-size: 12.5px;">技能</a> <a href="/tags/持续集成/" style="font-size: 12.5px;">持续集成</a> <a href="/tags/操作符/" style="font-size: 10px;">操作符</a> <a href="/tags/更新/" style="font-size: 10px;">更新</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/构建/" style="font-size: 10px;">构建</a> <a href="/tags/构建变种/" style="font-size: 10px;">构建变种</a> <a href="/tags/构建类型/" style="font-size: 10px;">构建类型</a> <a href="/tags/构建系统/" style="font-size: 12.5px;">构建系统</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/生命周期/" style="font-size: 10px;">生命周期</a> <a href="/tags/程序员/" style="font-size: 10px;">程序员</a> <a href="/tags/管理/" style="font-size: 10px;">管理</a> <a href="/tags/编码规范/" style="font-size: 10px;">编码规范</a> <a href="/tags/编程/" style="font-size: 12.5px;">编程</a> <a href="/tags/聪明人/" style="font-size: 10px;">聪明人</a> <a href="/tags/自动化/" style="font-size: 10px;">自动化</a> <a href="/tags/范式/" style="font-size: 10px;">范式</a> <a href="/tags/解决方案/" style="font-size: 10px;">解决方案</a> <a href="/tags/语言/" style="font-size: 10px;">语言</a> <a href="/tags/软件/" style="font-size: 10px;">软件</a> <a href="/tags/进阶/" style="font-size: 12.5px;">进阶</a> <a href="/tags/配置/" style="font-size: 10px;">配置</a> <a href="/tags/错误/" style="font-size: 10px;">错误</a> <a href="/tags/镜像/" style="font-size: 10px;">镜像</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">17</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/14-04/">14.04</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/6/">6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/">API</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Studio/">Android Studio</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android开发/">Android开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/">Apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/App/">App</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/App-ID/">App ID</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI/">CI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gradle/">Gradle</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hueman/">Hueman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LAMP/">LAMP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Marshmallow/">Marshmallow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Operator/">Operator</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TLS/">TLS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot2docker/">boot2docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocoapods/">cocoapods</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/facebook/">facebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fir-im/">fir.im</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google/">google</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/">jenkins</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/profile/">profile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/provision/">provision</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/push/">push</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactivex/">reactivex</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/registry/">registry</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rx/">rx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxandroid/">rxandroid</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjava/">rxjava</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/taobao/">taobao</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人/">个人</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品口味/">产品口味</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码规范/">代码规范</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码评审/">代码评审</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码风格/">代码风格</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/价值/">价值</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/估计/">估计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/全栈工程师/">全栈工程师</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分支模型/">分支模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原则/">原则</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/反应式编程/">反应式编程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/变更/">变更</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/周期/">周期</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命令式/">命令式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式编程/">响应式编程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图文教程/">图文教程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/声明式/">声明式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习路线/">学习路线</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安装/">安装</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作流/">工作流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/应用程序/">应用程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发/">开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发工具/">开发工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发者证书/">开发者证书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信公众号/">微信公众号</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技能/">技能</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/持续集成/">持续集成</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作符/">操作符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/更新/">更新</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最佳实践/">最佳实践</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建/">构建</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建变种/">构建变种</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建类型/">构建类型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建系统/">构建系统</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生命周期/">生命周期</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/程序员/">程序员</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/管理/">管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编码规范/">编码规范</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程/">编程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/聪明人/">聪明人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动化/">自动化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/范式/">范式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/解决方案/">解决方案</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语言/">语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件/">软件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/进阶/">进阶</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/错误/">错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/镜像/">镜像</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://hexo.io">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2015 linfuyan</p>
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice </a> 
+        <!-- CNZZ 统计 -->
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
+  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+
+
+<script src="/js/html-patch.js" type="text/javascript"></script>
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

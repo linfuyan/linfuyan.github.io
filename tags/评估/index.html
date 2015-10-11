@@ -3,21 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo 安装出现 Cannot find module 错误 | 悠城札记</title>
+  <title>Tag: 评估 | 悠城札记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在安装 Hexo 的过程中，有时会遇到下面的错误：
-1234$ hexo s&amp;#123; [Error: Cannot find module &apos;./build/Release/DTraceProviderBindings&apos;] code: &apos;MODULE_NOT_FOUND&apos; &amp;#125;&amp;#123; [Error: Cannot find module &apos;./build/default/DTra">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 安装出现 Cannot find module 错误">
-<meta property="og:url" content="http://linfuyan.com/faq/install-hexo-occur-connot-find-module-error/index.html">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="悠城札记">
+<meta property="og:url" content="http://linfuyan.com/tags/评估/index.html">
 <meta property="og:site_name" content="悠城札记">
-<meta property="og:description" content="在安装 Hexo 的过程中，有时会遇到下面的错误：
-1234$ hexo s&amp;#123; [Error: Cannot find module &apos;./build/Release/DTraceProviderBindings&apos;] code: &apos;MODULE_NOT_FOUND&apos; &amp;#125;&amp;#123; [Error: Cannot find module &apos;./build/default/DTra">
-<meta property="og:updated_time" content="2015-09-19T06:59:38.000Z">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo 安装出现 Cannot find module 错误">
-<meta name="twitter:description" content="在安装 Hexo 的过程中，有时会遇到下面的错误：
-1234$ hexo s&amp;#123; [Error: Cannot find module &apos;./build/Release/DTraceProviderBindings&apos;] code: &apos;MODULE_NOT_FOUND&apos; &amp;#125;&amp;#123; [Error: Cannot find module &apos;./build/default/DTra">
+<meta name="twitter:title" content="悠城札记">
+<meta name="twitter:description">
   
   
     <link rel="icon" href="/favicon.png">
@@ -85,53 +81,68 @@
           <section id="main">
             <div class="main-body-header">
 
-              <h1 class="header"><a class="page-title-link" href="/categories/FAQ/">FAQ</a></h1>
+              <h1 class="header"><i class="icon fa fa-tag"></i>标签：<em>评估</em></h1>
             </div>
             <div class="main-body-content">
               
-  <article id="post-faq/install-hexo-occur-connot-find-module-error" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-      <!--  -->
-      
-        <header class="article-header">
-          
   
-    <h1 class="article-title" itemprop="name">
-      Hexo 安装出现 Cannot find module 错误
-    </h1>
   
-
-        </header>
+    
+    
       
-      <p class="article-byline">
-        <a href="/faq/install-hexo-occur-connot-find-module-error/" class="article-date">
-  <time datetime="2015-09-19T06:46:57.000Z" itemprop="datePublished">2015-09-19</time>
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2015" class="archive-year"><i class="icon fa fa-calendar-o"></i>2015</a>
+        </div>
+        <div class="archives">
+    
+    
+    
+      <div class="article-row">
+    
+        
+  <article class="article article-summary">
+    <div class="article-summary-inner">
+      
+<a href="/im-sure-it-will-only-take-you-a-few-days-to-code/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/non-technical-people-cant-estimate-developmen.jpg
+)" alt="不懂技术的人不要对懂技术的人说这很容易实现" class="thumbnail-image"></span>
+  
 </a>
-      </p>
-      <div class="article-entry" itemprop="articleBody">
-        <p>在安装 Hexo 的过程中，有时会遇到下面的错误：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">&#123; [<span class="string">Error:</span> Cannot find module <span class="string">'./build/Release/DTraceProviderBindings'</span>] <span class="string">code:</span> <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br><span class="line">&#123; [<span class="string">Error:</span> Cannot find module <span class="string">'./build/default/DTraceProviderBindings'</span>] <span class="string">code:</span> <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br><span class="line">&#123; [<span class="string">Error:</span> Cannot find module <span class="string">'./build/Debug/DTraceProviderBindings'</span>] <span class="string">code:</span> <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br></pre></td></tr></table></figure>
-<p>从提示上看，问题的原因是缺少某些库，估计是由于天朝网络的问题，导致某些库没有完成下载就停止了。</p>
-<p>可以换一个<a href="http://www.linfuyan.com/faq/npm-taobao-registry/" target="_blank" rel="external">国内的 npm 源</a>，然后重新安装 Hexo：</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> install hexo —<span class="literal">no</span>-optional</span><br></pre></td></tr></table></figure>
-<p>原文：<a href="http://segmentfault.com/a/1190000002979092#articleHeader5" target="_blank" rel="external">http://segmentfault.com/a/1190000002979092#articleHeader5</a></p>
 
+      <div class="article-meta">
+        <p class="category"><a class="article-category-link" href="/categories/深度文摘/">深度文摘</a></p>
+        <p class="date"><time datetime="2015-10-11T10:36:09.000Z" itemprop="datePublished">2015-10-11</time></p>
       </div>
-      <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/faq/install-hexo-occur-connot-find-module-error/" data-id="cifm536yi007yk4ncjwe2s2rr" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+      <h2 class="article-title">
+        <a href="/im-sure-it-will-only-take-you-a-few-days-to-code/" class="title">不懂技术的人不要对懂技术的人说这很容易实现</a>
+      </h2>
+      <p class="article-excerpt">
         
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安装/">安装</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/解决方案/">解决方案</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/错误/">错误</a></li></ul>
+“这个网站相当简单，所有你需要做的就是完成 X，Y，Z。你看起来应该是技术很好，所以，我相信，你不需要花费太多时间就能把它搭建起来。”
+我时不时的就会收到这样的 Email 。写这些邮件的人几乎都是跟技术不沾边的人，或正在研究他们的第一个产品。起初，当听到人们这样的话，我总是十分的恼怒。他们在跟谁辩论软件开发所需要的时间？但后来我意识到，即使我自己对自己的项目预测要花去多少开发时间,我也是一筹莫展。如果连我自己都做不好，我何必对那些人恼怒呢？
+      </p>
+    </div>
+  </article>
 
-      </footer>
-      
+    
+      </div>
+    
+  
+  
+    </div></section>
+  
+  
   
   	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- linfuyan 文章 -->
+	<!-- linfuyan 归档 -->
 	<ins class="adsbygoogle"
       style="display:block"
       data-ad-client="ca-pub-3371913913447815"
-      data-ad-slot="7769806683"
+      data-ad-slot="7630205884"
       data-ad-format="auto"></ins>
 	<script>
 	  (adsbygoogle = window.adsbygoogle || []).push({});
@@ -139,70 +150,8 @@
   
 
 
-      
-        
-<nav id="article-nav">
-  
-    <a href="/why-are-software-development-task-estimations-regularly-off-by-a-factor-of-2-3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <p class="article-nav-title">
-        
-          为什么预期的软件开发周期总是不够?
-        
-      </p>
-      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-  
-  
-    <a href="/faq/npm-taobao-registry/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">npm 官网镜像无法连接怎么办?</p>
-      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-    </a>
-  
-</nav>
-
-      
-      
-        <div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-      
-    </div>
-  </article>
   
 
-  
-  <section id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="post-faq/install-hexo-occur-connot-find-module-error" data-title="Hexo 安装出现 Cannot find module 错误" data-url="http://linfuyan.com/faq/install-hexo-occur-connot-find-module-error/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:'linfuyan'};
-      (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-      })();
-      </script>
-    <!-- 多说公共JS代码 end -->
-  </section>
-  
 
             </div>
           </section>
@@ -218,30 +167,7 @@
       
     </ul>
   </div>
-  <!-- 
-    
-<nav id="article-nav">
-  
-    <a href="/why-are-software-development-task-estimations-regularly-off-by-a-factor-of-2-3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <p class="article-nav-title">
-        
-          为什么预期的软件开发周期总是不够?
-        
-      </p>
-      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-  
-  
-    <a href="/faq/npm-taobao-registry/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">npm 官网镜像无法连接怎么办?</p>
-      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-    </a>
-  
-</nav>
-
-   -->
+  <!--  -->
   <div class="widgets-container">
     
       

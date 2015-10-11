@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://linfuyan.com/"/>
-  <updated>2015-10-10T16:50:54.000Z</updated>
+  <updated>2015-10-11T10:41:06.000Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -13,6 +13,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[不懂技术的人不要对懂技术的人说这很容易实现]]></title>
+    <link href="http://linfuyan.com/im-sure-it-will-only-take-you-a-few-days-to-code/"/>
+    <id>http://linfuyan.com/im-sure-it-will-only-take-you-a-few-days-to-code/</id>
+    <published>2015-10-11T10:36:09.000Z</published>
+    <updated>2015-10-11T10:41:06.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/non-technical-people-cant-estimate-developmen.jpg" alt=""></p>
+<p>“这个网站相当简单，所有你需要做的就是完成 X，Y，Z。你看起来应该是技术很好，所以，我相信，你不需要花费太多时间就能把它搭建起来。”</p>
+<p>我时不时的就会收到这样的 Email 。写这些邮件的人几乎都是跟技术不沾边的人，或正在研究他们的第一个产品。起初，当听到人们这样的话，我总是十分的恼怒。他们在跟谁辩论软件开发所需要的时间？但后来我意识到，即使我自己对自己的项目预测要花去多少开发时间,我也是一筹莫展。如果连我自己都做不好，我何必对那些人恼怒呢？</p>
+<a id="more"></a>
+<p>真正让我郁闷的不是他们预估的错误。问题在于他们竟然认为自己可以做出正确的估计。作为开发人员，我们经常会发现，在软件开发的问题上，一个外行人会很自然的把复杂的事情估计的很简单。</p>
+<p>这并不是为我们的愤怒找借口。但这引起了另外一个有趣的问题：为什么我们天生的预测复杂性的能力在遇到编程问题时会失灵？</p>
+<p>为了回答这个问题，让我们来认识一下我们的大脑如何估计事情的。有些事情对于一些没有经验的人也很容易预估正确，但有些事情则不然。</p>
+<p>我们来想想观看一个人弹吉他。即使你从来没有弹过吉他，在观看了一场弹奏《玛丽有只小羊羔( Mary had a Little Lamb )》的吉他表演后，你也能大概推测出这很简单，一个人不需要太高的技术就能演奏出来。同样，当观看了有人演奏 D 大调的《卡农( Pachabel’s Canon )》后，你也很容易推测出，这很复杂，需要很长时间的练习才能演奏的出来。</p>
+<p>为什么我们能够很迅速准确的预估这两首曲子的复杂性呢？这是跟我们用来判断一个事情简单和还是复杂的方法有关的。我们的大脑有一些现成的模式来完成这些事情，首先一个就是根据速度。这种情况下，大脑会辨别每秒钟演奏的东西。根据每秒钟演奏了多少东西，我们很容易有一个直观的判断曲子的复杂度。因为用吉他演奏一首歌是一种物理过程，一种感官上的活动，我们的大脑很容易依此来推测速度，继而转换成复杂度。</p>
+<p>我们还有另外一个天生的推测依据：体积。想想把一个帐篷和一栋公寓放在一起对比。即使一个人从来没有学过建筑学，他也能告诉你通常设计和建造一个帐篷会比设计和建造一栋公寓要简单。为什么？因为我们天生的会使用物理体积作为事物复杂性的一个指标。</p>
+<p>当然。上面说的这两种逻辑分析并不是总是100%的有效。但大多数情况下，人们就是这样干，而且很成功。大多数情况中，我们在对物理过程评估时，我们的大脑会对物理事物进行有效的关联，不需要依赖之前的经验。</p>
+<p>现在让我们来谈谈软件。当一个不懂技术的人试图对软件开发时间进行评估时，有两个很基本的直观指标在辅助他们：以体积为指标的复杂度和以速度为指标的复杂度。但他们没有意识到，软件跟他们想象的不一样。软件本质上不是有形物质。没有体积和速度。它的极小的组成部分可能会时不时的在电脑屏幕上闪现。正因为如此，当面对开发一个 web 应用时(或任何类型的软件)，我们的基本直观感觉失效了。</p>
+<p>这第一点，速度，很显然根本不可能被外行人拿来对软件进行评估。于是很自然的，他们倾向于使用体积指标进行评估。要么是根据描述文档的页数，要么是根据软件的功能用例数或特征数。</p>
+<p>有时候，这种评估手段确实有效！当面对一个静态网站，没有特别的设计要求，外行人很容易用这种方法估计出开发时间。但是，通常情况下，对于软件开发，体积并不能真实有效的反映复杂度。</p>
+<p>不幸的是，对于软件的复杂度，唯一有效的推测方法是依据经验。而且还不是时时都好用。作为一个程序员，我知道，根据我之前开发过的相似的功能特征，我可以估计出现在的这些功能特征各自要多少开发时间。然后，我把总时间加起来，这就得到了完成整个项目需要的大致时间。然而，事实情况中，每个项目在开发过程中都遇到二、三个瓶颈。这些瓶颈会肆意的消耗程序员的大量时间，你在遇到它们之前根本不会有所预见。它们会拖住整个项目，致使工期延后数周甚至数月。</p>
+<p>这些是没有经验的人在评估复杂度时不会理解的。他们不明白在其他事情上都很灵的方法，为什么放到软件开发上就不灵了。所以，下一次当你听到有人说”我想你几天时间就能把它开发出来”时，不管是谁说的，都不要懊恼。深呼吸一下，告诉他这篇文章的地址，自己该干什么还干什么。</p>
+<p>英文原文：<a href="http://danshipper.com/non-technical-people-cant-estimate-developmen" target="_blank" rel="external">I’m Sure It Will Only Take You A Few Days To Code</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/non-technical-people-cant-estimate-developmen.jpg" alt=""></p>
+<p>“这个网站相当简单，所有你需要做的就是完成 X，Y，Z。你看起来应该是技术很好，所以，我相信，你不需要花费太多时间就能把它搭建起来。”</p>
+<p>我时不时的就会收到这样的 Email 。写这些邮件的人几乎都是跟技术不沾边的人，或正在研究他们的第一个产品。起初，当听到人们这样的话，我总是十分的恼怒。他们在跟谁辩论软件开发所需要的时间？但后来我意识到，即使我自己对自己的项目预测要花去多少开发时间,我也是一筹莫展。如果连我自己都做不好，我何必对那些人恼怒呢？</p>]]>
+    
+    </summary>
+    
+      <category term="周期" scheme="http://linfuyan.com/tags/%E5%91%A8%E6%9C%9F/"/>
+    
+      <category term="开发" scheme="http://linfuyan.com/tags/%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="程序员" scheme="http://linfuyan.com/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
+    
+      <category term="评估" scheme="http://linfuyan.com/tags/%E8%AF%84%E4%BC%B0/"/>
+    
+      <category term="软件" scheme="http://linfuyan.com/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+      <category term="深度文摘" scheme="http://linfuyan.com/categories/%E6%B7%B1%E5%BA%A6%E6%96%87%E6%91%98/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Hexo 如何保持页面文件不被渲染]]></title>
@@ -1282,107 +1327,6 @@
     </summary>
     
       <category term="Operator" scheme="http://linfuyan.com/tags/Operator/"/>
-    
-      <category term="frp" scheme="http://linfuyan.com/tags/frp/"/>
-    
-      <category term="reactivex" scheme="http://linfuyan.com/tags/reactivex/"/>
-    
-      <category term="rxjava" scheme="http://linfuyan.com/tags/rxjava/"/>
-    
-      <category term="响应式编程" scheme="http://linfuyan.com/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="rxjava" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/rxjava/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[ReactiveX 之 Observable]]></title>
-    <link href="http://linfuyan.com/reactivex-observable/"/>
-    <id>http://linfuyan.com/reactivex-observable/</id>
-    <published>2015-09-07T13:06:12.000Z</published>
-    <updated>2015-09-07T13:12:42.000Z</updated>
-    <content type="html"><![CDATA[<blockquote>
-<p>原文：<a href="http://reactivex.io/documentation/observable.html" target="_blank" rel="external">http://reactivex.io/documentation/observable.html</a></p>
-<p>对译文有建议，请发邮件或下方评论给我，万分感谢。</p>
-<p>更新历史：1月13日</p>
-</blockquote>
-<p>在RxJava中一个对象实现了<em>Observer</em>接口则被一个<em>Observable</em>类对象所订阅。订阅者则针对<em>Obserable</em>对象产生的值（包括项及项的序列）做响应。这种模式便利了异步操作，因为不用在等待<em>Obserable</em>产生对象时进行阻塞，它以订阅者的形式创建了一个哨兵，用于在<em>Observable</em>在将来的时间产生任何输出时提供合适的响应。</p>
-<p>这篇文章解释什么是响应式模式以及什么是<em>Observable</em>与观察者(观察者怎样对<em>Observable</em>进行订阅)。</p>
-<blockquote>
-<p>文档中的解释将采用”marble diagrams”的形式。下图说明”marble diagrams”怎样展示<em>Observable</em>以及<em>Observable</em>之间的转换。</p>
-<p><img src="http://reactivex.io/assets/operators/legend.png" alt="Observables"></p>
-</blockquote>
-<a id="more"></a>
-<h1 id="背景">背景</h1><p>在许多软件编程任务中，你或多或少都希望自己编写的代码能够逐步的运行完成，因为你是一个一个的写下来的。但是在响应式编程范式中，许多代码并行的执行，其结果将在后来被观察者以任意的顺序捕获下来。在这种情况下，你不是调用一个方法，而是以<em>Observable</em>的形式为获取和转换数据定义一种机制，并将<em>Observable</em>订阅给订阅者。在预置的机制下当<em>Observable</em>产生的值到达时，观察者的哨兵捕获并对此进行响应。</p>
-<p>这种解决方案的优点在于，当你有许多没有相互依赖的任务需要运行时，你可以在同一时刻启动它们，而不是需要在一个任务开始之前，等待其中的一个任务的结束。这样，你执行所有任务的所花费的时间只是其中耗时最长的任务的时间。</p>
-<p>有许多种形式来描述这种异步编程和设计的模型。这篇文档将使用下面的形式：<em>Subscriber</em>(有时是<em>Observer</em>)订阅<em>Observable</em>类对象。也就是<em>Subscriber</em>对象订阅<em>Observable</em>。<em>Observable</em>产生值，并通过调用<em>Subscriber</em>的方法来发送通知给<em>Subscriber</em>。</p>
-<p>在其他文档或者上下文，有时我们也会将<em>Subscriber</em>称为<em>watcher</em>或<em>reactor</em>。这个模型通常被被认为是<a href="http://en.wikipedia.org/wiki/Reactor_pattern" target="_blank" rel="external">响应模式</a>。</p>
-<h1 id="建立订阅者">建立订阅者</h1><p>这篇文档通常使用Groovy来做代码示例，实际上，你可以在任何基于JVM的语言上使用RxJava，如Clojure，Scala，JRuby或是Java本身。</p>
-<p>与典型的响应式编程中无序的异步、并行不同，在传统的方法调用中，流程一般是这样的：</p>
-<ol>
-<li>调用一个方法。</li>
-<li>将方法的返回值保存在一个变量中。</li>
-<li>使用这个变量以及它的新值做一些有用的事情。</li>
-</ol>
-<p>或是用代码表示：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// make the <span class="operator"><span class="keyword">call</span>, assign its <span class="keyword">return</span> <span class="keyword">value</span> <span class="keyword">to</span> <span class="string">`returnVal`</span></span><br><span class="line">returnVal = someMethod(itsParameters);</span></span><br><span class="line">// <span class="operator"><span class="keyword">do</span> something useful <span class="keyword">with</span> returnVal</span></span><br></pre></td></tr></table></figure>
-<p>在异步模型中，流程则更像是这样：</p>
-<ol>
-<li>定义一个方法来使用异步调用的返回值进行处理，这个方法是<em>Subscriber</em>的一部分。</li>
-<li>用一个<em>Observable</em>类对象来定义异步调用本身。</li>
-<li>通过订阅来将<em>Subscriber</em>关联<em>Observable</em>(这也同时初始化方法调用)。</li>
-<li>继续你的业务逻辑；无论方法调用何时返回，<em>Subscriber</em>的方法开始对<em>Observable</em>所产生的项(返回值)进行操作。</li>
-</ol>
-<p>用代码表示是这样：</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// defines, but does not invoke, the Subscriber's onNext handler</span></span><br><span class="line"><span class="comment">// (in this example, the Subscriber is very simple and has only an onNext handler)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myOnNext</span> =</span> &#123; it -&gt; do something useful <span class="keyword">with</span> it &#125;;</span><br><span class="line"><span class="comment">// defines, but does not invoke, the Observable</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myObservable</span> =</span> someObservable(itsParameters);</span><br><span class="line"><span class="comment">// subscribes the Subscriber to the Observable, and invokes the Observable</span></span><br><span class="line">myObservable.subscribe(myOnNext);</span><br><span class="line"><span class="comment">// go on about my business</span></span><br></pre></td></tr></table></figure>
-<h1 id="onNext,onCompleted,以及onError">onNext,onCompleted,以及onError</h1><p><code>subscribe()</code>方法可以接受1-3个方法，或者是一个<code>Subscriber</code>对象，或是任何实现了<code>Observer</code>接口（包含了这3个方法）的对象：</p>
-<p><strong>onNext</strong>:当<em>Observable</em>产生了一个值时，<em>Observable</em>将调用它的<em>Subscriber</em>上的这个方法。这个方法将<em>Observable</em>所产生的值作为它的参数。</p>
-<p><strong>onError</strong>:当<em>Observable</em>无法产生所预期的数据或是遇到了其他一些错误，<em>Observable</em>将调用它的<em>Subscriber</em>上的这个方法。这会使<em>Observable</em>停止，且不再掉调用<code>onNext</code>和<code>onCompleted</code>。<code>onError</code>将产生错误的误差指示作为它的参数。</p>
-<p><strong>onCompleted</strong>:在没有发生任何错误的情形下，<em>Observable</em>将在最后一次调用<code>onNext</code>之后调用其观察者的这个方法。</p>
-<p>一个更加完整的<code>subscribe()</code>示例如下所示：</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myOnNext</span>     =</span> &#123; item -&gt; <span class="comment">/* do something useful with item */</span> &#125;;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myError</span>      =</span> &#123; throwable -&gt; <span class="comment">/* react sensibly to a failed call */</span> &#125;;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myComplete</span>   =</span> &#123; <span class="comment">/* clean up after the final response */</span> &#125;;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myObservable</span> =</span> someMethod(itsParameters);</span><br><span class="line">myObservable.subscribe(myOnNext, myError, myComplete);</span><br><span class="line"><span class="comment">// go on about my business</span></span><br></pre></td></tr></table></figure>
-<h1 id="Unsubscribing(退订)">Unsubscribing(退订)</h1><p>在一些响应式扩展实现中，有专门的观察者接口，<code>Subscriber</code>来实现<code>unsubscribe()</code>方法。你可以调用这个方法来表明<em>Subscriber</em>不再对当前订阅的任何<em>Observable</em>感兴趣了。当不再有其他对其感兴趣的<em>Observer</em>，这些<em>Observable</em>可以选择停止产生新的值。</p>
-<p>这个退订的结果会级联的影响到<em>Observer</em>所订阅的<em>Observable</em>上的操作链，这将导致操作链上的每个链接都停止产生项目。但这个并无法保证立即发生，当不再有<em>Subscriber</em>关注这些产生的值时，在短时间内，<em>Observable</em>可能仍然会产生新的值。</p>
-<h1 id="命名规范的注意事项">命名规范的注意事项</h1><p>每一种特定语言的响应式扩展的实现都有自己的命名怪癖。这之间没有统一的命名标准，但在每个实现之间有许多的共性。</p>
-<p>此外，在某些上下文中这些名称具有不同的含义，或者在一些特定的语言实现中显得尴尬。</p>
-<p>举个例子：存在<code>onEvent</code>的命名模式(如：<code>onNext</code>, <code>onCompleted</code>, <code>onError</code>)。在许多上下文中，这些命名表明的是被注册的事件处理器上的方法。在<em>ReactiveX</em>中，这些命名则表示事件处理器本身。</p>
-<h1 id="“热”和”冷”Observable">“热”和”冷”<em>Observable</em></h1><p><em>Observable</em>什么时候开始产生它的值序列呢？这个依赖于<em>Observable</em>。一个”热”的<em>Observable</em>将在它被新建之后便开始产生值，因此，任何订阅这种<em>Observable</em>的<em>Observer</em>将从这些序列的中间开始观察。另一方面，一个”冷”的<em>Observable</em>在开发产生值之前，会一直等待<em>Observer</em>订阅它。这样可以保证一个<em>Observer</em>看到从头开始的完整序列。</p>
-<p>在响应式扩展的某些实现中，存在称为<em>Connectable</em>的<em>Observable</em>。这样的<em>Observable</em>直到它的<code>connect</code>方法被调用才开始产生值，不能是否有<em>Observer</em>已经订阅它。</p>
-<h1 id="组装Observable_Operator">组装<em>Observable Operator</em></h1><p><em>Observable</em>和<em>Observer</em>仅仅是响应式扩展的开始。它是标准观察者模式的轻量扩展，比起一个简单的回调，它更适合与处理事件序列。</p>
-<p>响应式扩展的真正力量在于，所有的<em>Operator</em>可以被变换，组合，操作，并和<em>Observable</em>所产生的值序列一起工作。</p>
-<p>这些响应式扩展操作能让你通过利用所有回调的优点，以声明的方式将异步序列组织在一起。同时避免传统异步编程系统中的嵌套回调处理。</p>
-<p>该文章将不同的操作及他们的示例用户组织在如下的页面中：</p>
-<ul>
-<li><a href="">Creating创建</a></li>
-<li><a href="">Transforming变换</a></li>
-<li><a href="">Filtering过滤</a></li>
-<li><a href="">Combining组合</a></li>
-<li><a href="">Error Handling错误处理</a></li>
-<li><a href="">Utility工具</a></li>
-<li><a href="">Conditional and Boolean条件与布尔</a></li>
-<li><a href="">Mathematical and Aggregate</a></li>
-<li><a href="">Backpressure</a></li>
-<li><a href="">Connectable Observables</a></li>
-<li><a href="">Blocking Observables</a></li>
-</ul>
-<p>这些页面所包含的信息一些操作并不是响应式扩展的核心组成部分，但却是一些特定语言的实现或是可选模块。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<blockquote>
-<p>原文：<a href="http://reactivex.io/documentation/observable.html">http://reactivex.io/documentation/observable.html</a></p>
-<p>对译文有建议，请发邮件或下方评论给我，万分感谢。</p>
-<p>更新历史：1月13日</p>
-</blockquote>
-<p>在RxJava中一个对象实现了<em>Observer</em>接口则被一个<em>Observable</em>类对象所订阅。订阅者则针对<em>Obserable</em>对象产生的值（包括项及项的序列）做响应。这种模式便利了异步操作，因为不用在等待<em>Obserable</em>产生对象时进行阻塞，它以订阅者的形式创建了一个哨兵，用于在<em>Observable</em>在将来的时间产生任何输出时提供合适的响应。</p>
-<p>这篇文章解释什么是响应式模式以及什么是<em>Observable</em>与观察者(观察者怎样对<em>Observable</em>进行订阅)。</p>
-<blockquote>
-<p>文档中的解释将采用”marble diagrams”的形式。下图说明”marble diagrams”怎样展示<em>Observable</em>以及<em>Observable</em>之间的转换。</p>
-<p><img src="http://reactivex.io/assets/operators/legend.png" alt="Observables"></p>
-</blockquote>]]>
-    
-    </summary>
     
       <category term="frp" scheme="http://linfuyan.com/tags/frp/"/>
     

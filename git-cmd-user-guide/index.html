@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
 <meta property="og:description" content="下面整理一下自己在开发过程中经常使用到的 Git 命令。使用 GUI 工具的同学，也可以对照起来看看。">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-cmd-user-guide.png">
-<meta property="og:updated_time" content="2015-10-14T10:50:07.000Z">
+<meta property="og:updated_time" content="2015-10-14T10:53:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用 Git 命令使用教程">
 <meta name="twitter:description" content="下面整理一下自己在开发过程中经常使用到的 Git 命令。使用 GUI 工具的同学，也可以对照起来看看。">
@@ -219,18 +219,27 @@
 <p>1. 推送单个标签到远程仓库</p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">git</span> <span class="keyword">push </span>origin tagname</span><br></pre></td></tr></table></figure>
 <p>2. 一次性推送所有标签到远程仓库。</p>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">git push origin --tags</span><br><span class="line"><span class="escape">``</span><span class="escape">` </span></span><br><span class="line"></span><br><span class="line">## 进阶操作</span><br><span class="line"></span><br><span class="line">### 临时保存修改</span><br><span class="line"></span><br><span class="line">在执行很多的 Git 操作的时候，是需要保持当前操作的仓库/分支处于 clean 状态，及没有未提交的修改。如 <span class="escape">`g</span>it pull<span class="escape">`，</span> <span class="escape">`g</span>it merge<span class="escape">` </span>等等，如果有未提交的修改，这些将无法操作。</span><br><span class="line"></span><br><span class="line">但是做这些事情的时候，你可能修改了比较多的代码，却又不想丢弃它。那么，你需要把这些修改临时保存起来，这就需要用到 <span class="escape">`g</span>it stash<span class="escape">`。</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>\. **临时保存修改**，这样仓库就可以回到 clean 状态。</span><br></pre></td></tr></table></figure>
-<p>git  stash        // 保存本地仓库中的临时修改。<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 注意：可以多次的 `git stash` 来保存不同的临时修改。</span><br><span class="line"></span><br><span class="line">2\. <span class="keyword">*</span><span class="keyword">*</span>查看临时保存<span class="keyword">*</span><span class="keyword">*</span>。当你临时保存以后，后面还是要取回来的，那它们在哪里呢？</span><br></pre></td></tr></table></figure></p>
-<p>git stash list    // 显示所有临时修改<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">3</span>\. 当我们处理完其他操作时，想要恢复临时保存的修改。</span><br></pre></td></tr></table></figure></p>
-<p>git stash apply        // 恢复所有保存的临时修改<br>git stash pop        // 恢复最近一次保存的临时修改<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">4</span>\. 或者，我们后面觉得临时保存不想要了，那可以丢弃它。</span><br></pre></td></tr></table></figure></p>
-<p>git stash clear        // 丢弃所有保存的临时修改<br>```</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin <span class="comment">--tags</span></span><br></pre></td></tr></table></figure>
+<h2 id="进阶操作">进阶操作</h2><h3 id="临时保存修改">临时保存修改</h3><p>在执行很多的 Git 操作的时候，是需要保持当前操作的仓库/分支处于 clean 状态，及没有未提交的修改。如 <code>git pull</code>， <code>git merge</code> 等等，如果有未提交的修改，这些将无法操作。</p>
+<p>但是做这些事情的时候，你可能修改了比较多的代码，却又不想丢弃它。那么，你需要把这些修改临时保存起来，这就需要用到 <code>git stash</code>。</p>
+<p>1. <strong>临时保存修改</strong>，这样仓库就可以回到 clean 状态。</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git  stash		<span class="comment">// 保存本地仓库中的临时修改。</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：可以多次的 <code>git stash</code> 来保存不同的临时修改。</p>
+</blockquote>
+<p>2. <strong>查看临时保存</strong>。当你临时保存以后，后面还是要取回来的，那它们在哪里呢？</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash <span class="built_in">list</span>	<span class="comment">// 显示所有临时修改</span></span><br></pre></td></tr></table></figure>
+<p>3. 当我们处理完其他操作时，想要恢复临时保存的修改。</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git stash apply		<span class="comment">// 恢复所有保存的临时修改</span></span><br><span class="line">git stash <span class="keyword">pop</span>		<span class="comment">// 恢复最近一次保存的临时修改</span></span><br></pre></td></tr></table></figure>
+<p>4. 或者，我们后面觉得临时保存不想要了，那可以丢弃它。</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash <span class="built_in">clear</span>	<span class="comment">	// 丢弃所有保存的临时修改</span></span><br></pre></td></tr></table></figure>
 <p>这些是我目前在项目中经常会用到的操作，这里整理下来，可以作为一个手册。对于 Git 的理解或者更多的解释，并不在这里体现。大家可以参考其他更多的资料。</p>
 <p>更多阅读：</p>
 <p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰的 Git 教程</a><br><a href="http://gitbook.liuhui998.com/index.html" target="_blank" rel="external">Git Community Book 中文版</a><br><a href="http://www.cnblogs.com/zhongxinWang/p/4233881.html" target="_blank" rel="external">Git 对象模型</a><br><a href="http://www.cnblogs.com/zhongxinWang/p/4235448.html" target="_blank" rel="external">探索 .git 目录</a></p>
 
       </div>
       <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/git-cmd-user-guide/" data-id="cifqo873e007rq1fytsqx7jc9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        <!-- <a data-url="http://linfuyan.com/git-cmd-user-guide/" data-id="cifqojr7i007rqqfyave8n1gk" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
         
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令/">命令</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指南/">指南</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/教程/">教程</a></li></ul>

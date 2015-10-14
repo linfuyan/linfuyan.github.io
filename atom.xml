@@ -4,7 +4,7 @@
   <subtitle><![CDATA[关注但不限于 Android、iOS、nodejs]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://linfuyan.com/"/>
-  <updated>2015-10-11T10:56:15.000Z</updated>
+  <updated>2015-10-14T10:50:07.000Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -13,6 +13,152 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[常用 Git 命令使用教程]]></title>
+    <link href="http://linfuyan.com/git-cmd-user-guide/"/>
+    <id>http://linfuyan.com/git-cmd-user-guide/</id>
+    <published>2015-10-14T02:00:00.000Z</published>
+    <updated>2015-10-14T10:50:07.000Z</updated>
+    <content type="html"><![CDATA[<p>下面整理一下自己在开发过程中经常使用到的 Git 命令。使用 GUI 工具的同学，也可以对照起来看看。</p>
+<a id="more"></a>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-cmd-user-guide.png" alt="常用 Git 命令使用教程"></p>
+<h2 id="Git_配置">Git 配置</h2><p>1. 在安装完成 Git 后，开始正式使用前，是需要有一些全局设置的，如用户名、邮箱。</p>
+<p>设置的主要命令是 <code>git config</code>:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user<span class="class">.name</span> <span class="string">"your name"</span>  	<span class="comment">// 设置全局用户名</span></span><br><span class="line">git config --global user<span class="class">.email</span> <span class="string">"your email"</span>	<span class="comment">// 设置邮箱</span></span><br></pre></td></tr></table></figure>
+<p>其中， <code>--global</code> 指定为全局配置，不使用该参数，则为当前所在仓库配置。</p>
+<p>2. 除了用户名、邮箱之外，还有很多的配置可以用来自定义 Git，如：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global <span class="attribute">color</span><span class="class">.ui</span> true		<span class="comment">// 让 Git 显示不同的颜色</span></span><br><span class="line">git config core<span class="class">.ignorecase</span> true			<span class="comment">// 让 Git 对仓库中的文件大小写敏感</span></span><br></pre></td></tr></table></figure>
+<p>3. 查看所有的已经做出的配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config <span class="operator">-l</span></span><br></pre></td></tr></table></figure>
+<h2 id="基础操作">基础操作</h2><h3 id="创建_Git_版本库">创建 Git 版本库</h3><p>在本地创建 Git 版本库，需要使用 <code>git init</code> 命令。</p>
+<p>首先，你需要新建一个存放版本库的目录，然后进入到该目录所在路径，然后执行：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">git</span> init</span><br></pre></td></tr></table></figure>
+<p>然后查看目录结构中，就可以看到包含有 <code>.git</code> 子目录，这就说明创建版本库成功了。</p>
+<h3 id="将文件添加到版本库">将文件添加到版本库</h3><p>要将一个文件纳入到版本库管理，首先要将其添加到暂存区(这里不做深入介绍)，然后才能提交到仓库中。</p>
+<p>1. 将文件添加到暂存区，使用的是 <code>git add</code>：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">add</span> Readme.md	<span class="comment">	// 添加单个文件到暂存区</span></span><br><span class="line">git <span class="built_in">add</span> .			<span class="comment">	// 将当前目录下所有修改添加到暂存区，除按照规则忽略的之外</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：这边空文件夹是不会被添加到暂存区中的。</p>
+</blockquote>
+<p>2. 将暂存区中的文件，提交到仓库中。需要使用 <code>git commit</code>：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="operator"><span class="keyword">commit</span>		// 如果暂存区有文件，则将其中的文件提交到仓库</span><br><span class="line">git <span class="keyword">commit</span> -<span class="keyword">m</span> <span class="string">'your comments'</span> 		// 带评论提交，用于说明提交内容、变更、作用等</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：这边直接用 <code>git commit</code> 提交，会先弹出添加评论的页面。</p>
+</blockquote>
+<h3 id="查看仓库的状态">查看仓库的状态</h3><p>不论我们是新建了文件，将文件加入暂存区，或者其他的修改等等，我们都可以通过：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">status</span></span><br></pre></td></tr></table></figure>
+<p>来随时查看仓库中文件的状态。这个应该是使用 Git 做版本控制过程中，我使用最多的一个命令。</p>
+<h3 id="查看仓库中的具体修改">查看仓库中的具体修改</h3><p>很经常的，我们对某个文件做了修改，但过不久就忘记了。这时候就可以通过 <code>git diff</code> 来查看具体的修改内容。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git diff	<span class="comment">// 查看版本库中所有的改动</span></span><br><span class="line">git diff Readme<span class="class">.md</span>		<span class="comment">// 查看具体文件的改动</span></span><br></pre></td></tr></table></figure>
+<h3 id="查看提交历史记录">查看提交历史记录</h3><p>有的时候，你会需要查看自己做过哪些提交，来回顾自己完成的部分。或者需要寻找某个具体的提交来查看当时的代码。这里需要用到：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> <span class="comment">	// 显示所有提交的历史记录</span></span><br><span class="line">git <span class="built_in">log</span> <span class="comment">--pretty=oneline	// 单行显示提交历史记录的内容</span></span><br></pre></td></tr></table></figure>
+<p>在 <code>git log</code> 的输出内容中，可以看到每次提交的 ID，是一个 40 位的字符串。</p>
+<h3 id="版本回退">版本回退</h3><p>有了 <code>git log</code> 来查看提交的历史记录，我们就可以通过 <code>git reset --hard</code> 来回退到我们需要的特定版本，然后使用当时的代码进行各种操作。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="operator"><span class="keyword">reset</span> <span class="comment">--hard HEAD^		// 回退到上一个提交版本</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard HEAD^^		// 回退到上上一个提交版本</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard 'commit_id'	// 会退到 commit_id 指定的提交版本</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="回到未来的某个提交">回到未来的某个提交</h3><p>当退回到某个提交的版本以后，再通过 <code>git log</code> 是无法显示在这之后的提交信息的。但是，通过 <code>git reflog</code> 可以获取到操作命令的历史。</p>
+<p>因此，想要回到未来的某个提交，先通过 <code>git reflog</code> 从历史命令中找到想要回到的提交版本的 ID，然后通过 <code>git reset --hard</code> 来切换。</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br><span class="line">git <span class="keyword">reset</span> --hard <span class="string">'commit_id'</span></span><br></pre></td></tr></table></figure>
+<h3 id="撤销修改">撤销修改</h3><p>撤销修改同样包括两方面的内容，由于仓库中的文件在提交之前，可能在工作区中，尚未在版本控制范围内，也可能在暂存区中。</p>
+<p>1. 丢弃工作区中文件的修改</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- Readme<span class="class">.md</span>	<span class="comment">// 如果 Readme.md 文件在工作区，则丢弃其修改</span></span><br><span class="line">git checkout -- .			<span class="comment">// 丢弃当前目录下所有工作区中文件的修改</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意： <code>git checkout --</code> 中的 <code>--</code> 是必须的。</p>
+</blockquote>
+<p>2. 丢弃已经进入暂存区的修改</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="operator"><span class="keyword">reset</span> <span class="keyword">HEAD</span> Readme.md 	// 将 Readme.md 恢复到 <span class="keyword">HEAD</span> 提交版本的状态</span></span><br></pre></td></tr></table></figure>
+<h3 id="删除文件">删除文件</h3><p>在文件未添加到暂存区之前，对想删除文件可以直接物理删除。或者通过 <code>git checkout -- file</code> 来丢弃。如果文件已经被提交，则需要 <code>git rm</code> 来删除：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm Readme<span class="class">.md</span> 	<span class="comment">// 删除已经被提交过的 Readme.md</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意： <code>git rm</code> 只能删除已经提交到版本库中的文件。其他状态的文件直接用这个命令操作是出错的。</p>
+</blockquote>
+<h2 id="分支管理">分支管理</h2><p>分支是版本控制系统中很重要的一个概念，在 Git 中新建、合并等分支的操作非常轻量便捷，因此我们会很经常的用到。</p>
+<h3 id="查看分支">查看分支</h3><p>查看分支使用 <code>git branch</code>：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch		<span class="comment">// 查看本地分支信息</span></span><br><span class="line">git branch -v 	<span class="comment">// 查看相对详细的本地分支信息</span></span><br><span class="line">git branch -av 	<span class="comment">// 查看包括远程仓库在内的分支信息</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：在 <code>git branch</code> 的输出内容中，有一个分支，前面带有 <code>*</code> 号，这标识我们当前所在的分支。</p>
+</blockquote>
+<h3 id="创建分支">创建分支</h3><p>当我们要修复一个 Bug，或者开发一个新特性，甚至是在初学的时候怕打乱原来的代码，都可以新建一个分支来避免对原来代码的影响。</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch <span class="built_in">dev</span>	<span class="comment">// 新建一个名称为 dev 的分支</span></span><br></pre></td></tr></table></figure>
+<h3 id="切换分支">切换分支</h3><p>当我们创建完分支以后，我们需要切换到新建的分支，否则，所有的修改，还是在原来的分支上。事实上，所有的改动，只能影响到当前所在的分支。</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout <span class="built_in">dev</span>	<span class="comment">// 新建完 dev 分支以后，通过该命令切换到 dev 分支</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建并切换分支">创建并切换分支</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -<span class="tag">b</span> dev		<span class="comment">// 新建 dev 分支，并切换到该分支上</span></span><br></pre></td></tr></table></figure>
+<p>这个命令合并了前两个独立的命令，平常使用中一般这样使用。</p>
+<h3 id="合并分支">合并分支</h3><p>当我们修复完成一个 Bug，或者开发完成一个新特性，我们就会把相关的 Bug 或者 特性的上修改合并回原来的主分支上，这时候就需要 <code>git merge</code> 来做分支的合并。</p>
+<p>首先需要切换回最终要合并到的分支，如 <code>master</code>：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master	<span class="comment">	// 切换回 master 分支</span></span><br><span class="line">git <span class="built_in">merge</span> dev		<span class="comment">	// 将 dev 分钟中的修改合并回 master 分支</span></span><br></pre></td></tr></table></figure>
+<p>合并回主分支的时候，后面可能会面临到冲突的问题。冲突的解决暂不在这里说明。</p>
+<h3 id="删除分支">删除分支</h3><p>当之前创建的分支，完成了它的使命，如 Bug 修复完，分支合并以后，这个分支就不在需要了，就可以删除它。</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d <span class="built_in">dev</span>		<span class="comment">// 删除 dev 分支</span></span><br></pre></td></tr></table></figure>
+<h2 id="远程仓库">远程仓库</h2><p>上面的所有命令都是针对本地仓库的操作。当我们希望多个人来协作时，会将代码发布到一个统一的远程仓库，然后多个人在本地操作以后，在推送到远程仓库。其他人协作时，需要先同步远程仓库的内容，再推送自己的修改。</p>
+<h3 id="从远程仓库克隆">从远程仓库克隆</h3><p>如果你本地没有仓库，希望从已有的远程仓库上复制一份代码，那么你需要 <code>git clone</code>。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone <span class="string">https:</span><span class="comment">//github.com/git/git.git 	// 通过 https 协议，克隆 Github 上 git 仓库的源码</span></span><br><span class="line">git clone linfuyan<span class="annotation">@github</span>.com<span class="regexp">/git/</span>git.git	<span class="comment">// 通过 ssh 协议，克隆 Github 上 git 仓库的源码</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意： <code>git clone</code> 后面的仓库地址，可以支持多种协议，如 https， ssh 等。</p>
+</blockquote>
+<h3 id="添加远程仓库">添加远程仓库</h3><p>如果你已经有了一个本地仓库，如之前创建的 <code>git-guide</code>，然后你打算将它发布到远程，供其他人协作。那么使用：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="built_in">add</span> origin your_remote_git_repo	<span class="comment">	// 为本地仓库添加远程仓库</span></span><br></pre></td></tr></table></figure>
+<h3 id="推送本地的内容到远程仓库">推送本地的内容到远程仓库</h3><p>当本地仓库中，代码完成提交，就需要将代码等推送到远程仓库，这样其他协作人员可以从远程仓库同步内容。</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">push</span> -u origin master <span class="comment">// 第一次推送时使用，可以简化后面的推送或者拉取命令使用</span></span><br><span class="line">git <span class="keyword">push</span> origin master	<span class="comment">// 将本地 master 分支推送到 origin 远程分支</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意： <code>git push -u origin master</code>，第一次使用时，带上 <code>-u</code> 参数，在将本地的 master 分支推送到远程新的 master 分支的同时，还会把本地的 master 分支和远程的 master 分支关联起来。</p>
+</blockquote>
+<h3 id="从远程仓库获取最新内容">从远程仓库获取最新内容</h3><p>在多人协作过程中，当自己完成了本地仓库中的提交，想要向远程仓库推送前，需要先获取到远程仓库的最新内容。</p>
+<p>可以通过 <code>git fetch</code> 和 <code>git pull</code> 来获取远程仓库的内容。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">git</span> fetch origin master	</span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+<p><code>git fetch</code> 和 <code>git pull</code> 之间的区别：</p>
+<ol>
+<li><code>git fetch</code> 是仅仅获取远程仓库的更新内容，并不会自动做合并。</li>
+<li><code>git pull</code> 在获取远程仓库的内容后，会自动做合并，可以看成 <code>git fetch</code> 之后 <code>git merge</code>。</li>
+</ol>
+<blockquote>
+<p>注意：建议多使用 <code>git fetch</code>。</p>
+</blockquote>
+<h3 id="查看远程仓库信息">查看远程仓库信息</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="attr_selector">[-v]</span>		<span class="comment">// 显示远程仓库信息</span></span><br></pre></td></tr></table></figure>
+<h3 id="建立本地分支和远程分支的关联">建立本地分支和远程分支的关联</h3><p>在本地仓库中的分支和远程仓库中的分支是对应的。一般情况下，远程仓库中的分支名称和本地仓库中的分支名称是一致的。</p>
+<p>有的时候，我们会需要指定本地分支与远程分支的关联。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --<span class="keyword">set</span>-upstream <span class="string">'local_branch'</span> origin/remote_branch</span><br></pre></td></tr></table></figure>
+<h3 id="修改本地仓库对应的远程仓库地址">修改本地仓库对应的远程仓库地址</h3><p>当远程的仓库地址发生变化时，需要修改本地仓库对应的远程仓库的地址。主要应用在<a href="http://blog.csdn.net/hongshan50/article/details/23663043" target="_blank" rel="external">工程迁移</a>过程中。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="operator"><span class="keyword">set</span>-<span class="keyword">url</span> origin <span class="keyword">url</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="标签管理">标签管理</h2><p>在项目开发过程中，当一个版本发布完成时，是需要对代码打上标签，便于后续检索。获取处于其他的原因，需要对某个提交打上特定的标签。</p>
+<h3 id="创建标签">创建标签</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -<span class="tag">a</span> <span class="string">'tagname'</span> -m <span class="string">'comment'</span> <span class="string">'commit_id'</span></span><br></pre></td></tr></table></figure>
+<p><code>-a</code> 参数指定标签名， <code>-m</code> 添加备注信息， ‘commit_id’ 指定打标签的提交。</p>
+<h3 id="查看所有标签">查看所有标签</h3><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">tag</span>		<span class="comment">// 查看本地仓库中的所有标签</span></span><br></pre></td></tr></table></figure>
+<h3 id="查看具体标签信息">查看具体标签信息</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">git</span> shwo tagname</span><br></pre></td></tr></table></figure>
+<h3 id="删除本地标签">删除本地标签</h3><p>如果打的标签出错，或者不在需要某个标签，则可以删除它。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag <span class="operator">-d</span> tagname</span><br></pre></td></tr></table></figure>
+<h3 id="删除远程标签">删除远程标签</h3><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin <span class="symbol">:refs/tags/tagname</span></span><br></pre></td></tr></table></figure>
+<h3 id="推送标签到远程仓库">推送标签到远程仓库</h3><p>打完标签以后，有需要推送到远程仓库。</p>
+<p>1. 推送单个标签到远程仓库</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">git</span> <span class="keyword">push </span>origin tagname</span><br></pre></td></tr></table></figure>
+<p>2. 一次性推送所有标签到远程仓库。</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">git push origin --tags</span><br><span class="line"><span class="escape">``</span><span class="escape">` </span></span><br><span class="line"></span><br><span class="line">## 进阶操作</span><br><span class="line"></span><br><span class="line">### 临时保存修改</span><br><span class="line"></span><br><span class="line">在执行很多的 Git 操作的时候，是需要保持当前操作的仓库/分支处于 clean 状态，及没有未提交的修改。如 <span class="escape">`g</span>it pull<span class="escape">`，</span> <span class="escape">`g</span>it merge<span class="escape">` </span>等等，如果有未提交的修改，这些将无法操作。</span><br><span class="line"></span><br><span class="line">但是做这些事情的时候，你可能修改了比较多的代码，却又不想丢弃它。那么，你需要把这些修改临时保存起来，这就需要用到 <span class="escape">`g</span>it stash<span class="escape">`。</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>\. **临时保存修改**，这样仓库就可以回到 clean 状态。</span><br></pre></td></tr></table></figure>
+<p>git  stash        // 保存本地仓库中的临时修改。<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 注意：可以多次的 `git stash` 来保存不同的临时修改。</span><br><span class="line"></span><br><span class="line">2\. <span class="keyword">*</span><span class="keyword">*</span>查看临时保存<span class="keyword">*</span><span class="keyword">*</span>。当你临时保存以后，后面还是要取回来的，那它们在哪里呢？</span><br></pre></td></tr></table></figure></p>
+<p>git stash list    // 显示所有临时修改<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">3</span>\. 当我们处理完其他操作时，想要恢复临时保存的修改。</span><br></pre></td></tr></table></figure></p>
+<p>git stash apply        // 恢复所有保存的临时修改<br>git stash pop        // 恢复最近一次保存的临时修改<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">4</span>\. 或者，我们后面觉得临时保存不想要了，那可以丢弃它。</span><br></pre></td></tr></table></figure></p>
+<p>git stash clear        // 丢弃所有保存的临时修改<br>```</p>
+<p>这些是我目前在项目中经常会用到的操作，这里整理下来，可以作为一个手册。对于 Git 的理解或者更多的解释，并不在这里体现。大家可以参考其他更多的资料。</p>
+<p>更多阅读：</p>
+<p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰的 Git 教程</a><br><a href="http://gitbook.liuhui998.com/index.html" target="_blank" rel="external">Git Community Book 中文版</a><br><a href="http://www.cnblogs.com/zhongxinWang/p/4233881.html" target="_blank" rel="external">Git 对象模型</a><br><a href="http://www.cnblogs.com/zhongxinWang/p/4235448.html" target="_blank" rel="external">探索 .git 目录</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>下面整理一下自己在开发过程中经常使用到的 Git 命令。使用 GUI 工具的同学，也可以对照起来看看。</p>]]>
+    
+    </summary>
+    
+      <category term="Git" scheme="http://linfuyan.com/tags/Git/"/>
+    
+      <category term="命令" scheme="http://linfuyan.com/tags/%E5%91%BD%E4%BB%A4/"/>
+    
+      <category term="指南" scheme="http://linfuyan.com/tags/%E6%8C%87%E5%8D%97/"/>
+    
+      <category term="教程" scheme="http://linfuyan.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="软件工具" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Git" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/Git/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[不懂技术的人不要对懂技术的人说这很容易实现]]></title>
@@ -1201,146 +1347,6 @@
       <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
     
       <category term="iOS" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[ReactiveX 之 Operator]]></title>
-    <link href="http://linfuyan.com/reactivex-operator/"/>
-    <id>http://linfuyan.com/reactivex-operator/</id>
-    <published>2015-09-07T13:24:44.000Z</published>
-    <updated>2015-10-13T15:18:41.000Z</updated>
-    <content type="html"><![CDATA[<blockquote>
-<p>原文：<a href="http://reactivex.io/documentation/operators.html" target="_blank" rel="external">http://reactivex.io/documentation/operators.html</a></p>
-<p>对译文有建议，请发邮件或下方评论给我，万分感谢。</p>
-<p>更新历史：1月13日</p>
-</blockquote>
-<p>每个特定语言版本的响应式扩展实现了一套具体的操作集合。虽然有一些重叠，依然有一些操作只在特定的版本中实现，并且每种语言趋向于将相似的操作命名成其他语言中已经为大家所熟悉的名称。</p>
-<p>这篇文章列举出响应式扩展集合中被认为核心的操作，并链接到更多说明的页面上。这些页面将解释这些操作如何工作，哪些特定版本的响应式扩展又是怎样实现这些操作。</p>
-<a id="more"></a>
-<h2 id="创建Observable">创建<em>Observable</em></h2><p>创建新的<em>Observable</em>的<em>Operator</em>。</p>
-<ul>
-<li><code>Create</code> - 通过编程方式调用<em>observer</em>的方法，从零创建<em>Observable</em></li>
-<li><code>Defer</code> - 直到<em>observer</em>订阅，为每个<em>observer</em>创建全新的<em>Observable</em></li>
-<li><code>Empty/Never/Throw</code> - 创建具有精确与有限行为的<em>Observable</em></li>
-<li><code>From</code> - 转化其他对象或者数据结构为<em>Observable</em></li>
-<li><code>Interval</code> - 创建产生整型数序列的<em>Observable</em>，序列元素间的间隔为interval</li>
-<li><code>Just</code> - 转化对象或者对象的集合成为<em>Observable</em>，且<em>Observable</em>产生的值为这些对象或是对象的集合</li>
-<li><code>Range</code> - 创建一个可以产生整型数序列区间的<em>Observable</em></li>
-<li><code>Repeat</code> - 创建可以重复产生特殊项或项目序列的<em>Observable</em></li>
-<li><code>Start</code> - 创建产生函数返回值的<em>Observable</em></li>
-<li><code>Timer</code> - 创建一段给定时间以后产生单一项的<em>Observable</em></li>
-</ul>
-<h2 id="变换Observable">变换<em>Observable</em></h2><p>变换<em>Observable</em>产生的项的<em>Operator</em>。</p>
-<ul>
-<li><code>Buffer</code> - 周期性的收集<em>Observable</em>中的项放入bundle中，并产生这些bundle而不是一次性产生这些项</li>
-<li><code>FlatMap</code> - 将<em>Observable</em>所产生的多个项目变换为多个<em>Observable</em>，然后将这些<em>Observable</em>的产生值拉平为一个<em>Observable</em></li>
-<li><code>GroupBy</code> - 将<em>Observable</em>分隔为<em>Observable</em>的集合，这些新的<em>Observable</em>通过key来对原来的<em>Observable</em>组织成不同的项的组</li>
-<li><code>Map</code> - 将<em>Observable</em>产生的每个项应用函数变换映射</li>
-<li><code>Scan</code> - 对<em>Observable</em>产生的每个项进行函数变换，有序的产生成功的值</li>
-<li><code>Window</code> - 周期性的将<em>Observable</em>产生的项进行分隔成子集，放入<em>Observable window</em>，并产生这些<em>window</em>而不是一次性产生这些项</li>
-</ul>
-<h2 id="过滤Observable">过滤<em>Observable</em></h2><p>选择性的从源<em>Observable</em>中产生项的<em>Operator</em>。</p>
-<ul>
-<li><code>Debounce</code> - 在一段特定的时间之内从<em>Observable</em>中只产生一个项</li>
-<li><code>Distinct</code> - 过滤掉<em>Observable</em>中产生的重复的项</li>
-<li><code>ElementAt</code> - 从<em>Observable</em>中拿到第N个项</li>
-<li><code>Filter</code> - 从<em>Observable</em>中产生符合预设条件的项</li>
-<li><code>First</code> - 从<em>Observable</em>中产生第一个项或者产生符合条件的第一个项</li>
-<li><code>IgnoreElements</code> - 直到结束是通知，否则忽略<em>Observable</em>产生的所有项</li>
-<li><code>Last</code> - 产生<em>Observable</em>中的最后一项</li>
-<li><code>Sample</code> - 在特定的时间间隔内从<em>Observable</em>产生最近的项</li>
-<li><code>Skip</code> - 跳过<em>Observable</em>产生的前n个项</li>
-<li><code>SkipLast</code> - 跳过<em>Observable</em>产生的最后n个项</li>
-<li><code>Take</code> - 产生<em>Observable</em>产生的前n个项</li>
-<li><code>TakeLast</code> - 产生<em>Observable</em>产生的最后n个项</li>
-</ul>
-<h2 id="组合Observable">组合<em>Observable</em></h2><p>操作多个源<em>Observable</em>来创建新的<em>Observable</em>的<em>Operator</em></p>
-<ul>
-<li><code>And/Then/When</code> - 以<code>Pattern</code>和<code>Plan</code>的形式，组合两个或多个<em>Observable</em>产生的项集</li>
-<li><code>CombineLatest</code> - 不论两个<em>Observable</em>中产生了项，通过特定的函数来组合每个<em>Observable</em>中的最后一项，并产生他们的结果</li>
-<li><code>Join</code> - </li>
-<li><code>Merge</code> -</li>
-<li><code>StartWith</code> - </li>
-<li><code>Switch</code> - </li>
-<li><code>Zip</code> - 通过特定的函数将多个<em>Observable</em>的产生项组合成单一项，每个组合依赖于函数结果。</li>
-</ul>
-<h2 id="错误处理Operator">错误处理<em>Operator</em></h2><p>帮助从<em>Observable</em>错误通知中修复的<em>Operator</em></p>
-<ul>
-<li><code>Catch</code> - 通过没有错误的继续产生序列来从<code>onError</code>通知中修复</li>
-<li><code>Retry</code> - 如果源<em>Observable</em>发送了<code>onError</code>通知，重新订阅它并期待它可以没有错误的完成</li>
-</ul>
-<h2 id="Observable工具集Operator"><em>Observable</em>工具集<em>Operator</em></h2><p>一系列操作<em>Observable</em>的有用的工具箱<em>Operator</em></p>
-<ul>
-<li><code>Delay</code> - 将<em>Observable</em>产生项延迟一个特定的时间</li>
-<li><code>Do</code> - 注册一个动作来响应<em>Observable</em>的生命周期事件</li>
-<li><code>Materialize/Dematerialize</code> - 将产生的项或者发出的通知看成产生项，或者逆转这个过程</li>
-<li><code>ObserveOn</code> - 明确<em>Observer</em>观察<em>Observable</em>所在的<em>Scheduler</em></li>
-<li><code>SubscribeOn</code> - 明确<em>Observable</em>被订阅后所使用的<em>Scheduler</em></li>
-<li><code>TimeInterval</code> - 将产生项的<em>Observable</em>转化为这些项之间产生的时间间隔</li>
-<li><code>Timeout</code> - 镜像源<em>Observable</em>，并在特定的时间范围内没有项产生时发出错误通知</li>
-<li><code>Timestamp</code> - 给每个<em>Observable</em>产生项附加时间戳</li>
-<li><code>Using</code> - 创建一个与<em>Observable</em>具有相同寿命的一次性资源</li>
-</ul>
-<h2 id="条件和布尔Operator">条件和布尔<em>Operator</em></h2><p>评估一个或多个<em>Observable</em>或<em>Observable</em>产生的项</p>
-<ul>
-<li><code>All</code> - 确定是否所有的<em>Observable</em>产生项符合标准</li>
-<li><code>Amb</code> - 有两个或者多个源<em>Observable</em>，只对其中的第一个<em>Observable</em>产生其项</li>
-<li><code>Contains</code> - 确定<em>Observable</em>是否包含一个特殊的项</li>
-<li><code>DefaultIfEmpty</code> - 从源<em>Observable</em>产生项，如果为空，则产生默认项</li>
-<li><code>SequenceEqual</code> - 确定是否两个<em>Observable</em>产生同样的项序列</li>
-<li><code>SkipUntil</code> - 丢弃一个<em>Observable</em>所有的产生项，直到第二个<em>Observable</em>产生了项</li>
-<li><code>SkipWhile</code> - 丢弃一个<em>Observable</em>所有产生项，直到某个特定条件不成立</li>
-<li><code>TakeUntil</code> - 当第二个<em>Observable</em>产生了项，第一个<em>Observable</em>丢弃所有的产生项</li>
-<li><code>TakeWhile</code> - 当某个特定条件不成立，<em>Observable</em>丢弃所有的产生项</li>
-</ul>
-<h2 id="数学与聚合Operator">数学与聚合<em>Operator</em></h2><p>操作<em>Observable</em>所有产生项的序列的<em>Operator</em></p>
-<ul>
-<li><code>Average</code> - 计算<em>Observable</em>所有产生项的平均值，并产生这个平均值</li>
-<li><code>Concat</code> - 拼接两个或者多个<em>Observable</em></li>
-<li><code>Count</code> - 计算源<em>Observable</em>产生的项的个数，并产生这个值</li>
-<li><code>Max</code> - 确定并产生<em>Observable</em>产生值中的最大值</li>
-<li><code>Min</code> - 确定并产生<em>Observable</em>产生值中的最小值</li>
-<li><code>Reduce</code> - 对<em>Observable</em>产生的每个项应用函数变换，并且有序的产生最终变换结果</li>
-<li><code>Sum</code> - 计算<em>Observable</em>所有产生项的和，并产生这个和的值</li>
-</ul>
-<h2 id="Connectable_Observable_Operator"><em>Connectable Observable Operator</em></h2><p>特殊的<em>Observable</em>具有更多的动态的精确控制的订阅方式。</p>
-<ul>
-<li><code>Connect</code> - 指示一个可连接的<em>Observable</em>开始产生项到它的订阅者</li>
-<li><code>Publish</code> - 转化一个普通的<em>Observable</em>为一个可连接的<em>Observable</em></li>
-<li><code>RefCount</code> - 使一个可链接的<em>Observable</em>的行为跟普通的<em>Observable</em>一样</li>
-<li><code>Replay</code> - 确保所有观察者看到的产生项序列一样，即使它们在<em>Observable</em>产生项以后才订阅</li>
-</ul>
-<h2 id="Blocking_Observable_Operator"><em>Blocking Observable Operator</em></h2><ul>
-<li><code>To</code> - 将<em>Observable</em>转化为其他对象或者数据结构</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<blockquote>
-<p>原文：<a href="http://reactivex.io/documentation/operators.html">http://reactivex.io/documentation/operators.html</a></p>
-<p>对译文有建议，请发邮件或下方评论给我，万分感谢。</p>
-<p>更新历史：1月13日</p>
-</blockquote>
-<p>每个特定语言版本的响应式扩展实现了一套具体的操作集合。虽然有一些重叠，依然有一些操作只在特定的版本中实现，并且每种语言趋向于将相似的操作命名成其他语言中已经为大家所熟悉的名称。</p>
-<p>这篇文章列举出响应式扩展集合中被认为核心的操作，并链接到更多说明的页面上。这些页面将解释这些操作如何工作，哪些特定版本的响应式扩展又是怎样实现这些操作。</p>]]>
-    
-    </summary>
-    
-      <category term="Operator" scheme="http://linfuyan.com/tags/Operator/"/>
-    
-      <category term="frp" scheme="http://linfuyan.com/tags/frp/"/>
-    
-      <category term="reactivex" scheme="http://linfuyan.com/tags/reactivex/"/>
-    
-      <category term="rxjava" scheme="http://linfuyan.com/tags/rxjava/"/>
-    
-      <category term="响应式编程" scheme="http://linfuyan.com/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="响应式编程" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="rxjava" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/rxjava/"/>
     
   </entry>
   

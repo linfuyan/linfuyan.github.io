@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>常用 Git 命令使用教程 | 悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="下面整理一下自己在开发过程中经常使用到的 Git 命令。使用 GUI 工具的同学，也可以对照起来看看。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用 Git 命令使用教程">
+<meta property="og:url" content="http://linfuyan.com/git-cmd-user-guide/index.html">
+<meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
+<meta property="og:description" content="下面整理一下自己在开发过程中经常使用到的 Git 命令。使用 GUI 工具的同学，也可以对照起来看看。">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-cmd-user-guide.png">
+<meta property="og:updated_time" content="2015-10-14T10:50:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用 Git 命令使用教程">
+<meta name="twitter:description" content="下面整理一下自己在开发过程中经常使用到的 Git 命令。使用 GUI 工具的同学，也可以对照起来看看。">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  
+  
+    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+  
+  
+
+
+  
+
+  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+            <h2 class="subtitle-wrap">
+              <p class="subtitle">关注但不限于 Android、iOS、nodejs</p>
+            </h2>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
+                  
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://linfuyan.com"></form>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header"><a class="page-title-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/软件工具/Git/">Git</a></h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-git-cmd-user-guide" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      常用 Git 命令使用教程
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/git-cmd-user-guide/" class="article-date">
+  <time datetime="2015-10-14T02:00:00.000Z" itemprop="datePublished">2015-10-14</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <p>下面整理一下自己在开发过程中经常使用到的 Git 命令。使用 GUI 工具的同学，也可以对照起来看看。</p>
+<a id="more"></a>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-cmd-user-guide.png" alt="常用 Git 命令使用教程"></p>
+<h2 id="Git_配置">Git 配置</h2><p>1. 在安装完成 Git 后，开始正式使用前，是需要有一些全局设置的，如用户名、邮箱。</p>
+<p>设置的主要命令是 <code>git config</code>:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user<span class="class">.name</span> <span class="string">"your name"</span>  	<span class="comment">// 设置全局用户名</span></span><br><span class="line">git config --global user<span class="class">.email</span> <span class="string">"your email"</span>	<span class="comment">// 设置邮箱</span></span><br></pre></td></tr></table></figure>
+<p>其中， <code>--global</code> 指定为全局配置，不使用该参数，则为当前所在仓库配置。</p>
+<p>2. 除了用户名、邮箱之外，还有很多的配置可以用来自定义 Git，如：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global <span class="attribute">color</span><span class="class">.ui</span> true		<span class="comment">// 让 Git 显示不同的颜色</span></span><br><span class="line">git config core<span class="class">.ignorecase</span> true			<span class="comment">// 让 Git 对仓库中的文件大小写敏感</span></span><br></pre></td></tr></table></figure>
+<p>3. 查看所有的已经做出的配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config <span class="operator">-l</span></span><br></pre></td></tr></table></figure>
+<h2 id="基础操作">基础操作</h2><h3 id="创建_Git_版本库">创建 Git 版本库</h3><p>在本地创建 Git 版本库，需要使用 <code>git init</code> 命令。</p>
+<p>首先，你需要新建一个存放版本库的目录，然后进入到该目录所在路径，然后执行：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">git</span> init</span><br></pre></td></tr></table></figure>
+<p>然后查看目录结构中，就可以看到包含有 <code>.git</code> 子目录，这就说明创建版本库成功了。</p>
+<h3 id="将文件添加到版本库">将文件添加到版本库</h3><p>要将一个文件纳入到版本库管理，首先要将其添加到暂存区(这里不做深入介绍)，然后才能提交到仓库中。</p>
+<p>1. 将文件添加到暂存区，使用的是 <code>git add</code>：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">add</span> Readme.md	<span class="comment">	// 添加单个文件到暂存区</span></span><br><span class="line">git <span class="built_in">add</span> .			<span class="comment">	// 将当前目录下所有修改添加到暂存区，除按照规则忽略的之外</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：这边空文件夹是不会被添加到暂存区中的。</p>
+</blockquote>
+<p>2. 将暂存区中的文件，提交到仓库中。需要使用 <code>git commit</code>：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="operator"><span class="keyword">commit</span>		// 如果暂存区有文件，则将其中的文件提交到仓库</span><br><span class="line">git <span class="keyword">commit</span> -<span class="keyword">m</span> <span class="string">'your comments'</span> 		// 带评论提交，用于说明提交内容、变更、作用等</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：这边直接用 <code>git commit</code> 提交，会先弹出添加评论的页面。</p>
+</blockquote>
+<h3 id="查看仓库的状态">查看仓库的状态</h3><p>不论我们是新建了文件，将文件加入暂存区，或者其他的修改等等，我们都可以通过：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">status</span></span><br></pre></td></tr></table></figure>
+<p>来随时查看仓库中文件的状态。这个应该是使用 Git 做版本控制过程中，我使用最多的一个命令。</p>
+<h3 id="查看仓库中的具体修改">查看仓库中的具体修改</h3><p>很经常的，我们对某个文件做了修改，但过不久就忘记了。这时候就可以通过 <code>git diff</code> 来查看具体的修改内容。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git diff	<span class="comment">// 查看版本库中所有的改动</span></span><br><span class="line">git diff Readme<span class="class">.md</span>		<span class="comment">// 查看具体文件的改动</span></span><br></pre></td></tr></table></figure>
+<h3 id="查看提交历史记录">查看提交历史记录</h3><p>有的时候，你会需要查看自己做过哪些提交，来回顾自己完成的部分。或者需要寻找某个具体的提交来查看当时的代码。这里需要用到：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> <span class="comment">	// 显示所有提交的历史记录</span></span><br><span class="line">git <span class="built_in">log</span> <span class="comment">--pretty=oneline	// 单行显示提交历史记录的内容</span></span><br></pre></td></tr></table></figure>
+<p>在 <code>git log</code> 的输出内容中，可以看到每次提交的 ID，是一个 40 位的字符串。</p>
+<h3 id="版本回退">版本回退</h3><p>有了 <code>git log</code> 来查看提交的历史记录，我们就可以通过 <code>git reset --hard</code> 来回退到我们需要的特定版本，然后使用当时的代码进行各种操作。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="operator"><span class="keyword">reset</span> <span class="comment">--hard HEAD^		// 回退到上一个提交版本</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard HEAD^^		// 回退到上上一个提交版本</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard 'commit_id'	// 会退到 commit_id 指定的提交版本</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="回到未来的某个提交">回到未来的某个提交</h3><p>当退回到某个提交的版本以后，再通过 <code>git log</code> 是无法显示在这之后的提交信息的。但是，通过 <code>git reflog</code> 可以获取到操作命令的历史。</p>
+<p>因此，想要回到未来的某个提交，先通过 <code>git reflog</code> 从历史命令中找到想要回到的提交版本的 ID，然后通过 <code>git reset --hard</code> 来切换。</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br><span class="line">git <span class="keyword">reset</span> --hard <span class="string">'commit_id'</span></span><br></pre></td></tr></table></figure>
+<h3 id="撤销修改">撤销修改</h3><p>撤销修改同样包括两方面的内容，由于仓库中的文件在提交之前，可能在工作区中，尚未在版本控制范围内，也可能在暂存区中。</p>
+<p>1. 丢弃工作区中文件的修改</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- Readme<span class="class">.md</span>	<span class="comment">// 如果 Readme.md 文件在工作区，则丢弃其修改</span></span><br><span class="line">git checkout -- .			<span class="comment">// 丢弃当前目录下所有工作区中文件的修改</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意： <code>git checkout --</code> 中的 <code>--</code> 是必须的。</p>
+</blockquote>
+<p>2. 丢弃已经进入暂存区的修改</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="operator"><span class="keyword">reset</span> <span class="keyword">HEAD</span> Readme.md 	// 将 Readme.md 恢复到 <span class="keyword">HEAD</span> 提交版本的状态</span></span><br></pre></td></tr></table></figure>
+<h3 id="删除文件">删除文件</h3><p>在文件未添加到暂存区之前，对想删除文件可以直接物理删除。或者通过 <code>git checkout -- file</code> 来丢弃。如果文件已经被提交，则需要 <code>git rm</code> 来删除：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm Readme<span class="class">.md</span> 	<span class="comment">// 删除已经被提交过的 Readme.md</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意： <code>git rm</code> 只能删除已经提交到版本库中的文件。其他状态的文件直接用这个命令操作是出错的。</p>
+</blockquote>
+<h2 id="分支管理">分支管理</h2><p>分支是版本控制系统中很重要的一个概念，在 Git 中新建、合并等分支的操作非常轻量便捷，因此我们会很经常的用到。</p>
+<h3 id="查看分支">查看分支</h3><p>查看分支使用 <code>git branch</code>：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch		<span class="comment">// 查看本地分支信息</span></span><br><span class="line">git branch -v 	<span class="comment">// 查看相对详细的本地分支信息</span></span><br><span class="line">git branch -av 	<span class="comment">// 查看包括远程仓库在内的分支信息</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：在 <code>git branch</code> 的输出内容中，有一个分支，前面带有 <code>*</code> 号，这标识我们当前所在的分支。</p>
+</blockquote>
+<h3 id="创建分支">创建分支</h3><p>当我们要修复一个 Bug，或者开发一个新特性，甚至是在初学的时候怕打乱原来的代码，都可以新建一个分支来避免对原来代码的影响。</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch <span class="built_in">dev</span>	<span class="comment">// 新建一个名称为 dev 的分支</span></span><br></pre></td></tr></table></figure>
+<h3 id="切换分支">切换分支</h3><p>当我们创建完分支以后，我们需要切换到新建的分支，否则，所有的修改，还是在原来的分支上。事实上，所有的改动，只能影响到当前所在的分支。</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout <span class="built_in">dev</span>	<span class="comment">// 新建完 dev 分支以后，通过该命令切换到 dev 分支</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建并切换分支">创建并切换分支</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -<span class="tag">b</span> dev		<span class="comment">// 新建 dev 分支，并切换到该分支上</span></span><br></pre></td></tr></table></figure>
+<p>这个命令合并了前两个独立的命令，平常使用中一般这样使用。</p>
+<h3 id="合并分支">合并分支</h3><p>当我们修复完成一个 Bug，或者开发完成一个新特性，我们就会把相关的 Bug 或者 特性的上修改合并回原来的主分支上，这时候就需要 <code>git merge</code> 来做分支的合并。</p>
+<p>首先需要切换回最终要合并到的分支，如 <code>master</code>：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master	<span class="comment">	// 切换回 master 分支</span></span><br><span class="line">git <span class="built_in">merge</span> dev		<span class="comment">	// 将 dev 分钟中的修改合并回 master 分支</span></span><br></pre></td></tr></table></figure>
+<p>合并回主分支的时候，后面可能会面临到冲突的问题。冲突的解决暂不在这里说明。</p>
+<h3 id="删除分支">删除分支</h3><p>当之前创建的分支，完成了它的使命，如 Bug 修复完，分支合并以后，这个分支就不在需要了，就可以删除它。</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d <span class="built_in">dev</span>		<span class="comment">// 删除 dev 分支</span></span><br></pre></td></tr></table></figure>
+<h2 id="远程仓库">远程仓库</h2><p>上面的所有命令都是针对本地仓库的操作。当我们希望多个人来协作时，会将代码发布到一个统一的远程仓库，然后多个人在本地操作以后，在推送到远程仓库。其他人协作时，需要先同步远程仓库的内容，再推送自己的修改。</p>
+<h3 id="从远程仓库克隆">从远程仓库克隆</h3><p>如果你本地没有仓库，希望从已有的远程仓库上复制一份代码，那么你需要 <code>git clone</code>。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone <span class="string">https:</span><span class="comment">//github.com/git/git.git 	// 通过 https 协议，克隆 Github 上 git 仓库的源码</span></span><br><span class="line">git clone linfuyan<span class="annotation">@github</span>.com<span class="regexp">/git/</span>git.git	<span class="comment">// 通过 ssh 协议，克隆 Github 上 git 仓库的源码</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意： <code>git clone</code> 后面的仓库地址，可以支持多种协议，如 https， ssh 等。</p>
+</blockquote>
+<h3 id="添加远程仓库">添加远程仓库</h3><p>如果你已经有了一个本地仓库，如之前创建的 <code>git-guide</code>，然后你打算将它发布到远程，供其他人协作。那么使用：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="built_in">add</span> origin your_remote_git_repo	<span class="comment">	// 为本地仓库添加远程仓库</span></span><br></pre></td></tr></table></figure>
+<h3 id="推送本地的内容到远程仓库">推送本地的内容到远程仓库</h3><p>当本地仓库中，代码完成提交，就需要将代码等推送到远程仓库，这样其他协作人员可以从远程仓库同步内容。</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">push</span> -u origin master <span class="comment">// 第一次推送时使用，可以简化后面的推送或者拉取命令使用</span></span><br><span class="line">git <span class="keyword">push</span> origin master	<span class="comment">// 将本地 master 分支推送到 origin 远程分支</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意： <code>git push -u origin master</code>，第一次使用时，带上 <code>-u</code> 参数，在将本地的 master 分支推送到远程新的 master 分支的同时，还会把本地的 master 分支和远程的 master 分支关联起来。</p>
+</blockquote>
+<h3 id="从远程仓库获取最新内容">从远程仓库获取最新内容</h3><p>在多人协作过程中，当自己完成了本地仓库中的提交，想要向远程仓库推送前，需要先获取到远程仓库的最新内容。</p>
+<p>可以通过 <code>git fetch</code> 和 <code>git pull</code> 来获取远程仓库的内容。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">git</span> fetch origin master	</span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+<p><code>git fetch</code> 和 <code>git pull</code> 之间的区别：</p>
+<ol>
+<li><code>git fetch</code> 是仅仅获取远程仓库的更新内容，并不会自动做合并。</li>
+<li><code>git pull</code> 在获取远程仓库的内容后，会自动做合并，可以看成 <code>git fetch</code> 之后 <code>git merge</code>。</li>
+</ol>
+<blockquote>
+<p>注意：建议多使用 <code>git fetch</code>。</p>
+</blockquote>
+<h3 id="查看远程仓库信息">查看远程仓库信息</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="attr_selector">[-v]</span>		<span class="comment">// 显示远程仓库信息</span></span><br></pre></td></tr></table></figure>
+<h3 id="建立本地分支和远程分支的关联">建立本地分支和远程分支的关联</h3><p>在本地仓库中的分支和远程仓库中的分支是对应的。一般情况下，远程仓库中的分支名称和本地仓库中的分支名称是一致的。</p>
+<p>有的时候，我们会需要指定本地分支与远程分支的关联。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --<span class="keyword">set</span>-upstream <span class="string">'local_branch'</span> origin/remote_branch</span><br></pre></td></tr></table></figure>
+<h3 id="修改本地仓库对应的远程仓库地址">修改本地仓库对应的远程仓库地址</h3><p>当远程的仓库地址发生变化时，需要修改本地仓库对应的远程仓库的地址。主要应用在<a href="http://blog.csdn.net/hongshan50/article/details/23663043" target="_blank" rel="external">工程迁移</a>过程中。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="operator"><span class="keyword">set</span>-<span class="keyword">url</span> origin <span class="keyword">url</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="标签管理">标签管理</h2><p>在项目开发过程中，当一个版本发布完成时，是需要对代码打上标签，便于后续检索。获取处于其他的原因，需要对某个提交打上特定的标签。</p>
+<h3 id="创建标签">创建标签</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -<span class="tag">a</span> <span class="string">'tagname'</span> -m <span class="string">'comment'</span> <span class="string">'commit_id'</span></span><br></pre></td></tr></table></figure>
+<p><code>-a</code> 参数指定标签名， <code>-m</code> 添加备注信息， ‘commit_id’ 指定打标签的提交。</p>
+<h3 id="查看所有标签">查看所有标签</h3><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">tag</span>		<span class="comment">// 查看本地仓库中的所有标签</span></span><br></pre></td></tr></table></figure>
+<h3 id="查看具体标签信息">查看具体标签信息</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">git</span> shwo tagname</span><br></pre></td></tr></table></figure>
+<h3 id="删除本地标签">删除本地标签</h3><p>如果打的标签出错，或者不在需要某个标签，则可以删除它。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag <span class="operator">-d</span> tagname</span><br></pre></td></tr></table></figure>
+<h3 id="删除远程标签">删除远程标签</h3><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin <span class="symbol">:refs/tags/tagname</span></span><br></pre></td></tr></table></figure>
+<h3 id="推送标签到远程仓库">推送标签到远程仓库</h3><p>打完标签以后，有需要推送到远程仓库。</p>
+<p>1. 推送单个标签到远程仓库</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">git</span> <span class="keyword">push </span>origin tagname</span><br></pre></td></tr></table></figure>
+<p>2. 一次性推送所有标签到远程仓库。</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">git push origin --tags</span><br><span class="line"><span class="escape">``</span><span class="escape">` </span></span><br><span class="line"></span><br><span class="line">## 进阶操作</span><br><span class="line"></span><br><span class="line">### 临时保存修改</span><br><span class="line"></span><br><span class="line">在执行很多的 Git 操作的时候，是需要保持当前操作的仓库/分支处于 clean 状态，及没有未提交的修改。如 <span class="escape">`g</span>it pull<span class="escape">`，</span> <span class="escape">`g</span>it merge<span class="escape">` </span>等等，如果有未提交的修改，这些将无法操作。</span><br><span class="line"></span><br><span class="line">但是做这些事情的时候，你可能修改了比较多的代码，却又不想丢弃它。那么，你需要把这些修改临时保存起来，这就需要用到 <span class="escape">`g</span>it stash<span class="escape">`。</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>\. **临时保存修改**，这样仓库就可以回到 clean 状态。</span><br></pre></td></tr></table></figure>
+<p>git  stash        // 保存本地仓库中的临时修改。<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 注意：可以多次的 `git stash` 来保存不同的临时修改。</span><br><span class="line"></span><br><span class="line">2\. <span class="keyword">*</span><span class="keyword">*</span>查看临时保存<span class="keyword">*</span><span class="keyword">*</span>。当你临时保存以后，后面还是要取回来的，那它们在哪里呢？</span><br></pre></td></tr></table></figure></p>
+<p>git stash list    // 显示所有临时修改<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">3</span>\. 当我们处理完其他操作时，想要恢复临时保存的修改。</span><br></pre></td></tr></table></figure></p>
+<p>git stash apply        // 恢复所有保存的临时修改<br>git stash pop        // 恢复最近一次保存的临时修改<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">4</span>\. 或者，我们后面觉得临时保存不想要了，那可以丢弃它。</span><br></pre></td></tr></table></figure></p>
+<p>git stash clear        // 丢弃所有保存的临时修改<br>```</p>
+<p>这些是我目前在项目中经常会用到的操作，这里整理下来，可以作为一个手册。对于 Git 的理解或者更多的解释，并不在这里体现。大家可以参考其他更多的资料。</p>
+<p>更多阅读：</p>
+<p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰的 Git 教程</a><br><a href="http://gitbook.liuhui998.com/index.html" target="_blank" rel="external">Git Community Book 中文版</a><br><a href="http://www.cnblogs.com/zhongxinWang/p/4233881.html" target="_blank" rel="external">Git 对象模型</a><br><a href="http://www.cnblogs.com/zhongxinWang/p/4235448.html" target="_blank" rel="external">探索 .git 目录</a></p>
+
+      </div>
+      <footer class="article-footer">
+        <!-- <a data-url="http://linfuyan.com/git-cmd-user-guide/" data-id="cifqo873e007rq1fytsqx7jc9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令/">命令</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指南/">指南</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/教程/">教程</a></li></ul>
+
+      </footer>
+      
+  
+  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- linfuyan 文章 -->
+	<ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-3371913913447815"
+      data-ad-slot="7769806683"
+      data-ad-format="auto"></ins>
+	<script>
+	  (adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+  
+
+
+      
+        
+<nav id="article-nav">
+  
+  
+    <a href="/im-sure-it-will-only-take-you-a-few-days-to-code/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">不懂技术的人不要对懂技术的人说这很容易实现</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+      
+      
+        <div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+      
+    </div>
+  </article>
+  
+
+  
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-git-cmd-user-guide" data-title="常用 Git 命令使用教程" data-url="http://linfuyan.com/git-cmd-user-guide/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'linfuyan'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
+      
+        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
+      
+    </ul>
+  </div>
+  <!-- 
+    
+<nav id="article-nav">
+  
+  
+    <a href="/im-sure-it-will-only-take-you-a-few-days-to-code/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">不懂技术的人不要对懂技术的人说这很容易实现</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+   -->
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+    <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/>  
+  </div>
+
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/git-cmd-user-guide/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-cmd-user-guide.png
+)" alt="常用 Git 命令使用教程" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/Git/">Git</a></p>
+              <p class="item-title"><a href="/git-cmd-user-guide/" class="title">常用 Git 命令使用教程</a></p>
+              <p class="item-date"><time datetime="2015-10-14T02:00:00.000Z" itemprop="datePublished">2015-10-14</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/im-sure-it-will-only-take-you-a-few-days-to-code/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/non-technical-people-cant-estimate-developmen.jpg
+)" alt="不懂技术的人不要对懂技术的人说这很容易实现" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/深度文摘/">深度文摘</a></p>
+              <p class="item-title"><a href="/im-sure-it-will-only-take-you-a-few-days-to-code/" class="title">不懂技术的人不要对懂技术的人说这很容易实现</a></p>
+              <p class="item-date"><time datetime="2015-10-11T10:36:09.000Z" itemprop="datePublished">2015-10-11</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/keep-pages-at-your-hexo-blog/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/FAQ/">FAQ</a></p>
+              <p class="item-title"><a href="/keep-pages-at-your-hexo-blog/" class="title">Hexo 如何保持页面文件不被渲染</a></p>
+              <p class="item-date"><time datetime="2015-10-10T16:35:14.000Z" itemprop="datePublished">2015-10-11</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/android-m-changes/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/text-selection.gif
+)" alt="Android 6.0 特性及主要 API 变更" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
+              <p class="item-title"><a href="/android-m-changes/" class="title">Android 6.0 特性及主要 API 变更</a></p>
+              <p class="item-date"><time datetime="2015-10-10T03:52:00.000Z" itemprop="datePublished">2015-10-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2-minute-introduction-to-rx/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/2_minute_rx_1.png
+)" alt="响应式编程2分钟简介" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/响应式编程/">响应式编程</a></p>
+              <p class="item-title"><a href="/2-minute-introduction-to-rx/" class="title">响应式编程2分钟简介</a></p>
+              <p class="item-date"><time datetime="2015-09-28T03:40:00.000Z" itemprop="datePublished">2015-09-28</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-float">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/14-04/" style="font-size: 10px;">14.04</a> <a href="/tags/6/" style="font-size: 10px;">6</a> <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 12.5px;">Android Studio</a> <a href="/tags/Android开发/" style="font-size: 10px;">Android开发</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/App/" style="font-size: 12.5px;">App</a> <a href="/tags/App-ID/" style="font-size: 10px;">App ID</a> <a href="/tags/CI/" style="font-size: 10px;">CI</a> <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Gradle/" style="font-size: 12.5px;">Gradle</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Hueman/" style="font-size: 10px;">Hueman</a> <a href="/tags/LAMP/" style="font-size: 10px;">LAMP</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Marshmallow/" style="font-size: 10px;">Marshmallow</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Operator/" style="font-size: 10px;">Operator</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/TLS/" style="font-size: 10px;">TLS</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/boot2docker/" style="font-size: 10px;">boot2docker</a> <a href="/tags/cocoapods/" style="font-size: 10px;">cocoapods</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/fir-im/" style="font-size: 10px;">fir.im</a> <a href="/tags/frp/" style="font-size: 12.5px;">frp</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/google/" style="font-size: 12.5px;">google</a> <a href="/tags/iOS/" style="font-size: 17.5px;">iOS</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/jenkins/" style="font-size: 12.5px;">jenkins</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/profile/" style="font-size: 10px;">profile</a> <a href="/tags/provision/" style="font-size: 10px;">provision</a> <a href="/tags/push/" style="font-size: 10px;">push</a> <a href="/tags/reactivex/" style="font-size: 17.5px;">reactivex</a> <a href="/tags/registry/" style="font-size: 10px;">registry</a> <a href="/tags/rx/" style="font-size: 10px;">rx</a> <a href="/tags/rxandroid/" style="font-size: 12.5px;">rxandroid</a> <a href="/tags/rxjava/" style="font-size: 17.5px;">rxjava</a> <a href="/tags/skip-render/" style="font-size: 10px;">skip render</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/taobao/" style="font-size: 10px;">taobao</a> <a href="/tags/个人/" style="font-size: 15px;">个人</a> <a href="/tags/二维码/" style="font-size: 10px;">二维码</a> <a href="/tags/产品口味/" style="font-size: 10px;">产品口味</a> <a href="/tags/代码规范/" style="font-size: 10px;">代码规范</a> <a href="/tags/代码评审/" style="font-size: 15px;">代码评审</a> <a href="/tags/代码风格/" style="font-size: 10px;">代码风格</a> <a href="/tags/价值/" style="font-size: 10px;">价值</a> <a href="/tags/估计/" style="font-size: 10px;">估计</a> <a href="/tags/全栈工程师/" style="font-size: 10px;">全栈工程师</a> <a href="/tags/分支模型/" style="font-size: 10px;">分支模型</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/原则/" style="font-size: 10px;">原则</a> <a href="/tags/反应式编程/" style="font-size: 12.5px;">反应式编程</a> <a href="/tags/变更/" style="font-size: 10px;">变更</a> <a href="/tags/周期/" style="font-size: 12.5px;">周期</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/命令式/" style="font-size: 10px;">命令式</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/响应式编程/" style="font-size: 12.5px;">响应式编程</a> <a href="/tags/图文教程/" style="font-size: 10px;">图文教程</a> <a href="/tags/基础/" style="font-size: 15px;">基础</a> <a href="/tags/声明式/" style="font-size: 10px;">声明式</a> <a href="/tags/学习路线/" style="font-size: 12.5px;">学习路线</a> <a href="/tags/安装/" style="font-size: 15px;">安装</a> <a href="/tags/工作流/" style="font-size: 10px;">工作流</a> <a href="/tags/应用程序/" style="font-size: 10px;">应用程序</a> <a href="/tags/开发/" style="font-size: 12.5px;">开发</a> <a href="/tags/开发工具/" style="font-size: 10px;">开发工具</a> <a href="/tags/开发者证书/" style="font-size: 10px;">开发者证书</a> <a href="/tags/微信公众号/" style="font-size: 10px;">微信公众号</a> <a href="/tags/技能/" style="font-size: 12.5px;">技能</a> <a href="/tags/持续集成/" style="font-size: 12.5px;">持续集成</a> <a href="/tags/指南/" style="font-size: 10px;">指南</a> <a href="/tags/操作符/" style="font-size: 10px;">操作符</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/更新/" style="font-size: 10px;">更新</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/构建/" style="font-size: 10px;">构建</a> <a href="/tags/构建变种/" style="font-size: 10px;">构建变种</a> <a href="/tags/构建类型/" style="font-size: 10px;">构建类型</a> <a href="/tags/构建系统/" style="font-size: 12.5px;">构建系统</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/渲染/" style="font-size: 10px;">渲染</a> <a href="/tags/生命周期/" style="font-size: 10px;">生命周期</a> <a href="/tags/程序员/" style="font-size: 12.5px;">程序员</a> <a href="/tags/管理/" style="font-size: 10px;">管理</a> <a href="/tags/编码规范/" style="font-size: 10px;">编码规范</a> <a href="/tags/编程/" style="font-size: 12.5px;">编程</a> <a href="/tags/聪明人/" style="font-size: 10px;">聪明人</a> <a href="/tags/自动化/" style="font-size: 10px;">自动化</a> <a href="/tags/范式/" style="font-size: 10px;">范式</a> <a href="/tags/解决方案/" style="font-size: 10px;">解决方案</a> <a href="/tags/评估/" style="font-size: 10px;">评估</a> <a href="/tags/语言/" style="font-size: 10px;">语言</a> <a href="/tags/软件/" style="font-size: 12.5px;">软件</a> <a href="/tags/进阶/" style="font-size: 12.5px;">进阶</a> <a href="/tags/配置/" style="font-size: 10px;">配置</a> <a href="/tags/错误/" style="font-size: 10px;">错误</a> <a href="/tags/镜像/" style="font-size: 10px;">镜像</a> <a href="/tags/页面/" style="font-size: 10px;">页面</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">17</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/14-04/">14.04</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/6/">6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/">API</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Studio/">Android Studio</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android开发/">Android开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/">Apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/App/">App</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/App-ID/">App ID</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI/">CI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gradle/">Gradle</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hueman/">Hueman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LAMP/">LAMP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Marshmallow/">Marshmallow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Operator/">Operator</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TLS/">TLS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot2docker/">boot2docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocoapods/">cocoapods</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/facebook/">facebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fir-im/">fir.im</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google/">google</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/">jenkins</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/profile/">profile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/provision/">provision</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/push/">push</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactivex/">reactivex</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/registry/">registry</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rx/">rx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxandroid/">rxandroid</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjava/">rxjava</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/skip-render/">skip render</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/taobao/">taobao</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人/">个人</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品口味/">产品口味</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码规范/">代码规范</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码评审/">代码评审</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码风格/">代码风格</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/价值/">价值</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/估计/">估计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/全栈工程师/">全栈工程师</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分支模型/">分支模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原则/">原则</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/反应式编程/">反应式编程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/变更/">变更</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/周期/">周期</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命令/">命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命令式/">命令式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式编程/">响应式编程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图文教程/">图文教程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/声明式/">声明式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习路线/">学习路线</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安装/">安装</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作流/">工作流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/应用程序/">应用程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发/">开发</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发工具/">开发工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发者证书/">开发者证书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信公众号/">微信公众号</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技能/">技能</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/持续集成/">持续集成</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指南/">指南</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作符/">操作符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/更新/">更新</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最佳实践/">最佳实践</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建/">构建</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建变种/">构建变种</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建类型/">构建类型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建系统/">构建系统</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渲染/">渲染</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生命周期/">生命周期</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/程序员/">程序员</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/管理/">管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编码规范/">编码规范</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程/">编程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/聪明人/">聪明人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动化/">自动化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/范式/">范式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/解决方案/">解决方案</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/评估/">评估</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语言/">语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件/">软件</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/进阶/">进阶</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/错误/">错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/镜像/">镜像</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/页面/">页面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://hexo.io">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2015 linfuyan</p>
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
+        <p>
+        <!-- CNZZ 统计 -->
+        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
+  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+
+
+<script src="/js/html-patch.js" type="text/javascript"></script>
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

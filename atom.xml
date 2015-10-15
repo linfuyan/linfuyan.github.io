@@ -4,7 +4,7 @@
   <subtitle><![CDATA[关注但不限于 Android、iOS、nodejs]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://linfuyan.com/"/>
-  <updated>2015-10-15T04:05:55.000Z</updated>
+  <updated>2015-10-15T07:25:26.000Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://linfuyan.com/git-cmd-user-guide/"/>
     <id>http://linfuyan.com/git-cmd-user-guide/</id>
     <published>2015-10-14T02:00:00.000Z</published>
-    <updated>2015-10-15T04:05:55.000Z</updated>
+    <updated>2015-10-15T07:25:26.000Z</updated>
     <content type="html"><![CDATA[<p>下面整理一下自己在开发过程中经常使用到的 Git 命令。使用 GUI 工具的同学，也可以对照起来看看。</p>
 <a id="more"></a>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-cmd-user-guide.png" alt="常用 Git 命令使用教程"></p>
@@ -84,7 +84,7 @@
 </blockquote>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-rm.gif" alt="git rm"></p>
 <p><strong><code>git rm</code> 与 先 rm 然后 <code>git add</code> 的区别</strong></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/rm-git-add.gif" alt="rm and git add"></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/rm-and-git-add.gif" alt="rm and git add"></p>
 <h2 id="分支管理">分支管理</h2><p>分支是版本控制系统中很重要的一个概念，在 Git 中新建、合并等分支的操作非常轻量便捷，因此我们会很经常的用到。</p>
 <h3 id="查看分支">查看分支</h3><p>查看分支使用 <code>git branch</code>：</p>
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch		<span class="comment">// 查看本地分支信息</span></span><br><span class="line">git branch -v 	<span class="comment">// 查看相对详细的本地分支信息</span></span><br><span class="line">git branch -av 	<span class="comment">// 查看包括远程仓库在内的分支信息</span></span><br></pre></td></tr></table></figure>

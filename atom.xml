@@ -4,7 +4,7 @@
   <subtitle><![CDATA[关注但不限于 Android、iOS、nodejs]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://linfuyan.com/"/>
-  <updated>2015-10-15T07:29:12.000Z</updated>
+  <updated>2015-10-16T04:01:02.000Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://linfuyan.com/git-cmd-user-guide/"/>
     <id>http://linfuyan.com/git-cmd-user-guide/</id>
     <published>2015-10-14T02:00:00.000Z</published>
-    <updated>2015-10-15T07:29:12.000Z</updated>
+    <updated>2015-10-16T04:01:02.000Z</updated>
     <content type="html"><![CDATA[<p>下面整理一下自己在开发过程中经常使用到的 Git 命令。使用 GUI 工具的同学，也可以对照起来看看。</p>
 <a id="more"></a>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-cmd-user-guide.png" alt="常用 Git 命令使用教程"></p>
@@ -85,6 +85,7 @@
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-rm.gif" alt="git rm"></p>
 <p><strong><code>git rm</code> 与 先 rm 然后 <code>git add</code> 的区别</strong></p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/rm-and-git-add.gif" alt="rm and git add"></p>
+<p>更详细的可以参考：<a href="http://yang3wei.github.io/blog/2013/02/03/git-rm-he-rm-de-qu-bie/" target="_blank" rel="external">“git rm” 和 “rm” 的区别</a></p>
 <blockquote>
 <p>注意：上图中的结果是在 git 1.9.1 版本上的操作。在 git 2.0 以上两者没有区别了。</p>
 </blockquote>

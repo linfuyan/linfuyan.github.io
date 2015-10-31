@@ -4,7 +4,7 @@
   <subtitle><![CDATA[关注但不限于 Android、iOS、nodejs]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://linfuyan.com/"/>
-  <updated>2015-10-16T04:01:02.000Z</updated>
+  <updated>2015-10-31T11:26:55.000Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -13,6 +13,71 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Hexo Symbol not found _usdt_create_provider 错误处理]]></title>
+    <link href="http://linfuyan.com/faq/hexo-symbol-not-found_usdt_create_provider/"/>
+    <id>http://linfuyan.com/faq/hexo-symbol-not-found_usdt_create_provider/</id>
+    <published>2015-10-30T23:13:12.000Z</published>
+    <updated>2015-10-31T11:26:55.000Z</updated>
+    <content type="html"><![CDATA[<p>刚刚新建一个 Hexo 博客，准备启动测试，出现了下面的问题。在我第一次搭建博客时，也遇到了，当时的解决方案是重新用 docker 配置了一份。一直以为是 Mac OSX 上不支持，但后来在 Mac OSX 上可以用了。所以这次再遇到，就要想方法解决。</p>
+<a id="more"></a>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">dyld:</span> lazy symbol binding <span class="string">failed:</span> Symbol not <span class="string">found:</span> _usdt_create_provider</span><br><span class="line">  Referenced <span class="string">from:</span> <span class="regexp">/Users/</span>lfy<span class="regexp">/ihaowu/</span>node_modules<span class="regexp">/hexo/</span>node_modules<span class="regexp">/bunyan/</span>node_modules<span class="regexp">/dtrace-provider/</span>build<span class="regexp">/Release/</span>DTraceProviderBindings.node</span><br><span class="line">  Expected <span class="string">in:</span> dynamic lookup</span><br><span class="line"><span class="label"></span><br><span class="line">dyld:</span> Symbol not <span class="string">found:</span> _usdt_create_provider</span><br><span class="line">  Referenced <span class="string">from:</span> <span class="regexp">/Users/</span>lfy<span class="regexp">/ihaowu/</span>node_modules<span class="regexp">/hexo/</span>node_modules<span class="regexp">/bunyan/</span>node_modules<span class="regexp">/dtrace-provider/</span>build<span class="regexp">/Release/</span>DTraceProviderBindings.node</span><br><span class="line">  Expected <span class="string">in:</span> dynamic lookup</span><br><span class="line"></span><br><span class="line">Trace/BPT <span class="string">trap:</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>最终，我是通过多次的 <code>npm install hexo --no-optional</code> 解决的，至于原因是什么，我不太清楚。其他手段也试过，没有成功。</p>
+<p>以下是参考过的资料：</p>
+<p><a href="https://github.com/trentm/node-bunyan/issues/216" target="_blank" rel="external">Still getting lots of DtraceProviderBindings errors on OS X</a></p>
+<p><a href="https://github.com/hexojs/hexo/issues/1398" target="_blank" rel="external">node.js v0.12.7 install hexo-cli error on mac os x 10.10.4</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>刚刚新建一个 Hexo 博客，准备启动测试，出现了下面的问题。在我第一次搭建博客时，也遇到了，当时的解决方案是重新用 docker 配置了一份。一直以为是 Mac OSX 上不支持，但后来在 Mac OSX 上可以用了。所以这次再遇到，就要想方法解决。</p>]]>
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://linfuyan.com/tags/Hexo/"/>
+    
+      <category term="博客" scheme="http://linfuyan.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="错误" scheme="http://linfuyan.com/tags/%E9%94%99%E8%AF%AF/"/>
+    
+      <category term="FAQ" scheme="http://linfuyan.com/categories/FAQ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hexo 使用七牛云同步插件 hexo-qiniu-sync 出错]]></title>
+    <link href="http://linfuyan.com/faq/hexo-qiniu-sync-typeerror-arguments-to-path-join-must-be-strings/"/>
+    <id>http://linfuyan.com/faq/hexo-qiniu-sync-typeerror-arguments-to-path-join-must-be-strings/</id>
+    <published>2015-10-30T22:45:20.000Z</published>
+    <updated>2015-10-31T11:23:12.000Z</updated>
+    <content type="html"><![CDATA[<p>安装完 hexo-qiniu-sync 插件，运行出现以下错误：</p>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">INFO  Now start qiniu sync.</span><br><span class="line">FATAL Something<span class="comment">'s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span></span><br><span class="line">TypeError: Arguments <span class="keyword">to</span> path.<span class="keyword">join</span> must be strings</span><br><span class="line">    at <span class="built_in">Object</span>.posix.<span class="keyword">join</span> (path.js:<span class="number">488</span>:<span class="number">13</span>)</span><br><span class="line">    at sync (/Users/lfy/ihaowu/node_modules/hexo-qiniu-sync/sync.js:<span class="number">110</span>:<span class="number">26</span>)</span><br><span class="line">    at <span class="built_in">Object</span>.sync (/Users/lfy/ihaowu/node_modules/hexo-qiniu-sync/sync.js:<span class="number">113</span>:<span class="number">13</span>)</span><br><span class="line">    at <span class="keyword">Function</span>.commands.sync (/Users/lfy/ihaowu/node_modules/hexo-qiniu-sync/cmd.js:<span class="number">28</span>:<span class="number">14</span>)</span><br><span class="line">    at Hexo.&lt;anonymous&gt; (/Users/lfy/ihaowu/node_modules/hexo-qiniu-sync/index.js:<span class="number">122</span>:<span class="number">11</span>)</span><br><span class="line">    at Hexo.tryCatcher (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/util.js:<span class="number">26</span>:<span class="number">23</span>)</span><br><span class="line">    at Hexo.ret (eval at &lt;anonymous&gt; (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/promisify.js:<span class="number">163</span>:<span class="number">12</span>), &lt;anonymous&gt;:<span class="number">13</span>:<span class="number">39</span>)</span><br><span class="line">    at /Users/lfy/ihaowu/node_modules/hexo/<span class="keyword">lib</span>/hexo/index.js:<span class="number">192</span>:<span class="number">9</span></span><br><span class="line">    at tryCatcher (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/util.js:<span class="number">26</span>:<span class="number">23</span>)</span><br><span class="line">    at Promise._resolveFromResolver (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/promise.js:<span class="number">480</span>:<span class="number">31</span>)</span><br><span class="line">    at <span class="keyword">new</span> Promise (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/promise.js:<span class="number">70</span>:<span class="number">37</span>)</span><br><span class="line">    at Hexo.<span class="keyword">call</span> (/Users/lfy/ihaowu/node_modules/hexo/<span class="keyword">lib</span>/hexo/index.js:<span class="number">188</span>:<span class="number">10</span>)</span><br><span class="line">    at runHexoCommand (/usr/local/<span class="keyword">lib</span>/node_modules/hexo/node_modules/hexo-cli/<span class="keyword">lib</span>/index.js:<span class="number">58</span>:<span class="number">17</span>)</span><br><span class="line">    at tryCatcher (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/util.js:<span class="number">26</span>:<span class="number">23</span>)</span><br><span class="line">    at Promise._settlePromiseFromHandler (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/promise.js:<span class="number">507</span>:<span class="number">31</span>)</span><br><span class="line">    at Promise._settlePromiseAt (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/promise.js:<span class="number">581</span>:<span class="number">18</span>)</span><br><span class="line">    at Promise._settlePromises (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/promise.js:<span class="number">697</span>:<span class="number">14</span>)</span><br><span class="line">    at Async._drainQueue (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/async.js:<span class="number">123</span>:<span class="number">16</span>)</span><br><span class="line">    at Async._drainQueues (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/async.js:<span class="number">133</span>:<span class="number">10</span>)</span><br><span class="line">    at Immediate.Async.drainQueues [<span class="keyword">as</span> _onImmediate] (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/async.js:<span class="number">15</span>:<span class="number">14</span>)</span><br><span class="line">    at processImmediate [<span class="keyword">as</span> _immediateCallback] (timers.js:<span class="number">367</span>:<span class="number">17</span>)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>找到关键的部分：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TypeError: Arguments to path<span class="class">.join</span> must be strings</span><br><span class="line">    at Object<span class="class">.posix</span><span class="class">.join</span> (path<span class="class">.js</span>:<span class="number">488</span>:<span class="number">13</span>)</span><br><span class="line">    at sync (/Users/lfy/ihaowu/node_modules/hexo-qiniu-sync/sync<span class="class">.js</span>:<span class="number">110</span>:<span class="number">26</span>)</span><br></pre></td></tr></table></figure>
+<p>查看源代码中的 sync.js，发现其中的 sync() 方法：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">file</span> <span class="keyword">in</span> files) &#123;</span><br><span class="line">       <span class="keyword">var</span> fname = path.join(local_dir, <span class="keyword">dir</span>, files[i]); <span class="comment">// 这部分出错</span></span><br><span class="line">       <span class="keyword">var</span> stat = fs.lstatSync(fname);</span><br><span class="line">       <span class="keyword">if</span>(stat.isDirectory() == true) &#123;</span><br><span class="line">           sync(path.join(<span class="keyword">dir</span>, files[i]));</span><br><span class="line">       &#125; <span class="keyword">else</span>  &#123;</span><br><span class="line">           <span class="keyword">var</span> name = path.join(dirPrefix, fname.<span class="keyword">replace</span>(local_dir, '')).<span class="keyword">replace</span>(/\\/<span class="keyword">g</span>, '/').<span class="keyword">replace</span>(/^\<span class="comment">//g, '');</span></span><br><span class="line">           check_upload(fname,name);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>上面注释部分似乎是传递的参数类型出错了。</p>
+<p>查看了官方最新的代码，发现确实不一样。于是将上面的内容替换成下面：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">files.forEach(function(<span class="keyword">file</span>)  &#123;</span><br><span class="line">       var fname = path.<span class="keyword">join</span>(local_dir + <span class="string">''</span>, dir + <span class="string">''</span>, <span class="keyword">file</span> + <span class="string">''</span>);</span><br><span class="line">       var stat = fs.lstatSync(fname);</span><br><span class="line">       <span class="keyword">if</span>(stat.isDirectory() == <span class="keyword">true</span>) &#123;</span><br><span class="line">           sync(path.<span class="keyword">join</span>(dir + <span class="string">''</span>, <span class="keyword">file</span> + <span class="string">''</span>));</span><br><span class="line">       &#125; <span class="keyword">else</span>  &#123;</span><br><span class="line">           var name = path.<span class="keyword">join</span>(dirPrefix, fname.replace(local_dir, <span class="string">''</span>)).replace(<span class="regexp">/\\/g</span>, <span class="string">'/'</span>).replace(<span class="regexp">/^\//g</span>, <span class="string">''</span>);</span><br><span class="line">           check_upload(fname,name);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
+<p>问题解决了。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>安装完 hexo-qiniu-sync 插件，运行出现以下错误：</p>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">INFO  Now start qiniu sync.</span><br><span class="line">FATAL Something<span class="comment">'s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span></span><br><span class="line">TypeError: Arguments <span class="keyword">to</span> path.<span class="keyword">join</span> must be strings</span><br><span class="line">    at <span class="built_in">Object</span>.posix.<span class="keyword">join</span> (path.js:<span class="number">488</span>:<span class="number">13</span>)</span><br><span class="line">    at sync (/Users/lfy/ihaowu/node_modules/hexo-qiniu-sync/sync.js:<span class="number">110</span>:<span class="number">26</span>)</span><br><span class="line">    at <span class="built_in">Object</span>.sync (/Users/lfy/ihaowu/node_modules/hexo-qiniu-sync/sync.js:<span class="number">113</span>:<span class="number">13</span>)</span><br><span class="line">    at <span class="keyword">Function</span>.commands.sync (/Users/lfy/ihaowu/node_modules/hexo-qiniu-sync/cmd.js:<span class="number">28</span>:<span class="number">14</span>)</span><br><span class="line">    at Hexo.&lt;anonymous&gt; (/Users/lfy/ihaowu/node_modules/hexo-qiniu-sync/index.js:<span class="number">122</span>:<span class="number">11</span>)</span><br><span class="line">    at Hexo.tryCatcher (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/util.js:<span class="number">26</span>:<span class="number">23</span>)</span><br><span class="line">    at Hexo.ret (eval at &lt;anonymous&gt; (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/promisify.js:<span class="number">163</span>:<span class="number">12</span>), &lt;anonymous&gt;:<span class="number">13</span>:<span class="number">39</span>)</span><br><span class="line">    at /Users/lfy/ihaowu/node_modules/hexo/<span class="keyword">lib</span>/hexo/index.js:<span class="number">192</span>:<span class="number">9</span></span><br><span class="line">    at tryCatcher (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/util.js:<span class="number">26</span>:<span class="number">23</span>)</span><br><span class="line">    at Promise._resolveFromResolver (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/promise.js:<span class="number">480</span>:<span class="number">31</span>)</span><br><span class="line">    at <span class="keyword">new</span> Promise (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/promise.js:<span class="number">70</span>:<span class="number">37</span>)</span><br><span class="line">    at Hexo.<span class="keyword">call</span> (/Users/lfy/ihaowu/node_modules/hexo/<span class="keyword">lib</span>/hexo/index.js:<span class="number">188</span>:<span class="number">10</span>)</span><br><span class="line">    at runHexoCommand (/usr/local/<span class="keyword">lib</span>/node_modules/hexo/node_modules/hexo-cli/<span class="keyword">lib</span>/index.js:<span class="number">58</span>:<span class="number">17</span>)</span><br><span class="line">    at tryCatcher (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/util.js:<span class="number">26</span>:<span class="number">23</span>)</span><br><span class="line">    at Promise._settlePromiseFromHandler (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/promise.js:<span class="number">507</span>:<span class="number">31</span>)</span><br><span class="line">    at Promise._settlePromiseAt (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/promise.js:<span class="number">581</span>:<span class="number">18</span>)</span><br><span class="line">    at Promise._settlePromises (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/promise.js:<span class="number">697</span>:<span class="number">14</span>)</span><br><span class="line">    at Async._drainQueue (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/async.js:<span class="number">123</span>:<span class="number">16</span>)</span><br><span class="line">    at Async._drainQueues (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/async.js:<span class="number">133</span>:<span class="number">10</span>)</span><br><span class="line">    at Immediate.Async.drainQueues [<span class="keyword">as</span> _onImmediate] (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/async.js:<span class="number">15</span>:<span class="number">14</span>)</span><br><span class="line">    at processImmediate [<span class="keyword">as</span> _immediateCallback] (timers.js:<span class="number">367</span>:<span class="number">17</span>)</span><br></pre></td></tr></table></figure>]]>
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://linfuyan.com/tags/Hexo/"/>
+    
+      <category term="七牛" scheme="http://linfuyan.com/tags/%E4%B8%83%E7%89%9B/"/>
+    
+      <category term="博客" scheme="http://linfuyan.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="同步" scheme="http://linfuyan.com/tags/%E5%90%8C%E6%AD%A5/"/>
+    
+      <category term="FAQ" scheme="http://linfuyan.com/categories/FAQ/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[常用 Git 命令使用教程]]></title>
@@ -1209,170 +1274,6 @@
       <category term="软件工具" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
     
       <category term="Hexo" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Hexo 简介]]></title>
-    <link href="http://linfuyan.com/hexo-your-blog/hexo-introduce/"/>
-    <id>http://linfuyan.com/hexo-your-blog/hexo-introduce/</id>
-    <published>2015-09-10T03:10:20.000Z</published>
-    <updated>2015-09-10T06:26:31.000Z</updated>
-    <content type="html"><![CDATA[<p>这篇文章是<a href="http://www.linfuyan.com/hexo-your-blog" target="_blank" rel="external">《一步一步打造自己的 Hexo 博客》</a>系列的开篇，为了让这篇《 Hexo 简介》看上去足够充实，当然会有许多的内容来源于网络，甚至有的我也以找不到出处或者考证其真实性。这里想稍稍补充一下自己寻找博客，并最终落脚 Hexo 之旅。</p>
-<p>我想很多技术人员都会有写一些博客的想法，而最初我曾尝试过在 CSDN，JavaEye(现在已经是 ItEye 了，不小心暴露年龄)，但实在难以忍受的是上面的排版，当然还有网络时快时慢等等，写文章之外需要忍受其他许许多多的不痛快。虽然这也只是我没有写技术博客的原因之一，但没有坚持下来却是实实在在的事情了。</p>
-<p>后来继续开始写一些东西，是在我发现了 Markdown 这个好东西，10分钟内入门，不用再手动选择插入图片、链接，不用再选中斜体、加粗，不用选字号… 我想我是一个极懒的人。现在，我只需要打开 Mou，一路写下来，轻巧方便，再也不用担心烦杂的操作，不用担心联网的问题了。</p>
-<p>有了 Markdown，我便开始寻找能够支持 Markdown 的博客， Wordpress、Typecho… Markdown 是支持的，但却要么庞大、要么不尽如人意(写完文章以后，需要手动再复制粘贴到内容编辑器里面保存等)。直到 Github Pages，再到现在的 Hexo，当 Hexo 搭建，并配置完成以后，再写文章、发布，就是本地的一条命令了，简直再方便不过。</p>
-<a id="more"></a>
-<p>说了这么多，回到 Hexo 介绍上来，这些摘自 <a href="https://hexo.io" target="_blank" rel="external">Hexo 官网</a>。</p>
-<h2 id="什么是_Hexo？">什么是 Hexo？</h2><blockquote>
-<h3 id="快速、简洁且高效的博客框架">快速、简洁且高效的博客框架</h3></blockquote>
-<h2 id="Hexo_有什么优势？">Hexo 有什么优势？</h2><blockquote>
-<h4 id="超快速度">超快速度</h4><p>Node.js 所带来的超快生成速度，让上百个页面在几秒瞬间完成渲染。</p>
-<h4 id="支持_Markdown">支持 Markdown</h4><p>Hexo 支持 Github Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。</p>
-<h4 id="一键部署">一键部署</h4><p>只需一条指令即可部署到 Github Pages，Heroku 或者其他网站。</p>
-<h4 id="丰富的插件">丰富的插件</h4><p>Hexo 用用强大的插件系统，安装插件可以让 Hexo 支持 Jade，CoffeeScript。</p>
-</blockquote>
-<h2 id="Hexo_适合谁？">Hexo 适合谁？</h2><p>这是一个免费开源的博客程序，任何人都可以使用和修改。但是不同于 Wordpress，Hexo 由于需要使用Github, Git, Markdown, Node.js 这样的工具，好多插件、widget 都需要自己安装、设置。所以适合那些有一定计算机基础，喜欢折腾的人。但是，不要恐惧，只要跟着本教程走，就能很方便地让自己的博客飞起来。<a href="http://zipperary.com/2013/05/28/Hexo-guide-1/" target="_blank" rel="external">摘自：Hexo系列教程：（一）Hexo介绍</a></p>
-<p>好吧，这篇就写到这里。想了解关于 Hexo 的更多，不方便找谷歌，就度娘就是啦。后面我们将开始自己的 Hexo 博客打造之旅。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>这篇文章是<a href="http://www.linfuyan.com/hexo-your-blog">《一步一步打造自己的 Hexo 博客》</a>系列的开篇，为了让这篇《 Hexo 简介》看上去足够充实，当然会有许多的内容来源于网络，甚至有的我也以找不到出处或者考证其真实性。这里想稍稍补充一下自己寻找博客，并最终落脚 Hexo 之旅。</p>
-<p>我想很多技术人员都会有写一些博客的想法，而最初我曾尝试过在 CSDN，JavaEye(现在已经是 ItEye 了，不小心暴露年龄)，但实在难以忍受的是上面的排版，当然还有网络时快时慢等等，写文章之外需要忍受其他许许多多的不痛快。虽然这也只是我没有写技术博客的原因之一，但没有坚持下来却是实实在在的事情了。</p>
-<p>后来继续开始写一些东西，是在我发现了 Markdown 这个好东西，10分钟内入门，不用再手动选择插入图片、链接，不用再选中斜体、加粗，不用选字号… 我想我是一个极懒的人。现在，我只需要打开 Mou，一路写下来，轻巧方便，再也不用担心烦杂的操作，不用担心联网的问题了。</p>
-<p>有了 Markdown，我便开始寻找能够支持 Markdown 的博客， Wordpress、Typecho… Markdown 是支持的，但却要么庞大、要么不尽如人意(写完文章以后，需要手动再复制粘贴到内容编辑器里面保存等)。直到 Github Pages，再到现在的 Hexo，当 Hexo 搭建，并配置完成以后，再写文章、发布，就是本地的一条命令了，简直再方便不过。</p>]]>
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://linfuyan.com/tags/Hexo/"/>
-    
-      <category term="markdown" scheme="http://linfuyan.com/tags/markdown/"/>
-    
-      <category term="个人" scheme="http://linfuyan.com/tags/%E4%B8%AA%E4%BA%BA/"/>
-    
-      <category term="博客" scheme="http://linfuyan.com/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="软件工具" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="Hexo" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[iOS 开发者证书制作、App ID 与推送配置及 Provisioning Profiles 创建]]></title>
-    <link href="http://linfuyan.com/ios-cer-appid-push-profile/"/>
-    <id>http://linfuyan.com/ios-cer-appid-push-profile/</id>
-    <published>2015-09-08T13:59:00.000Z</published>
-    <updated>2015-09-08T14:10:33.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="概述">概述</h2><p>1. <strong>开发者证书</strong></p>
-<p>分为开发和发布两种，类型为 <code>iPhone Development</code>， <code>iPhone Distribution</code>。这个是最基础的，开发证书用于真机调试，发布证书则用于上传到 AppStore，是一个基础证书，用来证明开发者身份。</p>
-<p>2. <strong>App ID</strong></p>
-<p>这是每一个应用的独立标识，在设置项中可以配置该应用的权限，比如是否用到了 PassBook，GameCenter，以及更为场景的 push 服务。如果选中了 push 服务，那么就可以创建生成下面第3条所提到的推送证书，所以，在所有和推送相关的配置中，首先要做的就是先开通支持推送服务的 App ID。</p>
-<p>3. <strong>推送证书</strong></p>
-<p>分为开发和发布两种，类型分别为 <code>Apple Development iOS Push Services</code>， <code>Apple Production iOS Push Services</code>，该证书在 App ID 配置中创建生成，和开发者证书一样，放在服务端程序上。</p>
-<p>4. <strong>Provisioning Porfiles</strong></p>
-<p>在后续部分中，简称为 profile 文件。该文件将 App ID，开发者证书，硬件绑定在一起。在开发者中心配置好后可以添加到 Xcode 上，也可以直接在 Xcode 上连接开发者中心生成，真机调试时需要在 profile 文件中添加真机的 <code>udid</code>，是真机调试和上架 AppStore 所必需的。</p>
-<a id="more"></a>
-<p>平常我们的制作流程一般都是按照这样的顺序：</p>
-<ol>
-<li>利用开发者账号登录开发者中心</li>
-<li>创建开发者证书、App ID</li>
-<li>在 App ID 中开通推送服务</li>
-<li>在开通推送服务的选项下面创建推送证书</li>
-<li>之后在 profile 文件中绑定所有的证书ID，添加调试真机等</li>
-</ol>
-<h2 id="制作开发者证书">制作开发者证书</h2><p>要制作开发者证书，首先登录开发者中心，找到证书配置版块，点击证书，显示如下页面：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS_cer_list.png" alt="开发者证书列表"></p>
-<p>点击右上角加号，进入创建页面：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS_cer_create.png" alt="开发者证书创建"></p>
-<p>创建开发证书和发布证书步骤是一样的，开发证书用于真机调试，发布证书用于提交到 AppStore，这里以开发证书的制作为例。</p>
-<p>选择 “iOS App Development” 选项，点击下方的继续按钮，提示需要创建证书签名请求( CSR )。</p>
-<h3 id="手动创建证书签名请求(_CSR_)">手动创建证书签名请求( CSR )</h3><p>在 Mac 上的应用程序文件夹中，打开钥匙串访问。</p>
-<p>在钥匙串访问的下拉菜单中，选择 “钥匙串访问” &gt; “证书助理” &gt; “从证书颁发机构请求证书…”。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_csr_1.png" alt="创建 CSR"></p>
-<ul>
-<li><p>在”证书助理”窗口，输入如下信息：</p>
-<ul>
-<li>在用户邮箱地址中，输入邮箱地址。</li>
-<li>常用名称中，输入私钥的名称。</li>
-<li>保留 CA 点子邮件地址为空。</li>
-<li>在请求选项组中，选中”存储到磁盘”</li>
-</ul>
-</li>
-<li><p>点击”继续”完成 CSR 的创建。</p>
-</li>
-</ul>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_csr_2.png" alt="创建 CSR"></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_csr_3.png" alt="创建 CSR"></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_csr_4.png" alt="创建 CSR"></p>
-<blockquote>
-<p>CSR 文件尽量每个证书都制作一次，将常用名称区分开来，因为该常用名称是证书中的密钥的名字，之后在开发者中心将该 CSR 文件提交。</p>
-</blockquote>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_csr_5.png" alt="上传 CSR"></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_csr_6.png" alt="生成 cer"></p>
-<p>上传 CSR 到开发者中心，就会生成开发者证书。将开发者证书下载保存，双击安装。可以在钥匙串访问的登录证书中可以查看，其中专用密钥的名字即为 CSR 请求文件中的常用名称。同样的方法可以配置发布证书。</p>
-<blockquote>
-<p>在生成不同的证书的时候可以上传同一个 CSR 文件。(这边似乎不会有什么影响?)</p>
-</blockquote>
-<h2 id="App_ID_与推送证书配置">App ID 与推送证书配置</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/app_id.png" alt="App ID 版块"></p>
-<p>进入 App ID 版块，点击右上角的加号，添加新的应用：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_app_id_1.png" alt="创建 App ID"></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_app_id_2.png" alt="创建 App ID"></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_app_id_3.png" alt="创建 App ID"></p>
-<p>新建 App ID 时，勾选 push 可选项，为该 App ID 所对应的应用添加推送功能，。</p>
-<p>新应用添加完毕，选择该应用进行编辑，此时其中的 <code>Push Notifications</code> 为可配置的。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_app_id_4.png" alt="创建 App ID"></p>
-<p>根据上一节中”制作开发者证书”的步骤，完成上图中证书的创建，然后下载保存，并双击安装。</p>
-<blockquote>
-<p>虽然在创建证书版块也可以直接创建推送证书，但是还是建议在 App ID 中勾选 push 服务后再在此处创建，这样可以避免因为忘了开通 push 服务而导致推送不可用的情况发生。</p>
-</blockquote>
-<h2 id="创建_profile_文件">创建 profile 文件</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_profiles_1.png" alt="创建 profiles"></p>
-<p>打开 provisioning profiles 版块，点击右上角加号创建 profile 文件。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_profiles_2.png" alt="创建 profiles"></p>
-<p>可以选择开发、发布及 Ad Hoc 三种 profile 文件。开发 profile 文件用于真机测试，发布 profile 文件则用于提交发布。Ad Hoc 这里暂不讨论。</p>
-<p>会自动选择匹配的 App ID。另外下拉项中还可以选择 wildCard 格式，该格式为自动生成，使用 * 通配符，适用于批量的，没有推送，PassCard 等服务的应用；我们选择我们刚刚创建的 App ID, 之后下一步选择证书：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_profiles_3.png" alt="创建 profiles"></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_profiles_4.png" alt="创建 profiles"></p>
-<p>继续，这里有一个区别，因为开发 profile 文件用于真机调试，所以我们需要绑定真机。由于之前已经有添加过设备，所以这里直接全选添加。如果没有的话，需要将真机的 udid 复制出来在此添加。发布 profile 文件则没有这一步。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_profiles_5.png" alt="创建 profiles"></p>
-<p>填写 profile 文件名称，点击生成：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_profiles_6.png" alt="创建 profiles"></p>
-<p>最终生成 .mobileprovision 文件，可以点击下载保存。双击安装。</p>
-<p>在 Xcode 中可以看到效果如下：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_profiles_7.png" alt="创建 profiles"></p>
-<p>到这里为止，iOS 开发者证书的制作，配置 App ID 和推送证书，以及 profile 文件的创建就都完成了。</p>
-<p>本文根据 <a href="http://blog.csdn.net/holydancer/article/details/9219333" target="_blank" rel="external">《苹果所有常用证书，appID,Provisioning Profiles配置说明及制作图文教程（精）》</a> 进行整理。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="概述">概述</h2><p>1. <strong>开发者证书</strong></p>
-<p>分为开发和发布两种，类型为 <code>iPhone Development</code>， <code>iPhone Distribution</code>。这个是最基础的，开发证书用于真机调试，发布证书则用于上传到 AppStore，是一个基础证书，用来证明开发者身份。</p>
-<p>2. <strong>App ID</strong></p>
-<p>这是每一个应用的独立标识，在设置项中可以配置该应用的权限，比如是否用到了 PassBook，GameCenter，以及更为场景的 push 服务。如果选中了 push 服务，那么就可以创建生成下面第3条所提到的推送证书，所以，在所有和推送相关的配置中，首先要做的就是先开通支持推送服务的 App ID。</p>
-<p>3. <strong>推送证书</strong></p>
-<p>分为开发和发布两种，类型分别为 <code>Apple Development iOS Push Services</code>， <code>Apple Production iOS Push Services</code>，该证书在 App ID 配置中创建生成，和开发者证书一样，放在服务端程序上。</p>
-<p>4. <strong>Provisioning Porfiles</strong></p>
-<p>在后续部分中，简称为 profile 文件。该文件将 App ID，开发者证书，硬件绑定在一起。在开发者中心配置好后可以添加到 Xcode 上，也可以直接在 Xcode 上连接开发者中心生成，真机调试时需要在 profile 文件中添加真机的 <code>udid</code>，是真机调试和上架 AppStore 所必需的。</p>]]>
-    
-    </summary>
-    
-      <category term="App ID" scheme="http://linfuyan.com/tags/App-ID/"/>
-    
-      <category term="iOS" scheme="http://linfuyan.com/tags/iOS/"/>
-    
-      <category term="profile" scheme="http://linfuyan.com/tags/profile/"/>
-    
-      <category term="provision" scheme="http://linfuyan.com/tags/provision/"/>
-    
-      <category term="push" scheme="http://linfuyan.com/tags/push/"/>
-    
-      <category term="图文教程" scheme="http://linfuyan.com/tags/%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="开发者证书" scheme="http://linfuyan.com/tags/%E5%BC%80%E5%8F%91%E8%80%85%E8%AF%81%E4%B9%A6/"/>
-    
-      <category term="配置" scheme="http://linfuyan.com/tags/%E9%85%8D%E7%BD%AE/"/>
-    
-      <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="iOS" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/iOS/"/>
     
   </entry>
   

@@ -4,7 +4,7 @@
   <subtitle><![CDATA[关注但不限于 Android、iOS、nodejs]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://linfuyan.com/"/>
-  <updated>2015-10-31T11:26:55.000Z</updated>
+  <updated>2015-11-01T02:45:21.000Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -13,6 +13,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Hexo 使用多说评论框]]></title>
+    <link href="http://linfuyan.com/hexo-your-blog/hexo-with-duoshuo/"/>
+    <id>http://linfuyan.com/hexo-your-blog/hexo-with-duoshuo/</id>
+    <published>2015-11-01T01:37:28.000Z</published>
+    <updated>2015-11-01T02:45:21.000Z</updated>
+    <content type="html"><![CDATA[<p>我们看到很多的博客的文章下面有评论。在 Hexo 上使用这个评论系统，主要有两种，一种是 disqus，另一种是多说。具体使用哪种评论系统，一般是在具体的主题中配置的，也就是在主题下的 <code>_config.yml</code> 文件中。大部分多外的主题都自动集成了 disqus， disqus 也大多在国外使用，它的评论框颜值还是很高的。但是在国内，因为网络访问国外服务比较慢的问题，使用多说会相对好一点。</p>
+<a id="more"></a>
+<p>既然如此，我们以 hueman 主题下在文章末尾配置多说评论框为例作一下说明。</p>
+<p>首先，你需要注册一个<a href="http://duoshuo.com" target="_blank" rel="external">多说</a>账号并新建一个站点。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/duoshuo-create-site.png" alt="多说创建站点"></p>
+<p>站点创建完成以后，会跳出代码模板的页面，如下：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/duoshuo-comment-template.png" alt="多说代码模板"></p>
+<p>左侧选择”获取代码”的这栏，然后选中”通用代码”。这就是我们评论框的代码模板，后面我们需要找到合适的地方，将其插入到 hueman 主题中的文章模板里。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/hueman-article.png" alt="hueman 文章代码"></p>
+<p>在 hueman 主题中，文章的模板在 hueman -&gt; layout -&gt; _partial -&gt; post -&gt; article.ejs 下面。看到上图中，第一个红框圈住的部分，是主题自带的 disqus 评论框的配置。当然我们没有在<strong>项目目录</strong>下的 <code>_config.yml</code> 中配置 disqus_shortname，所以它是不生效的，在咱们的文章页面中看不到。</p>
+<figure class="highlight erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span>&lt;%<span class="ruby"> <span class="keyword">if</span> (post.comments &amp;&amp; config.disqus_shortname)&#123; </span>%&gt;<span class="xml"></span><br><span class="line">  <span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"comments"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"disqus_thread"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">noscript</span>&gt;</span>Please enable JavaScript to view the <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"//disqus.com/?ref_noscript"</span>&gt;</span>comments powered by Disqus.<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">noscript</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">section</span>&gt;</span></span><br><span class="line"></span>&lt;%<span class="ruby"> &#125; </span>%&gt;<span class="xml"></span></span><br></pre></td></tr></table></figure>
+<p>找到上面这个文章末尾的位置，仿照上面的逻辑判断代码，把多说评论框模板代码添加进来，如上图中的第二个红框圈住的部分。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">%</span> <span class="attribute">if</span> (!<span class="attribute">index</span> &amp;&amp; <span class="attribute">post.comments</span> &amp;&amp; <span class="attribute">theme.duoshuo_shortname</span>)&#123; %&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"comments"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 多说评论框 start --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ds-thread"</span> <span class="attribute">data-thread-key</span>=<span class="value">"&lt;%= post.layout %&gt;-&lt;%= post.slug %&gt;"</span> <span class="attribute">data-title</span>=<span class="value">"&lt;%= post.title %&gt;"</span> <span class="attribute">data-url</span>=<span class="value">"&lt;%= page.permalink %&gt;"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 多说评论框 end --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="keyword">var</span> duoshuoQuery = &#123;short_name:<span class="string">'&lt;%= theme.duoshuo_shortname %&gt;'</span>&#125;;</span><br><span class="line">      (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> ds = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">        ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="literal">true</span>;</span><br><span class="line">        ds.src = (<span class="built_in">document</span>.location.protocol == <span class="string">'https:'</span> ? <span class="string">'https:'</span> : <span class="string">'http:'</span>) + <span class="string">'//static.duoshuo.com/embed.js'</span>;</span><br><span class="line">        ds.charset = <span class="string">'UTF-8'</span>;</span><br><span class="line">        (<span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>]</span><br><span class="line">         || <span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>]).appendChild(ds);</span><br><span class="line">      &#125;)();</span><br><span class="line">      </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 多说公共JS代码 end --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">section</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">%</span> &#125; %&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里大家注意一下：</p>
+<p>1. 第一行中判断 !index 代表是非主页的文章。我们是要在主页之外的文章正文下添加评论，所以添加了这个判断。</p>
+<p>2. theme.duoshuo_shortname，这里需要我们在主题下面的 <code>_config.yml</code> 中添加 duoshuo_shortname 字段配置才能生效。这里和上面讲到的 config.disqus<em>shortname 的区别就在于 `theme.</em><code>开头的是在主题中的</code><em>config.yml<code>配置，</code>config.</em><code>开头是在项目目录下的</code>_config.yml` 配置。</p>
+<p>Ok，到这里，打开 <code>hueman -&gt; _config.yml</code> 在其中添加如下代码：</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># comments 配置多说评论</span></span><br><span class="line"><span class="label">duoshuo_shortname:</span> 这里就是你在创建站点时填的多说域名</span><br></pre></td></tr></table></figure>
+<p>如果多说域名是 <a href="http://abc.duoshuo.com，那这里" target="_blank" rel="external">http://abc.duoshuo.com，那这里</a> duoshuo_shortname 就是 abc。</p>
+<p>3. 多说评论框模板中的变量，我们需要进行替换。原来如下：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"ds-thread"</span> data-thread-key=<span class="string">"请将此处替换成文章在你的站点中的ID"</span> data-title=<span class="string">"请替换成文章的标题"</span> data-url=<span class="string">"请替换成文章的网址"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>替换成：</p>
+<figure class="highlight erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ds-thread"</span> <span class="attribute">data-thread-key</span>=<span class="value">"</span></span></span>&lt;%=<span class="ruby"> post.layout </span>%&gt;<span class="xml"><span class="tag"><span class="value">-</span></span></span>&lt;%=<span class="ruby"> post.slug </span>%&gt;<span class="xml"><span class="tag"><span class="value">"</span> <span class="attribute">data-title</span>=<span class="value">"</span></span></span>&lt;%=<span class="ruby"> post.title </span>%&gt;<span class="xml"><span class="tag"><span class="value">"</span> <span class="attribute">data-url</span>=<span class="value">"</span></span></span>&lt;%=<span class="ruby"> page.permalink </span>%&gt;<span class="xml"><span class="tag"><span class="value">"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>其中， <code>post.layout</code>， <code>post.slug</code>， <code>post.title</code>， <code>page.permalink</code> 都是 Hexo 的内置变量。具体可以查看<a href="https://hexo.io/zh-cn/docs/variables.html" target="_blank" rel="external">这里</a>。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/duoshuo-article-management.png" alt="多说文章管理"></p>
+<p>这样就为 Hexo 站点添加上多说评论框啦，如果还需要在其他的位置添加，过程类似。总结下步骤：</p>
+<ol>
+<li>注册多说账号，创建新站点。</li>
+<li>找到需要添加多说评论框的位置，粘贴多说评论框的模板代码，并作必要的修改。</li>
+<li>如果将多说评论框作为配置项，合适的地方，添加配置。</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>我们看到很多的博客的文章下面有评论。在 Hexo 上使用这个评论系统，主要有两种，一种是 disqus，另一种是多说。具体使用哪种评论系统，一般是在具体的主题中配置的，也就是在主题下的 <code>_config.yml</code> 文件中。大部分多外的主题都自动集成了 disqus， disqus 也大多在国外使用，它的评论框颜值还是很高的。但是在国内，因为网络访问国外服务比较慢的问题，使用多说会相对好一点。</p>]]>
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://linfuyan.com/tags/Hexo/"/>
+    
+      <category term="博客" scheme="http://linfuyan.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="多说" scheme="http://linfuyan.com/tags/%E5%A4%9A%E8%AF%B4/"/>
+    
+      <category term="评论框" scheme="http://linfuyan.com/tags/%E8%AF%84%E8%AE%BA%E6%A1%86/"/>
+    
+      <category term="软件工具" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Hexo" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Hexo Symbol not found _usdt_create_provider 错误处理]]></title>
@@ -1203,63 +1260,6 @@
     </summary>
     
       <category term="Docker" scheme="http://linfuyan.com/tags/Docker/"/>
-    
-      <category term="Hexo" scheme="http://linfuyan.com/tags/Hexo/"/>
-    
-      <category term="Mac" scheme="http://linfuyan.com/tags/Mac/"/>
-    
-      <category term="个人" scheme="http://linfuyan.com/tags/%E4%B8%AA%E4%BA%BA/"/>
-    
-      <category term="博客" scheme="http://linfuyan.com/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="安装" scheme="http://linfuyan.com/tags/%E5%AE%89%E8%A3%85/"/>
-    
-      <category term="软件工具" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="Hexo" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Mac OS X 上 Hexo 安装]]></title>
-    <link href="http://linfuyan.com/hexo-your-blog/install-hexo-on-mac/"/>
-    <id>http://linfuyan.com/hexo-your-blog/install-hexo-on-mac/</id>
-    <published>2015-09-10T06:38:20.000Z</published>
-    <updated>2015-09-19T07:34:14.000Z</updated>
-    <content type="html"><![CDATA[<blockquote>
-<p>这篇文章描述 Mac OS X 环境下的 Hexo 安装，其他的系统环境安装略有不同。可以参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">官方文档</a>。</p>
-</blockquote>
-<h2 id="安装前提">安装前提</h2><p>Hexo 依赖于 Node.js 及 Git，故在安装 Hexo 前必须检查并安装 Node.js 及 Git。</p>
-<h3 id="安装_Git">安装 Git</h3><p>安装 Git 的方法也是多种多样，这边简单提一下，大家可以寻着这些思路来自己完成 Git 的安装。</p>
-<p><strong>方案一、</strong>通过 Xcode 来安装 Git</p>
-<ol>
-<li>从 AppStore 下载 Xcode。</li>
-<li>打开 Xcode -&gt; Preferences 点击下载选项，下载 Command Line Tools 安装。</li>
-</ol>
-<p><strong>方案二、</strong>安装 SourceTree 等客户端。</p>
-<p><strong>方案三、</strong>通过 <a href="http://code.google.com/p/git-osx-installer/" target="_blank" rel="external">git-osx-installer</a> 安装。</p>
-<p>安装完成以后，在终端中输入 <code>git --version</code> 查看 Git 版本，来确认是否安装成功。</p>
-<blockquote>
-<p>在开始 Git 的使用之前，需要有一些公共的参数配置，如 username， email 等。这些不在本文讨论范围。</p>
-</blockquote>
-<h3 id="安装_Node-js">安装 Node.js</h3><p>node.js 的安装也是方法多样，这里简单提下思路。</p>
-<p><strong>方案一、</strong><a href="https://nodejs.org/en/download/" target="_blank" rel="external">官方</a>的 .pkg 文件安装，个人觉得是最方便的。</p>
-<p><strong>方案二、</strong>下载 <a href="https://github.com/nodejs/node" target="_blank" rel="external">node.js 源码</a>，自己编译。</p>
-<p><strong>方案三、</strong>通过 Homebrew 安装。</p>
-<p><strong>方案四、</strong>通过 nvm 安装。</p>
-<h3 id="安装_Hexo">安装 Hexo</h3><p>所有必备的应用程序安装完以后，就可用 npm 安装 Hexo 了。</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -<span class="keyword">g</span> hexo-<span class="keyword">cli</span>		<span class="comment">// 安装 Hexo 程序</span></span><br><span class="line">$ <span class="keyword">mkdir</span> blog					<span class="comment">// 新建博客目录</span></span><br><span class="line">$ <span class="keyword">cd</span> blog						<span class="comment">// 到博客目录下</span></span><br><span class="line">$ hexo init						<span class="comment">// 初始化 Hexo 博客目录</span></span><br><span class="line">$ npm install 					<span class="comment">// 安装依赖和插件</span></span><br><span class="line">$ hexo s						<span class="comment">// 启动服务器在本地进行预览</span></span><br></pre></td></tr></table></figure>
-<p>在浏览器中打开 <code>http://localhost:4000</code>，看到博客首页的话，至此安装就完成了。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/hexo-preview.png" alt="hexo 预览"></p>
-<blockquote>
-<p>为了说明问题，上面的截图是后面补的。 </p>
-</blockquote>
-<p>这节也比较简单，也可以查看<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo 官网</a>的对应章节。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<blockquote>
-<p>这篇文章描述 Mac OS X 环境下的 Hexo 安装，其他的系统环境安装略有不同。可以参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">官方文档</a>]]>
-    </summary>
     
       <category term="Hexo" scheme="http://linfuyan.com/tags/Hexo/"/>
     

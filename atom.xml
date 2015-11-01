@@ -4,7 +4,7 @@
   <subtitle><![CDATA[关注但不限于 Android、iOS、nodejs]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://linfuyan.com/"/>
-  <updated>2015-11-01T02:56:16.000Z</updated>
+  <updated>2015-11-01T02:59:05.000Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://linfuyan.com/hexo-your-blog/hexo-with-duoshuo/"/>
     <id>http://linfuyan.com/hexo-your-blog/hexo-with-duoshuo/</id>
     <published>2015-11-01T01:37:28.000Z</published>
-    <updated>2015-11-01T02:56:16.000Z</updated>
+    <updated>2015-11-01T02:59:05.000Z</updated>
     <content type="html"><![CDATA[<p>我们看到很多的博客的文章下面有评论。在 Hexo 上使用这个评论系统，主要有两种，一种是 disqus，另一种是多说。具体使用哪种评论系统，一般是在具体的主题中配置的，也就是在主题下的 <code>_config.yml</code> 文件中。大部分多外的主题都自动集成了 disqus， disqus 也大多在国外使用，它的评论框颜值还是很高的。但是在国内，因为网络访问国外服务比较慢的问题，使用多说会相对好一点。</p>
 <a id="more"></a>
 <p>既然如此，我们以 hueman 主题下在文章末尾配置多说评论框为例作一下说明。</p>
@@ -38,7 +38,7 @@
 <p>2. <code>theme.duoshuo_shortname</code>，这里需要我们在主题下面的 <code>_config.yml</code> 中添加 <code>duoshuo_shortname</code> 字段配置才能生效。这里和上面讲到的 <code>config.disqus_shortname</code> 的区别就在于 <code>theme._</code> 开头的是在主题中的 <code>_config.yml</code> 配置， <code>config._</code> 开头是在项目目录下的 <code>_config.yml</code> 配置。</p>
 <p>Ok，到这里，打开 <code>hueman -&gt; _config.yml</code> 在其中添加如下代码：</p>
 <figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># comments 配置多说评论</span></span><br><span class="line"><span class="label">duoshuo_shortname:</span> 这里就是你在创建站点时填的多说域名</span><br></pre></td></tr></table></figure>
-<p>如果多说域名是 [<a href="http://abc.duoshuo.com]，" target="_blank" rel="external">http://abc.duoshuo.com]，</a> 那这里 <code>duoshuo_shortname</code> 就是 abc。</p>
+<p>如果多说域名是 <a href="http://abc.duoshuo.com" target="_blank" rel="external">http://abc.duoshuo.com</a> ， 那这里 <code>duoshuo_shortname</code> 就是 abc。</p>
 <p>3. 多说评论框模板中的变量，我们需要进行替换。原来如下：</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"ds-thread"</span> data-thread-key=<span class="string">"请将此处替换成文章在你的站点中的ID"</span> data-title=<span class="string">"请替换成文章的标题"</span> data-url=<span class="string">"请替换成文章的网址"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
 <p>替换成：</p>

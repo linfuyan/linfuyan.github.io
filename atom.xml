@@ -4,7 +4,7 @@
   <subtitle><![CDATA[关注但不限于 Android、iOS、nodejs]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://linfuyan.com/"/>
-  <updated>2015-11-01T02:59:05.000Z</updated>
+  <updated>2015-11-02T13:18:19.000Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -13,6 +13,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[解决 The same input jar is specified twice 问题]]></title>
+    <link href="http://linfuyan.com/faq/resolve-the-same-input-jar-is-specified-twice-issue/"/>
+    <id>http://linfuyan.com/faq/resolve-the-same-input-jar-is-specified-twice-issue/</id>
+    <published>2015-11-02T13:06:00.000Z</published>
+    <updated>2015-11-02T13:18:19.000Z</updated>
+    <content type="html"><![CDATA[<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Execution failed <span class="keyword">for</span> <span class="keyword">task</span> <span class="string">':joke:proguardRelease'</span>.</span><br><span class="line">&gt; java.io.IOException: The same input jar [<span class="regexp">/Users/</span>lfy<span class="regexp">/Develop/gi</span>ts<span class="regexp">/joke-android/</span>joke<span class="regexp">/libs/</span>eventbus.jar] is specified twice.</span><br></pre></td></tr></table></figure>
+<p>今天在打混淆包时，遇到这个错误，刚开始以为是因为有多个项目都引用了 eventbus.jar 库，但当我对项目中的 eventbus.jar 的依赖进行排除时，同样出错。这次报的则是没有 eventbus.jar。 所以打消了我的第一个猜测。</p>
+<p>后来发现，是因为以前在用 eclipse 开发时，混淆配置文件中包含有 <code>-libraryjars libs/eventbus.jar</code> 的配置，用来保持 eventbus.jar 不被混淆。在 Android Studio 中， build.gradle 中声明了对这个 jar 包的依赖，则不需要在混淆配置文件中继续声明。</p>
+<p>在将所有的 <code>-libraryjars libs/*.jar</code> 注释掉以后，项目可以正常混淆了。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td]]>
+    </summary>
+    
+      <category term="Android Studio" scheme="http://linfuyan.com/tags/Android-Studio/"/>
+    
+      <category term="proguard" scheme="http://linfuyan.com/tags/proguard/"/>
+    
+      <category term="混淆" scheme="http://linfuyan.com/tags/%E6%B7%B7%E6%B7%86/"/>
+    
+      <category term="FAQ" scheme="http://linfuyan.com/categories/FAQ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <link href="http://linfuyan.com/hello-world/"/>
+    <id>http://linfuyan.com/hello-world/</id>
+    <published>2015-11-01T03:10:07.000Z</published>
+    <updated>2015-08-12T04:43:42.000Z</updated>
+    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Hexo 使用多说评论框]]></title>
@@ -918,7 +965,7 @@
     <link href="http://linfuyan.com/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04/"/>
     <id>http://linfuyan.com/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04/</id>
     <published>2015-09-26T13:29:00.000Z</published>
-    <updated>2015-09-26T13:52:05.000Z</updated>
+    <updated>2015-11-02T13:19:33.000Z</updated>
     <content type="html"><![CDATA[<p>翻译自：<a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04</a></p>
 <h4 id="介绍">介绍</h4><p>“ LAMP “组件是一组典型的安装在一起的开源软件，用于服务器搭建动态网站和 Web 应用。实际上，这是一个首字母缩写的组合，代表了 Linux 操作系统安装 <strong>A</strong>pache Web 服务器。网站的数据存储在 <strong>M</strong>ySQL 数据库中，并由 <strong>P</strong>HP 提供动态内容。</p>
 <a id="more"></a>
@@ -1010,8 +1057,6 @@
 <h4 id="介绍">介绍</h4><p>“ LAMP “组件是一组典型的安装在一起的开源软件，用于服务器搭建动态网站和 Web 应用。实际上，这是一个首字母缩写的组合，代表了 Linux 操作系统安装 <strong>A</strong>pache Web 服务器。网站的数据存储在 <strong>M</strong>ySQL 数据库中，并由 <strong>P</strong>HP 提供动态内容。</p>]]>
     
     </summary>
-    
-      <category term="14.04" scheme="http://linfuyan.com/tags/14-04/"/>
     
       <category term="Apache" scheme="http://linfuyan.com/tags/Apache/"/>
     
@@ -1208,72 +1253,6 @@
       <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
     
       <category term="Android" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Are you trying to connect to a TLS-enabled daemon without TLS？]]></title>
-    <link href="http://linfuyan.com/faq/docker-trying-to-connect-to-a-tls-enabled-daemon-without-tls/"/>
-    <id>http://linfuyan.com/faq/docker-trying-to-connect-to-a-tls-enabled-daemon-without-tls/</id>
-    <published>2015-09-16T08:34:00.000Z</published>
-    <updated>2015-09-16T09:54:26.000Z</updated>
-    <content type="html"><![CDATA[<p>在 Mac 上通过 boot2docker 启动 docker 时，运行 docker 命令出现下面的提示：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Post http:///var/run/docker.sock/v1.19/containers/<span class="operator"><span class="keyword">create</span>: dial unix /<span class="keyword">var</span>/run/docker.sock: <span class="keyword">no</span> such <span class="keyword">file</span> <span class="keyword">or</span> <span class="keyword">directory</span>. </span><br><span class="line"><span class="keyword">Are</span> you trying <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> a TLS-enabled daemon <span class="keyword">without</span> TLS?</span></span><br></pre></td></tr></table></figure>
-<p>这时候需要重启 boot2docker：</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">boot2docker </span>stop</span><br><span class="line">$ <span class="keyword">boot2docker </span>start</span><br></pre></td></tr></table></figure>
-<p>然后根据提示设置变量，如下图：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-docker-tls.png" alt="在 Mac 上通过 boot2docker 启动 docker 时异常"></p>
-<p>OK，最后在终端中输入：<code>docker version</code> 验证是否成功。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>在 Mac 上通过 boot2docker 启动 docker 时，运行 docker 命令出现下面的提示：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="]]>
-    </summary>
-    
-      <category term="Docker" scheme="http://linfuyan.com/tags/Docker/"/>
-    
-      <category term="Mac" scheme="http://linfuyan.com/tags/Mac/"/>
-    
-      <category term="TLS" scheme="http://linfuyan.com/tags/TLS/"/>
-    
-      <category term="boot2docker" scheme="http://linfuyan.com/tags/boot2docker/"/>
-    
-      <category term="FAQ" scheme="http://linfuyan.com/categories/FAQ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Mac OS X 上 使用 Docker 安装 Hexo]]></title>
-    <link href="http://linfuyan.com/hexo-your-blog/dockerize-hexo-on-mac/"/>
-    <id>http://linfuyan.com/hexo-your-blog/dockerize-hexo-on-mac/</id>
-    <published>2015-09-10T06:57:42.000Z</published>
-    <updated>2015-09-16T09:54:01.000Z</updated>
-    <content type="html"><![CDATA[<blockquote>
-<p>这篇中介绍如何在 Mac OS X 上使用 Docker 来安装 Hexo。</p>
-</blockquote>
-]]></content>
-    <summary type="html">
-    <![CDATA[<blockquote>
-<p>这篇中介绍如何在 Mac OS X 上使用 Docker 来安装 Hexo。</p>
-</blockquote>
-]]>
-    </summary>
-    
-      <category term="Docker" scheme="http://linfuyan.com/tags/Docker/"/>
-    
-      <category term="Hexo" scheme="http://linfuyan.com/tags/Hexo/"/>
-    
-      <category term="Mac" scheme="http://linfuyan.com/tags/Mac/"/>
-    
-      <category term="个人" scheme="http://linfuyan.com/tags/%E4%B8%AA%E4%BA%BA/"/>
-    
-      <category term="博客" scheme="http://linfuyan.com/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="安装" scheme="http://linfuyan.com/tags/%E5%AE%89%E8%A3%85/"/>
-    
-      <category term="软件工具" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="Hexo" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/Hexo/"/>
     
   </entry>
   

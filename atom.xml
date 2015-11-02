@@ -40,28 +40,6 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <link href="http://linfuyan.com/hello-world/"/>
-    <id>http://linfuyan.com/hello-world/</id>
-    <published>2015-11-01T03:10:07.000Z</published>
-    <updated>2015-08-12T04:43:42.000Z</updated>
-    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io]]>
-    </summary>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[Hexo 使用多说评论框]]></title>
     <link href="http://linfuyan.com/hexo-your-blog/hexo-with-duoshuo/"/>
     <id>http://linfuyan.com/hexo-your-blog/hexo-with-duoshuo/</id>
@@ -726,6 +704,26 @@
     
     </summary>
     
+      <category term="14.04" scheme="http://linfuyan.com/tags/14-04/"/>
+    
+      <category term="Ant" scheme="http://linfuyan.com/tags/Ant/"/>
+    
+      <category term="Apache" scheme="http://linfuyan.com/tags/Apache/"/>
+    
+      <category term="Git" scheme="http://linfuyan.com/tags/Git/"/>
+    
+      <category term="JDK" scheme="http://linfuyan.com/tags/JDK/"/>
+    
+      <category term="Java" scheme="http://linfuyan.com/tags/Java/"/>
+    
+      <category term="Linux" scheme="http://linfuyan.com/tags/Linux/"/>
+    
+      <category term="Tomcat" scheme="http://linfuyan.com/tags/Tomcat/"/>
+    
+      <category term="Ubuntu" scheme="http://linfuyan.com/tags/Ubuntu/"/>
+    
+      <category term="Web" scheme="http://linfuyan.com/tags/Web/"/>
+    
       <category term="软件工具" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
     
       <category term="tomcat" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/tomcat/"/>
@@ -1253,6 +1251,37 @@
       <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
     
       <category term="Android" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Are you trying to connect to a TLS-enabled daemon without TLS？]]></title>
+    <link href="http://linfuyan.com/faq/docker-trying-to-connect-to-a-tls-enabled-daemon-without-tls/"/>
+    <id>http://linfuyan.com/faq/docker-trying-to-connect-to-a-tls-enabled-daemon-without-tls/</id>
+    <published>2015-09-16T08:34:00.000Z</published>
+    <updated>2015-09-16T09:54:26.000Z</updated>
+    <content type="html"><![CDATA[<p>在 Mac 上通过 boot2docker 启动 docker 时，运行 docker 命令出现下面的提示：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Post http:///var/run/docker.sock/v1.19/containers/<span class="operator"><span class="keyword">create</span>: dial unix /<span class="keyword">var</span>/run/docker.sock: <span class="keyword">no</span> such <span class="keyword">file</span> <span class="keyword">or</span> <span class="keyword">directory</span>. </span><br><span class="line"><span class="keyword">Are</span> you trying <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> a TLS-enabled daemon <span class="keyword">without</span> TLS?</span></span><br></pre></td></tr></table></figure>
+<p>这时候需要重启 boot2docker：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">boot2docker </span>stop</span><br><span class="line">$ <span class="keyword">boot2docker </span>start</span><br></pre></td></tr></table></figure>
+<p>然后根据提示设置变量，如下图：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-docker-tls.png" alt="在 Mac 上通过 boot2docker 启动 docker 时异常"></p>
+<p>OK，最后在终端中输入：<code>docker version</code> 验证是否成功。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>在 Mac 上通过 boot2docker 启动 docker 时，运行 docker 命令出现下面的提示：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="]]>
+    </summary>
+    
+      <category term="Docker" scheme="http://linfuyan.com/tags/Docker/"/>
+    
+      <category term="Mac" scheme="http://linfuyan.com/tags/Mac/"/>
+    
+      <category term="TLS" scheme="http://linfuyan.com/tags/TLS/"/>
+    
+      <category term="boot2docker" scheme="http://linfuyan.com/tags/boot2docker/"/>
+    
+      <category term="FAQ" scheme="http://linfuyan.com/categories/FAQ/"/>
     
   </entry>
   

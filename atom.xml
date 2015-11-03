@@ -564,6 +564,44 @@
   </entry>
   
   <entry>
+    <title><![CDATA[iOS 配置 scheme 及 configuration]]></title>
+    <link href="http://linfuyan.com/iOS-scheme-and-configuration-setting/"/>
+    <id>http://linfuyan.com/iOS-scheme-and-configuration-setting/</id>
+    <published>2015-09-29T08:24:00.000Z</published>
+    <updated>2015-11-03T08:28:44.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="新建共享_scheme">新建共享 scheme</h4><p>Xcode -&gt; Manage schemes…</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/scheme-manage-1.png" alt=""></p>
+<p>点击左下角的 + 来添加新的 scheme。添加成功以后，勾选新的 scheme 后面的 Shared 将scheme 设置为共享，这样在版本控制系统中可以包含这个项目设置。参与协作的人获得这份代码，就可以共享这个 scheme。</p>
+<h4 id="新建_Configuration">新建 Configuration</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/scheme-manage-2.png" alt=""></p>
+<ol>
+<li>打开项目 Project 的 info 标签。</li>
+<li>点击2中的 <code>+</code>，选择 <code>Duplicate &quot;Release&quot; Configuraton</code>。</li>
+<li>修改新建的 Configuration 的名称，本文中为 InHouse。</li>
+</ol>
+<h4 id="设置_Configuration_对应的签名及_Profile">设置 Configuration 对应的签名及 Profile</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/scheme-manage-3.png" alt=""></p>
+<ol>
+<li>打开项目中 Target 的 Build Setting 标签。</li>
+<li>在 Code Signing 栏目中设置对应的签名和 Profile，其中2和3是 Jenkins 打包中需要用到的，设置为正式签名及企业账号导出的 Profile。</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="新建共享_scheme">新建共享 scheme</h4><p>Xcode -&gt; Manage schemes…</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/sch]]>
+    </summary>
+    
+      <category term="configuration" scheme="http://linfuyan.com/tags/configuration/"/>
+    
+      <category term="iOS" scheme="http://linfuyan.com/tags/iOS/"/>
+    
+      <category term="scheme" scheme="http://linfuyan.com/tags/scheme/"/>
+    
+      <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="iOS" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/iOS/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[响应式编程2分钟简介]]></title>
     <link href="http://linfuyan.com/2-minute-introduction-to-rx/"/>
     <id>http://linfuyan.com/2-minute-introduction-to-rx/</id>
@@ -1251,37 +1289,6 @@
       <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
     
       <category term="Android" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Are you trying to connect to a TLS-enabled daemon without TLS？]]></title>
-    <link href="http://linfuyan.com/faq/docker-trying-to-connect-to-a-tls-enabled-daemon-without-tls/"/>
-    <id>http://linfuyan.com/faq/docker-trying-to-connect-to-a-tls-enabled-daemon-without-tls/</id>
-    <published>2015-09-16T08:34:00.000Z</published>
-    <updated>2015-09-16T09:54:26.000Z</updated>
-    <content type="html"><![CDATA[<p>在 Mac 上通过 boot2docker 启动 docker 时，运行 docker 命令出现下面的提示：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Post http:///var/run/docker.sock/v1.19/containers/<span class="operator"><span class="keyword">create</span>: dial unix /<span class="keyword">var</span>/run/docker.sock: <span class="keyword">no</span> such <span class="keyword">file</span> <span class="keyword">or</span> <span class="keyword">directory</span>. </span><br><span class="line"><span class="keyword">Are</span> you trying <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> a TLS-enabled daemon <span class="keyword">without</span> TLS?</span></span><br></pre></td></tr></table></figure>
-<p>这时候需要重启 boot2docker：</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">boot2docker </span>stop</span><br><span class="line">$ <span class="keyword">boot2docker </span>start</span><br></pre></td></tr></table></figure>
-<p>然后根据提示设置变量，如下图：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-docker-tls.png" alt="在 Mac 上通过 boot2docker 启动 docker 时异常"></p>
-<p>OK，最后在终端中输入：<code>docker version</code> 验证是否成功。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>在 Mac 上通过 boot2docker 启动 docker 时，运行 docker 命令出现下面的提示：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="]]>
-    </summary>
-    
-      <category term="Docker" scheme="http://linfuyan.com/tags/Docker/"/>
-    
-      <category term="Mac" scheme="http://linfuyan.com/tags/Mac/"/>
-    
-      <category term="TLS" scheme="http://linfuyan.com/tags/TLS/"/>
-    
-      <category term="boot2docker" scheme="http://linfuyan.com/tags/boot2docker/"/>
-    
-      <category term="FAQ" scheme="http://linfuyan.com/categories/FAQ/"/>
     
   </entry>
   

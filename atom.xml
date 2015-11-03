@@ -4,7 +4,7 @@
   <subtitle><![CDATA[关注但不限于 Android、iOS、nodejs]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://linfuyan.com/"/>
-  <updated>2015-11-02T13:18:19.000Z</updated>
+  <updated>2015-11-03T10:38:10.000Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -13,6 +13,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Mac 上 sublime text 通过命令行打开文件]]></title>
+    <link href="http://linfuyan.com/faq/open-files-via-cmdline-using-sublime-text/"/>
+    <id>http://linfuyan.com/faq/open-files-via-cmdline-using-sublime-text/</id>
+    <published>2015-11-03T10:28:00.000Z</published>
+    <updated>2015-11-03T10:38:10.000Z</updated>
+    <content type="html"><![CDATA[<p>在 Mac 上让 sublime text 通过命令行打开文件，可以提升比较高的效率。</p>
+<p>具体过程如下：</p>
+<p>1. 首先，在主用户目录下新建 .bash_alias 文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch ~/.bash_<span class="built_in">alias</span></span><br></pre></td></tr></table></figure>
+<p>2. 在其中添加如下代码</p>
+<figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alias</span> <span class="title">subl</span>=<span class="comment">'open -a /Applications/"Sublime Text 2.app"'</span></span><br><span class="line"><span class="keyword">alias</span> <span class="title">st</span>=subl</span><br></pre></td></tr></table></figure>
+<p>3. 使配置生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bash_<span class="built_in">alias</span></span><br></pre></td></tr></table></figure>
+<p>4. 可以将上面的命令，添加到 <code>~/.bash_profile</code> 中，这样每次启动就自动使上面的配置生效了。</p>
+<p>5. 完成上面步骤，就可以通过如下命令，打开目标文件/目录了：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">st</span> path/<span class="keyword">to</span>/dest/dir_or_file</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>其他的应用也是可以通过类似的方式配置，来提高操作的效率，如下面添加了 mou 来打开文件。</p>
+</blockquote>
+<figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alias</span> <span class="title">mou</span>=<span class="comment">'open -a /Applications/Mou.app'</span></span><br></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<p>在 Mac 上让 sublime text 通过命令行打开文件，可以提升比较高的效率。</p>
+<p>具体过程如下：</p>
+<p>1. 首先，在主用户目录下新建 .bash_alias 文件</p>
+<figure class="highlight bash"><tabl]]>
+    </summary>
+    
+      <category term="Mac" scheme="http://linfuyan.com/tags/Mac/"/>
+    
+      <category term="sublime text" scheme="http://linfuyan.com/tags/sublime-text/"/>
+    
+      <category term="使用" scheme="http://linfuyan.com/tags/%E4%BD%BF%E7%94%A8/"/>
+    
+      <category term="技巧" scheme="http://linfuyan.com/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="FAQ" scheme="http://linfuyan.com/categories/FAQ/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[解决 The same input jar is specified twice 问题]]></title>
@@ -1412,79 +1452,6 @@
       <category term="软件工具" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
     
       <category term="tomcat" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/tomcat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[什么是 Jenkins?]]></title>
-    <link href="http://linfuyan.com/what-is-jenkins/"/>
-    <id>http://linfuyan.com/what-is-jenkins/</id>
-    <published>2015-09-26T15:13:09.000Z</published>
-    <updated>2015-09-26T15:26:35.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="什么是Jenkins">什么是Jenkins</h3><p>Jenkins 是一款一流的应用软件，用于监控重复任务的执行，包括一个软件项目的构建、由 <code>cron</code> 执行的工作等。在此基础之上，Jenkins 现在专注于以下两个方向：</p>
-<ul>
-<li><strong>持续构建/测试软件项目</strong>，类似于 <code>CruiseControl</code> 或者 <code>DamageControl</code> 。简而言之， Jenkins 提供一个使用简单地持续集成系统，使得开发人员更方便的集成项目修改，让用户更容易地获取较新的构建版本。自动化持续构建极大提高了生产力。</li>
-<li><strong>监控外部运行任务的执行</strong>，比如配置在本地或者远程的 <code>cron</code> 或 <code>procmail</code> 任务。拿 <code>cron</code> 举个例子，你将收到的是一些包含输出结果的常规电子邮件，提醒你勤快地处理它们，当它们出错时，也可以第一时间提醒你。 Jenkins 保存这些输出，并使得出现问题时的通知变得简单。</li>
-</ul>
-<h3 id="特性">特性</h3><p>Jenkins 所提供(拥有)的特性如下：</p>
-<ol>
-<li><strong>易于安装</strong>：只需要一个名为 jenkins.war 的 Java jar 包，或者将它发布到 servlet 容器。不需要其他附件安装，不需要数据库。</li>
-<li><strong>易于配置</strong>：整个 Jenkins 的配置都可以通过它友好的 Web 界面来完成。不在需要别扭的 XML 手动配置，如果你依然愿意，可以继续使用。</li>
-<li><strong>修改设置的支持</strong>： Jenkins 可以从 <code>Subversion/CVS</code> 生成一系列的修改列表来完成构建。这种方式也非常的前卫，因为减少了从存储库加载资源的步骤。</li>
-<li><strong>永久的链接地址</strong>： Jenkins 为大部分的页面提供了简洁可读的 URL ，包括诸如” <code>latest build/latest successful build</code> “这样的永久性链接，可以很轻易的从其他地方链接过来。</li>
-<li><strong>RSS/邮件/即时通行集成</strong>：通过 RSS 或者邮件来获取失败时的实时通知，轻而易举地监控构建结果。</li>
-<li><strong>标记构建过程</strong>：当构建完成以后，可以对其进行标记存储。</li>
-<li><strong>JUnit/TestNG 测试报告</strong>： JUnit 的测试报告及历史信息，可以表格形式总结与展示，比如构建在什么时候开始出错等等。历史趋势以图表形式绘制出来。</li>
-<li><strong>分布式构建</strong>： Jenkins 可以分配构建/测试到多台电脑商。</li>
-<li><strong>文件指纹</strong>： Jenkins 可以跟踪那次构建生成了哪些 jar 包，哪些构建使用了哪个版本的 jar 包等等。这些对不是 Jenkins 内部产生的 jar 包也有效，非常适合于项目中的依赖跟踪。</li>
-<li><strong>插件支持</strong>： Jenkins 可以轻易地通过第三方插件进行扩展。你甚至可以为自己的团队使用编写合适的 Jenkins 插件。</li>
-</ol>
-<h3 id="Jenkins_由来">Jenkins 由来</h3><p>目前持续集成（ CI ）已成为当前许多软件开发团队在整个软件开发生命周期内侧重于保证代码质量的常见做法。它是一种实践，只在缓和和稳固软件的构建过程，并且能够帮助你的开发团队应对如下挑战：</p>
-<ul>
-<li>软件构建自动化：配置完成后， CI 系统会依照预先定制的时间表，或者针对某一特定事件，对目标软件进行构建。</li>
-<li>构建可持续的自动化检查： CI 系统能持续地获取新增或者修改后签入的源代码，也就是说，当软件开发团队需要周期性的检查新增或修改后的代码时， CI 系统会不断确认这些新代码是否破坏了原有软件的成功构建。这减少了开发者们在检查彼此相互依存的代码中变化情况需要花费的时间和精力。</li>
-<li>构建可持续的自动化测试：构建检查的扩展部分，构建后执行预先制定的一套测试规则，完成后触发通知给相关的当事人。</li>
-<li>生成后后续过程的自动化：当自动化检查和测试成功完成以后，软件构建的周期中可能需要一些额外的任务，诸如生成文档，打包软件，部署构建到一个运行环境或者软件仓库。这样，构件才能更迅速地提供给用户使用。</li>
-</ul>
-<p>部署一个 CI 系统需要的最低要求是，一个可获取的源代码仓库，一个包含构建脚本的项目。</p>
-<p>CI 系统的基本结构，如下：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jenkins-basic-structure.jpg" alt="image"></p>
-<p>该系统的各个组成部分是按如下顺序发挥作用的：</p>
-<ol>
-<li>开发这检入代码到源代码仓库。</li>
-<li>CI 系统会为每一个项目创建一个单独的工作区。当预设或请求一次新的构建时，它将把源代码仓库的源码存放到对应的工作区。</li>
-<li>CI 系统会在对应的工作区内执行构建过程。</li>
-<li>如果配置存在，构建完成后， CI 系统会在一个新的构建中执行定义的一套测试。完成后出发通知（RSS，邮箱等等）给相关的当事人。</li>
-<li>如果配置存在，在构建成功后，这个构建会被打包并转移到一个部署目标（如应用服务器）或存储为软件仓库中的一个新版本。软件仓库可以是 CI 系统的一部分，也可以是一个外部的仓库，诸如一个文件或者服务器或者像 Java.net 、 SourceForge 之类的网站。</li>
-<li>CI 系统通常会根据请求发起相应地操作，诸如及时构建、生成报告，或者检索一些构建好的构件。</li>
-</ol>
-<p>Jenkins 就是这样的一个 CI 系统。它的主要目标在于监控软件开发流程，快速显示问题。所以能保证开发人员以及相关人员省时省力提高开发效率。</p>
-<p>在整个开发过程中， CI 的作用主要是控制：当系统在代码库中探测到修改是，它将运行构建的任务委托给构建过程本身。如果构建失败了，那么 CI 将通知相关人员，然后继续监视存储库。</p>
-<h4 id="参考">参考</h4><ol>
-<li><a href="http://www.cnblogs.com/zz0412/p/jenkins01.html" target="_blank" rel="external">Jenkins是什么</a></li>
-<li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins" target="_blank" rel="external">Meet Jenkins</a></li>
-</ol>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="什么是Jenkins">什么是Jenkins</h3><p>Jenkins 是一款一流的应用软件，用于监控重复任务的执行，包括一个软件项目的构建、由 <code>cron</code> 执行的工作等。在此基础之上，Jenkins 现在专注于以下两个方向：</p>
-]]>
-    </summary>
-    
-      <category term="CI" scheme="http://linfuyan.com/tags/CI/"/>
-    
-      <category term="jenkins" scheme="http://linfuyan.com/tags/jenkins/"/>
-    
-      <category term="持续集成" scheme="http://linfuyan.com/tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
-    
-      <category term="构建" scheme="http://linfuyan.com/tags/%E6%9E%84%E5%BB%BA/"/>
-    
-      <category term="测试" scheme="http://linfuyan.com/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="自动化" scheme="http://linfuyan.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
-    
-      <category term="软件工具" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="jenkins" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/jenkins/"/>
     
   </entry>
   

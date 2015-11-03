@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>定义自定义动画 | 悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。
+
+Material design 中的动画能够让应用程序给予用户对于动作的反馈，提供用户交互的视觉持续性。 Material 主题为按钮和活动转场效果提供默认的动画， Android 5.0 (API 21) 以上版本可以定制这些动画，并创建新的：
+
+触摸反馈
+圆形">
+<meta property="og:type" content="article">
+<meta property="og:title" content="定义自定义动画">
+<meta property="og:url" content="http://linfuyan.com/material-design-training/defining-custom-animations/index.html">
+<meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
+<meta property="og:description" content="这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。
+
+Material design 中的动画能够让应用程序给予用户对于动作的反馈，提供用户交互的视觉持续性。 Material 主题为按钮和活动转场效果提供默认的动画， Android 5.0 (API 21) 以上版本可以定制这些动画，并创建新的：
+
+触摸反馈
+圆形">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/SceneTransition.png">
+<meta property="og:updated_time" content="2015-11-03T09:16:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="定义自定义动画">
+<meta name="twitter:description" content="这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。
+
+Material design 中的动画能够让应用程序给予用户对于动作的反馈，提供用户交互的视觉持续性。 Material 主题为按钮和活动转场效果提供默认的动画， Android 5.0 (API 21) 以上版本可以定制这些动画，并创建新的：
+
+触摸反馈
+圆形">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  
+  
+    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+  
+  
+
+
+  
+
+  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+            <h2 class="subtitle-wrap">
+              <p class="subtitle">关注但不限于 Android、iOS、nodejs</p>
+            </h2>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/导航/">导航</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/">教程</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
+                  
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://linfuyan.com"></form>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header"><a class="page-title-link" href="/categories/教程/">教程</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a></h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-material-design-training/defining-custom-animations" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      定义自定义动画
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/material-design-training/defining-custom-animations/" class="article-date">
+  <time datetime="2015-10-24T06:00:00.000Z" itemprop="datePublished">2015-10-24</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <blockquote>
+<p>这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。</p>
+</blockquote>
+<p>Material design 中的动画能够让应用程序给予用户对于动作的反馈，提供用户交互的视觉持续性。 Material 主题为按钮和活动转场效果提供默认的动画， Android 5.0 (API 21) 以上版本可以定制这些动画，并创建新的：</p>
+<ul>
+<li>触摸反馈</li>
+<li>圆形波纹</li>
+<li>活动转场效果</li>
+<li>曲线移动</li>
+<li>视图状态改变</li>
+</ul>
+<a id="more"></a>
+<h2 id="自定义触摸反馈">自定义触摸反馈</h2><p>Material design 中的触摸反馈可以为用户与 UI 元素的交互提供持续的视觉确认。按钮上的默认的触摸反馈动画使用新的 RippleDrawable 类，该类在不同的状态切换中使用波纹效果。</p>
+<p>大部分情况下，你需要在视图的 XML 中指定视图背景来应用这个功能：</p>
+<ul>
+<li><code>?android:attr/selectableItemBackground</code> : 实现有边界的波纹。</li>
+<li><code>?android:attr/selectableItemBackgroundBorderless</code> : 在视图之上的波纹。它将被绘制在最近的背景不为空的父视图内。</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong>： <code>selectableItemBackgroundBorderless</code> 是在 API 21 中引入的新属性。</p>
+</blockquote>
+<p>你也可以使用 <code>ripple</code> 元素在 XML 资源中定义 RippleDrawable 。</p>
+<p>可以为 RippleDrawable 对象设置颜色。要改变默认的触摸反馈的颜色，使用主题中的 <code>android:colorControlHighlight</code> 属性。</p>
+<p>更多信息，可以查看类 RippleDrawable 的 API 参考。</p>
+<h2 id="使用显示效果">使用显示效果</h2><p>当显示或者隐藏一组 UI 元素时，显示动画能提供用户视觉连续性。 ViewAnimationUtils.createCircularReveal() 方法来使用裁剪为圆形动画来显示或隐藏视图。</p>
+<p>要实现一个之前不可见的视图使用这种效果：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 之前不可见的视图</span></span><br><span class="line">View myView = findViewById(R.id.my_view);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取裁剪圆形的中心</span></span><br><span class="line"><span class="keyword">int</span> cx = myView.getWidth() / <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> cy = myView.getHeight() / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取裁剪圆形的最终半径</span></span><br><span class="line"><span class="keyword">int</span> finalRadius = Math.max(myView.getWidth(), myView.getHeight());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 为视图创建动画发生器(起始半径为0)</span></span><br><span class="line">Animator anim =</span><br><span class="line">    ViewAnimationUtils.createCircularReveal(myView, cx, cy, <span class="number">0</span>, finalRadius);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使视图可见并启动动画</span></span><br><span class="line">myView.setVisibility(View.VISIBLE);</span><br><span class="line">anim.start();</span><br></pre></td></tr></table></figure>
+<p>要隐藏之前可见的视图使用这种效果：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 之前可见的视图</span></span><br><span class="line"><span class="keyword">final</span> View myView = findViewById(R.id.my_view);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取裁剪圆形的中心</span></span><br><span class="line"><span class="keyword">int</span> cx = myView.getWidth() / <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> cy = myView.getHeight() / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取裁剪圆形的厨师半径</span></span><br><span class="line"><span class="keyword">int</span> initialRadius = myView.getWidth();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建动画(最终半径为0)</span></span><br><span class="line">Animator anim =</span><br><span class="line">    ViewAnimationUtils.createCircularReveal(myView, cx, cy, initialRadius, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当动画结束时是视图不可见</span></span><br><span class="line">anim.addListener(<span class="keyword">new</span> AnimatorListenerAdapter() &#123;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animator animation)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onAnimationEnd(animation);</span><br><span class="line">        myView.setVisibility(View.INVISIBLE);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 启动动画</span></span><br><span class="line">anim.start();</span><br></pre></td></tr></table></figure>
+<h2 id="自定义活动转场效果">自定义活动转场效果</h2><p>在 Material design 特性的应用程序中，活动转场效果提供公共元素在移动和转换上不同状态下的视觉连接。你可以指定自定义的进场/退场效果及活动间的共享元素转场。</p>
+<ul>
+<li>进场效果决定活动中的视图如何进入场景。例如，在 <em>explode</em> 进场效果中，视图从外部飞入到屏幕的中心。</li>
+<li>退场效果决定活动中的驶入如何退出场景。例如，在 <em>explode</em> 退场效果中，视图从中心退出场景。</li>
+<li>共享元素转场效果决定活动之间共享视图在两个活动间的转场。例如，在两个活动中同一个图片在不同的位置且尺寸不同， <em>changeImageTransform</em> 共享元素转场在活动之间平滑的平移和缩放这些图片。</li>
+</ul>
+<p>Android 5.0 (API 21) 支持下面这些进场和退场效果：</p>
+<ul>
+<li>explode - 从场景中间移入或移出视图。</li>
+<li>slide - 从场景的一边移入或移出视图。</li>
+<li>fade - 通过修改透明度在场景中添加或者移除视图。</li>
+</ul>
+<p>所有继承自 Visibility 类的转场支持进场/退场效果。更多信息，查看 API 参考的 Transition 类。</p>
+<p>Android 5.0 (API 21) 同时支持共享元素的转场效果：</p>
+<ul>
+<li>changeBounds - 动画改变目标视图的布局边界。</li>
+<li>changeClipBounds - 动画改变目标视图的裁剪边界。</li>
+<li>changeTransform - 动画改变目标视图的缩放和旋转。</li>
+<li>changeImageTransform - 动画改变图片的尺寸和缩放。</li>
+</ul>
+<p>如果应用程序中开启了活动转场效果，进入或退出活动时默认的 cross-fading 转场效果将被激活。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/SceneTransition.png" alt="带有共享元素的转场效果"></p>
+<h3 id="指定自定义转场效果">指定自定义转场效果</h3><p>首先，定义一个风格继承自 material 主题，并设置 <code>android:windowContentTransitions</code> 属性来开启窗口内容转场。你也可以在风格定义中指定进场，退场和共享元素转场效果。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;style <span class="property">name</span>=<span class="string">"BaseAppTheme"</span> parent=<span class="string">"android:Theme.Material"</span>&gt;</span><br><span class="line"> &lt;!<span class="comment">-- 开启窗口内容转场 --&gt;</span></span><br><span class="line"> &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowContentTransitions"</span>&gt;<span class="constant">true</span>&lt;/<span class="property">item</span>&gt;</span><br><span class="line"></span><br><span class="line"> &lt;!<span class="comment">-- 指定进场/退场效果 --&gt;</span></span><br><span class="line"> &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowEnterTransition"</span>&gt;@transition/explode&lt;/<span class="property">item</span>&gt;</span><br><span class="line"> &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowExitTransition"</span>&gt;@transition/explode&lt;/<span class="property">item</span>&gt;</span><br><span class="line"></span><br><span class="line"> &lt;!<span class="comment">-- 指定共享元素转场 --&gt;</span></span><br><span class="line"> &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowSharedElementEnterTransition"</span>&gt;</span><br><span class="line">   @transition/change_image_transform&lt;/<span class="property">item</span>&gt;</span><br><span class="line"> &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowSharedElementExitTransition"</span>&gt;</span><br><span class="line">   @transition/change_image_transform&lt;/<span class="property">item</span>&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>这个例子中 <code>change_image_transform</code> 转场效果定义如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- res/transition/change_image_transform.xml --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- (see also Shared Transitions below) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">transitionSet</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">changeImageTransform</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">transitionSet</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>change_image_transform</code> 元素与 ChangeImageTransform 类相对应。更多信息，可以查看 API 参考 <a href="">Transition</a>。</p>
+<p>在代码中，可以通过调用 Window.requestFeature() 方法来开启窗口内容转场。</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// inside your activity (if you did not enable transitions in your theme)</span></span><br><span class="line"><span class="function">getWindow</span>()<span class="class">.requestFeature</span>(Window<span class="class">.FEATURE_CONTENT_TRANSITIONS</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// set an exit transition</span></span><br><span class="line"><span class="function">getWindow</span>()<span class="class">.setExitTransition</span>(new <span class="function">Explode</span>());</span><br></pre></td></tr></table></figure>
+<p>在代码中，可以通过调用下面的方法，并传递 Transtion 对象来确定转场效果：</p>
+<ul>
+<li>Window.setEnterTransition()</li>
+<li>Window.setExitTransition()</li>
+<li>Window.setSharedElementEnterTransition()</li>
+<li>Window.setSharedElementExitTransition()</li>
+</ul>
+<p>setExitTransition() 和 setSharedElementExitTransition() 定义了调用该方法的活动的退场效果。setEnterTransition() 和 setSharedElementEnterTransition() 则定义调用该方法的活动的进场效果。</p>
+<p>要获取转场的完整效果，你取药开启调用与被调用活动的窗口内容转场功能。否则，调用活动可以开始退场效果，但是你最后只能看到一个窗口转场(缩放或者淡入)。</p>
+<p>在被调用的活动中使用 Window.setAllowEnterTransitionOverlap() 方法来尽快启动一个进场效果，这能让你拥有很炫酷的进场效果。</p>
+<h3 id="使用转场效果启动活动">使用转场效果启动活动</h3><p>如果你开启转场效果并为活动设置了退场效果，当你启动另一个活动时，转场效果将被激活，如下所示：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">startActivity<span class="list">(<span class="keyword">intent</span>,</span><br><span class="line">              ActivityOptions.makeSceneTransitionAnimation<span class="list">(<span class="keyword">this</span>)</span>.toBundle<span class="list">()</span>)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>如果你为第二个活动设置了进场效果，当活动开始时转场效果将被激活。要在启动另一个活动时禁用转场效果，提供一个为 <code>null</code> 的可选 bundle。</p>
+<h3 id="启动带有共享元素的活动">启动带有共享元素的活动</h3><p>创建带有共享元素的两个活动的屏幕转场需要：</p>
+<ol>
+<li>在主题中开启窗口内容转场。</li>
+<li>在风格中指定共享元素转场。</li>
+<li>将转场效果定义为 XML 资源。</li>
+<li>在布局中的共享元素通过 <code>android:transitionName</code> 属性来分配一样的名字。</li>
+<li>使用 ActivityOptions.makeSceneTransitionAnimation() 方法。</li>
+</ol>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取接收点击事件的元素</span></span><br><span class="line"><span class="keyword">final</span> View imgContainerView = findViewById(R.id.img_container);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取活动中进行转场的公共元素</span></span><br><span class="line"><span class="keyword">final</span> View androidRobotView = findViewById(R.id.image_small);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义点击监听</span></span><br><span class="line">imgContainerView.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> onClick(View view) &#123;</span><br><span class="line">        Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, Activity2.<span class="keyword">class</span>);</span><br><span class="line">        <span class="comment">// 创建转场动画，两个活动布局中的图片使用android:transitionName="robot"进行定义</span></span><br><span class="line">        ActivityOptions <span class="keyword">options</span> = ActivityOptions</span><br><span class="line">            .makeSceneTransitionAnimation(<span class="keyword">this</span>, androidRobotView, <span class="string">"robot"</span>);</span><br><span class="line">        <span class="comment">// 启动新的活动</span></span><br><span class="line">        startActivity(intent, <span class="keyword">options</span>.toBundle());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在代码中，可以通过在两个活动中使用 View.setTransitionName() 方法来指定公共元素名称来共享动态视图。</p>
+<p>当你结束第二个活动，想要反转转场动画时，调用 Activity.finishAfterTransition() 代替 Activity.finish() 。</p>
+<h3 id="启动带多个共享元素的活动">启动带多个共享元素的活动</h3><p>创建带有多个共享元素的活动转场，在布局中使用 <code>android:transitionName</code> 属性来定义共享元素，或者在活动代码中用 View.setTransitionName() 方法。然后创建 ActivityOptions 对象：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ActivityOptions <span class="keyword">options</span> = ActivityOptions.makeSceneTransitionAnimation(<span class="keyword">this</span>,</span><br><span class="line">        Pair.create(view1, <span class="string">"agreedName1"</span>),</span><br><span class="line">        Pair.create(view2, <span class="string">"agreedName2"</span>));</span><br></pre></td></tr></table></figure>
+<h2 id="使用曲线移动">使用曲线移动</h2><p>Material design 中的动画依赖于时间插值曲线并运动收空间所限。<br>Animations in material design rely on curves for time interpolation and spatial movement patterns. With Android 5.0 (API level 21) and above, you can define custom timing curves and curved motion patterns for animations.</p>
+<p>PathInterpolator 类是基于贝塞尔曲线和一个 Path 对象的新的插值器。这个插值器指定在 1x1 方形上的运动曲线，拥有 (0,0) 和 (1,1) 两个锚点，并且使用构造器参数为指定的控制点。也可以在 XML 资源中定义路径插值器：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">pathInterpolator</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">android:controlX1</span>=<span class="value">"0.4"</span></span><br><span class="line">    <span class="attribute">android:controlY1</span>=<span class="value">"0"</span></span><br><span class="line">    <span class="attribute">android:controlX2</span>=<span class="value">"1"</span></span><br><span class="line">    <span class="attribute">android:controlY2</span>=<span class="value">"1"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在 material design 规范中系统为 3 种基本曲线提供了 XML 资源。</p>
+<ul>
+<li><code>@interpolator/fast_out_linear_in.xml</code></li>
+<li><code>@interpolator/fast_out_slow_in.xml</code></li>
+<li><code>@interpolator/linear_out_slow_in.xml</code></li>
+</ul>
+<p>可以传递一个 PathInterpolator 对象到 Animator.setInterpolator() 方法。</p>
+<p>ObjectAnimator 类有新的构造器来支持一次性使用2个或多个属性，与路径一起来推动坐标。例如，下面的动画会之气使用一个 Path 对象来推动视图的 X 和 Y 属性：</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ObjectAnimator mAnimator<span class="comment">;</span></span><br><span class="line">mAnimator = ObjectAnimator.ofFloat(view, View.X, View.Y, path)<span class="comment">;</span></span><br><span class="line">...</span><br><span class="line">mAnimator.start()<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h2 id="动画视图状态改变">动画视图状态改变</h2><p>StateListAnimator 类定义视图状态改变时运行的动画。下面的实例展示如何在 XML 资源中定义一个 StateListAnimator 。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">&lt;!-- animate the translationZ property of a view when pressed --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">selector</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">item</span> <span class="attribute">android:state_pressed</span>=<span class="value">"true"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">set</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">objectAnimator</span> <span class="attribute">android:propertyName</span>=<span class="value">"translationZ"</span></span><br><span class="line">        <span class="attribute">android:duration</span>=<span class="value">"@android:integer/config_shortAnimTime"</span></span><br><span class="line">        <span class="attribute">android:valueTo</span>=<span class="value">"2dp"</span></span><br><span class="line">        <span class="attribute">android:valueType</span>=<span class="value">"floatType"</span>/&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- you could have other objectAnimator elements</span><br><span class="line">             here for "x" and "y", or other properties --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">set</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">item</span> <span class="attribute">android:state_enabled</span>=<span class="value">"true"</span></span><br><span class="line">    <span class="attribute">android:state_pressed</span>=<span class="value">"false"</span></span><br><span class="line">    <span class="attribute">android:state_focused</span>=<span class="value">"true"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">set</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">objectAnimator</span> <span class="attribute">android:propertyName</span>=<span class="value">"translationZ"</span></span><br><span class="line">        <span class="attribute">android:duration</span>=<span class="value">"100"</span></span><br><span class="line">        <span class="attribute">android:valueTo</span>=<span class="value">"0"</span></span><br><span class="line">        <span class="attribute">android:valueType</span>=<span class="value">"floatType"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">set</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">selector</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>要为视图关联自定义视图状态动画，需要在 XML 资源文件中使用 <code>selector</code> 元素来定义动画绘制器，并将它分配到视图的 <code>android:stateListAnimator</code> 属性。通过代码来分配一个状态列表动画绘制器到视图，则使用 AnimationInflater.loadStateListAnimator() 方法，分配动画绘制器到视图使用 View.setStateListAnimator() 方法。</p>
+<p>当你的主题继承自 material 主题，按钮默认由 Z 动画。要禁用按钮的行为，需要设置 <code>android:stateListAnimatro</code> 属性为 <code>@null</code>。</p>
+<p>AnimatedStateListDrawable 类可以创建图片用来显示关联视图的状态变化的动画。某些 Android 5.0 上的系统组件默认使用这些动画。下面的实例展示如何使用 XML 资源定义一个 AnimatedStateListDrawable 。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- res/drawable/myanimstatedrawable.xml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">animated-selector</span></span><br><span class="line">  <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 为每种状态提供不同的图片 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">item</span> <span class="attribute">android:id</span>=<span class="value">"@+id/pressed"</span> <span class="attribute">android:drawable</span>=<span class="value">"@drawable/drawableP"</span></span><br><span class="line">      <span class="attribute">android:state_pressed</span>=<span class="value">"true"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">item</span> <span class="attribute">android:id</span>=<span class="value">"@+id/focused"</span> <span class="attribute">android:drawable</span>=<span class="value">"@drawable/drawableF"</span></span><br><span class="line">      <span class="attribute">android:state_focused</span>=<span class="value">"true"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">item</span> <span class="attribute">android:id</span>=<span class="value">"@id/default"</span></span><br><span class="line">      <span class="attribute">android:drawable</span>=<span class="value">"@drawable/drawableD"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 指定转场效果 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">transition</span> <span class="attribute">android:fromId</span>=<span class="value">"@+id/default"</span> <span class="attribute">android:toId</span>=<span class="value">"@+id/pressed"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">animation-list</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">item</span> <span class="attribute">android:duration</span>=<span class="value">"15"</span> <span class="attribute">android:drawable</span>=<span class="value">"@drawable/dt1"</span>/&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">item</span> <span class="attribute">android:duration</span>=<span class="value">"15"</span> <span class="attribute">android:drawable</span>=<span class="value">"@drawable/dt2"</span>/&gt;</span></span><br><span class="line">          ...</span><br><span class="line">      <span class="tag">&lt;/<span class="title">animation-list</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">transition</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="title">animated-selector</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="动画矢量图片">动画矢量图片</h2><p>矢量图片在缩放过程中不会丢失清晰度。 AnimatedVectorDrawable 类定义了矢量图片的属性。</p>
+<p>通常可以在三个 XML 文件中定义动画矢量图片：</p>
+<ul>
+<li>在 <code>res/drawable/</code> 中的使用 <code>&lt;vector&gt;</code> 元素定义矢量图片。</li>
+<li>在 <code>res/drawable/</code> 中使用 <code>&lt;animated-vector&gt;</code> 元素来定义动画矢量图片。</li>
+<li>在 <code>res/anim/</code> 中使用 <code>&lt;objectAnimator&gt;</code> 元素定义一个或多个对象的动画绘制器。</li>
+</ul>
+<p>动画矢量图片可以推动 <code>&lt;group&gt;</code> 和 <code>&lt;path&gt;</code> 元素的属性。 <code>&lt;group&gt;</code> 元素定义路径或者子组的集合， <code>&lt;path&gt;</code> 元素定义需要绘制的路径。</p>
+<p>当你定义一个你需要动画的矢量图片时，使用 <code>android:name</code> 属性来为组和路径分配唯一的名称，这样就可以从动画器的定义中应用他们。例如：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">&lt;!-- res/drawable/vectordrawable.xml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">vector</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">android:height</span>=<span class="value">"64dp"</span></span><br><span class="line">    <span class="attribute">android:width</span>=<span class="value">"64dp"</span></span><br><span class="line">    <span class="attribute">android:viewportHeight</span>=<span class="value">"600"</span></span><br><span class="line">    <span class="attribute">android:viewportWidth</span>=<span class="value">"600"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">group</span></span><br><span class="line">        <span class="attribute">android:name</span>=<span class="value">"rotationGroup"</span></span><br><span class="line">        <span class="attribute">android:pivotX</span>=<span class="value">"300.0"</span></span><br><span class="line">        <span class="attribute">android:pivotY</span>=<span class="value">"300.0"</span></span><br><span class="line">        <span class="attribute">android:rotation</span>=<span class="value">"45.0"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">path</span></span><br><span class="line">            <span class="attribute">android:name</span>=<span class="value">"v"</span></span><br><span class="line">            <span class="attribute">android:fillColor</span>=<span class="value">"#000000"</span></span><br><span class="line">            <span class="attribute">android:pathData</span>=<span class="value">"M300,70 l 0,-70 70,70 0,0 -70,70z"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">group</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">vector</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在矢量图片中，动画矢量图片定义通过名称与组和路径相关联：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- res/drawable/animvectordrawable.xml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">animated-vector</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line"><span class="attribute">android:drawable</span>=<span class="value">"@drawable/vectordrawable"</span> &gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">target</span></span><br><span class="line">      <span class="attribute">android:name</span>=<span class="value">"rotationGroup"</span></span><br><span class="line">      <span class="attribute">android:animation</span>=<span class="value">"@anim/rotation"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">target</span></span><br><span class="line">      <span class="attribute">android:name</span>=<span class="value">"v"</span></span><br><span class="line">      <span class="attribute">android:animation</span>=<span class="value">"@anim/path_morph"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">animated-vector</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>动画定义为 ObjectAnimator 或者 AnimatorSet 对象。这个实例中的第一个动画绘制器将目标组旋转 360 度：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- res/anim/rotation.xml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">objectAnimator</span></span><br><span class="line">  <span class="attribute">android:duration</span>=<span class="value">"6000"</span></span><br><span class="line">  <span class="attribute">android:propertyName</span>=<span class="value">"rotation"</span></span><br><span class="line">  <span class="attribute">android:valueFrom</span>=<span class="value">"0"</span></span><br><span class="line">  <span class="attribute">android:valueTo</span>=<span class="value">"360"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这个例子中的第二个动画绘制器改变矢量图片的路径从一种形状到另一种。两条路径需要匹配改变：他们需要相同数量的命名，并且每个命令要有相同数量的参数。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- res/anim/path_morph.xml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">set</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">objectAnimator</span></span><br><span class="line">      <span class="attribute">android:duration</span>=<span class="value">"3000"</span></span><br><span class="line">      <span class="attribute">android:propertyName</span>=<span class="value">"pathData"</span></span><br><span class="line">      <span class="attribute">android:valueFrom</span>=<span class="value">"M300,70 l 0,-70 70,70 0,0   -70,70z"</span></span><br><span class="line">      <span class="attribute">android:valueTo</span>=<span class="value">"M300,70 l 0,-70 70,0  0,140 -70,0 z"</span></span><br><span class="line">      <span class="attribute">android:valueType</span>=<span class="value">"pathType"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">set</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>更多信息，可以查看 AnimatedVectorDrawable 的 API 参考文档。</p>
+<p>原文：<a href="https://developer.android.com/training/material/animations.html" target="_blank" rel="external">Defining Custom Animations</a></p>
+
+      </div>
+      <footer class="article-footer">
+        <!-- <a data-url="http://linfuyan.com/material-design-training/defining-custom-animations/" data-id="cigj667z70042umfys7juvw03" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material-Design/">Material Design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/教程/">教程</a></li></ul>
+
+      </footer>
+      
+  
+  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- linfuyan 文章 -->
+	<ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-3371913913447815"
+      data-ad-slot="7769806683"
+      data-ad-format="auto"></ins>
+	<script>
+	  (adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+  
+
+
+      
+        
+<nav id="article-nav">
+  
+    <a href="/material-design-training/maintaining-compatibility/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <p class="article-nav-title">
+        
+          保持兼容性
+        
+      </p>
+      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+  
+  
+    <a href="/material-design-training/working-with-drawables/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">使用图片</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+      
+      
+        <div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+      
+    </div>
+  </article>
+  
+
+  
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-material-design-training/defining-custom-animations" data-title="定义自定义动画" data-url="http://linfuyan.com/material-design-training/defining-custom-animations/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'linfuyan'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
+      
+        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
+      
+    </ul>
+  </div>
+  <!-- 
+    
+<nav id="article-nav">
+  
+    <a href="/material-design-training/maintaining-compatibility/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <p class="article-nav-title">
+        
+          保持兼容性
+        
+      </p>
+      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+  
+  
+    <a href="/material-design-training/working-with-drawables/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">使用图片</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+   -->
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+  	
+      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/> 
+     
+    
+      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Android-iOS-qq-group.png" width="100%" height="100%"/>
+    
+  </div>
+
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/faq/resolve-the-same-input-jar-is-specified-twice-issue/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/FAQ/">FAQ</a></p>
+              <p class="item-title"><a href="/faq/resolve-the-same-input-jar-is-specified-twice-issue/" class="title">解决 The same input jar is specified twice 问题</a></p>
+              <p class="item-date"><time datetime="2015-11-02T13:06:00.000Z" itemprop="datePublished">2015-11-02</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/hexo-your-blog/hexo-with-duoshuo/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/duoshuo-create-site.png
+)" alt="Hexo 使用多说评论框" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/Hexo/">Hexo</a></p>
+              <p class="item-title"><a href="/hexo-your-blog/hexo-with-duoshuo/" class="title">Hexo 使用多说评论框</a></p>
+              <p class="item-date"><time datetime="2015-11-01T01:37:28.000Z" itemprop="datePublished">2015-11-01</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/faq/hexo-symbol-not-found_usdt_create_provider/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/FAQ/">FAQ</a></p>
+              <p class="item-title"><a href="/faq/hexo-symbol-not-found_usdt_create_provider/" class="title">Hexo Symbol not found _usdt_create_provider 错误处理</a></p>
+              <p class="item-date"><time datetime="2015-10-30T23:13:12.000Z" itemprop="datePublished">2015-10-31</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/faq/hexo-qiniu-sync-typeerror-arguments-to-path-join-must-be-strings/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/FAQ/">FAQ</a></p>
+              <p class="item-title"><a href="/faq/hexo-qiniu-sync-typeerror-arguments-to-path-join-must-be-strings/" class="title">Hexo 使用七牛云同步插件 hexo-qiniu-sync 出错</a></p>
+              <p class="item-date"><time datetime="2015-10-30T22:45:20.000Z" itemprop="datePublished">2015-10-31</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/material-design-training/maintaining-compatibility/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/教程/">教程</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a></p>
+              <p class="item-title"><a href="/material-design-training/maintaining-compatibility/" class="title">保持兼容性</a></p>
+              <p class="item-date"><time datetime="2015-10-24T07:00:35.000Z" itemprop="datePublished">2015-10-24</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-float">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/14-04/" style="font-size: 10px;">14.04</a> <a href="/tags/6/" style="font-size: 10px;">6</a> <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 14.29px;">Android Studio</a> <a href="/tags/Android开发/" style="font-size: 10px;">Android开发</a> <a href="/tags/Ant/" style="font-size: 10px;">Ant</a> <a href="/tags/Apache/" style="font-size: 11.43px;">Apache</a> <a href="/tags/App/" style="font-size: 11.43px;">App</a> <a href="/tags/App-ID/" style="font-size: 10px;">App ID</a> <a href="/tags/CI/" style="font-size: 10px;">CI</a> <a href="/tags/CardView/" style="font-size: 10px;">CardView</a> <a href="/tags/Docker/" style="font-size: 11.43px;">Docker</a> <a href="/tags/Git/" style="font-size: 12.86px;">Git</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Gradle/" style="font-size: 11.43px;">Gradle</a> <a href="/tags/Hexo/" style="font-size: 18.57px;">Hexo</a> <a href="/tags/Hueman/" style="font-size: 10px;">Hueman</a> <a href="/tags/JAVA8/" style="font-size: 10px;">JAVA8</a> <a href="/tags/JDK/" style="font-size: 10px;">JDK</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/LAMP/" style="font-size: 10px;">LAMP</a> <a href="/tags/Linux/" style="font-size: 11.43px;">Linux</a> <a href="/tags/Mac/" style="font-size: 14.29px;">Mac</a> <a href="/tags/Marshmallow/" style="font-size: 10px;">Marshmallow</a> <a href="/tags/Material-Design/" style="font-size: 17.14px;">Material Design</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Operator/" style="font-size: 10px;">Operator</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/tags/TLS/" style="font-size: 10px;">TLS</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/Ubuntu/" style="font-size: 11.43px;">Ubuntu</a> <a href="/tags/Web/" style="font-size: 11.43px;">Web</a> <a href="/tags/boot2docker/" style="font-size: 10px;">boot2docker</a> <a href="/tags/cocoapods/" style="font-size: 10px;">cocoapods</a> <a href="/tags/configuration/" style="font-size: 10px;">configuration</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/fir-im/" style="font-size: 10px;">fir.im</a> <a href="/tags/frp/" style="font-size: 11.43px;">frp</a> <a href="/tags/git/" style="font-size: 11.43px;">git</a> <a href="/tags/google/" style="font-size: 11.43px;">google</a> <a href="/tags/iOS/" style="font-size: 15.71px;">iOS</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/jenkins/" style="font-size: 11.43px;">jenkins</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/profile/" style="font-size: 10px;">profile</a> <a href="/tags/proguard/" style="font-size: 10px;">proguard</a> <a href="/tags/provision/" style="font-size: 10px;">provision</a> <a href="/tags/push/" style="font-size: 10px;">push</a> <a href="/tags/reactivex/" style="font-size: 14.29px;">reactivex</a> <a href="/tags/registry/" style="font-size: 10px;">registry</a> <a href="/tags/retrolambda/" style="font-size: 10px;">retrolambda</a> <a href="/tags/rx/" style="font-size: 10px;">rx</a> <a href="/tags/rxandroid/" style="font-size: 11.43px;">rxandroid</a> <a href="/tags/rxjava/" style="font-size: 14.29px;">rxjava</a> <a href="/tags/scheme/" style="font-size: 10px;">scheme</a> <a href="/tags/skip-render/" style="font-size: 10px;">skip render</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/taobao/" style="font-size: 10px;">taobao</a> <a href="/tags/七牛/" style="font-size: 10px;">七牛</a> <a href="/tags/个人/" style="font-size: 12.86px;">个人</a> <a href="/tags/主题/" style="font-size: 10px;">主题</a> <a href="/tags/二维码/" style="font-size: 10px;">二维码</a> <a href="/tags/产品口味/" style="font-size: 10px;">产品口味</a> <a href="/tags/代码规范/" style="font-size: 10px;">代码规范</a> <a href="/tags/代码评审/" style="font-size: 12.86px;">代码评审</a> <a href="/tags/代码风格/" style="font-size: 10px;">代码风格</a> <a href="/tags/价值/" style="font-size: 10px;">价值</a> <a href="/tags/估计/" style="font-size: 10px;">估计</a> <a href="/tags/全栈工程师/" style="font-size: 10px;">全栈工程师</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/分支模型/" style="font-size: 10px;">分支模型</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/博客/" style="font-size: 15.71px;">博客</a> <a href="/tags/原则/" style="font-size: 10px;">原则</a> <a href="/tags/反应式编程/" style="font-size: 11.43px;">反应式编程</a> <a href="/tags/变更/" style="font-size: 10px;">变更</a> <a href="/tags/同步/" style="font-size: 10px;">同步</a> <a href="/tags/周期/" style="font-size: 11.43px;">周期</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/命令式/" style="font-size: 10px;">命令式</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/响应式编程/" style="font-size: 11.43px;">响应式编程</a> <a href="/tags/图文教程/" style="font-size: 10px;">图文教程</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/基础/" style="font-size: 12.86px;">基础</a> <a href="/tags/声明式/" style="font-size: 10px;">声明式</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/学习/" style="font-size: 12.86px;">学习</a> <a href="/tags/学习路线/" style="font-size: 11.43px;">学习路线</a> <a href="/tags/安装/" style="font-size: 12.86px;">安装</a> <a href="/tags/工作流/" style="font-size: 10px;">工作流</a> <a href="/tags/应用程序/" style="font-size: 10px;">应用程序</a> <a href="/tags/开发/" style="font-size: 11.43px;">开发</a> <a href="/tags/开发工具/" style="font-size: 10px;">开发工具</a> <a href="/tags/开发者证书/" style="font-size: 10px;">开发者证书</a> <a href="/tags/微信公众号/" style="font-size: 10px;">微信公众号</a> <a href="/tags/技能/" style="font-size: 11.43px;">技能</a> <a href="/tags/持续集成/" style="font-size: 11.43px;">持续集成</a> <a href="/tags/指南/" style="font-size: 10px;">指南</a> <a href="/tags/操作符/" style="font-size: 10px;">操作符</a> <a href="/tags/教程/" style="font-size: 18.57px;">教程</a> <a href="/tags/更新/" style="font-size: 10px;">更新</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/构建/" style="font-size: 10px;">构建</a> <a href="/tags/构建变种/" style="font-size: 10px;">构建变种</a> <a href="/tags/构建类型/" style="font-size: 10px;">构建类型</a> <a href="/tags/构建系统/" style="font-size: 11.43px;">构建系统</a> <a href="/tags/概览/" style="font-size: 10px;">概览</a> <a href="/tags/汇总/" style="font-size: 12.86px;">汇总</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/混淆/" style="font-size: 10px;">混淆</a> <a href="/tags/渲染/" style="font-size: 10px;">渲染</a> <a href="/tags/生命周期/" style="font-size: 10px;">生命周期</a> <a href="/tags/程序员/" style="font-size: 11.43px;">程序员</a> <a href="/tags/管理/" style="font-size: 10px;">管理</a> <a href="/tags/编码规范/" style="font-size: 10px;">编码规范</a> <a href="/tags/编程/" style="font-size: 11.43px;">编程</a> <a href="/tags/聪明人/" style="font-size: 10px;">聪明人</a> <a href="/tags/自动化/" style="font-size: 10px;">自动化</a> <a href="/tags/范式/" style="font-size: 10px;">范式</a> <a href="/tags/视图/" style="font-size: 10px;">视图</a> <a href="/tags/解决方案/" style="font-size: 10px;">解决方案</a> <a href="/tags/评估/" style="font-size: 10px;">评估</a> <a href="/tags/评论框/" style="font-size: 10px;">评论框</a> <a href="/tags/语言/" style="font-size: 10px;">语言</a> <a href="/tags/资源/" style="font-size: 12.86px;">资源</a> <a href="/tags/软件/" style="font-size: 11.43px;">软件</a> <a href="/tags/进阶/" style="font-size: 11.43px;">进阶</a> <a href="/tags/配置/" style="font-size: 10px;">配置</a> <a href="/tags/错误/" style="font-size: 11.43px;">错误</a> <a href="/tags/镜像/" style="font-size: 10px;">镜像</a> <a href="/tags/阴影/" style="font-size: 10px;">阴影</a> <a href="/tags/页面/" style="font-size: 10px;">页面</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">21</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://hexo.io">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2015 linfuyan</p>
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
+        <p>
+        <!-- CNZZ 统计 -->
+        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
+  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+
+
+<script src="/js/html-patch.js" type="text/javascript"></script>
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

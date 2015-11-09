@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android Task 与后退栈解析 | 悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="应用程序通常包含多个 Activity。每个 Activity 围绕用户能够执行的指定动作类型和启动其他 Activity 来设计。例如，一个邮件应用程序有一个用来显示新信息列表的 Activity ，当用户选择一条信息，一个新的 Activity 打开用来查看信息。
+一个 Activity 可以打开存在设备上的其他应用程序。例如，你的应用想要发送邮件信息，你可以定义一个意图来执行”发送”动作，并">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Task 与后退栈解析">
+<meta property="og:url" content="http://linfuyan.com/task-and-back-stack/index.html">
+<meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
+<meta property="og:description" content="应用程序通常包含多个 Activity。每个 Activity 围绕用户能够执行的指定动作类型和启动其他 Activity 来设计。例如，一个邮件应用程序有一个用来显示新信息列表的 Activity ，当用户选择一条信息，一个新的 Activity 打开用来查看信息。
+一个 Activity 可以打开存在设备上的其他应用程序。例如，你的应用想要发送邮件信息，你可以定义一个意图来执行”发送”动作，并">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_backstack.png">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_multitasking.png">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_multiple_instances.png">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_backstack_singletask_multiactivity.png">
+<meta property="og:updated_time" content="2015-11-09T10:19:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Task 与后退栈解析">
+<meta name="twitter:description" content="应用程序通常包含多个 Activity。每个 Activity 围绕用户能够执行的指定动作类型和启动其他 Activity 来设计。例如，一个邮件应用程序有一个用来显示新信息列表的 Activity ，当用户选择一条信息，一个新的 Activity 打开用来查看信息。
+一个 Activity 可以打开存在设备上的其他应用程序。例如，你的应用想要发送邮件信息，你可以定义一个意图来执行”发送”动作，并">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  
+  
+    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+  
+  
+
+
+  
+
+  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+            <h2 class="subtitle-wrap">
+              <p class="subtitle">关注但不限于 Android、iOS、nodejs</p>
+            </h2>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/导航/">导航</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/">教程</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
+                  
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://linfuyan.com"></form>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header"><a class="page-title-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/开发技术/Android/">Android</a></h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-task-and-back-stack" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      Android Task 与后退栈解析
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/task-and-back-stack/" class="article-date">
+  <time datetime="2015-11-08T18:39:00.000Z" itemprop="datePublished">2015-11-09</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <p>应用程序通常包含多个 Activity。每个 Activity 围绕用户能够执行的指定动作类型和启动其他 Activity 来设计。例如，一个邮件应用程序有一个用来显示新信息列表的 Activity ，当用户选择一条信息，一个新的 Activity 打开用来查看信息。</p>
+<p>一个 Activity 可以打开存在设备上的其他应用程序。例如，你的应用想要发送邮件信息，你可以定义一个意图来执行”发送”动作，并包含一些如邮箱地址和信息的数据。其他应用程序的 Activity 声明自己能够处理这种类型的意图，并打开。这个例子中，意图是想要发送邮件，因此邮件应用的创作 Activity 启动(如果多个 Activity 支持相同的意图，系统将让用户来选择)。当邮件发送完成，这个 Activity 退出，看起来就像是自己应用程序的一部分， Android 通过将这些 Activity 保存在相同的 Task 中来维持一致的用户体验。</p>
+<p>Task 是用户在执行特定工作时与之交互的一系列 Activity 集合。 Activity 被排列在后退栈中，以每个 Activity 被打开的顺序排列。</p>
+<p>对于大部分 Task 而言，设备的主屏幕都是起始位置。当用户触摸应用程序启动器或者主屏幕上的快捷方式时，应用程序的 Task 进入前台。如果应用程序的 Task 不存在(即应用程序最近没有被使用)，那么新的 Task 将被创建，并且应用程序打开的主 Activity 将作为 Task 的根 Activity。</p>
+<p>当当前 Activity 启动另外的 Activity ， 新的 Activity 将被推到栈顶并获取焦点。之前的 Activity 仍然在栈中，但是被停止的。当 Activity 被停止时，系统保持了它的用户界面的当前状态。当用户按下返回按钮，当前 Activity 被从栈顶弹出，之前的 Activity 则恢复为之前 UI 所保存下来的状态。 栈中的 Activity 不会被重新排列，只能够被推入到栈中或者从栈中弹出。当被当前 Activity 启动时推入栈中，用户按下后退键时从栈中弹出。后退栈的操作遵循后进先出的原则。下图可视化的展示了随着时间推移 Activity 与后退栈中的关系。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_backstack.png" alt=""></p>
+<p>如果用户继续按返回键，每个 Activity 都会从栈中被弹出来展示上一个 Activity ，直到回到主屏幕(或者回到运行 Task 开始的 Activity )。当所有的 Activity 从栈中移出， Task 就不存在了。</p>
+<p>Task 是一个相互结合的单元，当用户启动新的 Task 或者通过按下 Home 键来返回主屏幕时，原来的 Task 进入后台。一旦进入后台， Task 中的所有 Activity 被停止，但是 Task 的后退栈中是完整的，只是失去了焦点。一个 Task 可以重新回到前台以便用户打开。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_multitasking.png" alt=""></p>
+<p>假设，当前的 Task A 包含 3 个 Activity 在它的栈中，即当前 Activity 下有另外两个。用户按下 Home 键，从应用程序启动器新的应用程序。当主屏幕显示， Task A 进入后台。当新的应用程序启动，系统为新的应用程序启动了 Task B (其中包含自己 Activity 的栈)。在新的应用程序中玩了不久，用户再次回到主屏幕，并选择了先前 Task A 中启动的应用程序。这是 Task A 进入前台，堆栈中的 3 个 Activity 都是完整的，栈顶的 Activity 被恢复。这种情况下，用户可以通过返回主屏幕，再点击应用程序图标来启动。这是 Android 上多任务的一个实例。</p>
+<blockquote>
+<p>注意：多个 Task 可以同时被维持在后台。但如果用户同时运行太多的后台任务，系统会为了回收内存而销毁后台的 Activity ，这会引起 Activity 状态的丢失。</p>
+</blockquote>
+<p>由于后退栈中的 Activity 永远不会被重排，如果你的应用程序允许用户从多个 Activity 中启动一个特殊的 Activity ，那么，新的 Activity 实例将被创建并推入栈中，而不是将之前的其他 Activity 实例放到顶部。这样，应用程序中的一个 Activity 可能被实例化多次，如下图所示。当用户使用返回键导航回去时，每个 Activity 的实例将按照被打开的顺序来展示。但是，如果你不想让一个 Activity 被实例化多次，你可以修改这些行为。具体怎么做，在下一节的[管理  Task] 中介绍。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_multiple_instances.png" alt=""></p>
+<p>总结一下 Activity 和 Task 的默认行为：</p>
+<ol>
+<li>当 Activity A 启动 Activity B 时， Activity A 被停止，但系统保存了它的状态，包括滚动的位置和输入的文本等。如果用户在 Activity B 时按下返回键， Activity A 会返回到其原来保存的状态。</li>
+<li>当用户按下 Home 键离开 Task ，当前的 Activity 及它所在的 Task 进入后台。系统保持 Task 中每个 Activity 的状态。如果用户通过选择启动图标再次启动 Task ， Task 进入前台，并且在栈顶部的 Activity 被恢复。</li>
+<li>如果用户按下返回键，当前的 Activity 被从栈中弹出并销毁。栈中之前的 Activity 被恢复。当 Activity 被销毁，系统不在保持 Activity 的状态。</li>
+<li>Activity 可以被实例化多次，即使是来自其他的 Task 。</li>
+</ol>
+<h2 id="保存_Activity_状态">保存 Activity 状态</h2><p>如上面所讨论的，当 Activity 被停止时，系统的默认行为会保留其状态。这样子，当用户导航回到之前的 Activity 时，将展示之前离开时留下的界面。尽管如此，当 Activity 即将被销毁或者必须要重建时，你依然可以使用回调方法来保持 Activity 的状态。</p>
+<p>当系统停止某个 Activity 时，如果需要恢复系统的内存，系统将完全的销毁 Activity 。这种情况下， Activity 状态相关的信息便丢失了。但系统依然知道在后退栈中有 Activity 的一个位置，当 Activity 被带到前台时系统需要重建它，而不是恢复它。为了避免丢失用户以完成的工作，需要在 Activity 中通过实现 onSaveInstanceState() 方法来主动保持状态。</p>
+<p>关于如何来保存 Activity 的状态的更多信息，可以查看 Activity 相关文档。</p>
+<h2 id="管理_Task">管理 Task</h2><p>上面描述的 Android 管理 Task 和后退栈的方式-将所有成功打开的 Activity 放在同一个 Task 及后进先出的堆栈中-在大部分应用程序中工作正常，也不需要担心 Activity 如何与 Task 相关联，以及如何存在后退栈中。有的时候，你想要中断这种普通的行为。也许你想要应用程序中的一个 Activity 打开时开启一个新的 Task ，而不是被放在当前 Task 中。也许你启动一个 Activity 时，想要把已经存在的实例带到前台，而不是在顶上创建一个新的实例。也许你想当用户离开 Task 的时候，后退栈中除了根 Activity 之外的清空其他 Activity 。</p>
+<p>通过清单文件中 <code>&lt;activity&gt;</code> 元素的属性以及传递给 startActivity() 的 Intent 中的 flag 可以完成上面的工作，甚至更多其他工作。</p>
+<p>可以使用的 <code>&lt;activity&gt;</code> 元素主要属性包括：</p>
+<ul>
+<li>taskAffinity</li>
+<li>launchMode</li>
+<li>allowTaskReparenting</li>
+<li>clearTaskOnLaunch</li>
+<li>alwaysRetainTaskState</li>
+<li>finishOnTaskLaunch</li>
+</ul>
+<p>可以使用的主要 Intent 的 flag 包括：</p>
+<ul>
+<li>FLAG_ACTIVITY_NEW_TASK</li>
+<li>FLAG_ACTIVITY_CLEAR_TOP</li>
+<li>FLAG_ACTIVITY_SINGLE_TOP</li>
+</ul>
+<p>接下来的章节中，你将看到如何使用这些清单属性和 Intent 的 flag 来定义 Activity 如何与 Task 关联以及他们在后退栈中的行为。</p>
+<blockquote>
+<p><strong>警告：</strong> 大部分应用程序不应该干扰 Activity 和 Task 的默认行为。如果你觉得非常有必要修改这些默认行为，那么需要做出警告，并测试 Activity 启动以及通过返回键从其他 Activity 或 Task 返回的情况。测试导航是否会和用户所期待的行为冲突。</p>
+</blockquote>
+<h3 id="定义启动模式">定义启动模式</h3><p>启动模式用来定义一个新的 Activity 实例如何与当前的 Task 关联。可以通过两种方式来定义不同的启动模式：</p>
+<ul>
+<li>使用清单文件：当你在清单文件中声明一个 Activity 时，可以指定 Activity 在启动时如何关联 Task。</li>
+<li>使用 Intent flag ：调用 startActivity() 时，可以在 Intent 中包含 flag 来声明新的 Activity 与当前 Task 如何关联。</li>
+</ul>
+<p>这样，如果 Activity A 启动 Activity B ， Activity B 可以在它的清单中定义如何与当前 Task 关联， Activity A 同样可以请求 Activity B 如何与当前 Task 关联。如果都定义了 Activity B 如何与 Task 关联， Activity A 中通过 Intent 定义的请求优先于 Activity 在清单中定义的请求。</p>
+<blockquote>
+<p><strong>注意</strong>：某些在清单文件中有效的启动模式，在 Intent 中的 flag 是无效的，同样，某些 Intent 中有效的启动模式在清单里定义是无效的。</p>
+</blockquote>
+<p><strong>使用清单文件</strong></p>
+<p>在清单文件中申明 Activity 时，使用 <code>&lt;activity&gt;</code> 元素的 launchMode 属性可以指定 Activity 如何与 Task 关联：</p>
+<ul>
+<li>“standard”（默认模式）</li>
+</ul>
+<p>系统创建新的 Activity 实例，这个实例位于启动它的 Activity 相同的栈，并且将意图传递给它。 Activity 可以被实例化多次，每个实例可以属于不同的 Task ，一个 Task 也能有多个实例。</p>
+<ul>
+<li>“singleTop”</li>
+</ul>
+<p>如果 Activity 的实例已经存在于当前 Task 的顶部，系统通过调用实例的 onNewIntent() 方法来传递意图到实例，而不是为 Activity 创建一个新的实例。 Activity 可以被实例化多次，每个实例可以属于不同的 Task ，一个 Task 可以有多个实例(除非后退栈顶部的 Activity 不是一个已经存在的 Activity 实例)。</p>
+<p>例如，假设一个 Task 的后退栈包含根 Activity A ， Activity B ， Activity C 以及 Activity D 在顶部。一个意图到达 Activity D 。如果 D 的启动模式为 “standard” ，新的类实例将被启动，堆栈变成 A-B-C-D-D 。如果 D 的启动模式为 “singleTop” ，已经存在的 D 实例将通过 onNewIntent() 接收意图，一次它还在栈顶，而栈依然是 A-B-C-D 。如果一个意图到达 B ，新的 B 的实例被添加到堆栈中，即使它的启动模式是 “singleTop” 。</p>
+<blockquote>
+<p><strong>注意</strong>：当新的 Activity 实例被创建，用户可以按下返回按钮来返回到之前的 Activity 。但是当已经存在的 Activity 实例处理了新的 Intent ，用户无法按下返回键返回到通过 onNewIntent() 到来新的 Intent 前的 Activity 状态。</p>
+</blockquote>
+<ul>
+<li>“singleTask”</li>
+</ul>
+<p>系统创建新的 Task 并在新的 Task 的根实例化 Activity 。如果已经有 Activity 的实例存在于独立的 Task 中，系统通过调用 onNewIntent() 将 Intent 路由到已存在的实例，而不是创建一个新的实例。每次只能有一个 Activity 的实例存在。</p>
+<blockquote>
+<p><strong>注意</strong>：虽然 Activity 在新的 Task 中打开，后退按钮依然可以返回到用户之前的 Activity 。</p>
+</blockquote>
+<ul>
+<li>“singleInstance”</li>
+</ul>
+<p>除了系统不再启动其他的 Activity 到持有实例的 Task 中，其他的和 “singleTask” 一样。 这个 Activity 是它的 Task 的唯一成员。任何由它打开的 Activity 在一个独立的 Task 。</p>
+<p>另外一个实例， Android 浏览器应用程序声明网页浏览器的 Activity 需要永远在自己的 Task 中打开，即在 <code>&lt;activity&gt;</code> 元素中指定 singleTask 启动模式。这意味着，如果你的应用程序要打开 Android 浏览器，它的 Activity 与你的应用程序将在不同的 Task 中。不论新的 Task 启动浏览器，或者浏览器已经有一个运行在后台的 Task， Task 将被带到前台处理新的 Intent 。</p>
+<p>不论 Activity 是在新的 Task 中启动还是在相同的 Task 中启动，返回按钮总是能让用户返回到之前的 Activity 。如果你启动了一个指定 singleTask 启动模式的 Activity ，恰好这时有个 Activity 的实例在后台 Task 中，整个 Task 将进入前台。这种情况下，后退栈中包含在 Task 中的所有 Activity 进入前台，在栈的顶部。下图展示了这个过程。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_backstack_singletask_multiactivity.png" alt=""></p>
+<p>更多的在清单中使用启动模式的信息，可以查看 <a href=""><activity>元素</activity></a> 相关文档，这里讨论更多关于 launchMode 属性及可接受的值。</p>
+<blockquote>
+<p><strong>注意</strong>：Activity 中通过 launchMode 属性指定的行为，可以通过启动 Activity 的意图的 flag 来覆盖。 </p>
+</blockquote>
+<p><strong>使用意图 flag</strong></p>
+<p>启动一个 Activity 时，可以通过在 startActivity() 中传递意图的 flag 来修改 Activity 与 Task 之间的默认关联。可以用来修改默认行为的 flag 包括：</p>
+<ul>
+<li>FLAG_ACTIVITY_NEW_TASK</li>
+</ul>
+<p>在新的 Task 中启动 Activity 。如果要启动的 Activity 已经有在运行的 Task ， Task 将带着最后被保存的状态到前台， Activity 在 onNewIntent() 中接收新的意图。</p>
+<p>这产生的效果与上节讨论的 “singleTask” 启动模式一致。</p>
+<ul>
+<li>FLAG_ACTIVITY_SINGLE_TOP</li>
+</ul>
+<p>如果被启动的 Activity 是当前 Activity (即在后退栈的顶部)，已存在的实例调用 onNewIntent() ，而不是创建一个新的 Activity 实例。</p>
+<p>这产生的效果与上节讨论的 “singleTop” 启动模式一致。 </p>
+<ul>
+<li>FLAG_ACTIVITY_CLEAR_TOP</li>
+</ul>
+<p>如果被启动的 Activity 已经在当前 Task 中，那么所有在其顶部的 Activity 将被销毁，意图将通过 onNewIntent() 传递到被恢复的 Activity 实例，而不是创建一个新的实例。</p>
+<p>没有启动模式可以产生这种行为。</p>
+<p>FLAG_ACTIVITY_CLEAR_TOP 经常和 FLAG_ACTIVITY_NEW_TASK 结合使用。当在一起使用时，这些 flag 是一种在其他 Task 中定位已存在 Activity，并将其放入可以响应意图位置的方式。</p>
+<h3 id="处理_affinities">处理 affinities</h3><p>Affinity 表明 Activity 优先属于哪个 Task 。默认情况下，来自同一个应用程序的 Activity 相互间拥有一个 Affinity 。因此，同一个应用程序的 Activity 优先在同一个 Task 中。尽管如此，你可以修改一个 Activity 的默认 Affinity 。不同应用程序中定义的 Activity 可以共享一个 Affinity ，同一个应用程序中定义的 Activity 也可以被分配在不同的 Task Affinity 中。</p>
+<p>通过给定 <code>&lt;activity&gt;</code> 元素的 taskAffinity 属性可以修改 Activity 的 Affinity 。</p>
+<p>taskAffinity 属性是一个字符串，必须与申明在 <code>&lt;manifest&gt;</code> 元素中的默认包名不同。因为系统使用这个名称来识别应用程序的默认 Task Affinity 。</p>
+<p>两种情况下使用 Affinity：</p>
+<ul>
+<li>当启动 Activity 的意图包含 FLAG_ACTIVITY_NEW_TASK flag 时。</li>
+</ul>
+<p>默认情况下，新的 Activity 被启动在调用 startActivity() 方法的 Activity 所在 Task 。被推入到调用者相同的后退栈。但如果传递给 startActivity() 的意图中包含 FLAG_ACTIVITY_NEW_TASK flag ，系统寻找另外的 Task 来存放 Activity 。通常是一个新的 Task 。但也不是必须的。当已经存在存在一个 Task 拥有相同的 Affinity 时， Activity 被启动到这个 Task 中，没有时，才启动新的 Task 。</p>
+<p>如果这个 flag 使得 Activity 启动到新的 Task 中，用户又按下 Home 键离开它，这里将有许多种方式来让用户导航回 Task 。某些入口（如通知管理器）总是在外部 Task 中启动 Activity ，而不是在自己内部，因此调用 startActivity() 总是在意图中传递 FLAG_ACTIVITY_NEW_ACTIVITY 。如果你需要一个 Activity 可以被外部的入口调用，则使用这个 flag ，需要注意的是用户有独立的方式来返回到启动的 Task ，如通过启动器图标。</p>
+<ul>
+<li>当一个 Activity 有 allowTaskReparenting 属性并设置为 true 。</li>
+</ul>
+<h3 id="清空后退栈">清空后退栈</h3><p>如果用户离开 Task 一段时间，系统将清空 Task 中除根 Activity 之外的所有 Activity 。当用户再次回到 Task ，只有根 Activity 将被回复。系统行为之所以如此，是因为在经历一段相对长的时间，用户将放弃之前所做的一些事情，而返回 Task 是为了开始其他新的事情。</p>
+<p>这里有一些 Activity 的属性可以用来修改这个行为：</p>
+<ul>
+<li>alwaysRetainTaskState</li>
+</ul>
+<p>如果在 Task 的根 Activity 中将这个属性设置为 true ，上面提到的默认行为将不会发生。 即时经过很长一段时间， Task 也将在栈中保持所有的 Activity 。</p>
+<ul>
+<li>clearTaskOnLaunch</li>
+</ul>
+<p>如果在 Task 的根 Activity 中将这个属性设置为 true ，无论用户离开 Task 或是返回它，堆栈将被清空只剩下根 Activity。换句话说，这与 alwaysRetainTaskState 刚刚相反。即时在离开很短的时间，用户也将返回 Task 的初始状态。</p>
+<ul>
+<li>finishOnTaskLaunch</li>
+</ul>
+<p>这个属性类似 clearTaskOnLaunch ，但是这个仅作用于单个 Activity ，而不是整个 Task 。这能引起任何 Activity 消失，包括根 Activity 。当它被设置为 true ， Activity 仅仅为当前会话维持 Task 的部分。如果用户离开或者过会儿返回 Task 都不在了。</p>
+<h3 id="启动_Task">启动 Task</h3><p>通过给定某个 Activity 包含 “android.intent.action.MAIN” 为指定动作， “android.intent.category.LAUNCHER” 为指定类别的意图过滤器，可以将 Activity 作为 Task 的入口。实例如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">activity</span> <span class="attribute">...</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">intent-filter</span> <span class="attribute">...</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.action.MAIN"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">category</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.category.LAUNCHER"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="title">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这种类型的意图过滤器在应用程序启动器上显示 Activity 的图标和标签。由于这种原因，”singleTask” 和 “singleInstance” 两种启动模式标记 Activity 初始化 Task 只能在 Activity 拥有 ACTION_MAIN 和 CATEGORY_LAUNCHER 过滤器时使用。想象一下如果没有这些过滤器将发生什么：一个意图启动了 “singleTask” 的 Activity ，初始化了 Task ，用户在这个 Task 上玩耍了一段时间，然后按下了 Home 键。Task 就进入了后台且不可见。现在用户无法再返回到 Task ，因为应用程序启动器上没有显示…</p>
+<p>在那些不需要用户返回到 Activity 的情况，设置 <code>&lt;activity&gt;</code> 元素的 finishOnTaskLaunch 为 true 。</p>
+<h2 id="参考">参考</h2><p><a href="https://developer.android.com/guide/components/tasks-and-back-stack.html" target="_blank" rel="external">https://developer.android.com/guide/components/tasks-and-back-stack.html</a></p>
+
+      </div>
+      <footer class="article-footer">
+        <!-- <a data-url="http://linfuyan.com/task-and-back-stack/" data-id="cigrsrekv001lv6fyd4l894hq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Activity/">Activity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Task/">Task</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后退栈/">后退栈</a></li></ul>
+
+      </footer>
+      
+  
+  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- linfuyan 文章 -->
+	<ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-3371913913447815"
+      data-ad-slot="7769806683"
+      data-ad-format="auto"></ins>
+	<script>
+	  (adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+  
+
+
+      
+        
+<nav id="article-nav">
+  
+  
+    <a href="/android-activity/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">Android Activity 详解</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+      
+      
+        <div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+      
+    </div>
+  </article>
+  
+
+  
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-task-and-back-stack" data-title="Android Task 与后退栈解析" data-url="http://linfuyan.com/task-and-back-stack/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'linfuyan'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
+      
+        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
+      
+    </ul>
+  </div>
+  <!-- 
+    
+<nav id="article-nav">
+  
+  
+    <a href="/android-activity/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">Android Activity 详解</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+   -->
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+  	
+      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/> 
+     
+    
+      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Android-iOS-qq-group.png" width="100%" height="100%"/>
+    
+  </div>
+
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/task-and-back-stack/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_backstack.png
+)" alt="Android Task 与后退栈解析" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
+              <p class="item-title"><a href="/task-and-back-stack/" class="title">Android Task 与后退栈解析</a></p>
+              <p class="item-date"><time datetime="2015-11-08T18:39:00.000Z" itemprop="datePublished">2015-11-09</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/android-activity/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/activity_lifecycle.png
+)" alt="Android Activity 详解" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
+              <p class="item-title"><a href="/android-activity/" class="title">Android Activity 详解</a></p>
+              <p class="item-date"><time datetime="2015-11-04T10:05:39.000Z" itemprop="datePublished">2015-11-04</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/faq/open-files-via-cmdline-using-sublime-text/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/FAQ/">FAQ</a></p>
+              <p class="item-title"><a href="/faq/open-files-via-cmdline-using-sublime-text/" class="title">Mac 上 sublime text 通过命令行打开文件</a></p>
+              <p class="item-date"><time datetime="2015-11-03T10:28:00.000Z" itemprop="datePublished">2015-11-03</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/faq/resolve-the-same-input-jar-is-specified-twice-issue/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/FAQ/">FAQ</a></p>
+              <p class="item-title"><a href="/faq/resolve-the-same-input-jar-is-specified-twice-issue/" class="title">解决 The same input jar is specified twice 问题</a></p>
+              <p class="item-date"><time datetime="2015-11-02T13:06:00.000Z" itemprop="datePublished">2015-11-02</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/hexo-your-blog/hexo-with-duoshuo/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/duoshuo-create-site.png
+)" alt="Hexo 使用多说评论框" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/Hexo/">Hexo</a></p>
+              <p class="item-title"><a href="/hexo-your-blog/hexo-with-duoshuo/" class="title">Hexo 使用多说评论框</a></p>
+              <p class="item-date"><time datetime="2015-11-01T01:37:28.000Z" itemprop="datePublished">2015-11-01</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-float">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/14-04/" style="font-size: 10px;">14.04</a> <a href="/tags/6/" style="font-size: 10px;">6</a> <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Activity/" style="font-size: 11.25px;">Activity</a> <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 13.75px;">Android Studio</a> <a href="/tags/Android开发/" style="font-size: 10px;">Android开发</a> <a href="/tags/Ant/" style="font-size: 10px;">Ant</a> <a href="/tags/Apache/" style="font-size: 11.25px;">Apache</a> <a href="/tags/App/" style="font-size: 11.25px;">App</a> <a href="/tags/App-ID/" style="font-size: 10px;">App ID</a> <a href="/tags/CI/" style="font-size: 10px;">CI</a> <a href="/tags/CardView/" style="font-size: 10px;">CardView</a> <a href="/tags/Docker/" style="font-size: 11.25px;">Docker</a> <a href="/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Gradle/" style="font-size: 11.25px;">Gradle</a> <a href="/tags/Hexo/" style="font-size: 18.75px;">Hexo</a> <a href="/tags/Hueman/" style="font-size: 10px;">Hueman</a> <a href="/tags/JAVA8/" style="font-size: 10px;">JAVA8</a> <a href="/tags/JDK/" style="font-size: 10px;">JDK</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/LAMP/" style="font-size: 10px;">LAMP</a> <a href="/tags/Linux/" style="font-size: 11.25px;">Linux</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Marshmallow/" style="font-size: 10px;">Marshmallow</a> <a href="/tags/Material-Design/" style="font-size: 17.5px;">Material Design</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Operator/" style="font-size: 10px;">Operator</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/tags/TLS/" style="font-size: 10px;">TLS</a> <a href="/tags/Task/" style="font-size: 10px;">Task</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/Ubuntu/" style="font-size: 11.25px;">Ubuntu</a> <a href="/tags/Web/" style="font-size: 11.25px;">Web</a> <a href="/tags/boot2docker/" style="font-size: 10px;">boot2docker</a> <a href="/tags/cocoapods/" style="font-size: 10px;">cocoapods</a> <a href="/tags/configuration/" style="font-size: 10px;">configuration</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/fir-im/" style="font-size: 10px;">fir.im</a> <a href="/tags/frp/" style="font-size: 11.25px;">frp</a> <a href="/tags/git/" style="font-size: 11.25px;">git</a> <a href="/tags/google/" style="font-size: 11.25px;">google</a> <a href="/tags/iOS/" style="font-size: 16.25px;">iOS</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/jenkins/" style="font-size: 11.25px;">jenkins</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/profile/" style="font-size: 10px;">profile</a> <a href="/tags/proguard/" style="font-size: 10px;">proguard</a> <a href="/tags/provision/" style="font-size: 10px;">provision</a> <a href="/tags/push/" style="font-size: 10px;">push</a> <a href="/tags/reactivex/" style="font-size: 13.75px;">reactivex</a> <a href="/tags/registry/" style="font-size: 10px;">registry</a> <a href="/tags/retrolambda/" style="font-size: 10px;">retrolambda</a> <a href="/tags/rx/" style="font-size: 10px;">rx</a> <a href="/tags/rxandroid/" style="font-size: 11.25px;">rxandroid</a> <a href="/tags/rxjava/" style="font-size: 13.75px;">rxjava</a> <a href="/tags/scheme/" style="font-size: 10px;">scheme</a> <a href="/tags/skip-render/" style="font-size: 10px;">skip render</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sublime-text/" style="font-size: 10px;">sublime text</a> <a href="/tags/taobao/" style="font-size: 10px;">taobao</a> <a href="/tags/七牛/" style="font-size: 10px;">七牛</a> <a href="/tags/个人/" style="font-size: 12.5px;">个人</a> <a href="/tags/主题/" style="font-size: 10px;">主题</a> <a href="/tags/二维码/" style="font-size: 10px;">二维码</a> <a href="/tags/产品口味/" style="font-size: 10px;">产品口味</a> <a href="/tags/代码规范/" style="font-size: 10px;">代码规范</a> <a href="/tags/代码评审/" style="font-size: 12.5px;">代码评审</a> <a href="/tags/代码风格/" style="font-size: 10px;">代码风格</a> <a href="/tags/价值/" style="font-size: 10px;">价值</a> <a href="/tags/估计/" style="font-size: 10px;">估计</a> <a href="/tags/使用/" style="font-size: 10px;">使用</a> <a href="/tags/全栈工程师/" style="font-size: 10px;">全栈工程师</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/分支模型/" style="font-size: 10px;">分支模型</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/博客/" style="font-size: 16.25px;">博客</a> <a href="/tags/原则/" style="font-size: 10px;">原则</a> <a href="/tags/反应式编程/" style="font-size: 11.25px;">反应式编程</a> <a href="/tags/变更/" style="font-size: 10px;">变更</a> <a href="/tags/同步/" style="font-size: 10px;">同步</a> <a href="/tags/后退栈/" style="font-size: 10px;">后退栈</a> <a href="/tags/周期/" style="font-size: 11.25px;">周期</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/命令式/" style="font-size: 10px;">命令式</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/响应式编程/" style="font-size: 11.25px;">响应式编程</a> <a href="/tags/图文教程/" style="font-size: 10px;">图文教程</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/基础/" style="font-size: 12.5px;">基础</a> <a href="/tags/声明式/" style="font-size: 10px;">声明式</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/学习/" style="font-size: 12.5px;">学习</a> <a href="/tags/学习路线/" style="font-size: 11.25px;">学习路线</a> <a href="/tags/安装/" style="font-size: 12.5px;">安装</a> <a href="/tags/工作流/" style="font-size: 10px;">工作流</a> <a href="/tags/应用程序/" style="font-size: 10px;">应用程序</a> <a href="/tags/开发/" style="font-size: 11.25px;">开发</a> <a href="/tags/开发工具/" style="font-size: 10px;">开发工具</a> <a href="/tags/开发者证书/" style="font-size: 10px;">开发者证书</a> <a href="/tags/微信公众号/" style="font-size: 10px;">微信公众号</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/技能/" style="font-size: 11.25px;">技能</a> <a href="/tags/持续集成/" style="font-size: 11.25px;">持续集成</a> <a href="/tags/指南/" style="font-size: 10px;">指南</a> <a href="/tags/操作符/" style="font-size: 10px;">操作符</a> <a href="/tags/教程/" style="font-size: 18.75px;">教程</a> <a href="/tags/新功能/" style="font-size: 10px;">新功能</a> <a href="/tags/更新/" style="font-size: 10px;">更新</a> <a href="/tags/最佳实践/" style="font-size: 10px;">最佳实践</a> <a href="/tags/构建/" style="font-size: 10px;">构建</a> <a href="/tags/构建变种/" style="font-size: 10px;">构建变种</a> <a href="/tags/构建类型/" style="font-size: 10px;">构建类型</a> <a href="/tags/构建系统/" style="font-size: 11.25px;">构建系统</a> <a href="/tags/概览/" style="font-size: 10px;">概览</a> <a href="/tags/汇总/" style="font-size: 12.5px;">汇总</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/混淆/" style="font-size: 10px;">混淆</a> <a href="/tags/渲染/" style="font-size: 10px;">渲染</a> <a href="/tags/特性/" style="font-size: 10px;">特性</a> <a href="/tags/生命周期/" style="font-size: 10px;">生命周期</a> <a href="/tags/程序员/" style="font-size: 11.25px;">程序员</a> <a href="/tags/管理/" style="font-size: 10px;">管理</a> <a href="/tags/编码规范/" style="font-size: 10px;">编码规范</a> <a href="/tags/编程/" style="font-size: 11.25px;">编程</a> <a href="/tags/聪明人/" style="font-size: 10px;">聪明人</a> <a href="/tags/自动化/" style="font-size: 10px;">自动化</a> <a href="/tags/范式/" style="font-size: 10px;">范式</a> <a href="/tags/视图/" style="font-size: 10px;">视图</a> <a href="/tags/解决方案/" style="font-size: 10px;">解决方案</a> <a href="/tags/评估/" style="font-size: 10px;">评估</a> <a href="/tags/评论框/" style="font-size: 10px;">评论框</a> <a href="/tags/语言/" style="font-size: 10px;">语言</a> <a href="/tags/资源/" style="font-size: 12.5px;">资源</a> <a href="/tags/软件/" style="font-size: 11.25px;">软件</a> <a href="/tags/进阶/" style="font-size: 11.25px;">进阶</a> <a href="/tags/配置/" style="font-size: 10px;">配置</a> <a href="/tags/错误/" style="font-size: 11.25px;">错误</a> <a href="/tags/镜像/" style="font-size: 10px;">镜像</a> <a href="/tags/阴影/" style="font-size: 10px;">阴影</a> <a href="/tags/页面/" style="font-size: 10px;">页面</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">21</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://hexo.io">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2015 linfuyan</p>
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
+        <p>
+        <!-- CNZZ 统计 -->
+        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
+  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+
+
+<script src="/js/html-patch.js" type="text/javascript"></script>
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

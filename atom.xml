@@ -4,7 +4,7 @@
   <subtitle><![CDATA[关注但不限于 Android、iOS、nodejs]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://linfuyan.com/"/>
-  <updated>2015-11-03T10:38:10.000Z</updated>
+  <updated>2015-11-03T10:39:01.000Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://linfuyan.com/faq/open-files-via-cmdline-using-sublime-text/"/>
     <id>http://linfuyan.com/faq/open-files-via-cmdline-using-sublime-text/</id>
     <published>2015-11-03T10:28:00.000Z</published>
-    <updated>2015-11-03T10:38:10.000Z</updated>
+    <updated>2015-11-03T10:39:01.000Z</updated>
     <content type="html"><![CDATA[<p>在 Mac 上让 sublime text 通过命令行打开文件，可以提升比较高的效率。</p>
 <p>具体过程如下：</p>
 <p>1. 首先，在主用户目录下新建 .bash_alias 文件</p>
@@ -1096,11 +1096,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Android 6.0 特性及主要 API 变更]]></title>
+    <title><![CDATA[Android 6.0 新功能及主要 API 变更]]></title>
     <link href="http://linfuyan.com/android-m-changes/"/>
     <id>http://linfuyan.com/android-m-changes/</id>
     <published>2015-10-10T03:52:00.000Z</published>
-    <updated>2015-10-10T14:49:19.000Z</updated>
+    <updated>2015-11-09T10:02:37.000Z</updated>
     <content type="html"><![CDATA[<p>伴随着新的特性和功能， Android 6.0 (API 级别 23)带来了一系列系统和 API 行为的变更。这篇文章中将介绍一些在应用程序中需要理解和注意的主要变更点。</p>
 <blockquote>
 <p>如果你之前已经发布过 Android 应用程序，要意识到这些变更对应用程序的影响。</p>
@@ -1242,7 +1242,11 @@
     
       <category term="变更" scheme="http://linfuyan.com/tags/%E5%8F%98%E6%9B%B4/"/>
     
+      <category term="新功能" scheme="http://linfuyan.com/tags/%E6%96%B0%E5%8A%9F%E8%83%BD/"/>
+    
       <category term="更新" scheme="http://linfuyan.com/tags/%E6%9B%B4%E6%96%B0/"/>
+    
+      <category term="特性" scheme="http://linfuyan.com/tags/%E7%89%B9%E6%80%A7/"/>
     
       <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
     

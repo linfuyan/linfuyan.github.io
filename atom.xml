@@ -4,7 +4,7 @@
   <subtitle><![CDATA[关注但不限于 Android、iOS、nodejs]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://linfuyan.com/"/>
-  <updated>2015-11-11T14:38:34.000Z</updated>
+  <updated>2015-11-11T14:27:41.000Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -13,249 +13,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title><![CDATA[Objective-C 编码风格指南]]></title>
-    <link href="http://linfuyan.com/objective-c-coding-style-guide/"/>
-    <id>http://linfuyan.com/objective-c-coding-style-guide/</id>
-    <published>2015-11-11T13:11:50.000Z</published>
-    <updated>2015-11-11T14:38:34.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="语言">语言</h2><p>使用英语，变量的命名等已英语单词命名，不要使用汉语拼音。</p>
-<h2 id="代码组织">代码组织</h2><p>使用 <code>#pragma mark</code> 来为方法分组。</p>
-<h2 id="间距与空白">间距与空白</h2><ul>
-<li>一个缩进使用 4 个空格，不要使用制表符。可以在 Xcode 中配置自动将 Tab 转化为空格。在 Xcode &gt; Preferences &gt; Text Editing 将 Tab 和自动缩进都设置为 4 个空格。</li>
-<li>行尾不允许留有空格。</li>
-<li>关键字及符号之间需要留有 1 个空格。</li>
-<li>方法或者代码块之间留有一行空白。</li>
-</ul>
-<h2 id="大括号">大括号</h2><ul>
-<li>方法和大括号及其他大括号( if / else / switch / while 等等)始终和声明在同一行开始，在新的一行结束。</li>
-</ul>
-<p>以下是正确的：</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (user.isHappy) &#123;</span><br><span class="line">  //<span class="keyword">Do</span> something</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  //<span class="keyword">Do</span> something <span class="keyword">else</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以下是不正确的：</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (user.isHappy)</span><br><span class="line">&#123;</span><br><span class="line">    //<span class="keyword">Do</span> something</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    //<span class="keyword">Do</span> something <span class="keyword">else</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="对齐">对齐</h2><ul>
-<li>应该避免以冒号对齐的方式来调用方法。因为有时方法签名可能有3个以上的冒号和冒号对齐会使代码更加易读。请不要这样做，尽管冒号对齐的方法包含代码块，因为 Xcode 的对齐方式令它难以辨认。</li>
-</ul>
-<p>应该：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// blocks are easily readable</span></span><br><span class="line">[UIView <span class="string">animateWithDuration:</span><span class="number">1.0</span> <span class="string">animations:</span>^&#123;</span><br><span class="line">  <span class="comment">// something</span></span><br><span class="line">&#125; <span class="string">completion:</span>^(BOOL finished) &#123;</span><br><span class="line">  <span class="comment">// something</span></span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-<p>不应该：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// colon-aligning makes the block indentation hard to read</span></span><br><span class="line">[<span class="built_in">UIView</span> animateWithDuration:<span class="number">1.0</span></span><br><span class="line">                 animations:^&#123;</span><br><span class="line">                     <span class="comment">// something</span></span><br><span class="line">                 &#125;</span><br><span class="line">                 completion:^(<span class="built_in">BOOL</span> finished) &#123;</span><br><span class="line">                     <span class="comment">// something</span></span><br><span class="line">                 &#125;];</span><br></pre></td></tr></table></figure>
-<h2 id="命名">命名</h2><ul>
-<li>长的，描述性的方法和变量命名是好的。</li>
-</ul>
-<p>应该：</p>
-<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UIButton *settingsButton<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>不应该：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UIButton *<span class="built_in">set</span>But;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>三个字符前缀应该经常用在类和常量命名，但在Core Data的实体名中应被忽略。</p>
-</blockquote>
-<ul>
-<li>常量应该使用驼峰式命名规则，所有的单词首字母大写和加上与类名有关的前缀。</li>
-</ul>
-<p>应该：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> NSTimeInterval <span class="keyword">const</span> RWTTutorialViewControllerNavigationFadeAnimationDuration = <span class="number">0.3</span>;</span><br></pre></td></tr></table></figure>
-<p>不应该：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> NSTimeInterval <span class="keyword">const</span> fadetime = <span class="number">1.7</span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>属性也是使用驼峰式，但首单词的首字母小写。对属性使用auto-synthesis，而不是手动编写@synthesize语句，除非你有一个好的理由。</li>
-</ul>
-<p>应该：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *descriptiveVariableName;</span><br></pre></td></tr></table></figure>
-<p>不应该：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="property">id</span> varnm;</span><br></pre></td></tr></table></figure>
-<h2 id="下划线">下划线</h2><p>当使用属性时，实例变量应该使用 <code>self.</code> 来访问和改变。这就意味着所有属性将会视觉效果不同，因为它们前面都有 <code>self.</code> 。</p>
-<p>但有一个特例：在初始化方法里，实例变量(例如，_variableName)应该直接被使用来避免 <code>getters/setters</code> 潜在的副作用。</p>
-<p>局部变量不应该包含下划线。</p>
-<h2 id="方法">方法</h2><p>在方法签名中，应该在方法类型(-/+ 符号)之后有一个空格。在方法各个段之间应该也有一个空格(符合 Apple 的风格)。在参数之前应该包含一个具有描述性的关键字来描述参数。</p>
-<p>“and”这个词的用法应该保留。它不应该用于多个参数来说明，就像 initWithWidth:height 以下这个例子：</p>
-<p>应该：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">-</span> (<span class="tag">void</span>)<span class="rule"><span class="attribute">setExampleText</span>:<span class="value">(NSString *)text image:(UIImage *)image</span></span>;</span><br><span class="line"><span class="tag">-</span> (<span class="tag">void</span>)<span class="rule"><span class="attribute">sendAction</span>:<span class="value">(SEL)aSelector to:(id)anObject forAllCells:(BOOL)flag</span></span>;</span><br><span class="line"><span class="tag">-</span> (<span class="tag">id</span>)<span class="rule"><span class="attribute">viewWithTag</span>:<span class="value">(NSInteger)tag</span></span>;</span><br><span class="line"><span class="tag">-</span> (<span class="tag">instancetype</span>)<span class="rule"><span class="attribute">initWithWidth</span>:<span class="value">(CGFloat)width height:(CGFloat)height</span></span>;</span><br></pre></td></tr></table></figure>
-<p>不应该：</p>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="pp">-<span class="params">(void)</span>setT:<span class="params">(<span class="variable">NSString</span> *)</span>text i:<span class="params">(<span class="variable">UIImage</span> *)</span>image;</span><br><span class="line">- <span class="params">(void)</span>sendAction:<span class="params">(<span class="variable">SEL</span>)</span>aSelector :<span class="params">(id)</span>anObject :<span class="params">(<span class="variable">BOOL</span>)</span>flag;</span><br><span class="line">- <span class="params">(id)</span>taggedView:<span class="params">(<span class="variable">NSInteger</span>)</span>tag;</span><br><span class="line">- <span class="params">(instancetype)</span>initWithWidth:<span class="params">(<span class="variable">CGFloat</span>)</span>width andHeight:<span class="params">(<span class="variable">CGFloat</span>)</span>height;</span><br><span class="line">- <span class="params">(instancetype)</span>initWith:<span class="params">(int)</span>width and:<span class="params">(int)</span>height;  // Never do this</span>.</span><br></pre></td></tr></table></figure>
-<h2 id="变量">变量</h2><p>变量尽量以描述性的方式来命名。单个字符的变量命名应该尽量避免，除了在for()循环。</p>
-<p>星号表示变量是指针。例如， <code>NSString *text</code> 既不是 <code>NSString* text</code> 也不是 <code>NSString * text</code>，除了一些特殊情况下常量。</p>
-<p>私有变量应该尽可能代替实例变量的使用。尽管使用实例变量是一种有效的方式，但更偏向于使用属性来保持代码一致性。</p>
-<p>通过使用’back’属性( _variable ，变量名前面有下划线)直接访问实例变量应该尽量避免，除了在初始化方法( init , initWithCoder: , 等…)， dealloc 方法和自定义的 setters 和 getters 。想了解关于如何在初始化方法和 dealloc 直接使用 Accessor 方法的更多信息，查看这里。</p>
-<p>应该：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@interface</span> <span class="attribute">RWTTutorial </span>: NSObject</span><br><span class="line"><span class="variable">@property</span> (strong, nonatomic) NSString *tutorialName;</span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure>
-<p>不应该：</p>
-<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@<span class="class"><span class="keyword">interface</span> <span class="title">RWTTutorial</span> : NSObject </span>&#123;</span><br><span class="line">    NSString *tutorialName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="属性特性">属性特性</h2><ul>
-<li>所有属性特性应该显式地列出来，有助于新手阅读代码。属性特性的顺序应该是 storage、atomicity，与在 Interface Builder 连接 UI 元素时自动生成代码一致。</li>
-</ul>
-<p>应该：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIView</span> *containerView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *tutorialName;</span><br></pre></td></tr></table></figure>
-<p>不应该：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIView</span> *containerView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *tutorialName;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>NSString应该使用copy而不是strong的属性特性。</li>
-</ul>
-<blockquote>
-<p>为什么？即使你声明一个NSString的属性，有人可能传入一个NSMutableString的实例，然后在你没有注意的情况下修改它。</p>
-</blockquote>
-<p>应该：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *tutorialName;</span><br></pre></td></tr></table></figure>
-<p>不应该：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *tutorialName;</span><br></pre></td></tr></table></figure>
-<h2 id="点符号语法">点符号语法</h2><ul>
-<li>点语法是一种很方便封装访问方法调用的方式。当你使用点语法时，通过使用 getter 或 setter 方法，属性仍然被访问或修改。想了解更多，阅读<a href="https://developer.apple.com/library/ios/documentation/cocoa/conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html" target="_blank" rel="external">这里</a>。</li>
-</ul>
-<blockquote>
-<p>点语法应该<strong>总是</strong>被用来访问和修改属性，因为它使代码更加简洁。[]符号更偏向于用在其他例子。</p>
-</blockquote>
-<p>应该：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSInteger</span> arrayCount = [<span class="keyword">self</span><span class="variable">.array</span> count];</span><br><span class="line">view<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> orangeColor];</span><br><span class="line">[<span class="built_in">UIApplication</span> sharedApplication]<span class="variable">.delegate</span>;</span><br></pre></td></tr></table></figure>
-<p>不应该：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSInteger</span> arrayCount = <span class="keyword">self</span><span class="variable">.array</span><span class="variable">.count</span>;</span><br><span class="line">[view setBackgroundColor:[<span class="built_in">UIColor</span> orangeColor]];</span><br><span class="line"><span class="built_in">UIApplication</span><span class="variable">.sharedApplication</span><span class="variable">.delegate</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="字面值">字面值</h2><ul>
-<li>NSString、 NSDictionary、 NSArray 和 NSNumber 的字面值应该在创建这些类的不可变实例时被使用。请特别注意 nil 值不能传入 NSArray 和 NSDictionary 字面值，因为这样会导致 crash。</li>
-</ul>
-<p>应该：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSArray</span> *names = @[<span class="string">@"Brian"</span>, <span class="string">@"Matt"</span>, <span class="string">@"Chris"</span>, <span class="string">@"Alex"</span>, <span class="string">@"Steve"</span>, <span class="string">@"Paul"</span>];</span><br><span class="line"><span class="built_in">NSDictionary</span> *productManagers = @&#123;<span class="string">@"iPhone"</span>: <span class="string">@"Kate"</span>, <span class="string">@"iPad"</span>: <span class="string">@"Kamal"</span>, <span class="string">@"Mobile Web"</span>: <span class="string">@"Bill"</span>&#125;;</span><br><span class="line"><span class="built_in">NSNumber</span> *shouldUseLiterals = @YES;</span><br><span class="line"><span class="built_in">NSNumber</span> *buildingStreetNumber = @<span class="number">10018</span>;</span><br></pre></td></tr></table></figure>
-<p>不应该：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSArray</span> *names = [<span class="built_in">NSArray</span> arrayWithObjects:<span class="string">@"Brian"</span>, <span class="string">@"Matt"</span>, <span class="string">@"Chris"</span>, <span class="string">@"Alex"</span>, <span class="string">@"Steve"</span>, <span class="string">@"Paul"</span>, <span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">NSDictionary</span> *productManagers = [<span class="built_in">NSDictionary</span> dictionaryWithObjectsAndKeys: <span class="string">@"Kate"</span>, <span class="string">@"iPhone"</span>, <span class="string">@"Kamal"</span>, <span class="string">@"iPad"</span>, <span class="string">@"Bill"</span>, <span class="string">@"Mobile Web"</span>, <span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">NSNumber</span> *shouldUseLiterals = [<span class="built_in">NSNumber</span> numberWithBool:<span class="literal">YES</span>];</span><br><span class="line"><span class="built_in">NSNumber</span> *buildingStreetNumber = [<span class="built_in">NSNumber</span> numberWithInteger:<span class="number">10018</span>];</span><br></pre></td></tr></table></figure>
-<h2 id="常量">常量</h2><p>常量是容易重复被使用和无需通过查找和代替就能快速修改值。常量应该使用static来声明而不是使用#define，除非显式地使用宏。</p>
-<p>应该：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> RWTAboutViewControllerCompanyName = <span class="string">@"RayWenderlich.com"</span>;</span><br><span class="line"><span class="keyword">static</span> <span class="built_in">CGFloat</span> <span class="keyword">const</span> RWTImageThumbnailHeight = <span class="number">50.0</span>;</span><br></pre></td></tr></table></figure>
-<p>不应该：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hexcolor">#def</span>ine CompanyName @<span class="string">"RayWenderlich.com"</span></span><br><span class="line"><span class="hexcolor">#def</span>ine thumbnailHeight <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<h2 id="枚举类型">枚举类型</h2><ul>
-<li>当使用 enum 时，推荐使用新的固定基本类型规格，因为它有更强的类型检查和代码补全。现在 SDK 有一个宏 NS_ENUM() 来帮助和鼓励你使用固定的基本类型。</li>
-</ul>
-<p>例如：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, RWTLeftMenuTopItemType) &#123;</span><br><span class="line">    RWTLeftMenuTopItemMain,</span><br><span class="line">    RWTLeftMenuTopItemShows,</span><br><span class="line">    RWTLeftMenuTopItemSchedule</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>你也可以显式地赋值(展示旧的k-style常量定义)：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef NS_ENUM(NSInteger, RWTGlobalConstants) &#123;</span><br><span class="line">    RWTP<span class="keyword">in</span>SizeM<span class="keyword">in</span> = <span class="number">1</span>,</span><br><span class="line">    RWTP<span class="keyword">in</span>SizeMax = <span class="number">5</span>,</span><br><span class="line">    RWTP<span class="keyword">in</span>CountM<span class="keyword">in</span> = <span class="number">100</span>,</span><br><span class="line">    RWTP<span class="keyword">in</span>CountMax = <span class="number">500</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>旧的 k-style 常量定义应该避免，除非编写 Core Foundation C 的代码。</p>
-<p>不应该：</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">GlobalConstants</span> &#123;</span></span><br><span class="line">    kMaxPinSize = <span class="number">5</span>,</span><br><span class="line">    kMaxPinCount = <span class="number">500</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="Case语句">Case语句</h2><ul>
-<li>大括号在 case 语句中必须的，不仅仅是 case 语句包含多行代码时，大括号都应该加上。</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (condition) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>: <span class="comment">// 这个是不应该的</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>: &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="comment">// Multi-line example using braces</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>: &#123; <span class="comment">// 应该的</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">default</span>: </span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>有很多次，当相同代码被多个cases使用时，一个fall-through应该被使用。一个fall-through就是在case最后移除’break’语句，这样就能够允许执行流程跳转到下一个case值。为了代码更加清晰，一个fall-through需要注释一下。</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (condition) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        <span class="comment">// ** fall-through! **</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        <span class="comment">// code executed for values 1 and 2</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>: </span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>当在switch使用枚举类型时，’default’是不需要的。例如：</li>
-</ul>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">RWTLeftMenuTopItemType menuType = RWTLeftMenuTopItemMain;</span><br><span class="line"><span class="keyword">switch</span> (menuType) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">RWTLeftMenuTopItemMain:</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">RWTLeftMenuTopItemShows:</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">RWTLeftMenuTopItemSchedule:</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="私有属性">私有属性</h2><p>私有属性应该在类的实现文件中的类扩展(匿名分类)中声明，命名分类(比如RWTPrivate或private)应该从不使用除非是扩展其他类。匿名分类应该通过使用<headerfile>+Private.h文件的命名规则暴露给测试。</headerfile></p>
-<p>例如：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@interface</span> RWTDetailViewController ()</span><br><span class="line"><span class="variable">@property</span> (strong, nonatomic) GADBannerView *googleAdView;</span><br><span class="line"><span class="variable">@property</span> (strong, nonatomic) ADBannerView *iAdView;</span><br><span class="line"><span class="variable">@property</span> (strong, nonatomic) UIWebView *adXWebView;</span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure>
-<h2 id="布尔值">布尔值</h2><ul>
-<li>Objective-C 使用 YES 和 NO。因为 true 和 false 应该只在 CoreFoundation， C 或 C++ 代码使用。既然 nil 解析成 NO ，所以没有必要在条件语句比较。不要拿某样东西直接与 YES 比较，因为 YES 被定义为 1 而一个 BOOL 能被设置为8位。</li>
-</ul>
-<p>这是为了在不同文件保持一致性和在视觉上更加简洁而考虑。</p>
-<p>应该：</p>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="comment">(someObject)</span> &#123;&#125;</span><br><span class="line"><span class="keyword">if</span> <span class="comment">(![anotherObject boolValue])</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>不应该：</p>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="comment">(someObject == nil)</span> &#123;&#125;</span><br><span class="line"><span class="keyword">if</span> <span class="comment">([anotherObject boolValue] == NO)</span> &#123;&#125;</span><br><span class="line"><span class="keyword">if</span> <span class="comment">(isAwesome == YES)</span> &#123;&#125; <span class="comment">// Never do this.</span></span><br><span class="line"><span class="keyword">if</span> <span class="comment">(isAwesome == true)</span> &#123;&#125; <span class="comment">// Never do this.</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>如果BOOL属性的名字是一个形容词，属性就能忽略”is”前缀，但要指定get访问器的惯用名称。例如：</li>
-</ul>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, getter=isEditable) <span class="built_in">BOOL</span> editable;</span><br></pre></td></tr></table></figure>
-<h2 id="条件语句">条件语句</h2><ul>
-<li>条件语句主体为了防止出错应该使用大括号包围，即使条件语句主体能够不用大括号编写(如，只用一行代码)。这些错误包括添加第二行代码和期望它成为 if 语句；还有，<a href="http://programmers.stackexchange.com/a/16530" target="_blank" rel="external">even more dangerous defect</a> 可能发生在if语句里面一行代码被注释了，然后下一行代码不知不觉地成为if语句的一部分。除此之外，这种风格与其他条件语句的风格保持一致，所以更加容易阅读。</li>
-</ul>
-<p>应该：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="keyword">error</span>) &#123;</span><br><span class="line"><span class="command">    return</span> success;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>不应该：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="keyword">error</span>)</span><br><span class="line"><span class="command">    return</span> success;</span><br></pre></td></tr></table></figure>
-<p>或者：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="keyword">error</span>) <span class="constant">return</span> success;</span><br></pre></td></tr></table></figure>
-<h2 id="三元操作符">三元操作符</h2><p>当需要提高代码的清晰性和简洁性时，三元操作符 ?: 才会使用。单个条件求值常常需要它。多个条件求值时，如果使用 if 语句或重构成实例变量时，代码会更加易读。一般来说，最好使用三元操作符是在根据条件来赋值的情况下。</p>
-<p>Non-boolean 的变量与某东西比较，加上括号()会提高可读性。如果被比较的变量是 boolean 类型，那么就不需要括号。</p>
-<p>应该：</p>
-<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">NSInteger</span> value = <span class="number">5</span>;</span><br><span class="line"><span class="literal">result</span> = (value != <span class="number">0</span>) ? x : y;</span><br><span class="line"><span class="type">BOOL</span> isHorizontal = <span class="type">YES</span>;</span><br><span class="line"><span class="literal">result</span> = isHorizontal ? x : y;</span><br></pre></td></tr></table></figure>
-<p>不应该：</p>
-<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">result</span> = a &gt; b ? x = c &gt; d ? c : d : y;</span><br></pre></td></tr></table></figure>
-<h2 id="Init方法">Init方法</h2><p>Init 方法应该遵循 Apple 生成代码模板的命名规则，返回类型应该使用 instancetype 而不是 id。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (instancetype)<span class="keyword">init</span> &#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> <span class="keyword">init</span>];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="类构造方法">类构造方法</h2><p>当类构造方法被使用时，它应该返回类型是instancetype而不是id。这样确保编译器正确地推断结果类型。</p>
-<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">interface</span> Airplane</span><br><span class="line">+ (instancetype)airplaneWithType:(RWTAirplaneType)<span class="class"><span class="keyword">type</span>;</span></span><br><span class="line">@<span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>关于更多 instancetype，请查看<a href="http://nshipster.com/instancetype/" target="_blank" rel="external">这里</a>。</p>
-<h2 id="CGRect函数">CGRect函数</h2><p>当访问CGRect里的x, y, width, 或 height时，应该使用CGGeometry函数而不是直接通过结构体来访问。引用Apple的CGGeometry：</p>
-<blockquote>
-<p>在这个参考文档中所有的函数，接受CGRect结构体作为输入，在计算它们结果时隐式地标准化这些rectangles。因此，你的应用程序应该避免直接访问和修改保存在CGRect数据结构中的数据。相反，使用这些函数来操纵rectangles和获取它们的特性。</p>
-</blockquote>
-<p>应该：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGRect</span> frame = <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.frame</span>;</span><br><span class="line"><span class="built_in">CGFloat</span> x = <span class="built_in">CGRectGetMinX</span>(frame);</span><br><span class="line"><span class="built_in">CGFloat</span> y = <span class="built_in">CGRectGetMinY</span>(frame);</span><br><span class="line"><span class="built_in">CGFloat</span> width = <span class="built_in">CGRectGetWidth</span>(frame);</span><br><span class="line"><span class="built_in">CGFloat</span> height = <span class="built_in">CGRectGetHeight</span>(frame);</span><br><span class="line"><span class="built_in">CGRect</span> frame = <span class="built_in">CGRectMake</span>(<span class="number">0.0</span>, <span class="number">0.0</span>, width, height);</span><br></pre></td></tr></table></figure>
-<p>不应该：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGRect</span> frame = <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.frame</span>;</span><br><span class="line"><span class="built_in">CGFloat</span> x = frame<span class="variable">.origin</span><span class="variable">.x</span>;</span><br><span class="line"><span class="built_in">CGFloat</span> y = frame<span class="variable">.origin</span><span class="variable">.y</span>;</span><br><span class="line"><span class="built_in">CGFloat</span> width = frame<span class="variable">.size</span><span class="variable">.width</span>;</span><br><span class="line"><span class="built_in">CGFloat</span> height = frame<span class="variable">.size</span><span class="variable">.height</span>;</span><br><span class="line"><span class="built_in">CGRect</span> frame = (<span class="built_in">CGRect</span>)&#123; <span class="variable">.origin</span> = <span class="built_in">CGPointZero</span>, <span class="variable">.size</span> = frame<span class="variable">.size</span> &#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="黄金路径">黄金路径</h2><p>当使用条件语句编码时，左手边的代码应该是”golden” 或 “happy”路径。也就是不要嵌套if语句，多个返回语句也是OK。</p>
-<p>应该：</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)someMethod &#123;</span><br><span class="line">    <span class="keyword">if</span> (![someOther boolValue]) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//Do something important</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>不应该：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">-</span> (void)<span class="tag">someMethod</span> &#123;</span><br><span class="line">    <span class="tag">if</span> ([someOther boolValue]) &#123;</span><br><span class="line">        <span class="comment">//Do something important</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="错误处理">错误处理</h2><p>当方法通过引用来返回一个错误参数，判断返回值而不是错误变量。</p>
-<p>应该：</p>
-<figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSError *<span class="built_in">error</span>;</span><br><span class="line"><span class="keyword">if</span> (![<span class="variable">self</span> trySomethingWithError:&amp;<span class="built_in">error</span>]) &#123;</span><br><span class="line">    // Handle <span class="built_in">Error</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>不应该：</p>
-<figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSError *<span class="built_in">error</span>;</span><br><span class="line">[<span class="variable">self</span> trySomethingWithError:&amp;<span class="built_in">error</span>];</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">error</span>) &#123;</span><br><span class="line">    // Handle <span class="built_in">Error</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在成功的情况下，有些 Apple 的 APIs 记录垃圾值( garbage values )到错误参数(如果 non-NULL )，那么判断错误值会导致 false 负值和 crash。</p>
-<h2 id="单例模式">单例模式</h2><p>单例对象应该使用线程安全模式来创建共享实例。</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+ (instancetype)sharedInstance &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">id</span> sharedInstance = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">        sharedInstance = [[<span class="keyword">self</span> alloc] init];</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> sharedInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这可以防止<a href="http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html" target="_blank" rel="external">有时可能产生的崩溃</a></p>
-<h2 id="换行符">换行符</h2><p>换行符是一个很重要的主题，因为它的风格指南主要为了打印和网上的可读性。</p>
-<p>例如：</p>
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.productsRequest = <span class="comment">[<span class="comment">[SKProductsRequest alloc]</span> initWithProductIdentifiers:productIdentifiers]</span>;</span><br></pre></td></tr></table></figure>
-<p>一行很长的代码应该分成两行代码，下一行用两个空格隔开。</p>
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">self.productsRequest = <span class="comment">[<span class="comment">[SKProductsRequest alloc]</span> </span><br><span class="line">  initWithProductIdentifiers:productIdentifiers]</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="导入">导入</h2><p>如果有一个以上的 import 语句，就对这些语句进行分组。每个分组的注释是可选的。<br>注：对于模块使用 @import 语法。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Frameworks</span></span><br><span class="line">@<span class="keyword">import</span> QuartzCore;</span><br><span class="line">  </span><br><span class="line"><span class="comment">// Models</span></span><br><span class="line">#<span class="keyword">import</span> "NYTUser.h"</span><br><span class="line"></span><br><span class="line"><span class="comment">// Views</span></span><br><span class="line">#<span class="keyword">import</span> "NYTButton.h"</span><br><span class="line">#<span class="keyword">import</span> "NYTUserView.h"</span><br></pre></td></tr></table></figure>
-<h2 id="飞博可接受的缩略词">飞博可接受的缩略词</h2><table>
-<thead>
-<tr>
-<th>缩略词</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>VC</td>
-<td>ViewController</td>
-</tr>
-<tr>
-<td>VM</td>
-<td>ViewModel</td>
-</tr>
-</tbody>
-</table>
-<h2 id="参考">参考</h2><h3 id="中文版">中文版</h3><p><a href="http://www.iwangke.me/objc-style-guide/" target="_blank" rel="external">Google Objective-C Style Guide 中文版</a></p>
-<p><a href="http://linfuyan.com/apple-cocoa-coding-style-guide/">Apple 官方 Cocoa 编码规范</a></p>
-<p><a href="http://www.csdn.net/article/2015-06-01/2824818-objective-c-style-guide/1" target="_blank" rel="external">Objective-C编码规范：26个方面解决iOS开发问题</a></p>
-<p><a href="https://github.com/NYTimes/objective-c-style-guide/blob/master/README_zh-Hans.md" target="_blank" rel="external">纽约时报 移动团队 Objective-C 规范指南</a></p>
-<h3 id="英文版">英文版</h3><p><a href="https://google.github.io/styleguide/objcguide.xml" target="_blank" rel="external">Google Objective-C Style Guide</a></p>
-<p><a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html" target="_blank" rel="external">Coding Guidelines for Cocoa</a></p>
-<p><a href="https://github.com/raywenderlich/objective-c-style-guide" target="_blank" rel="external">Raywenderlich.com Objective-C style guide</a></p>
-<p><a href="https://github.com/NYTimes/objective-c-style-guide" target="_blank" rel="external">NYTimes Objective-C Style Guide</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="语言">语言</h2><p>使用英语，变量的命名等已英语单词命名，不要使用汉语拼音。</p>
-<h2 id="代码组织">代码组织</h2><p>使用 <code>#pragma mark</code> 来为方法分组。</p>
-<h2 id="间距与空白">间距与]]>
-    </summary>
-    
-      <category term="Objective-C" scheme="http://linfuyan.com/tags/Objective-C/"/>
-    
-      <category term="iOS" scheme="http://linfuyan.com/tags/iOS/"/>
-    
-      <category term="代码" scheme="http://linfuyan.com/tags/%E4%BB%A3%E7%A0%81/"/>
-    
-      <category term="指南" scheme="http://linfuyan.com/tags/%E6%8C%87%E5%8D%97/"/>
-    
-      <category term="规范" scheme="http://linfuyan.com/tags/%E8%A7%84%E8%8C%83/"/>
-    
-      <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="iOS" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/iOS/"/>
-    
-  </entry>
   
   <entry>
     <title><![CDATA[Apple 官方 Cocoa 编码规范]]></title>
@@ -2427,6 +2184,165 @@
       <category term="页面" scheme="http://linfuyan.com/tags/%E9%A1%B5%E9%9D%A2/"/>
     
       <category term="FAQ" scheme="http://linfuyan.com/categories/FAQ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android 6.0 新功能及主要 API 变更]]></title>
+    <link href="http://linfuyan.com/android-m-changes/"/>
+    <id>http://linfuyan.com/android-m-changes/</id>
+    <published>2015-10-10T03:52:00.000Z</published>
+    <updated>2015-11-09T10:02:37.000Z</updated>
+    <content type="html"><![CDATA[<p>伴随着新的特性和功能， Android 6.0 (API 级别 23)带来了一系列系统和 API 行为的变更。这篇文章中将介绍一些在应用程序中需要理解和注意的主要变更点。</p>
+<blockquote>
+<p>如果你之前已经发布过 Android 应用程序，要意识到这些变更对应用程序的影响。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="运行时权限">运行时权限</h2><p>这个版本中引入了新的权限模型，现在用户可以在运行时直接管理应用程序的权限。这个模型基于用户对权限控制的更多可见性，同时为应用程序的开发者提供更流畅的应用安装和自动升级。用户可以为已安装的每个应用程序独立的授予或者取消权限。</p>
+<p>在运行于目标版本 Android 6.0 (API 级别 23) 及以上的应用程序中，必须在运行时检查并请求权限。通过新的 <code>checkSelfPermission()</code> 方法来确定你的应用程序是否已经被授权。通过新的 <code>requestPermissions()</code> 方法来请求权限。即使你的应用程序运行的目标版本不是 Android 6.0 (API 级别 23)，你也应该在新的授权模型下来测试应用程序。</p>
+<p>在应用程序中支持新的权限模型的更多详细信息，可以查看<a href="https://developer.android.com/training/permissions/index.html" target="_blank" rel="external">使用系统权限</a>。如何在应用程序中使用权限，相关提示可以查看<a href="https://developer.android.com/training/permissions/best-practices.html#testing" target="_blank" rel="external">权限最佳实践</a>。</p>
+<h2 id="休眠与应用挂起(_Doze_and_App_Standby_)">休眠与应用挂起( Doze and App Standby )</h2><p>这个版本为空闲的设备和应用程序引入了电源节能优化。这个特性将影响所有应用程序，故确保自己的应用程序在这些新模式下进行测试。</p>
+<ul>
+<li><p><strong>休眠</strong>：如果用户将设备拔下，并将其静置，关闭屏幕，经过一段时间，设备将进入休眠模式。这时候，设备试图让系统保持在一个睡眠的状态。这种模式下，设备周期性的恢复平常的操作，以便应用程序同步，系统则可以处理一些延时的操作。</p>
+</li>
+<li><p><strong>应用挂起</strong>：应用挂起则允许系统当用户不再使用应用程序时，将其定义为空闲。当用户经过一段时间没有触摸应用程序时，系统可以做这个决定。设备被拔线时，系统禁用网络访问，停止应用程序的同步及操作，则被认为是空闲。</p>
+</li>
+</ul>
+<p>学习更多关于电源节能的变更，查看<a href="https://developer.android.com/training/monitoring-device-state/doze-standby.html" target="_blank" rel="external">对休眠与应用挂起的优化</a>。</p>
+<h2 id="移除_Apache_HTTP_客户端">移除 Apache HTTP 客户端</h2><p>Android 6.0 发布版移除了对 Apache HTTP 客户端的支持。如果你的应用程序使用该客户端，并且目标运行版本为 Android 2.3 (API 级别9) 及以上，需要使用 <code>HttpURLConnection</code> 类来代替。这个 API 更加的高效，因为它通过对用户透明的压缩、响应缓存来减少网络开销，并最小化电量消耗。要继续使用 Apache HTTP 的 API，你需要在 <code>build.gradle</code> 文件中声明下面的编译期依赖：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">android</span> &#123;</span><br><span class="line">    <span class="title">useLibrary</span> <span class="string">'org.apache.http.legacy'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="BoringSSL">BoringSSL</h2><p>Android 从 OpenSSL 转移到了 <a href="https://boringssl.googlesource.com/boringssl/" target="_blank" rel="external">BoringSSL</a> 库。如果你在应用程序中使用 Android NDK，千万不要将加密库链接到除 NDK API 之外的任何库，如 <code>libcrypto.so</code> 和 <code>libssl.so</code>。这些库不是公开 API，有可能在没有收到通知的情况下在发布版和设备间发生变更或中断。这种情况你将把自己暴露在安全威胁下。你应该修改自己的本地代码来通过 JNI 调用 Java 加密 API 或者静态链接你选择的一个加密库。</p>
+<h2 id="访问硬件标识符">访问硬件标识符</h2><p>为了给用户更多的数据保护，从这个版本开始， Android 移除了通过 WiFi 和蓝牙 API 来在应用程序中可编程的访问本地硬件标示符。现在 <code>WifiInfo.getMacAddress()</code> 和 <code>BluetoothAdapter.getAddress()</code> 方法都将返回 <code>02:00:00:00:00:00</code> 常量。</p>
+<p>要通过蓝牙和 WiFi 扫描来访问附近外部设备的硬件标示符，应用程序需要 <code>ACCESS_FINE_LOCATION</code> 和 <code>ACCESS_COARSE_LOCATION</code> 权限：</p>
+<ul>
+<li><a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html#getScanResults\(\" target="_blank" rel="external"><code>WifiManager.getScanResults()</code></a>)</li>
+<li><a href="https://developer.android.com/reference/android/bluetooth/BluetoothDevice.html#ACTION_FOUND" target="_blank" rel="external"><code>BluetoothDevice.ACTION_FOUND</code></a></li>
+<li><a href="https://developer.android.com/reference/android/bluetooth/le/BluetoothLeScanner.html#startScan\(android.bluetooth.le.ScanCallback\" target="_blank" rel="external"><code>BluetoothLeScanner.startScan()</code></a>)</li>
+</ul>
+<blockquote>
+<p><strong>注意：</strong>在一个运行 Android 6.0 (API 级别 23) 的设备初始化后台的 WiFi 或蓝牙扫描时，操作对于外部设备是可见的，且被赋予一个随机的 MAC 地址。</p>
+</blockquote>
+<h2 id="通知">通知</h2><p>这个版本移除了 <code>Notification.setLatestEventInfo()</code> 方法。使用 Notification.Builder 类来代替构造方法。要重复的更新通知，要重用 Notification.Builder 实例。调用 build() 方法来获取更新过的 Notification 实例。</p>
+<p><code>adb shell dumpsys nnotification</code> 命令不在答应通知文本。使用 <code>adb shell dumpsys notification --noredcat</code> 命令来在同志对象中打印文本。</p>
+<h2 id="AudioManager_变更">AudioManager 变更</h2><p>通过 AudioManager 类来直接设置音量或者使流静音已经不再支持。 setStreamSolo() 方法被弃用，你需要调用 requestAudioFocus() 来代替。类似的， setStreamMute() 方法被弃用，替换为 adjustStreamVolume() 方法并传递方向值 ADJUST_MUTE 或 ADJUST_UNMUTE。</p>
+<h2 id="文本选择">文本选择</h2><p>当用户在应用程序中选择文本时，你可以在<a href="http://www.google.com/design/spec/patterns/selection.html#selection-text-selection" target="_blank" rel="external">悬浮工具栏</a>中显示文本选择工作，如剪切、复制、粘贴。用户交互实现与<a href="https://developer.android.com/guide/topics/ui/menus.html#CABforViews" target="_blank" rel="external">为独立视图启动上下文动作模式</a>中描述的上下文动作栏类似。</p>
+<p>为文本选择实现悬浮工具栏，需要在已存在的应用程序中做如下修改：</p>
+<ol>
+<li><p>在 View 或者 Activity 对象中，通过修改 <code>startActionMode(Callback)</code> 为 <code>startActionMode(Callback, ActionMode.TYPE_FLOATING)</code> 来改变 ActionMode。 </p>
+</li>
+<li><p>使已经存在的 <code>ActionMode.Callback</code> 的实现继承自 ActionMode.Callback2 。</p>
+</li>
+<li><p>重载 onGetContentRect() 方法来提供内容 Rect 对象(如文本选择矩形)在视图中的坐标。</p>
+</li>
+<li><p>如果矩形位置不在有效，并且这是需要刷新的唯一元素，则调用 invalidateContentRect() 方法。</p>
+</li>
+</ol>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/text-selection.gif" alt="文本选择"></p>
+<p>如果你在使用 Android 22.2 修订版的兼容包，悬浮工具栏不是向后兼容的，且使用默认的 ActionMode 对象。这导致悬浮工具栏无法显示。在 AppCompatActivity 中启用 ActionMode，首先调用 getDelegate() ，然后在返回的 AppCompatDelegate 对象中调用 setHandleNativeActionModesEnabled()，并设置输入参数为 <code>false</code>。这个调用为框架返回可控的 ActionMode 对象。在运行 Android 6.0 (API 级别 23) 的设备上，这允许框架支持 ActionBar 或悬浮工具栏模式。在 Android 5.1 (API 级别 22) 或更低版本，只有 ActionBar 是支持的。</p>
+<h2 id="浏览器书签变更">浏览器书签变更</h2><p>这个版本移除了对全局书签的支持。 <code>android.provider.Browser.getAllBookmark()</code> 和 <code>android.provider.Browser.saveBookmark()</code> 方法被移除。同样的， <code>READ_HISTORY_BOOKMARKS</code> 和 <code>WRITE_HISTORY_BOOKMARKS</code> 权限被移除。如果你的应用程序的目标运行版本为 Android 6.0 (API 级别 23) 或者更高，不要从全局提供者访问书签或者使用书签权限。现在，你的应用程序需要内部保存书签数据。</p>
+<h2 id="Android_Keystore_变更">Android Keystore 变更</h2><p>在这个版本中， <a href="https://developer.android.com/training/articles/keystore.html" target="_blank" rel="external">Android Keystore 提供器</a> 不在支持 DSA。 ECDSA 则仍然被支持。</p>
+<p>当安全锁屏被禁用或重置时，不要求加密的 key 将不再被删除。要求加密的 key 则会在这些事件中被删除。</p>
+<h2 id="Wi-Fi_和_网络变更">Wi-Fi 和 网络变更</h2><p>这个版本为 Wi-Fi 和 网络 API 引入了下面的行为变更：</p>
+<ul>
+<li>应用程序只有在创建了 WifiConfiguration 对象以后，才能更变这些对象的状态。当 WifiConfiguration 被用户或者其他应用程序创建时，你将不允许修改和删除这些 WifiConfiguration 对象。</li>
+<li>在之前的版本中，如果应用程序使用 enableNetwork() ，并设置 <code>disableAllOthers=true</code> 来强制设备连接到指定的 Wi-Fi 网络，设备将和其他网络断开。这个版本中，这些设备将不再和其他网络断开。如果应用程序的 <code>targetSdkVersion</code> 是 20 或者更低，则会连接被选中的 Wi-Fi 网络。如果应用程序的 <code>targetSdkVersion</code> 是 21 或者更高，使用多网络 API (如 openConnection()， bindSocket() 及新的 bindProcessToNetwork() 方法)来确保它的网络通信是发给被选中的网络。</li>
+</ul>
+<h2 id="摄像头服务变更">摄像头服务变更</h2><p>在这个版本中，在摄像头服务中访问共享资源的模式发生了变更，不再是以前的”先到先得”，而是具备高优先级的将优先处理。服务行为的变更包括：</p>
+<ul>
+<li><p>访问摄像头子系统的资源，包括打开和配置摄像设备，依赖于客户端应用进程的优先级。用户可见或者在前台活动的应用程序进程往往具备更高的优先级，使得摄像资源更易获得，也更加可靠。</p>
+</li>
+<li><p>当更高优先级的应用程序视图使用摄像头时，具有低权限的活动摄像头客户端应用程序可能被中断。在被弃用的 Camera API 中，错误会在被中断客户端的 onError() 中被调用。在 Camera2 API 中，错误结果则在 onDisconnected() 中被调用。</p>
+</li>
+<li><p>在具备适合摄像头硬件的设备上，不同的应用进程可以同时独立地打开和使用独立的摄像头设备。虽然如此，多进程使用时，同时访问摄像头会造成设备性能的急剧下降，这将被摄像头服务所检测到并不被允许。这个变更使得由于较低优先级而被中断的客户端，即使当没有其他应用直接访问时，也会试图访问一样的设备。</p>
+</li>
+<li><p>改变当前用户会导致之前用户账号的应用程序中活动那个的摄像头客户端被中断。对摄像头的访问是被当前设备用户所限制的。实际上，这意味着当用户切换到不同的账户下时，原来的”访客”账号所使用的摄像头子系统是不可能继续运行的。</p>
+</li>
+</ul>
+<h2 id="运行时">运行时</h2><p>通过 newInstance() 方法 ART 运行时现在正确的实现了访问规则。这个变更修复了之前版本中 Dalvik 检查访问规则时的错误。如果你的应用程序使用 newInstance() 方法，且你想要覆盖访问检查，调用 setAccessible() 方便，并设置参数为 <code>true</code>。如果你的应用程序使用 <a href="https://developer.android.com/tools/support-library/features.html#v7-appcompat" target="_blank" rel="external">v7 兼容库</a> 和 <a href="https://developer.android.com/tools/support-library/features.html#v7-recyclerview" target="_blank" rel="external">v7 recyclerview 库</a>。你需要升级应用程序中的相关库到最新版本。否则，需要确保 XML 中所引用的自定义类已经被升级，其构造方法是可访问的。</p>
+<p>这个版本升级了动态链接器的行为。动态连接器现在可以理解库的 <code>soname</code> 和 它的路径之间的区别，且实现了通过 <code>soname</code> 来搜索。在加载时，之前可用的应用程序可能会被提示具有不可用的 <code>DT_NEEDED</code> 条目(通常是在构建机器文件系统中的绝对路径)。</p>
+<p><code>dlopen(3) RTLD_LOCAL</code> 标志现在被正确实现了。 <code>RTLD_LOCAL</code> 是默认的，因此调用 <code>dlopen(3)</code> 是不明确使用 <code>RTLD_LOCAL</code> 是有效的(除非应用之前有明确使用 <code>RTLD_GLOBAL</code> )。使用 <code>RTLD_LOCAL</code> ，标记在调用 <code>dlopen(3)</code> 加载库之前是不可用的(这与被 <code>DT_NEEDED</code> 条目引用恰恰相反)。</p>
+<p>在之前版本的 Android，如果你的应用请求系统来加载包含文本重定位段的动态链接库，系统会显示警告，但允许继续加载库。从这个版本开始，如果你的目标运行 SDK 版本为 23 或以上，系统会拒绝这个库。为了辅助检测库是否被成功加载，应用程序需要为 <code>dlopen(3)</code> 失败添加日志，并在 <code>dlerror(3)</code> 返回值中包含问题的描述文本。学习更多关于如何处理文本重定位段，可以查看这个<a href="https://wiki.gentoo.org/wiki/Hardened/Textrels_Guide" target="_blank" rel="external">指南</a>。</p>
+<h2 id="APK_验证">APK 验证</h2><p>Android 平台现在执行更加严格的 APK 验证。如果一个文件在清单文件中被声明，但在 APK 中却没有，那么这个 APK 被认为是无效的。如果任意的内容被移除， APK 需要重新签名。</p>
+<h2 id="USB_连接">USB 连接</h2><p>通过 USB 端口的设备连接现在默认被设置为充电模式。想要通过 USB 连接来访问设备和它的内容，用户需要为这些交互提供明确的授权。如果你的应用程序支持用户通过 USB 端口与设备交互，需要确保这些交互被明确启用。</p>
+<h2 id="Android_for_Work_变更">Android for Work 变更</h2><p>这个版本包括下面的 Android for Work 行为变更：</p>
+<ul>
+<li><p><strong>个人上下文中的联系人</strong>。Google 拨号器通话记录现在可以在用户查看已通话记录时显示当前联系人。在 Google 拨号器中通过设置 <code>setCrossProfileCallerIdDisabled()</code> 为 <code>true</code> 来隐藏当前联系人。当设置 <code>setBluetoothContactSharingDisabled()</code> 为 <code>false</code> 时，当前联系人能通过蓝牙显示在设备联系人中。默认情况下，其设置为 <code>true</code>。</p>
+</li>
+<li><p><strong>移除 Wi-Fi 配置</strong>：由外部拥有者添加(如通过 addNetworkd() 方法)的 Wi-Fi 配置现在在当前 profile 被删除时也将被移除。</p>
+</li>
+<li><p><strong>紧闭 Wi-Fi 配置</strong>：如果 <code>WIFI_DEVICE_OWNER_CONFIGS_LOCKDOWN</code> 为非空时，任何由活动的设备拥有者创建的 Wi-Fi 配置将不能用户被修改和删除。用户可以创建和修改自己的 Wi-Fi 配置。活动的设备拥有者拥有编辑和移除任意 Wi-Fi 配置的特权，包括不是由他们创建的配置。</p>
+</li>
+<li><p><strong>通过 Google 账号下载使用策略控制器</strong>：当一个要求 WPC 应用程序来管理的 Google 账号被添加到管理上下文之外的设备中时，添加账号流程会提示用户安装合适的 WPC。这些行为也可以应用到通过在初始设备创建向导中 <strong>设置 &gt; 账号</strong> 添加的账号。</p>
+</li>
+<li><p><strong>制定 DevicePolicyManager API 行为变更</strong>：</p>
+<ul>
+<li>调用 <code>setCameraDisabled()</code> 方法来影响当前调用用户的摄像头。</li>
+<li>此外， <code>setKeyguardDisabledFeatures()</code> 方法对 Profile 用户是可用的，与设备拥有者一样。</li>
+<li>Profile 拥有者可以设置键盘守卫的约束：<ul>
+<li>KEYGUARD_DISABLE_TRUST_AGENTS 和 KEYGUARD_DISABLE_FINGERPRINT 将影响到 profile 父用户的键盘守卫设置。</li>
+<li>KEYGUARD_DISABLE_UNREDACTED_NOTIFICATIONS 只会影响在 profile 中由应用程序生成的通知。</li>
+</ul>
+</li>
+<li>createAndInitializeUser() 和 createUser() 方法已经被弃用。</li>
+<li>当给定用户的应用程序在前台运行时， setScreenCaptureDisabled() 方法将阻塞辅助结构。</li>
+<li>SHA-256 的默认值为 EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM 。为保持兼容性， SHA-1 仍然被支持，但在将来会被移除。 EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM 则仅接受 SHA-256。</li>
+<li>原来存在的设备初始化 API 在 Android 6.0 (API 级别 23) 中被移除了。</li>
+<li>EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS 被移除，因此 NFC bump provisioning 无法通过编程的方式解锁重置被保护的设备。</li>
+<li>现在在被管理的设备中通过 NFC 可以使用 EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE 来传递数据给设备拥有者的应用程序。</li>
+<li>Android M 上的 Android for Work API 是经过优化的，包括 Work 配置，辅助层及其他。新的 DevicePolicyManager 权限 API 不会影响 Android 之前版本的应用程序。</li>
+<li>当用户通过 ACTION_PROVISION_MANAGED_PROFILE 或者 ACTION_PROVISION_MANAGED_DEVICE 意图，从创建流程中的同步部分返回时，系统将返回 RESULT_CANCELED 结果码。</li>
+</ul>
+</li>
+<li><p><strong>其他 API 变更</strong>：</p>
+<ul>
+<li>数据用法： <code>android.app.usage.NetworkUsageStates</code> 类重命名为 NetworkStats。</li>
+</ul>
+</li>
+<li><strong>全局设置变更</strong>：<ul>
+<li>下面的设置不能继续通过 setGlobalSettings() 方法设置：<ul>
+<li><code>BLUETOOTH_ON</code></li>
+<li><code>DEVELOPMENT_SETTINGS_ENABLED</code></li>
+<li><code>MODE_RINGER</code></li>
+<li><code>NETWORK_PREFERENCE</code></li>
+<li><code>WIFI_ON</code></li>
+</ul>
+</li>
+<li>下面全局设置可以通过 setGlobalSettings() 方法设置：<ul>
+<li>WIFI_DEVICE_OWNER_CONFIGS_LOCKDOWN</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>原文：<a href="https://developer.android.com/about/versions/marshmallow/android-6.0-changes.html" target="_blank" rel="external">Android 6.0 Changes</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>伴随着新的特性和功能， Android 6.0 (API 级别 23)带来了一系列系统和 API 行为的变更。这篇文章中将介绍一些在应用程序中需要理解和注意的主要变更点。</p>
+<blockquote>
+<p>如果你之前已经发布过 Android 应用程序，要意识到这些变更对应用程序的影响。</p>
+</blockquote>]]>
+    
+    </summary>
+    
+      <category term="6" scheme="http://linfuyan.com/tags/6/"/>
+    
+      <category term="API" scheme="http://linfuyan.com/tags/API/"/>
+    
+      <category term="Android" scheme="http://linfuyan.com/tags/Android/"/>
+    
+      <category term="Marshmallow" scheme="http://linfuyan.com/tags/Marshmallow/"/>
+    
+      <category term="变更" scheme="http://linfuyan.com/tags/%E5%8F%98%E6%9B%B4/"/>
+    
+      <category term="新功能" scheme="http://linfuyan.com/tags/%E6%96%B0%E5%8A%9F%E8%83%BD/"/>
+    
+      <category term="更新" scheme="http://linfuyan.com/tags/%E6%9B%B4%E6%96%B0/"/>
+    
+      <category term="特性" scheme="http://linfuyan.com/tags/%E7%89%B9%E6%80%A7/"/>
+    
+      <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Android" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Android/"/>
     
   </entry>
   

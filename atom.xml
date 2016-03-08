@@ -4,7 +4,7 @@
   <subtitle><![CDATA[关注但不限于 Android、iOS、nodejs]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://linfuyan.com/"/>
-  <updated>2015-12-21T09:41:06.000Z</updated>
+  <updated>2016-03-01T14:26:41.000Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -13,6 +13,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Mac OSX 10.11 通过 HomeBrew 安装 MySQL]]></title>
+    <link href="http://linfuyan.com/install_mysql_via_brew_on_osx_eicapitan/"/>
+    <id>http://linfuyan.com/install_mysql_via_brew_on_osx_eicapitan/</id>
+    <published>2016-03-01T13:00:00.000Z</published>
+    <updated>2016-03-01T14:26:41.000Z</updated>
+    <content type="html"><![CDATA[<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">$ brew <span class="operator"><span class="keyword">install</span> mysql</span><br><span class="line">==&gt; Installing dependencies <span class="keyword">for</span> mysql: openssl</span><br><span class="line">==&gt; Installing mysql dependency: openssl</span><br><span class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/openssl-<span class="number">1.0</span><span class="number">.2</span>e_1.el_capitan</span><br><span class="line">######################################################################## <span class="number">100.0</span>%</span><br><span class="line">==&gt; Pouring openssl-<span class="number">1.0</span><span class="number">.2</span>e_1.el_capitan.bottle.tar.gz</span><br><span class="line">==&gt; Caveats</span><br><span class="line">A CA <span class="keyword">file</span> has been bootstrapped <span class="keyword">using</span> certificates <span class="keyword">from</span> the <span class="keyword">system</span></span><br><span class="line">keychain. <span class="keyword">To</span> <span class="keyword">add</span> additional certificates, place .pem files <span class="keyword">in</span></span><br><span class="line">  /usr/<span class="keyword">local</span>/etc/openssl/certs</span><br><span class="line"></span><br><span class="line"><span class="keyword">and</span> run</span><br><span class="line">  /usr/<span class="keyword">local</span>/opt/openssl/<span class="keyword">bin</span>/c_rehash</span><br><span class="line"></span><br><span class="line">This formula <span class="keyword">is</span> keg-<span class="keyword">only</span>, which means it was <span class="keyword">not</span> symlinked <span class="keyword">into</span> /usr/<span class="keyword">local</span>.</span><br><span class="line"></span><br><span class="line">Apple has deprecated <span class="keyword">use</span> <span class="keyword">of</span> OpenSSL <span class="keyword">in</span> favor <span class="keyword">of</span> its own TLS <span class="keyword">and</span> crypto libraries</span><br><span class="line"></span><br><span class="line">Generally there <span class="keyword">are</span> <span class="keyword">no</span> consequences <span class="keyword">of</span> this <span class="keyword">for</span> you. <span class="keyword">If</span> you <span class="keyword">build</span> your</span><br><span class="line">own software <span class="keyword">and</span> it requires this formula, you<span class="string">'ll need to add to your</span><br><span class="line">build variables:</span><br><span class="line"></span><br><span class="line">    LDFLAGS:  -L/usr/local/opt/openssl/lib</span><br><span class="line">    CPPFLAGS: -I/usr/local/opt/openssl/include</span><br><span class="line"></span><br><span class="line">==&gt; Summary</span><br><span class="line">🍺  /usr/local/Cellar/openssl/1.0.2e_1: 465 files, 11.9M</span><br><span class="line">==&gt; Installing mysql</span><br><span class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/mysql-5.7.10.el_capitan.bot</span><br><span class="line">######################################################################## 100.0%</span><br><span class="line">==&gt; Pouring mysql-5.7.10.el_capitan.bottle.2.tar.gz</span><br><span class="line">==&gt; /usr/local/Cellar/mysql/5.7.10/bin/mysqld --initialize-insecure --user=lfy -</span><br><span class="line">==&gt; Caveats</span><br><span class="line">We'</span>ve installed your MySQL <span class="keyword">database</span> <span class="keyword">without</span> a root <span class="keyword">password</span>. <span class="keyword">To</span> secure it run:</span><br><span class="line">    mysql_secure_installation</span><br><span class="line"></span><br><span class="line"><span class="keyword">To</span> <span class="keyword">connect</span> run:</span><br><span class="line">    mysql -uroot</span><br><span class="line"></span><br><span class="line"><span class="keyword">To</span> have launchd <span class="keyword">start</span> mysql <span class="keyword">at</span> login:</span><br><span class="line">  <span class="keyword">ln</span> -sfv /usr/<span class="keyword">local</span>/opt/mysql<span class="comment">/*.plist ~/Library/LaunchAgents</span><br><span class="line">Then to load mysql now:</span><br><span class="line">  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</span><br><span class="line">Or, if you don't want/need launchctl, you can just run:</span><br><span class="line">  mysql.server start</span><br><span class="line">==&gt; Summary</span><br><span class="line">🍺  /usr/local/Cellar/mysql/5.7.10: 12,677 files, 433.2M</span></span></span><br></pre></td></tr></table></figure>
+<p>直接使用 <code>mysql -uroot</code>，出现如下错误提示：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR <span class="number">2002</span> (HY000): Can't connect <span class="keyword">to</span> <span class="keyword">local</span> MySQL server <span class="keyword">through</span> socket '/tmp/mysql.sock'</span><br></pre></td></tr></table></figure>
+<p>原因是 mysql 服务没有启动，故尝试 <code>mysql.server start</code>，结果如下，依然出错。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mysql.server <span class="operator"><span class="keyword">start</span></span><br><span class="line"><span class="keyword">Starting</span> MySQL</span><br><span class="line">. <span class="keyword">ERROR</span>! The <span class="keyword">server</span> quit <span class="keyword">without</span> updating PID <span class="keyword">file</span> (/usr/<span class="keyword">local</span>/<span class="keyword">var</span>/mysql/bogon.pid).</span></span><br></pre></td></tr></table></figure>
+<p>最终的处理方式是：</p>
+<ol>
+<li>通过 <code>mysqld</code> 直接启动 mysql。</li>
+<li>由于 HomeBrew 安装的 mysql 默认root账户没有设置密码，故按照提示输入 <code>mysql_secure_installation</code> 来设置密码。</li>
+<li>设置完成以后，就可以正常操作 mysql 了。</li>
+</ol>
+<p>HomeBrew 安装的 mysql 的数据存储位置为 <code>/usr/local/var/mysql</code>。 可以通过 <code>find / -name databasename</code> 的方式根据数据库名称找到具体位置。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="]]>
+    </summary>
+    
+      <category term="HomeBrew" scheme="http://linfuyan.com/tags/HomeBrew/"/>
+    
+      <category term="Mac" scheme="http://linfuyan.com/tags/Mac/"/>
+    
+      <category term="MySQL" scheme="http://linfuyan.com/tags/MySQL/"/>
+    
+      <category term="OSX" scheme="http://linfuyan.com/tags/OSX/"/>
+    
+      <category term="LAMP" scheme="http://linfuyan.com/categories/LAMP/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Mac OS X 上安装 MongoDB]]></title>
@@ -2966,79 +3001,6 @@ alpha = (aLongBooleanExpression)
       <category term="Material Design" scheme="http://linfuyan.com/tags/Material-Design/"/>
     
       <category term="主题" scheme="http://linfuyan.com/tags/%E4%B8%BB%E9%A2%98/"/>
-    
-      <category term="教程" scheme="http://linfuyan.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="教程" scheme="http://linfuyan.com/categories/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="官方 Material Design 培训" scheme="http://linfuyan.com/categories/%E6%95%99%E7%A8%8B/%E5%AE%98%E6%96%B9-Material-Design-%E5%9F%B9%E8%AE%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[准备开始]]></title>
-    <link href="http://linfuyan.com/material-design-training/get-started/"/>
-    <id>http://linfuyan.com/material-design-training/get-started/</id>
-    <published>2015-10-24T01:00:01.000Z</published>
-    <updated>2015-11-03T09:09:23.000Z</updated>
-    <content type="html"><![CDATA[<blockquote>
-<p>这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。</p>
-</blockquote>
-<p>创建具有 material design 特性的应用程序，步骤如下：</p>
-<ol>
-<li>审查 <a href="">material design 规范</a>。</li>
-<li>应用 material <strong>主题</strong>到应用程序。</li>
-<li>根据 material design 指南创建<strong>布局</strong>。</li>
-<li>确定视图的<strong>海拔</strong>来打造阴影。</li>
-<li>为列表和卡片使用系统<strong>组件</strong>。</li>
-<li>在应用程序中自定义<strong>动画</strong>。</li>
-</ol>
-<a id="more"></a>
-<h3 id="维持向后兼容">维持向后兼容</h3><p>你可以为应用程序添加许多 material design 特性，同时对低于 Android 5.0 的版本保持兼容。更多信息，可以查看 <a href="http://www.linfuyan.com/material-design-training/maintaining-compatibility/" target="_blank" rel="external">保持兼容性</a>。</p>
-<h3 id="升级应用程序使之具备_material_design">升级应用程序使之具备 material design</h3><p>要升级已经存在的应用程序来包含 material design，根据 material design 指南来升级布局。同时确保包含深度，触摸反馈和动画。</p>
-<h3 id="创建具备_material_design_的新应用程序">创建具备 material design 的新应用程序</h3><p>如果要创建一个具备 material design 特性的应用程序，<a href="http://www.google.com/design/spec" target="_blank" rel="external">material design 指南</a> 提供了一个紧密结合的设计框架。按照这些指南，使用 Android 框架中的新特性来设计和开发应用程序。</p>
-<h2 id="应用_material_主题">应用 material 主题</h2><p>要应用 material 主要到应用程序中，需要指定一种风格继承自 <code>android:Theme.Material</code> :</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- res/values/styles.xml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">resources</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- your theme inherits from the material theme --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"AppTheme"</span> <span class="attribute">parent</span>=<span class="value">"android:Theme.Material"</span>&gt;</span><span class="css"></span><br><span class="line">    &lt;!<span class="tag">--</span> <span class="tag">theme</span> <span class="tag">customizations</span> <span class="tag">--</span>&gt;</span><br><span class="line">  </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Material 主题提供了升级过的系统组件来为触摸反馈和活动的转场效果设置调色和默认动画。更多信息，可以查看<a href="http://www.linfuyan.com/material-design-training/using-the-material-theme/" target="_blank" rel="external">使用 Material 主题</a>。</p>
-<h2 id="设计布局">设计布局</h2><p>除了应用和自定义 material 主题之外，布局需要与 material design 指南保持一致。在设计布局时，需要注意下面几点：</p>
-<ul>
-<li>基线表格</li>
-<li>注解行</li>
-<li>空白</li>
-<li>触摸目标尺寸</li>
-<li>布局结构</li>
-</ul>
-<h2 id="指定视图的海拔">指定视图的海拔</h2><p>视图可以打造阴影，视图的海拔值决定它的阴影尺寸以及它的绘制顺序。在布局中使用 <code>android:elevation</code> 属性来设置视图的海拔。</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;TextView</span><br><span class="line">    android:<span class="property">id</span>=<span class="string">"@+id/my_textview"</span></span><br><span class="line">    android:layout_width=<span class="string">"wrap_content"</span></span><br><span class="line">    android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">    android:<span class="type">text</span>=<span class="string">"@string/next"</span></span><br><span class="line">    android:background=<span class="string">"@color/white"</span></span><br><span class="line">    android:elevation=<span class="string">"5dp"</span> /&gt;</span><br></pre></td></tr></table></figure>
-<p>新的 <code>translationZ</code> 属性可以用来创建动画来反映视图海拔的临时变化。当<a href="https://developer.android.com/training/material/animations.html#ViewState" target="_blank" rel="external">响应触摸事件</a>时，海拔的改变会非常有用。</p>
-<p>更多信息，可以查看<a href="http://www.linfuyan.com/material-design-training/defining-shadows-and-clipping-views/" target="_blank" rel="external">定义阴影及裁剪视图</a>。</p>
-<h2 id="创建列表和卡片">创建列表和卡片</h2><p>RecyclerView 是一个更加具有可插拔性的 ListView 版本，支持不同的布局类型，提供性能改进。 CardView 可以为不同的应用程序中在卡片内显示的信息提供一致的外观。下面的实例代码展示如何在布局中包含 CardView 。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;android<span class="class">.support</span><span class="class">.v7</span><span class="class">.widget</span><span class="class">.CardView</span></span><br><span class="line">    android:id=<span class="string">"@+id/card_view"</span></span><br><span class="line">    android:layout_width=<span class="string">"200dp"</span></span><br><span class="line">    android:layout_height=<span class="string">"200dp"</span></span><br><span class="line">    card_view:cardCornerRadius=<span class="string">"3dp"</span>&gt;</span><br><span class="line">    ...</span><br><span class="line">&lt;/android<span class="class">.support</span><span class="class">.v7</span><span class="class">.widget</span><span class="class">.CardView</span>&gt;</span><br></pre></td></tr></table></figure>
-<p>更多信息，可以查看<a href="http://www.linfuyan.com/material-design-training/creating-lists-and-cards/" target="_blank" rel="external">创建列表和卡片</a>。</p>
-<h2 id="自定义动画">自定义动画</h2><p>Android 5.0 (API 21) 包含用来在应用程序中创建自定义动画的新的 API 。例如，你可以在一个活动中启用活动的转场效果并定义一个退出的转场效果。</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MyActivity</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">Activity</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> void onCreate(<span class="type">Bundle</span> savedInstanceState) &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        <span class="comment">// enable transitions</span></span><br><span class="line">        getWindow().requestFeature(<span class="type">Window</span>.<span class="type">FEATURE_CONTENT_TRANSITIONS</span>);</span><br><span class="line">        setContentView(<span class="type">R</span>.layout.activity_my);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void onSomeButtonClicked(<span class="type">View</span> view) &#123;</span><br><span class="line">        getWindow().setExitTransition(<span class="keyword">new</span> <span class="type">Explode</span>());</span><br><span class="line">        <span class="type">Intent</span> intent = <span class="keyword">new</span> <span class="type">Intent</span>(<span class="keyword">this</span>, <span class="type">MyOtherActivity</span>.<span class="keyword">class</span>);</span><br><span class="line">        startActivity(intent,</span><br><span class="line">                      <span class="type">ActivityOptions</span></span><br><span class="line">                          .makeSceneTransitionAnimation(<span class="keyword">this</span>).toBundle());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当你从这个活动启动另外一个活动时，退场效果将会被激活。</p>
-<p>可以查看<a href="http://www.linfuyan.com/material-design-training/defining-custom-animations/" target="_blank" rel="external">定义自定义动画</a>来学些更多新的动画 API 。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<blockquote>
-<p>这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。</p>
-</blockquote>
-<p>创建具有 material design 特性的应用程序，步骤如下：</p>
-<ol>
-<li>审查 <a href="">material design 规范</a>。</li>
-<li>应用 material <strong>主题</strong>到应用程序。</li>
-<li>根据 material design 指南创建<strong>布局</strong>。</li>
-<li>确定视图的<strong>海拔</strong>来打造阴影。</li>
-<li>为列表和卡片使用系统<strong>组件</strong>。</li>
-<li>在应用程序中自定义<strong>动画</strong>。</li>
-</ol>]]>
-    
-    </summary>
-    
-      <category term="Android" scheme="http://linfuyan.com/tags/Android/"/>
-    
-      <category term="Material Design" scheme="http://linfuyan.com/tags/Material-Design/"/>
     
       <category term="教程" scheme="http://linfuyan.com/tags/%E6%95%99%E7%A8%8B/"/>
     

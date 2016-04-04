@@ -4,7 +4,7 @@
   <subtitle><![CDATA[关注但不限于 Android、iOS、nodejs]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://linfuyan.com/"/>
-  <updated>2016-03-22T03:16:08.000Z</updated>
+  <updated>2016-04-04T02:31:16.000Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -13,6 +13,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[如何使用 npm 打包发布 nodejs 程序包]]></title>
+    <link href="http://linfuyan.com/publish_your_module_to_npm/"/>
+    <id>http://linfuyan.com/publish_your_module_to_npm/</id>
+    <published>2016-04-04T02:10:10.000Z</published>
+    <updated>2016-04-04T02:31:16.000Z</updated>
+    <content type="html"><![CDATA[<p>昨天写了个 gitbook 的 cnzz 统计插件，<a href="https://github.com/linfuyan/gitbook-plugin-cnzz" target="_blank" rel="external">源码见这里</a>，想要发布出来，再通过 <code>npm install</code> 的形式安装。</p>
+<p>具体的步骤如下：</p>
+<p>1. 在 npm 官网 <a href="https://www.npmjs.org" target="_blank" rel="external">https://www.npmjs.org</a> 申请一个账号，并且进行必要的验证。</p>
+<blockquote>
+<p>刚开始用的是网易邮箱注册，但似乎收不到官方的验证邮件，后来改用了 Gmail，可以注册了。</p>
+</blockquote>
+<p>2. 增加刚申请完成的用户名到 npm 环境中。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm --registry <span class="string">http:</span><span class="comment">//registry.npmjs.org adduser</span></span><br><span class="line"><span class="string">Username:</span> your name</span><br><span class="line"><span class="string">Password:</span> your password</span><br><span class="line"><span class="string">Email:</span> (<span class="keyword">this</span> IS <span class="keyword">public</span>) yourmail<span class="annotation">@host</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里要注意所使用的 registry。由于国内的网络环境，之前将默认的 registry 设置成了淘宝的 npm 源。这里需要调整回来。</p>
+</blockquote>
+<p>3. 进入到你的 npm 项目中，通过 <code>npm publish</code> 发布。</p>
+<p>4. 再新建一个项目 nodejs 项目，通过 <code>npm install</code> 验证是否能够安装。</p>
+<p>我在发布过程中，遇到了如下问题：</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm ERR! no<span class="number">_p</span>erms Private mode enable, only admin can publish <span class="keyword">this</span> <span class="keyword">module</span>: gitbook-plugin-cnzz</span><br></pre></td></tr></table></figure>
+<p>原因就是我默认使用的淘宝的 npm 源，添加了用户，但权限不对，在发布时同样添加 registry 就可以了。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>昨天写了个 gitbook 的 cnzz 统计插件，<a href="https://github.com/linfuyan/gitbook-plugin-cnzz" target="_blank" rel="external">源码见这里</a>，想要发布出来，再通过 <]]>
+    </summary>
+    
+      <category term="cnzz" scheme="http://linfuyan.com/tags/cnzz/"/>
+    
+      <category term="gitbook" scheme="http://linfuyan.com/tags/gitbook/"/>
+    
+      <category term="nodejs" scheme="http://linfuyan.com/tags/nodejs/"/>
+    
+      <category term="npm" scheme="http://linfuyan.com/tags/npm/"/>
+    
+      <category term="发布" scheme="http://linfuyan.com/tags/%E5%8F%91%E5%B8%83/"/>
+    
+      <category term="打包" scheme="http://linfuyan.com/tags/%E6%89%93%E5%8C%85/"/>
+    
+      <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="nodejs" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/nodejs/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[在 IntelliJ IDEA 上创建基于 Gradle 的 SpringMVC 实例]]></title>
@@ -2899,79 +2944,6 @@ alpha = (aLongBooleanExpression)
       <category term="视图" scheme="http://linfuyan.com/tags/%E8%A7%86%E5%9B%BE/"/>
     
       <category term="阴影" scheme="http://linfuyan.com/tags/%E9%98%B4%E5%BD%B1/"/>
-    
-      <category term="教程" scheme="http://linfuyan.com/categories/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="官方 Material Design 培训" scheme="http://linfuyan.com/categories/%E6%95%99%E7%A8%8B/%E5%AE%98%E6%96%B9-Material-Design-%E5%9F%B9%E8%AE%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[创建列表和卡片]]></title>
-    <link href="http://linfuyan.com/material-design-training/creating-lists-and-cards/"/>
-    <id>http://linfuyan.com/material-design-training/creating-lists-and-cards/</id>
-    <published>2015-10-24T03:00:00.000Z</published>
-    <updated>2015-11-03T09:20:03.000Z</updated>
-    <content type="html"><![CDATA[<blockquote>
-<p>这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。</p>
-</blockquote>
-<p>在应用程序中要创建具备 material design 风格的复杂列表和卡片，可以使用 RecyclerView 和 CardView 组件。</p>
-<a id="more"></a>
-<h2 id="创建列表">创建列表</h2><p>RecyclerView 组件是一个更加高级，更加灵活的 ListView 版本。这个组件是这样一个容器，可以用来显示大量的数据集，并且通过维护有限数量的视图来非常高效的滚动。当你拥有大量的数据集，且其中的元素基于用户操作或者网络数据而在运行时改变时，使用 RecyclerView。</p>
-<p>RecyclerView 通过提供以下两点来简化显示并处理大数据集：</p>
-<ul>
-<li>布局管理器来定位数据项</li>
-<li>为公共数据项的操作定义默认动画，如删除或者新增数据项</li>
-</ul>
-<p>你可以灵活地为 RecyclerView 组件定义自定义的布局管理器和动画。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/RecyclerView.png" alt="RecyclerView 组件"></p>
-<p>使用 RecyclerView 组件时，需要制定一个适配器和布局管理器。继承 <code>RecyclerView.Adapter</code> 类来创建一个适配器。具体的实现则依赖于特定的数据集和视图的类型。更多信息，可以查看下面的实例。</p>
-<p><strong>布局管理器</strong>在 RecyclerView 中定位项的视图，并决定当项的视图对用户不可见后何时被复用。要复用(或者回收)一个视图，布局管理器会要求适配从数据集中用一个不同的元素来替换视图的内容。用这种方式来复用视图可以避免由于不必要的视图创建和执行昂贵的 <code>findViewById()</code> 操作，从而提升性能。</p>
-<p>RecyclerView 内置了下面的布局管理器：</p>
-<ul>
-<li>LinearLayoutManager：在垂直或者水平滚动列表中显示项。</li>
-<li>GridLayoutManager：通过网格显示项。</li>
-<li>StaggeredGridLayout：在错落的网格中显示项。</li>
-</ul>
-<p>继承 RecyclerView.LayoutManager 类来创建自定义的布局管理器。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/list_mail.png" alt="Lists with RecyclerView"></p>
-<h3 id="动画">动画</h3><p>在 RecyclerView 中添加和移除项的动画是默认支持的。要自定义这些动画，继承 RecyclerView.ItemAnimator 类并使用 RecyclerView.setItemAnimator() 方法。</p>
-<h3 id="实例">实例</h3><p>下面的代码实例展示如何添加 RecyclerView 到布局：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- A RecyclerView with some commonly used attributes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">android.support.v7.widget.RecyclerView</span></span><br><span class="line">  <span class="attribute">android:id</span>=<span class="value">"@+id/my_recycler_view"</span></span><br><span class="line">  <span class="attribute">android:scrollbars</span>=<span class="value">"vertical"</span></span><br><span class="line">  <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">  <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<p>一旦添加一个 RecyclerView 组件到布局中，获得一个对象的句柄，并连接到布局管理器，然后关联一个需要显示的数据的适配器：</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MyActivity</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">Activity</span> &#123;</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">RecyclerView</span> mRecyclerView;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">RecyclerView</span>.<span class="type">Adapter</span> mAdapter;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">RecyclerView</span>.<span class="type">LayoutManager</span> mLayoutManager;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> void onCreate(<span class="type">Bundle</span> savedInstanceState) &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(<span class="type">R</span>.layout.my_activity);</span><br><span class="line">        mRecyclerView = (<span class="type">RecyclerView</span>) findViewById(<span class="type">R</span>.id.my_recycler_view);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 如果你已知 RecyclerView 的内容改变不会改变布局尺寸，使用这个设置可以提升效率。</span></span><br><span class="line">        mRecyclerView.setHasFixedSize(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用线性布局管理器</span></span><br><span class="line">        mLayoutManager = <span class="keyword">new</span> <span class="type">LinearLayoutManager</span>(<span class="keyword">this</span>);</span><br><span class="line">        mRecyclerView.setLayoutManager(mLayoutManager);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 制定适配器</span></span><br><span class="line">        mAdapter = <span class="keyword">new</span> <span class="type">MyAdapter</span>(myDataset);</span><br><span class="line">        mRecyclerView.setAdapter(mAdapter);</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>适配器提供对数据集中数据项的访问，为数据项创建视图，并且当原始数据项不再可见时使用新的数据项来替换这些视图的内容。下面的代码实例展示一个有字符串数组组成且使用 TextView 控件显示的简单数据集：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">MyAdapter</span>.<span class="title">ViewHolder</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String[] mDataset;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 为每个数据项的视图提供一个引用。复杂的数据项可能需要多余一个视图，并且在一个 view holder中为每个数据项的所有视图进行访问。</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 这个实例中，每个数据项是仅仅是一个字符串</span></span><br><span class="line">        <span class="keyword">public</span> TextView mTextView;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ViewHolder</span><span class="params">(TextView v)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>(v);</span><br><span class="line">            mTextView = v;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 提供一个合适的构造方法(这取决于数据集类型)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyAdapter</span><span class="params">(String[] myDataset)</span> </span>&#123;</span><br><span class="line">        mDataset = myDataset;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建新的视图(由布局管理器调用)</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> MyAdapter.<span class="function">ViewHolder <span class="title">onCreateViewHolder</span><span class="params">(ViewGroup parent,</span><br><span class="line">                                                   <span class="keyword">int</span> viewType)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 创建视图</span></span><br><span class="line">        View v = LayoutInflater.from(parent.getContext())</span><br><span class="line">                               .inflate(R.layout.my_text_view, parent, <span class="keyword">false</span>);</span><br><span class="line">        <span class="comment">// 设置视图的尺寸，外边距，内边距和布局参数</span></span><br><span class="line">        ...</span><br><span class="line">        ViewHolder vh = <span class="keyword">new</span> ViewHolder(v);</span><br><span class="line">        <span class="keyword">return</span> vh;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 替换视图的内容(由布局管理器调用)</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(ViewHolder holder, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// - 从数据集中获取当前位置的元素</span></span><br><span class="line">        <span class="comment">// - 用该元素替换视图的内容</span></span><br><span class="line">        holder.mTextView.setText(mDataset[position]);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回数据集的大小(由布局管理器调用)</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mDataset.length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="创建卡片">创建卡片</h2><p>CardView 集成自 FrameLayout 类，能够使显示在卡片中的信息在多个平台上拥有一致的外观。 CardView 控件可以拥有阴影和圆角。</p>
-<p>使用 <code>card_view:cardElevation</code> 属性来创建带圆角的卡片。 CardView 在 Android 5.0 ( API 21) 及以上版本使用真正的海拔和动态阴影，在早先的版本中则使用可编程的阴影实现。更多信息，查看<a href="http://www.linfuyan.com/material-design-training/maintaining-compatibility/" target="_blank" rel="external">保持兼容性</a>。</p>
-<p>使用下面的属性来自定义 CardView 组件的外观：</p>
-<ul>
-<li>在布局中使用 <code>card_view:cardCornerRadius</code> 属性来设置圆角半径。</li>
-<li>在代码中使用 <code>CardView.setRadius</code> 方法来设置圆角半径。</li>
-<li>使用 <code>card_view:cardBackgroundColor</code> 属性来设置卡片的背景色。</li>
-</ul>
-<p>下面的代码实例展示如何在布局中包含 CardView 控件：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">LinearLayout</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">xmlns:tools</span>=<span class="value">"http://schemas.android.com/tools"</span></span><br><span class="line">    <span class="attribute">xmlns:card_view</span>=<span class="value">"http://schemas.android.com/apk/res-auto"</span></span><br><span class="line">    <span class="attribute">...</span> &gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- A CardView that contains a TextView --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">android.support.v7.widget.CardView</span></span><br><span class="line">        <span class="attribute">xmlns:card_view</span>=<span class="value">"http://schemas.android.com/apk/res-auto"</span></span><br><span class="line">        <span class="attribute">android:id</span>=<span class="value">"@+id/card_view"</span></span><br><span class="line">        <span class="attribute">android:layout_gravity</span>=<span class="value">"center"</span></span><br><span class="line">        <span class="attribute">android:layout_width</span>=<span class="value">"200dp"</span></span><br><span class="line">        <span class="attribute">android:layout_height</span>=<span class="value">"200dp"</span></span><br><span class="line">        <span class="attribute">card_view:cardCornerRadius</span>=<span class="value">"4dp"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="title">TextView</span></span><br><span class="line">            <span class="attribute">android:id</span>=<span class="value">"@+id/info_text"</span></span><br><span class="line">            <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">            <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">android.support.v7.widget.CardView</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>更多信息，查看 CardView 的 API 引用。</p>
-<h2 id="添加依赖">添加依赖</h2><p>RecyclerView 和 CardView 控件是 <a href="https://developer.android.com/tools/support-library/features.html#v7" target="_blank" rel="external">Supprot V7 兼容包</a>中的一部分。要在项目中使用这些组件，需要添加下面的 Gradle 依赖到应用模块中：</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:cardview-v7:21.0.+'</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:recyclerview-v7:21.0.+'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    <summary type="html">
-    <![CDATA[<blockquote>
-<p>这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。</p>
-</blockquote>
-<p>在应用程序中要创建具备 material design 风格的复杂列表和卡片，可以使用 RecyclerView 和 CardView 组件。</p>]]>
-    
-    </summary>
-    
-      <category term="Android" scheme="http://linfuyan.com/tags/Android/"/>
-    
-      <category term="CardView" scheme="http://linfuyan.com/tags/CardView/"/>
-    
-      <category term="Material Design" scheme="http://linfuyan.com/tags/Material-Design/"/>
-    
-      <category term="RecyclerView" scheme="http://linfuyan.com/tags/RecyclerView/"/>
-    
-      <category term="教程" scheme="http://linfuyan.com/tags/%E6%95%99%E7%A8%8B/"/>
     
       <category term="教程" scheme="http://linfuyan.com/categories/%E6%95%99%E7%A8%8B/"/>
     

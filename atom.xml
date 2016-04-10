@@ -4,7 +4,7 @@
   <subtitle><![CDATA[关注但不限于 Android、iOS、nodejs]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://linfuyan.com/"/>
-  <updated>2016-04-04T09:25:13.000Z</updated>
+  <updated>2016-04-10T04:42:51.000Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -13,6 +13,70 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[实例：使用 cheerio 抓取网页数据，并通过 ejs 模板输出静态页面]]></title>
+    <link href="http://linfuyan.com/grab-web-page-by-cheerio-and-render-via-ejs/"/>
+    <id>http://linfuyan.com/grab-web-page-by-cheerio-and-render-via-ejs/</id>
+    <published>2016-04-10T02:33:38.000Z</published>
+    <updated>2016-04-10T04:42:51.000Z</updated>
+    <content type="html"><![CDATA[<p>这篇文章中，我将使用 cheerio 从 <a href="http://ss.uprogrammer.cn" target="_blank" rel="external">http://ss.uprogrammer.cn</a> 上抓取到免费的 shadowsocks 账号，然后通过 ejs 模板，输出成新的网页。</p>
+<p><strong>cheerio</strong> 是 nodejs 的抓取页面模块，为服务器特别定制的，快速、灵活、实施的 jquery 核心实现，适合各种 Web 爬虫程序。详见: <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="external">https://github.com/cheeriojs/cheerio</a></p>
+<p><strong>ejs</strong> 是一个 JavaScript 模板库，用来从 JSON 数据中生成 HTML 字符串。详见： <a href="https://github.com/tj/ejs" target="_blank" rel="external">https://github.com/tj/ejs</a></p>
+<p>下面的截图中显示，<a href="http://ss.upgrogrammer.cn" target="_blank" rel="external">http://ss.upgrogrammer.cn</a> 上有一个免费 shadowsocks 账号的展示区域。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/free-shadowsocks.png" alt=""></p>
+<p>并且通过 chrome 的审查元素，可以看到相关的源码。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/free-shadowsocks-2.png" alt=""></p>
+<p>那么，接下来，我们就要抓取这部分内容中的免费 shadowsocks 账号信息。</p>
+<h2 id="新建_nodejs_项目，并安装相关依赖">新建 nodejs 项目，并安装相关依赖</h2><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> init</span><br><span class="line">...</span><br><span class="line"><span class="built_in">npm</span> install cheerio ejs --save</span><br></pre></td></tr></table></figure>
+<p>以下图片显示了通过 <code>npm init</code> 命令创建 nodejs 项目的过程：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/npm_init_project.gif" alt=""></p>
+<h2 id="获取_http://ss-upgrammer-cn_完整网页内容">获取 <a href="http://ss.upgrammer.cn" target="_blank" rel="external">http://ss.upgrammer.cn</a> 完整网页内容</h2><p>在使用 cheerio 来抓取我们所需的内容之前，我们要通过 http 模块，将完整页面先获取到。</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = require(<span class="string">"http"</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">download</span><span class="params">(url, callback)</span> </span>&#123;</span><br><span class="line">	http.get(url, <span class="function"><span class="keyword">function</span><span class="params">(res)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> data = <span class="string">""</span>;</span><br><span class="line">		res.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span><span class="params">(chunk)</span> </span>&#123;</span><br><span class="line">			data += chunk;</span><br><span class="line">		&#125;);</span><br><span class="line">		res.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">callback</span>(data);</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;).on(<span class="string">"err"</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> </span>&#123;</span><br><span class="line">		console.log(e);</span><br><span class="line">		<span class="keyword">callback</span>(<span class="literal">null</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上的代码片段通过 GET 方法获取对应 url 的数据，并通过 callback 传回。</p>
+<h2 id="从获取到的完整页面中抓取免费账号信息">从获取到的完整页面中抓取免费账号信息</h2><p>通过在浏览器中查看源代码(具体内容其实也就是我们通过上面的 <code>download</code> 函数返回的结构)，我们发现，这个页面结构是非常简单的。</p>
+<ol>
+<li>所有的免费账号信息都在 id 为 <code>account_container</code> 的 <div> 标签中。</div></li>
+<li>所有的单条账号信息，都在 <code>&lt;div class=&quot;col-md-4 text-center&quot;&gt;...&lt;/div&gt;</code> 中。</li>
+<li>单条账号中的信息，是连续的6个<code>&lt;h4&gt;</code>标签，按照服务器地址、端口号、密码、加密方式、状态、说明的方式存在。 </li>
+</ol>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">download<span class="list">(<span class="string">"http://ss.uprogrammer.cn/"</span>, function<span class="list">(<span class="keyword">data</span>)</span> &#123;</span><br><span class="line">	if <span class="list">(!data)</span> &#123;</span><br><span class="line">		console.log<span class="list">(<span class="quoted">'no</span> data found')</span><span class="comment">;</span></span><br><span class="line">		return<span class="comment">;</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    var accounts = []<span class="comment">;</span></span><br><span class="line">    </span><br><span class="line">	$ = cheerio.load<span class="list">(<span class="keyword">data</span>)</span><span class="comment">;</span></span><br><span class="line"></span><br><span class="line">    // 通过 cheerio 的选择器获取免费账号信息单元</span><br><span class="line">	var ss = $<span class="list">(<span class="quoted">'#account_container</span> &gt; .col-md-4')</span><span class="comment">;</span></span><br><span class="line">	</span><br><span class="line">	for <span class="list">(<span class="keyword">var</span> i = <span class="number">0</span><span class="comment">; i &lt; ss.length; i++) &#123;</span></span><br><span class="line">		var s = &#123;&#125;<span class="comment">;</span></span><br><span class="line">		</span><br><span class="line">		// 解析服务器</span><br><span class="line">		var server = $<span class="list">(<span class="keyword">ss</span>[i])</span>.children<span class="list">()</span>.first<span class="list">()</span><span class="comment">;</span></span><br><span class="line">		s[<span class="quoted">'server</span>'] = server.text<span class="list">()</span>.substr<span class="list">(<span class="number">7</span>)</span><span class="comment">;</span></span><br><span class="line">		console.log<span class="list">(<span class="keyword">s</span>[<span class="quoted">'server</span>'])</span><span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析端口</span><br><span class="line">		var port = $<span class="list">(<span class="keyword">server</span>)</span>.next<span class="list">()</span><span class="comment">;</span></span><br><span class="line">		s[<span class="quoted">'port</span>'] = port.text<span class="list">()</span>.substr<span class="list">(<span class="number">3</span>)</span><span class="comment">;</span></span><br><span class="line">		console.log<span class="list">(<span class="keyword">s</span>[<span class="quoted">'port</span>'])</span><span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析密码</span><br><span class="line">		var password = $<span class="list">(<span class="keyword">port</span>)</span>.next<span class="list">()</span><span class="comment">;</span></span><br><span class="line">		s[<span class="quoted">'password</span>'] = password.text<span class="list">()</span>.substr<span class="list">(<span class="number">4</span>)</span><span class="comment">;</span></span><br><span class="line">		console.log<span class="list">(<span class="keyword">s</span>[<span class="quoted">'password</span>'])</span><span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析加密方式</span><br><span class="line">		var encrypt = $<span class="list">(<span class="keyword">password</span>)</span>.next<span class="list">()</span><span class="comment">;</span></span><br><span class="line">		s[<span class="quoted">'encrypt</span>'] = encrypt.text<span class="list">()</span>.substr<span class="list">(<span class="number">5</span>)</span><span class="comment">;</span></span><br><span class="line">		console.log<span class="list">(<span class="keyword">s</span>[<span class="quoted">'encrypt</span>'])</span><span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析状态</span><br><span class="line">		var status = $<span class="list">(<span class="keyword">encrypt</span>)</span>.next<span class="list">()</span><span class="comment">;</span></span><br><span class="line">		s[<span class="quoted">'status</span>'] = status.text<span class="list">()</span>.substr<span class="list">(<span class="number">3</span>)</span><span class="comment">;</span></span><br><span class="line">		console.log<span class="list">(<span class="keyword">s</span>[<span class="quoted">'status</span>'])</span><span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析说明</span><br><span class="line">		var tip = $<span class="list">(<span class="keyword">status</span>)</span>.next<span class="list">()</span><span class="comment">;</span></span><br><span class="line">		s[<span class="quoted">'tip</span>'] = tip.text<span class="list">()</span><span class="comment">;</span></span><br><span class="line">		console.log<span class="list">(<span class="keyword">s</span>[<span class="quoted">'tip</span>'])</span><span class="comment">;</span></span><br><span class="line">		</span><br><span class="line">		account.push<span class="list">(<span class="keyword">s</span>)</span><span class="comment">;</span></span><br><span class="line">		console.log<span class="list">(<span class="string">"==="</span>)</span><span class="comment">;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><span class="comment">;</span></span></span><br></pre></td></tr></table></figure>
+<p>主要的代码片段如上，最终 <code>account</code> 变量中将保存所有的账号信息。</p>
+<h2 id="将数据通过_ejs_模板渲染成新的页面">将数据通过 ejs 模板渲染成新的页面</h2><p>我们需要定义一个模板文件 <code>template.ejs</code>，如下：</p>
+<figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"zh-CN"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>实例：使用 cheerio 抓取网页数据，并通过 ejs 模板输出静态页面<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"content"</span>&gt;</span></span><br><span class="line">      </span><span class="vbscript">&lt;% servers.forEach(<span class="keyword">function</span>(<span class="built_in">server</span>)&#123; %&gt;</span><span class="xml"></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">h4</span>&gt;</span>服务器地址:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.<span class="built_in">server</span> %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="title">h4</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">h4</span>&gt;</span>端口:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.port %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="title">h4</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">h4</span>&gt;</span>密码:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.password %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="title">h4</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">h4</span>&gt;</span>加密方式:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.encrypt %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="title">h4</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">h4</span>&gt;</span>状态:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.status %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="title">h4</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">h4</span>&gt;</span></span><span class="vbscript">&lt;%= <span class="built_in">server</span>.tip %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="title">h4</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">      </span><span class="vbscript">&lt;% &#125;) %&gt;</span><span class="xml"></span><br><span class="line">  	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>这是一个非常简单的模板文件，只是说明传递数据与模板解析的功能。其中将接收名为 <code>servers</code> 的参数。</p>
+<p>下面我们定义一个 <code>render</code> 函数，读取 <code>template.ejs</code> 模板文件，并根据传入的 <code>servers</code> 参数进行渲染，输出到 <code>index.html</code> 中。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span><span class="params">(accounts)</span> </span>&#123;</span><br><span class="line">	fs.readFile(<span class="string">'./template.ejs'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e, v)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> ret = v.toString();</span><br><span class="line">        </span><br><span class="line">      <span class="keyword">var</span> options = &#123;servers: accounts&#125;</span><br><span class="line">      <span class="keyword">var</span> template = ejs.render(ret, options);</span><br><span class="line">      fs.writeFile(<span class="string">'./index.html'</span>, template, <span class="function"><span class="keyword">function</span> <span class="params">(err)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;         </span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>OK。完成上面的过程，整个程序结构如下：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/demo-cheerio-ejs-structure.png" alt=""></p>
+<p>最后，在项目根目录中执行 <code>node index.js</code>， 正常在终端中可以看到日志输出，并生成 <code>index.html</code> 文件。通过浏览器打开 <code>index.html</code> 就可以验收成果啦。</p>
+<p>完整的源码见：<a href="https://github.com/linfuyan/demo-cheerio-ejs" target="_blank" rel="external">https://github.com/linfuyan/demo-cheerio-ejs</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>这篇文章中，我将使用 cheerio 从 <a href="http://ss.uprogrammer.cn" target="_blank" rel="external">http://ss.uprogrammer.cn</a> 上抓取到免费的 shadowsocks 账]]>
+    </summary>
+    
+      <category term="cheerio" scheme="http://linfuyan.com/tags/cheerio/"/>
+    
+      <category term="ejs" scheme="http://linfuyan.com/tags/ejs/"/>
+    
+      <category term="nodejs" scheme="http://linfuyan.com/tags/nodejs/"/>
+    
+      <category term="shadowsocks" scheme="http://linfuyan.com/tags/shadowsocks/"/>
+    
+      <category term="模板" scheme="http://linfuyan.com/tags/%E6%A8%A1%E6%9D%BF/"/>
+    
+      <category term="爬虫" scheme="http://linfuyan.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="科学上网" scheme="http://linfuyan.com/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    
+      <category term="网页抓取" scheme="http://linfuyan.com/tags/%E7%BD%91%E9%A1%B5%E6%8A%93%E5%8F%96/"/>
+    
+      <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="nodejs" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/nodejs/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[如何通过 JS 来修改浏览器地址]]></title>
@@ -2833,69 +2897,6 @@ alpha = (aLongBooleanExpression)
       <category term="Material Design" scheme="http://linfuyan.com/tags/Material-Design/"/>
     
       <category term="动画" scheme="http://linfuyan.com/tags/%E5%8A%A8%E7%94%BB/"/>
-    
-      <category term="教程" scheme="http://linfuyan.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="教程" scheme="http://linfuyan.com/categories/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="官方 Material Design 培训" scheme="http://linfuyan.com/categories/%E6%95%99%E7%A8%8B/%E5%AE%98%E6%96%B9-Material-Design-%E5%9F%B9%E8%AE%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[使用图片]]></title>
-    <link href="http://linfuyan.com/material-design-training/working-with-drawables/"/>
-    <id>http://linfuyan.com/material-design-training/working-with-drawables/</id>
-    <published>2015-10-24T05:00:00.000Z</published>
-    <updated>2015-11-03T09:21:09.000Z</updated>
-    <content type="html"><![CDATA[<blockquote>
-<p>这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。</p>
-</blockquote>
-<p>图片所具有的下面能力可以帮助你在应用程序中实现 material design。</p>
-<ul>
-<li>图片着色。</li>
-<li>抽取主色彩。</li>
-<li>矢量图片。</li>
-</ul>
-<p>这节课程教你如何在应用程序中使用这些特性。</p>
-<a id="more"></a>
-<h2 id="对图片资源进行着色">对图片资源进行着色</h2><p>在 Android 5.0 ( API 21) 及以上，你可以定义透明度对位图和 9 patch 图片进行着色。你可以使用颜色资源或者对应颜色资源的主题属性(如 <code>?android:attr/colorPrimary</code> )对他们进行着色。通常，你只需要一次创建这些资源并对他们自动着色来适应你的主题。</p>
-<p>通过 setTint() 方法可以对 BitmapDrawable， NinePatchDrawable 或 VectorDrawable 对象应用着色。也可以在布局中使用 <code>android:tint</code> 和 <code>android:tintMode</code> 属性来设置着色的颜色和模式。</p>
-<h2 id="从图片中抽取主色彩">从图片中抽取主色彩</h2><p>在 Android Support 库 r21 及以上版本中包含有 Palette 类，可以从一张图片中抽取主色彩。这个类可以抽取下面的突出色彩：</p>
-<ul>
-<li></li>
-<li></li>
-</ul>
-<p>要抽取这些色彩，当你在加载图片时在后台线程里面传递 Bitmap 对象到 Palette.generate() 静态方法中。如果你没有使用线程，那边调用 Palette.generateAsync() 方法并提供一个监听器。</p>
-<p>在 Palette 类中，使用获取方法来从图片获取主要色彩，如 <code>Palette.getVibrantColor</code> 。</p>
-<p>在项目中使用 Palette 类时，需要添加下面的 Gradle 依赖到应用程序模块：</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:palette-v7:21.0.0'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>更多信息，可以查看 API 参考中的 Palette 类。</p>
-<h2 id="创建矢量图片">创建矢量图片</h2><p>在 Android 5.0 (API 21) 及以上，你可以定义矢量图片，这些图片在缩放过程中不会丢失清晰度。对应于每种屏幕密度需要一个位图文件，所有的屏幕密度仅需要一个矢量文件。要创建矢量图片，你需要在 XML 文件中的 <code>&lt;vector&gt;</code> 元素中定义形状细节。</p>
-<p>下面的实例定义了一个心形的矢量图片：</p>
-<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="comment">&lt;!-- res/drawable/heart.xml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">vector</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">  &lt;!<span class="attribute">--</span> <span class="attribute">intrinsic</span> <span class="attribute">size</span> <span class="attribute">of</span> <span class="attribute">the</span> <span class="attribute">drawable</span> <span class="attribute">--</span>&gt;</span></span><br><span class="line">  android:height="256dp"</span><br><span class="line">  android:width="256dp"</span><br><span class="line">  <span class="comment">&lt;!-- size of the virtual canvas --&gt;</span></span><br><span class="line">  android:viewportWidth="32"</span><br><span class="line">  android:viewportHeight="32"&gt;</span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- draw a path --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">path</span> <span class="attribute">android:fillColor</span>=<span class="value">"#8fff"</span></span><br><span class="line">    <span class="attribute">android:pathData</span>=<span class="value">"M20.5,9.5</span><br><span class="line">                      c-1.955,0,-3.83,1.268,-4.5,3</span><br><span class="line">                      c-0.67,-1.732,-2.547,-3,-4.5,-3</span><br><span class="line">                      C8.957,9.5,7,11.432,7,14</span><br><span class="line">                      c0,3.53,3.793,6.257,9,11.5</span><br><span class="line">                      c5.207,-5.242,9,-7.97,9,-11.5</span><br><span class="line">                      C25,11.432,23.043,9.5,20.5,9.5z"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">vector</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>矢量图片在 Android 中表现为 VectorDrawable 对象。关于 <code>pathData</code> 语法的更多信息，可以查看 <a href="http://www.w3.org/TR/SVG11/paths.html#PathData" target="_blank" rel="external">SVG 路径</a>。矢量图片中动画属性相关的更多信息，可以查看<a href="">动画矢量图片</a>。</p>
-<p>原文：<a href="https://developer.android.com/training/material/drawables.html" target="_blank" rel="external">Working with Drawables</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<blockquote>
-<p>这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。</p>
-</blockquote>
-<p>图片所具有的下面能力可以帮助你在应用程序中实现 material design。</p>
-<ul>
-<li>图片着色。</li>
-<li>抽取主色彩。</li>
-<li>矢量图片。</li>
-</ul>
-<p>这节课程教你如何在应用程序中使用这些特性。</p>]]>
-    
-    </summary>
-    
-      <category term="Android" scheme="http://linfuyan.com/tags/Android/"/>
-    
-      <category term="Material Design" scheme="http://linfuyan.com/tags/Material-Design/"/>
-    
-      <category term="图片" scheme="http://linfuyan.com/tags/%E5%9B%BE%E7%89%87/"/>
     
       <category term="教程" scheme="http://linfuyan.com/tags/%E6%95%99%E7%A8%8B/"/>
     

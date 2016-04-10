@@ -4,7 +4,7 @@
   <subtitle><![CDATA[关注但不限于 Android、iOS、nodejs]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://linfuyan.com/"/>
-  <updated>2016-04-10T04:42:51.000Z</updated>
+  <updated>2016-04-10T04:51:12.000Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://linfuyan.com/grab-web-page-by-cheerio-and-render-via-ejs/"/>
     <id>http://linfuyan.com/grab-web-page-by-cheerio-and-render-via-ejs/</id>
     <published>2016-04-10T02:33:38.000Z</published>
-    <updated>2016-04-10T04:42:51.000Z</updated>
+    <updated>2016-04-10T04:51:12.000Z</updated>
     <content type="html"><![CDATA[<p>这篇文章中，我将使用 cheerio 从 <a href="http://ss.uprogrammer.cn" target="_blank" rel="external">http://ss.uprogrammer.cn</a> 上抓取到免费的 shadowsocks 账号，然后通过 ejs 模板，输出成新的网页。</p>
 <p><strong>cheerio</strong> 是 nodejs 的抓取页面模块，为服务器特别定制的，快速、灵活、实施的 jquery 核心实现，适合各种 Web 爬虫程序。详见: <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="external">https://github.com/cheeriojs/cheerio</a></p>
 <p><strong>ejs</strong> 是一个 JavaScript 模板库，用来从 JSON 数据中生成 HTML 字符串。详见： <a href="https://github.com/tj/ejs" target="_blank" rel="external">https://github.com/tj/ejs</a></p>
@@ -36,7 +36,7 @@
 <p>以上的代码片段通过 GET 方法获取对应 url 的数据，并通过 callback 传回。</p>
 <h2 id="从获取到的完整页面中抓取免费账号信息">从获取到的完整页面中抓取免费账号信息</h2><p>通过在浏览器中查看源代码(具体内容其实也就是我们通过上面的 <code>download</code> 函数返回的结构)，我们发现，这个页面结构是非常简单的。</p>
 <ol>
-<li>所有的免费账号信息都在 id 为 <code>account_container</code> 的 <div> 标签中。</div></li>
+<li>所有的免费账号信息都在 id 为 <code>account_container</code> 的 <code>&lt;div&gt;</code> 标签中。</li>
 <li>所有的单条账号信息，都在 <code>&lt;div class=&quot;col-md-4 text-center&quot;&gt;...&lt;/div&gt;</code> 中。</li>
 <li>单条账号中的信息，是连续的6个<code>&lt;h4&gt;</code>标签，按照服务器地址、端口号、密码、加密方式、状态、说明的方式存在。 </li>
 </ol>

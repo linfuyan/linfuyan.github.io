@@ -4,7 +4,7 @@
   <subtitle><![CDATA[关注但不限于 Android、iOS、nodejs]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://linfuyan.com/"/>
-  <updated>2016-04-10T04:51:12.000Z</updated>
+  <updated>2016-04-10T08:22:18.000Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -19,18 +19,18 @@
     <link href="http://linfuyan.com/grab-web-page-by-cheerio-and-render-via-ejs/"/>
     <id>http://linfuyan.com/grab-web-page-by-cheerio-and-render-via-ejs/</id>
     <published>2016-04-10T02:33:38.000Z</published>
-    <updated>2016-04-10T04:51:12.000Z</updated>
+    <updated>2016-04-10T08:22:18.000Z</updated>
     <content type="html"><![CDATA[<p>这篇文章中，我将使用 cheerio 从 <a href="http://ss.uprogrammer.cn" target="_blank" rel="external">http://ss.uprogrammer.cn</a> 上抓取到免费的 shadowsocks 账号，然后通过 ejs 模板，输出成新的网页。</p>
 <p><strong>cheerio</strong> 是 nodejs 的抓取页面模块，为服务器特别定制的，快速、灵活、实施的 jquery 核心实现，适合各种 Web 爬虫程序。详见: <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="external">https://github.com/cheeriojs/cheerio</a></p>
 <p><strong>ejs</strong> 是一个 JavaScript 模板库，用来从 JSON 数据中生成 HTML 字符串。详见： <a href="https://github.com/tj/ejs" target="_blank" rel="external">https://github.com/tj/ejs</a></p>
 <p>下面的截图中显示，<a href="http://ss.upgrogrammer.cn" target="_blank" rel="external">http://ss.upgrogrammer.cn</a> 上有一个免费 shadowsocks 账号的展示区域。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/free-shadowsocks.png" alt=""></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/free-shadowsocks.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
 <p>并且通过 chrome 的审查元素，可以看到相关的源码。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/free-shadowsocks-2.png" alt=""></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/free-shadowsocks-2.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
 <p>那么，接下来，我们就要抓取这部分内容中的免费 shadowsocks 账号信息。</p>
 <h2 id="新建_nodejs_项目，并安装相关依赖">新建 nodejs 项目，并安装相关依赖</h2><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> init</span><br><span class="line">...</span><br><span class="line"><span class="built_in">npm</span> install cheerio ejs --save</span><br></pre></td></tr></table></figure>
 <p>以下图片显示了通过 <code>npm init</code> 命令创建 nodejs 项目的过程：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/npm_init_project.gif" alt=""></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/npm_init_project.gif" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
 <h2 id="获取_http://ss-upgrammer-cn_完整网页内容">获取 <a href="http://ss.upgrammer.cn" target="_blank" rel="external">http://ss.upgrammer.cn</a> 完整网页内容</h2><p>在使用 cheerio 来抓取我们所需的内容之前，我们要通过 http 模块，将完整页面先获取到。</p>
 <figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = require(<span class="string">"http"</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">download</span><span class="params">(url, callback)</span> </span>&#123;</span><br><span class="line">	http.get(url, <span class="function"><span class="keyword">function</span><span class="params">(res)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> data = <span class="string">""</span>;</span><br><span class="line">		res.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span><span class="params">(chunk)</span> </span>&#123;</span><br><span class="line">			data += chunk;</span><br><span class="line">		&#125;);</span><br><span class="line">		res.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">callback</span>(data);</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;).on(<span class="string">"err"</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> </span>&#123;</span><br><span class="line">		console.log(e);</span><br><span class="line">		<span class="keyword">callback</span>(<span class="literal">null</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以上的代码片段通过 GET 方法获取对应 url 的数据，并通过 callback 传回。</p>
@@ -48,7 +48,7 @@
 <p>下面我们定义一个 <code>render</code> 函数，读取 <code>template.ejs</code> 模板文件，并根据传入的 <code>servers</code> 参数进行渲染，输出到 <code>index.html</code> 中。</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span><span class="params">(accounts)</span> </span>&#123;</span><br><span class="line">	fs.readFile(<span class="string">'./template.ejs'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e, v)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> ret = v.toString();</span><br><span class="line">        </span><br><span class="line">      <span class="keyword">var</span> options = &#123;servers: accounts&#125;</span><br><span class="line">      <span class="keyword">var</span> template = ejs.render(ret, options);</span><br><span class="line">      fs.writeFile(<span class="string">'./index.html'</span>, template, <span class="function"><span class="keyword">function</span> <span class="params">(err)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;         </span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>OK。完成上面的过程，整个程序结构如下：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/demo-cheerio-ejs-structure.png" alt=""></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/demo-cheerio-ejs-structure.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
 <p>最后，在项目根目录中执行 <code>node index.js</code>， 正常在终端中可以看到日志输出，并生成 <code>index.html</code> 文件。通过浏览器打开 <code>index.html</code> 就可以验收成果啦。</p>
 <p>完整的源码见：<a href="https://github.com/linfuyan/demo-cheerio-ejs" target="_blank" rel="external">https://github.com/linfuyan/demo-cheerio-ejs</a></p>
 ]]></content>

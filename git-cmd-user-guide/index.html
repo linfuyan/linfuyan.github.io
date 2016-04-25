@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-reset-head.gif">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-rm.gif">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/rm-and-git-add.gif">
-<meta property="og:updated_time" content="2015-10-16T04:01:02.000Z">
+<meta property="og:updated_time" content="2016-04-25T08:04:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用 Git 命令使用教程">
 <meta name="twitter:description" content="下面整理一下自己在开发过程中经常使用到的 Git 命令。使用 GUI 工具的同学，也可以对照起来看看。">
@@ -240,7 +240,7 @@
 <h3 id="创建标签">创建标签</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -<span class="tag">a</span> <span class="string">'tagname'</span> -m <span class="string">'comment'</span> <span class="string">'commit_id'</span></span><br></pre></td></tr></table></figure>
 <p><code>-a</code> 参数指定标签名， <code>-m</code> 添加备注信息， ‘commit_id’ 指定打标签的提交。</p>
 <h3 id="查看所有标签">查看所有标签</h3><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">tag</span>		<span class="comment">// 查看本地仓库中的所有标签</span></span><br></pre></td></tr></table></figure>
-<h3 id="查看具体标签信息">查看具体标签信息</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">git</span> shwo tagname</span><br></pre></td></tr></table></figure>
+<h3 id="查看具体标签信息">查看具体标签信息</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">git</span> show tagname</span><br></pre></td></tr></table></figure>
 <h3 id="删除本地标签">删除本地标签</h3><p>如果打的标签出错，或者不在需要某个标签，则可以删除它。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag <span class="operator">-d</span> tagname</span><br></pre></td></tr></table></figure>
 <h3 id="删除远程标签">删除远程标签</h3><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin <span class="symbol">:refs/tags/tagname</span></span><br></pre></td></tr></table></figure>
@@ -268,7 +268,7 @@
 
       </div>
       <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/git-cmd-user-guide/" data-id="cimu3ewrd00dns7ncdv9pxwgf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        <!-- <a data-url="http://linfuyan.com/git-cmd-user-guide/" data-id="cinbb946700dnfpncu9brqcfd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
         
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令/">命令</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指南/">指南</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/教程/">教程</a></li></ul>

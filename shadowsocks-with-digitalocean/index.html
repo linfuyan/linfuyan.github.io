@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网 | 悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="如果下面这些情形你经常遇到：
+
+
+经常会折腾各种各样的 Web 应用(Java、nodejs、python等各种语言环境)，但是国内的云服务无法提供对应的环境。
+你只是临时的折腾这些应用，并不会长期的运营这些服务。国内的云服务费用昂贵，并需要持续较长时间购买。
+虽然可能是临时或者短时间折腾这些服务，你也希望可以有稳定的 IP 或者域名来访问服务。而国内的云服务域名需要备案，而你却懒得折腾这些。
+你">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网">
+<meta property="og:url" content="http://linfuyan.com/shadowsocks-with-digitalocean/index.html">
+<meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
+<meta property="og:description" content="如果下面这些情形你经常遇到：
+
+
+经常会折腾各种各样的 Web 应用(Java、nodejs、python等各种语言环境)，但是国内的云服务无法提供对应的环境。
+你只是临时的折腾这些应用，并不会长期的运营这些服务。国内的云服务费用昂贵，并需要持续较长时间购买。
+虽然可能是临时或者短时间折腾这些服务，你也希望可以有稳定的 IP 或者域名来访问服务。而国内的云服务域名需要备案，而你却懒得折腾这些。
+你">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_1.png">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_2.png">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_3.png">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_4.png">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_5.png">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_6.png">
+<meta property="og:updated_time" content="2016-10-22T03:38:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网">
+<meta name="twitter:description" content="如果下面这些情形你经常遇到：
+
+
+经常会折腾各种各样的 Web 应用(Java、nodejs、python等各种语言环境)，但是国内的云服务无法提供对应的环境。
+你只是临时的折腾这些应用，并不会长期的运营这些服务。国内的云服务费用昂贵，并需要持续较长时间购买。
+虽然可能是临时或者短时间折腾这些服务，你也希望可以有稳定的 IP 或者域名来访问服务。而国内的云服务域名需要备案，而你却懒得折腾这些。
+你">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  
+  
+    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+  
+  
+
+
+  
+
+  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+            <h2 class="subtitle-wrap">
+              <p class="subtitle">关注但不限于 Android、iOS、nodejs</p>
+            </h2>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/导航/">导航</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Web前端/">Web前端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/nodejs/">nodejs</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/">教程</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
+                  
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://linfuyan.com"></form>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header"><a class="page-title-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-shadowsocks-with-digitalocean" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/shadowsocks-with-digitalocean/" class="article-date">
+  <time datetime="2016-10-22T01:25:00.000Z" itemprop="datePublished">2016-10-22</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <p>如果下面这些情形你经常遇到：</p>
+<blockquote>
+<ol>
+<li>经常会折腾各种各样的 Web 应用(Java、nodejs、python等各种语言环境)，但是国内的云服务无法提供对应的环境。</li>
+<li>你只是临时的折腾这些应用，并不会长期的运营这些服务。国内的云服务费用昂贵，并需要持续较长时间购买。</li>
+<li>虽然可能是临时或者短时间折腾这些服务，你也希望可以有稳定的 IP 或者域名来访问服务。而国内的云服务域名需要备案，而你却懒得折腾这些。</li>
+<li>你经常有科学上网的需求，却苦于免费的 VPN 不稳定，稳定的却死贵。</li>
+</ol>
+</blockquote>
+<p>那么，可能 DigitalOcean 是你需要的。请往下继续看。否则，你已经可以关闭这个页面了。</p>
+<p>先说说 DigitalOcean：</p>
+<blockquote>
+<ol>
+<li>可以把 DigitalOcean 看做是 VPS，你对上面的环境有完全的支配权，想折腾什么类型的 Web 应用都可以。</li>
+<li>DigitalOcean 通过创建 droplet 来快速搭建基础环境，可视化的管理配置，轻而易举的可以与你的域名绑定。从而快速稳定的访问你的服务。</li>
+<li>DigitalOcean 最低的收费是每月5美刀，并且按照使用时长(每小时结算)收费。创建的 droplet 如果关闭，则不再继续收费。非常适合需要临时折腾的你。而且，通过这个<strong><a href="https://m.do.co/c/c6ceb25187c4" target="_blank" rel="external">邀请链接</a></strong>进行注册，将自动赠送10美刀。</li>
+<li>DigitalOcean 的旧金山节点，国内链接速度快，很适合通过搭建 Shadowsocks 来提供稳定靠谱的科学上网服务。</li>
+</ol>
+</blockquote>
+<h2 id="在_DigitalOcean_上配置_droplet">在 DigitalOcean 上配置 droplet</h2><p>注册 DigitalOcean 账户就不说了。需要提醒的是，使用 DigitalOcean 需要绑定银行卡。</p>
+<p>新建 droplet 的步骤： </p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_1.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p>1. 选择系统镜像，这里选了 ubuntu 16.04</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_2.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p>2. 选择配置，这里选$5/月</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_3.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p>3. 选择机房位置，旧金山的访问速度比较快</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_4.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p>4. 添加 SSH key，用于后面远程登录的验证。具体操作可以看<a href="https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets" target="_blank" rel="external">官方文档</a>或者<a href="http://linfuyan.com/generating-ssh-keys/">生成SSH密钥</a>。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_5.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p>5. 这样，不到1分钟时间，就创建好了一个 droplet，带有固定IP，还可以绑定域名。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_6.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<h2 id="安装并配置_Shadowsocks_服务">安装并配置 Shadowsocks 服务</h2><p>在第一步中配置完 ssh key，就可以远程登录到 DigitalOcean 的 droplet 上，直接用 root 用户即可：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ssh</span> root<span class="variable">@your_droplet_ip</span></span><br></pre></td></tr></table></figure>
+<p>刚才我们的 droplet 环境是 ubuntu 16.04，通过如下命令安装 shadowsocks：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get <span class="keyword">install</span> python-pip</span><br><span class="line">pip <span class="keyword">install</span> shadowsocks</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>我遇到了 <code>locale.Error: unsupported locale setting</code> 的问题，解决方案看这里：<a href="https://linfuyan.com/locale_error_unsupported_locale_setting/index.html">解决 pip install 时 locale.Error: unsupported locale setting 错误</a></p>
+</blockquote>
+<p>安装好以后，就可以通过以下指令启动服务：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssserver -p 8836 -k `password` -m rc4-md5</span><br><span class="line"></span><br><span class="line"># 或者可以通过以下指令在后台启动shadowsocks的服务：</span><br><span class="line">ssserver -p 8843 -k `password` -m rc4-md5 -d <span class="operator"><span class="keyword">start</span></span><br><span class="line">ssserver -<span class="keyword">p</span> <span class="number">8843</span> -<span class="keyword">k</span> <span class="string">`password`</span> -<span class="keyword">m</span> rc4-<span class="keyword">md5</span> -<span class="keyword">d</span> <span class="keyword">stop</span></span></span><br></pre></td></tr></table></figure>
+<p>上面的指令方式不太方便，推荐通过文件配置的方式。新建一个 <code>/etc/shadowsocks.json</code> 文件，内容如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">server</span>": <span class="value"><span class="string">"your_droplet_ip"</span></span>,</span><br><span class="line">    "<span class="attribute">server_port</span>": <span class="value"><span class="number">8388</span></span>,</span><br><span class="line">    "<span class="attribute">local_address</span>": <span class="value"><span class="string">"127.0.0.1"</span></span>,</span><br><span class="line">    "<span class="attribute">local_port</span>": <span class="value"><span class="number">1080</span></span>,</span><br><span class="line">    "<span class="attribute">password</span>": <span class="value"><span class="string">"your_password"</span></span>,</span><br><span class="line">    "<span class="attribute">timeout</span>": <span class="value"><span class="number">300</span></span>,</span><br><span class="line">    "<span class="attribute">method</span>": <span class="value"><span class="string">"aes-256-cfb"</span></span>,</span><br><span class="line">    "<span class="attribute">fast_open</span>": <span class="value"><span class="literal">false</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来使用下面的指令启动服务：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks<span class="class">.json</span></span><br><span class="line"></span><br><span class="line">#或者在后台运行</span><br><span class="line">ssserver -c /etc/shadowsocks<span class="class">.json</span> -d start</span><br><span class="line">ssserver -c /etc/shadowsocks<span class="class">.json</span> -d stop</span><br></pre></td></tr></table></figure>
+<p>以上操作以后，就可以通过各种 Shadowsocks 客户端科学上网啦。稳定又靠谱！</p>
+
+      </div>
+      <footer class="article-footer">
+        <!-- <a data-url="http://linfuyan.com/shadowsocks-with-digitalocean/" data-id="ciuknp94c00296vnchp5tn4aj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DigitalOcean/">DigitalOcean</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shadowsocks/">Shadowsocks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/科学上网/">科学上网</a></li></ul>
+
+      </footer>
+      
+  
+  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- linfuyan 文章 -->
+	<ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-3371913913447815"
+      data-ad-slot="7769806683"
+      data-ad-format="auto"></ins>
+	<script>
+	  (adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+  
+
+
+      
+        
+<nav id="article-nav">
+  
+    <a href="/locale_error_unsupported_locale_setting/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <p class="article-nav-title">
+        
+          解决pip install时unsupported locale setting错误
+        
+      </p>
+      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+  
+  
+    <a href="/$q_and_promise_in_angular/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">形象的讲解 angular 中的 $q 与 promise</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+      
+      
+        <div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+      
+    </div>
+  </article>
+  
+
+  
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-shadowsocks-with-digitalocean" data-title="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网" data-url="http://linfuyan.com/shadowsocks-with-digitalocean/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'linfuyan'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
+      
+        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
+      
+    </ul>
+  </div>
+  <!-- 
+    
+<nav id="article-nav">
+  
+    <a href="/locale_error_unsupported_locale_setting/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <p class="article-nav-title">
+        
+          解决pip install时unsupported locale setting错误
+        
+      </p>
+      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+  
+  
+    <a href="/$q_and_promise_in_angular/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">形象的讲解 angular 中的 $q 与 promise</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+   -->
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+  	
+      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/> 
+     
+    
+      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Android-iOS-qq-group.png" width="100%" height="100%"/>
+    
+  </div>
+
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/locale_error_unsupported_locale_setting/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/FAQ/">FAQ</a></p>
+              <p class="item-title"><a href="/locale_error_unsupported_locale_setting/" class="title">解决pip install时unsupported locale setting错误</a></p>
+              <p class="item-date"><time datetime="2016-10-22T03:30:24.000Z" itemprop="datePublished">2016-10-22</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/shadowsocks-with-digitalocean/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_1.png
+)" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></p>
+              <p class="item-title"><a href="/shadowsocks-with-digitalocean/" class="title">在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网</a></p>
+              <p class="item-date"><time datetime="2016-10-22T01:25:00.000Z" itemprop="datePublished">2016-10-22</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/$q_and_promise_in_angular/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Web前端/">Web前端</a></p>
+              <p class="item-title"><a href="/$q_and_promise_in_angular/" class="title">形象的讲解 angular 中的 $q 与 promise</a></p>
+              <p class="item-date"><time datetime="2016-07-06T08:17:10.000Z" itemprop="datePublished">2016-07-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/React+ReactRouter+Redux+Webpack打造SPA/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Web前端/">Web前端</a></p>
+              <p class="item-title"><a href="/React+ReactRouter+Redux+Webpack打造SPA/" class="title">React + React Router + Redux + Webpack 开发 SPA</a></p>
+              <p class="item-date"><time datetime="2016-06-26T14:30:00.000Z" itemprop="datePublished">2016-06-26</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/grab-web-page-by-cheerio-and-render-via-ejs/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/free-shadowsocks.png
+)" alt="实例：使用 cheerio 抓取网页数据，并通过 ejs 模板输出静态页面" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/nodejs/">nodejs</a></p>
+              <p class="item-title"><a href="/grab-web-page-by-cheerio-and-render-via-ejs/" class="title">实例：使用 cheerio 抓取网页数据，并通过 ejs 模板输出静态页面</a></p>
+              <p class="item-date"><time datetime="2016-04-10T02:33:38.000Z" itemprop="datePublished">2016-04-10</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">27</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">16</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://uprogrammer.cn">优程</a>
+          </li>
+        
+          <li>
+            <a href="http://hexo.io">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2016 linfuyan</p>
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
+        <p>
+        <!-- CNZZ 统计 -->
+        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
+  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+
+
+<script src="/js/html-patch.js" type="text/javascript"></script>
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>为 lunr.js 添加中文支持 | 悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="如果你能找到这里，那么你应该是知道 lunr.js 的。 Ok， 那 lunr.js 是什么？官方网站上说: “Simple full-text search in your browser”。翻译过来就是：浏览器上的简单的纯文本搜索工具。是的，它可以直接在浏览器上运行，不依赖服务端来完成对网页上纯文本的搜索功能，可以极大的提升通过网络服务器请求获取搜索结果时不流畅的搜索体验。用在博客等应用中，真">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为 lunr.js 添加中文支持">
+<meta property="og:url" content="http://linfuyan.com/add-chinese-support-to-lunrjs/index.html">
+<meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
+<meta property="og:description" content="如果你能找到这里，那么你应该是知道 lunr.js 的。 Ok， 那 lunr.js 是什么？官方网站上说: “Simple full-text search in your browser”。翻译过来就是：浏览器上的简单的纯文本搜索工具。是的，它可以直接在浏览器上运行，不依赖服务端来完成对网页上纯文本的搜索功能，可以极大的提升通过网络服务器请求获取搜索结果时不流畅的搜索体验。用在博客等应用中，真">
+<meta property="og:updated_time" content="2016-11-09T09:00:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="为 lunr.js 添加中文支持">
+<meta name="twitter:description" content="如果你能找到这里，那么你应该是知道 lunr.js 的。 Ok， 那 lunr.js 是什么？官方网站上说: “Simple full-text search in your browser”。翻译过来就是：浏览器上的简单的纯文本搜索工具。是的，它可以直接在浏览器上运行，不依赖服务端来完成对网页上纯文本的搜索功能，可以极大的提升通过网络服务器请求获取搜索结果时不流畅的搜索体验。用在博客等应用中，真">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  
+  
+    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+  
+  
+
+
+  
+
+  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+            <h2 class="subtitle-wrap">
+              <p class="subtitle">关注但不限于 Android、iOS、nodejs</p>
+            </h2>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/导航/">导航</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Web前端/">Web前端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/nodejs/">nodejs</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/">教程</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
+                  
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://linfuyan.com"></form>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header"><a class="page-title-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/开发技术/nodejs/">nodejs</a></h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-add-chinese-support-to-lunrjs" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      为 lunr.js 添加中文支持
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/add-chinese-support-to-lunrjs/" class="article-date">
+  <time datetime="2016-11-09T02:32:00.000Z" itemprop="datePublished">2016-11-09</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <p>如果你能找到这里，那么你应该是知道 lunr.js 的。 Ok， 那 lunr.js 是什么？<a href="http://lunrjs.com/" target="_blank" rel="external">官方网站</a>上说: “Simple full-text search in your browser”。翻译过来就是：浏览器上的简单的纯文本搜索工具。是的，它可以直接在浏览器上运行，不依赖服务端来完成对网页上纯文本的搜索功能，可以极大的提升通过网络服务器请求获取搜索结果时不流畅的搜索体验。用在博客等应用中，真是再好不过。然而，和大部分老外制作的工具一样，对于中文，老外的工具还是水土不服。对于中文网页搜索最大的问题就是，lunr.js 不支持中文搜索，由此还影响到一系列基于 lunr.js 制作的本地搜索工具，如 gitbook 内置的 gitbook-search-plugin 等，所以如果你在使用 gitbook 的搜索功能，发现输入中文出现错误结果不要大惊小怪。</p>
+<p>不多说，以下基于当前 lunr.js 版本（commit id:6a978d1ebf1a0c08e1a76cd4f7f74ad5490e5937），添加了中文支持。</p>
+<p>仓库地址：<a href="https://github.com/linfuyan/lunr.js" target="_blank" rel="external">https://github.com/linfuyan/lunr.js</a></p>
+<p>有<a href="https://github.com/linfuyan/lunr.js/tree/un-participle" target="_blank" rel="external">未分词的中文支持版本</a>和<a href="https://github.com/linfuyan/lunr.js/tree/un-participle" target="_blank" rel="external">分词的中文支持版本</a>，位于仓库中不同的分支。</p>
+<h2 id="未分词的中文支持版本">未分词的中文支持版本</h2><p>中文支持的基本原理是，保证 lunr.js 在分析过程中中文字符不会被转义。因此在 trimmer 函数中对中文字符做过滤。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">lunr.trimmer = <span class="function"><span class="keyword">function</span> (<span class="params">token</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//by ming300 check token is chinese then not replace   </span></span><br><span class="line">  <span class="keyword">if</span>(isChineseChar(token))&#123;</span><br><span class="line">    <span class="keyword">return</span> token;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> token</span><br><span class="line">    .replace(<span class="regexp">/^\W+/</span>, <span class="string">''</span>)</span><br><span class="line">    .replace(<span class="regexp">/\W+$/</span>, <span class="string">''</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> **check it contains Chinese (including Japanese and Korean)</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isChineseChar</span>(<span class="params">str</span>)</span>&#123;     </span><br><span class="line">   <span class="keyword">var</span> reg = <span class="regexp">/[\u4E00-\u9FA5\uF900-\uFA2D]/</span>;  </span><br><span class="line">   <span class="keyword">return</span> reg.test(str);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此外，在分词部分 tokenizer 函数做些调整，添加如下关键代码：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var str = obj.toString().replace(/^<span class="command">\s</span>+/, '')</span><br><span class="line"></span><br><span class="line">  for (var i = str.length - 1; i &gt;= 0; i--) <span class="special">&#123;</span></span><br><span class="line">    if (/<span class="command">\S</span>/.test(str.charAt(i))) <span class="special">&#123;</span></span><br><span class="line">      str = str.substring(0, i + 1)</span><br><span class="line">      break</span><br><span class="line">    <span class="special">&#125;</span></span><br><span class="line">  <span class="special">&#125;</span></span><br><span class="line"></span><br><span class="line">  var rs = str</span><br><span class="line">    .split(/<span class="special">[</span><span class="command">\ </span>|<span class="command">\~</span>|<span class="command">\`</span>|<span class="command">\!</span>|<span class="command">\@</span>|<span class="command">\#</span>|<span class="command">\$</span>|<span class="command">\%</span>|<span class="command">\^</span>|<span class="command">\&amp;</span>|<span class="command">\*</span>|<span class="command">\uFE</span>30-<span class="command">\uFFA</span>0|<span class="command">\(</span>|<span class="command">\)</span>|<span class="command">\-</span>|<span class="command">\_</span>|<span class="command">\+</span>|<span class="command">\=</span>|<span class="command">\|</span>|<span class="command">\\</span>|<span class="command">\[</span>|<span class="command">\]</span>|<span class="command">\&#123;</span>|<span class="command">\&#125;</span>|<span class="command">\;</span>|<span class="command">\:</span>|<span class="command">\"</span>|<span class="command">\'</span>|<span class="command">\,</span>|<span class="command">\&lt;</span>|<span class="command">\.</span>|<span class="command">\&gt;</span>|<span class="command">\/</span>|<span class="command">\?</span><span class="special">]</span>+/)</span><br><span class="line">    .map(function (token) <span class="special">&#123;</span></span><br><span class="line">      var t = token.replace(/<span class="special">[</span><span class="command">\ </span>|<span class="command">\~</span>|<span class="command">\`</span>|<span class="command">\!</span>|<span class="command">\@</span>|<span class="command">\#</span>|<span class="command">\$</span>|<span class="command">\%</span>|<span class="command">\^</span>|<span class="command">\&amp;</span>|<span class="command">\*</span>|<span class="command">\uFE</span>30-<span class="command">\uFFA</span>0|<span class="command">\(</span>|<span class="command">\)</span>|<span class="command">\-</span>|<span class="command">\_</span>|<span class="command">\+</span>|<span class="command">\=</span>|<span class="command">\|</span>|<span class="command">\\</span>|<span class="command">\[</span>|<span class="command">\]</span>|<span class="command">\&#123;</span>|<span class="command">\&#125;</span>|<span class="command">\;</span>|<span class="command">\:</span>|<span class="command">\"</span>|<span class="command">\'</span>|<span class="command">\,</span>|<span class="command">\&lt;</span>|<span class="command">\.</span>|<span class="command">\&gt;</span>|<span class="command">\/</span>|<span class="command">\?</span><span class="special">]</span>/g, '').toLowerCase()</span><br><span class="line">      return t;</span><br><span class="line">    <span class="special">&#125;</span>);</span><br></pre></td></tr></table></figure>
+<p>这里仅仅是基于英文中简单的通过空格进行分词的原则。因此会存在比较大的局限性。例如：”中文Chinese and English”，则直接被识别为”中文Chinese”、”and”、”English”，而无法将”中文”和”Chinese”再区分开。</p>
+<p>相较于第二种方案的有点则是没有任何其他依赖，很轻量，适用于网页。而对基于网页标签进行的搜索则比较好，因为，标签本身就是简短，分散的。可以认为是分词好的。</p>
+<h2 id="基于分词的中文支持版本">基于分词的中文支持版本</h2><p>这个版本基于node-segment中文分词库，在未分词版本的基础上引入分词。功能自然更强大，不过由于分词库的依赖，导致整个包太大。由于需要读取文件形式的分词库，无法在浏览器上使用，但可以在 nodejs 服务端用。虽然做些修改，可以将分词库作为 js 文件 require 进来，但还是存在包太大的问题。</p>
+<p>关键代码的修改也是在 lunr.js 中的 trimmer 和 tokenizer 方法中。不过需要注意的是，在 package.json 中添加对 node-segment 的依赖。</p>
+<p>感谢以下两个仓库作者。</p>
+<p><a href="https://github.com/ming300/lunr.js/" target="_blank" rel="external">https://github.com/ming300/lunr.js/</a></p>
+<p><a href="https://github.com/nandy007/lunr.js" target="_blank" rel="external">https://github.com/nandy007/lunr.js</a></p>
+<p>以及以下文章：</p>
+<p><a href="http://blog.songjz.cn/jie-jue-lunr-jsde/" target="_blank" rel="external">我的建站路4：解决 lunr.js 的中文支持问题</a></p>
+
+      </div>
+      <footer class="article-footer">
+        <!-- <a data-url="http://linfuyan.com/add-chinese-support-to-lunrjs/" data-id="civap5tl10000gsfy4i89f26l" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lunr/">lunr</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-segment/">node-segment</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分词/">分词</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搜索/">搜索</a></li></ul>
+
+      </footer>
+      
+  
+  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- linfuyan 文章 -->
+	<ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-3371913913447815"
+      data-ad-slot="7769806683"
+      data-ad-format="auto"></ins>
+	<script>
+	  (adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+  
+
+
+      
+        
+<nav id="article-nav">
+  
+  
+    <a href="/locale_error_unsupported_locale_setting/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">解决pip install时unsupported locale setting错误</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+      
+      
+        <div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+      
+    </div>
+  </article>
+  
+
+  
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-add-chinese-support-to-lunrjs" data-title="为 lunr.js 添加中文支持" data-url="http://linfuyan.com/add-chinese-support-to-lunrjs/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'linfuyan'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
+      
+        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
+      
+    </ul>
+  </div>
+  <!-- 
+    
+<nav id="article-nav">
+  
+  
+    <a href="/locale_error_unsupported_locale_setting/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">解决pip install时unsupported locale setting错误</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+   -->
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+  	
+      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/> 
+     
+    
+      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Android-iOS-qq-group.png" width="100%" height="100%"/>
+    
+  </div>
+
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/add-chinese-support-to-lunrjs/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/nodejs/">nodejs</a></p>
+              <p class="item-title"><a href="/add-chinese-support-to-lunrjs/" class="title">为 lunr.js 添加中文支持</a></p>
+              <p class="item-date"><time datetime="2016-11-09T02:32:00.000Z" itemprop="datePublished">2016-11-09</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/locale_error_unsupported_locale_setting/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/FAQ/">FAQ</a></p>
+              <p class="item-title"><a href="/locale_error_unsupported_locale_setting/" class="title">解决pip install时unsupported locale setting错误</a></p>
+              <p class="item-date"><time datetime="2016-10-22T03:30:24.000Z" itemprop="datePublished">2016-10-22</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/shadowsocks-with-digitalocean/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_1.png
+)" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></p>
+              <p class="item-title"><a href="/shadowsocks-with-digitalocean/" class="title">在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网</a></p>
+              <p class="item-date"><time datetime="2016-10-22T01:25:00.000Z" itemprop="datePublished">2016-10-22</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/$q_and_promise_in_angular/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Web前端/">Web前端</a></p>
+              <p class="item-title"><a href="/$q_and_promise_in_angular/" class="title">形象的讲解 angular 中的 $q 与 promise</a></p>
+              <p class="item-date"><time datetime="2016-07-06T08:17:10.000Z" itemprop="datePublished">2016-07-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/React+ReactRouter+Redux+Webpack打造SPA/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Web前端/">Web前端</a></p>
+              <p class="item-title"><a href="/React+ReactRouter+Redux+Webpack打造SPA/" class="title">React + React Router + Redux + Webpack 开发 SPA</a></p>
+              <p class="item-date"><time datetime="2016-06-26T14:30:00.000Z" itemprop="datePublished">2016-06-26</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">16</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://uprogrammer.cn">优程</a>
+          </li>
+        
+          <li>
+            <a href="http://hexo.io">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2016 linfuyan</p>
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
+        <p>
+        <!-- CNZZ 统计 -->
+        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
+  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+
+
+<script src="/js/html-patch.js" type="text/javascript"></script>
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

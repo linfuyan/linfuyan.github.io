@@ -4,7 +4,7 @@
   <subtitle><![CDATA[关注但不限于 Android、iOS、nodejs]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://linfuyan.com/"/>
-  <updated>2016-10-22T03:40:54.000Z</updated>
+  <updated>2016-11-09T09:00:47.000Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -13,6 +13,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[为 lunr.js 添加中文支持]]></title>
+    <link href="http://linfuyan.com/add-chinese-support-to-lunrjs/"/>
+    <id>http://linfuyan.com/add-chinese-support-to-lunrjs/</id>
+    <published>2016-11-09T02:32:00.000Z</published>
+    <updated>2016-11-09T09:00:47.000Z</updated>
+    <content type="html"><![CDATA[<p>如果你能找到这里，那么你应该是知道 lunr.js 的。 Ok， 那 lunr.js 是什么？<a href="http://lunrjs.com/" target="_blank" rel="external">官方网站</a>上说: “Simple full-text search in your browser”。翻译过来就是：浏览器上的简单的纯文本搜索工具。是的，它可以直接在浏览器上运行，不依赖服务端来完成对网页上纯文本的搜索功能，可以极大的提升通过网络服务器请求获取搜索结果时不流畅的搜索体验。用在博客等应用中，真是再好不过。然而，和大部分老外制作的工具一样，对于中文，老外的工具还是水土不服。对于中文网页搜索最大的问题就是，lunr.js 不支持中文搜索，由此还影响到一系列基于 lunr.js 制作的本地搜索工具，如 gitbook 内置的 gitbook-search-plugin 等，所以如果你在使用 gitbook 的搜索功能，发现输入中文出现错误结果不要大惊小怪。</p>
+<p>不多说，以下基于当前 lunr.js 版本（commit id:6a978d1ebf1a0c08e1a76cd4f7f74ad5490e5937），添加了中文支持。</p>
+<p>仓库地址：<a href="https://github.com/linfuyan/lunr.js" target="_blank" rel="external">https://github.com/linfuyan/lunr.js</a></p>
+<p>有<a href="https://github.com/linfuyan/lunr.js/tree/un-participle" target="_blank" rel="external">未分词的中文支持版本</a>和<a href="https://github.com/linfuyan/lunr.js/tree/un-participle" target="_blank" rel="external">分词的中文支持版本</a>，位于仓库中不同的分支。</p>
+<h2 id="未分词的中文支持版本">未分词的中文支持版本</h2><p>中文支持的基本原理是，保证 lunr.js 在分析过程中中文字符不会被转义。因此在 trimmer 函数中对中文字符做过滤。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">lunr.trimmer = <span class="function"><span class="keyword">function</span> (<span class="params">token</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//by ming300 check token is chinese then not replace   </span></span><br><span class="line">  <span class="keyword">if</span>(isChineseChar(token))&#123;</span><br><span class="line">    <span class="keyword">return</span> token;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> token</span><br><span class="line">    .replace(<span class="regexp">/^\W+/</span>, <span class="string">''</span>)</span><br><span class="line">    .replace(<span class="regexp">/\W+$/</span>, <span class="string">''</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> **check it contains Chinese (including Japanese and Korean)</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isChineseChar</span>(<span class="params">str</span>)</span>&#123;     </span><br><span class="line">   <span class="keyword">var</span> reg = <span class="regexp">/[\u4E00-\u9FA5\uF900-\uFA2D]/</span>;  </span><br><span class="line">   <span class="keyword">return</span> reg.test(str);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此外，在分词部分 tokenizer 函数做些调整，添加如下关键代码：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var str = obj.toString().replace(/^<span class="command">\s</span>+/, '')</span><br><span class="line"></span><br><span class="line">  for (var i = str.length - 1; i &gt;= 0; i--) <span class="special">&#123;</span></span><br><span class="line">    if (/<span class="command">\S</span>/.test(str.charAt(i))) <span class="special">&#123;</span></span><br><span class="line">      str = str.substring(0, i + 1)</span><br><span class="line">      break</span><br><span class="line">    <span class="special">&#125;</span></span><br><span class="line">  <span class="special">&#125;</span></span><br><span class="line"></span><br><span class="line">  var rs = str</span><br><span class="line">    .split(/<span class="special">[</span><span class="command">\ </span>|<span class="command">\~</span>|<span class="command">\`</span>|<span class="command">\!</span>|<span class="command">\@</span>|<span class="command">\#</span>|<span class="command">\$</span>|<span class="command">\%</span>|<span class="command">\^</span>|<span class="command">\&amp;</span>|<span class="command">\*</span>|<span class="command">\uFE</span>30-<span class="command">\uFFA</span>0|<span class="command">\(</span>|<span class="command">\)</span>|<span class="command">\-</span>|<span class="command">\_</span>|<span class="command">\+</span>|<span class="command">\=</span>|<span class="command">\|</span>|<span class="command">\\</span>|<span class="command">\[</span>|<span class="command">\]</span>|<span class="command">\&#123;</span>|<span class="command">\&#125;</span>|<span class="command">\;</span>|<span class="command">\:</span>|<span class="command">\"</span>|<span class="command">\'</span>|<span class="command">\,</span>|<span class="command">\&lt;</span>|<span class="command">\.</span>|<span class="command">\&gt;</span>|<span class="command">\/</span>|<span class="command">\?</span><span class="special">]</span>+/)</span><br><span class="line">    .map(function (token) <span class="special">&#123;</span></span><br><span class="line">      var t = token.replace(/<span class="special">[</span><span class="command">\ </span>|<span class="command">\~</span>|<span class="command">\`</span>|<span class="command">\!</span>|<span class="command">\@</span>|<span class="command">\#</span>|<span class="command">\$</span>|<span class="command">\%</span>|<span class="command">\^</span>|<span class="command">\&amp;</span>|<span class="command">\*</span>|<span class="command">\uFE</span>30-<span class="command">\uFFA</span>0|<span class="command">\(</span>|<span class="command">\)</span>|<span class="command">\-</span>|<span class="command">\_</span>|<span class="command">\+</span>|<span class="command">\=</span>|<span class="command">\|</span>|<span class="command">\\</span>|<span class="command">\[</span>|<span class="command">\]</span>|<span class="command">\&#123;</span>|<span class="command">\&#125;</span>|<span class="command">\;</span>|<span class="command">\:</span>|<span class="command">\"</span>|<span class="command">\'</span>|<span class="command">\,</span>|<span class="command">\&lt;</span>|<span class="command">\.</span>|<span class="command">\&gt;</span>|<span class="command">\/</span>|<span class="command">\?</span><span class="special">]</span>/g, '').toLowerCase()</span><br><span class="line">      return t;</span><br><span class="line">    <span class="special">&#125;</span>);</span><br></pre></td></tr></table></figure>
+<p>这里仅仅是基于英文中简单的通过空格进行分词的原则。因此会存在比较大的局限性。例如：”中文Chinese and English”，则直接被识别为”中文Chinese”、”and”、”English”，而无法将”中文”和”Chinese”再区分开。</p>
+<p>相较于第二种方案的有点则是没有任何其他依赖，很轻量，适用于网页。而对基于网页标签进行的搜索则比较好，因为，标签本身就是简短，分散的。可以认为是分词好的。</p>
+<h2 id="基于分词的中文支持版本">基于分词的中文支持版本</h2><p>这个版本基于node-segment中文分词库，在未分词版本的基础上引入分词。功能自然更强大，不过由于分词库的依赖，导致整个包太大。由于需要读取文件形式的分词库，无法在浏览器上使用，但可以在 nodejs 服务端用。虽然做些修改，可以将分词库作为 js 文件 require 进来，但还是存在包太大的问题。</p>
+<p>关键代码的修改也是在 lunr.js 中的 trimmer 和 tokenizer 方法中。不过需要注意的是，在 package.json 中添加对 node-segment 的依赖。</p>
+<p>感谢以下两个仓库作者。</p>
+<p><a href="https://github.com/ming300/lunr.js/" target="_blank" rel="external">https://github.com/ming300/lunr.js/</a></p>
+<p><a href="https://github.com/nandy007/lunr.js" target="_blank" rel="external">https://github.com/nandy007/lunr.js</a></p>
+<p>以及以下文章：</p>
+<p><a href="http://blog.songjz.cn/jie-jue-lunr-jsde/" target="_blank" rel="external">我的建站路4：解决 lunr.js 的中文支持问题</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>如果你能找到这里，那么你应该是知道 lunr.js 的。 Ok， 那 lunr.js 是什么？<a href="http://lunrjs.com/" target="_blank" rel="external">官方网站</a>上说: “Simple full-text ]]>
+    </summary>
+    
+      <category term="lunr" scheme="http://linfuyan.com/tags/lunr/"/>
+    
+      <category term="node-segment" scheme="http://linfuyan.com/tags/node-segment/"/>
+    
+      <category term="分词" scheme="http://linfuyan.com/tags/%E5%88%86%E8%AF%8D/"/>
+    
+      <category term="搜索" scheme="http://linfuyan.com/tags/%E6%90%9C%E7%B4%A2/"/>
+    
+      <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="nodejs" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/nodejs/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[解决pip install时unsupported locale setting错误]]></title>
@@ -2721,63 +2763,6 @@ alpha = (aLongBooleanExpression)
       <category term="混淆" scheme="http://linfuyan.com/tags/%E6%B7%B7%E6%B7%86/"/>
     
       <category term="FAQ" scheme="http://linfuyan.com/categories/FAQ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Hexo 使用多说评论框]]></title>
-    <link href="http://linfuyan.com/hexo-your-blog/hexo-with-duoshuo/"/>
-    <id>http://linfuyan.com/hexo-your-blog/hexo-with-duoshuo/</id>
-    <published>2015-11-01T01:37:28.000Z</published>
-    <updated>2015-11-01T02:59:05.000Z</updated>
-    <content type="html"><![CDATA[<p>我们看到很多的博客的文章下面有评论。在 Hexo 上使用这个评论系统，主要有两种，一种是 disqus，另一种是多说。具体使用哪种评论系统，一般是在具体的主题中配置的，也就是在主题下的 <code>_config.yml</code> 文件中。大部分多外的主题都自动集成了 disqus， disqus 也大多在国外使用，它的评论框颜值还是很高的。但是在国内，因为网络访问国外服务比较慢的问题，使用多说会相对好一点。</p>
-<a id="more"></a>
-<p>既然如此，我们以 hueman 主题下在文章末尾配置多说评论框为例作一下说明。</p>
-<p>首先，你需要注册一个<a href="http://duoshuo.com" target="_blank" rel="external">多说</a>账号并新建一个站点。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/duoshuo-create-site.png" alt="多说创建站点"></p>
-<p>站点创建完成以后，会跳出代码模板的页面，如下：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/duoshuo-comment-template.png" alt="多说代码模板"></p>
-<p>左侧选择”获取代码”的这栏，然后选中”通用代码”。这就是我们评论框的代码模板，后面我们需要找到合适的地方，将其插入到 hueman 主题中的文章模板里。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/hueman-article.png" alt="hueman 文章代码"></p>
-<p>在 hueman 主题中，文章的模板在 <code>hueman -&gt; layout -&gt; _partial -&gt; post -&gt; article.ejs</code>  下面。看到上图中，第一个红框圈住的部分，是主题自带的 disqus 评论框的配置。当然我们没有在<strong>项目目录</strong>下的 <code>_config.yml</code> 中配置 disqus_shortname，所以它是不生效的，在咱们的文章页面中看不到。</p>
-<figure class="highlight erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span>&lt;%<span class="ruby"> <span class="keyword">if</span> (post.comments &amp;&amp; config.disqus_shortname)&#123; </span>%&gt;<span class="xml"></span><br><span class="line">  <span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"comments"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"disqus_thread"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">noscript</span>&gt;</span>Please enable JavaScript to view the <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"//disqus.com/?ref_noscript"</span>&gt;</span>comments powered by Disqus.<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">noscript</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">section</span>&gt;</span></span><br><span class="line"></span>&lt;%<span class="ruby"> &#125; </span>%&gt;<span class="xml"></span></span><br></pre></td></tr></table></figure>
-<p>找到上面这个文章末尾的位置，仿照上面的逻辑判断代码，把多说评论框模板代码添加进来，如上图中的第二个红框圈住的部分。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">%</span> <span class="attribute">if</span> (!<span class="attribute">index</span> &amp;&amp; <span class="attribute">post.comments</span> &amp;&amp; <span class="attribute">theme.duoshuo_shortname</span>)&#123; %&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"comments"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 多说评论框 start --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ds-thread"</span> <span class="attribute">data-thread-key</span>=<span class="value">"&lt;%= post.layout %&gt;-&lt;%= post.slug %&gt;"</span> <span class="attribute">data-title</span>=<span class="value">"&lt;%= post.title %&gt;"</span> <span class="attribute">data-url</span>=<span class="value">"&lt;%= page.permalink %&gt;"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 多说评论框 end --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="keyword">var</span> duoshuoQuery = &#123;short_name:<span class="string">'&lt;%= theme.duoshuo_shortname %&gt;'</span>&#125;;</span><br><span class="line">      (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> ds = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">        ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="literal">true</span>;</span><br><span class="line">        ds.src = (<span class="built_in">document</span>.location.protocol == <span class="string">'https:'</span> ? <span class="string">'https:'</span> : <span class="string">'http:'</span>) + <span class="string">'//static.duoshuo.com/embed.js'</span>;</span><br><span class="line">        ds.charset = <span class="string">'UTF-8'</span>;</span><br><span class="line">        (<span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>]</span><br><span class="line">         || <span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>]).appendChild(ds);</span><br><span class="line">      &#125;)();</span><br><span class="line">      </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 多说公共JS代码 end --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">section</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">%</span> &#125; %&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这里大家注意一下：</p>
-<p>1. 第一行中判断 !index 代表是非主页的文章。我们是要在主页之外的文章正文下添加评论，所以添加了这个判断。</p>
-<p>2. <code>theme.duoshuo_shortname</code>，这里需要我们在主题下面的 <code>_config.yml</code> 中添加 <code>duoshuo_shortname</code> 字段配置才能生效。这里和上面讲到的 <code>config.disqus_shortname</code> 的区别就在于 <code>theme._</code> 开头的是在主题中的 <code>_config.yml</code> 配置， <code>config._</code> 开头是在项目目录下的 <code>_config.yml</code> 配置。</p>
-<p>Ok，到这里，打开 <code>hueman -&gt; _config.yml</code> 在其中添加如下代码：</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># comments 配置多说评论</span></span><br><span class="line"><span class="label">duoshuo_shortname:</span> 这里就是你在创建站点时填的多说域名</span><br></pre></td></tr></table></figure>
-<p>如果多说域名是 <a href="http://abc.duoshuo.com" target="_blank" rel="external">http://abc.duoshuo.com</a> ， 那这里 <code>duoshuo_shortname</code> 就是 abc。</p>
-<p>3. 多说评论框模板中的变量，我们需要进行替换。原来如下：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"ds-thread"</span> data-thread-key=<span class="string">"请将此处替换成文章在你的站点中的ID"</span> data-title=<span class="string">"请替换成文章的标题"</span> data-url=<span class="string">"请替换成文章的网址"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
-<p>替换成：</p>
-<figure class="highlight erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ds-thread"</span> <span class="attribute">data-thread-key</span>=<span class="value">"</span></span></span>&lt;%=<span class="ruby"> post.layout </span>%&gt;<span class="xml"><span class="tag"><span class="value">-</span></span></span>&lt;%=<span class="ruby"> post.slug </span>%&gt;<span class="xml"><span class="tag"><span class="value">"</span> <span class="attribute">data-title</span>=<span class="value">"</span></span></span>&lt;%=<span class="ruby"> post.title </span>%&gt;<span class="xml"><span class="tag"><span class="value">"</span> <span class="attribute">data-url</span>=<span class="value">"</span></span></span>&lt;%=<span class="ruby"> page.permalink </span>%&gt;<span class="xml"><span class="tag"><span class="value">"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>其中， <code>post.layout</code>， <code>post.slug</code>， <code>post.title</code>， <code>page.permalink</code> 都是 Hexo 的内置变量。具体可以查看<a href="https://hexo.io/zh-cn/docs/variables.html" target="_blank" rel="external">这里</a>。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/duoshuo-article-management.png" alt="多说文章管理"></p>
-<p>这样就为 Hexo 站点添加上多说评论框啦，如果还需要在其他的位置添加，过程类似。总结下步骤：</p>
-<ol>
-<li>注册多说账号，创建新站点。</li>
-<li>找到需要添加多说评论框的位置，粘贴多说评论框的模板代码，并作必要的修改。</li>
-<li>如果将多说评论框作为配置项，合适的地方，添加配置。</li>
-</ol>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>我们看到很多的博客的文章下面有评论。在 Hexo 上使用这个评论系统，主要有两种，一种是 disqus，另一种是多说。具体使用哪种评论系统，一般是在具体的主题中配置的，也就是在主题下的 <code>_config.yml</code> 文件中。大部分多外的主题都自动集成了 disqus， disqus 也大多在国外使用，它的评论框颜值还是很高的。但是在国内，因为网络访问国外服务比较慢的问题，使用多说会相对好一点。</p>]]>
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://linfuyan.com/tags/Hexo/"/>
-    
-      <category term="博客" scheme="http://linfuyan.com/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="多说" scheme="http://linfuyan.com/tags/%E5%A4%9A%E8%AF%B4/"/>
-    
-      <category term="评论框" scheme="http://linfuyan.com/tags/%E8%AF%84%E8%AE%BA%E6%A1%86/"/>
-    
-      <category term="软件工具" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="Hexo" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/Hexo/"/>
     
   </entry>
   

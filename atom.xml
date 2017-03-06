@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://linfuyan.com/"/>
-  <updated>2017-03-06T07:48:30.000Z</updated>
+  <updated>2017-03-06T14:08:38.000Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -14,6 +14,134 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>树莓派折腾记之第一天</title>
+    <link href="http://linfuyan.com/raspberrypi-day1/"/>
+    <id>http://linfuyan.com/raspberrypi-day1/</id>
+    <published>2017-03-06T14:08:00.000Z</published>
+    <updated>2017-03-06T14:08:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>周五晚上开箱晒图以后，直到周日才有时间开始折腾我的树莓派。</p>
+<p>今天第一个小目标，就是点亮树莓派。</p>
+<p>先说一下我自己拥有的设备。</p>
+<ol>
+<li>mac 电脑，没有 windows 系统。</li>
+<li>没有键盘，有一个无线鼠标。</li>
+<li>一台有 HDMI 接口的电视机。</li>
+<li>网线一根</li>
+</ol>
+<p>另外就是我之前买回来的树莓派及配件了。</p>
+<h2 id="Mac-上给树莓派安装-Raspbian"><a href="#Mac-上给树莓派安装-Raspbian" class="headerlink" title="Mac 上给树莓派安装 Raspbian"></a>Mac 上给树莓派安装 Raspbian</h2><p>树莓派支持的系统有很多，官方推荐的是 Raspbian。</p>
+<h3 id="下载系统镜像"><a href="#下载系统镜像" class="headerlink" title="下载系统镜像"></a>下载系统镜像</h3><p>到<a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="external">树莓派官网</a>下载 raspbian 的镜像文件。我的是 2017-03-02-raspbian-jessie.zip，1.57 G。解压出来成 2017-03-02-raspbian-jessie.img，有 4.39 G。</p>
+<h3 id="格式化-SD-卡"><a href="#格式化-SD-卡" class="headerlink" title="格式化 SD 卡"></a>格式化 SD 卡</h3><p>使用 Mac 自带的磁盘工具，左侧选中对应的 SD 卡，点击右侧的“抹掉”标签，格式选择“MS-DOS(FAT)”，名称根据自己需要填写。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-format-sdcard.png" alt="格式化 SD 卡"></p>
+<h3 id="命令行查看挂载的卷"><a href="#命令行查看挂载的卷" class="headerlink" title="命令行查看挂载的卷"></a>命令行查看挂载的卷</h3><p>打开 Mac 终端，在命令行中输入 <code>df -h</code></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-df-h.png" alt="查看挂载的卷"></p>
+<p>在这里可以看到挂载的 SD 卡，类似 <code>/dev/disk3s1</code>。</p>
+<h3 id="卸载分区"><a href="#卸载分区" class="headerlink" title="卸载分区"></a>卸载分区</h3><p>在磁盘工具中，同样选中对应的 SD 卡，点击右侧标签上的卸载。</p>
+<p>或者使用命令行工具：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">diskutil unmount <span class="regexp">/dev/</span>disk3s1</div></pre></td></tr></table></figure>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-unmount.png" alt="卸载分区"></p>
+<h3 id="确认-SD-卡设备的标识"><a href="#确认-SD-卡设备的标识" class="headerlink" title="确认 SD 卡设备的标识"></a>确认 SD 卡设备的标识</h3><p>在命令行中输入 <code>diskutil list</code></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-diskutil-list.png" alt="确认SD卡标识"></p>
+<p>其中，<code>/dev/disk3</code> 就是我们要安装系统的设备。记住这个标识，非常的重要。</p>
+<h3 id="将-Raspbian-镜像写入-SD-卡"><a href="#将-Raspbian-镜像写入-SD-卡" class="headerlink" title="将 Raspbian 镜像写入 SD 卡"></a>将 Raspbian 镜像写入 SD 卡</h3><p>Mac 下使用 dd 命令来将系统镜像写入设备。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo <span class="selector-tag">dd</span> bs=<span class="number">4</span>m <span class="keyword">if</span>=<span class="number">2017</span>-<span class="number">03</span>-<span class="number">02</span>-raspbian-jessie<span class="selector-class">.img</span> of=/dev/disk3</div></pre></td></tr></table></figure>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-write-img.png" alt="写入系统镜像"></p>
+<p>if 后面的参数标识镜像文件路径<br>of 后面的参数则是写入设备的标识</p>
+<h3 id="卸载设备"><a href="#卸载设备" class="headerlink" title="卸载设备"></a>卸载设备</h3><p>写完以后，在通过 <code>diskutil unmountDisk</code> 命令卸载 SD 卡。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-unmount2.png" alt="卸载设备"></p>
+<p>这样，安装有 Raspbian 系统的 SD 卡就准备好了。</p>
+<blockquote>
+<p>以上图示和我实际情况略有出入。是因为我直接使用了其他网友的图片。具体见后面的参考。</p>
+</blockquote>
+<h2 id="点亮树莓派，进入系统"><a href="#点亮树莓派，进入系统" class="headerlink" title="点亮树莓派，进入系统"></a>点亮树莓派，进入系统</h2><p>接下来，把 SD 卡装入树莓派，接上电源，用 HDMI 线连接电视机。打开电源开关，不出意外，一会儿电视机屏幕上就看到树莓派系统的画面了。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/raspberrypi-boot.gif" alt="树莓派开机启动"></p>
+<p>之前看过的很多资料都说点亮系统以后，需要对树莓派进行各种配置。这时候系统却大大出乎我的意料了。因为系统出现树莓派欢迎画面以后，还在继续玩下进行，直到最后直接进入到桌面。这个过程我没有做任何操作。</p>
+<p>就这样，很顺利的进入了系统。后来发现新版的系统默认会用 pi/raspberry 的账户自动登录系统。这个真的很方便，对于树莓派小白来讲，门槛降低了很多。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/raspberrypi-logon.jpeg" alt="自动登录树莓派"></p>
+<p>然而接下来，我一下子不知道还能干什么。</p>
+<ol>
+<li>毕竟没有键盘，只有鼠标，系统里面也没有软键盘，根本无法输入。</li>
+<li>原来想着及时没有屏幕，也可以通过 ssh 来操作树莓派系统，做很多事情。而新版的树莓派系统是默认关闭 ssh 的。</li>
+<li>想要 ssh 我也不知道树莓派系统的 ip。</li>
+</ol>
+<h2 id="简单配置"><a href="#简单配置" class="headerlink" title="简单配置"></a>简单配置</h2><p>我插上无线鼠标，插上网线，随意点击的过程中，发现右上角的网卡配置上，是可以显示 ip 地址的。这样， ip 就有了。一阵欣喜。</p>
+<p>而后，在系统的“首选项”中“树莓派配置”，我发现可以配置 ssh， vnc 等服务的开关。我在这里把 ssh 和 vnc 都打开了。</p>
+<p>于是，我在 Mac 的终端里，输入</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">pi</span>@<span class="keyword">192</span>.<span class="keyword">168</span>.<span class="keyword">0</span>.<span class="keyword">5</span> // 这是我的树莓派 ip 地址，你的根据自己情况而定</div></pre></td></tr></table></figure>
+<p>顺利地登录了。</p>
+<p>此外，只用鼠标，我还配置了系统的语言，时区等，这些配置都有图形化的界面。</p>
+<h2 id="配置软件源"><a href="#配置软件源" class="headerlink" title="配置软件源"></a>配置软件源</h2><p>Raspbian 是基于 debian 的，软件包管理工具是强大的 <code>apt</code>。为了能够快速的查找、安装各种软件，需要更新一下软件安装源。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo <span class="keyword">vi</span> /etc/apt/sources.<span class="keyword">list</span></div></pre></td></tr></table></figure>
+<p>从这个列表<a href="http://shumeipai.nxez.com/2013/08/31/raspbian-chinese-software-source.html" target="_blank" rel="external">Raspbian 中国软件源</a>中选择一两个源，按照 sources.list 的格式写入。然后执行下面的命令更新。注意：每次修改 <code>sources.list</code>，要使更新生效都必须执行此命令。</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></div></pre></td></tr></table></figure>
+<h2 id="通过-VNC-控制树莓派桌面"><a href="#通过-VNC-控制树莓派桌面" class="headerlink" title="通过 VNC 控制树莓派桌面"></a>通过 VNC 控制树莓派桌面</h2><p>在网上看到很多篇关于远程控制树莓派桌面的文章，都是说需要安装 <code>tightvncserver</code>。其实是不需要的，新版的系统上已经内置了 vnc 服务 <code>RealVNC</code>，我们上面的设置中开启 vnc 就可以了。</p>
+<p>而 <a href="https://www.realvnc.com/download/viewer/" target="_blank" rel="external">RealVNC</a> 在很多平台下都有客户端，包括 Mac，iOS，Android。我在 Mac 和 iOS 里都下载了 VNC Viewer 客户端，简单配置以后，就可以对树莓派进行远程桌面控制了。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/nvc-on-mac.jpeg" alt="mac vnc 客户端"></p>
+<div align="center">mac 上的 VNC Viewer</div>
+
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/vnc-on-ios.png" alt="ios vnc 客户端"></p>
+<div align="center">iOS 上的 VNC Viewer</div>
+
+<h2 id="安装-kodi，打造多媒体控制中心"><a href="#安装-kodi，打造多媒体控制中心" class="headerlink" title="安装 kodi，打造多媒体控制中心"></a>安装 kodi，打造多媒体控制中心</h2><p>网上大多数的教程都是说可以通过安装 <code>xbmc</code> 来将树莓派打造成多媒体控制中心。简单说就类似一个电视盒子。</p>
+<p>其实 <code>xbmc</code> 已经是过去时了。现在叫 <code>kodi</code>, 我是通过命令行安装 <code>xbmc</code> 是才发现的，系统提醒我 <code>xbmc</code> 的包已经过时了。</p>
+<p>等我缓过神来，发现树莓派系统的影音菜单里面包含有 <code>Kodi Media Center</code>。所以我不清楚是系统预装的，还是我通过命令行安装的。如果是命令行安装，大家执行如下命令就可以了。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="keyword">get</span> install kodi</div></pre></td></tr></table></figure>
+<p>安装完成以后，通过菜单可以打开 kodi。如果你在 VNC Viewer 上远程操作，是看不到 kodi 的界面的。<strong>只能在 HDMI 设备上看到</strong>。</p>
+<h3 id="kodi-中文化及安装中文节目插件"><a href="#kodi-中文化及安装中文节目插件" class="headerlink" title="kodi 中文化及安装中文节目插件"></a>kodi 中文化及安装中文节目插件</h3><p>打开 kodi，默认是英文界面。如果想看自己需要的界面，则需要安装对应的插件。下面是插件项目地址：</p>
+<p><a href="https://github.com/taxigps/xbmc-addons-chinese" target="_blank" rel="external">Addon scripts, plugins, and skins for XBMC Media Center. Special for chinese laguage.</a></p>
+<p>具体安装步骤：</p>
+<ol>
+<li>下载<a href="https://github.com/taxigps/xbmc-addons-chinese/raw/master/repo/repository.xbmc-addons-chinese/repository.xbmc-addons-chinese-1.2.1.zip" target="_blank" rel="external">插件仓库</a>。</li>
+<li>打开 kodi，导航到 系统(System) | 设置(Setting) | 插件(Add-ons)</li>
+<li>选择 “从 zip 文件安装”</li>
+<li>找到下载的 zip 所在路径，选择确认。</li>
+</ol>
+<p>以上插件仓库就添加完成了。具体的插件，在需要的时候选择安装就可以了。如点开视频-&gt;插件-&gt;获取更多-&gt;PPTV 等。</p>
+<p>kodi 中文化步骤：</p>
+<ol>
+<li>导航到 系统(System) | 设置(Setting) | 外观(Appearance) | 皮肤(Skin)</li>
+<li>修改皮肤的字体设置为 “基于 Arial(Arial based)”</li>
+</ol>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/launch-kodi.jpeg" alt="kodi启动"></p>
+<h3 id="通过安装-kodi-的客户端，在手机上控制-kodi"><a href="#通过安装-kodi-的客户端，在手机上控制-kodi" class="headerlink" title="通过安装 kodi 的客户端，在手机上控制 kodi"></a>通过安装 kodi 的客户端，在手机上控制 kodi</h3><p>可以在手机上下载 kodi 客户端来实现屏幕的控制。比如 iphone 在 AppStore 上搜索 kodi 就可以了。</p>
+<p>要打开 kodi 的客户端控制，需要在 kodi 上进行配置。</p>
+<p>1. 配置 Web 服务器</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kodi-setting1.jpg" alt="配置 Web 服务器"></p>
+<p>2. 开启 Zeroconf 协议</p>
+<p>同样在 kodi 客户端上进行连接服务器的配置。 </p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kodi-on-iphone.jpeg" alt="kodi客户端iphone"> <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kodi-operator-on-iphone" alt="kodi iphone遥控器"></p>
+<p>下面是用 kodi 打开搜狐视频播放影片的截屏。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kodi-movie.jpeg" alt="kodi播放影片"></p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>总的来讲，今天的收获还是很大的。</p>
+<ol>
+<li>点亮系统比我想象的要简单。</li>
+<li>也搞定了 ssh 登录，以后不用屏幕、外设来控制树莓派也很方便。</li>
+<li>kodi 则让我觉得惊艳，尤其是通过手机来控制 kodi 以后，觉得比较酷。另外则是惊叹小小一块板子，看起视频来效果还是不错的。</li>
+</ol>
+<p>最大的感慨是，网络上的很多教程都过时了。比起那些教程，新版的 Raspbian 是在容易上手太多，很多东西也都预装好了，更加傻瓜化了。</p>
+<p><strong>参考</strong></p>
+<p><a href="http://www.5yun.org/9148.html" target="_blank" rel="external">Kodi播放器出现乱码的解决方法，超简单!</a></p>
+<p><a href="http://www.jianshu.com/p/5dc83db2b78e" target="_blank" rel="external">mac 下安装树莓派系统</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;周五晚上开箱晒图以后，直到周日才有时间开始折腾我的树莓派。&lt;/p&gt;
+&lt;p&gt;今天第一个小目标，就是点亮树莓派。&lt;/p&gt;
+&lt;p&gt;先说一下我自己拥有的设备。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;mac 电脑，没有 windows 系统。&lt;/li&gt;
+&lt;li&gt;没有键盘，有一个无线鼠标。&lt;/li
+    
+    </summary>
+    
+    
+      <category term="raspberry pi" scheme="http://linfuyan.com/tags/raspberry-pi/"/>
+    
+  </entry>
   
   <entry>
     <title>macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘</title>
@@ -716,11 +844,11 @@
       <category term="LAMP" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/LAMP/"/>
     
     
-      <category term="HomeBrew" scheme="http://linfuyan.com/tags/HomeBrew/"/>
-    
       <category term="MySQL" scheme="http://linfuyan.com/tags/MySQL/"/>
     
       <category term="Mac" scheme="http://linfuyan.com/tags/Mac/"/>
+    
+      <category term="HomeBrew" scheme="http://linfuyan.com/tags/HomeBrew/"/>
     
       <category term="OSX" scheme="http://linfuyan.com/tags/OSX/"/>
     
@@ -770,11 +898,11 @@
       <category term="nodejs" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/nodejs/"/>
     
     
-      <category term="HomeBrew" scheme="http://linfuyan.com/tags/HomeBrew/"/>
+      <category term="MongoDB" scheme="http://linfuyan.com/tags/MongoDB/"/>
     
       <category term="Mac" scheme="http://linfuyan.com/tags/Mac/"/>
     
-      <category term="MongoDB" scheme="http://linfuyan.com/tags/MongoDB/"/>
+      <category term="HomeBrew" scheme="http://linfuyan.com/tags/HomeBrew/"/>
     
   </entry>
   
@@ -2831,185 +2959,6 @@ alpha = (aLongBooleanExpression)
       <category term="Task" scheme="http://linfuyan.com/tags/Task/"/>
     
       <category term="后退栈" scheme="http://linfuyan.com/tags/%E5%90%8E%E9%80%80%E6%A0%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android Activity 详解</title>
-    <link href="http://linfuyan.com/android-activity/"/>
-    <id>http://linfuyan.com/android-activity/</id>
-    <published>2015-11-04T10:05:39.000Z</published>
-    <updated>2015-11-09T10:13:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><ol>
-<li>Activity 是一个提供屏幕的应用程序组件，用户通过它与机器产生交互。</li>
-<li>每个 Activity 包含一个窗口( window )，大部分情况下窗口是全屏的，也有可能窗口比屏幕小且在其他窗口的顶部。</li>
-<li>一个应用程序由一个或者多个 Activity 组成，这些 Activity 之间是松散的组织在一起的。</li>
-<li>每一个 Activity 可以启动其他的 Activity，不同的 Activity 可以执行不同的动作。</li>
-<li>新的 Activity 启动以后，原来的 Activity 会被保留到后退栈中，后退栈遵循基本的后进先出的堆栈机制。在当前 Activity 中按返回键退出，当前 Activity 将被从堆栈中弹出、销毁，之前的 Activity 则被恢复。</li>
-<li>当 Activity 被启动，或者被停止时，都会通过生命周期回调的方式来通知自己的状态变化。这些状态包括被创建、停止、恢复、销毁，每个回调都提供了在特定状态下执行特定任务的时机。</li>
-</ol>
-<h2 id="如何创建-Activity"><a href="#如何创建-Activity" class="headerlink" title="如何创建 Activity"></a>如何创建 Activity</h2><ol>
-<li>创建 Activity 可以通过创建 Activity 的子类，或者一个已经存在的 Activity 子类来实现。</li>
-<li>在创建的子类中实现生命周期的回调方法。其中最重要的是 onCreate 和 onPause。<ul>
-<li>必须实现 onCreate 方法，并且在其中调用 setContentView() 来定义用户布局。</li>
-<li>在 onPause 中提交当前会话中需要被持久化的更改，以避免用户可能不再回来导致的数据丢失。</li>
-</ul>
-</li>
-</ol>
-<h3 id="实现用户界面"><a href="#实现用户界面" class="headerlink" title="实现用户界面"></a>实现用户界面</h3><ol>
-<li>Activity 的用户界面是由一系列的视图层级来提供的。</li>
-<li>视图源自于 View 类的对象。每个视图控制 Activity 的窗口上的特定矩形空间，并响应用户交互。</li>
-<li>用户提供了一系列内置的视图，包括”控件”和”布局”。<ul>
-<li>控件指的是在屏幕上提供的可见、可交互的元素的视图。</li>
-<li>布局源自 ViewGroup， 为它的子类提供唯一的布局模型。</li>
-</ul>
-</li>
-<li>可以实现 View 或者 ViewGroup 的子类来创建自己的控件和布局。</li>
-<li>常用的视图布局定义方式包括：<ul>
-<li>通过资源文件中的 XML 布局，并在 setContentView() 方法中传递资源ID。可以使界面设计的维护和逻辑代码分离。</li>
-<li>通过代码创建 View， 并插入到 ViewGroup 来构建视图层级，然后传递根 ViewGroup 给 setContentView()。</li>
-</ul>
-</li>
-</ol>
-<h3 id="在清单中声明-Activity"><a href="#在清单中声明-Activity" class="headerlink" title="在清单中声明 Activity"></a>在清单中声明 Activity</h3><ol>
-<li>使用 Activity 前，需要在应用清单文件中对其进行声明。在 <code>&lt;application&gt;</code> 元素中添加 <code>&lt;activity&gt;</code> 子元素。</li>
-<li><code>&lt;activity&gt;</code> 元素中还有许多属性用来定义Activity 的标签、图标、主题等， <code>android:name</code> 是唯一必须的属性，用于定义 Activity 的名称。</li>
-<li>Activity 的名称定义以后，不要随便改动。如果改动，可能造成某些功能无法正常使用。</li>
-</ol>
-<h3 id="使用意图过滤器"><a href="#使用意图过滤器" class="headerlink" title="使用意图过滤器"></a>使用意图过滤器</h3><ol>
-<li><code>&lt;activity&gt;</code> 元素通过 <code>&lt;intent-filter&gt;</code> 元素来定义不同的意图过滤器，用来声明其他应用程序如何激活它。</li>
-<li>Android SDK 工具在创建应用程序时自动生成的 Activity 中包含的意图过滤器，声明了 Activity 响应 main 动作，并放在 launcher 类别中。<ul>
-<li><code>&lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;</code> 指定这是应用程序的主入口。</li>
-<li><code>&lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;</code> 指定 Activity 被列在系统的应用程序启动器中，这样用户可以启动它。</li>
-</ul>
-</li>
-<li>如果不允许其他的应用程序来启动 Activity，则不要声明任何的意图过滤器。</li>
-<li>在应用程序内部，可以通过显式的意图来启动想要的 Activity。</li>
-<li>如果定义了意图过滤器，则可以让其他应用程序通过隐式意图来激活 Activity。</li>
-<li><code>&lt;intent-filter&gt;</code> 元素中包含有 <code>&lt;action&gt;</code> 元素及可选的 <code>&lt;category&gt;</code> 或者 <code>&lt;data&gt;</code>，这些元素一同指定了 Activity 能响应的意图类型。</li>
-</ol>
-<h2 id="启动一个-Activity"><a href="#启动一个-Activity" class="headerlink" title="启动一个 Activity"></a>启动一个 Activity</h2><ol>
-<li>通过 startActivity() 方法来启动 Activity， 并传递一个 Intent 意图对象。</li>
-<li>Intent 对象通过两种方式描述想要启动的 Activity：<ul>
-<li>准确的 Activity 对象。</li>
-<li>想要执行的动作类型。系统会自动选择合适的 Activity， 可能来自其他的应用程序。</li>
-</ul>
-</li>
-<li>Intent 还可以传递少量的数据给即将启动的 Activity。</li>
-<li>使用类名来启动已知的 Activity：</li>
-</ol>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Intent</span> <span class="keyword">intent</span> = new <span class="keyword">Intent</span>(this, SignInActivity.<span class="keyword">class</span>);</div><div class="line">startActivity(<span class="keyword">intent</span>);</div></pre></td></tr></table></figure>
-<ol>
-<li>使用 Intent 来描述要执行的动作，系统从其他应用程序中选择打开合适的 Activity， 如果有多个 Activity， 则由用户来选择：</li>
-</ol>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Intent</span> <span class="keyword">intent</span> = new <span class="keyword">Intent</span>(<span class="keyword">Intent</span>.ACTION_SEND);</div><div class="line"><span class="keyword">intent</span>.putExtra(<span class="keyword">Intent</span>.EXTRA_EMAIL, recipientArray);</div><div class="line">startActivity(<span class="keyword">intent</span>);</div></pre></td></tr></table></figure>
-<h3 id="为结果启动-Activity"><a href="#为结果启动-Activity" class="headerlink" title="为结果启动 Activity"></a>为结果启动 Activity</h3><ol>
-<li>如果启动一个 Activity， 并期望从新的 Activity 上接收一个结果，则使用 startActivityForResult()。</li>
-<li>要接收新 Activity 上的结果，需要在原 Activity 上实现 onActivityResult() 方法，从其中的 Intent 参数中获取返回结果。</li>
-<li>onActivityResult() 方法处理 Activity 返回结果：<ul>
-<li>处理成功，则 resultCode 为 RESULT_OK。</li>
-<li>需要检查 requestCode 是否与 startActivityForResult() 的第二个参数匹配。</li>
-<li>返回的结果以 Intent 带回。</li>
-</ul>
-</li>
-</ol>
-<h2 id="关闭-Activity"><a href="#关闭-Activity" class="headerlink" title="关闭 Activity"></a>关闭 Activity</h2><p>通过 finish() 和 finishActivity() 来关闭 Activity。实际上由于 Android 系统自己管理 Activity 的生命，你不应该显示的调用这些方法。</p>
-<h2 id="管理-Activity-生命周期"><a href="#管理-Activity-生命周期" class="headerlink" title="管理 Activity 生命周期"></a>管理 Activity 生命周期</h2><ol>
-<li>通过实现回调方法来管理 Activity 的生命周期，可以开发一个健壮且灵活的应用程序。 Activity 的生命周期则直接影响到它所关联的其他 Activity， 任务以及后退栈。</li>
-<li>Activity 的主要状态：<ul>
-<li>Resumed： Activity 处于前台屏幕，且拥有用户焦点。</li>
-<li>Paused：其他 Activity 位于前台，但这个 Activity 还是可见的。其他 Activity 位于顶部且没有覆盖整个屏幕。这时候， Activity 还在内存中，<strong>与窗口管理器关联</strong>，但在内存极低的情况下将被系统杀掉。</li>
-<li>Stopped： Activity 被其他 Activity 完全覆盖，位于后台。这时候， Activity 还在内存中，<strong>与窗口管理器分离</strong>，当需要内存时将被系统杀掉。</li>
-</ul>
-</li>
-<li>当 Activity 被暂停或者被停止，系统可以通过调用 finish() 或者直接删掉进程的方式丢弃它。重新打开时需要重建。</li>
-</ol>
-<h3 id="基础的生命周期方法"><a href="#基础的生命周期方法" class="headerlink" title="基础的生命周期方法"></a>基础的生命周期方法</h3><table>
-<thead>
-<tr>
-<th>生命周期方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>onCreate()</td>
-<td>Activity 将被创建。</td>
-</tr>
-<tr>
-<td>onStart()</td>
-<td>Activity 即将可见。</td>
-</tr>
-<tr>
-<td>onResume()</td>
-<td>Activity 已经可见，处于 resumed 状态。</td>
-</tr>
-<tr>
-<td>onPause()</td>
-<td>其他 Activity 可见，自己则即将处于 paused 状态。</td>
-</tr>
-<tr>
-<td>onStop()</td>
-<td>Activity 不在可见，处于 stopped 状态。</td>
-</tr>
-<tr>
-<td>onDestroy()</td>
-<td>Activity 即将被销毁。</td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>在实现生命周期方法时，需要调用父类的实现。</li>
-<li>实现这些生命周期方法，你可以监控 3 个嵌套的循环。<ul>
-<li>完整生命：从 onCreate() 到 onDestroy() 。在 onCreate() 中建立全局状态，并在 onDestroy() 中释放资源。</li>
-<li>可见生命：从 onStart() 到 onStop() 。这个过程中，用户可以看到 Activity 并与之交互。</li>
-<li>前台生命：从 onResume() 到 onPause()。</li>
-</ul>
-</li>
-</ol>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/activity_lifecycle.png" alt="Activity 生命周期"></p>
-<h3 id="保存-Activity-状态"><a href="#保存-Activity-状态" class="headerlink" title="保存 Activity 状态"></a>保存 Activity 状态</h3><ol>
-<li>Activity 处于 paused， stopped 时依然存在内存中，所有的数据及状态都存在，因此当被恢复时依然保持退出时的状态。</li>
-<li>但处于 paused， stopped 状态的 Activity 可能会被系统杀掉，从而用户重新打开时，与当时提出时不一样了。为了保证能够还原现场，则需要实现 onSaveInstanceState() 回调方法。</li>
-<li>系统在 Activity 被销毁之前调用 onSaveInstance() ，通过将需要记住的状态通过键值对的形式保存到 Bundle 参数中。当应用程序被系统杀死，并再次被启动时，会将保存的 Bundle 传递到 onCreate() 和 onRestoreInstanceState() 。从这些方法的 Bundle 参数中，就可以获取到 Activity 被销毁前的状态，并据此恢复 Activity。</li>
-</ol>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/restore_instance.png" alt="Activity 恢复实例"></p>
-<ol>
-<li>onSaveInstanceState() 并不是在 Activity 被销毁之前一定会被调用。该方法在 onStop() 之前被调用，是否在 onPause() 前则不确定。</li>
-<li>即使你没有实现 onSaveInstanceState() ，在 Activity 的 onSaveInstanceState() 的默认实现中也可以恢复一些状态。由于 onSaveInstanceState() 的默认实现中保存了 UI 的状态，因此，在自己实现 onSaveInstanceState() 时，需要调用父类的 onSaveInstanceState()。</li>
-<li>由于 onSaveInstanceState() 不保证一定会被调用，因此不能在这个回调中记录 Activity 状态的变换，也不应该使用它来持久化数据，而应该使用 onPause()。</li>
-<li>一个好的，用来测试应用程序恢复状态能力的方法是简单地旋转设备的屏幕方向。</li>
-</ol>
-<h3 id="处理配置改变"><a href="#处理配置改变" class="headerlink" title="处理配置改变"></a>处理配置改变</h3><p>某些设备配置在运行时会发生改变，如屏幕方向、键盘可用性和语言。当这些改变发生时， Android 重建运行中的 Activity (系统调用 onDestroy() 后马上调用 onCreate() )。这个行为被设计用来帮助应用程序适应新的配置，自动为应用程序重新加载已提供的可替换资源，如为不同屏幕方向和尺寸使用的不同布局。</p>
-<p>处理重启的最好方法是使用 onSaveInstanceState() 和 onRestoreInstanceState() (或者 onCreate()) 来保存和恢复 Activity 的状态。</p>
-<h3 id="协调多个-Activity"><a href="#协调多个-Activity" class="headerlink" title="协调多个 Activity"></a>协调多个 Activity</h3><p>当一个 Activity 启动另外一个时，两个 Activity 都会经历生命周期的变换。当另一个 Activity 被创建时，第一个 Activity 将暂停，乃至停止(如果它在后台且可见，则不会停止)。如果两个 Activity 之间共享保存在磁盘上的数据，对于理解在第二个 Activity 创建完成之前，第一个 Activity 不会完全停止是非常重要的。第二个 Activity 的启动过程和第一个 Activity 的停止过程重叠。</p>
-<p>生命周期回调的顺序是被良好定义的，特别是当两个 Activity 在相同的进程中，且一个启动另外一个。下面是当 Activity A 启动 Activity B 时的操作顺序：</p>
-<ol>
-<li>执行 Activity A 的 onPause() 方法。</li>
-<li>Activity B 的 onCreate() ， onStart() 和 onResume() 方法按顺序执行。(这是 Activity 获取了用户焦点)。</li>
-<li>如果 Activity A 不再屏幕上可见， onStop() 方法被执行。</li>
-</ol>
-<p>可预期的生命周期回调顺序使得你可以管理一个 Activity 到另一个的变换信息。例如，你必须在第一个 Activity 停止时对数据库进行写入，这样接下来的 Activity 可以读取，那么你需要在 onPause() 中写入数据库，而不是在 onStop() 中。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://developer.android.com/guide/components/activities.html" target="_blank" rel="external">https://developer.android.com/guide/components/activities.html</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;概览&quot;&gt;&lt;a href=&quot;#概览&quot; class=&quot;headerlink&quot; title=&quot;概览&quot;&gt;&lt;/a&gt;概览&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;Activity 是一个提供屏幕的应用程序组件，用户通过它与机器产生交互。&lt;/li&gt;
-&lt;li&gt;每个 Activity 包含一个窗
-    
-    </summary>
-    
-      <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="Android" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Android/"/>
-    
-    
-      <category term="Android" scheme="http://linfuyan.com/tags/Android/"/>
-    
-      <category term="Activity" scheme="http://linfuyan.com/tags/Activity/"/>
     
   </entry>
   

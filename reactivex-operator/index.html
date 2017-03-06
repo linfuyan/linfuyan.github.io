@@ -10,7 +10,7 @@
 更新历史：1月13日
 
 每个特定语言版本的响应式扩展实现了一套具体的操作集合。虽然有一些重叠，依然有一些操作只在特定的版本中实现，并且每种语言趋向于将相似的操作命名成其他语言中已经为大家所熟悉的名称。
-这篇文章列举出响应式扩展集合中被认为核心的操">
+这篇文章列举出响应式扩展集合中被认为核心的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ReactiveX 之 Operator">
 <meta property="og:url" content="http://linfuyan.com/reactivex-operator/index.html">
@@ -20,7 +20,7 @@
 更新历史：1月13日
 
 每个特定语言版本的响应式扩展实现了一套具体的操作集合。虽然有一些重叠，依然有一些操作只在特定的版本中实现，并且每种语言趋向于将相似的操作命名成其他语言中已经为大家所熟悉的名称。
-这篇文章列举出响应式扩展集合中被认为核心的操">
+这篇文章列举出响应式扩展集合中被认为核心的">
 <meta property="og:updated_time" content="2015-10-13T15:18:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactiveX 之 Operator">
@@ -29,18 +29,18 @@
 更新历史：1月13日
 
 每个特定语言版本的响应式扩展实现了一套具体的操作集合。虽然有一些重叠，依然有一些操作只在特定的版本中实现，并且每种语言趋向于将相似的操作命名成其他语言中已经为大家所熟悉的名称。
-这篇文章列举出响应式扩展集合中被认为核心的操">
+这篇文章列举出响应式扩展集合中被认为核心的">
   
   
     <link rel="icon" href="/favicon.png">
   
 
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
   
-    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+    <link rel="stylesheet" href="/scrollLoading/style.css">
   
   
 
@@ -51,7 +51,7 @@
     <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
     <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
    -->
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -129,7 +129,7 @@
 <p>每个特定语言版本的响应式扩展实现了一套具体的操作集合。虽然有一些重叠，依然有一些操作只在特定的版本中实现，并且每种语言趋向于将相似的操作命名成其他语言中已经为大家所熟悉的名称。</p>
 <p>这篇文章列举出响应式扩展集合中被认为核心的操作，并链接到更多说明的页面上。这些页面将解释这些操作如何工作，哪些特定版本的响应式扩展又是怎样实现这些操作。</p>
 <a id="more"></a>
-<h2 id="创建Observable">创建<em>Observable</em></h2><p>创建新的<em>Observable</em>的<em>Operator</em>。</p>
+<h2 id="创建Observable"><a href="#创建Observable" class="headerlink" title="创建Observable"></a>创建<em>Observable</em></h2><p>创建新的<em>Observable</em>的<em>Operator</em>。</p>
 <ul>
 <li><code>Create</code> - 通过编程方式调用<em>observer</em>的方法，从零创建<em>Observable</em></li>
 <li><code>Defer</code> - 直到<em>observer</em>订阅，为每个<em>observer</em>创建全新的<em>Observable</em></li>
@@ -142,7 +142,7 @@
 <li><code>Start</code> - 创建产生函数返回值的<em>Observable</em></li>
 <li><code>Timer</code> - 创建一段给定时间以后产生单一项的<em>Observable</em></li>
 </ul>
-<h2 id="变换Observable">变换<em>Observable</em></h2><p>变换<em>Observable</em>产生的项的<em>Operator</em>。</p>
+<h2 id="变换Observable"><a href="#变换Observable" class="headerlink" title="变换Observable"></a>变换<em>Observable</em></h2><p>变换<em>Observable</em>产生的项的<em>Operator</em>。</p>
 <ul>
 <li><code>Buffer</code> - 周期性的收集<em>Observable</em>中的项放入bundle中，并产生这些bundle而不是一次性产生这些项</li>
 <li><code>FlatMap</code> - 将<em>Observable</em>所产生的多个项目变换为多个<em>Observable</em>，然后将这些<em>Observable</em>的产生值拉平为一个<em>Observable</em></li>
@@ -151,7 +151,7 @@
 <li><code>Scan</code> - 对<em>Observable</em>产生的每个项进行函数变换，有序的产生成功的值</li>
 <li><code>Window</code> - 周期性的将<em>Observable</em>产生的项进行分隔成子集，放入<em>Observable window</em>，并产生这些<em>window</em>而不是一次性产生这些项</li>
 </ul>
-<h2 id="过滤Observable">过滤<em>Observable</em></h2><p>选择性的从源<em>Observable</em>中产生项的<em>Operator</em>。</p>
+<h2 id="过滤Observable"><a href="#过滤Observable" class="headerlink" title="过滤Observable"></a>过滤<em>Observable</em></h2><p>选择性的从源<em>Observable</em>中产生项的<em>Operator</em>。</p>
 <ul>
 <li><code>Debounce</code> - 在一段特定的时间之内从<em>Observable</em>中只产生一个项</li>
 <li><code>Distinct</code> - 过滤掉<em>Observable</em>中产生的重复的项</li>
@@ -166,7 +166,7 @@
 <li><code>Take</code> - 产生<em>Observable</em>产生的前n个项</li>
 <li><code>TakeLast</code> - 产生<em>Observable</em>产生的最后n个项</li>
 </ul>
-<h2 id="组合Observable">组合<em>Observable</em></h2><p>操作多个源<em>Observable</em>来创建新的<em>Observable</em>的<em>Operator</em></p>
+<h2 id="组合Observable"><a href="#组合Observable" class="headerlink" title="组合Observable"></a>组合<em>Observable</em></h2><p>操作多个源<em>Observable</em>来创建新的<em>Observable</em>的<em>Operator</em></p>
 <ul>
 <li><code>And/Then/When</code> - 以<code>Pattern</code>和<code>Plan</code>的形式，组合两个或多个<em>Observable</em>产生的项集</li>
 <li><code>CombineLatest</code> - 不论两个<em>Observable</em>中产生了项，通过特定的函数来组合每个<em>Observable</em>中的最后一项，并产生他们的结果</li>
@@ -176,12 +176,12 @@
 <li><code>Switch</code> - </li>
 <li><code>Zip</code> - 通过特定的函数将多个<em>Observable</em>的产生项组合成单一项，每个组合依赖于函数结果。</li>
 </ul>
-<h2 id="错误处理Operator">错误处理<em>Operator</em></h2><p>帮助从<em>Observable</em>错误通知中修复的<em>Operator</em></p>
+<h2 id="错误处理Operator"><a href="#错误处理Operator" class="headerlink" title="错误处理Operator"></a>错误处理<em>Operator</em></h2><p>帮助从<em>Observable</em>错误通知中修复的<em>Operator</em></p>
 <ul>
 <li><code>Catch</code> - 通过没有错误的继续产生序列来从<code>onError</code>通知中修复</li>
 <li><code>Retry</code> - 如果源<em>Observable</em>发送了<code>onError</code>通知，重新订阅它并期待它可以没有错误的完成</li>
 </ul>
-<h2 id="Observable工具集Operator"><em>Observable</em>工具集<em>Operator</em></h2><p>一系列操作<em>Observable</em>的有用的工具箱<em>Operator</em></p>
+<h2 id="Observable工具集Operator"><a href="#Observable工具集Operator" class="headerlink" title="Observable工具集Operator"></a><em>Observable</em>工具集<em>Operator</em></h2><p>一系列操作<em>Observable</em>的有用的工具箱<em>Operator</em></p>
 <ul>
 <li><code>Delay</code> - 将<em>Observable</em>产生项延迟一个特定的时间</li>
 <li><code>Do</code> - 注册一个动作来响应<em>Observable</em>的生命周期事件</li>
@@ -193,7 +193,7 @@
 <li><code>Timestamp</code> - 给每个<em>Observable</em>产生项附加时间戳</li>
 <li><code>Using</code> - 创建一个与<em>Observable</em>具有相同寿命的一次性资源</li>
 </ul>
-<h2 id="条件和布尔Operator">条件和布尔<em>Operator</em></h2><p>评估一个或多个<em>Observable</em>或<em>Observable</em>产生的项</p>
+<h2 id="条件和布尔Operator"><a href="#条件和布尔Operator" class="headerlink" title="条件和布尔Operator"></a>条件和布尔<em>Operator</em></h2><p>评估一个或多个<em>Observable</em>或<em>Observable</em>产生的项</p>
 <ul>
 <li><code>All</code> - 确定是否所有的<em>Observable</em>产生项符合标准</li>
 <li><code>Amb</code> - 有两个或者多个源<em>Observable</em>，只对其中的第一个<em>Observable</em>产生其项</li>
@@ -205,7 +205,7 @@
 <li><code>TakeUntil</code> - 当第二个<em>Observable</em>产生了项，第一个<em>Observable</em>丢弃所有的产生项</li>
 <li><code>TakeWhile</code> - 当某个特定条件不成立，<em>Observable</em>丢弃所有的产生项</li>
 </ul>
-<h2 id="数学与聚合Operator">数学与聚合<em>Operator</em></h2><p>操作<em>Observable</em>所有产生项的序列的<em>Operator</em></p>
+<h2 id="数学与聚合Operator"><a href="#数学与聚合Operator" class="headerlink" title="数学与聚合Operator"></a>数学与聚合<em>Operator</em></h2><p>操作<em>Observable</em>所有产生项的序列的<em>Operator</em></p>
 <ul>
 <li><code>Average</code> - 计算<em>Observable</em>所有产生项的平均值，并产生这个平均值</li>
 <li><code>Concat</code> - 拼接两个或者多个<em>Observable</em></li>
@@ -215,20 +215,20 @@
 <li><code>Reduce</code> - 对<em>Observable</em>产生的每个项应用函数变换，并且有序的产生最终变换结果</li>
 <li><code>Sum</code> - 计算<em>Observable</em>所有产生项的和，并产生这个和的值</li>
 </ul>
-<h2 id="Connectable_Observable_Operator"><em>Connectable Observable Operator</em></h2><p>特殊的<em>Observable</em>具有更多的动态的精确控制的订阅方式。</p>
+<h2 id="Connectable-Observable-Operator"><a href="#Connectable-Observable-Operator" class="headerlink" title="Connectable Observable Operator"></a><em>Connectable Observable Operator</em></h2><p>特殊的<em>Observable</em>具有更多的动态的精确控制的订阅方式。</p>
 <ul>
 <li><code>Connect</code> - 指示一个可连接的<em>Observable</em>开始产生项到它的订阅者</li>
 <li><code>Publish</code> - 转化一个普通的<em>Observable</em>为一个可连接的<em>Observable</em></li>
 <li><code>RefCount</code> - 使一个可链接的<em>Observable</em>的行为跟普通的<em>Observable</em>一样</li>
 <li><code>Replay</code> - 确保所有观察者看到的产生项序列一样，即使它们在<em>Observable</em>产生项以后才订阅</li>
 </ul>
-<h2 id="Blocking_Observable_Operator"><em>Blocking Observable Operator</em></h2><ul>
+<h2 id="Blocking-Observable-Operator"><a href="#Blocking-Observable-Operator" class="headerlink" title="Blocking Observable Operator"></a><em>Blocking Observable Operator</em></h2><ul>
 <li><code>To</code> - 将<em>Observable</em>转化为其他对象或者数据结构</li>
 </ul>
 
       </div>
       <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/reactivex-operator/" data-id="ciww5x6lh002vd4fyrs6tyrq1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        <!-- <a data-url="http://linfuyan.com/reactivex-operator/" data-id="cizxt3ecg003wq2fy9ebu448o" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
         
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Operator/">Operator</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frp/">frp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactivex/">reactivex</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rxjava/">rxjava</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/响应式编程/">响应式编程</a></li></ul>
@@ -375,6 +375,26 @@
             
             <div class="item-thumbnail">
               
+<a href="/macOS-Sierra-docker-seafile/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/seafile.gif
+)" alt="macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a></p>
+              <p class="item-title"><a href="/macOS-Sierra-docker-seafile/" class="title">macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘</a></p>
+              <p class="item-date"><time datetime="2017-03-06T07:42:00.000Z" itemprop="datePublished">2017-03-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
 <a href="/ubuntu-ngrok/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
@@ -448,25 +468,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/$q_and_promise_in_angular/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Web前端/">Web前端</a></p>
-              <p class="item-title"><a href="/$q_and_promise_in_angular/" class="title">形象的讲解 angular 中的 $q 与 promise</a></p>
-              <p class="item-date"><time datetime="2016-07-06T08:17:10.000Z" itemprop="datePublished">2016-07-06</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -476,7 +477,7 @@
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -516,7 +517,7 @@
         <h1 class="logo-wrap">
           <a href="/" class="logo"></a>
         </h1>
-        <p>&copy; 2016 linfuyan</p>
+        <p>&copy; 2017 linfuyan</p>
         <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
         <p>
         <!-- CNZZ 统计 -->
@@ -534,16 +535,16 @@
 
 
 
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
-  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
-  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
+  <script src="/scrollLoading/main.js"></script>
 
 
-<script src="/js/html-patch.js" type="text/javascript"></script>
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/html-patch.js"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

@@ -44,17 +44,18 @@
 分为开发和发布两种，类型为 iPhone Development， iPhone Distribution。这个是最基础的，开发证书用于真机调试，发布证书则用于上传到 AppStore，是一个基础证书，用来证明开发者身份。
 2. App ID
 这是每一个应用的独立标识，在设置项中可以配置该应用的权限，比如是否用到了 PassBook，GameCenter，以及更为场景的 pu">
+<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/iOS_cer_list.png">
   
   
     <link rel="icon" href="/favicon.png">
   
 
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
   
-    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+    <link rel="stylesheet" href="/scrollLoading/style.css">
   
   
 
@@ -65,7 +66,7 @@
     <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
     <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
    -->
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -135,7 +136,7 @@
 </a>
       </p>
       <div class="article-entry" itemprop="articleBody">
-        <h2 id="概述">概述</h2><p>1. <strong>开发者证书</strong></p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>1. <strong>开发者证书</strong></p>
 <p>分为开发和发布两种，类型为 <code>iPhone Development</code>， <code>iPhone Distribution</code>。这个是最基础的，开发证书用于真机调试，发布证书则用于上传到 AppStore，是一个基础证书，用来证明开发者身份。</p>
 <p>2. <strong>App ID</strong></p>
 <p>这是每一个应用的独立标识，在设置项中可以配置该应用的权限，比如是否用到了 PassBook，GameCenter，以及更为场景的 push 服务。如果选中了 push 服务，那么就可以创建生成下面第3条所提到的推送证书，所以，在所有和推送相关的配置中，首先要做的就是先开通支持推送服务的 App ID。</p>
@@ -152,13 +153,13 @@
 <li>在开通推送服务的选项下面创建推送证书</li>
 <li>之后在 profile 文件中绑定所有的证书ID，添加调试真机等</li>
 </ol>
-<h2 id="制作开发者证书">制作开发者证书</h2><p>要制作开发者证书，首先登录开发者中心，找到证书配置版块，点击证书，显示如下页面：</p>
+<h2 id="制作开发者证书"><a href="#制作开发者证书" class="headerlink" title="制作开发者证书"></a>制作开发者证书</h2><p>要制作开发者证书，首先登录开发者中心，找到证书配置版块，点击证书，显示如下页面：</p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS_cer_list.png" alt="开发者证书列表"></p>
 <p>点击右上角加号，进入创建页面：</p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS_cer_create.png" alt="开发者证书创建"></p>
 <p>创建开发证书和发布证书步骤是一样的，开发证书用于真机调试，发布证书用于提交到 AppStore，这里以开发证书的制作为例。</p>
 <p>选择 “iOS App Development” 选项，点击下方的继续按钮，提示需要创建证书签名请求( CSR )。</p>
-<h3 id="手动创建证书签名请求(_CSR_)">手动创建证书签名请求( CSR )</h3><p>在 Mac 上的应用程序文件夹中，打开钥匙串访问。</p>
+<h3 id="手动创建证书签名请求-CSR"><a href="#手动创建证书签名请求-CSR" class="headerlink" title="手动创建证书签名请求( CSR )"></a>手动创建证书签名请求( CSR )</h3><p>在 Mac 上的应用程序文件夹中，打开钥匙串访问。</p>
 <p>在钥匙串访问的下拉菜单中，选择 “钥匙串访问” &gt; “证书助理” &gt; “从证书颁发机构请求证书…”。</p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_csr_1.png" alt="创建 CSR"></p>
 <ul>
@@ -185,7 +186,7 @@
 <blockquote>
 <p>在生成不同的证书的时候可以上传同一个 CSR 文件。(这边似乎不会有什么影响?)</p>
 </blockquote>
-<h2 id="App_ID_与推送证书配置">App ID 与推送证书配置</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/app_id.png" alt="App ID 版块"></p>
+<h2 id="App-ID-与推送证书配置"><a href="#App-ID-与推送证书配置" class="headerlink" title="App ID 与推送证书配置"></a>App ID 与推送证书配置</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/app_id.png" alt="App ID 版块"></p>
 <p>进入 App ID 版块，点击右上角的加号，添加新的应用：</p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_app_id_1.png" alt="创建 App ID"></p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_app_id_2.png" alt="创建 App ID"></p>
@@ -197,7 +198,7 @@
 <blockquote>
 <p>虽然在创建证书版块也可以直接创建推送证书，但是还是建议在 App ID 中勾选 push 服务后再在此处创建，这样可以避免因为忘了开通 push 服务而导致推送不可用的情况发生。</p>
 </blockquote>
-<h2 id="创建_profile_文件">创建 profile 文件</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_profiles_1.png" alt="创建 profiles"></p>
+<h2 id="创建-profile-文件"><a href="#创建-profile-文件" class="headerlink" title="创建 profile 文件"></a>创建 profile 文件</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_profiles_1.png" alt="创建 profiles"></p>
 <p>打开 provisioning profiles 版块，点击右上角加号创建 profile 文件。</p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/create_profiles_2.png" alt="创建 profiles"></p>
 <p>可以选择开发、发布及 Ad Hoc 三种 profile 文件。开发 profile 文件用于真机测试，发布 profile 文件则用于提交发布。Ad Hoc 这里暂不讨论。</p>
@@ -216,7 +217,7 @@
 
       </div>
       <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/ios-cer-appid-push-profile/" data-id="ciww5x6np007od4fyg7v5ix0r" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        <!-- <a data-url="http://linfuyan.com/ios-cer-appid-push-profile/" data-id="cizxt3ebo002qq2fygno2wq1c" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
         
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/App-ID/">App ID</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/profile/">profile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/provision/">provision</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/push/">push</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图文教程/">图文教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发者证书/">开发者证书</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
@@ -363,6 +364,26 @@
             
             <div class="item-thumbnail">
               
+<a href="/macOS-Sierra-docker-seafile/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/seafile.gif
+)" alt="macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a></p>
+              <p class="item-title"><a href="/macOS-Sierra-docker-seafile/" class="title">macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘</a></p>
+              <p class="item-date"><time datetime="2017-03-06T07:42:00.000Z" itemprop="datePublished">2017-03-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
 <a href="/ubuntu-ngrok/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
@@ -436,25 +457,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/$q_and_promise_in_angular/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Web前端/">Web前端</a></p>
-              <p class="item-title"><a href="/$q_and_promise_in_angular/" class="title">形象的讲解 angular 中的 $q 与 promise</a></p>
-              <p class="item-date"><time datetime="2016-07-06T08:17:10.000Z" itemprop="datePublished">2016-07-06</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -464,7 +466,7 @@
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -504,7 +506,7 @@
         <h1 class="logo-wrap">
           <a href="/" class="logo"></a>
         </h1>
-        <p>&copy; 2016 linfuyan</p>
+        <p>&copy; 2017 linfuyan</p>
         <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
         <p>
         <!-- CNZZ 统计 -->
@@ -522,16 +524,16 @@
 
 
 
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
-  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
-  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
+  <script src="/scrollLoading/main.js"></script>
 
 
-<script src="/js/html-patch.js" type="text/javascript"></script>
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/html-patch.js"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

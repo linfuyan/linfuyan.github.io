@@ -20,17 +20,18 @@
 <meta name="twitter:title" content="如何在Ubuntu 14.04 上安装Linux, Apache, MySQL, PHP (LAMP)组件">
 <meta name="twitter:description" content="翻译自：https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04
 介绍“ LAMP “组件是一组典型的安装在一起的开源软件，用于服务器搭建动态网站和 Web 应用。实际上，这是一个首字母缩写的组合，代表了 Linux 操作系统安装">
+<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/default_apache.png">
   
   
     <link rel="icon" href="/favicon.png">
   
 
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
   
-    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+    <link rel="stylesheet" href="/scrollLoading/style.css">
   
   
 
@@ -41,7 +42,7 @@
     <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
     <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
    -->
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -112,94 +113,94 @@
       </p>
       <div class="article-entry" itemprop="articleBody">
         <p>翻译自：<a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04</a></p>
-<h4 id="介绍">介绍</h4><p>“ LAMP “组件是一组典型的安装在一起的开源软件，用于服务器搭建动态网站和 Web 应用。实际上，这是一个首字母缩写的组合，代表了 Linux 操作系统安装 <strong>A</strong>pache Web 服务器。网站的数据存储在 <strong>M</strong>ySQL 数据库中，并由 <strong>P</strong>HP 提供动态内容。</p>
+<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>“ LAMP “组件是一组典型的安装在一起的开源软件，用于服务器搭建动态网站和 Web 应用。实际上，这是一个首字母缩写的组合，代表了 Linux 操作系统安装 <strong>A</strong>pache Web 服务器。网站的数据存储在 <strong>M</strong>ySQL 数据库中，并由 <strong>P</strong>HP 提供动态内容。</p>
 <a id="more"></a>
 <p>在这篇向导中，我们将在 Ubuntu 14.04 Droplet 上搭建 LAMP 。 Ubuntu 提供了我们的第一个需求：一个 <strong>L</strong>inux 操作系统。</p>
-<h3 id="先决条件">先决条件</h3><p>在你开始这个向导之前，在你的服务器上需要配置一个独立的非 root 用户账号。你可以按照<a href="https://www.digitalocean.com/community/articles/initial-server-setup-with-ubuntu-14-04" target="_blank" rel="external">Ubuntu 14.04上搭建服务器</a>中的1-4步来学习完成它。</p>
-<h3 id="步骤一_-_安装Apache">步骤一 - 安装<strong>A</strong>pache</h3><p>Apache web 服务器是目前世界上最流行的 web 服务器，是挂载站点的最佳默认选择。</p>
+<h3 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h3><p>在你开始这个向导之前，在你的服务器上需要配置一个独立的非 root 用户账号。你可以按照<a href="https://www.digitalocean.com/community/articles/initial-server-setup-with-ubuntu-14-04" target="_blank" rel="external">Ubuntu 14.04上搭建服务器</a>中的1-4步来学习完成它。</p>
+<h3 id="步骤一-安装Apache"><a href="#步骤一-安装Apache" class="headerlink" title="步骤一 - 安装Apache"></a>步骤一 - 安装<strong>A</strong>pache</h3><p>Apache web 服务器是目前世界上最流行的 web 服务器，是挂载站点的最佳默认选择。</p>
 <p>我们将通过 Ubuntu 的包管理器 <code>apt</code> 来便捷地安装 Apache。这个包管理器让我们可以毫无痛苦的从 Ubuntu 维护的存储库中来安装大多数的软件。更多关于 <code>apt</code> 的信息，可以看这里<a href="https://www.digitalocean.com/community/articles/how-to-manage-packages-in-ubuntu-and-debian-with-apt-get-apt-cache" target="_blank" rel="external">如何使用 apt</a>。</p>
 <p>为了我们的目标，我们可以从输入这些命令开始：</p>
-<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line">sudo apt-<span class="built_in">get</span> install apache2</span><br></pre></td></tr></table></figure>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></div><div class="line">sudo apt-<span class="built_in">get</span> install apache2</div></pre></td></tr></table></figure>
 <p>由于我们使用 <code>sudo</code> 命令，这些操作在 root 权限下执行。这将要求你输入常规用户的密码来验证你的意图。</p>
 <p>在此之后，你的 web 服务器就安装好了。</p>
 <p>你可以马上做一些验证来确定一起如预期进行。在浏览器中输入你服务器的公网IP地址：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">http:</span><span class="comment">//your_server_IP_address</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">http:</span><span class="comment">//your_server_IP_address</span></div></pre></td></tr></table></figure>
 <p>你将看到默认的 Ubuntu 14.04 Apache 页面，这个页面展示的目的是出于测试及显示信息。看起来他是这样的：</p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/default_apache.png" alt="image"></p>
 <p>如果你看到这个页面，说明你的 web 服务器正确安装了。</p>
-<h4 id="如何找到你的服务器的公网_IP_地址">如何找到你的服务器的公网 IP 地址</h4><p>如果你不知道服务器的公网IP地址是什么，可以有多重方式来找到。通常，这个地址是你用来通过SSH来连接你的服务器的。</p>
+<h4 id="如何找到你的服务器的公网-IP-地址"><a href="#如何找到你的服务器的公网-IP-地址" class="headerlink" title="如何找到你的服务器的公网 IP 地址"></a>如何找到你的服务器的公网 IP 地址</h4><p>如果你不知道服务器的公网IP地址是什么，可以有多重方式来找到。通常，这个地址是你用来通过SSH来连接你的服务器的。</p>
 <p>在命令行下，有一些方法来找到。首先，你可以使用 <code>iproute2</code> 工具来获取地址，输入以下命令：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ip</span> addr show eth0 | grep inet | awk <span class="string">'&#123; print <span class="variable">$2</span>; &#125;'</span> | sed <span class="string">'s/\/.*$//'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">ip</span> addr show eth0 | grep inet | awk <span class="string">'&#123; print <span class="variable">$2</span>; &#125;'</span> | sed <span class="string">'s/\/.*$//'</span></div></pre></td></tr></table></figure>
 <p>这个将返回一行或两行输出。这两个都是正确地地址，但是你的电脑只能用其中之一，因此放松地尝试每一个。</p>
 <p>另一种方法是通过外部的第三方工具来查看你的服务器。你可以通过访问一个确定的服务器来查看自己的IP地址。</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="string">http:</span><span class="comment">//icanhazip.com</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl <span class="string">http:</span><span class="comment">//icanhazip.com</span></div></pre></td></tr></table></figure>
 <p>不论你用哪种方法获取到了自己的IP地址，你可以在浏览器的地址栏中来访问服务器。</p>
-<h3 id="步骤二_-_安装_MySQL">步骤二 - 安装 <strong>M</strong>ySQL</h3><p>现在我们已经安装了 web 服务器，并正常运行，是时候安装 MySQL 了。 MySQL 是一个数据库管理系统。最基本的，它用来组织和访问用来存储我们站点信息的数据库。</p>
+<h3 id="步骤二-安装-MySQL"><a href="#步骤二-安装-MySQL" class="headerlink" title="步骤二 - 安装 MySQL"></a>步骤二 - 安装 <strong>M</strong>ySQL</h3><p>现在我们已经安装了 web 服务器，并正常运行，是时候安装 MySQL 了。 MySQL 是一个数据库管理系统。最基本的，它用来组织和访问用来存储我们站点信息的数据库。</p>
 <p>我们再次用 <code>apt</code> 工具来获取和安装软件。这次，我们还需要安装一些其他的辅助工具包，来让安装的组件相互通信:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get <span class="operator"><span class="keyword">install</span> mysql-<span class="keyword">server</span> php5-mysql</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get <span class="keyword">install</span> mysql-<span class="keyword">server</span> php5-mysql</div></pre></td></tr></table></figure>
 <p><strong>注意：</strong>在这里，你不需要在执行这个命令之前，执行 <code>sudo apt-get update</code> 。因为我们在之前安装 Apache 的时候已经执行过了。你电脑上的包索引已经是最新的了。</p>
 <p>在安装过程中，你的服务器会让你为 MySQL 的 root 用户选择并设置密码。这在 MySQL 中是一个具有管理员权限的账号。这个有点类似于操作系统中的 root 账号（尽管如此，你目前所配置的账号仅针对 MySQL ）。</p>
 <p>当安装结束，我们需要运行一些额外的命令，来保证我们的 MySQL 环境足够安全。</p>
 <p>首先，我们需要告诉 MySQL 来创建它用于存储信息的数据库目录结构。你需要输入：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">sudo</span> mysql_install_db</span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">sudo</span> mysql_install_db</div></pre></td></tr></table></figure>
 <p>然后我们要运行一些简单地安全脚本来消除默认的危险配置，并锁定数据的访问。通过输入如下命令，来开始使用交互脚本：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">sudo</span> mysql_secure_installation</span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">sudo</span> mysql_secure_installation</div></pre></td></tr></table></figure>
 <p>你会被要求输入所设置的 MySQL 的 root 账号密码。接下来，会被问到是否想要修改密码，如果你对现有的密码满意，输入 <code>n</code> 代表 <code>no</code> 并提交。</p>
 <p>接下来的问题中，你只需简单地回车来使用默认配置。这样做会移除一些测试用户和数据库，禁止 root 用户远程登录，加载这些新的配置，以便我们的修改在 MySQL 中立即生效。</p>
 <p>到这里，你的数据库系统已经建立，可以继续下一步。</p>
-<h3 id="步骤三_-_安装_PHP">步骤三 - 安装 <strong>P</strong>HP</h3><p>PHP 是我们安装的一个组件，用于处理代码以显示动态内容。它可以运行脚本，连接到 MySQL 数据库来获取信息，并传输处理好的内容到web服务器来显示。</p>
+<h3 id="步骤三-安装-PHP"><a href="#步骤三-安装-PHP" class="headerlink" title="步骤三 - 安装 PHP"></a>步骤三 - 安装 <strong>P</strong>HP</h3><p>PHP 是我们安装的一个组件，用于处理代码以显示动态内容。它可以运行脚本，连接到 MySQL 数据库来获取信息，并传输处理好的内容到web服务器来显示。</p>
 <p>我们可以再次利用 <code>apt</code> 工具来安装我们的组件。同样，我们会包含一些辅助包：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install php5 libapache2-<span class="keyword">mod</span>-php5 php5-mcrypt</span><br></pre></td></tr></table></figure>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install php5 libapache2-mod-php5 php5-mcrypt</div></pre></td></tr></table></figure>
 <p>这样安装 PHP 将不会有任何问题，我们将马上测试。</p>
 <p>在大部分情况下，当请求文件夹时，我们需要修改 Apache 服务器上处理文件的方式。现在，如果一个用户向服务器请求目录， Apache 会首先寻找名为 <code>index.html</code> 的文件。我们需要告诉我们的 web 服务器优先处理 PHP 文件，因此我们让 Apache 首先寻找 <code>index.php</code> 。</p>
 <p>要完成这个，输入以下命令来在文本编辑器中打开 <code>dir.conf</code> 文件：</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano <span class="regexp">/etc/</span>apache2<span class="regexp">/mods-enabled/</span>dir.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nano <span class="regexp">/etc/</span>apache2<span class="regexp">/mods-enabled/</span>dir.conf</div></pre></td></tr></table></figure>
 <p>找到如下代码：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule mod_dir.c&gt;</span><br><span class="line">    DirectoryIndex index<span class="class">.html</span> index<span class="class">.cgi</span> index<span class="class">.pl</span> index<span class="class">.php</span> index<span class="class">.xhtml</span> index<span class="class">.htm</span></span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;IfModule mod_dir.c&gt;</div><div class="line">    DirectoryIndex index<span class="selector-class">.html</span> index<span class="selector-class">.cgi</span> index<span class="selector-class">.pl</span> index<span class="selector-class">.php</span> index<span class="selector-class">.xhtml</span> index<span class="selector-class">.htm</span></div><div class="line">&lt;/IfModule&gt;</div></pre></td></tr></table></figure>
 <p>我们将其中的 <code>index.php</code> 移到第一项的位置，在 <code>DirectoryIndex</code> 之后，如下所示：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule mod_dir.c&gt;</span><br><span class="line">	DirectoryIndex index<span class="class">.php</span> index<span class="class">.html</span> index<span class="class">.cgi</span> index<span class="class">.pl</span> index<span class="class">.xhtml</span> index<span class="class">.htm</span></span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;IfModule mod_dir.c&gt;</div><div class="line">	DirectoryIndex index<span class="selector-class">.php</span> index<span class="selector-class">.html</span> index<span class="selector-class">.cgi</span> index<span class="selector-class">.pl</span> index<span class="selector-class">.xhtml</span> index<span class="selector-class">.htm</span></div><div class="line">&lt;/IfModule&gt;</div></pre></td></tr></table></figure>
 <p>当操作完成，按下 <code>CTRL-X</code> 保存并退出文件。你需要输入 <code>Y</code> 来确认保存，并点击回车来确认文件保存位置。</p>
 <p>在这之后，我们需要重启 Apache web 服务器来使配置修改生效。输入以下命令来完成：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">sudo</span> service apache2 restart</span><br></pre></td></tr></table></figure>
-<h4 id="安装_PHP_模块">安装 PHP 模块</h4><p>为了扩展 PHP 的功能，我们可以选择安装一些额外的模块。</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service apache2 <span class="built_in">restart</span></div></pre></td></tr></table></figure>
+<h4 id="安装-PHP-模块"><a href="#安装-PHP-模块" class="headerlink" title="安装 PHP 模块"></a>安装 PHP 模块</h4><p>为了扩展 PHP 的功能，我们可以选择安装一些额外的模块。</p>
 <p>查看可选的 PHP 模块和库，可以在系统中输入如下命令：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="operator"><span class="keyword">cache</span> <span class="keyword">search</span> php5-</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-<span class="keyword">cache</span> <span class="keyword">search</span> php5-</div></pre></td></tr></table></figure>
 <p>结果是所有你可以安装的可选组件，并给出每项的简短介绍。</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">php5-cgi - server-side, HTML-embedded scripting <span class="keyword">language</span> (CGI binary)</span><br><span class="line">php5-cli - <span class="keyword">command</span>-<span class="built_in">line</span> interpreter <span class="keyword">for</span> the php5 scripting <span class="keyword">language</span></span><br><span class="line">php5-common - Common <span class="keyword">files</span> <span class="keyword">for</span> packages built from the php5 <span class="keyword">source</span></span><br><span class="line">php5-curl - CURL module <span class="keyword">for</span> php5</span><br><span class="line">php5-dbg - Debug symbols <span class="keyword">for</span> PHP5</span><br><span class="line">php5-dev - Files <span class="keyword">for</span> PHP5 module development</span><br><span class="line">php5-gd - GD module <span class="keyword">for</span> php5</span><br><span class="line">. . .</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">php5-cgi - server-side, HTML-embedded scripting <span class="keyword">language</span> (CGI binary)</div><div class="line">php5-cli - <span class="keyword">command</span>-<span class="built_in">line</span> interpreter <span class="keyword">for</span> the php5 scripting <span class="keyword">language</span></div><div class="line">php5-common - Common <span class="keyword">files</span> <span class="keyword">for</span> packages built from the php5 <span class="keyword">source</span></div><div class="line">php5-curl - CURL module <span class="keyword">for</span> php5</div><div class="line">php5-dbg - Debug symbols <span class="keyword">for</span> PHP5</div><div class="line">php5-dev - Files <span class="keyword">for</span> PHP5 module development</div><div class="line">php5-gd - GD module <span class="keyword">for</span> php5</div><div class="line">. . .</div></pre></td></tr></table></figure>
 <p>如果想要获取每个模块更多的信息，你可以在互联网上搜索或者通过如下命令查看包内的详细介绍：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="operator"><span class="keyword">cache</span> <span class="keyword">show</span> package_name</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-<span class="keyword">cache </span><span class="keyword">show </span>package_name</div></pre></td></tr></table></figure>
 <p>这将会有许多输出，其中有个名为 <code>Description-en</code> 的区域对模块所提供的功能有详细的解释。</p>
 <p>比如说，想要知道 <code>php5-cli</code> 模块的用处，我们可以输入：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="operator"><span class="keyword">cache</span> <span class="keyword">show</span> php5-cli</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-<span class="keyword">cache </span><span class="keyword">show </span>php5-cli</div></pre></td></tr></table></figure>
 <p>从大片的输出信息中，你会看到与如下类似的的内容：</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">. . .</span><br><span class="line">SHA256: <span class="number">91</span>cfdbda65df65c9a4a5bd3478d6e7d3e92c53efcddf3436bbe9bbe27eca409d</span><br><span class="line">Description-en: <span class="command"><span class="keyword">command</span>-line <span class="title">interpreter</span> <span class="title">for</span> <span class="title">the</span> <span class="title">php5</span> <span class="title">scripting</span> <span class="title">language</span></span></span><br><span class="line">This package provides <span class="operator">the</span> /usr/bin/php5 <span class="command"><span class="keyword">command</span> <span class="title">interpreter</span>, <span class="title">useful</span> <span class="title">for</span></span></span><br><span class="line">testing PHP scripts <span class="built_in">from</span> <span class="operator">a</span> <span class="built_in">shell</span> <span class="operator">or</span> performing general <span class="built_in">shell</span> scripting tasks.</span><br><span class="line">.</span><br><span class="line">The following extensions are built <span class="operator">in</span>: bcmath bz2 calendar Core ctype <span class="built_in">date</span></span><br><span class="line">dba dom ereg exif fileinfo <span class="built_in">filter</span> <span class="keyword">ftp</span> gettext hash iconv libxml mbstring</span><br><span class="line">mhash openssl pcntl pcre Phar posix Reflection session shmop SimpleXML soap</span><br><span class="line">sockets SPL standard sysvmsg sysvsem sysvshm tokenizer wddx xml xmlreader</span><br><span class="line">xmlwriter zip zlib.</span><br><span class="line">.</span><br><span class="line">PHP (recursive acronym <span class="keyword">for</span> PHP: Hypertext Preprocessor) is <span class="operator">a</span> widely-used</span><br><span class="line"><span class="built_in">open</span> source general-purpose scripting language that is especially suited</span><br><span class="line"><span class="keyword">for</span> web development <span class="operator">and</span> can be embedded <span class="keyword">into</span> HTML.</span><br><span class="line">Description-md5: f8450d3b28653dcf1a4615f3b1d4e347</span><br><span class="line">Homepage: <span class="keyword">http</span>://www.php.net/</span><br><span class="line">. . .</span><br></pre></td></tr></table></figure>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">. . .</div><div class="line">SHA256: <span class="number">91</span>cfdbda65df65c9a4a5bd3478d6e7d3e92c53efcddf3436bbe9bbe27eca409d</div><div class="line">Description-en: <span class="keyword">command</span>-line <span class="title">interpreter</span> <span class="title">for</span> <span class="title">the</span> <span class="title">php5</span> <span class="title">scripting</span> <span class="title">language</span></div><div class="line">This package provides <span class="keyword">the</span> /usr/bin/php5 <span class="keyword">command</span> <span class="title">interpreter</span>, <span class="title">useful</span> <span class="title">for</span></div><div class="line">testing PHP scripts <span class="built_in">from</span> <span class="keyword">a</span> <span class="built_in">shell</span> <span class="keyword">or</span> performing general <span class="built_in">shell</span> scripting tasks.</div><div class="line">.</div><div class="line">The following extensions are built <span class="keyword">in</span>: bcmath bz2 calendar Core ctype <span class="built_in">date</span></div><div class="line">dba dom ereg exif fileinfo <span class="built_in">filter</span> <span class="keyword">ftp</span> gettext hash iconv libxml mbstring</div><div class="line">mhash openssl pcntl pcre Phar posix Reflection session shmop SimpleXML soap</div><div class="line">sockets SPL standard sysvmsg sysvsem sysvshm tokenizer wddx xml xmlreader</div><div class="line">xmlwriter zip zlib.</div><div class="line">.</div><div class="line">PHP (recursive acronym <span class="keyword">for</span> PHP: Hypertext Preprocessor) is <span class="keyword">a</span> widely-used</div><div class="line"><span class="built_in">open</span> source general-purpose scripting language that is especially suited</div><div class="line"><span class="keyword">for</span> web development <span class="keyword">and</span> can be embedded <span class="keyword">into</span> HTML.</div><div class="line">Description-md5: f8450d3b28653dcf1a4615f3b1d4e347</div><div class="line">Homepage: <span class="keyword">http</span>://www.php.net/</div><div class="line">. . .</div></pre></td></tr></table></figure>
 <p>搜索之后，如果你决定要安装某些包，你可以像之前安装软件一样，使用 <code>apt-get</code> 命令来安装这些包。</p>
 <p>假设我们想要安装所需的 <code>php5-cli</code> 包，我们输入：</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install php5-cli</span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="keyword">get</span> install php5-cli</div></pre></td></tr></table></figure>
 <p>如果你想要安装多个模块，你可以在 <code>apt-get install</code> 命令之后，列出每个包名，包名之间以空格隔开。像这样：</p>
-<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install <span class="keyword">package</span><span class="number">1</span> <span class="keyword">package</span><span class="number">2</span> ...</span><br></pre></td></tr></table></figure>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install <span class="keyword">package</span><span class="number">1</span> <span class="keyword">package</span><span class="number">2</span> ...</div></pre></td></tr></table></figure>
 <p>到此，我们的组件安装并配置完毕。接下来，我们要测试 PHP。</p>
-<h3 id="步骤四_-_在_Web_服务器上测试_PHP">步骤四 - 在 Web 服务器上测试 PHP</h3><p>为了测试我们的系统已经正确配置 PHP ，我们可以新建一个基本的 PHP 脚本。</p>
+<h3 id="步骤四-在-Web-服务器上测试-PHP"><a href="#步骤四-在-Web-服务器上测试-PHP" class="headerlink" title="步骤四 - 在 Web 服务器上测试 PHP"></a>步骤四 - 在 Web 服务器上测试 PHP</h3><p>为了测试我们的系统已经正确配置 PHP ，我们可以新建一个基本的 PHP 脚本。</p>
 <p>这个脚本命名为 <code>inifo.php</code> 。为了 Apache 可以正确找到并处理它，它将被保存在名为 <code>web root</code> 的确定目录中。</p>
 <p>在 Ubuntu 14.04中，这个目录是 <code>/var/www/html/</code> 。通过以下命令在目标位置新建文件。</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano <span class="regexp">/var/</span>www<span class="regexp">/html/i</span>nfo.php</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nano <span class="regexp">/var/</span>www<span class="regexp">/html/i</span>nfo.php</div></pre></td></tr></table></figure>
 <p>这将打开一个空文件，我们需要在文件中输入如下有效的PHP代码：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="preprocessor">&lt;?php</span></span><br><span class="line">	phpinfo();</span><br><span class="line"><span class="preprocessor">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?php</span></span></div><div class="line">	phpinfo();</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
 <p>操作完成，保存并关闭文件。</p>
 <p>现在要测试我们的服务器是否可以正确显示由 PHP 脚本生成的内容。在 web 浏览器中访问这个页面，这时，你需要服务器的公网 IP 地址。</p>
 <p>你需要访问的地址如下：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">http:</span><span class="comment">//your_server_IP_address/info.php</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">http:</span><span class="comment">//your_server_IP_address/info.php</span></div></pre></td></tr></table></figure>
 <p>你看到的页面显示如下：</p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/default_php.png" alt="image"></p>
 <p>这个页面给出了你 web 服务器上的 PHP 信息。这对于你调试，并确保配置信息正确非常有用。</p>
 <p>如果这个成功，那么 PHP 已经可以正常运行。</p>
 <p>测试完毕，你需要删除这个文件。因为，这会向未授权用户泄露你服务器的信息。输入以下命令：</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm <span class="regexp">/var/</span>www<span class="regexp">/html/i</span>nfo.php</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo rm <span class="regexp">/var/</span>www<span class="regexp">/html/i</span>nfo.php</div></pre></td></tr></table></figure>
 <p>如果你需要查看配置信息，可以再次建立这个文件。</p>
 
       </div>
       <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04/" data-id="ciww5x6og009pd4fyk5qcc5ex" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        <!-- <a data-url="http://linfuyan.com/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04/" data-id="cizxt3ebu0030q2fyu2big9bg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
         
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache/">Apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LAMP/">LAMP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
@@ -346,6 +347,26 @@
             
             <div class="item-thumbnail">
               
+<a href="/macOS-Sierra-docker-seafile/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/seafile.gif
+)" alt="macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a></p>
+              <p class="item-title"><a href="/macOS-Sierra-docker-seafile/" class="title">macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘</a></p>
+              <p class="item-date"><time datetime="2017-03-06T07:42:00.000Z" itemprop="datePublished">2017-03-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
 <a href="/ubuntu-ngrok/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
@@ -419,25 +440,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/$q_and_promise_in_angular/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Web前端/">Web前端</a></p>
-              <p class="item-title"><a href="/$q_and_promise_in_angular/" class="title">形象的讲解 angular 中的 $q 与 promise</a></p>
-              <p class="item-date"><time datetime="2016-07-06T08:17:10.000Z" itemprop="datePublished">2016-07-06</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -447,7 +449,7 @@
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -487,7 +489,7 @@
         <h1 class="logo-wrap">
           <a href="/" class="logo"></a>
         </h1>
-        <p>&copy; 2016 linfuyan</p>
+        <p>&copy; 2017 linfuyan</p>
         <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
         <p>
         <!-- CNZZ 统计 -->
@@ -505,16 +507,16 @@
 
 
 
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
-  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
-  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
+  <script src="/scrollLoading/main.js"></script>
 
 
-<script src="/js/html-patch.js" type="text/javascript"></script>
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/html-patch.js"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

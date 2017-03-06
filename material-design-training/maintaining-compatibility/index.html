@@ -7,31 +7,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。
 
-某些 material design 特性如 material 主题以及自定义活动转场效果等只在 Android 5.0 ( API 21) 上可用。尽管如此，你依然可以设计的应用程序来使用这些特性，使之运行在支持 material design 的设备上时，能够">
+某些 material design 特性如 material 主题以及自定义活动转场效果等只在 Android 5.0 ( API 21) 上可用。尽管如此，你依然可以设计的应用程序来使用这些特性，使之运行在支持 material design 的设备上时，能">
 <meta property="og:type" content="article">
 <meta property="og:title" content="保持兼容性">
 <meta property="og:url" content="http://linfuyan.com/material-design-training/maintaining-compatibility/index.html">
 <meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
 <meta property="og:description" content="这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。
 
-某些 material design 特性如 material 主题以及自定义活动转场效果等只在 Android 5.0 ( API 21) 上可用。尽管如此，你依然可以设计的应用程序来使用这些特性，使之运行在支持 material design 的设备上时，能够">
+某些 material design 特性如 material 主题以及自定义活动转场效果等只在 Android 5.0 ( API 21) 上可用。尽管如此，你依然可以设计的应用程序来使用这些特性，使之运行在支持 material design 的设备上时，能">
 <meta property="og:updated_time" content="2015-11-03T09:17:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="保持兼容性">
 <meta name="twitter:description" content="这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。
 
-某些 material design 特性如 material 主题以及自定义活动转场效果等只在 Android 5.0 ( API 21) 上可用。尽管如此，你依然可以设计的应用程序来使用这些特性，使之运行在支持 material design 的设备上时，能够">
+某些 material design 特性如 material 主题以及自定义活动转场效果等只在 Android 5.0 ( API 21) 上可用。尽管如此，你依然可以设计的应用程序来使用这些特性，使之运行在支持 material design 的设备上时，能">
   
   
     <link rel="icon" href="/favicon.png">
   
 
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
   
-    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+    <link rel="stylesheet" href="/scrollLoading/style.css">
   
   
 
@@ -42,7 +42,7 @@
     <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
     <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
    -->
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -117,7 +117,7 @@
 </blockquote>
 <p>某些 material design 特性如 material 主题以及自定义活动转场效果等只在 Android 5.0 ( API 21) 上可用。尽管如此，你依然可以设计的应用程序来使用这些特性，使之运行在支持 material design 的设备上时，能够兼容的在其他较早的 Android 发布版上运行。</p>
 <a id="more"></a>
-<h2 id="定义可替代的风格">定义可替代的风格</h2><p>你可以配置应用程序在支持 material design 的设备上使用 material 主题，在运行较早期版本的 Android 设备上恢复为旧的主题：</p>
+<h2 id="定义可替代的风格"><a href="#定义可替代的风格" class="headerlink" title="定义可替代的风格"></a>定义可替代的风格</h2><p>你可以配置应用程序在支持 material design 的设备上使用 material 主题，在运行较早期版本的 Android 设备上恢复为旧的主题：</p>
 <ol>
 <li>在 <code>res/values/styles.xml</code> 中定义一个主题继承自旧的主题，如 Holo。</li>
 <li>在 <code>res/values-v21/styles.xml</code> 中定义相同名称的主题继承自 material 主题。</li>
@@ -126,10 +126,10 @@
 <blockquote>
 <p><strong>注意</strong>：如果你的应用程序使用 material 主题，但没有按照这种方式提供一个替代的主题，你的应用程序在早于 Android 5.0 版本上无法运行。</p>
 </blockquote>
-<h2 id="提供替代的布局">提供替代的布局</h2><p>如果你所涉及的布局是按照 material design 指南，并且没有使用任何在 Android 5.0 (API 21) 上引入的新 XML 属性，那么在之前的 Android 版本也可以正常工作。否则，你需要提供一个可替换的布局。你可以提供可替代的布局来在早先的 Android 版本上自定义应用程序外观。</p>
+<h2 id="提供替代的布局"><a href="#提供替代的布局" class="headerlink" title="提供替代的布局"></a>提供替代的布局</h2><p>如果你所涉及的布局是按照 material design 指南，并且没有使用任何在 Android 5.0 (API 21) 上引入的新 XML 属性，那么在之前的 Android 版本也可以正常工作。否则，你需要提供一个可替换的布局。你可以提供可替代的布局来在早先的 Android 版本上自定义应用程序外观。</p>
 <p>在 <code>res/layout-v21</code> 里为 Android 5.0 (API 21) 创建布局文件，在 <code>res/layout</code> 里为早先的 Android 版本创建替代的布局文件。例如： <code>res/layout/my_activity.xml</code> 是 <code>res/layout-v21/my_activity.xml</code> 的替代布局。</p>
 <p>为了避免重复代码，在 <code>res/values</code> 中定义风格，为新的 API 修改 <code>res/values-v21</code> 中的风格。使用风格继承，在 <code>res/values/</code> 定义基础风格，并在 <code>res/values-v21</code> 中继承它。</p>
-<h2 id="使用_Support_Library">使用 Support Library</h2><p><a href="https://developer.android.com/tools/support-library/features.html#v7" target="_blank" rel="external">Support v7 兼容库</a> r21 及以上包含下面的 material design 特性：</p>
+<h2 id="使用-Support-Library"><a href="#使用-Support-Library" class="headerlink" title="使用 Support Library"></a>使用 Support Library</h2><p><a href="https://developer.android.com/tools/support-library/features.html#v7" target="_blank" rel="external">Support v7 兼容库</a> r21 及以上包含下面的 material design 特性：</p>
 <ul>
 <li>当你应用其中一个 <code>Theme.AppCompat</code> 主题时，某些系统组件具有 <a href="https://developer.android.com/training/material/theme.html" target="_blank" rel="external">Material design 风格</a>。</li>
 <li><code>Theme.AppCompat</code> 主题中的 <a href="https://developer.android.com/training/material/theme.html#ColorPalette" target="_blank" rel="external">色彩调色板主题属性</a>。</li>
@@ -137,7 +137,7 @@
 <li>使用 CardView 控件来创建卡片。</li>
 <li>使用 Palette 类来从图片中抽取主色彩。</li>
 </ul>
-<h3 id="系统控件">系统控件</h3><p><code>Theme.AppCompat</code> 主题为以下控件提供了 material design 风格：</p>
+<h3 id="系统控件"><a href="#系统控件" class="headerlink" title="系统控件"></a>系统控件</h3><p><code>Theme.AppCompat</code> 主题为以下控件提供了 material design 风格：</p>
 <ul>
 <li>EditText</li>
 <li>Spinner</li>
@@ -146,16 +146,16 @@
 <li>SwitchCompat</li>
 <li>CheckedTextView</li>
 </ul>
-<h3 id="调色板">调色板</h3><p>通过 Android Support V7 兼容库来获取 material design 风格和自定义调色板，需要应用一个 <code>Theme.AppCompat</code> 主题：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- extend one of the Theme.AppCompat themes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"Theme.MyTheme"</span> <span class="attribute">parent</span>=<span class="value">"Theme.AppCompat.Light"</span>&gt;</span><span class="css"></span><br><span class="line">  &lt;!<span class="tag">--</span> <span class="tag">customize</span> <span class="tag">the</span> <span class="tag">color</span> <span class="tag">palette</span> <span class="tag">--</span>&gt;</span><br><span class="line">  &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">colorPrimary</span>"&gt;<span class="at_rule">@<span class="keyword">color/material_blue_500&lt;/item&gt;</span></span><br><span class="line">  &lt;item name=<span class="string">"colorPrimaryDark"</span>&gt;@color/material_blue_700&lt;/item&gt;</span><br><span class="line">  &lt;item name=<span class="string">"colorAccent"</span>&gt;@color/material_green_A200&lt;/item&gt;</span><br><span class="line"></span></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="列表和卡片">列表和卡片</h3><p>通过 Android Supprot V7 兼容库，RecyclerView 和 CardView 控件在早先的 Android 版本上是可用的，但具有如下局限：</p>
+<h3 id="调色板"><a href="#调色板" class="headerlink" title="调色板"></a>调色板</h3><p>通过 Android Support V7 兼容库来获取 material design 风格和自定义调色板，需要应用一个 <code>Theme.AppCompat</code> 主题：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- extend one of the Theme.AppCompat themes --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"Theme.MyTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light"</span>&gt;</span><span class="xml"></span></div><div class="line">  <span class="comment">&lt;!-- customize the color palette --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/material_blue_500<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/material_blue_700<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/material_green_A200<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="列表和卡片"><a href="#列表和卡片" class="headerlink" title="列表和卡片"></a>列表和卡片</h3><p>通过 Android Supprot V7 兼容库，RecyclerView 和 CardView 控件在早先的 Android 版本上是可用的，但具有如下局限：</p>
 <ul>
 <li>CardView 上的阴影需要使用额外的内边距来编程实现。</li>
 <li>具有圆角的 CardView 无法裁剪其子视图。</li>
 </ul>
-<h3 id="依赖">依赖</h3><p>在早于 Android 5.0 (API 21) 版本上使用这些特性需要在项目中通过 Gradle 依赖引入 Android Support V7 兼容库。</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:21.0.+'</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:cardview-v7:21.0.+'</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:recyclerview-v7:21.0.+'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="检查系统版本">检查系统版本</h3><p>以下特性在 Android 5.0 (API 21) 以上可用：</p>
+<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><p>在早于 Android 5.0 (API 21) 版本上使用这些特性需要在项目中通过 Gradle 依赖引入 Android Support V7 兼容库。</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">dependencies</span> &#123;</div><div class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:21.0.+'</span></div><div class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:cardview-v7:21.0.+'</span></div><div class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:recyclerview-v7:21.0.+'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="检查系统版本"><a href="#检查系统版本" class="headerlink" title="检查系统版本"></a>检查系统版本</h3><p>以下特性在 Android 5.0 (API 21) 以上可用：</p>
 <ul>
 <li>活动转场效果</li>
 <li>触摸反馈</li>
@@ -165,7 +165,7 @@
 <li>图片着色</li>
 </ul>
 <p>为了在早先 Android 版本上保持兼容性，需要中调用包含这些特性的 API 前检查系统版本。</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 检查是否运行在 Android 5.0 以上版本</span></span><br><span class="line"><span class="tag">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) &#123;</span><br><span class="line">    <span class="comment">// 在这里调用 material design API</span></span><br><span class="line">&#125; <span class="tag">else</span> &#123;</span><br><span class="line">    <span class="comment">// 实现不包含 material design 的特性</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 检查是否运行在 Android 5.0 以上版本</span></div><div class="line"><span class="keyword">if</span> (Build<span class="selector-class">.VERSION</span><span class="selector-class">.SDK_INT</span> &gt;= Build<span class="selector-class">.VERSION_CODES</span><span class="selector-class">.LOLLIPOP</span>) &#123;</div><div class="line">    <span class="comment">// 在这里调用 material design API</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">// 实现不包含 material design 的特性</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>注意</strong>：在清单文件中使用 <code>android:minSdkVersion</code> 和 <code>android:targetSdkVersion</code> 属性来指定 Android 应用程序支持哪些版本。在 Android 5.0 上使用 material design 特性，需要设置 <code>android:targetSdkVersion</code> 属性为 <code>21</code>。更多信息，可以查看<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html" target="_blank" rel="external"><uses-sdk> API 指南</uses-sdk></a>。</p>
 </blockquote>
@@ -173,7 +173,7 @@
 
       </div>
       <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/material-design-training/maintaining-compatibility/" data-id="ciww5x6mg005hd4fym1h9yup1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        <!-- <a data-url="http://linfuyan.com/material-design-training/maintaining-compatibility/" data-id="cizxt3ej000kcq2fym0zvxxm6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
         
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material-Design/">Material Design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/兼容/">兼容</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/教程/">教程</a></li></ul>
@@ -320,6 +320,26 @@
             
             <div class="item-thumbnail">
               
+<a href="/macOS-Sierra-docker-seafile/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/seafile.gif
+)" alt="macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a></p>
+              <p class="item-title"><a href="/macOS-Sierra-docker-seafile/" class="title">macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘</a></p>
+              <p class="item-date"><time datetime="2017-03-06T07:42:00.000Z" itemprop="datePublished">2017-03-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
 <a href="/ubuntu-ngrok/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
@@ -393,25 +413,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/$q_and_promise_in_angular/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Web前端/">Web前端</a></p>
-              <p class="item-title"><a href="/$q_and_promise_in_angular/" class="title">形象的讲解 angular 中的 $q 与 promise</a></p>
-              <p class="item-date"><time datetime="2016-07-06T08:17:10.000Z" itemprop="datePublished">2016-07-06</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -421,7 +422,7 @@
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -461,7 +462,7 @@
         <h1 class="logo-wrap">
           <a href="/" class="logo"></a>
         </h1>
-        <p>&copy; 2016 linfuyan</p>
+        <p>&copy; 2017 linfuyan</p>
         <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
         <p>
         <!-- CNZZ 统计 -->
@@ -479,16 +480,16 @@
 
 
 
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
-  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
-  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
+  <script src="/scrollLoading/main.js"></script>
 
 
-<script src="/js/html-patch.js" type="text/javascript"></script>
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/html-patch.js"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

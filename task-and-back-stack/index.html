@@ -22,17 +22,18 @@
 <meta name="twitter:title" content="Android Task 与后退栈解析">
 <meta name="twitter:description" content="应用程序通常包含多个 Activity。每个 Activity 围绕用户能够执行的指定动作类型和启动其他 Activity 来设计。例如，一个邮件应用程序有一个用来显示新信息列表的 Activity ，当用户选择一条信息，一个新的 Activity 打开用来查看信息。
 一个 Activity 可以打开存在设备上的其他应用程序。例如，你的应用想要发送邮件信息，你可以定义一个意图来执行”发送”动作，并">
+<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_backstack.png">
   
   
     <link rel="icon" href="/favicon.png">
   
 
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
   
-    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+    <link rel="stylesheet" href="/scrollLoading/style.css">
   
   
 
@@ -43,7 +44,7 @@
     <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
     <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
    -->
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -135,10 +136,10 @@
 <li>如果用户按下返回键，当前的 Activity 被从栈中弹出并销毁。栈中之前的 Activity 被恢复。当 Activity 被销毁，系统不在保持 Activity 的状态。</li>
 <li>Activity 可以被实例化多次，即使是来自其他的 Task 。</li>
 </ol>
-<h2 id="保存_Activity_状态">保存 Activity 状态</h2><p>如上面所讨论的，当 Activity 被停止时，系统的默认行为会保留其状态。这样子，当用户导航回到之前的 Activity 时，将展示之前离开时留下的界面。尽管如此，当 Activity 即将被销毁或者必须要重建时，你依然可以使用回调方法来保持 Activity 的状态。</p>
+<h2 id="保存-Activity-状态"><a href="#保存-Activity-状态" class="headerlink" title="保存 Activity 状态"></a>保存 Activity 状态</h2><p>如上面所讨论的，当 Activity 被停止时，系统的默认行为会保留其状态。这样子，当用户导航回到之前的 Activity 时，将展示之前离开时留下的界面。尽管如此，当 Activity 即将被销毁或者必须要重建时，你依然可以使用回调方法来保持 Activity 的状态。</p>
 <p>当系统停止某个 Activity 时，如果需要恢复系统的内存，系统将完全的销毁 Activity 。这种情况下， Activity 状态相关的信息便丢失了。但系统依然知道在后退栈中有 Activity 的一个位置，当 Activity 被带到前台时系统需要重建它，而不是恢复它。为了避免丢失用户以完成的工作，需要在 Activity 中通过实现 onSaveInstanceState() 方法来主动保持状态。</p>
 <p>关于如何来保存 Activity 的状态的更多信息，可以查看 Activity 相关文档。</p>
-<h2 id="管理_Task">管理 Task</h2><p>上面描述的 Android 管理 Task 和后退栈的方式-将所有成功打开的 Activity 放在同一个 Task 及后进先出的堆栈中-在大部分应用程序中工作正常，也不需要担心 Activity 如何与 Task 相关联，以及如何存在后退栈中。有的时候，你想要中断这种普通的行为。也许你想要应用程序中的一个 Activity 打开时开启一个新的 Task ，而不是被放在当前 Task 中。也许你启动一个 Activity 时，想要把已经存在的实例带到前台，而不是在顶上创建一个新的实例。也许你想当用户离开 Task 的时候，后退栈中除了根 Activity 之外的清空其他 Activity 。</p>
+<h2 id="管理-Task"><a href="#管理-Task" class="headerlink" title="管理 Task"></a>管理 Task</h2><p>上面描述的 Android 管理 Task 和后退栈的方式-将所有成功打开的 Activity 放在同一个 Task 及后进先出的堆栈中-在大部分应用程序中工作正常，也不需要担心 Activity 如何与 Task 相关联，以及如何存在后退栈中。有的时候，你想要中断这种普通的行为。也许你想要应用程序中的一个 Activity 打开时开启一个新的 Task ，而不是被放在当前 Task 中。也许你启动一个 Activity 时，想要把已经存在的实例带到前台，而不是在顶上创建一个新的实例。也许你想当用户离开 Task 的时候，后退栈中除了根 Activity 之外的清空其他 Activity 。</p>
 <p>通过清单文件中 <code>&lt;activity&gt;</code> 元素的属性以及传递给 startActivity() 的 Intent 中的 flag 可以完成上面的工作，甚至更多其他工作。</p>
 <p>可以使用的 <code>&lt;activity&gt;</code> 元素主要属性包括：</p>
 <ul>
@@ -159,7 +160,7 @@
 <blockquote>
 <p><strong>警告：</strong> 大部分应用程序不应该干扰 Activity 和 Task 的默认行为。如果你觉得非常有必要修改这些默认行为，那么需要做出警告，并测试 Activity 启动以及通过返回键从其他 Activity 或 Task 返回的情况。测试导航是否会和用户所期待的行为冲突。</p>
 </blockquote>
-<h3 id="定义启动模式">定义启动模式</h3><p>启动模式用来定义一个新的 Activity 实例如何与当前的 Task 关联。可以通过两种方式来定义不同的启动模式：</p>
+<h3 id="定义启动模式"><a href="#定义启动模式" class="headerlink" title="定义启动模式"></a>定义启动模式</h3><p>启动模式用来定义一个新的 Activity 实例如何与当前的 Task 关联。可以通过两种方式来定义不同的启动模式：</p>
 <ul>
 <li>使用清单文件：当你在清单文件中声明一个 Activity 时，可以指定 Activity 在启动时如何关联 Task。</li>
 <li>使用 Intent flag ：调用 startActivity() 时，可以在 Intent 中包含 flag 来声明新的 Activity 与当前 Task 如何关联。</li>
@@ -218,7 +219,7 @@
 <p>如果被启动的 Activity 已经在当前 Task 中，那么所有在其顶部的 Activity 将被销毁，意图将通过 onNewIntent() 传递到被恢复的 Activity 实例，而不是创建一个新的实例。</p>
 <p>没有启动模式可以产生这种行为。</p>
 <p>FLAG_ACTIVITY_CLEAR_TOP 经常和 FLAG_ACTIVITY_NEW_TASK 结合使用。当在一起使用时，这些 flag 是一种在其他 Task 中定位已存在 Activity，并将其放入可以响应意图位置的方式。</p>
-<h3 id="处理_affinities">处理 affinities</h3><p>Affinity 表明 Activity 优先属于哪个 Task 。默认情况下，来自同一个应用程序的 Activity 相互间拥有一个 Affinity 。因此，同一个应用程序的 Activity 优先在同一个 Task 中。尽管如此，你可以修改一个 Activity 的默认 Affinity 。不同应用程序中定义的 Activity 可以共享一个 Affinity ，同一个应用程序中定义的 Activity 也可以被分配在不同的 Task Affinity 中。</p>
+<h3 id="处理-affinities"><a href="#处理-affinities" class="headerlink" title="处理 affinities"></a>处理 affinities</h3><p>Affinity 表明 Activity 优先属于哪个 Task 。默认情况下，来自同一个应用程序的 Activity 相互间拥有一个 Affinity 。因此，同一个应用程序的 Activity 优先在同一个 Task 中。尽管如此，你可以修改一个 Activity 的默认 Affinity 。不同应用程序中定义的 Activity 可以共享一个 Affinity ，同一个应用程序中定义的 Activity 也可以被分配在不同的 Task Affinity 中。</p>
 <p>通过给定 <code>&lt;activity&gt;</code> 元素的 taskAffinity 属性可以修改 Activity 的 Affinity 。</p>
 <p>taskAffinity 属性是一个字符串，必须与申明在 <code>&lt;manifest&gt;</code> 元素中的默认包名不同。因为系统使用这个名称来识别应用程序的默认 Task Affinity 。</p>
 <p>两种情况下使用 Affinity：</p>
@@ -230,7 +231,7 @@
 <ul>
 <li>当一个 Activity 有 allowTaskReparenting 属性并设置为 true 。</li>
 </ul>
-<h3 id="清空后退栈">清空后退栈</h3><p>如果用户离开 Task 一段时间，系统将清空 Task 中除根 Activity 之外的所有 Activity 。当用户再次回到 Task ，只有根 Activity 将被回复。系统行为之所以如此，是因为在经历一段相对长的时间，用户将放弃之前所做的一些事情，而返回 Task 是为了开始其他新的事情。</p>
+<h3 id="清空后退栈"><a href="#清空后退栈" class="headerlink" title="清空后退栈"></a>清空后退栈</h3><p>如果用户离开 Task 一段时间，系统将清空 Task 中除根 Activity 之外的所有 Activity 。当用户再次回到 Task ，只有根 Activity 将被回复。系统行为之所以如此，是因为在经历一段相对长的时间，用户将放弃之前所做的一些事情，而返回 Task 是为了开始其他新的事情。</p>
 <p>这里有一些 Activity 的属性可以用来修改这个行为：</p>
 <ul>
 <li>alwaysRetainTaskState</li>
@@ -244,15 +245,15 @@
 <li>finishOnTaskLaunch</li>
 </ul>
 <p>这个属性类似 clearTaskOnLaunch ，但是这个仅作用于单个 Activity ，而不是整个 Task 。这能引起任何 Activity 消失，包括根 Activity 。当它被设置为 true ， Activity 仅仅为当前会话维持 Task 的部分。如果用户离开或者过会儿返回 Task 都不在了。</p>
-<h3 id="启动_Task">启动 Task</h3><p>通过给定某个 Activity 包含 “android.intent.action.MAIN” 为指定动作， “android.intent.category.LAUNCHER” 为指定类别的意图过滤器，可以将 Activity 作为 Task 的入口。实例如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">activity</span> <span class="attribute">...</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">intent-filter</span> <span class="attribute">...</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.action.MAIN"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">category</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.category.LAUNCHER"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="title">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="启动-Task"><a href="#启动-Task" class="headerlink" title="启动 Task"></a>启动 Task</h3><p>通过给定某个 Activity 包含 “android.intent.action.MAIN” 为指定动作， “android.intent.category.LAUNCHER” 为指定类别的意图过滤器，可以将 Activity 作为 Task 的入口。实例如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">...</span> &gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">intent-filter</span> <span class="attr">...</span> &gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line">    ...</div><div class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>这种类型的意图过滤器在应用程序启动器上显示 Activity 的图标和标签。由于这种原因，”singleTask” 和 “singleInstance” 两种启动模式标记 Activity 初始化 Task 只能在 Activity 拥有 ACTION_MAIN 和 CATEGORY_LAUNCHER 过滤器时使用。想象一下如果没有这些过滤器将发生什么：一个意图启动了 “singleTask” 的 Activity ，初始化了 Task ，用户在这个 Task 上玩耍了一段时间，然后按下了 Home 键。Task 就进入了后台且不可见。现在用户无法再返回到 Task ，因为应用程序启动器上没有显示…</p>
 <p>在那些不需要用户返回到 Activity 的情况，设置 <code>&lt;activity&gt;</code> 元素的 finishOnTaskLaunch 为 true 。</p>
-<h2 id="参考">参考</h2><p><a href="https://developer.android.com/guide/components/tasks-and-back-stack.html" target="_blank" rel="external">https://developer.android.com/guide/components/tasks-and-back-stack.html</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://developer.android.com/guide/components/tasks-and-back-stack.html" target="_blank" rel="external">https://developer.android.com/guide/components/tasks-and-back-stack.html</a></p>
 
       </div>
       <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/task-and-back-stack/" data-id="ciww5x6l80021d4fyhgvoc4im" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        <!-- <a data-url="http://linfuyan.com/task-and-back-stack/" data-id="cizxt3ecm0044q2fy4m3fnjaa" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
         
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Activity/">Activity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Task/">Task</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后退栈/">后退栈</a></li></ul>
@@ -399,6 +400,26 @@
             
             <div class="item-thumbnail">
               
+<a href="/macOS-Sierra-docker-seafile/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/seafile.gif
+)" alt="macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a></p>
+              <p class="item-title"><a href="/macOS-Sierra-docker-seafile/" class="title">macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘</a></p>
+              <p class="item-date"><time datetime="2017-03-06T07:42:00.000Z" itemprop="datePublished">2017-03-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
 <a href="/ubuntu-ngrok/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
@@ -472,25 +493,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/$q_and_promise_in_angular/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Web前端/">Web前端</a></p>
-              <p class="item-title"><a href="/$q_and_promise_in_angular/" class="title">形象的讲解 angular 中的 $q 与 promise</a></p>
-              <p class="item-date"><time datetime="2016-07-06T08:17:10.000Z" itemprop="datePublished">2016-07-06</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -500,7 +502,7 @@
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -540,7 +542,7 @@
         <h1 class="logo-wrap">
           <a href="/" class="logo"></a>
         </h1>
-        <p>&copy; 2016 linfuyan</p>
+        <p>&copy; 2017 linfuyan</p>
         <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
         <p>
         <!-- CNZZ 统计 -->
@@ -558,16 +560,16 @@
 
 
 
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
-  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
-  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
+  <script src="/scrollLoading/main.js"></script>
 
 
-<script src="/js/html-patch.js" type="text/javascript"></script>
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/html-patch.js"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

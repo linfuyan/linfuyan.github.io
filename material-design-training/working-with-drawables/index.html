@@ -44,12 +44,12 @@
     <link rel="icon" href="/favicon.png">
   
 
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
   
-    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+    <link rel="stylesheet" href="/scrollLoading/style.css">
   
   
 
@@ -60,7 +60,7 @@
     <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
     <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
    -->
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -141,9 +141,9 @@
 </ul>
 <p>这节课程教你如何在应用程序中使用这些特性。</p>
 <a id="more"></a>
-<h2 id="对图片资源进行着色">对图片资源进行着色</h2><p>在 Android 5.0 ( API 21) 及以上，你可以定义透明度对位图和 9 patch 图片进行着色。你可以使用颜色资源或者对应颜色资源的主题属性(如 <code>?android:attr/colorPrimary</code> )对他们进行着色。通常，你只需要一次创建这些资源并对他们自动着色来适应你的主题。</p>
+<h2 id="对图片资源进行着色"><a href="#对图片资源进行着色" class="headerlink" title="对图片资源进行着色"></a>对图片资源进行着色</h2><p>在 Android 5.0 ( API 21) 及以上，你可以定义透明度对位图和 9 patch 图片进行着色。你可以使用颜色资源或者对应颜色资源的主题属性(如 <code>?android:attr/colorPrimary</code> )对他们进行着色。通常，你只需要一次创建这些资源并对他们自动着色来适应你的主题。</p>
 <p>通过 setTint() 方法可以对 BitmapDrawable， NinePatchDrawable 或 VectorDrawable 对象应用着色。也可以在布局中使用 <code>android:tint</code> 和 <code>android:tintMode</code> 属性来设置着色的颜色和模式。</p>
-<h2 id="从图片中抽取主色彩">从图片中抽取主色彩</h2><p>在 Android Support 库 r21 及以上版本中包含有 Palette 类，可以从一张图片中抽取主色彩。这个类可以抽取下面的突出色彩：</p>
+<h2 id="从图片中抽取主色彩"><a href="#从图片中抽取主色彩" class="headerlink" title="从图片中抽取主色彩"></a>从图片中抽取主色彩</h2><p>在 Android Support 库 r21 及以上版本中包含有 Palette 类，可以从一张图片中抽取主色彩。这个类可以抽取下面的突出色彩：</p>
 <ul>
 <li></li>
 <li></li>
@@ -151,17 +151,17 @@
 <p>要抽取这些色彩，当你在加载图片时在后台线程里面传递 Bitmap 对象到 Palette.generate() 静态方法中。如果你没有使用线程，那边调用 Palette.generateAsync() 方法并提供一个监听器。</p>
 <p>在 Palette 类中，使用获取方法来从图片获取主要色彩，如 <code>Palette.getVibrantColor</code> 。</p>
 <p>在项目中使用 Palette 类时，需要添加下面的 Gradle 依赖到应用程序模块：</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:palette-v7:21.0.0'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">dependencies</span> &#123;</div><div class="line">    ...</div><div class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:palette-v7:21.0.0'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>更多信息，可以查看 API 参考中的 Palette 类。</p>
-<h2 id="创建矢量图片">创建矢量图片</h2><p>在 Android 5.0 (API 21) 及以上，你可以定义矢量图片，这些图片在缩放过程中不会丢失清晰度。对应于每种屏幕密度需要一个位图文件，所有的屏幕密度仅需要一个矢量文件。要创建矢量图片，你需要在 XML 文件中的 <code>&lt;vector&gt;</code> 元素中定义形状细节。</p>
+<h2 id="创建矢量图片"><a href="#创建矢量图片" class="headerlink" title="创建矢量图片"></a>创建矢量图片</h2><p>在 Android 5.0 (API 21) 及以上，你可以定义矢量图片，这些图片在缩放过程中不会丢失清晰度。对应于每种屏幕密度需要一个位图文件，所有的屏幕密度仅需要一个矢量文件。要创建矢量图片，你需要在 XML 文件中的 <code>&lt;vector&gt;</code> 元素中定义形状细节。</p>
 <p>下面的实例定义了一个心形的矢量图片：</p>
-<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="comment">&lt;!-- res/drawable/heart.xml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">vector</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">  &lt;!<span class="attribute">--</span> <span class="attribute">intrinsic</span> <span class="attribute">size</span> <span class="attribute">of</span> <span class="attribute">the</span> <span class="attribute">drawable</span> <span class="attribute">--</span>&gt;</span></span><br><span class="line">  android:height="256dp"</span><br><span class="line">  android:width="256dp"</span><br><span class="line">  <span class="comment">&lt;!-- size of the virtual canvas --&gt;</span></span><br><span class="line">  android:viewportWidth="32"</span><br><span class="line">  android:viewportHeight="32"&gt;</span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- draw a path --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">path</span> <span class="attribute">android:fillColor</span>=<span class="value">"#8fff"</span></span><br><span class="line">    <span class="attribute">android:pathData</span>=<span class="value">"M20.5,9.5</span><br><span class="line">                      c-1.955,0,-3.83,1.268,-4.5,3</span><br><span class="line">                      c-0.67,-1.732,-2.547,-3,-4.5,-3</span><br><span class="line">                      C8.957,9.5,7,11.432,7,14</span><br><span class="line">                      c0,3.53,3.793,6.257,9,11.5</span><br><span class="line">                      c5.207,-5.242,9,-7.97,9,-11.5</span><br><span class="line">                      C25,11.432,23.043,9.5,20.5,9.5z"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">vector</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="comment">&lt;!-- res/drawable/heart.xml --&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">vector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">  &lt;!<span class="attr">--</span> <span class="attr">intrinsic</span> <span class="attr">size</span> <span class="attr">of</span> <span class="attr">the</span> <span class="attr">drawable</span> <span class="attr">--</span>&gt;</div><div class="line">  android:height="256dp"</div><div class="line">  android:width="256dp"</div><div class="line">  <span class="comment">&lt;!-- size of the virtual canvas --&gt;</span></div><div class="line">  android:viewportWidth="32"</div><div class="line">  android:viewportHeight="32"&gt;</div><div class="line"></div><div class="line">  <span class="comment">&lt;!-- draw a path --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">android:fillColor</span>=<span class="string">"#8fff"</span></span></div><div class="line">    <span class="attr">android:pathData</span>=<span class="string">"M20.5,9.5</span></div><div class="line">                      c-1.955,0,-3.83,1.268,-4.5,3</div><div class="line">                      c-0.67,-1.732,-2.547,-3,-4.5,-3</div><div class="line">                      C8.957,9.5,7,11.432,7,14</div><div class="line">                      c0,3.53,3.793,6.257,9,11.5</div><div class="line">                      c5.207,-5.242,9,-7.97,9,-11.5</div><div class="line">                      C25,11.432,23.043,9.5,20.5,9.5z" /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">vector</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>矢量图片在 Android 中表现为 VectorDrawable 对象。关于 <code>pathData</code> 语法的更多信息，可以查看 <a href="http://www.w3.org/TR/SVG11/paths.html#PathData" target="_blank" rel="external">SVG 路径</a>。矢量图片中动画属性相关的更多信息，可以查看<a href="">动画矢量图片</a>。</p>
 <p>原文：<a href="https://developer.android.com/training/material/drawables.html" target="_blank" rel="external">Working with Drawables</a></p>
 
       </div>
       <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/material-design-training/working-with-drawables/" data-id="ciww5x6m6004pd4fycvhxijne" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        <!-- <a data-url="http://linfuyan.com/material-design-training/working-with-drawables/" data-id="cizxt3ejb00koq2fy5dd4d91a" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
         
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material-Design/">Material Design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图片/">图片</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/教程/">教程</a></li></ul>
@@ -308,6 +308,26 @@
             
             <div class="item-thumbnail">
               
+<a href="/macOS-Sierra-docker-seafile/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/seafile.gif
+)" alt="macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a></p>
+              <p class="item-title"><a href="/macOS-Sierra-docker-seafile/" class="title">macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘</a></p>
+              <p class="item-date"><time datetime="2017-03-06T07:42:00.000Z" itemprop="datePublished">2017-03-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
 <a href="/ubuntu-ngrok/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
@@ -381,25 +401,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/$q_and_promise_in_angular/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Web前端/">Web前端</a></p>
-              <p class="item-title"><a href="/$q_and_promise_in_angular/" class="title">形象的讲解 angular 中的 $q 与 promise</a></p>
-              <p class="item-date"><time datetime="2016-07-06T08:17:10.000Z" itemprop="datePublished">2016-07-06</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -409,7 +410,7 @@
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -449,7 +450,7 @@
         <h1 class="logo-wrap">
           <a href="/" class="logo"></a>
         </h1>
-        <p>&copy; 2016 linfuyan</p>
+        <p>&copy; 2017 linfuyan</p>
         <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
         <p>
         <!-- CNZZ 统计 -->
@@ -467,16 +468,16 @@
 
 
 
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
-  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
-  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
+  <script src="/scrollLoading/main.js"></script>
 
 
-<script src="/js/html-patch.js" type="text/javascript"></script>
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/html-patch.js"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

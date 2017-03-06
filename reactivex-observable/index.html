@@ -9,7 +9,7 @@
 对译文有建议，请发邮件或下方评论给我，万分感谢。
 更新历史：1月13日
 
-在RxJava中一个对象实现了Observer接口则被一个Observable类对象所订阅。订阅者则针对Obserable对象产生的值（包括项及项的序列）做响应。这种模式便利了异步操作，因为不用在等待Obserable产">
+在RxJava中一个对象实现了Observer接口则被一个Observable类对象所订阅。订阅者则针对Obserable对象产生的值（包括项及项的序列）做响应。这种模式便利了异步操作，因为不用在等待Obserable">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ReactiveX 之 Observable">
 <meta property="og:url" content="http://linfuyan.com/reactivex-observable/index.html">
@@ -18,7 +18,7 @@
 对译文有建议，请发邮件或下方评论给我，万分感谢。
 更新历史：1月13日
 
-在RxJava中一个对象实现了Observer接口则被一个Observable类对象所订阅。订阅者则针对Obserable对象产生的值（包括项及项的序列）做响应。这种模式便利了异步操作，因为不用在等待Obserable产">
+在RxJava中一个对象实现了Observer接口则被一个Observable类对象所订阅。订阅者则针对Obserable对象产生的值（包括项及项的序列）做响应。这种模式便利了异步操作，因为不用在等待Obserable">
 <meta property="og:image" content="http://reactivex.io/assets/operators/legend.png">
 <meta property="og:updated_time" content="2015-10-13T15:18:21.000Z">
 <meta name="twitter:card" content="summary">
@@ -27,18 +27,19 @@
 对译文有建议，请发邮件或下方评论给我，万分感谢。
 更新历史：1月13日
 
-在RxJava中一个对象实现了Observer接口则被一个Observable类对象所订阅。订阅者则针对Obserable对象产生的值（包括项及项的序列）做响应。这种模式便利了异步操作，因为不用在等待Obserable产">
+在RxJava中一个对象实现了Observer接口则被一个Observable类对象所订阅。订阅者则针对Obserable对象产生的值（包括项及项的序列）做响应。这种模式便利了异步操作，因为不用在等待Obserable">
+<meta name="twitter:image" content="http://reactivex.io/assets/operators/legend.png">
   
   
     <link rel="icon" href="/favicon.png">
   
 
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
   
-    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+    <link rel="stylesheet" href="/scrollLoading/style.css">
   
   
 
@@ -49,7 +50,7 @@
     <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
     <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
    -->
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -131,11 +132,11 @@
 <p><img src="http://reactivex.io/assets/operators/legend.png" alt="Observables"></p>
 </blockquote>
 <a id="more"></a>
-<h1 id="背景">背景</h1><p>在许多软件编程任务中，你或多或少都希望自己编写的代码能够逐步的运行完成，因为你是一个一个的写下来的。但是在响应式编程范式中，许多代码并行的执行，其结果将在后来被观察者以任意的顺序捕获下来。在这种情况下，你不是调用一个方法，而是以<em>Observable</em>的形式为获取和转换数据定义一种机制，并将<em>Observable</em>订阅给订阅者。在预置的机制下当<em>Observable</em>产生的值到达时，观察者的哨兵捕获并对此进行响应。</p>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>在许多软件编程任务中，你或多或少都希望自己编写的代码能够逐步的运行完成，因为你是一个一个的写下来的。但是在响应式编程范式中，许多代码并行的执行，其结果将在后来被观察者以任意的顺序捕获下来。在这种情况下，你不是调用一个方法，而是以<em>Observable</em>的形式为获取和转换数据定义一种机制，并将<em>Observable</em>订阅给订阅者。在预置的机制下当<em>Observable</em>产生的值到达时，观察者的哨兵捕获并对此进行响应。</p>
 <p>这种解决方案的优点在于，当你有许多没有相互依赖的任务需要运行时，你可以在同一时刻启动它们，而不是需要在一个任务开始之前，等待其中的一个任务的结束。这样，你执行所有任务的所花费的时间只是其中耗时最长的任务的时间。</p>
 <p>有许多种形式来描述这种异步编程和设计的模型。这篇文档将使用下面的形式：<em>Subscriber</em>(有时是<em>Observer</em>)订阅<em>Observable</em>类对象。也就是<em>Subscriber</em>对象订阅<em>Observable</em>。<em>Observable</em>产生值，并通过调用<em>Subscriber</em>的方法来发送通知给<em>Subscriber</em>。</p>
 <p>在其他文档或者上下文，有时我们也会将<em>Subscriber</em>称为<em>watcher</em>或<em>reactor</em>。这个模型通常被被认为是<a href="http://en.wikipedia.org/wiki/Reactor_pattern" target="_blank" rel="external">响应模式</a>。</p>
-<h1 id="建立订阅者">建立订阅者</h1><p>这篇文档通常使用Groovy来做代码示例，实际上，你可以在任何基于JVM的语言上使用RxJava，如Clojure，Scala，JRuby或是Java本身。</p>
+<h1 id="建立订阅者"><a href="#建立订阅者" class="headerlink" title="建立订阅者"></a>建立订阅者</h1><p>这篇文档通常使用Groovy来做代码示例，实际上，你可以在任何基于JVM的语言上使用RxJava，如Clojure，Scala，JRuby或是Java本身。</p>
 <p>与典型的响应式编程中无序的异步、并行不同，在传统的方法调用中，流程一般是这样的：</p>
 <ol>
 <li>调用一个方法。</li>
@@ -143,7 +144,7 @@
 <li>使用这个变量以及它的新值做一些有用的事情。</li>
 </ol>
 <p>或是用代码表示：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// make the <span class="operator"><span class="keyword">call</span>, assign its <span class="keyword">return</span> <span class="keyword">value</span> <span class="keyword">to</span> <span class="string">`returnVal`</span></span><br><span class="line">returnVal = someMethod(itsParameters);</span></span><br><span class="line">// <span class="operator"><span class="keyword">do</span> something useful <span class="keyword">with</span> returnVal</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// make the <span class="keyword">call</span>, assign its <span class="keyword">return</span> <span class="keyword">value</span> <span class="keyword">to</span> <span class="string">`returnVal`</span></div><div class="line">returnVal = someMethod(itsParameters);</div><div class="line">// <span class="keyword">do</span> something useful <span class="keyword">with</span> returnVal</div></pre></td></tr></table></figure>
 <p>在异步模型中，流程则更像是这样：</p>
 <ol>
 <li>定义一个方法来使用异步调用的返回值进行处理，这个方法是<em>Subscriber</em>的一部分。</li>
@@ -152,21 +153,21 @@
 <li>继续你的业务逻辑；无论方法调用何时返回，<em>Subscriber</em>的方法开始对<em>Observable</em>所产生的项(返回值)进行操作。</li>
 </ol>
 <p>用代码表示是这样：</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// defines, but does not invoke, the Subscriber's onNext handler</span></span><br><span class="line"><span class="comment">// (in this example, the Subscriber is very simple and has only an onNext handler)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myOnNext</span> =</span> &#123; it -&gt; do something useful <span class="keyword">with</span> it &#125;;</span><br><span class="line"><span class="comment">// defines, but does not invoke, the Observable</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myObservable</span> =</span> someObservable(itsParameters);</span><br><span class="line"><span class="comment">// subscribes the Subscriber to the Observable, and invokes the Observable</span></span><br><span class="line">myObservable.subscribe(myOnNext);</span><br><span class="line"><span class="comment">// go on about my business</span></span><br></pre></td></tr></table></figure>
-<h1 id="onNext,onCompleted,以及onError">onNext,onCompleted,以及onError</h1><p><code>subscribe()</code>方法可以接受1-3个方法，或者是一个<code>Subscriber</code>对象，或是任何实现了<code>Observer</code>接口（包含了这3个方法）的对象：</p>
+<figure class="highlight flix"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// defines, but does not invoke, the Subscriber's onNext handler</span></div><div class="line"><span class="comment">// (in this example, the Subscriber is very simple and has only an onNext handler)</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">myOnNext</span> </span>= &#123; it -&gt; do something useful <span class="keyword">with</span> it &#125;;</div><div class="line"><span class="comment">// defines, but does not invoke, the Observable</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">myObservable</span> </span>= someObservable(itsParameters);</div><div class="line"><span class="comment">// subscribes the Subscriber to the Observable, and invokes the Observable</span></div><div class="line">myObservable.subscribe(myOnNext);</div><div class="line"><span class="comment">// go on about my business</span></div></pre></td></tr></table></figure>
+<h1 id="onNext-onCompleted-以及onError"><a href="#onNext-onCompleted-以及onError" class="headerlink" title="onNext,onCompleted,以及onError"></a>onNext,onCompleted,以及onError</h1><p><code>subscribe()</code>方法可以接受1-3个方法，或者是一个<code>Subscriber</code>对象，或是任何实现了<code>Observer</code>接口（包含了这3个方法）的对象：</p>
 <p><strong>onNext</strong>:当<em>Observable</em>产生了一个值时，<em>Observable</em>将调用它的<em>Subscriber</em>上的这个方法。这个方法将<em>Observable</em>所产生的值作为它的参数。</p>
 <p><strong>onError</strong>:当<em>Observable</em>无法产生所预期的数据或是遇到了其他一些错误，<em>Observable</em>将调用它的<em>Subscriber</em>上的这个方法。这会使<em>Observable</em>停止，且不再掉调用<code>onNext</code>和<code>onCompleted</code>。<code>onError</code>将产生错误的误差指示作为它的参数。</p>
 <p><strong>onCompleted</strong>:在没有发生任何错误的情形下，<em>Observable</em>将在最后一次调用<code>onNext</code>之后调用其观察者的这个方法。</p>
 <p>一个更加完整的<code>subscribe()</code>示例如下所示：</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myOnNext</span>     =</span> &#123; item -&gt; <span class="comment">/* do something useful with item */</span> &#125;;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myError</span>      =</span> &#123; throwable -&gt; <span class="comment">/* react sensibly to a failed call */</span> &#125;;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myComplete</span>   =</span> &#123; <span class="comment">/* clean up after the final response */</span> &#125;;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myObservable</span> =</span> someMethod(itsParameters);</span><br><span class="line">myObservable.subscribe(myOnNext, myError, myComplete);</span><br><span class="line"><span class="comment">// go on about my business</span></span><br></pre></td></tr></table></figure>
-<h1 id="Unsubscribing(退订)">Unsubscribing(退订)</h1><p>在一些响应式扩展实现中，有专门的观察者接口，<code>Subscriber</code>来实现<code>unsubscribe()</code>方法。你可以调用这个方法来表明<em>Subscriber</em>不再对当前订阅的任何<em>Observable</em>感兴趣了。当不再有其他对其感兴趣的<em>Observer</em>，这些<em>Observable</em>可以选择停止产生新的值。</p>
+<figure class="highlight flix"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">myOnNext</span>     </span>= &#123; item -&gt; <span class="comment">/* do something useful with item */</span> &#125;;</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">myError</span>      </span>= &#123; throwable -&gt; <span class="comment">/* react sensibly to a failed call */</span> &#125;;</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">myComplete</span>   </span>= &#123; <span class="comment">/* clean up after the final response */</span> &#125;;</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">myObservable</span> </span>= someMethod(itsParameters);</div><div class="line">myObservable.subscribe(myOnNext, myError, myComplete);</div><div class="line"><span class="comment">// go on about my business</span></div></pre></td></tr></table></figure>
+<h1 id="Unsubscribing-退订"><a href="#Unsubscribing-退订" class="headerlink" title="Unsubscribing(退订)"></a>Unsubscribing(退订)</h1><p>在一些响应式扩展实现中，有专门的观察者接口，<code>Subscriber</code>来实现<code>unsubscribe()</code>方法。你可以调用这个方法来表明<em>Subscriber</em>不再对当前订阅的任何<em>Observable</em>感兴趣了。当不再有其他对其感兴趣的<em>Observer</em>，这些<em>Observable</em>可以选择停止产生新的值。</p>
 <p>这个退订的结果会级联的影响到<em>Observer</em>所订阅的<em>Observable</em>上的操作链，这将导致操作链上的每个链接都停止产生项目。但这个并无法保证立即发生，当不再有<em>Subscriber</em>关注这些产生的值时，在短时间内，<em>Observable</em>可能仍然会产生新的值。</p>
-<h1 id="命名规范的注意事项">命名规范的注意事项</h1><p>每一种特定语言的响应式扩展的实现都有自己的命名怪癖。这之间没有统一的命名标准，但在每个实现之间有许多的共性。</p>
+<h1 id="命名规范的注意事项"><a href="#命名规范的注意事项" class="headerlink" title="命名规范的注意事项"></a>命名规范的注意事项</h1><p>每一种特定语言的响应式扩展的实现都有自己的命名怪癖。这之间没有统一的命名标准，但在每个实现之间有许多的共性。</p>
 <p>此外，在某些上下文中这些名称具有不同的含义，或者在一些特定的语言实现中显得尴尬。</p>
 <p>举个例子：存在<code>onEvent</code>的命名模式(如：<code>onNext</code>, <code>onCompleted</code>, <code>onError</code>)。在许多上下文中，这些命名表明的是被注册的事件处理器上的方法。在<em>ReactiveX</em>中，这些命名则表示事件处理器本身。</p>
-<h1 id="“热”和”冷”Observable">“热”和”冷”<em>Observable</em></h1><p><em>Observable</em>什么时候开始产生它的值序列呢？这个依赖于<em>Observable</em>。一个”热”的<em>Observable</em>将在它被新建之后便开始产生值，因此，任何订阅这种<em>Observable</em>的<em>Observer</em>将从这些序列的中间开始观察。另一方面，一个”冷”的<em>Observable</em>在开发产生值之前，会一直等待<em>Observer</em>订阅它。这样可以保证一个<em>Observer</em>看到从头开始的完整序列。</p>
+<h1 id="“热”和”冷”Observable"><a href="#“热”和”冷”Observable" class="headerlink" title="“热”和”冷”Observable"></a>“热”和”冷”<em>Observable</em></h1><p><em>Observable</em>什么时候开始产生它的值序列呢？这个依赖于<em>Observable</em>。一个”热”的<em>Observable</em>将在它被新建之后便开始产生值，因此，任何订阅这种<em>Observable</em>的<em>Observer</em>将从这些序列的中间开始观察。另一方面，一个”冷”的<em>Observable</em>在开发产生值之前，会一直等待<em>Observer</em>订阅它。这样可以保证一个<em>Observer</em>看到从头开始的完整序列。</p>
 <p>在响应式扩展的某些实现中，存在称为<em>Connectable</em>的<em>Observable</em>。这样的<em>Observable</em>直到它的<code>connect</code>方法被调用才开始产生值，不能是否有<em>Observer</em>已经订阅它。</p>
-<h1 id="组装Observable_Operator">组装<em>Observable Operator</em></h1><p><em>Observable</em>和<em>Observer</em>仅仅是响应式扩展的开始。它是标准观察者模式的轻量扩展，比起一个简单的回调，它更适合与处理事件序列。</p>
+<h1 id="组装Observable-Operator"><a href="#组装Observable-Operator" class="headerlink" title="组装Observable Operator"></a>组装<em>Observable Operator</em></h1><p><em>Observable</em>和<em>Observer</em>仅仅是响应式扩展的开始。它是标准观察者模式的轻量扩展，比起一个简单的回调，它更适合与处理事件序列。</p>
 <p>响应式扩展的真正力量在于，所有的<em>Operator</em>可以被变换，组合，操作，并和<em>Observable</em>所产生的值序列一起工作。</p>
 <p>这些响应式扩展操作能让你通过利用所有回调的优点，以声明的方式将异步序列组织在一起。同时避免传统异步编程系统中的嵌套回调处理。</p>
 <p>该文章将不同的操作及他们的示例用户组织在如下的页面中：</p>
@@ -187,7 +188,7 @@
 
       </div>
       <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/reactivex-observable/" data-id="ciww5x6ln003bd4fyt6jxoze4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        <!-- <a data-url="http://linfuyan.com/reactivex-observable/" data-id="cizxt3ecd003tq2fy5fp8md7p" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
         
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frp/">frp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactivex/">reactivex</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rxjava/">rxjava</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/响应式编程/">响应式编程</a></li></ul>
@@ -334,6 +335,26 @@
             
             <div class="item-thumbnail">
               
+<a href="/macOS-Sierra-docker-seafile/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/seafile.gif
+)" alt="macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a></p>
+              <p class="item-title"><a href="/macOS-Sierra-docker-seafile/" class="title">macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘</a></p>
+              <p class="item-date"><time datetime="2017-03-06T07:42:00.000Z" itemprop="datePublished">2017-03-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
 <a href="/ubuntu-ngrok/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
@@ -407,25 +428,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/$q_and_promise_in_angular/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Web前端/">Web前端</a></p>
-              <p class="item-title"><a href="/$q_and_promise_in_angular/" class="title">形象的讲解 angular 中的 $q 与 promise</a></p>
-              <p class="item-date"><time datetime="2016-07-06T08:17:10.000Z" itemprop="datePublished">2016-07-06</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -435,7 +437,7 @@
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -475,7 +477,7 @@
         <h1 class="logo-wrap">
           <a href="/" class="logo"></a>
         </h1>
-        <p>&copy; 2016 linfuyan</p>
+        <p>&copy; 2017 linfuyan</p>
         <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
         <p>
         <!-- CNZZ 统计 -->
@@ -493,16 +495,16 @@
 
 
 
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
-  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
-  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
+  <script src="/scrollLoading/main.js"></script>
 
 
-<script src="/js/html-patch.js" type="text/javascript"></script>
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/html-patch.js"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

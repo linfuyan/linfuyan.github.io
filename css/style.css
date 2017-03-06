@@ -585,7 +585,6 @@ body {
   padding: 5px 15px;
   position: absolute;
   white-space: nowrap;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
   -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);
   box-shadow: 0 0 2px rgba(0,0,0,0.2);
@@ -680,7 +679,6 @@ body {
   word-wrap: break-word;
   font-size: 0.9em;
   color: #777;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
 }
 .widget a {
@@ -1166,7 +1164,6 @@ a.article-title:hover {
   display: inline-block;
   line-height: 1em;
   padding: 6px 15px;
-  -webkit-border-radius: 15px;
   border-radius: 15px;
   background: #eaeaea;
   color: #aaa;
@@ -1225,7 +1222,6 @@ a.article-title:hover {
   background: #fff;
   -webkit-box-shadow: 1px 2px 10px rgba(0,0,0,0.2);
   box-shadow: 1px 2px 10px rgba(0,0,0,0.2);
-  -webkit-border-radius: 3px;
   border-radius: 3px;
   margin-left: -145px;
   overflow: hidden;
@@ -1245,7 +1241,6 @@ a.article-title:hover {
   color: #555;
   outline: none;
   border: 1px solid #ddd;
-  -webkit-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0;
   height: 36px;
   line-height: 36px;
@@ -1497,7 +1492,6 @@ a.article-title:hover {
   height: 30px;
   display: block;
   margin: 0 auto -30px;
-  -webkit-border-radius: 0 0 3px 3px;
   border-radius: 0 0 3px 3px;
   -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
   box-shadow: 0 1px 1px rgba(0,0,0,0.1);

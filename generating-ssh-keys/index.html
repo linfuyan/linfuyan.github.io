@@ -6,30 +6,31 @@
   <title>生成 SSH 密钥 | 悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Git 仓库可以通过 git:// 来访问，目前类似 Github，Gitcafe，Coding等基于 Git 的托管服务都提供有配置 SSH 密钥，来访问托管仓库的功能。本文中将通过为 Github 账号配置 SSH 密钥来访问仓库为例，说明 SSH 密钥配置过程。
-SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密码。下面的步骤将带你生成一个 SSH 密钥，并将其添加到你的 Githu">
+SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密码。下面的步骤将带你生成一个 SSH 密钥，并将其添加到你的 Gith">
 <meta property="og:type" content="article">
 <meta property="og:title" content="生成 SSH 密钥">
 <meta property="og:url" content="http://linfuyan.com/generating-ssh-keys/index.html">
 <meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
 <meta property="og:description" content="Git 仓库可以通过 git:// 来访问，目前类似 Github，Gitcafe，Coding等基于 Git 的托管服务都提供有配置 SSH 密钥，来访问托管仓库的功能。本文中将通过为 Github 账号配置 SSH 密钥来访问仓库为例，说明 SSH 密钥配置过程。
-SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密码。下面的步骤将带你生成一个 SSH 密钥，并将其添加到你的 Githu">
+SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密码。下面的步骤将带你生成一个 SSH 密钥，并将其添加到你的 Gith">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/800px-SSH_Communications_Security_logo.svg.png">
 <meta property="og:updated_time" content="2015-09-07T08:59:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="生成 SSH 密钥">
 <meta name="twitter:description" content="Git 仓库可以通过 git:// 来访问，目前类似 Github，Gitcafe，Coding等基于 Git 的托管服务都提供有配置 SSH 密钥，来访问托管仓库的功能。本文中将通过为 Github 账号配置 SSH 密钥来访问仓库为例，说明 SSH 密钥配置过程。
-SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密码。下面的步骤将带你生成一个 SSH 密钥，并将其添加到你的 Githu">
+SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密码。下面的步骤将带你生成一个 SSH 密钥，并将其添加到你的 Gith">
+<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/800px-SSH_Communications_Security_logo.svg.png">
   
   
     <link rel="icon" href="/favicon.png">
   
 
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
   
-    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+    <link rel="stylesheet" href="/scrollLoading/style.css">
   
   
 
@@ -40,7 +41,7 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
     <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
     <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
    -->
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -114,33 +115,33 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
 <p>Git 仓库可以通过 git:// 来访问，目前类似 Github，Gitcafe，Coding等基于 Git 的托管服务都提供有配置 SSH 密钥，来访问托管仓库的功能。本文中将通过为 Github 账号配置 SSH 密钥来访问仓库为例，说明 SSH 密钥配置过程。</p>
 <p>SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密码。下面的步骤将带你生成一个 SSH 密钥，并将其添加到你的 Github 账号。</p>
 <a id="more"></a>
-<h2 id="步骤1：检查_SSH_密钥">步骤1：检查 SSH 密钥</h2><p>首先，需要检查电脑上是否有已经存在的 SSH 密钥。打开终端并输入：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">ls</span> -<span class="keyword">al</span> ~/.ssh</span><br><span class="line"># Lists the <span class="keyword">files</span> in your .ssh directory, <span class="keyword">if</span> they exist</span><br></pre></td></tr></table></figure>
+<h2 id="步骤1：检查-SSH-密钥"><a href="#步骤1：检查-SSH-密钥" class="headerlink" title="步骤1：检查 SSH 密钥"></a>步骤1：检查 SSH 密钥</h2><p>首先，需要检查电脑上是否有已经存在的 SSH 密钥。打开终端并输入：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">ls</span> -<span class="keyword">al</span> ~/.ssh</div><div class="line"># Lists the <span class="keyword">files</span> in your .ssh directory, <span class="keyword">if</span> they exist</div></pre></td></tr></table></figure>
 <p>查看文件夹中列出的文件中是否已经有 SSH 公钥。默认情况下，公钥的文件名会是下面中的一个：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; id_dsa<span class="class">.pub</span></span><br><span class="line">&gt; id_ecdsa<span class="class">.pub</span></span><br><span class="line">&gt; id_ed25519<span class="class">.pub</span></span><br><span class="line">&gt; id_rsa.pub</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; id_dsa<span class="selector-class">.pub</span></div><div class="line">&gt; id_ecdsa<span class="selector-class">.pub</span></div><div class="line">&gt; id_ed25519<span class="selector-class">.pub</span></div><div class="line">&gt; id_rsa.pub</div></pre></td></tr></table></figure>
 <p>如果你看到列出的文件已经存在一对公钥和私钥(如：id_rsa.pub 和 id_rsa)，而你打算用来连接 Github，那么可以跳过步骤2，直接查看步骤3。</p>
 <blockquote>
 <p>提示：如果你收到一个 ~/.ssh 不存在的错误，别担心，我们在步骤2中将创建它。</p>
 </blockquote>
-<h2 id="步骤2：生成新的_SSH_密钥">步骤2：生成新的 SSH 密钥</h2><p>1、继续打开终端，复制并粘贴下面的文本。确保用你的 Github 邮箱替换掉其中的地址。</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh-keygen -t rsa -b <span class="number">4096</span> -<span class="constant">C </span><span class="string">"your_email@example.com"</span></span><br><span class="line"><span class="comment"># Creates a new ssh key, using the provided email as a label</span></span><br><span class="line"><span class="comment"># Generating public/private rsa key pair.</span></span><br></pre></td></tr></table></figure>
+<h2 id="步骤2：生成新的-SSH-密钥"><a href="#步骤2：生成新的-SSH-密钥" class="headerlink" title="步骤2：生成新的 SSH 密钥"></a>步骤2：生成新的 SSH 密钥</h2><p>1、继续打开终端，复制并粘贴下面的文本。确保用你的 Github 邮箱替换掉其中的地址。</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>ssh-keygen -t rsa -b <span class="number">4096</span> -C <span class="string">"your_email@example.com"</span></div><div class="line"><span class="comment"># Creates a new ssh key, using the provided email as a label</span></div><div class="line"><span class="comment"># Generating public/private rsa key pair.</span></div></pre></td></tr></table></figure>
 <p>2、强烈建议保持默认设置，因此你在被提示”输入文件以保存密钥”时，直接按<strong>回车</strong>继续：</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter <span class="built_in">file</span> <span class="operator">in</span> which <span class="built_in">to</span> save <span class="operator">the</span> key (/Users/you/.ssh/id_rsa): [Press enter]</span><br></pre></td></tr></table></figure>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Enter <span class="built_in">file</span> <span class="keyword">in</span> which <span class="built_in">to</span> save <span class="keyword">the</span> key (/Users/you/.ssh/id_rsa): [Press enter]</div></pre></td></tr></table></figure>
 <p>3、提示输入口令：</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (<span class="constant">empty</span> <span class="keyword">for</span> no passphrase): [Type <span class="operator">a</span> passphrase]</span><br><span class="line"><span class="comment"># Enter same passphrase again: [Type passphrase again]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase): [<span class="keyword">Type</span> <span class="type">a </span>passphrase]</div><div class="line"># Enter same passphrase again: [<span class="keyword">Type</span> <span class="type">passphrase </span>again]</div></pre></td></tr></table></figure>
 <p>4、输口令以后，你将得到一个 SSH 密钥的指纹或者<code>ID</code>。看起来像这样：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Your identification has been saved in /Users/you/.ssh/id_rsa.</span><br><span class="line"><span class="preprocessor"># Your public key has been saved in /Users/you/.ssh/id_rsa.pub.</span></span><br><span class="line"><span class="preprocessor"># The key fingerprint is:</span></span><br><span class="line"><span class="preprocessor"># <span class="number">01</span>:<span class="number">0f</span>:f4:<span class="number">3</span>b:ca:<span class="number">85</span>:d6:<span class="number">17</span>:a1:<span class="number">7</span>d:f0:<span class="number">68</span>:<span class="number">9</span>d:f0:a2:db your_email@example.com</span></span><br></pre></td></tr></table></figure>
-<h2 id="步骤3：添加密钥到_ssh-agent">步骤3：添加密钥到 ssh-agent</h2><p>配置 ssh-agent 程序来使用 SSH 密钥，可以避免每次被提示输入口令：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">Your</span> <span class="selector-tag">identification</span> <span class="selector-tag">has</span> <span class="selector-tag">been</span> <span class="selector-tag">saved</span> <span class="selector-tag">in</span> /<span class="selector-tag">Users</span>/<span class="selector-tag">you</span>/<span class="selector-class">.ssh</span>/<span class="selector-tag">id_rsa</span>.</div><div class="line"># <span class="selector-tag">Your</span> <span class="selector-tag">public</span> <span class="selector-tag">key</span> <span class="selector-tag">has</span> <span class="selector-tag">been</span> <span class="selector-tag">saved</span> <span class="selector-tag">in</span> /<span class="selector-tag">Users</span>/<span class="selector-tag">you</span>/<span class="selector-class">.ssh</span>/<span class="selector-tag">id_rsa</span><span class="selector-class">.pub</span>.</div><div class="line"># <span class="selector-tag">The</span> <span class="selector-tag">key</span> <span class="selector-tag">fingerprint</span> <span class="selector-tag">is</span>:</div><div class="line"># <span class="selector-tag">01</span><span class="selector-pseudo">:0f</span><span class="selector-pseudo">:f4</span><span class="selector-pseudo">:3b</span><span class="selector-pseudo">:ca</span><span class="selector-pseudo">:85</span><span class="selector-pseudo">:d6</span><span class="selector-pseudo">:17</span><span class="selector-pseudo">:a1</span><span class="selector-pseudo">:7d</span><span class="selector-pseudo">:f0</span><span class="selector-pseudo">:68</span><span class="selector-pseudo">:9d</span><span class="selector-pseudo">:f0</span><span class="selector-pseudo">:a2</span><span class="selector-pseudo">:db</span> <span class="selector-tag">your_email</span>@<span class="selector-tag">example</span><span class="selector-class">.com</span></div></pre></td></tr></table></figure>
+<h2 id="步骤3：添加密钥到-ssh-agent"><a href="#步骤3：添加密钥到-ssh-agent" class="headerlink" title="步骤3：添加密钥到 ssh-agent"></a>步骤3：添加密钥到 ssh-agent</h2><p>配置 ssh-agent 程序来使用 SSH 密钥，可以避免每次被提示输入口令：</p>
 <p>1、确保 ssh-agent 是可用的：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># start the ssh-agent in the background</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br><span class="line"><span class="comment"># Agent pid 59566</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># start the ssh-agent in the background</span></div><div class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></div><div class="line"><span class="comment"># Agent pid 59566</span></div></pre></td></tr></table></figure>
 <p>2、添加密钥到 ssh-agent</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh-add ~<span class="regexp">/.ssh/id</span>_rsa</span><br></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-<span class="keyword">add</span><span class="bash"> ~/.ssh/id_rsa</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p>提示：如果你在步骤2中没有生成新的 SSH 密钥，而是使用已经存在的密钥，那你需要替换上面命令中的 id_rsa 为你已经存在的私钥文件的名称。</p>
 </blockquote>
-<h2 id="步骤4：添加_SSH_密钥到你的账号">步骤4：添加 SSH 密钥到你的账号</h2><p>配置你的 Github 账号来使用 SSH 密钥：</p>
+<h2 id="步骤4：添加-SSH-密钥到你的账号"><a href="#步骤4：添加-SSH-密钥到你的账号" class="headerlink" title="步骤4：添加 SSH 密钥到你的账号"></a>步骤4：添加 SSH 密钥到你的账号</h2><p>配置你的 Github 账号来使用 SSH 密钥：</p>
 <p>复制 SSH 密钥到剪贴板，记住你可能将密钥命名为 id_dsa.pub， id_ecdsa.pub 或者 id_ed25519.pub，那么需要修改下列命令中的文件名：</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pbcopy &lt; ~<span class="regexp">/.ssh/id</span>_rsa.pub</span><br><span class="line"><span class="comment"># Copies the contents of the id_rsa.pub file to your clipboard</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pbcopy &lt; ~<span class="regexp">/.ssh/i</span>d_rsa.pub</div><div class="line"><span class="comment"># Copies the contents of the id_rsa.pub file to your clipboard</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p>提示：也可以直接用文本编辑器等打开公钥文件，然后复制其中的内容。</p>
 <p>警告：在复制过程中一定不能添加任何新行或者空格。</p>
@@ -152,20 +153,20 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
 <p>4、在密钥输入框中粘贴刚才复制的密钥。</p>
 <p>5、点击添加。</p>
 <p>6、输入 Github 账号密码来确认。</p>
-<h2 id="步骤5：测试连接">步骤5：测试连接</h2><p>为了确保一切工作正常，接下来将 SSH 到 Github。这么做的时候，你需要使用密码来验证。这个密码就是你之前创建的 SSH 密钥的口令。</p>
+<h2 id="步骤5：测试连接"><a href="#步骤5：测试连接" class="headerlink" title="步骤5：测试连接"></a>步骤5：测试连接</h2><p>为了确保一切工作正常，接下来将 SSH 到 Github。这么做的时候，你需要使用密码来验证。这个密码就是你之前创建的 SSH 密钥的口令。</p>
 <p>1、打开终端并输入：</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh -<span class="constant">T</span> git<span class="variable">@github</span>.com</span><br><span class="line"><span class="comment"># Attempts to ssh to GitHub</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>ssh -T git<span class="variable">@github</span>.com</div><div class="line"><span class="comment"># Attempts to ssh to GitHub</span></div></pre></td></tr></table></figure>
 <p>2、第一次你将看到下面的警告：</p>
-<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity <span class="keyword">of</span> host <span class="attribute">'github</span>.com (<span class="number">207.97</span>.<span class="number">227.239</span>)' can<span class="attribute">'t</span> be established.</span><br><span class="line"># RSA key fingerprint <span class="keyword">is</span> <span class="number">16</span>:<span class="number">27</span>:ac:a5:<span class="number">76</span>:<span class="number">28</span>:<span class="number">2</span>d:<span class="number">36</span>:<span class="number">63</span>:<span class="number">1</span>b:<span class="number">56</span>:<span class="number">4</span>d:eb:df:a6:<span class="number">48</span>.</span><br><span class="line"># Are you sure you want <span class="keyword">to</span> continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">The authenticity <span class="keyword">of</span> host 'github.com (<span class="number">207.97</span><span class="number">.227</span><span class="number">.239</span>)' can't be established.</div><div class="line"><span class="comment"># RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span></div><div class="line"><span class="comment"># Are you sure you want to continue connecting (yes/no)?</span></div></pre></td></tr></table></figure>
 <p>核实你看到的消息中的指纹，并输入: <code>yes</code>：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span></span><br><span class="line"><span class="comment"># provide shell access.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Hi username! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span></div><div class="line"><span class="comment"># provide shell access.</span></div></pre></td></tr></table></figure>
 <p>3、如果出现上面的信息，并且用户是你 ，那么你的 SSH 密钥就安装成功了。如果你收到了关于 <code>access denied</code> 的消息，那么就是失败了，那么请确认前面的步骤，重新来过。</p>
 <p>以上为 Mac 平台生成 SSH 密钥的步骤，Windows、Linux 平台略有不同。</p>
 <p>原文链接：<a href="https://help.github.com/articles/generating-ssh-keys/#platform-mac" target="_blank" rel="external">Generating SSH keys</a></p>
 
       </div>
       <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/generating-ssh-keys/" data-id="ciww5x6r100esd4fyk4p6enyx" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        <!-- <a data-url="http://linfuyan.com/generating-ssh-keys/" data-id="cizxt3e9q0019q2fyvjwwa5p5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
         
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li></ul>
@@ -312,6 +313,26 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
             
             <div class="item-thumbnail">
               
+<a href="/macOS-Sierra-docker-seafile/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/seafile.gif
+)" alt="macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a></p>
+              <p class="item-title"><a href="/macOS-Sierra-docker-seafile/" class="title">macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘</a></p>
+              <p class="item-date"><time datetime="2017-03-06T07:42:00.000Z" itemprop="datePublished">2017-03-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
 <a href="/ubuntu-ngrok/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
@@ -385,25 +406,6 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/$q_and_promise_in_angular/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Web前端/">Web前端</a></p>
-              <p class="item-title"><a href="/$q_and_promise_in_angular/" class="title">形象的讲解 angular 中的 $q 与 promise</a></p>
-              <p class="item-date"><time datetime="2016-07-06T08:17:10.000Z" itemprop="datePublished">2016-07-06</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -413,7 +415,7 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -453,7 +455,7 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
         <h1 class="logo-wrap">
           <a href="/" class="logo"></a>
         </h1>
-        <p>&copy; 2016 linfuyan</p>
+        <p>&copy; 2017 linfuyan</p>
         <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
         <p>
         <!-- CNZZ 统计 -->
@@ -471,16 +473,16 @@ SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密�
 
 
 
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
-  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
-  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
+  <script src="/scrollLoading/main.js"></script>
 
 
-<script src="/js/html-patch.js" type="text/javascript"></script>
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/html-patch.js"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

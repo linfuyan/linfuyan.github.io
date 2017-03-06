@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘 | 悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="先上效果图。下图是 mac 客户端与 web 服务器的配合使用录屏。
+
+〇、前言
+安装 docker 比较简单。直接从官网下载安装文件，双击安装就可以了。和普通的 macOS app 一样。
+对于 docker 操作要有基础的了解。可以参考 docker 从入门到实践。正常按照文中的步骤就可以顺利完成。
+什么是 seafile？官网为什么选了 seafile？知乎这里两个链接可以点击直接查看。更多">
+<meta property="og:type" content="article">
+<meta property="og:title" content="macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘">
+<meta property="og:url" content="http://linfuyan.com/macOS-Sierra-docker-seafile/index.html">
+<meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
+<meta property="og:description" content="先上效果图。下图是 mac 客户端与 web 服务器的配合使用录屏。
+
+〇、前言
+安装 docker 比较简单。直接从官网下载安装文件，双击安装就可以了。和普通的 macOS app 一样。
+对于 docker 操作要有基础的了解。可以参考 docker 从入门到实践。正常按照文中的步骤就可以顺利完成。
+什么是 seafile？官网为什么选了 seafile？知乎这里两个链接可以点击直接查看。更多">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/seafile.gif">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg">
+<meta property="og:updated_time" content="2017-03-06T07:48:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘">
+<meta name="twitter:description" content="先上效果图。下图是 mac 客户端与 web 服务器的配合使用录屏。
+
+〇、前言
+安装 docker 比较简单。直接从官网下载安装文件，双击安装就可以了。和普通的 macOS app 一样。
+对于 docker 操作要有基础的了解。可以参考 docker 从入门到实践。正常按照文中的步骤就可以顺利完成。
+什么是 seafile？官网为什么选了 seafile？知乎这里两个链接可以点击直接查看。更多">
+<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/seafile.gif">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  
+    <link rel="stylesheet" href="/scrollLoading/style.css">
+  
+  
+
+
+  
+
+<!--  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+   -->
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+            <h2 class="subtitle-wrap">
+              <p class="subtitle">关注但不限于 Android、iOS、nodejs</p>
+            </h2>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/导航/">导航</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Web前端/">Web前端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/nodejs/">nodejs</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/">教程</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ngrok/">ngrok</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
+                  
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://linfuyan.com"></form>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header"><a class="page-title-link" href="/categories/软件工具/">软件工具</a></h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-macOS-Sierra-docker-seafile" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/macOS-Sierra-docker-seafile/" class="article-date">
+  <time datetime="2017-03-06T07:42:00.000Z" itemprop="datePublished">2017-03-06</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <p>先上效果图。下图是 mac 客户端与 web 服务器的配合使用录屏。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/seafile.gif" alt="macOS-sierra-docker-seafile-demo"></p>
+<h2 id="〇、前言"><a href="#〇、前言" class="headerlink" title="〇、前言"></a>〇、前言</h2><ol>
+<li>安装 docker 比较简单。直接从<a href="https://www.docker.com/products/docker#/mac" target="_blank" rel="external">官网</a>下载安装文件，双击安装就可以了。和普通的 macOS app 一样。</li>
+<li>对于 docker 操作要有基础的了解。可以参考 <a href="http://uprogrammer.cn/docker_practice/index.html" target="_blank" rel="external">docker 从入门到实践</a>。正常按照文中的步骤就可以顺利完成。</li>
+<li>什么是 seafile？<a href="https://www.seafile.com/home/" target="_blank" rel="external">官网</a>为什么选了 seafile？<a href="https://www.zhihu.com/search?type=content&amp;q=seafile" target="_blank" rel="external">知乎</a>这里两个链接可以点击直接查看。更多的信息，大家自行了解。</li>
+</ol>
+<a id="more"></a>
+<p>安装完成 docker，你就可以在终端中输入 <code>docker version</code>, 出现下面的反馈，我们就可以开始后面的事情了。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">docker <span class="keyword">version</span></div><div class="line">Clien<span class="variable">t:</span></div><div class="line"> Version:      <span class="number">1.13</span>.<span class="number">1</span></div><div class="line"> API <span class="keyword">version</span>:  <span class="number">1.26</span></div><div class="line"> Go <span class="keyword">version</span>:   go1.<span class="number">7.5</span></div><div class="line"> Git commi<span class="variable">t:</span>   <span class="number">092</span>cba3</div><div class="line"> Buil<span class="variable">t:</span>        Wed Feb  <span class="number">8</span> <span class="number">08</span>:<span class="number">47</span>:<span class="number">51</span> <span class="number">2017</span></div><div class="line"> OS/Arch:      darwin/amd64</div><div class="line"></div><div class="line">Server:</div><div class="line"> Version:      <span class="number">1.13</span>.<span class="number">1</span></div><div class="line"> API <span class="keyword">version</span>:  <span class="number">1.26</span> (minimum <span class="keyword">version</span> <span class="number">1.12</span>)</div><div class="line"> Go <span class="keyword">version</span>:   go1.<span class="number">7.5</span></div><div class="line"> Git commi<span class="variable">t:</span>   <span class="number">092</span>cba3</div><div class="line"> Buil<span class="variable">t:</span>        Wed Feb  <span class="number">8</span> <span class="number">08</span>:<span class="number">47</span>:<span class="number">51</span> <span class="number">2017</span></div><div class="line"> OS/Arch:      linux/amd64</div><div class="line"> Experimenta<span class="variable">l:</span> true</div></pre></td></tr></table></figure>
+<p>seafile 服务器端目前有 Linux，Raspberry PI，Windows 版本，这也是在 macOS 上需要 docker 的原因。</p>
+<h2 id="一、下载-docker-Ubuntu-16-04-镜像"><a href="#一、下载-docker-Ubuntu-16-04-镜像" class="headerlink" title="一、下载 docker Ubuntu 16.04 镜像"></a>一、下载 docker Ubuntu 16.04 镜像</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull daocloud.io/<span class="string">ubuntu:</span><span class="number">16.04</span></div></pre></td></tr></table></figure>
+<p>由于官方的 docker 镜像仓库在国内链接很慢，这里可以选择 daocloud.io 的镜像仓库。上面的命令用来从镜像仓库中拉取tag为16.04的 ubuntu 版本。</p>
+<h2 id="二、基于-Ubuntu-16-04-镜像更新源，安装必要工具"><a href="#二、基于-Ubuntu-16-04-镜像更新源，安装必要工具" class="headerlink" title="二、基于 Ubuntu 16.04 镜像更新源，安装必要工具"></a>二、基于 Ubuntu 16.04 镜像更新源，安装必要工具</h2><p>运行基于 daocloud.io/ubuntu:16.04 镜像的容器，并打开其终端。在容器内部，就和操作普通的 ubuntu 没有大的差别了。</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker <span class="keyword">run</span><span class="bash"> -i -t daocloud.io/ubuntu:16.04 /bin/bash</span></div></pre></td></tr></table></figure>
+<p>更新 ubuntu 的源，并安装必要的软件。基础的 ubuntu 镜像，我们需要的软件工具都没有，所以我们需要先安装。由于官方的源，同样因为国内的关系，速度很慢，我们需要添加国内的软件源。参考：<a href="http://www.cnblogs.com/bovenson/p/5752213.html" target="_blank" rel="external">Ubuntu 16.04 几个国内更新源</a></p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">apt-<span class="built_in">get</span> <span class="keyword">update</span> // 更新软件源</div><div class="line">apt-<span class="built_in">get</span> install <span class="keyword">vim</span> // 安装 <span class="keyword">vim</span></div><div class="line"><span class="keyword">vi</span> /etc/apt/sources.<span class="keyword">list</span> // 编辑软件源配置文件，保存，退出</div><div class="line">apt-<span class="built_in">get</span> <span class="keyword">update</span> // 每次修改 sources.<span class="keyword">list</span> 都要执行该命令，使更新源的修改生效</div></pre></td></tr></table></figure>
+<p>更新到国内源以后，下载速度就快很多了。继续安装一些工具如 <code>wget</code>，<code>tree</code>，后面会用到。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-<span class="keyword">get</span> install wget tree</div></pre></td></tr></table></figure>
+<h2 id="三、在-ubuntu-上安装-seafile"><a href="#三、在-ubuntu-上安装-seafile" class="headerlink" title="三、在 ubuntu 上安装 seafile"></a>三、在 ubuntu 上安装 seafile</h2><p>官方有很详尽的<a href="https://manual-cn.seafile.com/deploy/using_mysql.html" target="_blank" rel="external">文档</a>，照着做下来就好了。这边我记录下自己的步骤。</p>
+<p>通过 <code>wget</code> 从官网下载服务器端安装包。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -c <span class="string">http:</span><span class="comment">//seafile-downloads.oss-cn-shanghai.aliyuncs.com/seafile-server_6.0.8_x86-64.tar.gz</span></div></pre></td></tr></table></figure>
+<p>下载完成后，按照如下建立目录：</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">mkdir</span> haiwen</div><div class="line">mv seafile-server_* haiwen</div><div class="line"><span class="built_in">cd</span> haiwen</div></pre></td></tr></table></figure>
+<p>将 seafile-server_* 移动到 haiwen 目录下后</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tar -xzf seafile-server_*</div><div class="line"><span class="built_in">mkdir</span> installed</div><div class="line">mv seafile-server_* installed</div></pre></td></tr></table></figure>
+<p>官方说明：这样设计目录的好处在于</p>
+<ul>
+<li>和 seafile 相关的配置文件都可以放在 haiwen 目录下，便于集中管理。</li>
+<li>后续升级时，你只需要解压最新的安装包到 haiwen 目录下。</li>
+</ul>
+<h3 id="安装-seafile-社区版依赖的软件："><a href="#安装-seafile-社区版依赖的软件：" class="headerlink" title="安装 seafile 社区版依赖的软件："></a>安装 seafile 社区版依赖的软件：</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">apt-<span class="built_in">get</span> <span class="keyword">update</span></div><div class="line">apt-<span class="built_in">get</span> install mariadb-server // mariadb 是 mysql 的分支</div><div class="line">apt-<span class="built_in">get</span> install python2.<span class="number">7</span> <span class="keyword">python</span>-setuptools <span class="keyword">python</span>-imaging <span class="keyword">python</span>-ldap <span class="keyword">python</span>-mysqldb <span class="keyword">python</span>-memcache <span class="keyword">python</span>-urllib3</div></pre></td></tr></table></figure>
+<p>安装完成以后，需要修改mysql用户的密码，并启动 mysql 服务：</p>
+<p>参考地址：<a href="http://blog.csdn.net/stubbornness1219/article/details/53445904" target="_blank" rel="external">Ubuntu 16.04 下重置 MySQL 5.7 密码</a></p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">service mysql start <span class="comment">// 启动 mysql 服务</span></div><div class="line">mysql <span class="comment">// 用空密码进入 mysql 管理命令行</span></div><div class="line">mysql&gt; use mysql <span class="comment">// 切换到 mysql 库</span></div><div class="line">mysql&gt; update mysql.user <span class="keyword">set</span> authentication_string=password(<span class="string">'123qwe'</span>) where <span class="comment">user=</span><span class="comment">'root'</span><span class="comment"> and Host =</span><span class="comment">'localhost'</span>; <span class="comment">// 修改为自己的密码</span></div><div class="line">mysql&gt; update user <span class="keyword">set</span> plugin=<span class="string">"mysql_native_password"</span>; </div><div class="line">mysql&gt; flush privileges;</div><div class="line">mysql&gt; quit;</div></pre></td></tr></table></figure>
+<p>再重启，用新的密码登录，验证修改是否生效。</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service mysql <span class="literal">start</span></div><div class="line">mysql -uroot -pnewpwd</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在开始后面的步骤时，mysql 服务必须开启，否则会提示 mysql 相关的错误。</p>
+</blockquote>
+<p>进入 seafile-server-* 目录，并运行安装脚本，根据提示回答问题。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">cd</span> seafile-server-*</div><div class="line">./setup-seafile-mysql.<span class="keyword">sh</span></div></pre></td></tr></table></figure>
+<p>基本上使用默认就可以了。 </p>
+<blockquote>
+<ul>
+<li><code>seafile server ip or domain</code> 会影响到后面的下载与上传，不过系统配置中可以修改。这里可以随意填写， 如：<code>127.0.0.1</code></li>
+<li><code>seafile data dir</code> 是文件存储的位置，这个要记清楚。后面我们要配置 docker 容器的数据目录。</li>
+</ul>
+</blockquote>
+<p>接下来，你会被要求选择一种创建 Seafile 数据库的方式:</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="code">-------------------------------------------------------</span></div><div class="line">Please choose a way to initialize seafile databases:</div><div class="line">-------------------------------------------------------</div><div class="line"></div><div class="line">[1] Create new ccnet/seafile/seahub databases</div><div class="line">[2] Use existing ccnet/seafile/seahub databases</div></pre></td></tr></table></figure>
+<p>如果选择1, 你需要提供根密码. 脚本程序会创建数据库和用户。<br>如果选择2, ccnet/seafile/seahub 数据库应该已经被你（或者其他人）提前创建。</p>
+<p><strong>我们选1</strong>，然后一路回车下来。</p>
+<p>以上，我们已经完成了 seafile 社区版在 ubuntu 上的安装。</p>
+<h3 id="关于-seafile-专业版"><a href="#关于-seafile-专业版" class="headerlink" title="关于 seafile 专业版"></a>关于 seafile 专业版</h3><p>seafile 社区版是没有用户使用限制的，专业版有。专业版的功能更加强大。如社区版无法预览 office，pdf 文件，仅提供下载到本地的功能，专业版可以在线预览。</p>
+<p>专业版的安装与社区版类似。由于专业版的功能更强大，所以有更多的依赖，这就要在安装时安装更多其他的软件。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">apt-<span class="built_in">get</span> install openjdk-<span class="number">8</span>-jre poppler-utils libpython2.<span class="number">7</span> <span class="keyword">python</span>-pip \</div><div class="line">mysql-server <span class="keyword">python</span>-setuptools <span class="keyword">python</span>-imaging <span class="keyword">python</span>-mysqldb <span class="keyword">python</span>-memcache <span class="keyword">python</span>-ldap \</div><div class="line"><span class="keyword">python</span>-urllib3</div><div class="line"></div><div class="line">pip install boto requests</div><div class="line"><span class="keyword">ln</span> -<span class="keyword">sf</span> /usr/lib/jvm/java-<span class="number">8</span>-openjdk-amd64/jre/bin/java /usr/bin/</div><div class="line"></div><div class="line">apt-<span class="built_in">get</span> install libreoffice libreoffice-script-provider-<span class="keyword">python</span> // Office 预览</div><div class="line"></div><div class="line">apt-<span class="built_in">get</span> install ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy // 字体支持</div></pre></td></tr></table></figure>
+<p>专业版3人以下使用是不需要授权的。更多的人需要购买授权。家庭使用的话，免费的专业版也完全够用啦。哪里可以下载到专业版请看后面的问题。</p>
+<h2 id="四、从-docker-容器中退出，制作-seafile-镜像"><a href="#四、从-docker-容器中退出，制作-seafile-镜像" class="headerlink" title="四、从 docker 容器中退出，制作 seafile 镜像"></a>四、从 docker 容器中退出，制作 seafile 镜像</h2><p>在上面的操作中，我们看到终端的左侧有类似下面的前置符：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root<span class="variable">@d63b87d071a4</span><span class="symbol">:/haiwen/</span></div></pre></td></tr></table></figure>
+<p>这里的 <code>d63b87d071a4</code> 是这次打开容器的 ID，我们要基于此来提交我们刚才做的修改。否则我们再次启动 ubuntu:16.04 这个镜像时，所有的修改都丢失了。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker commit -m <span class="string">'install seafile'</span> -<span class="selector-tag">a</span> <span class="string">'user'</span> d63b87d071a4 seafile:v1</div></pre></td></tr></table></figure>
+<p>这样，就可以创建一个本地的 seafile 仓库，标签为 v1 的镜像。<code>-m</code> 为这次提交添加注释， <code>-a</code> 说明添加的用户， <code>d63b87d071a4</code> 修改的容器ID，<code>seafile:v1</code> (仓库:标签)标识新建的镜像。<code>docker commit</code> 与 <code>git commit</code> 类似。</p>
+<p>通过 <code>docker images</code> 查看本地镜像，类似如下：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ docker images</div><div class="line">REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">seafile              v1                  <span class="number">9621e0684187</span>        <span class="number">2</span> days ago          <span class="number">776</span> MB</div><div class="line">youshi/ubuntu        v2                  <span class="number">08913</span>c24e827        <span class="number">3</span> days ago          <span class="number">222</span> MB</div><div class="line">daocloud.io/ubuntu   <span class="number">16.04</span>               f49eec89601e        <span class="number">5</span> weeks ago         <span class="number">129</span> MB</div><div class="line">daocloud.io/ubuntu   <span class="number">14.04</span>               b969ab9f929b        <span class="number">5</span> weeks ago         <span class="number">188</span> MB</div></pre></td></tr></table></figure>
+<h2 id="五、启动-docker-中的-seafile-服务"><a href="#五、启动-docker-中的-seafile-服务" class="headerlink" title="五、启动 docker 中的 seafile 服务"></a>五、启动 docker 中的 seafile 服务</h2><p>配置数据卷、端口映射，启动 seafile 容器：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -i -t -v [<span class="number">1</span>]<span class="symbol">:/haiwen/seafile-data</span> -v [<span class="number">2</span>]<span class="symbol">:/var/lib/mysql</span> -p <span class="number">10001</span><span class="symbol">:</span><span class="number">10001</span> -p <span class="number">12001</span><span class="symbol">:</span><span class="number">12001</span> -p <span class="number">8000</span><span class="symbol">:</span><span class="number">8000</span> -p <span class="number">8082</span><span class="symbol">:</span><span class="number">8082</span> <span class="symbol">seafile:</span>v1 /bin/bash</div></pre></td></tr></table></figure>
+<ol>
+<li><code>-v</code> 参数映射 mac 系统中的路径到 docker 容器中的路径，作为数据卷。这样容器中的数据就保存在物理磁盘上了。[1] mac 上需要映射到 seafile 同步文件存储的路径。[2] 需要映射到 mysql 存储的路径。</li>
+<li><code>-p</code> 映射容器的端口到 mac 的端口，用于网络通信。 seafile 服务需要 10001，12001，8000，8082 共4个端口。8000 是浏览器访问网页服务的端口，8082是文件同步服务的端口。</li>
+</ol>
+<p>启动 mysql 服务：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service mysql <span class="literal">start</span></div></pre></td></tr></table></figure>
+<p>这时终端中提示报错也没有关系，是因为没有输入 mysql 的用户/密码导致的。</p>
+<p>进入到 seafile-server-* 目录下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">./seafile<span class="selector-class">.sh</span> start <span class="comment">// 启动 Seafile 服务</span></div><div class="line">./seahub<span class="selector-class">.sh</span> start <span class="comment">// 启动 Seahub 网站</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>第一次启动 seahub 时，需要填写管理员账号，密码。</p>
+</blockquote>
+<p>以上，你在浏览器中输入 <code>127.0.0.1:8000</code>， 就可以看到 seafile 网站了。通过之前填写的管理员账户登录，就可以开始体验私有云的功能啦。</p>
+<h2 id="六、问题"><a href="#六、问题" class="headerlink" title="六、问题"></a>六、问题</h2><h3 id="1-客户端无法下载-上传？"><a href="#1-客户端无法下载-上传？" class="headerlink" title="1. 客户端无法下载/上传？"></a>1. 客户端无法下载/上传？</h3><p>Seafile 可以支持桌面客户端、网页版、Android、iOS 客户端。客户端上设置你的服务器地址，用网站上配置的账号，就可以使用了。如果遇到无法上传、下载文件的问题。用管理员账号，进入系统管理后台-&gt;设置中，修改 <code>SERVICE_URL</code> 和 <code>FILE_SERVER_ROOT</code>。前者用作网站访问链接，会影响到分享的文件URL；后者则影响文件同步。两者需要都能够被访问到。因此，地址是内网的，你出了局域网就访问不到了。</p>
+<h3 id="2-专业版如何获取？"><a href="#2-专业版如何获取？" class="headerlink" title="2. 专业版如何获取？"></a>2. 专业版如何获取？</h3><p>专业版的获取方法，请扫下面的二维码关注公众号，并回复 <code>seafilepro</code>。</p>
+<p><div align="center"><br>    <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="80%"><br>    <span>关注公众号，回复 seafilepro</span></div></p>
+<div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+      </div>
+      <footer class="article-footer">
+        <!-- <a data-url="http://linfuyan.com/macOS-Sierra-docker-seafile/" data-id="cizxt3ebz003bq2fym0bzq9x5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/seafile/">seafile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/私有云/">私有云</a></li></ul>
+
+      </footer>
+      
+  
+  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- linfuyan 文章 -->
+	<ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-3371913913447815"
+      data-ad-slot="7769806683"
+      data-ad-format="auto"></ins>
+	<script>
+	  (adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+  
+
+
+      
+        
+<nav id="article-nav">
+  
+  
+    <a href="/ubuntu-ngrok/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">ubuntu搭建ngrok服务器，尽享内网穿透技术带来的福利</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+      
+      
+        <div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+      
+    </div>
+  </article>
+  
+
+  
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-macOS-Sierra-docker-seafile" data-title="macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘" data-url="http://linfuyan.com/macOS-Sierra-docker-seafile/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'linfuyan'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
+      
+        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
+      
+    </ul>
+  </div>
+  <!-- 
+    
+<nav id="article-nav">
+  
+  
+    <a href="/ubuntu-ngrok/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">ubuntu搭建ngrok服务器，尽享内网穿透技术带来的福利</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+   -->
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+  	
+      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/> 
+     
+    
+      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Android-iOS-qq-group.png" width="100%" height="100%"/>
+    
+  </div>
+
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/macOS-Sierra-docker-seafile/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/seafile.gif
+)" alt="macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a></p>
+              <p class="item-title"><a href="/macOS-Sierra-docker-seafile/" class="title">macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘</a></p>
+              <p class="item-date"><time datetime="2017-03-06T07:42:00.000Z" itemprop="datePublished">2017-03-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/ubuntu-ngrok/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/ngrok/">ngrok</a></p>
+              <p class="item-title"><a href="/ubuntu-ngrok/" class="title">ubuntu搭建ngrok服务器，尽享内网穿透技术带来的福利</a></p>
+              <p class="item-date"><time datetime="2016-12-19T09:17:00.000Z" itemprop="datePublished">2016-12-19</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/add-chinese-support-to-lunrjs/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/nodejs/">nodejs</a></p>
+              <p class="item-title"><a href="/add-chinese-support-to-lunrjs/" class="title">为 lunr.js 添加中文支持</a></p>
+              <p class="item-date"><time datetime="2016-11-09T02:32:00.000Z" itemprop="datePublished">2016-11-09</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/locale_error_unsupported_locale_setting/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/FAQ/">FAQ</a></p>
+              <p class="item-title"><a href="/locale_error_unsupported_locale_setting/" class="title">解决pip install时unsupported locale setting错误</a></p>
+              <p class="item-date"><time datetime="2016-10-22T03:30:24.000Z" itemprop="datePublished">2016-10-22</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/shadowsocks-with-digitalocean/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_1.png
+)" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></p>
+              <p class="item-title"><a href="/shadowsocks-with-digitalocean/" class="title">在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网</a></p>
+              <p class="item-date"><time datetime="2016-10-22T01:25:00.000Z" itemprop="datePublished">2016-10-22</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://uprogrammer.cn">优程</a>
+          </li>
+        
+          <li>
+            <a href="http://hexo.io">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2017 linfuyan</p>
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
+        <p>
+        <!-- CNZZ 统计 -->
+        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
+  <script src="/scrollLoading/main.js"></script>
+
+
+<script src="/js/html-patch.js"></script>
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -20,12 +20,12 @@
     <link rel="icon" href="/favicon.png">
   
 
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
   
-    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+    <link rel="stylesheet" href="/scrollLoading/style.css">
   
   
 
@@ -36,7 +36,7 @@
     <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
     <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
    -->
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -110,13 +110,13 @@
 <p>不多说，以下基于当前 lunr.js 版本（commit id:6a978d1ebf1a0c08e1a76cd4f7f74ad5490e5937），添加了中文支持。</p>
 <p>仓库地址：<a href="https://github.com/linfuyan/lunr.js" target="_blank" rel="external">https://github.com/linfuyan/lunr.js</a></p>
 <p>有<a href="https://github.com/linfuyan/lunr.js/tree/un-participle" target="_blank" rel="external">未分词的中文支持版本</a>和<a href="https://github.com/linfuyan/lunr.js/tree/un-participle" target="_blank" rel="external">分词的中文支持版本</a>，位于仓库中不同的分支。</p>
-<h2 id="未分词的中文支持版本">未分词的中文支持版本</h2><p>中文支持的基本原理是，保证 lunr.js 在分析过程中中文字符不会被转义。因此在 trimmer 函数中对中文字符做过滤。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">lunr.trimmer = <span class="function"><span class="keyword">function</span> (<span class="params">token</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//by ming300 check token is chinese then not replace   </span></span><br><span class="line">  <span class="keyword">if</span>(isChineseChar(token))&#123;</span><br><span class="line">    <span class="keyword">return</span> token;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> token</span><br><span class="line">    .replace(<span class="regexp">/^\W+/</span>, <span class="string">''</span>)</span><br><span class="line">    .replace(<span class="regexp">/\W+$/</span>, <span class="string">''</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> **check it contains Chinese (including Japanese and Korean)</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isChineseChar</span>(<span class="params">str</span>)</span>&#123;     </span><br><span class="line">   <span class="keyword">var</span> reg = <span class="regexp">/[\u4E00-\u9FA5\uF900-\uFA2D]/</span>;  </span><br><span class="line">   <span class="keyword">return</span> reg.test(str);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="未分词的中文支持版本"><a href="#未分词的中文支持版本" class="headerlink" title="未分词的中文支持版本"></a>未分词的中文支持版本</h2><p>中文支持的基本原理是，保证 lunr.js 在分析过程中中文字符不会被转义。因此在 trimmer 函数中对中文字符做过滤。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">lunr.trimmer = <span class="function"><span class="keyword">function</span> (<span class="params">token</span>) </span>&#123;</div><div class="line">  <span class="comment">//by ming300 check token is chinese then not replace   </span></div><div class="line">  <span class="keyword">if</span>(isChineseChar(token))&#123;</div><div class="line">    <span class="keyword">return</span> token;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> token</div><div class="line">    .replace(<span class="regexp">/^\W+/</span>, <span class="string">''</span>)</div><div class="line">    .replace(<span class="regexp">/\W+$/</span>, <span class="string">''</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> **check it contains Chinese (including Japanese and Korean)</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isChineseChar</span>(<span class="params">str</span>)</span>&#123;     </div><div class="line">   <span class="keyword">var</span> reg = <span class="regexp">/[\u4E00-\u9FA5\uF900-\uFA2D]/</span>;  </div><div class="line">   <span class="keyword">return</span> reg.test(str);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>此外，在分词部分 tokenizer 函数做些调整，添加如下关键代码：</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var str = obj.toString().replace(/^<span class="command">\s</span>+/, '')</span><br><span class="line"></span><br><span class="line">  for (var i = str.length - 1; i &gt;= 0; i--) <span class="special">&#123;</span></span><br><span class="line">    if (/<span class="command">\S</span>/.test(str.charAt(i))) <span class="special">&#123;</span></span><br><span class="line">      str = str.substring(0, i + 1)</span><br><span class="line">      break</span><br><span class="line">    <span class="special">&#125;</span></span><br><span class="line">  <span class="special">&#125;</span></span><br><span class="line"></span><br><span class="line">  var rs = str</span><br><span class="line">    .split(/<span class="special">[</span><span class="command">\ </span>|<span class="command">\~</span>|<span class="command">\`</span>|<span class="command">\!</span>|<span class="command">\@</span>|<span class="command">\#</span>|<span class="command">\$</span>|<span class="command">\%</span>|<span class="command">\^</span>|<span class="command">\&amp;</span>|<span class="command">\*</span>|<span class="command">\uFE</span>30-<span class="command">\uFFA</span>0|<span class="command">\(</span>|<span class="command">\)</span>|<span class="command">\-</span>|<span class="command">\_</span>|<span class="command">\+</span>|<span class="command">\=</span>|<span class="command">\|</span>|<span class="command">\\</span>|<span class="command">\[</span>|<span class="command">\]</span>|<span class="command">\&#123;</span>|<span class="command">\&#125;</span>|<span class="command">\;</span>|<span class="command">\:</span>|<span class="command">\"</span>|<span class="command">\'</span>|<span class="command">\,</span>|<span class="command">\&lt;</span>|<span class="command">\.</span>|<span class="command">\&gt;</span>|<span class="command">\/</span>|<span class="command">\?</span><span class="special">]</span>+/)</span><br><span class="line">    .map(function (token) <span class="special">&#123;</span></span><br><span class="line">      var t = token.replace(/<span class="special">[</span><span class="command">\ </span>|<span class="command">\~</span>|<span class="command">\`</span>|<span class="command">\!</span>|<span class="command">\@</span>|<span class="command">\#</span>|<span class="command">\$</span>|<span class="command">\%</span>|<span class="command">\^</span>|<span class="command">\&amp;</span>|<span class="command">\*</span>|<span class="command">\uFE</span>30-<span class="command">\uFFA</span>0|<span class="command">\(</span>|<span class="command">\)</span>|<span class="command">\-</span>|<span class="command">\_</span>|<span class="command">\+</span>|<span class="command">\=</span>|<span class="command">\|</span>|<span class="command">\\</span>|<span class="command">\[</span>|<span class="command">\]</span>|<span class="command">\&#123;</span>|<span class="command">\&#125;</span>|<span class="command">\;</span>|<span class="command">\:</span>|<span class="command">\"</span>|<span class="command">\'</span>|<span class="command">\,</span>|<span class="command">\&lt;</span>|<span class="command">\.</span>|<span class="command">\&gt;</span>|<span class="command">\/</span>|<span class="command">\?</span><span class="special">]</span>/g, '').toLowerCase()</span><br><span class="line">      return t;</span><br><span class="line">    <span class="special">&#125;</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var str = obj.toString().replace(/^<span class="symbol">\s</span>+/, '')</div><div class="line"></div><div class="line">  for (var i = str.length - 1; i &gt;= 0; i--) &#123;</div><div class="line">    if (/<span class="symbol">\S</span>/.test(str.charAt(i))) &#123;</div><div class="line">      str = str.substring(0, i + 1)</div><div class="line">      break</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  var rs = str</div><div class="line">    .split(/[<span class="symbol">\ </span>|<span class="symbol">\~</span>|<span class="symbol">\`</span>|<span class="symbol">\!</span>|<span class="symbol">\@</span>|<span class="symbol">\#</span>|<span class="symbol">\$</span>|<span class="symbol">\%</span>|<span class="symbol">\^</span>|<span class="symbol">\&amp;</span>|<span class="symbol">\*</span>|<span class="symbol">\u</span>FE30-<span class="symbol">\u</span>FFA0|<span class="symbol">\(</span>|<span class="symbol">\)</span>|<span class="symbol">\-</span>|<span class="symbol">\_</span>|<span class="symbol">\+</span>|<span class="symbol">\=</span>|<span class="symbol">\|</span>|<span class="symbol">\\</span>|<span class="symbol">\[</span>|<span class="symbol">\]</span>|<span class="symbol">\&#123;</span>|<span class="symbol">\&#125;</span>|<span class="symbol">\;</span>|<span class="symbol">\:</span>|<span class="symbol">\"</span>|<span class="symbol">\'</span>|<span class="symbol">\,</span>|<span class="symbol">\&lt;</span>|<span class="symbol">\.</span>|<span class="symbol">\&gt;</span>|<span class="symbol">\/</span>|<span class="symbol">\?</span>]+/)</div><div class="line">    .map(function (token) &#123;</div><div class="line">      var t = token.replace(/[<span class="symbol">\ </span>|<span class="symbol">\~</span>|<span class="symbol">\`</span>|<span class="symbol">\!</span>|<span class="symbol">\@</span>|<span class="symbol">\#</span>|<span class="symbol">\$</span>|<span class="symbol">\%</span>|<span class="symbol">\^</span>|<span class="symbol">\&amp;</span>|<span class="symbol">\*</span>|<span class="symbol">\u</span>FE30-<span class="symbol">\u</span>FFA0|<span class="symbol">\(</span>|<span class="symbol">\)</span>|<span class="symbol">\-</span>|<span class="symbol">\_</span>|<span class="symbol">\+</span>|<span class="symbol">\=</span>|<span class="symbol">\|</span>|<span class="symbol">\\</span>|<span class="symbol">\[</span>|<span class="symbol">\]</span>|<span class="symbol">\&#123;</span>|<span class="symbol">\&#125;</span>|<span class="symbol">\;</span>|<span class="symbol">\:</span>|<span class="symbol">\"</span>|<span class="symbol">\'</span>|<span class="symbol">\,</span>|<span class="symbol">\&lt;</span>|<span class="symbol">\.</span>|<span class="symbol">\&gt;</span>|<span class="symbol">\/</span>|<span class="symbol">\?</span>]/g, '').toLowerCase()</div><div class="line">      return t;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
 <p>这里仅仅是基于英文中简单的通过空格进行分词的原则。因此会存在比较大的局限性。例如：”中文Chinese and English”，则直接被识别为”中文Chinese”、”and”、”English”，而无法将”中文”和”Chinese”再区分开。</p>
 <p>相较于第二种方案的有点则是没有任何其他依赖，很轻量，适用于网页。而对基于网页标签进行的搜索则比较好，因为，标签本身就是简短，分散的。可以认为是分词好的。</p>
-<h2 id="基于分词的中文支持版本">基于分词的中文支持版本</h2><p>这个版本基于node-segment中文分词库，在未分词版本的基础上引入分词。功能自然更强大，不过由于分词库的依赖，导致整个包太大。由于需要读取文件形式的分词库，无法在浏览器上使用，但可以在 nodejs 服务端用。虽然做些修改，可以将分词库作为 js 文件 require 进来，但还是存在包太大的问题。</p>
+<h2 id="基于分词的中文支持版本"><a href="#基于分词的中文支持版本" class="headerlink" title="基于分词的中文支持版本"></a>基于分词的中文支持版本</h2><p>这个版本基于node-segment中文分词库，在未分词版本的基础上引入分词。功能自然更强大，不过由于分词库的依赖，导致整个包太大。由于需要读取文件形式的分词库，无法在浏览器上使用，但可以在 nodejs 服务端用。虽然做些修改，可以将分词库作为 js 文件 require 进来，但还是存在包太大的问题。</p>
 <p>关键代码的修改也是在 lunr.js 中的 trimmer 和 tokenizer 方法中。不过需要注意的是，在 package.json 中添加对 node-segment 的依赖。</p>
 <p>感谢以下两个仓库作者。</p>
 <p><a href="https://github.com/ming300/lunr.js/" target="_blank" rel="external">https://github.com/ming300/lunr.js/</a></p>
@@ -126,7 +126,7 @@
 
       </div>
       <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/add-chinese-support-to-lunrjs/" data-id="ciww5x6tr00k3d4fye3xy7t2k" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        <!-- <a data-url="http://linfuyan.com/add-chinese-support-to-lunrjs/" data-id="cizxt3e8t000aq2fy5ev6yaqd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
         
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lunr/">lunr</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-segment/">node-segment</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分词/">分词</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搜索/">搜索</a></li></ul>
@@ -273,6 +273,26 @@
             
             <div class="item-thumbnail">
               
+<a href="/macOS-Sierra-docker-seafile/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/seafile.gif
+)" alt="macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a></p>
+              <p class="item-title"><a href="/macOS-Sierra-docker-seafile/" class="title">macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘</a></p>
+              <p class="item-date"><time datetime="2017-03-06T07:42:00.000Z" itemprop="datePublished">2017-03-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
 <a href="/ubuntu-ngrok/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
@@ -346,25 +366,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/$q_and_promise_in_angular/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Web前端/">Web前端</a></p>
-              <p class="item-title"><a href="/$q_and_promise_in_angular/" class="title">形象的讲解 angular 中的 $q 与 promise</a></p>
-              <p class="item-date"><time datetime="2016-07-06T08:17:10.000Z" itemprop="datePublished">2016-07-06</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -374,7 +375,7 @@
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -414,7 +415,7 @@
         <h1 class="logo-wrap">
           <a href="/" class="logo"></a>
         </h1>
-        <p>&copy; 2016 linfuyan</p>
+        <p>&copy; 2017 linfuyan</p>
         <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
         <p>
         <!-- CNZZ 统计 -->
@@ -432,16 +433,16 @@
 
 
 
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
-  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
-  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
+  <script src="/scrollLoading/main.js"></script>
 
 
-<script src="/js/html-patch.js" type="text/javascript"></script>
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/html-patch.js"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

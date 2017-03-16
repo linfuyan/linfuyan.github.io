@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java Swing 代码打包成 Windows 上的 exe 文件 | 悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="年前抽空给朋友做了个小东西。具体功能就不说了。对于他的最终需求，概括的说就是：需要一个满足功能的在 windows 上的 .exe 文件。桌面开发我不熟，后来基于 Java Swing 给实现了。在实现过程中，几个关键点记下来做备忘。
+
+拖拽文件到界面的输入框中，后续对文件进行处理。简化一下，拖拽文件到输入框，并获取文件路径。
+项目的依赖是用 Gradle 来管理的，功能实现依赖第三方 jar，最">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Swing 代码打包成 Windows 上的 exe 文件">
+<meta property="og:url" content="http://linfuyan.com/java-swing-drag-jar-exe/index.html">
+<meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
+<meta property="og:description" content="年前抽空给朋友做了个小东西。具体功能就不说了。对于他的最终需求，概括的说就是：需要一个满足功能的在 windows 上的 .exe 文件。桌面开发我不熟，后来基于 Java Swing 给实现了。在实现过程中，几个关键点记下来做备忘。
+
+拖拽文件到界面的输入框中，后续对文件进行处理。简化一下，拖拽文件到输入框，并获取文件路径。
+项目的依赖是用 Gradle 来管理的，功能实现依赖第三方 jar，最">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jar2exe-1.png">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jar2exe-2.png">
+<meta property="og:updated_time" content="2017-03-16T05:35:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java Swing 代码打包成 Windows 上的 exe 文件">
+<meta name="twitter:description" content="年前抽空给朋友做了个小东西。具体功能就不说了。对于他的最终需求，概括的说就是：需要一个满足功能的在 windows 上的 .exe 文件。桌面开发我不熟，后来基于 Java Swing 给实现了。在实现过程中，几个关键点记下来做备忘。
+
+拖拽文件到界面的输入框中，后续对文件进行处理。简化一下，拖拽文件到输入框，并获取文件路径。
+项目的依赖是用 Gradle 来管理的，功能实现依赖第三方 jar，最">
+<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jar2exe-1.png">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  
+    <link rel="stylesheet" href="/scrollLoading/style.css">
+  
+  
+
+
+  
+
+<!--  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+   -->
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+            <h2 class="subtitle-wrap">
+              <p class="subtitle">关注但不限于 Android、iOS、nodejs</p>
+            </h2>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/导航/">导航</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Web前端/">Web前端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/nodejs/">nodejs</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/">教程</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ngrok/">ngrok</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
+                  
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://linfuyan.com"></form>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header"><a class="page-title-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/开发技术/经验实践/">经验实践</a></h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-java-swing-drag-jar-exe" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      Java Swing 代码打包成 Windows 上的 exe 文件
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/java-swing-drag-jar-exe/" class="article-date">
+  <time datetime="2017-03-16T05:30:00.000Z" itemprop="datePublished">2017-03-16</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <p>年前抽空给朋友做了个小东西。具体功能就不说了。对于他的最终需求，概括的说就是：需要一个满足功能的在 windows 上的 .exe 文件。桌面开发我不熟，后来基于 Java Swing 给实现了。在实现过程中，几个关键点记下来做备忘。</p>
+<ol>
+<li>拖拽文件到界面的输入框中，后续对文件进行处理。简化一下，拖拽文件到输入框，并获取文件路径。</li>
+<li>项目的依赖是用 Gradle 来管理的，功能实现依赖第三方 jar，最终需要打包成一个可执行 jar。</li>
+<li>将制作好的 jar 打包成 .exe 文件。</li>
+</ol>
+<a id="more"></a>
+<h2 id="1-实现拖拽文件到指定控件，并获取文件路径"><a href="#1-实现拖拽文件到指定控件，并获取文件路径" class="headerlink" title="1. 实现拖拽文件到指定控件，并获取文件路径"></a>1. 实现拖拽文件到指定控件，并获取文件路径</h2><p>直接上核心代码，具体看注释。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.datatransfer.DataFlavor;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.dnd.DnDConstants;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.dnd.DropTarget;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.dnd.DropTargetAdapter;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.dnd.DropTargetDropEvent;</span></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 拖拽文件到控件,并处理</div><div class="line">     * @param component 要接受拖拽的控件</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> <span class="keyword">void</span> drag(Component component) &#123;</div><div class="line"></div><div class="line">        <span class="keyword">new</span> DropTarget(component, DnDConstants.ACTION_COPY_OR_MOVE, <span class="keyword">new</span> DropTargetAdapter() &#123;</div><div class="line"></div><div class="line">            <span class="comment">// 重写适配器的drop方法,实现自己需要的逻辑</span></div><div class="line">            @Override</div><div class="line">            <span class="keyword">public</span> <span class="keyword">void</span> drop(DropTargetDropEvent event) &#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    <span class="comment">// 如果拖入的文件格式受支持</span></div><div class="line">                    <span class="keyword">if</span> (event.isDataFlavorSupported(DataFlavor.javaFileListFlavor)) &#123;</div><div class="line">                        <span class="comment">// 接收拖拽来的数据</span></div><div class="line">                        event.acceptDrop(DnDConstants.ACTION_COPY_OR_MOVE);</div><div class="line">                        <span class="comment">// 读取传递过来的数据</span></div><div class="line">                        java.util.List&lt;File&gt; list = (java.util.List&lt;File&gt;) (event.getTransferable().getTransferData(DataFlavor.javaFileListFlavor));</div><div class="line">                        <span class="comment">// 对传递过来的数据做处理</span></div><div class="line">                        <span class="comment">// do what you want to do</span></div><div class="line">                        event.dropComplete(<span class="literal">true</span>); <span class="comment">// 指示拖拽操作已完成</span></div><div class="line">                    &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        event.rejectDrop(); <span class="comment">// 否则拒绝拖拽来的数据</span></div><div class="line">                    &#125;</div><div class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="2-通过-Gradle-制作可执行的-jar-文件"><a href="#2-通过-Gradle-制作可执行的-jar-文件" class="headerlink" title="2. 通过 Gradle 制作可执行的 jar 文件"></a>2. 通过 Gradle 制作可执行的 jar 文件</h2><p>参考这里：<a href="http://stackoverflow.com/questions/21721119/creating-runnable-jar-with-gradle" target="_blank" rel="external">Creating runnable JAR with Gradle</a></p>
+<p>里面提到了两种方案，一种是直接使用 application 插件，另一种是 shadowJar 插件。</p>
+<p>我最终采用了 shadowJar 的方式实现，核心代码如下：</p>
+<figure class="highlight roboconf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">    <span class="attribute">repositories &#123;</span></div><div class="line">        maven &#123;</div><div class="line">            url "https://plugins<span class="variable">.gradle</span><span class="variable">.org</span>/m2/"</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath "com<span class="variable">.github</span><span class="variable">.jengelman</span><span class="variable">.gradle</span><span class="variable">.plugins</span>:shadow:1.2.4"</div><div class="line">        classpath 'gradle<span class="variable">.plugin</span><span class="variable">.edu</span><span class="variable">.sc</span><span class="variable">.seis</span><span class="variable">.gradle</span>:launch4j:2.3.0'</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">apply plugin: 'java'</div><div class="line">apply plugin: 'com<span class="variable">.github</span><span class="variable">.johnrengelman</span><span class="variable">.shadow</span>'</div><div class="line"></div><div class="line">mainClassName = "your<span class="variable">.main</span><span class="variable">.ClassName</span>"</div><div class="line"></div><div class="line">shadowJar &#123;</div><div class="line">    baseName = 'your_jar_name'</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>打包的命令行如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew shadowJar</div></pre></td></tr></table></figure>
+<p>完成后，就可以在 build/libs 目录下找到 <code>*-all.jar</code>。</p>
+<p>使用 <code>java -jar your-app-all.jar</code> 运行，看下你的程序已经跑起来了。</p>
+<h2 id="3-将-jar-制作成-windows-下的-exe-文件"><a href="#3-将-jar-制作成-windows-下的-exe-文件" class="headerlink" title="3. 将 jar 制作成 windows 下的 exe 文件"></a>3. 将 jar 制作成 windows 下的 exe 文件</h2><p>网上找了很多这方面的工具，最终我发现 launch4j 真是个好用的东西。</p>
+<p>我使用的是 launch4j 的 mac 版。这东西是跨平台的。</p>
+<p>由于 java 的运行离不开 jre 环境，而除了开发人员，正常用户电脑上基本没有环境。所以我们打包的时候，需要把 jre 一起打包。</p>
+<p>mac 上用 launch4j 来将 jar 打包成在 windows 上运行的 exe，还有一点需要注意，就是用于打包的 jre 必须是 windows 下的。</p>
+<p>最简单的 launch4j 配置只需两步，就可以把 jar 打包成 exe了。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jar2exe-1.png" alt="launch4j 基础配置"></p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jar2exe-2.png" alt="launch4j jre 配置"></p>
+<p><strong>jre</strong> 要放置在最终打包的 exe 的同级目录下。这边主要是因为打包后的 exe 是通过相对路径来寻找依赖的 jre。如果配置错误，将导致后面的 exe 文件无法运行。</p>
+<p>到这里，最终打包的 exe 是可以运行了。不过 jre 包和 exe 文件是分开的。可以把这些东西，放在一个文件夹下再压缩，最后分发给用户。</p>
+<p>还可以把  jre 一起打包到 exe 中。以后有时间我在处理。</p>
+
+      </div>
+      <footer class="article-footer">
+        <!-- <a data-url="http://linfuyan.com/java-swing-drag-jar-exe/" data-id="cj0bypvjy009lb9fyeoo22rpu" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/launch4j/">launch4j</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shadowJar/">shadowJar</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swing/">swing</a></li></ul>
+
+      </footer>
+      
+  
+  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- linfuyan 文章 -->
+	<ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-3371913913447815"
+      data-ad-slot="7769806683"
+      data-ad-format="auto"></ins>
+	<script>
+	  (adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+  
+
+
+      
+        
+<nav id="article-nav">
+  
+  
+    <a href="/raspberrypi-day1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">树莓派折腾记之第一天</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+      
+      
+        <div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+      
+    </div>
+  </article>
+  
+
+  
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-java-swing-drag-jar-exe" data-title="Java Swing 代码打包成 Windows 上的 exe 文件" data-url="http://linfuyan.com/java-swing-drag-jar-exe/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'linfuyan'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
+      
+        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
+      
+    </ul>
+  </div>
+  <!-- 
+    
+<nav id="article-nav">
+  
+  
+    <a href="/raspberrypi-day1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">树莓派折腾记之第一天</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+   -->
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+  	
+      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/> 
+     
+    
+      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Android-iOS-qq-group.png" width="100%" height="100%"/>
+    
+  </div>
+
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/java-swing-drag-jar-exe/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/jar2exe-1.png
+)" alt="Java Swing 代码打包成 Windows 上的 exe 文件" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/经验实践/">经验实践</a></p>
+              <p class="item-title"><a href="/java-swing-drag-jar-exe/" class="title">Java Swing 代码打包成 Windows 上的 exe 文件</a></p>
+              <p class="item-date"><time datetime="2017-03-16T05:30:00.000Z" itemprop="datePublished">2017-03-16</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/raspberrypi-day1/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-format-sdcard.png
+)" alt="树莓派折腾记之第一天" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/raspberrypi-day1/" class="title">树莓派折腾记之第一天</a></p>
+              <p class="item-date"><time datetime="2017-03-06T14:08:00.000Z" itemprop="datePublished">2017-03-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/macOS-Sierra-docker-seafile/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/seafile.gif
+)" alt="macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a></p>
+              <p class="item-title"><a href="/macOS-Sierra-docker-seafile/" class="title">macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘</a></p>
+              <p class="item-date"><time datetime="2017-03-06T07:42:00.000Z" itemprop="datePublished">2017-03-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/ubuntu-ngrok/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/ngrok/">ngrok</a></p>
+              <p class="item-title"><a href="/ubuntu-ngrok/" class="title">ubuntu搭建ngrok服务器，尽享内网穿透技术带来的福利</a></p>
+              <p class="item-date"><time datetime="2016-12-19T09:17:00.000Z" itemprop="datePublished">2016-12-19</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/add-chinese-support-to-lunrjs/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/nodejs/">nodejs</a></p>
+              <p class="item-title"><a href="/add-chinese-support-to-lunrjs/" class="title">为 lunr.js 添加中文支持</a></p>
+              <p class="item-date"><time datetime="2016-11-09T02:32:00.000Z" itemprop="datePublished">2016-11-09</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">29</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://uprogrammer.cn">优程</a>
+          </li>
+        
+          <li>
+            <a href="http://hexo.io">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2017 linfuyan</p>
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
+        <p>
+        <!-- CNZZ 统计 -->
+        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
+  <script src="/scrollLoading/main.js"></script>
+
+
+<script src="/js/html-patch.js"></script>
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Kotlin 成为 Android 官方语言，看看官方怎么说？ | 悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文翻译自：https://developer.android.com/kotlin/index.html
+
+伴随着开发者持续增长的兴趣，我们发现多年来 Android 开发中 Kotlin 被越来越多地采用。 Kotlin 具有很好的表现力，简洁，容易扩展，强大，并有优雅的可读写性。在可空性和不变性的处理上，有非常精彩的安全特性。这与我们想要让 Android 应用更加健壮和高效方面的投入相吻">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin 成为 Android 官方语言，看看官方怎么说？">
+<meta property="og:url" content="http://linfuyan.com/android-kotlin/index.html">
+<meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
+<meta property="og:description" content="本文翻译自：https://developer.android.com/kotlin/index.html
+
+伴随着开发者持续增长的兴趣，我们发现多年来 Android 开发中 Kotlin 被越来越多地采用。 Kotlin 具有很好的表现力，简洁，容易扩展，强大，并有优雅的可读写性。在可空性和不变性的处理上，有非常精彩的安全特性。这与我们想要让 Android 应用更加健壮和高效方面的投入相吻">
+<meta property="og:updated_time" content="2017-05-18T03:26:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kotlin 成为 Android 官方语言，看看官方怎么说？">
+<meta name="twitter:description" content="本文翻译自：https://developer.android.com/kotlin/index.html
+
+伴随着开发者持续增长的兴趣，我们发现多年来 Android 开发中 Kotlin 被越来越多地采用。 Kotlin 具有很好的表现力，简洁，容易扩展，强大，并有优雅的可读写性。在可空性和不变性的处理上，有非常精彩的安全特性。这与我们想要让 Android 应用更加健壮和高效方面的投入相吻">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  
+    <link rel="stylesheet" href="/scrollLoading/style.css">
+  
+  
+
+
+  
+
+<!--  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+   -->
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+            <h2 class="subtitle-wrap">
+              <p class="subtitle">关注但不限于 Android、iOS、nodejs</p>
+            </h2>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/导航/">导航</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Web前端/">Web前端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/nodejs/">nodejs</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/">教程</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ngrok/">ngrok</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
+                  
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://linfuyan.com"></form>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header"><a class="page-title-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/开发技术/Android/">Android</a></h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-android-kotlin" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      Kotlin 成为 Android 官方语言，看看官方怎么说？
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/android-kotlin/" class="article-date">
+  <time datetime="2017-05-18T03:21:00.000Z" itemprop="datePublished">2017-05-18</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <blockquote>
+<p>本文翻译自：<a href="https://developer.android.com/kotlin/index.html" target="_blank" rel="external">https://developer.android.com/kotlin/index.html</a></p>
+</blockquote>
+<p>伴随着开发者持续增长的兴趣，我们发现多年来 Android 开发中 Kotlin 被越来越多地采用。 Kotlin 具有很好的表现力，简洁，容易扩展，强大，并有优雅的可读写性。在可空性和不变性的处理上，有非常精彩的安全特性。这与我们想要让 Android 应用更加健壮和高效方面的投入相吻合。最重要的是，它与现有的 Android 语言及运行时可以相互操作。所以我们很高兴地让 Kotlin 成为 Android 上的官方语言。</p>
+<a id="more"></a>
+<p>如果你对使用 Kotlin 感兴趣，那么这将很容易开始。因为它可以与 Android 和 Android 平台上的 Java 和 C++ 搭配使用。所以你可以保持原有的代码，继续使用不同的 Android 库，并添加 Kotlin 代码到你的项目中。与其他多数语言不同， Kotlin 是可以双向使用的替代品。你可以从 Kotlin 调用 Java 语言，也可以从 Java 调用 Kotlin。</p>
+<p>当然， IDE 的支持也是至关重要的，并且我们也已经拥有它。 Android Studio 是基于 JetBrains 开发的 IDE 产品 IntelliJ IDEA 来构建的。而正是这家公司发明了 Kotlin 语言。 JetBrains 的团队已经为能够让 Kotlin 在 IntelliJ IDEA 完美运行工作了很多年。所以我们将继承他们的辛勤工作。从 Android Studio 3.0 开始，对 Kotlin 的支持工具将直接集成在 Android Studio 中。</p>
+<p>我们认为 Kotlin 非常适合 Android，不仅因为它为开发者提供了他们想要的，而且还因为它符合 Android 的精神。与 Android 一样， Kotlin 一直是 Apache 2 下开放源代码项目。它涉及整个社区，而不仅仅是一家公司。我们正在与 JetBrains 合作，把 Kotlin 转为一个非盈利的机构。</p>
+<p>对于选择 Kotlin，正是我们对于“随着 Android 平台的不断发展和壮大，我们致力于开放开发者生态”的理念的重申。 Kotlin 语言的发展让我们感到兴奋。</p>
+<hr>
+<p>如果你还没有入坑，那我告诉你，是时候学习 Kotlin 了。</p>
+<p><a href="http://uprogrammer.cn/kotlin-in-chinese/index.html" target="_blank" rel="external">Kotlin 中文文档</a></p>
+<p><a href="http://uprogrammer.cn/kotlin-for-android-developers-zh/index.html" target="_blank" rel="external">写给 Android 开发者的 Kotlin 教程</a></p>
+
+      </div>
+      <footer class="article-footer">
+        <!-- <a data-url="http://linfuyan.com/android-kotlin/" data-id="cj2tuuvbe0000mlfyncyf8v3o" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-O/">Android O</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin/">Kotlin</a></li></ul>
+
+      </footer>
+      
+  
+  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- linfuyan 文章 -->
+	<ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-3371913913447815"
+      data-ad-slot="7769806683"
+      data-ad-format="auto"></ins>
+	<script>
+	  (adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+  
+
+
+      
+        
+<nav id="article-nav">
+  
+  
+    <a href="/java-swing-drag-jar-exe/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">Java Swing 代码打包成 Windows 上的 exe 文件</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+      
+      
+        <div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+      
+    </div>
+  </article>
+  
+
+  
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-android-kotlin" data-title="Kotlin 成为 Android 官方语言，看看官方怎么说？" data-url="http://linfuyan.com/android-kotlin/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'linfuyan'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
+      
+        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
+      
+    </ul>
+  </div>
+  <!-- 
+    
+<nav id="article-nav">
+  
+  
+    <a href="/java-swing-drag-jar-exe/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">Java Swing 代码打包成 Windows 上的 exe 文件</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+   -->
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+  	
+      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/> 
+     
+    
+      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Android-iOS-qq-group.png" width="100%" height="100%"/>
+    
+  </div>
+
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/android-kotlin/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
+              <p class="item-title"><a href="/android-kotlin/" class="title">Kotlin 成为 Android 官方语言，看看官方怎么说？</a></p>
+              <p class="item-date"><time datetime="2017-05-18T03:21:00.000Z" itemprop="datePublished">2017-05-18</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/java-swing-drag-jar-exe/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/jar2exe-1.png
+)" alt="Java Swing 代码打包成 Windows 上的 exe 文件" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/经验实践/">经验实践</a></p>
+              <p class="item-title"><a href="/java-swing-drag-jar-exe/" class="title">Java Swing 代码打包成 Windows 上的 exe 文件</a></p>
+              <p class="item-date"><time datetime="2017-03-16T05:30:00.000Z" itemprop="datePublished">2017-03-16</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/raspberrypi-day1/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-format-sdcard.png
+)" alt="树莓派折腾记之第一天" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/raspberrypi-day1/" class="title">树莓派折腾记之第一天</a></p>
+              <p class="item-date"><time datetime="2017-03-06T14:08:00.000Z" itemprop="datePublished">2017-03-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/macOS-Sierra-docker-seafile/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/seafile.gif
+)" alt="macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a></p>
+              <p class="item-title"><a href="/macOS-Sierra-docker-seafile/" class="title">macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘</a></p>
+              <p class="item-date"><time datetime="2017-03-06T07:42:00.000Z" itemprop="datePublished">2017-03-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/ubuntu-ngrok/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/ngrok/">ngrok</a></p>
+              <p class="item-title"><a href="/ubuntu-ngrok/" class="title">ubuntu搭建ngrok服务器，尽享内网穿透技术带来的福利</a></p>
+              <p class="item-date"><time datetime="2016-12-19T09:17:00.000Z" itemprop="datePublished">2016-12-19</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">30</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://uprogrammer.cn">优程</a>
+          </li>
+        
+          <li>
+            <a href="http://hexo.io">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2017 linfuyan</p>
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
+        <p>
+        <!-- CNZZ 统计 -->
+        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
+  <script src="/scrollLoading/main.js"></script>
+
+
+<script src="/js/html-patch.js"></script>
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

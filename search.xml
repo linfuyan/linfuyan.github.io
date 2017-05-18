@@ -4,6 +4,73 @@
   
     
     <entry>
+      <title><![CDATA[在 Android 上开始使用 Kotlin]]></title>
+      <url>http://linfuyan.com/android-kotlin-get-started/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>本文翻译自：<a href="https://developer.android.com/kotlin/get-started.html" target="_blank" rel="external">https://developer.android.com/kotlin/get-started.html</a></p>
+</blockquote>
+<p>Android Studio 3.0 完整的支持 Kotlin，因此下面的这些操作都很方便。包括通过 Kotlin 文件创建新的项目，添加新的 Kotlin 文件到已有项目中，或者将 Java 语言代码转为 Kotlin。同时，你也可以针对 Kotlin 代码来使用所有 Android Studio已有的工具，如自动补全，lint 检查，重构，调试等。</p>
+<p>这篇文章将介绍如何再 Android Studio 中开始使用 Kotlin。</p>
+<h2 id="创建新项目来使用-Kotlin"><a href="#创建新项目来使用-Kotlin" class="headerlink" title="创建新项目来使用 Kotlin"></a>创建新项目来使用 Kotlin</h2><p>在新项目中使用 Kotlin，仅需要在新项目向导中一个额外的点击：</p>
+<ol>
+<li>在 Android Studio 中，点击<strong>文件(File) &gt; 新建(New) &gt; 新项目(New Project)</strong>。或者你刚刚打开 Android Studio，看到了 Android Studio 的欢迎窗口，那么点击<strong>开始一个新的 Android Studio 项目</strong>。</li>
+<li>在第一个屏幕，选中<strong>包含 Kotlin 支持(Include Kotlin Support)</strong>。就只有这一个唯一的区别。</li>
+<li>点击<strong>下一步(Next)</strong>并继续后面的向导直到结束。</li>
+</ol>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-new-project_2x.png" alt="kotlin-new-project"></p>
+<p>当你选择了一个 Activity 模板，它将以 Kotlin 代码提供。现在，至于一些<strong>手机和平板</strong>的模板提供了惯用的 Kotlin 代码。其他的则是从 Java 模板自动转化为 Kotlin。你仍然得到的是 Kotlin 代码，但是某些代码没有使用 Kotlin 最佳的语言特性。</p>
+<p>与 Java 文件一样，Kotlin 文件被保存在 <code>src/main/java/</code> 目录下。</p>
+<h2 id="在现有项目中添加-Kotlin"><a href="#在现有项目中添加-Kotlin" class="headerlink" title="在现有项目中添加 Kotlin"></a>在现有项目中添加 Kotlin</h2><p>如果你想要添加 Kotlin 代码到现有的项目中，简单点击<strong>文件(File) &gt; 新建(New)</strong>，并从中选择一个 Android 模板。如果你没有在菜单中看到模板列表，需要先打开<strong>项目(Project)</strong>窗口，并选择你的 App 模块。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/new-template-menu_2x.png" alt="new-template-menu"></p>
+<p>在展示的向导中，为<strong>源代码(Source Language)</strong>选择 Kotlin。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-new-activity_2x.png" alt="kotlin-new-activity"></p>
+<p>继续后面的向导，直到结束。</p>
+<p>此外，你可以点击<strong>文件(File) &gt; 新建(New) &gt; Kotlin文件/类(Kotlin File/Class)</strong>来创建基础文件。<strong>新建Kotlin文件/类</strong>窗口提供了不同文件类型的选择，但不用太在意你选择了那种文件。因为当你以后改变了声明方式， Kotlin 会自动切换文件类型。</p>
+<p>默认情况下，新的 Kotlin 文件会被保存在 <code>src/main/java/</code> 中。你会发现 Kotlin 和 Java 文件在一个位置。如果你更喜欢将 Kotlin 文件与 Java 文件分开，你可以把 Kotlin 文件放到 <code>src/main/kotlin/</code> 目录下。这样做，你需要修改 sourceSets 的配置来包含该目录。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">   sourceSets &#123;</div><div class="line">       main<span class="selector-class">.java</span><span class="selector-class">.srcDirs</span> += <span class="string">'src/main/kotlin'</span></div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="转换现有的-Java-代码为-Kotlin-代码"><a href="#转换现有的-Java-代码为-Kotlin-代码" class="headerlink" title="转换现有的 Java 代码为 Kotlin 代码"></a>转换现有的 Java 代码为 Kotlin 代码</h2><p>在 Android Studio 3.0 中，打开 Java 文件，并且选择<strong>代码(Code) &gt; 转换 Java 文件为 Kotlin 文件</strong>。</p>
+<p>或者创建新的 Kotlin 文件(<strong>File &gt; New &gt; Kotlin File/Class</strong>)，然后粘贴 Java 代码到该文件里，当弹出提示时，点击<strong>是</strong>来转换代码到 Kotlin。你可以选中<strong>下次不再显示该对话框</strong>来取消同样操作时的提示。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-convert_2x.png" alt="kotlin-convert"></p>
+<h2 id="Kotlin-如何来使用-Android-API"><a href="#Kotlin-如何来使用-Android-API" class="headerlink" title="Kotlin 如何来使用 Android API"></a>Kotlin 如何来使用 Android API</h2><p>Kotlin 提供了与 Java 语言完整的互操作性，所以调用 Android API 看起来与 Java 代码几乎一样。此外，你还可以将这些方法调用与Kotlin的语法特征相结合。</p>
+<p>下面是一些如何在 Kotlin 中调用 Android API 的例子，同时对比 Java 的相同代码。</p>
+<p><strong>在 Kotlin 中声明 Activity</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</div><div class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState)</div><div class="line">    setContentView(R.layout.activity)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>在 Java 中声明 Activity</strong></p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MyActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="keyword">protected</span> void onCreate(<span class="type">Bundle</span> savedInstanceState) &#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setContentView(<span class="type">R</span>.layout.activity);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Kotlin 中的 On-click listener</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">val fab = findViewById(R<span class="selector-class">.id</span><span class="selector-class">.fab</span>) as FloatingActionButton</div><div class="line">fab<span class="selector-class">.setOnClickListener</span> &#123;</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Java 中的 On-click listener</strong></p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);</div><div class="line">fab.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">    ...</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>Kotlin 中的 Item click listener</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">private val mOnNavigationItemSelectedListener</div><div class="line">    = BottomNavigationView<span class="selector-class">.OnNavigationItemSelectedListener</span> &#123; item -&gt;</div><div class="line">  when (item.itemId) &#123;</div><div class="line">    R<span class="selector-class">.id</span><span class="selector-class">.navigation_home</span> -&gt; &#123;</div><div class="line">      mTextMessage.setText(R<span class="selector-class">.string</span><span class="selector-class">.title_home</span>)</div><div class="line">      return@OnNavigationItemSelectedListener true</div><div class="line">    &#125;</div><div class="line">    R<span class="selector-class">.id</span><span class="selector-class">.navigation_dashboard</span> -&gt; &#123;</div><div class="line">      mTextMessage.setText(R<span class="selector-class">.string</span><span class="selector-class">.title_dashboard</span>)</div><div class="line">      return@OnNavigationItemSelectedListener true</div><div class="line">    &#125;</div><div class="line"> &#125;</div><div class="line"> false</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Java 中的 Item click listener</strong></p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener</div><div class="line">    = <span class="keyword">new</span> BottomNavigationView.OnNavigationItemSelectedListener() &#123;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onNavigationItemSelected</span><span class="params">(@NonNull MenuItem item)</span> </span>&#123;</div><div class="line">    <span class="keyword">switch</span> (item.getItemId()) &#123;</div><div class="line">      <span class="keyword">case</span> R.id.navigation_home:</div><div class="line">        mTextMessage.setText(R.string.title_home);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">      <span class="keyword">case</span> R.id.navigation_dashboard:</div><div class="line">        mTextMessage.setText(R.string.title_dashboard);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<hr>
+<p>如果你还没有入坑，那我告诉你，是时候学习 Kotlin 了。</p>
+<p><a href="http://uprogrammer.cn/kotlin-in-chinese/index.html" target="_blank" rel="external">Kotlin 中文文档</a></p>
+<p><a href="http://uprogrammer.cn/kotlin-for-android-developers-zh/index.html" target="_blank" rel="external">写给 Android 开发者的 Kotlin 教程</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 开发技术 </category>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Kotlin </tag>
+            
+            <tag> Android O </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Kotlin 成为 Android 官方语言，看看官方怎么说？]]></title>
       <url>http://linfuyan.com/android-kotlin/</url>
       <content type="html"><![CDATA[<blockquote>

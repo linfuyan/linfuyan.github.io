@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>在 Android 上开始使用 Kotlin | 悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文翻译自：https://developer.android.com/kotlin/get-started.html
+
+Android Studio 3.0 完整的支持 Kotlin，因此下面的这些操作都很方便。包括通过 Kotlin 文件创建新的项目，添加新的 Kotlin 文件到已有项目中，或者将 Java 语言代码转为 Kotlin。同时，你也可以针对 Kotlin 代码来使用所有 An">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 Android 上开始使用 Kotlin">
+<meta property="og:url" content="http://linfuyan.com/android-kotlin-get-started/index.html">
+<meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
+<meta property="og:description" content="本文翻译自：https://developer.android.com/kotlin/get-started.html
+
+Android Studio 3.0 完整的支持 Kotlin，因此下面的这些操作都很方便。包括通过 Kotlin 文件创建新的项目，添加新的 Kotlin 文件到已有项目中，或者将 Java 语言代码转为 Kotlin。同时，你也可以针对 Kotlin 代码来使用所有 An">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-new-project_2x.png">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/new-template-menu_2x.png">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-new-activity_2x.png">
+<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-convert_2x.png">
+<meta property="og:updated_time" content="2017-05-18T06:30:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在 Android 上开始使用 Kotlin">
+<meta name="twitter:description" content="本文翻译自：https://developer.android.com/kotlin/get-started.html
+
+Android Studio 3.0 完整的支持 Kotlin，因此下面的这些操作都很方便。包括通过 Kotlin 文件创建新的项目，添加新的 Kotlin 文件到已有项目中，或者将 Java 语言代码转为 Kotlin。同时，你也可以针对 Kotlin 代码来使用所有 An">
+<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-new-project_2x.png">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  
+    <link rel="stylesheet" href="/scrollLoading/style.css">
+  
+  
+
+
+  
+
+<!--  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+   -->
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+            <h2 class="subtitle-wrap">
+              <p class="subtitle">关注但不限于 Android、iOS、nodejs</p>
+            </h2>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/导航/">导航</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Web前端/">Web前端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/nodejs/">nodejs</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/">教程</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ngrok/">ngrok</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
+                  
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://linfuyan.com"></form>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header"><a class="page-title-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/开发技术/Android/">Android</a></h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-android-kotlin-get-started" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      在 Android 上开始使用 Kotlin
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/android-kotlin-get-started/" class="article-date">
+  <time datetime="2017-05-18T04:00:00.000Z" itemprop="datePublished">2017-05-18</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <blockquote>
+<p>本文翻译自：<a href="https://developer.android.com/kotlin/get-started.html" target="_blank" rel="external">https://developer.android.com/kotlin/get-started.html</a></p>
+</blockquote>
+<p>Android Studio 3.0 完整的支持 Kotlin，因此下面的这些操作都很方便。包括通过 Kotlin 文件创建新的项目，添加新的 Kotlin 文件到已有项目中，或者将 Java 语言代码转为 Kotlin。同时，你也可以针对 Kotlin 代码来使用所有 Android Studio已有的工具，如自动补全，lint 检查，重构，调试等。</p>
+<p>这篇文章将介绍如何再 Android Studio 中开始使用 Kotlin。</p>
+<h2 id="创建新项目来使用-Kotlin"><a href="#创建新项目来使用-Kotlin" class="headerlink" title="创建新项目来使用 Kotlin"></a>创建新项目来使用 Kotlin</h2><p>在新项目中使用 Kotlin，仅需要在新项目向导中一个额外的点击：</p>
+<ol>
+<li>在 Android Studio 中，点击<strong>文件(File) &gt; 新建(New) &gt; 新项目(New Project)</strong>。或者你刚刚打开 Android Studio，看到了 Android Studio 的欢迎窗口，那么点击<strong>开始一个新的 Android Studio 项目</strong>。</li>
+<li>在第一个屏幕，选中<strong>包含 Kotlin 支持(Include Kotlin Support)</strong>。就只有这一个唯一的区别。</li>
+<li>点击<strong>下一步(Next)</strong>并继续后面的向导直到结束。</li>
+</ol>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-new-project_2x.png" alt="kotlin-new-project"></p>
+<p>当你选择了一个 Activity 模板，它将以 Kotlin 代码提供。现在，至于一些<strong>手机和平板</strong>的模板提供了惯用的 Kotlin 代码。其他的则是从 Java 模板自动转化为 Kotlin。你仍然得到的是 Kotlin 代码，但是某些代码没有使用 Kotlin 最佳的语言特性。</p>
+<p>与 Java 文件一样，Kotlin 文件被保存在 <code>src/main/java/</code> 目录下。</p>
+<h2 id="在现有项目中添加-Kotlin"><a href="#在现有项目中添加-Kotlin" class="headerlink" title="在现有项目中添加 Kotlin"></a>在现有项目中添加 Kotlin</h2><p>如果你想要添加 Kotlin 代码到现有的项目中，简单点击<strong>文件(File) &gt; 新建(New)</strong>，并从中选择一个 Android 模板。如果你没有在菜单中看到模板列表，需要先打开<strong>项目(Project)</strong>窗口，并选择你的 App 模块。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/new-template-menu_2x.png" alt="new-template-menu"></p>
+<p>在展示的向导中，为<strong>源代码(Source Language)</strong>选择 Kotlin。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-new-activity_2x.png" alt="kotlin-new-activity"></p>
+<p>继续后面的向导，直到结束。</p>
+<p>此外，你可以点击<strong>文件(File) &gt; 新建(New) &gt; Kotlin文件/类(Kotlin File/Class)</strong>来创建基础文件。<strong>新建Kotlin文件/类</strong>窗口提供了不同文件类型的选择，但不用太在意你选择了那种文件。因为当你以后改变了声明方式， Kotlin 会自动切换文件类型。</p>
+<p>默认情况下，新的 Kotlin 文件会被保存在 <code>src/main/java/</code> 中。你会发现 Kotlin 和 Java 文件在一个位置。如果你更喜欢将 Kotlin 文件与 Java 文件分开，你可以把 Kotlin 文件放到 <code>src/main/kotlin/</code> 目录下。这样做，你需要修改 sourceSets 的配置来包含该目录。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">   sourceSets &#123;</div><div class="line">       main<span class="selector-class">.java</span><span class="selector-class">.srcDirs</span> += <span class="string">'src/main/kotlin'</span></div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="转换现有的-Java-代码为-Kotlin-代码"><a href="#转换现有的-Java-代码为-Kotlin-代码" class="headerlink" title="转换现有的 Java 代码为 Kotlin 代码"></a>转换现有的 Java 代码为 Kotlin 代码</h2><p>在 Android Studio 3.0 中，打开 Java 文件，并且选择<strong>代码(Code) &gt; 转换 Java 文件为 Kotlin 文件</strong>。</p>
+<p>或者创建新的 Kotlin 文件(<strong>File &gt; New &gt; Kotlin File/Class</strong>)，然后粘贴 Java 代码到该文件里，当弹出提示时，点击<strong>是</strong>来转换代码到 Kotlin。你可以选中<strong>下次不再显示该对话框</strong>来取消同样操作时的提示。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-convert_2x.png" alt="kotlin-convert"></p>
+<h2 id="Kotlin-如何来使用-Android-API"><a href="#Kotlin-如何来使用-Android-API" class="headerlink" title="Kotlin 如何来使用 Android API"></a>Kotlin 如何来使用 Android API</h2><p>Kotlin 提供了与 Java 语言完整的互操作性，所以调用 Android API 看起来与 Java 代码几乎一样。此外，你还可以将这些方法调用与Kotlin的语法特征相结合。</p>
+<p>下面是一些如何在 Kotlin 中调用 Android API 的例子，同时对比 Java 的相同代码。</p>
+<p><strong>在 Kotlin 中声明 Activity</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</div><div class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState)</div><div class="line">    setContentView(R.layout.activity)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>在 Java 中声明 Activity</strong></p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MyActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="keyword">protected</span> void onCreate(<span class="type">Bundle</span> savedInstanceState) &#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setContentView(<span class="type">R</span>.layout.activity);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Kotlin 中的 On-click listener</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">val fab = findViewById(R<span class="selector-class">.id</span><span class="selector-class">.fab</span>) as FloatingActionButton</div><div class="line">fab<span class="selector-class">.setOnClickListener</span> &#123;</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Java 中的 On-click listener</strong></p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);</div><div class="line">fab.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">    ...</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>Kotlin 中的 Item click listener</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">private val mOnNavigationItemSelectedListener</div><div class="line">    = BottomNavigationView<span class="selector-class">.OnNavigationItemSelectedListener</span> &#123; item -&gt;</div><div class="line">  when (item.itemId) &#123;</div><div class="line">    R<span class="selector-class">.id</span><span class="selector-class">.navigation_home</span> -&gt; &#123;</div><div class="line">      mTextMessage.setText(R<span class="selector-class">.string</span><span class="selector-class">.title_home</span>)</div><div class="line">      return@OnNavigationItemSelectedListener true</div><div class="line">    &#125;</div><div class="line">    R<span class="selector-class">.id</span><span class="selector-class">.navigation_dashboard</span> -&gt; &#123;</div><div class="line">      mTextMessage.setText(R<span class="selector-class">.string</span><span class="selector-class">.title_dashboard</span>)</div><div class="line">      return@OnNavigationItemSelectedListener true</div><div class="line">    &#125;</div><div class="line"> &#125;</div><div class="line"> false</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Java 中的 Item click listener</strong></p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener</div><div class="line">    = <span class="keyword">new</span> BottomNavigationView.OnNavigationItemSelectedListener() &#123;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onNavigationItemSelected</span><span class="params">(@NonNull MenuItem item)</span> </span>&#123;</div><div class="line">    <span class="keyword">switch</span> (item.getItemId()) &#123;</div><div class="line">      <span class="keyword">case</span> R.id.navigation_home:</div><div class="line">        mTextMessage.setText(R.string.title_home);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">      <span class="keyword">case</span> R.id.navigation_dashboard:</div><div class="line">        mTextMessage.setText(R.string.title_dashboard);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<hr>
+<p>如果你还没有入坑，那我告诉你，是时候学习 Kotlin 了。</p>
+<p><a href="http://uprogrammer.cn/kotlin-in-chinese/index.html" target="_blank" rel="external">Kotlin 中文文档</a></p>
+<p><a href="http://uprogrammer.cn/kotlin-for-android-developers-zh/index.html" target="_blank" rel="external">写给 Android 开发者的 Kotlin 教程</a></p>
+
+      </div>
+      <footer class="article-footer">
+        <!-- <a data-url="http://linfuyan.com/android-kotlin-get-started/" data-id="cj2u1g0xk0000iwfyldvm69zp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-O/">Android O</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin/">Kotlin</a></li></ul>
+
+      </footer>
+      
+  
+  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- linfuyan 文章 -->
+	<ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-3371913913447815"
+      data-ad-slot="7769806683"
+      data-ad-format="auto"></ins>
+	<script>
+	  (adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+  
+
+
+      
+        
+<nav id="article-nav">
+  
+  
+    <a href="/android-kotlin/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">Kotlin 成为 Android 官方语言，看看官方怎么说？</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+      
+      
+        <div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+      
+    </div>
+  </article>
+  
+
+  
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-android-kotlin-get-started" data-title="在 Android 上开始使用 Kotlin" data-url="http://linfuyan.com/android-kotlin-get-started/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'linfuyan'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
+      
+        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
+      
+    </ul>
+  </div>
+  <!-- 
+    
+<nav id="article-nav">
+  
+  
+    <a href="/android-kotlin/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">Kotlin 成为 Android 官方语言，看看官方怎么说？</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+   -->
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+  	
+      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/> 
+     
+    
+      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Android-iOS-qq-group.png" width="100%" height="100%"/>
+    
+  </div>
+
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/android-kotlin-get-started/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-new-project_2x.png
+)" alt="在 Android 上开始使用 Kotlin" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
+              <p class="item-title"><a href="/android-kotlin-get-started/" class="title">在 Android 上开始使用 Kotlin</a></p>
+              <p class="item-date"><time datetime="2017-05-18T04:00:00.000Z" itemprop="datePublished">2017-05-18</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/android-kotlin/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
+              <p class="item-title"><a href="/android-kotlin/" class="title">Kotlin 成为 Android 官方语言，看看官方怎么说？</a></p>
+              <p class="item-date"><time datetime="2017-05-18T03:21:00.000Z" itemprop="datePublished">2017-05-18</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/java-swing-drag-jar-exe/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/jar2exe-1.png
+)" alt="Java Swing 代码打包成 Windows 上的 exe 文件" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/经验实践/">经验实践</a></p>
+              <p class="item-title"><a href="/java-swing-drag-jar-exe/" class="title">Java Swing 代码打包成 Windows 上的 exe 文件</a></p>
+              <p class="item-date"><time datetime="2017-03-16T05:30:00.000Z" itemprop="datePublished">2017-03-16</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/raspberrypi-day1/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-format-sdcard.png
+)" alt="树莓派折腾记之第一天" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/raspberrypi-day1/" class="title">树莓派折腾记之第一天</a></p>
+              <p class="item-date"><time datetime="2017-03-06T14:08:00.000Z" itemprop="datePublished">2017-03-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/macOS-Sierra-docker-seafile/" class="thumbnail">
+  
+    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/seafile.gif
+)" alt="macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a></p>
+              <p class="item-title"><a href="/macOS-Sierra-docker-seafile/" class="title">macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘</a></p>
+              <p class="item-date"><time datetime="2017-03-06T07:42:00.000Z" itemprop="datePublished">2017-03-06</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://uprogrammer.cn">优程</a>
+          </li>
+        
+          <li>
+            <a href="http://hexo.io">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2017 linfuyan</p>
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
+        <p>
+        <!-- CNZZ 统计 -->
+        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
+  <script src="/scrollLoading/main.js"></script>
+
+
+<script src="/js/html-patch.js"></script>
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1390,11 +1390,11 @@
     
       <category term="Android" scheme="http://linfuyan.com/tags/Android/"/>
     
+      <category term="Java" scheme="http://linfuyan.com/tags/Java/"/>
+    
       <category term="代码" scheme="http://linfuyan.com/tags/%E4%BB%A3%E7%A0%81/"/>
     
       <category term="规范" scheme="http://linfuyan.com/tags/%E8%A7%84%E8%8C%83/"/>
-    
-      <category term="Java" scheme="http://linfuyan.com/tags/Java/"/>
     
       <category term="实践" scheme="http://linfuyan.com/tags/%E5%AE%9E%E8%B7%B5/"/>
     
@@ -1857,11 +1857,11 @@ alpha = (aLongBooleanExpression)
       <category term="Android" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Android/"/>
     
     
-      <category term="指南" scheme="http://linfuyan.com/tags/%E6%8C%87%E5%8D%97/"/>
+      <category term="Java" scheme="http://linfuyan.com/tags/Java/"/>
     
       <category term="规范" scheme="http://linfuyan.com/tags/%E8%A7%84%E8%8C%83/"/>
     
-      <category term="Java" scheme="http://linfuyan.com/tags/Java/"/>
+      <category term="指南" scheme="http://linfuyan.com/tags/%E6%8C%87%E5%8D%97/"/>
     
       <category term="Google" scheme="http://linfuyan.com/tags/Google/"/>
     
@@ -2120,13 +2120,13 @@ alpha = (aLongBooleanExpression)
       <category term="iOS" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/iOS/"/>
     
     
-      <category term="iOS" scheme="http://linfuyan.com/tags/iOS/"/>
-    
       <category term="代码" scheme="http://linfuyan.com/tags/%E4%BB%A3%E7%A0%81/"/>
     
-      <category term="指南" scheme="http://linfuyan.com/tags/%E6%8C%87%E5%8D%97/"/>
-    
       <category term="规范" scheme="http://linfuyan.com/tags/%E8%A7%84%E8%8C%83/"/>
+    
+      <category term="iOS" scheme="http://linfuyan.com/tags/iOS/"/>
+    
+      <category term="指南" scheme="http://linfuyan.com/tags/%E6%8C%87%E5%8D%97/"/>
     
       <category term="Objective-C" scheme="http://linfuyan.com/tags/Objective-C/"/>
     

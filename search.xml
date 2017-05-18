@@ -1304,11 +1304,11 @@
             
             <tag> Android </tag>
             
+            <tag> Java </tag>
+            
             <tag> 代码 </tag>
             
             <tag> 规范 </tag>
-            
-            <tag> Java </tag>
             
             <tag> 实践 </tag>
             
@@ -1769,11 +1769,11 @@ alpha = (aLongBooleanExpression)
         
         <tags>
             
-            <tag> 指南 </tag>
+            <tag> Java </tag>
             
             <tag> 规范 </tag>
             
-            <tag> Java </tag>
+            <tag> 指南 </tag>
             
             <tag> Google </tag>
             
@@ -2029,13 +2029,13 @@ alpha = (aLongBooleanExpression)
         
         <tags>
             
-            <tag> iOS </tag>
-            
             <tag> 代码 </tag>
             
-            <tag> 指南 </tag>
-            
             <tag> 规范 </tag>
+            
+            <tag> iOS </tag>
+            
+            <tag> 指南 </tag>
             
             <tag> Objective-C </tag>
             
@@ -2789,17 +2789,17 @@ alpha = (aLongBooleanExpression)
             
             <tag> 编程 </tag>
             
+            <tag> 代码 </tag>
+            
+            <tag> 规范 </tag>
+            
             <tag> iOS </tag>
             
             <tag> Ojbective-C </tag>
             
-            <tag> 代码 </tag>
-            
             <tag> 风格 </tag>
             
             <tag> 指南 </tag>
-            
-            <tag> 规范 </tag>
             
             <tag> Cocoa </tag>
             
@@ -5194,9 +5194,9 @@ alpha = (aLongBooleanExpression)
             
             <tag> Hexo </tag>
             
-            <tag> 博客 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 博客 </tag>
             
             <tag> 安装 </tag>
             

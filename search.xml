@@ -4,6 +4,54 @@
   
     
     <entry>
+      <title><![CDATA[十五张思维导图带你快速学习PHP语言基础]]></title>
+      <url>http://linfuyan.com/mindmap-php-base/</url>
+      <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/精进脑图之PHP基础.png" alt="精进脑图之PHP基础"></p>
+<blockquote>
+<p>在打算系统的学习 Laravel 之前，我抽空看了 PHP 语言基础，并且绘制了各个部分的思维导图，以方便自己从一些图片就可以查看相关知识的全貌。</p>
+<p>这部分思维导图整理自菜鸟教程的 PHP 教程。</p>
+<p>思维导图导出为图片时会导致其变模糊。需要高清的思维导图源文件，请关注微信公众号：<strong>up2048</strong>，并回复“<strong>精进脑图</strong>”来获取。</p>
+</blockquote>
+<p>下面我们就通过 15 张思维导图来快速学习 PHP 语言基础。</p>
+<a id="more"></a>
+<h2 id="0x00-PHP-简介"><a href="#0x00-PHP-简介" class="headerlink" title="0x00 PHP 简介"></a>0x00 PHP 简介</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP简介.png" alt="PHP简介"></p>
+<h2 id="0x01-PHP-安装"><a href="#0x01-PHP-安装" class="headerlink" title="0x01 PHP 安装"></a>0x01 PHP 安装</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP安装.png" alt="PHP安装"></p>
+<h2 id="0x02-PHP-语法"><a href="#0x02-PHP-语法" class="headerlink" title="0x02 PHP 语法"></a>0x02 PHP 语法</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP语法.png" alt="PHP语法"></p>
+<h2 id="0x03-PHP-数据类型"><a href="#0x03-PHP-数据类型" class="headerlink" title="0x03 PHP 数据类型"></a>0x03 PHP 数据类型</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP数据类型.png" alt="PHP数据类型"></p>
+<h2 id="0x04-PHP-变量"><a href="#0x04-PHP-变量" class="headerlink" title="0x04 PHP 变量"></a>0x04 PHP 变量</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP变量.png" alt="PHP变量"></p>
+<h2 id="0x05-PHP-数组"><a href="#0x05-PHP-数组" class="headerlink" title="0x05 PHP 数组"></a>0x05 PHP 数组</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP数组.png" alt="PHP数组"></p>
+<h2 id="0x06-PHP-常量"><a href="#0x06-PHP-常量" class="headerlink" title="0x06 PHP 常量"></a>0x06 PHP 常量</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP常量.png" alt="PHP常量"></p>
+<h2 id="0x07-PHP-超级全局变量"><a href="#0x07-PHP-超级全局变量" class="headerlink" title="0x07 PHP 超级全局变量"></a>0x07 PHP 超级全局变量</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP超级全局变量.png" alt="PHP超级全局变量"></p>
+<h2 id="0x08-PHP-魔术变量"><a href="#0x08-PHP-魔术变量" class="headerlink" title="0x08 PHP 魔术变量"></a>0x08 PHP 魔术变量</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP魔术变量.png" alt="PHP魔术变量"></p>
+<h2 id="0x09-PHP-运算符"><a href="#0x09-PHP-运算符" class="headerlink" title="0x09 PHP 运算符"></a>0x09 PHP 运算符</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP运算符.png" alt="PHP运算符"></p>
+<h2 id="0x0A-PHP-流程语句"><a href="#0x0A-PHP-流程语句" class="headerlink" title="0x0A PHP 流程语句"></a>0x0A PHP 流程语句</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP流程语句.png" alt="PHP流程语句"></p>
+<h2 id="0x0B-PHP-函数"><a href="#0x0B-PHP-函数" class="headerlink" title="0x0B PHP 函数"></a>0x0B PHP 函数</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP函数.png" alt="PHP函数"></p>
+<h2 id="0x0C-PHP-命名空间"><a href="#0x0C-PHP-命名空间" class="headerlink" title="0x0C PHP 命名空间"></a>0x0C PHP 命名空间</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP命名空间.png" alt="PHP命名空间"></p>
+<h2 id="0x0D-PHP-面向对象"><a href="#0x0D-PHP-面向对象" class="headerlink" title="0x0D PHP 面向对象"></a>0x0D PHP 面向对象</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP面向对象.png" alt="PHP面向对象"></p>
+<h2 id="0x0E-PHP-错误与异常"><a href="#0x0E-PHP-错误与异常" class="headerlink" title="0x0E PHP 错误与异常"></a>0x0E PHP 错误与异常</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP错误与异常.png" alt="PHP错误与异常"></p>
+<h2 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h2><p>接下来，本人会对 Laravel 做比较系统的学习，会以思维导图的形式做梳理并于大家分享。这些文章都将首发在微信公众号：up2048 上。欢迎大家扫描下面的二维码，我们一起学习，分享，讨论，反思。</p>
+<h2 id="EOF"><a href="#EOF" class="headerlink" title="- EOF -"></a>- EOF -</h2>]]></content>
+      
+        <categories>
+            
+            <category> 开发技术 </category>
+            
+            <category> 后端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> PHP </tag>
+            
+            <tag> 思维导图 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程]]></title>
       <url>http://linfuyan.com/weapp-https/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -129,9 +177,9 @@
         
         <tags>
             
-            <tag> Kotlin </tag>
-            
             <tag> Android O </tag>
+            
+            <tag> Kotlin </tag>
             
             <tag> Google IO 2017 </tag>
             
@@ -168,9 +216,9 @@
         
         <tags>
             
-            <tag> Kotlin </tag>
-            
             <tag> Android O </tag>
+            
+            <tag> Kotlin </tag>
             
             <tag> Google IO 2017 </tag>
             
@@ -5164,9 +5212,9 @@ alpha = (aLongBooleanExpression)
             
             <tag> Hexo </tag>
             
-            <tag> 安装 </tag>
-            
             <tag> 错误 </tag>
+            
+            <tag> 安装 </tag>
             
             <tag> 解决方案 </tag>
             
@@ -6122,9 +6170,9 @@ alpha = (aLongBooleanExpression)
         
         <tags>
             
-            <tag> Git </tag>
-            
             <tag> ssh </tag>
+            
+            <tag> Git </tag>
             
             <tag> Github </tag>
             

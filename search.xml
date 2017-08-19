@@ -5212,9 +5212,9 @@ alpha = (aLongBooleanExpression)
             
             <tag> Hexo </tag>
             
-            <tag> 错误 </tag>
-            
             <tag> 安装 </tag>
+            
+            <tag> 错误 </tag>
             
             <tag> 解决方案 </tag>
             
@@ -6170,9 +6170,9 @@ alpha = (aLongBooleanExpression)
         
         <tags>
             
-            <tag> ssh </tag>
-            
             <tag> Git </tag>
+            
+            <tag> ssh </tag>
             
             <tag> Github </tag>
             

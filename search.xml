@@ -52,6 +52,48 @@
     </entry>
     
     <entry>
+      <title><![CDATA[Laravel思维导图之Laravel入门指南]]></title>
+      <url>http://linfuyan.com/mindmap-laravel-start-guide/</url>
+      <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/%e7%b2%be%e8%bf%9b%e8%84%91%e5%9b%be%e4%b9%8bLaravel%e5%85%a5%e9%97%a8%e6%8c%87%e5%8d%97.jpg" alt="精进脑图之Laravel入门指南"></p>
+<blockquote>
+<p>本系列思维导图整理自 Laravel 5.4 版本官方文档。</p>
+<p>思维导图导出为图片时会导致其变模糊。需要高清的思维导图源文件，请关注微信公众号：<strong>up2048</strong>，并回复“<strong>精进脑图</strong>”来获取。</p>
+</blockquote>
+<p>今天我们就通过 4 张思维导图来快速看 Laravel 5.4 入门指南。</p>
+<a id="more"></a>
+<h2 id="Laravel-安装"><a href="#Laravel-安装" class="headerlink" title="Laravel 安装"></a>Laravel 安装</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Laravel%e5%ae%89%e8%a3%85.png" alt="Laravel 安装"></p>
+<h2 id="Laravel-配置信息"><a href="#Laravel-配置信息" class="headerlink" title="Laravel 配置信息"></a>Laravel 配置信息</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Laravel%e9%85%8d%e7%bd%ae%e4%bf%a1%e6%81%af.png" alt="Laravel 配置信息"></p>
+<h2 id="Laravel-文件夹结构"><a href="#Laravel-文件夹结构" class="headerlink" title="Laravel 文件夹结构"></a>Laravel 文件夹结构</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Laravel%e6%96%87%e4%bb%b6%e5%a4%b9%e7%bb%93%e6%9e%84.png" alt="Laravel 结构"></p>
+<h2 id="Laravel-请求生命周期"><a href="#Laravel-请求生命周期" class="headerlink" title="Laravel 请求生命周期"></a>Laravel 请求生命周期</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Laravel%e8%af%b7%e6%b1%82%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f.png" alt="Laravel 请求生命周期"></p>
+<h2 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h2><p>接下来，本人会继续对 Laravel 做比较系统的学习，会以思维导图的形式做梳理并于大家分享。这些文章都将首发在微信公众号：up2048 上。欢迎大家扫描下面的二维码，我们一起学习，分享，讨论，反思。</p>
+<p>- EOF -</p>
+<h4 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h4><ul>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzAxMTE5MzYzOA==&amp;mid=2649861276&amp;idx=1&amp;sn=61e039b1eb87a330b84d1a70dbe72c0a&amp;chksm=8341d0d5b43659c32a5ec6849c9fbfa17303bb7fd9f623e9d2b1cd4f1e82b9b61c92d48a5013#rd" target="_blank" rel="external">十五张思维导图带你快速学习PHP言语基础</a></li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> 开发技术 </category>
+            
+            <category> 后端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 思维导图 </tag>
+            
+            <tag> php </tag>
+            
+            <tag> laravel </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程]]></title>
       <url>http://linfuyan.com/weapp-https/</url>
       <content type="html"><![CDATA[<blockquote>

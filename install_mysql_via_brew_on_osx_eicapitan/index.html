@@ -1,120 +1,388 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+
+
+
   
-  <title>Mac OSX 10.11 通过 HomeBrew 安装 MySQL | 悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在 Mac OSX 升级到 EICapitan 之后，原来安装的 MySQL 就多多少少出现了问题。于是决定重装：
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647$ brew install mysql==&amp;gt; Installing dependencies for my">
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MySQL,HomeBrew,Mac,OSX," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="阿阿燃" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="在 Mac OSX 升级到 EICapitan 之后，原来安装的 MySQL 就多多少少出现了问题。于是决定重装： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647$ brew install mysql==&amp;gt; Installing dependencies for my">
+<meta name="keywords" content="MySQL,HomeBrew,Mac,OSX">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac OSX 10.11 通过 HomeBrew 安装 MySQL">
 <meta property="og:url" content="http://linfuyan.com/install_mysql_via_brew_on_osx_eicapitan/index.html">
-<meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
-<meta property="og:description" content="在 Mac OSX 升级到 EICapitan 之后，原来安装的 MySQL 就多多少少出现了问题。于是决定重装：
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647$ brew install mysql==&amp;gt; Installing dependencies for my">
+<meta property="og:site_name" content="阿阿燃">
+<meta property="og:description" content="在 Mac OSX 升级到 EICapitan 之后，原来安装的 MySQL 就多多少少出现了问题。于是决定重装： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647$ brew install mysql==&amp;gt; Installing dependencies for my">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-03-08T14:07:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac OSX 10.11 通过 HomeBrew 安装 MySQL">
-<meta name="twitter:description" content="在 Mac OSX 升级到 EICapitan 之后，原来安装的 MySQL 就多多少少出现了问题。于是决定重装：
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647$ brew install mysql==&amp;gt; Installing dependencies for my">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-
-  <link rel="stylesheet" href="/css/style.css">
-  
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  
-    <link rel="stylesheet" href="/scrollLoading/style.css">
-  
-  
+<meta name="twitter:description" content="在 Mac OSX 升级到 EICapitan 之后，原来安装的 MySQL 就多多少少出现了问题。于是决定重装： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647$ brew install mysql==&amp;gt; Installing dependencies for my">
 
 
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://linfuyan.com/install_mysql_via_brew_on_osx_eicapitan/"/>
+
+
+
+
+
+  <title>Mac OSX 10.11 通过 HomeBrew 安装 MySQL | 阿阿燃</title>
   
 
-<!--  
-    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
-    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-   -->
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+
+
 </head>
 
-<body>
-  <div id="wrap">
-    <header id="header">
-  <div id="header-outer" class="outer">
-    <div class="container">
-      <div class="container-inner">
-        <div id="header-title">
-          <h1 class="logo-wrap">
-            <a href="/" class="logo"></a>
-          </h1>
-          
-            <h2 class="subtitle-wrap">
-              <p class="subtitle">关注但不限于 Android、iOS、nodejs</p>
-            </h2>
-          
-        </div>
-        <div id="header-inner" class="nav-container">
-          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-          <div class="nav-container-inner">
-            <ul id="main-nav">
-              
-                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
-              
-                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/导航/">导航</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Web前端/">Web前端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/nodejs/">nodejs</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/后端/">后端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/微信/">微信</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/">教程</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ngrok/">ngrok</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
-                  
-            </ul>
-            <nav id="sub-nav">
-              <div id="search-form-wrap">
-                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://linfuyan.com"></form>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阿阿燃</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-</header>
-    <div class="container">
-      <div class="main-body container-inner">
-        <div class="main-body-inner">
-          <section id="main">
-            <div class="main-body-header">
 
-              <h1 class="header"><a class="page-title-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/软件工具/LAMP/">LAMP</a></h1>
-            </div>
-            <div class="main-body-content">
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/install_mysql_via_brew_on_osx_eicapitan/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Mac OSX 10.11 通过 HomeBrew 安装 MySQL</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
               
-  <article id="post-install_mysql_via_brew_on_osx_eicapitan" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-      <!--  -->
-      
-        <header class="article-header">
-          
-  
-    <h1 class="article-title" itemprop="name">
-      Mac OSX 10.11 通过 HomeBrew 安装 MySQL
-    </h1>
-  
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-01T21:00:00+08:00">
+                2016-03-01
+              </time>
+            
 
-        </header>
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2016-03-08T22:07:00+08:00">
+                2016-03-08
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/" itemprop="url" rel="index">
+                    <span itemprop="name">软件工具</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/LAMP/" itemprop="url" rel="index">
+                    <span itemprop="name">LAMP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-      <p class="article-byline">
-        <a href="/install_mysql_via_brew_on_osx_eicapitan/" class="article-date">
-  <time datetime="2016-03-01T13:00:00.000Z" itemprop="datePublished">2016-03-01</time>
-</a>
-      </p>
-      <div class="article-entry" itemprop="articleBody">
+      
+
+      
         <p>在 Mac OSX 升级到 EICapitan 之后，原来安装的 MySQL 就多多少少出现了问题。于是决定重装：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">$ brew <span class="keyword">install</span> mysql</div><div class="line">==&gt; Installing dependencies <span class="keyword">for</span> mysql: openssl</div><div class="line">==&gt; Installing mysql dependency: openssl</div><div class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/openssl<span class="number">-1.0</span><span class="number">.2</span>e_1.el_capitan</div><div class="line">######################################################################## <span class="number">100.0</span>%</div><div class="line">==&gt; Pouring openssl<span class="number">-1.0</span><span class="number">.2</span>e_1.el_capitan.bottle.tar.gz</div><div class="line">==&gt; Caveats</div><div class="line">A CA <span class="keyword">file</span> has been bootstrapped <span class="keyword">using</span> certificates <span class="keyword">from</span> the <span class="keyword">system</span></div><div class="line">keychain. <span class="keyword">To</span> <span class="keyword">add</span> additional certificates, place .pem files <span class="keyword">in</span></div><div class="line">  /usr/<span class="keyword">local</span>/etc/openssl/certs</div><div class="line"></div><div class="line"><span class="keyword">and</span> run</div><div class="line">  /usr/<span class="keyword">local</span>/opt/openssl/<span class="keyword">bin</span>/c_rehash</div><div class="line"></div><div class="line">This formula <span class="keyword">is</span> keg-<span class="keyword">only</span>, which means it was <span class="keyword">not</span> symlinked <span class="keyword">into</span> /usr/local.</div><div class="line"></div><div class="line">Apple has deprecated <span class="keyword">use</span> <span class="keyword">of</span> OpenSSL <span class="keyword">in</span> favor <span class="keyword">of</span> its own TLS <span class="keyword">and</span> crypto libraries</div><div class="line"></div><div class="line">Generally there <span class="keyword">are</span> <span class="keyword">no</span> consequences <span class="keyword">of</span> this <span class="keyword">for</span> you. <span class="keyword">If</span> you <span class="keyword">build</span> your</div><div class="line">own software <span class="keyword">and</span> it requires this formula, you<span class="string">'ll need to add to your</span></div><div class="line">build variables:</div><div class="line"></div><div class="line">    LDFLAGS:  -L/usr/local/opt/openssl/lib</div><div class="line">    CPPFLAGS: -I/usr/local/opt/openssl/include</div><div class="line"></div><div class="line">==&gt; Summary</div><div class="line">🍺  /usr/local/Cellar/openssl/1.0.2e_1: 465 files, 11.9M</div><div class="line">==&gt; Installing mysql</div><div class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/mysql-5.7.10.el_capitan.bot</div><div class="line">######################################################################## 100.0%</div><div class="line">==&gt; Pouring mysql-5.7.10.el_capitan.bottle.2.tar.gz</div><div class="line">==&gt; /usr/local/Cellar/mysql/5.7.10/bin/mysqld --initialize-insecure --user=lfy -</div><div class="line">==&gt; Caveats</div><div class="line">We've installed your MySQL <span class="keyword">database</span> <span class="keyword">without</span> a root password. <span class="keyword">To</span> secure it run:</div><div class="line">    mysql_secure_installation</div><div class="line"></div><div class="line"><span class="keyword">To</span> <span class="keyword">connect</span> run:</div><div class="line">    mysql -uroot</div><div class="line"></div><div class="line"><span class="keyword">To</span> have launchd <span class="keyword">start</span> mysql <span class="keyword">at</span> login:</div><div class="line">  <span class="keyword">ln</span> -sfv /usr/<span class="keyword">local</span>/opt/mysql<span class="comment">/*.plist ~/Library/LaunchAgents</span></div><div class="line">Then to load mysql now:</div><div class="line">  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</div><div class="line">Or, if you don't want/need launchctl, you can just run:</div><div class="line">  mysql.server start</div><div class="line">==&gt; Summary</div><div class="line">🍺  /usr/local/Cellar/mysql/5.7.10: 12,677 files, 433.2M</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">$ brew <span class="keyword">install</span> mysql</span><br><span class="line">==&gt; Installing dependencies <span class="keyword">for</span> mysql: openssl</span><br><span class="line">==&gt; Installing mysql dependency: openssl</span><br><span class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/openssl<span class="number">-1.0</span><span class="number">.2</span>e_1.el_capitan</span><br><span class="line">######################################################################## <span class="number">100.0</span>%</span><br><span class="line">==&gt; Pouring openssl<span class="number">-1.0</span><span class="number">.2</span>e_1.el_capitan.bottle.tar.gz</span><br><span class="line">==&gt; Caveats</span><br><span class="line">A CA <span class="keyword">file</span> has been bootstrapped <span class="keyword">using</span> certificates <span class="keyword">from</span> the <span class="keyword">system</span></span><br><span class="line">keychain. <span class="keyword">To</span> <span class="keyword">add</span> additional certificates, place .pem files <span class="keyword">in</span></span><br><span class="line">  /usr/<span class="keyword">local</span>/etc/openssl/certs</span><br><span class="line"></span><br><span class="line"><span class="keyword">and</span> run</span><br><span class="line">  /usr/<span class="keyword">local</span>/opt/openssl/<span class="keyword">bin</span>/c_rehash</span><br><span class="line"></span><br><span class="line">This formula <span class="keyword">is</span> keg-<span class="keyword">only</span>, which means it was <span class="keyword">not</span> symlinked <span class="keyword">into</span> /usr/local.</span><br><span class="line"></span><br><span class="line">Apple has deprecated <span class="keyword">use</span> <span class="keyword">of</span> OpenSSL <span class="keyword">in</span> favor <span class="keyword">of</span> its own TLS <span class="keyword">and</span> crypto libraries</span><br><span class="line"></span><br><span class="line">Generally there <span class="keyword">are</span> <span class="keyword">no</span> consequences <span class="keyword">of</span> this <span class="keyword">for</span> you. <span class="keyword">If</span> you <span class="keyword">build</span> your</span><br><span class="line">own software <span class="keyword">and</span> it requires this formula, you<span class="string">'ll need to add to your</span></span><br><span class="line"><span class="string">build variables:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    LDFLAGS:  -L/usr/local/opt/openssl/lib</span></span><br><span class="line"><span class="string">    CPPFLAGS: -I/usr/local/opt/openssl/include</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">==&gt; Summary</span></span><br><span class="line"><span class="string">🍺  /usr/local/Cellar/openssl/1.0.2e_1: 465 files, 11.9M</span></span><br><span class="line"><span class="string">==&gt; Installing mysql</span></span><br><span class="line"><span class="string">==&gt; Downloading https://homebrew.bintray.com/bottles/mysql-5.7.10.el_capitan.bot</span></span><br><span class="line"><span class="string">######################################################################## 100.0%</span></span><br><span class="line"><span class="string">==&gt; Pouring mysql-5.7.10.el_capitan.bottle.2.tar.gz</span></span><br><span class="line"><span class="string">==&gt; /usr/local/Cellar/mysql/5.7.10/bin/mysqld --initialize-insecure --user=lfy -</span></span><br><span class="line"><span class="string">==&gt; Caveats</span></span><br><span class="line"><span class="string">We'</span>ve installed your MySQL <span class="keyword">database</span> <span class="keyword">without</span> a root password. <span class="keyword">To</span> secure it run:</span><br><span class="line">    mysql_secure_installation</span><br><span class="line"></span><br><span class="line"><span class="keyword">To</span> <span class="keyword">connect</span> run:</span><br><span class="line">    mysql -uroot</span><br><span class="line"></span><br><span class="line"><span class="keyword">To</span> have launchd <span class="keyword">start</span> mysql <span class="keyword">at</span> login:</span><br><span class="line">  <span class="keyword">ln</span> -sfv /usr/<span class="keyword">local</span>/opt/mysql<span class="comment">/*.plist ~/Library/LaunchAgents</span></span><br><span class="line"><span class="comment">Then to load mysql now:</span></span><br><span class="line"><span class="comment">  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</span></span><br><span class="line"><span class="comment">Or, if you don't want/need launchctl, you can just run:</span></span><br><span class="line"><span class="comment">  mysql.server start</span></span><br><span class="line"><span class="comment">==&gt; Summary</span></span><br><span class="line"><span class="comment">🍺  /usr/local/Cellar/mysql/5.7.10: 12,677 files, 433.2M</span></span><br></pre></td></tr></table></figure>
 <p>直接使用 <code>mysql -uroot</code>，出现如下错误提示：</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ERROR </span>2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock'</div></pre></td></tr></table></figure>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ERROR </span>2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock'</span><br></pre></td></tr></table></figure>
 <p>原因是 mysql 服务没有启动，故尝试 <code>mysql.server start</code>，结果如下，依然出错。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mysql.server <span class="keyword">start</span></div><div class="line"><span class="keyword">Starting</span> MySQL</div><div class="line">. <span class="keyword">ERROR</span>! The <span class="keyword">server</span> quit <span class="keyword">without</span> updating PID <span class="keyword">file</span> (/usr/<span class="keyword">local</span>/<span class="keyword">var</span>/mysql/bogon.pid).</div></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mysql.server start</span><br><span class="line">Starting MySQL</span><br><span class="line">. ERROR! The<span class="built_in"> server </span>quit without updating PID file (/usr/local/var/mysql/bogon.pid).</span><br></pre></td></tr></table></figure>
 <p>最终的处理方式是：</p>
 <ol>
 <li>通过 <code>mysqld</code> 直接启动 mysql。</li>
@@ -123,328 +391,409 @@
 </ol>
 <p>HomeBrew 安装的 mysql 的数据存储位置为 <code>/usr/local/var/mysql</code>。 可以通过 <code>find / -name databasename</code> 的方式根据数据库名称找到具体位置。</p>
 
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Aaron
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://linfuyan.com/install_mysql_via_brew_on_osx_eicapitan/" title="Mac OSX 10.11 通过 HomeBrew 安装 MySQL">http://linfuyan.com/install_mysql_via_brew_on_osx_eicapitan/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
       </div>
-      <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/install_mysql_via_brew_on_osx_eicapitan/" data-id="cj6iohr3x002wyync385wnb81" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
-        
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HomeBrew/">HomeBrew</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OSX/">OSX</a></li></ul>
-
-      </footer>
-      
-  
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- linfuyan.com.article_bottom -->
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:100%;height:100px"
-         data-ad-client="ca-pub-3371913913447815"
-         data-ad-slot="5753141673"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  
-
-
-      
-        
-<nav id="article-nav">
-  
-    <a href="/create_springmvc_project_base_on_gradle_use_intellij_idea/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <p class="article-nav-title">
-        
-          在 IntelliJ IDEA 上创建基于 Gradle 的 SpringMVC 实例
-        
-      </p>
-      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-  
-  
-    <a href="/install-mongodb-on-mac-os-x/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">Mac OS X 上安装 MongoDB</p>
-      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-    </a>
-  
-</nav>
-
-      
-      
-        <div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-      
-    </div>
-  </article>
-  
-
-  
-  <section id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="post-install_mysql_via_brew_on_osx_eicapitan" data-title="Mac OSX 10.11 通过 HomeBrew 安装 MySQL" data-url="http://linfuyan.com/install_mysql_via_brew_on_osx_eicapitan/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:'linfuyan'};
-      (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-      })();
-      </script>
-    <!-- 多说公共JS代码 end -->
-  </section>
-  
-
-            </div>
-          </section>
-          <aside id="sidebar">
-  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-  <div class="sidebar-top">
-    <p>关注我 :</p>
-    <ul class="social-links">
-      
-        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
-      
-        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
-      
-    </ul>
-  </div>
-  <!-- 
     
-<nav id="article-nav">
-  
-    <a href="/create_springmvc_project_base_on_gradle_use_intellij_idea/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <p class="article-nav-title">
-        
-          在 IntelliJ IDEA 上创建基于 Gradle 的 SpringMVC 实例
-        
-      </p>
-      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-  
-  
-    <a href="/install-mongodb-on-mac-os-x/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">Mac OS X 上安装 MongoDB</p>
-      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-    </a>
-  
-</nav>
 
-   -->
-  <div class="widgets-container">
-    
+    <footer class="post-footer">
       
-  <div class="widget-wrap">
-  	
-      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/> 
-     
-    
-      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Android-iOS-qq-group.png" width="100%" height="100%"/>
-    
-  </div>
-
-    
-      
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul id="recent-post" class="">
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/mindmap-laravel-start-guide/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/%e7%b2%be%e8%bf%9b%e8%84%91%e5%9b%be%e4%b9%8bLaravel%e5%85%a5%e9%97%a8%e6%8c%87%e5%8d%97.jpg
-)" alt="Laravel思维导图之Laravel入门指南" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/后端/">后端</a></p>
-              <p class="item-title"><a href="/mindmap-laravel-start-guide/" class="title">Laravel思维导图之Laravel入门指南</a></p>
-              <p class="item-date"><time datetime="2017-08-06T12:48:00.000Z" itemprop="datePublished">2017-08-06</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/mindmap-php-base/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/精进脑图之PHP基础.png
-)" alt="十五张思维导图带你快速学习PHP语言基础" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/后端/">后端</a></p>
-              <p class="item-title"><a href="/mindmap-php-base/" class="title">十五张思维导图带你快速学习PHP语言基础</a></p>
-              <p class="item-date"><time datetime="2017-08-03T12:48:00.000Z" itemprop="datePublished">2017-08-03</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/weapp-https/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/wxapp-https-debug.png
-)" alt="【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/微信/">微信</a></p>
-              <p class="item-title"><a href="/weapp-https/" class="title">【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程</a></p>
-              <p class="item-date"><time datetime="2017-05-25T06:26:00.000Z" itemprop="datePublished">2017-05-25</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/android-kotlin-get-started/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-new-project_2x.png
-)" alt="在 Android 上开始使用 Kotlin" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
-              <p class="item-title"><a href="/android-kotlin-get-started/" class="title">在 Android 上开始使用 Kotlin</a></p>
-              <p class="item-date"><time datetime="2017-05-18T04:00:00.000Z" itemprop="datePublished">2017-05-18</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/android-kotlin/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
-              <p class="item-title"><a href="/android-kotlin/" class="title">Kotlin 成为 Android 官方语言，看看官方怎么说？</a></p>
-              <p class="item-date"><time datetime="2017-05-18T03:21:00.000Z" itemprop="datePublished">2017-05-18</time></p>
-            </div>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget-wrap widget-list">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">34</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/后端/">后端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/微信/">微信</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget-wrap widget-list">
-    <h3 class="widget-title">链接</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="http://uprogrammer.cn">优程</a>
-          </li>
-        
-          <li>
-            <a href="http://hexo.io">Hexo</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-
-    
-  </div>
-</aside>
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+            <a href="/tags/HomeBrew/" rel="tag"># HomeBrew</a>
+          
+            <a href="/tags/Mac/" rel="tag"># Mac</a>
+          
+            <a href="/tags/OSX/" rel="tag"># OSX</a>
+          
         </div>
-      </div>
-    </div>
-    <footer id="footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/install-mongodb-on-mac-os-x/" rel="next" title="Mac OS X 上安装 MongoDB">
+                <i class="fa fa-chevron-left"></i> Mac OS X 上安装 MongoDB
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/create_springmvc_project_base_on_gradle_use_intellij_idea/" rel="prev" title="在 IntelliJ IDEA 上创建基于 Gradle 的 SpringMVC 实例">
+                在 IntelliJ IDEA 上创建基于 Gradle 的 SpringMVC 实例 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
   
-  <div class="container">
-    <div class="container-inner">
-      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-      <div class="credit">
-        <h1 class="logo-wrap">
-          <a href="/" class="logo"></a>
-        </h1>
-        <p>&copy; 2017 linfuyan</p>
-        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
-        <p>
-        <!-- CNZZ 统计 -->
-        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
-        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
-        </p>
-        <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
-      </div>
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
     </div>
   </div>
-</footer>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Aaron</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">220</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/linfuyan" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+  <div class="footer-custom">Hosted by <a href="https://pages.coding.me" style="font-weight:bold">Coding Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1256375489&web_id=1256375489" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
-
-  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
-
-
-
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
-  <script src="/scrollLoading/main.js"></script>
-
-
-<script src="/js/html-patch.js"></script>
-<script src="/js/script.js"></script>
+    
 
   </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

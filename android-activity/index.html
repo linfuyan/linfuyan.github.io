@@ -1,126 +1,385 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+
+
+
   
-  <title>Android Activity 详解 | 悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概览
-Activity 是一个提供屏幕的应用程序组件，用户通过它与机器产生交互。
-每个 Activity 包含一个窗口( window )，大部分情况下窗口是全屏的，也有可能窗口比屏幕小且在其他窗口的顶部。
-一个应用程序由一个或者多个 Activity 组成，这些 Activity 之间是松散的组织在一起的。
-每一个 Activity 可以启动其他的 Activity，不同的 Activity 可">
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Android,Activity," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="阿阿燃" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="概览 Activity 是一个提供屏幕的应用程序组件，用户通过它与机器产生交互。 每个 Activity 包含一个窗口( window )，大部分情况下窗口是全屏的，也有可能窗口比屏幕小且在其他窗口的顶部。 一个应用程序由一个或者多个 Activity 组成，这些 Activity 之间是松散的组织在一起的。 每一个 Activity 可以启动其他的 Activity，不同的 Activity 可">
+<meta name="keywords" content="Android,Activity">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Activity 详解">
 <meta property="og:url" content="http://linfuyan.com/android-activity/index.html">
-<meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
-<meta property="og:description" content="概览
-Activity 是一个提供屏幕的应用程序组件，用户通过它与机器产生交互。
-每个 Activity 包含一个窗口( window )，大部分情况下窗口是全屏的，也有可能窗口比屏幕小且在其他窗口的顶部。
-一个应用程序由一个或者多个 Activity 组成，这些 Activity 之间是松散的组织在一起的。
-每一个 Activity 可以启动其他的 Activity，不同的 Activity 可">
+<meta property="og:site_name" content="阿阿燃">
+<meta property="og:description" content="概览 Activity 是一个提供屏幕的应用程序组件，用户通过它与机器产生交互。 每个 Activity 包含一个窗口( window )，大部分情况下窗口是全屏的，也有可能窗口比屏幕小且在其他窗口的顶部。 一个应用程序由一个或者多个 Activity 组成，这些 Activity 之间是松散的组织在一起的。 每一个 Activity 可以启动其他的 Activity，不同的 Activity 可">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/activity_lifecycle.png">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/restore_instance.png">
 <meta property="og:updated_time" content="2015-11-09T10:13:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Activity 详解">
-<meta name="twitter:description" content="概览
-Activity 是一个提供屏幕的应用程序组件，用户通过它与机器产生交互。
-每个 Activity 包含一个窗口( window )，大部分情况下窗口是全屏的，也有可能窗口比屏幕小且在其他窗口的顶部。
-一个应用程序由一个或者多个 Activity 组成，这些 Activity 之间是松散的组织在一起的。
-每一个 Activity 可以启动其他的 Activity，不同的 Activity 可">
+<meta name="twitter:description" content="概览 Activity 是一个提供屏幕的应用程序组件，用户通过它与机器产生交互。 每个 Activity 包含一个窗口( window )，大部分情况下窗口是全屏的，也有可能窗口比屏幕小且在其他窗口的顶部。 一个应用程序由一个或者多个 Activity 组成，这些 Activity 之间是松散的组织在一起的。 每一个 Activity 可以启动其他的 Activity，不同的 Activity 可">
 <meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/activity_lifecycle.png">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-
-  <link rel="stylesheet" href="/css/style.css">
-  
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  
-    <link rel="stylesheet" href="/scrollLoading/style.css">
-  
-  
 
 
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://linfuyan.com/android-activity/"/>
+
+
+
+
+
+  <title>Android Activity 详解 | 阿阿燃</title>
   
 
-<!--  
-    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
-    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-   -->
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+
+
 </head>
 
-<body>
-  <div id="wrap">
-    <header id="header">
-  <div id="header-outer" class="outer">
-    <div class="container">
-      <div class="container-inner">
-        <div id="header-title">
-          <h1 class="logo-wrap">
-            <a href="/" class="logo"></a>
-          </h1>
-          
-            <h2 class="subtitle-wrap">
-              <p class="subtitle">关注但不限于 Android、iOS、nodejs</p>
-            </h2>
-          
-        </div>
-        <div id="header-inner" class="nav-container">
-          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-          <div class="nav-container-inner">
-            <ul id="main-nav">
-              
-                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
-              
-                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/导航/">导航</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Web前端/">Web前端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/nodejs/">nodejs</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/后端/">后端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/微信/">微信</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/">教程</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ngrok/">ngrok</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
-                  
-            </ul>
-            <nav id="sub-nav">
-              <div id="search-form-wrap">
-                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://linfuyan.com"></form>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阿阿燃</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-</header>
-    <div class="container">
-      <div class="main-body container-inner">
-        <div class="main-body-inner">
-          <section id="main">
-            <div class="main-body-header">
 
-              <h1 class="header"><a class="page-title-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/开发技术/Android/">Android</a></h1>
-            </div>
-            <div class="main-body-content">
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/android-activity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android Activity 详解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
               
-  <article id="post-android-activity" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-      <!--  -->
-      
-        <header class="article-header">
-          
-  
-    <h1 class="article-title" itemprop="name">
-      Android Activity 详解
-    </h1>
-  
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-04T18:05:39+08:00">
+                2015-11-04
+              </time>
+            
 
-        </header>
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2015-11-09T18:13:53+08:00">
+                2015-11-09
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-      <p class="article-byline">
-        <a href="/android-activity/" class="article-date">
-  <time datetime="2015-11-04T10:05:39.000Z" itemprop="datePublished">2015-11-04</time>
-</a>
-      </p>
-      <div class="article-entry" itemprop="articleBody">
+      
+
+      
         <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><ol>
 <li>Activity 是一个提供屏幕的应用程序组件，用户通过它与机器产生交互。</li>
 <li>每个 Activity 包含一个窗口( window )，大部分情况下窗口是全屏的，也有可能窗口比屏幕小且在其他窗口的顶部。</li>
@@ -179,11 +438,11 @@ Activity 是一个提供屏幕的应用程序组件，用户通过它与机器�
 <li>Intent 还可以传递少量的数据给即将启动的 Activity。</li>
 <li>使用类名来启动已知的 Activity：</li>
 </ol>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Intent</span> <span class="keyword">intent</span> = new <span class="keyword">Intent</span>(this, SignInActivity.<span class="keyword">class</span>);</div><div class="line">startActivity(<span class="keyword">intent</span>);</div></pre></td></tr></table></figure>
-<ol>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Intent</span> <span class="keyword">intent</span> = new <span class="keyword">Intent</span>(this, SignInActivity.<span class="keyword">class</span>);</span><br><span class="line">startActivity(<span class="keyword">intent</span>);</span><br></pre></td></tr></table></figure>
+<ol start="5">
 <li>使用 Intent 来描述要执行的动作，系统从其他应用程序中选择打开合适的 Activity， 如果有多个 Activity， 则由用户来选择：</li>
 </ol>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Intent</span> <span class="keyword">intent</span> = new <span class="keyword">Intent</span>(<span class="keyword">Intent</span>.ACTION_SEND);</div><div class="line"><span class="keyword">intent</span>.putExtra(<span class="keyword">Intent</span>.EXTRA_EMAIL, recipientArray);</div><div class="line">startActivity(<span class="keyword">intent</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Intent</span> <span class="keyword">intent</span> = new <span class="keyword">Intent</span>(<span class="keyword">Intent</span>.ACTION_SEND);</span><br><span class="line"><span class="keyword">intent</span>.putExtra(<span class="keyword">Intent</span>.EXTRA_EMAIL, recipientArray);</span><br><span class="line">startActivity(<span class="keyword">intent</span>);</span><br></pre></td></tr></table></figure>
 <h3 id="为结果启动-Activity"><a href="#为结果启动-Activity" class="headerlink" title="为结果启动 Activity"></a>为结果启动 Activity</h3><ol>
 <li>如果启动一个 Activity， 并期望从新的 Activity 上接收一个结果，则使用 startActivityForResult()。</li>
 <li>要接收新 Activity 上的结果，需要在原 Activity 上实现 onActivityResult() 方法，从其中的 Intent 参数中获取返回结果。</li>
@@ -255,7 +514,7 @@ Activity 是一个提供屏幕的应用程序组件，用户通过它与机器�
 <li>系统在 Activity 被销毁之前调用 onSaveInstance() ，通过将需要记住的状态通过键值对的形式保存到 Bundle 参数中。当应用程序被系统杀死，并再次被启动时，会将保存的 Bundle 传递到 onCreate() 和 onRestoreInstanceState() 。从这些方法的 Bundle 参数中，就可以获取到 Activity 被销毁前的状态，并据此恢复 Activity。</li>
 </ol>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/restore_instance.png" alt="Activity 恢复实例"></p>
-<ol>
+<ol start="4">
 <li>onSaveInstanceState() 并不是在 Activity 被销毁之前一定会被调用。该方法在 onStop() 之前被调用，是否在 onPause() 前则不确定。</li>
 <li>即使你没有实现 onSaveInstanceState() ，在 Activity 的 onSaveInstanceState() 的默认实现中也可以恢复一些状态。由于 onSaveInstanceState() 的默认实现中保存了 UI 的状态，因此，在自己实现 onSaveInstanceState() 时，需要调用父类的 onSaveInstanceState()。</li>
 <li>由于 onSaveInstanceState() 不保证一定会被调用，因此不能在这个回调中记录 Activity 状态的变换，也不应该使用它来持久化数据，而应该使用 onPause()。</li>
@@ -271,330 +530,432 @@ Activity 是一个提供屏幕的应用程序组件，用户通过它与机器�
 <li>如果 Activity A 不再屏幕上可见， onStop() 方法被执行。</li>
 </ol>
 <p>可预期的生命周期回调顺序使得你可以管理一个 Activity 到另一个的变换信息。例如，你必须在第一个 Activity 停止时对数据库进行写入，这样接下来的 Activity 可以读取，那么你需要在 onPause() 中写入数据库，而不是在 onStop() 中。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://developer.android.com/guide/components/activities.html" target="_blank" rel="external">https://developer.android.com/guide/components/activities.html</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://developer.android.com/guide/components/activities.html" target="_blank" rel="noopener">https://developer.android.com/guide/components/activities.html</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Aaron
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://linfuyan.com/android-activity/" title="Android Activity 详解">http://linfuyan.com/android-activity/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
 
       </div>
-      <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/android-activity/" data-id="cj6iohr1o0009yyncenjn6y5e" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
-        
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Activity/">Activity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-      </footer>
-      
-  
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- linfuyan.com.article_bottom -->
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:100%;height:100px"
-         data-ad-client="ca-pub-3371913913447815"
-         data-ad-slot="5753141673"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  
-
-
-      
-        
-<nav id="article-nav">
-  
-    <a href="/task-and-back-stack/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <p class="article-nav-title">
-        
-          Android Task 与后退栈解析
-        
-      </p>
-      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-  
-  
-    <a href="/faq/open-files-via-cmdline-using-sublime-text/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">Mac 上 sublime text 通过命令行打开文件</p>
-      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-    </a>
-  
-</nav>
-
-      
-      
-        <div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-      
-    </div>
-  </article>
-  
-
-  
-  <section id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="post-android-activity" data-title="Android Activity 详解" data-url="http://linfuyan.com/android-activity/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:'linfuyan'};
-      (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-      })();
-      </script>
-    <!-- 多说公共JS代码 end -->
-  </section>
-  
-
-            </div>
-          </section>
-          <aside id="sidebar">
-  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-  <div class="sidebar-top">
-    <p>关注我 :</p>
-    <ul class="social-links">
-      
-        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
-      
-        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
-      
-    </ul>
-  </div>
-  <!-- 
     
-<nav id="article-nav">
-  
-    <a href="/task-and-back-stack/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <p class="article-nav-title">
-        
-          Android Task 与后退栈解析
-        
-      </p>
-      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-  
-  
-    <a href="/faq/open-files-via-cmdline-using-sublime-text/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">Mac 上 sublime text 通过命令行打开文件</p>
-      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-    </a>
-  
-</nav>
 
-   -->
-  <div class="widgets-container">
-    
+    <footer class="post-footer">
       
-  <div class="widget-wrap">
-  	
-      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/> 
-     
-    
-      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Android-iOS-qq-group.png" width="100%" height="100%"/>
-    
-  </div>
-
-    
-      
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul id="recent-post" class="">
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/mindmap-laravel-start-guide/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/%e7%b2%be%e8%bf%9b%e8%84%91%e5%9b%be%e4%b9%8bLaravel%e5%85%a5%e9%97%a8%e6%8c%87%e5%8d%97.jpg
-)" alt="Laravel思维导图之Laravel入门指南" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/后端/">后端</a></p>
-              <p class="item-title"><a href="/mindmap-laravel-start-guide/" class="title">Laravel思维导图之Laravel入门指南</a></p>
-              <p class="item-date"><time datetime="2017-08-06T12:48:00.000Z" itemprop="datePublished">2017-08-06</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/mindmap-php-base/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/精进脑图之PHP基础.png
-)" alt="十五张思维导图带你快速学习PHP语言基础" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/后端/">后端</a></p>
-              <p class="item-title"><a href="/mindmap-php-base/" class="title">十五张思维导图带你快速学习PHP语言基础</a></p>
-              <p class="item-date"><time datetime="2017-08-03T12:48:00.000Z" itemprop="datePublished">2017-08-03</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/weapp-https/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/wxapp-https-debug.png
-)" alt="【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/微信/">微信</a></p>
-              <p class="item-title"><a href="/weapp-https/" class="title">【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程</a></p>
-              <p class="item-date"><time datetime="2017-05-25T06:26:00.000Z" itemprop="datePublished">2017-05-25</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/android-kotlin-get-started/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-new-project_2x.png
-)" alt="在 Android 上开始使用 Kotlin" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
-              <p class="item-title"><a href="/android-kotlin-get-started/" class="title">在 Android 上开始使用 Kotlin</a></p>
-              <p class="item-date"><time datetime="2017-05-18T04:00:00.000Z" itemprop="datePublished">2017-05-18</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/android-kotlin/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
-              <p class="item-title"><a href="/android-kotlin/" class="title">Kotlin 成为 Android 官方语言，看看官方怎么说？</a></p>
-              <p class="item-date"><time datetime="2017-05-18T03:21:00.000Z" itemprop="datePublished">2017-05-18</time></p>
-            </div>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget-wrap widget-list">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">34</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/后端/">后端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/微信/">微信</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget-wrap widget-list">
-    <h3 class="widget-title">链接</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="http://uprogrammer.cn">优程</a>
-          </li>
-        
-          <li>
-            <a href="http://hexo.io">Hexo</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-
-    
-  </div>
-</aside>
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/Activity/" rel="tag"># Activity</a>
+          
         </div>
-      </div>
-    </div>
-    <footer id="footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/faq/open-files-via-cmdline-using-sublime-text/" rel="next" title="Mac 上 sublime text 通过命令行打开文件">
+                <i class="fa fa-chevron-left"></i> Mac 上 sublime text 通过命令行打开文件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/task-and-back-stack/" rel="prev" title="Android Task 与后退栈解析">
+                Android Task 与后退栈解析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
   
-  <div class="container">
-    <div class="container-inner">
-      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-      <div class="credit">
-        <h1 class="logo-wrap">
-          <a href="/" class="logo"></a>
-        </h1>
-        <p>&copy; 2017 linfuyan</p>
-        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
-        <p>
-        <!-- CNZZ 统计 -->
-        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
-        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
-        </p>
-        <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
-      </div>
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
     </div>
   </div>
-</footer>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Aaron</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">220</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/linfuyan" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-text">概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何创建-Activity"><span class="nav-text">如何创建 Activity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现用户界面"><span class="nav-text">实现用户界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在清单中声明-Activity"><span class="nav-text">在清单中声明 Activity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用意图过滤器"><span class="nav-text">使用意图过滤器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动一个-Activity"><span class="nav-text">启动一个 Activity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为结果启动-Activity"><span class="nav-text">为结果启动 Activity</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭-Activity"><span class="nav-text">关闭 Activity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理-Activity-生命周期"><span class="nav-text">管理 Activity 生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础的生命周期方法"><span class="nav-text">基础的生命周期方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存-Activity-状态"><span class="nav-text">保存 Activity 状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理配置改变"><span class="nav-text">处理配置改变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协调多个-Activity"><span class="nav-text">协调多个 Activity</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+  <div class="footer-custom">Hosted by <a href="https://pages.coding.me" style="font-weight:bold">Coding Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1256375489&web_id=1256375489" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
-
-  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
-
-
-
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
-  <script src="/scrollLoading/main.js"></script>
-
-
-<script src="/js/html-patch.js"></script>
-<script src="/js/script.js"></script>
+    
 
   </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

@@ -1,38 +1,94 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+
+
+
   
-  <title>树莓派折腾记之第一天 | 悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="周五晚上开箱晒图以后，直到周日才有时间开始折腾我的树莓派。
-今天第一个小目标，就是点亮树莓派。
-先说一下我自己拥有的设备。
 
-mac 电脑，没有 windows 系统。
-没有键盘，有一个无线鼠标。
-一台有 HDMI 接口的电视机。
-网线一根
 
-另外就是我之前买回来的树莓派及配件了。
-Mac 上给树莓派安装 Raspbian树莓派支持的系统有很多，官方推荐的是 Raspbian。
-下载系统镜像到树莓">
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="raspberry pi," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="阿阿燃" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="周五晚上开箱晒图以后，直到周日才有时间开始折腾我的树莓派。 今天第一个小目标，就是点亮树莓派。 先说一下我自己拥有的设备。  mac 电脑，没有 windows 系统。 没有键盘，有一个无线鼠标。 一台有 HDMI 接口的电视机。 网线一根  另外就是我之前买回来的树莓派及配件了。 Mac 上给树莓派安装 Raspbian树莓派支持的系统有很多，官方推荐的是 Raspbian。 下载系统镜像到树莓">
+<meta name="keywords" content="raspberry pi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派折腾记之第一天">
 <meta property="og:url" content="http://linfuyan.com/raspberrypi-day1/index.html">
-<meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
-<meta property="og:description" content="周五晚上开箱晒图以后，直到周日才有时间开始折腾我的树莓派。
-今天第一个小目标，就是点亮树莓派。
-先说一下我自己拥有的设备。
-
-mac 电脑，没有 windows 系统。
-没有键盘，有一个无线鼠标。
-一台有 HDMI 接口的电视机。
-网线一根
-
-另外就是我之前买回来的树莓派及配件了。
-Mac 上给树莓派安装 Raspbian树莓派支持的系统有很多，官方推荐的是 Raspbian。
-下载系统镜像到树莓">
+<meta property="og:site_name" content="阿阿燃">
+<meta property="og:description" content="周五晚上开箱晒图以后，直到周日才有时间开始折腾我的树莓派。 今天第一个小目标，就是点亮树莓派。 先说一下我自己拥有的设备。  mac 电脑，没有 windows 系统。 没有键盘，有一个无线鼠标。 一台有 HDMI 接口的电视机。 网线一根  另外就是我之前买回来的树莓派及配件了。 Mac 上给树莓派安装 Raspbian树莓派支持的系统有很多，官方推荐的是 Raspbian。 下载系统镜像到树莓">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-format-sdcard.png">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-df-h.png">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-unmount.png">
@@ -51,110 +107,259 @@ Mac 上给树莓派安装 Raspbian树莓派支持的系统有很多，官方推�
 <meta property="og:updated_time" content="2017-03-06T14:08:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树莓派折腾记之第一天">
-<meta name="twitter:description" content="周五晚上开箱晒图以后，直到周日才有时间开始折腾我的树莓派。
-今天第一个小目标，就是点亮树莓派。
-先说一下我自己拥有的设备。
-
-mac 电脑，没有 windows 系统。
-没有键盘，有一个无线鼠标。
-一台有 HDMI 接口的电视机。
-网线一根
-
-另外就是我之前买回来的树莓派及配件了。
-Mac 上给树莓派安装 Raspbian树莓派支持的系统有很多，官方推荐的是 Raspbian。
-下载系统镜像到树莓">
+<meta name="twitter:description" content="周五晚上开箱晒图以后，直到周日才有时间开始折腾我的树莓派。 今天第一个小目标，就是点亮树莓派。 先说一下我自己拥有的设备。  mac 电脑，没有 windows 系统。 没有键盘，有一个无线鼠标。 一台有 HDMI 接口的电视机。 网线一根  另外就是我之前买回来的树莓派及配件了。 Mac 上给树莓派安装 Raspbian树莓派支持的系统有很多，官方推荐的是 Raspbian。 下载系统镜像到树莓">
 <meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-format-sdcard.png">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-
-  <link rel="stylesheet" href="/css/style.css">
-  
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  
-    <link rel="stylesheet" href="/scrollLoading/style.css">
-  
-  
 
 
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://linfuyan.com/raspberrypi-day1/"/>
+
+
+
+
+
+  <title>树莓派折腾记之第一天 | 阿阿燃</title>
   
 
-<!--  
-    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
-    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-   -->
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+
+
 </head>
 
-<body>
-  <div id="wrap">
-    <header id="header">
-  <div id="header-outer" class="outer">
-    <div class="container">
-      <div class="container-inner">
-        <div id="header-title">
-          <h1 class="logo-wrap">
-            <a href="/" class="logo"></a>
-          </h1>
-          
-            <h2 class="subtitle-wrap">
-              <p class="subtitle">关注但不限于 Android、iOS、nodejs</p>
-            </h2>
-          
-        </div>
-        <div id="header-inner" class="nav-container">
-          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-          <div class="nav-container-inner">
-            <ul id="main-nav">
-              
-                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
-              
-                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/导航/">导航</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Web前端/">Web前端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/nodejs/">nodejs</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/后端/">后端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/微信/">微信</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/">教程</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ngrok/">ngrok</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
-                  
-            </ul>
-            <nav id="sub-nav">
-              <div id="search-form-wrap">
-                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://linfuyan.com"></form>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阿阿燃</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-</header>
-    <div class="container">
-      <div class="main-body container-inner">
-        <div class="main-body-inner">
-          <section id="main">
-            <div class="main-body-header">
 
-              <h1 class="header">未分类</h1>
-            </div>
-            <div class="main-body-content">
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/raspberrypi-day1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">树莓派折腾记之第一天</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
               
-  <article id="post-raspberrypi-day1" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-      <!--  -->
-      
-        <header class="article-header">
-          
-  
-    <h1 class="article-title" itemprop="name">
-      树莓派折腾记之第一天
-    </h1>
-  
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-06T22:08:00+08:00">
+                2017-03-06
+              </time>
+            
 
-        </header>
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-06T22:08:38+08:00">
+                2017-03-06
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-      <p class="article-byline">
-        <a href="/raspberrypi-day1/" class="article-date">
-  <time datetime="2017-03-06T14:08:00.000Z" itemprop="datePublished">2017-03-06</time>
-</a>
-      </p>
-      <div class="article-entry" itemprop="articleBody">
+      
+
+      
         <p>周五晚上开箱晒图以后，直到周日才有时间开始折腾我的树莓派。</p>
 <p>今天第一个小目标，就是点亮树莓派。</p>
 <p>先说一下我自己拥有的设备。</p>
@@ -166,7 +371,7 @@ Mac 上给树莓派安装 Raspbian树莓派支持的系统有很多，官方推�
 </ol>
 <p>另外就是我之前买回来的树莓派及配件了。</p>
 <h2 id="Mac-上给树莓派安装-Raspbian"><a href="#Mac-上给树莓派安装-Raspbian" class="headerlink" title="Mac 上给树莓派安装 Raspbian"></a>Mac 上给树莓派安装 Raspbian</h2><p>树莓派支持的系统有很多，官方推荐的是 Raspbian。</p>
-<h3 id="下载系统镜像"><a href="#下载系统镜像" class="headerlink" title="下载系统镜像"></a>下载系统镜像</h3><p>到<a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="external">树莓派官网</a>下载 raspbian 的镜像文件。我的是 2017-03-02-raspbian-jessie.zip，1.57 G。解压出来成 2017-03-02-raspbian-jessie.img，有 4.39 G。</p>
+<h3 id="下载系统镜像"><a href="#下载系统镜像" class="headerlink" title="下载系统镜像"></a>下载系统镜像</h3><p>到<a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="noopener">树莓派官网</a>下载 raspbian 的镜像文件。我的是 2017-03-02-raspbian-jessie.zip，1.57 G。解压出来成 2017-03-02-raspbian-jessie.img，有 4.39 G。</p>
 <h3 id="格式化-SD-卡"><a href="#格式化-SD-卡" class="headerlink" title="格式化 SD 卡"></a>格式化 SD 卡</h3><p>使用 Mac 自带的磁盘工具，左侧选中对应的 SD 卡，点击右侧的“抹掉”标签，格式选择“MS-DOS(FAT)”，名称根据自己需要填写。</p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-format-sdcard.png" alt="格式化 SD 卡"></p>
 <h3 id="命令行查看挂载的卷"><a href="#命令行查看挂载的卷" class="headerlink" title="命令行查看挂载的卷"></a>命令行查看挂载的卷</h3><p>打开 Mac 终端，在命令行中输入 <code>df -h</code></p>
@@ -174,13 +379,13 @@ Mac 上给树莓派安装 Raspbian树莓派支持的系统有很多，官方推�
 <p>在这里可以看到挂载的 SD 卡，类似 <code>/dev/disk3s1</code>。</p>
 <h3 id="卸载分区"><a href="#卸载分区" class="headerlink" title="卸载分区"></a>卸载分区</h3><p>在磁盘工具中，同样选中对应的 SD 卡，点击右侧标签上的卸载。</p>
 <p>或者使用命令行工具：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">diskutil unmount <span class="regexp">/dev/</span>disk3s1</div></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diskutil unmount <span class="regexp">/dev/</span>disk3s1</span><br></pre></td></tr></table></figure>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-unmount.png" alt="卸载分区"></p>
 <h3 id="确认-SD-卡设备的标识"><a href="#确认-SD-卡设备的标识" class="headerlink" title="确认 SD 卡设备的标识"></a>确认 SD 卡设备的标识</h3><p>在命令行中输入 <code>diskutil list</code></p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-diskutil-list.png" alt="确认SD卡标识"></p>
 <p>其中，<code>/dev/disk3</code> 就是我们要安装系统的设备。记住这个标识，非常的重要。</p>
 <h3 id="将-Raspbian-镜像写入-SD-卡"><a href="#将-Raspbian-镜像写入-SD-卡" class="headerlink" title="将 Raspbian 镜像写入 SD 卡"></a>将 Raspbian 镜像写入 SD 卡</h3><p>Mac 下使用 dd 命令来将系统镜像写入设备。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo <span class="selector-tag">dd</span> bs=<span class="number">4</span>m <span class="keyword">if</span>=<span class="number">2017</span>-<span class="number">03</span>-<span class="number">02</span>-raspbian-jessie<span class="selector-class">.img</span> of=/dev/disk3</div></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dd <span class="attribute">bs</span>=4m <span class="attribute">if</span>=2017-03-02-raspbian-jessie.img <span class="attribute">of</span>=/dev/disk3</span><br></pre></td></tr></table></figure>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-write-img.png" alt="写入系统镜像"></p>
 <p>if 后面的参数标识镜像文件路径<br>of 后面的参数则是写入设备的标识</p>
 <h3 id="卸载设备"><a href="#卸载设备" class="headerlink" title="卸载设备"></a>卸载设备</h3><p>写完以后，在通过 <code>diskutil unmountDisk</code> 命令卸载 SD 卡。</p>
@@ -203,15 +408,15 @@ Mac 上给树莓派安装 Raspbian树莓派支持的系统有很多，官方推�
 <h2 id="简单配置"><a href="#简单配置" class="headerlink" title="简单配置"></a>简单配置</h2><p>我插上无线鼠标，插上网线，随意点击的过程中，发现右上角的网卡配置上，是可以显示 ip 地址的。这样， ip 就有了。一阵欣喜。</p>
 <p>而后，在系统的“首选项”中“树莓派配置”，我发现可以配置 ssh， vnc 等服务的开关。我在这里把 ssh 和 vnc 都打开了。</p>
 <p>于是，我在 Mac 的终端里，输入</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">pi</span>@<span class="keyword">192</span>.<span class="keyword">168</span>.<span class="keyword">0</span>.<span class="keyword">5</span> // 这是我的树莓派 ip 地址，你的根据自己情况而定</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">pi</span>@<span class="keyword">192</span>.<span class="keyword">168</span>.<span class="keyword">0</span>.<span class="keyword">5</span> // 这是我的树莓派 ip 地址，你的根据自己情况而定</span><br></pre></td></tr></table></figure>
 <p>顺利地登录了。</p>
 <p>此外，只用鼠标，我还配置了系统的语言，时区等，这些配置都有图形化的界面。</p>
 <h2 id="配置软件源"><a href="#配置软件源" class="headerlink" title="配置软件源"></a>配置软件源</h2><p>Raspbian 是基于 debian 的，软件包管理工具是强大的 <code>apt</code>。为了能够快速的查找、安装各种软件，需要更新一下软件安装源。</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo <span class="keyword">vi</span> /etc/apt/sources.<span class="keyword">list</span></div></pre></td></tr></table></figure>
-<p>从这个列表<a href="http://shumeipai.nxez.com/2013/08/31/raspbian-chinese-software-source.html" target="_blank" rel="external">Raspbian 中国软件源</a>中选择一两个源，按照 sources.list 的格式写入。然后执行下面的命令更新。注意：每次修改 <code>sources.list</code>，要使更新生效都必须执行此命令。</p>
-<figure class="highlight q"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></div></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">vi</span> /etc/apt/sources.<span class="keyword">list</span></span><br></pre></td></tr></table></figure>
+<p>从这个列表<a href="http://shumeipai.nxez.com/2013/08/31/raspbian-chinese-software-source.html" target="_blank" rel="noopener">Raspbian 中国软件源</a>中选择一两个源，按照 sources.list 的格式写入。然后执行下面的命令更新。注意：每次修改 <code>sources.list</code>，要使更新生效都必须执行此命令。</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br></pre></td></tr></table></figure>
 <h2 id="通过-VNC-控制树莓派桌面"><a href="#通过-VNC-控制树莓派桌面" class="headerlink" title="通过 VNC 控制树莓派桌面"></a>通过 VNC 控制树莓派桌面</h2><p>在网上看到很多篇关于远程控制树莓派桌面的文章，都是说需要安装 <code>tightvncserver</code>。其实是不需要的，新版的系统上已经内置了 vnc 服务 <code>RealVNC</code>，我们上面的设置中开启 vnc 就可以了。</p>
-<p>而 <a href="https://www.realvnc.com/download/viewer/" target="_blank" rel="external">RealVNC</a> 在很多平台下都有客户端，包括 Mac，iOS，Android。我在 Mac 和 iOS 里都下载了 VNC Viewer 客户端，简单配置以后，就可以对树莓派进行远程桌面控制了。</p>
+<p>而 <a href="https://www.realvnc.com/download/viewer/" target="_blank" rel="noopener">RealVNC</a> 在很多平台下都有客户端，包括 Mac，iOS，Android。我在 Mac 和 iOS 里都下载了 VNC Viewer 客户端，简单配置以后，就可以对树莓派进行远程桌面控制了。</p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/nvc-on-mac.jpeg" alt="mac vnc 客户端"></p>
 <div align="center">mac 上的 VNC Viewer</div>
 
@@ -221,13 +426,13 @@ Mac 上给树莓派安装 Raspbian树莓派支持的系统有很多，官方推�
 <h2 id="安装-kodi，打造多媒体控制中心"><a href="#安装-kodi，打造多媒体控制中心" class="headerlink" title="安装 kodi，打造多媒体控制中心"></a>安装 kodi，打造多媒体控制中心</h2><p>网上大多数的教程都是说可以通过安装 <code>xbmc</code> 来将树莓派打造成多媒体控制中心。简单说就类似一个电视盒子。</p>
 <p>其实 <code>xbmc</code> 已经是过去时了。现在叫 <code>kodi</code>, 我是通过命令行安装 <code>xbmc</code> 是才发现的，系统提醒我 <code>xbmc</code> 的包已经过时了。</p>
 <p>等我缓过神来，发现树莓派系统的影音菜单里面包含有 <code>Kodi Media Center</code>。所以我不清楚是系统预装的，还是我通过命令行安装的。如果是命令行安装，大家执行如下命令就可以了。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="keyword">get</span> install kodi</div></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install kodi</span><br></pre></td></tr></table></figure>
 <p>安装完成以后，通过菜单可以打开 kodi。如果你在 VNC Viewer 上远程操作，是看不到 kodi 的界面的。<strong>只能在 HDMI 设备上看到</strong>。</p>
 <h3 id="kodi-中文化及安装中文节目插件"><a href="#kodi-中文化及安装中文节目插件" class="headerlink" title="kodi 中文化及安装中文节目插件"></a>kodi 中文化及安装中文节目插件</h3><p>打开 kodi，默认是英文界面。如果想看自己需要的界面，则需要安装对应的插件。下面是插件项目地址：</p>
-<p><a href="https://github.com/taxigps/xbmc-addons-chinese" target="_blank" rel="external">Addon scripts, plugins, and skins for XBMC Media Center. Special for chinese laguage.</a></p>
+<p><a href="https://github.com/taxigps/xbmc-addons-chinese" target="_blank" rel="noopener">Addon scripts, plugins, and skins for XBMC Media Center. Special for chinese laguage.</a></p>
 <p>具体安装步骤：</p>
 <ol>
-<li>下载<a href="https://github.com/taxigps/xbmc-addons-chinese/raw/master/repo/repository.xbmc-addons-chinese/repository.xbmc-addons-chinese-1.2.1.zip" target="_blank" rel="external">插件仓库</a>。</li>
+<li>下载<a href="https://github.com/taxigps/xbmc-addons-chinese/raw/master/repo/repository.xbmc-addons-chinese/repository.xbmc-addons-chinese-1.2.1.zip" target="_blank" rel="noopener">插件仓库</a>。</li>
 <li>打开 kodi，导航到 系统(System) | 设置(Setting) | 插件(Add-ons)</li>
 <li>选择 “从 zip 文件安装”</li>
 <li>找到下载的 zip 所在路径，选择确认。</li>
@@ -256,331 +461,431 @@ Mac 上给树莓派安装 Raspbian树莓派支持的系统有很多，官方推�
 </ol>
 <p>最大的感慨是，网络上的很多教程都过时了。比起那些教程，新版的 Raspbian 是在容易上手太多，很多东西也都预装好了，更加傻瓜化了。</p>
 <p><strong>参考</strong></p>
-<p><a href="http://www.5yun.org/9148.html" target="_blank" rel="external">Kodi播放器出现乱码的解决方法，超简单!</a></p>
-<p><a href="http://www.jianshu.com/p/5dc83db2b78e" target="_blank" rel="external">mac 下安装树莓派系统</a></p>
+<p><a href="http://www.5yun.org/9148.html" target="_blank" rel="noopener">Kodi播放器出现乱码的解决方法，超简单!</a></p>
+<p><a href="http://www.jianshu.com/p/5dc83db2b78e" target="_blank" rel="noopener">mac 下安装树莓派系统</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Aaron
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://linfuyan.com/raspberrypi-day1/" title="树莓派折腾记之第一天">http://linfuyan.com/raspberrypi-day1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
 
       </div>
-      <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/raspberrypi-day1/" data-id="cj6iohr4q004dyyncyulax0eh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
-        
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raspberry-pi/">raspberry pi</a></li></ul>
-
-      </footer>
-      
-  
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- linfuyan.com.article_bottom -->
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:100%;height:100px"
-         data-ad-client="ca-pub-3371913913447815"
-         data-ad-slot="5753141673"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  
-
-
-      
-        
-<nav id="article-nav">
-  
-    <a href="/java-swing-drag-jar-exe/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <p class="article-nav-title">
-        
-          Java Swing 代码打包成 Windows 上的 exe 文件
-        
-      </p>
-      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-  
-  
-    <a href="/macOS-Sierra-docker-seafile/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘</p>
-      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-    </a>
-  
-</nav>
-
-      
-      
-        <div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-      
-    </div>
-  </article>
-  
-
-  
-  <section id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="post-raspberrypi-day1" data-title="树莓派折腾记之第一天" data-url="http://linfuyan.com/raspberrypi-day1/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:'linfuyan'};
-      (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-      })();
-      </script>
-    <!-- 多说公共JS代码 end -->
-  </section>
-  
-
-            </div>
-          </section>
-          <aside id="sidebar">
-  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-  <div class="sidebar-top">
-    <p>关注我 :</p>
-    <ul class="social-links">
-      
-        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
-      
-        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
-      
-    </ul>
-  </div>
-  <!-- 
     
-<nav id="article-nav">
-  
-    <a href="/java-swing-drag-jar-exe/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <p class="article-nav-title">
-        
-          Java Swing 代码打包成 Windows 上的 exe 文件
-        
-      </p>
-      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-  
-  
-    <a href="/macOS-Sierra-docker-seafile/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘</p>
-      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-    </a>
-  
-</nav>
 
-   -->
-  <div class="widgets-container">
-    
+    <footer class="post-footer">
       
-  <div class="widget-wrap">
-  	
-      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/> 
-     
-    
-      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Android-iOS-qq-group.png" width="100%" height="100%"/>
-    
-  </div>
-
-    
-      
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul id="recent-post" class="">
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/mindmap-laravel-start-guide/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/%e7%b2%be%e8%bf%9b%e8%84%91%e5%9b%be%e4%b9%8bLaravel%e5%85%a5%e9%97%a8%e6%8c%87%e5%8d%97.jpg
-)" alt="Laravel思维导图之Laravel入门指南" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/后端/">后端</a></p>
-              <p class="item-title"><a href="/mindmap-laravel-start-guide/" class="title">Laravel思维导图之Laravel入门指南</a></p>
-              <p class="item-date"><time datetime="2017-08-06T12:48:00.000Z" itemprop="datePublished">2017-08-06</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/mindmap-php-base/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/精进脑图之PHP基础.png
-)" alt="十五张思维导图带你快速学习PHP语言基础" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/后端/">后端</a></p>
-              <p class="item-title"><a href="/mindmap-php-base/" class="title">十五张思维导图带你快速学习PHP语言基础</a></p>
-              <p class="item-date"><time datetime="2017-08-03T12:48:00.000Z" itemprop="datePublished">2017-08-03</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/weapp-https/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/wxapp-https-debug.png
-)" alt="【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/微信/">微信</a></p>
-              <p class="item-title"><a href="/weapp-https/" class="title">【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程</a></p>
-              <p class="item-date"><time datetime="2017-05-25T06:26:00.000Z" itemprop="datePublished">2017-05-25</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/android-kotlin-get-started/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-new-project_2x.png
-)" alt="在 Android 上开始使用 Kotlin" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
-              <p class="item-title"><a href="/android-kotlin-get-started/" class="title">在 Android 上开始使用 Kotlin</a></p>
-              <p class="item-date"><time datetime="2017-05-18T04:00:00.000Z" itemprop="datePublished">2017-05-18</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/android-kotlin/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
-              <p class="item-title"><a href="/android-kotlin/" class="title">Kotlin 成为 Android 官方语言，看看官方怎么说？</a></p>
-              <p class="item-date"><time datetime="2017-05-18T03:21:00.000Z" itemprop="datePublished">2017-05-18</time></p>
-            </div>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget-wrap widget-list">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">34</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/后端/">后端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/微信/">微信</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget-wrap widget-list">
-    <h3 class="widget-title">链接</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="http://uprogrammer.cn">优程</a>
-          </li>
-        
-          <li>
-            <a href="http://hexo.io">Hexo</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-
-    
-  </div>
-</aside>
+        <div class="post-tags">
+          
+            <a href="/tags/raspberry-pi/" rel="tag"># raspberry pi</a>
+          
         </div>
-      </div>
-    </div>
-    <footer id="footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/macOS-Sierra-docker-seafile/" rel="next" title="macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘">
+                <i class="fa fa-chevron-left"></i> macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/java-swing-drag-jar-exe/" rel="prev" title="Java Swing 代码打包成 Windows 上的 exe 文件">
+                Java Swing 代码打包成 Windows 上的 exe 文件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
   
-  <div class="container">
-    <div class="container-inner">
-      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-      <div class="credit">
-        <h1 class="logo-wrap">
-          <a href="/" class="logo"></a>
-        </h1>
-        <p>&copy; 2017 linfuyan</p>
-        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
-        <p>
-        <!-- CNZZ 统计 -->
-        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
-        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
-        </p>
-        <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
-      </div>
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
     </div>
   </div>
-</footer>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Aaron</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">220</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/linfuyan" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-上给树莓派安装-Raspbian"><span class="nav-text">Mac 上给树莓派安装 Raspbian</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载系统镜像"><span class="nav-text">下载系统镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#格式化-SD-卡"><span class="nav-text">格式化 SD 卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行查看挂载的卷"><span class="nav-text">命令行查看挂载的卷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载分区"><span class="nav-text">卸载分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#确认-SD-卡设备的标识"><span class="nav-text">确认 SD 卡设备的标识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将-Raspbian-镜像写入-SD-卡"><span class="nav-text">将 Raspbian 镜像写入 SD 卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载设备"><span class="nav-text">卸载设备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点亮树莓派，进入系统"><span class="nav-text">点亮树莓派，进入系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单配置"><span class="nav-text">简单配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置软件源"><span class="nav-text">配置软件源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过-VNC-控制树莓派桌面"><span class="nav-text">通过 VNC 控制树莓派桌面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-kodi，打造多媒体控制中心"><span class="nav-text">安装 kodi，打造多媒体控制中心</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#kodi-中文化及安装中文节目插件"><span class="nav-text">kodi 中文化及安装中文节目插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过安装-kodi-的客户端，在手机上控制-kodi"><span class="nav-text">通过安装 kodi 的客户端，在手机上控制 kodi</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-text">后记</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+  <div class="footer-custom">Hosted by <a href="https://pages.coding.me" style="font-weight:bold">Coding Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1256375489&web_id=1256375489" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
-
-  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
-
-
-
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
-  <script src="/scrollLoading/main.js"></script>
-
-
-<script src="/js/html-patch.js"></script>
-<script src="/js/script.js"></script>
+    
 
   </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

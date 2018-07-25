@@ -1,18 +1,94 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+
+
+
   
-  <title>iOS App 生命周期 | 悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="对于iOS应用程序，关键的是要知道你的应用程序是否正在前台或后台运行。由于系统资源在iOS设备上较为有限，一个应用程序必须在后台与前台有不同的行为。操作系统也会限制你的应用程序在后台的运行，以提高电池寿命，并提高用户与前台应用程序的体验。当应用程序在前台和后台之间切换时，操作系统将会通知您的应用程序。你可以通过这些通知来修改你的应用程序的行为。
-当你的应用程序在前台活动时，系统会发送触摸事件给它进">
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="iOS,应用程序,生命周期," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="阿阿燃" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="对于iOS应用程序，关键的是要知道你的应用程序是否正在前台或后台运行。由于系统资源在iOS设备上较为有限，一个应用程序必须在后台与前台有不同的行为。操作系统也会限制你的应用程序在后台的运行，以提高电池寿命，并提高用户与前台应用程序的体验。当应用程序在前台和后台之间切换时，操作系统将会通知您的应用程序。你可以通过这些通知来修改你的应用程序的行为。 当你的应用程序在前台活动时，系统会发送触摸事件给它进">
+<meta name="keywords" content="iOS,应用程序,生命周期">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS App 生命周期">
 <meta property="og:url" content="http://linfuyan.com/lifecycle-of-an-ios-application/index.html">
-<meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
-<meta property="og:description" content="对于iOS应用程序，关键的是要知道你的应用程序是否正在前台或后台运行。由于系统资源在iOS设备上较为有限，一个应用程序必须在后台与前台有不同的行为。操作系统也会限制你的应用程序在后台的运行，以提高电池寿命，并提高用户与前台应用程序的体验。当应用程序在前台和后台之间切换时，操作系统将会通知您的应用程序。你可以通过这些通知来修改你的应用程序的行为。
-当你的应用程序在前台活动时，系统会发送触摸事件给它进">
+<meta property="og:site_name" content="阿阿燃">
+<meta property="og:description" content="对于iOS应用程序，关键的是要知道你的应用程序是否正在前台或后台运行。由于系统资源在iOS设备上较为有限，一个应用程序必须在后台与前台有不同的行为。操作系统也会限制你的应用程序在后台的运行，以提高电池寿命，并提高用户与前台应用程序的体验。当应用程序在前台和后台之间切换时，操作系统将会通知您的应用程序。你可以通过这些通知来修改你的应用程序的行为。 当你的应用程序在前台活动时，系统会发送触摸事件给它进">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-1.png">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-2.png">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-3.png">
@@ -23,100 +99,292 @@
 <meta property="og:updated_time" content="2015-08-28T11:43:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS App 生命周期">
-<meta name="twitter:description" content="对于iOS应用程序，关键的是要知道你的应用程序是否正在前台或后台运行。由于系统资源在iOS设备上较为有限，一个应用程序必须在后台与前台有不同的行为。操作系统也会限制你的应用程序在后台的运行，以提高电池寿命，并提高用户与前台应用程序的体验。当应用程序在前台和后台之间切换时，操作系统将会通知您的应用程序。你可以通过这些通知来修改你的应用程序的行为。
-当你的应用程序在前台活动时，系统会发送触摸事件给它进">
+<meta name="twitter:description" content="对于iOS应用程序，关键的是要知道你的应用程序是否正在前台或后台运行。由于系统资源在iOS设备上较为有限，一个应用程序必须在后台与前台有不同的行为。操作系统也会限制你的应用程序在后台的运行，以提高电池寿命，并提高用户与前台应用程序的体验。当应用程序在前台和后台之间切换时，操作系统将会通知您的应用程序。你可以通过这些通知来修改你的应用程序的行为。 当你的应用程序在前台活动时，系统会发送触摸事件给它进">
 <meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-1.png">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-
-  <link rel="stylesheet" href="/css/style.css">
-  
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  
-    <link rel="stylesheet" href="/scrollLoading/style.css">
-  
-  
 
 
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://linfuyan.com/lifecycle-of-an-ios-application/"/>
+
+
+
+
+
+  <title>iOS App 生命周期 | 阿阿燃</title>
   
 
-<!--  
-    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
-    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-   -->
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+
+
 </head>
 
-<body>
-  <div id="wrap">
-    <header id="header">
-  <div id="header-outer" class="outer">
-    <div class="container">
-      <div class="container-inner">
-        <div id="header-title">
-          <h1 class="logo-wrap">
-            <a href="/" class="logo"></a>
-          </h1>
-          
-            <h2 class="subtitle-wrap">
-              <p class="subtitle">关注但不限于 Android、iOS、nodejs</p>
-            </h2>
-          
-        </div>
-        <div id="header-inner" class="nav-container">
-          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-          <div class="nav-container-inner">
-            <ul id="main-nav">
-              
-                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
-              
-                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/导航/">导航</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Web前端/">Web前端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/nodejs/">nodejs</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/后端/">后端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/微信/">微信</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/">教程</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ngrok/">ngrok</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
-                  
-            </ul>
-            <nav id="sub-nav">
-              <div id="search-form-wrap">
-                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://linfuyan.com"></form>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阿阿燃</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-</header>
-    <div class="container">
-      <div class="main-body container-inner">
-        <div class="main-body-inner">
-          <section id="main">
-            <div class="main-body-header">
 
-              <h1 class="header"><a class="page-title-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/开发技术/iOS/">iOS</a></h1>
-            </div>
-            <div class="main-body-content">
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/lifecycle-of-an-ios-application/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS App 生命周期</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
               
-  <article id="post-lifecycle-of-an-ios-application" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-      <!--  -->
-      
-        <header class="article-header">
-          
-  
-    <h1 class="article-title" itemprop="name">
-      iOS App 生命周期
-    </h1>
-  
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-28T19:27:20+08:00">
+                2015-08-28
+              </time>
+            
 
-        </header>
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2015-08-28T19:43:46+08:00">
+                2015-08-28
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-      <p class="article-byline">
-        <a href="/lifecycle-of-an-ios-application/" class="article-date">
-  <time datetime="2015-08-28T11:27:20.000Z" itemprop="datePublished">2015-08-28</time>
-</a>
-      </p>
-      <div class="article-entry" itemprop="articleBody">
+      
+
+      
         <p>对于iOS应用程序，关键的是要知道你的应用程序是否正在前台或后台运行。由于系统资源在iOS设备上较为有限，一个应用程序必须在后台与前台有不同的行为。操作系统也会限制你的应用程序在后台的运行，以提高电池寿命，并提高用户与前台应用程序的体验。当应用程序在前台和后台之间切换时，操作系统将会通知您的应用程序。你可以通过这些通知来修改你的应用程序的行为。</p>
 <p>当你的应用程序在前台活动时，系统会发送触摸事件给它进行处理。在UIKit的基础设施做了大部分的事件传递给你的自定义对象工作。所有您需要做的是覆盖在相应的对象的方法来处理这​​些事件。对于控件，UIKit会通过处理你的触摸事件，或者其他一些有趣的事情发生时调用您的自定义代码，比如当文本字段中的值更改。</p>
 <a id="more"></a>
@@ -127,27 +395,27 @@
 <p><code>Suspended</code>(挂起)：程序在后台不能执行代码。系统会自动把程序变成这个状态而且不会发出通知。当挂起时，程序还是停留在内存中的，当系统内存低时，系统就把挂起的程序清除掉，为前台程序提供更多的内存。</p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-1.png" alt="iOS 应用生命周期"></p>
 <h4 id="2-各个程序运行状态时代理的回调"><a href="#2-各个程序运行状态时代理的回调" class="headerlink" title="2. 各个程序运行状态时代理的回调"></a>2. 各个程序运行状态时代理的回调</h4><p><strong>2.1 告诉代理进程启动但还没进入状态保存</strong></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application willFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"①告诉代理进程启动但还没进入状态保存"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application willFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"①告诉代理进程启动但还没进入状态保存"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>2.2 告诉代理启动基本完成程序准备开始运行</strong></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</div><div class="line">&#123;</div><div class="line">    <span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[[<span class="built_in">UIScreen</span> mainScreen] bounds]];</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"②告诉代理启动基本完成程序准备开始运行"</span>);</div><div class="line">    </div><div class="line">    <span class="comment">// Override point for customization after application launch.</span></div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.window.backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</div><div class="line">    [<span class="keyword">self</span>.window makeKeyAndVisible];</div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[[<span class="built_in">UIScreen</span> mainScreen] bounds]];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"②告诉代理启动基本完成程序准备开始运行"</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Override point for customization after application launch.</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span>.window.backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    [<span class="keyword">self</span>.window makeKeyAndVisible];</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>2.3 当应用程序将要入非活动状态执行，在此期间，应用程序不接收消息或事件，比如来电话</strong></p>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (void)applicationWillResignActive:(UIApplication *)application</div><div class="line">&#123;</div><div class="line">    // Sent when the application is about <span class="keyword">to</span> move <span class="keyword">from</span> active <span class="keyword">to</span> inactive <span class="keyword">state</span>. This can occur <span class="keyword">for</span> certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the <span class="keyword">user</span> quits the application and it begins the transition <span class="keyword">to</span> the background <span class="keyword">state</span>.</div><div class="line">    // Use this method <span class="keyword">to</span> pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method <span class="keyword">to</span> pause the game.</div><div class="line">    NSLog(@<span class="string">"③当应用程序将要入非活动状态执行，在此期间，应用程序不接收消息或事件，比如来电话"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (void)applicationWillResignActive:(UIApplication *)application</span><br><span class="line">&#123;</span><br><span class="line">    // Sent when the application is about <span class="keyword">to</span> move <span class="keyword">from</span> active <span class="keyword">to</span> inactive <span class="keyword">state</span>. This can occur <span class="keyword">for</span> certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the <span class="keyword">user</span> quits the application and it begins the transition <span class="keyword">to</span> the background <span class="keyword">state</span>.</span><br><span class="line">    // Use this method <span class="keyword">to</span> pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method <span class="keyword">to</span> pause the game.</span><br><span class="line">    NSLog(@<span class="string">"③当应用程序将要入非活动状态执行，在此期间，应用程序不接收消息或事件，比如来电话"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>2.4 当应用程序进入活动状态执行</strong></p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">applicationDidBecomeActive</span><span class="selector-pseudo">:(UIApplication</span> *)<span class="selector-tag">application</span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.</span></div><div class="line">    <span class="selector-tag">NSLog</span>(@<span class="string">"④当应用程序进入活动状态执行"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">applicationDidBecomeActive</span><span class="selector-pseudo">:(UIApplication</span> *)<span class="selector-tag">application</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.</span></span><br><span class="line">    <span class="selector-tag">NSLog</span>(@<span class="string">"④当应用程序进入活动状态执行"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>2.5 当程序被推送到后台的时候调用。所以要设置后台继续运行，则在这个函数里面设置即可</strong></p>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">- (void)applicationDidEnterBackground:(UIApplication *)application</div><div class="line">&#123;</div><div class="line">    // Use this method <span class="keyword">to</span> release shared resources, save <span class="keyword">user</span> data, invalidate timers, and store enough application <span class="keyword">state</span> information <span class="keyword">to</span> restore your application <span class="keyword">to</span> its current <span class="keyword">state</span> <span class="keyword">in</span> case it is terminated later.</div><div class="line">    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the <span class="keyword">user</span> quits.</div><div class="line">    NSLog(@<span class="string">"⑤当程序被推送到后台的时候调用"</span>);</div><div class="line">    </div><div class="line">    [application beginBackgroundTaskWithExpirationHandler:^&#123;</div><div class="line">        </div><div class="line">        NSLog(@<span class="string">"begin Background Task With Expiration Handler"</span>);</div><div class="line">        </div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (void)applicationDidEnterBackground:(UIApplication *)application</span><br><span class="line">&#123;</span><br><span class="line">    // Use this method <span class="keyword">to</span> release shared resources, save <span class="keyword">user</span> data, invalidate timers, and store enough application <span class="keyword">state</span> information <span class="keyword">to</span> restore your application <span class="keyword">to</span> its current <span class="keyword">state</span> <span class="keyword">in</span> case it is terminated later.</span><br><span class="line">    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the <span class="keyword">user</span> quits.</span><br><span class="line">    NSLog(@<span class="string">"⑤当程序被推送到后台的时候调用"</span>);</span><br><span class="line">    </span><br><span class="line">    [application beginBackgroundTaskWithExpirationHandler:^&#123;</span><br><span class="line">        </span><br><span class="line">        NSLog(@<span class="string">"begin Background Task With Expiration Handler"</span>);</span><br><span class="line">        </span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>2.6 当程序从后台将要重新回到前台时候调用</strong></p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">applicationWillEnterForeground</span><span class="selector-pseudo">:(UIApplication</span> *)<span class="selector-tag">application</span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.</span></div><div class="line">    <span class="selector-tag">NSLog</span>(@<span class="string">"⑥当程序从后台将要重新回到前台时候调用"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">applicationWillEnterForeground</span><span class="selector-pseudo">:(UIApplication</span> *)<span class="selector-tag">application</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.</span></span><br><span class="line">    <span class="selector-tag">NSLog</span>(@<span class="string">"⑥当程序从后台将要重新回到前台时候调用"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>2.7 当程序将要退出是被调用，通常是用来保存数据和一些退出前的清理工作。这个需要要设置UIApplicationExitsOnSuspend的键值</strong></p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">applicationWillTerminate</span><span class="selector-pseudo">:(UIApplication</span> *)<span class="selector-tag">application</span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.</span></div><div class="line">    <span class="selector-tag">NSLog</span>(@<span class="string">"⑦当程序将要退出是被调用"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">applicationWillTerminate</span><span class="selector-pseudo">:(UIApplication</span> *)<span class="selector-tag">application</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.</span></span><br><span class="line">    <span class="selector-tag">NSLog</span>(@<span class="string">"⑦当程序将要退出是被调用"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>2.8 当程序载入后执行</strong></p>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- <span class="params">(void)</span>applicationDidFinishLaunching:<span class="params">(UIApplication *)</span>application</div><div class="line">&#123;</div><div class="line">    NSLog<span class="params">(@<span class="string">"⑧当程序载入后执行"</span>)</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(void)</span>applicationDidFinishLaunching:<span class="params">(UIApplication *)</span>application</span><br><span class="line">&#123;</span><br><span class="line">    NSLog<span class="params">(@<span class="string">"⑧当程序载入后执行"</span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>程序启动时：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:55</span><span class="selector-pseudo">:14.706</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ①告诉代理进程启动但还没进入状态保存</div><div class="line"></div><div class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:55</span><span class="selector-pseudo">:14.708</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ②告诉代理启动基本完成程序准备开始运行</div><div class="line"></div><div class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:55</span><span class="selector-pseudo">:14.709</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ④当应用程序进入活动状态执行</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:55</span><span class="selector-pseudo">:14.706</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ①告诉代理进程启动但还没进入状态保存</span><br><span class="line"></span><br><span class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:55</span><span class="selector-pseudo">:14.708</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ②告诉代理启动基本完成程序准备开始运行</span><br><span class="line"></span><br><span class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:55</span><span class="selector-pseudo">:14.709</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ④当应用程序进入活动状态执行</span><br></pre></td></tr></table></figure>
 <p>按下Home键返回主界面：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:56</span><span class="selector-pseudo">:11.756</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ③当应用程序将要入非活动状态执行</div><div class="line"></div><div class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:56</span><span class="selector-pseudo">:11.814</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ⑤当程序被推送到后台的时候调用</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:56</span><span class="selector-pseudo">:11.756</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ③当应用程序将要入非活动状态执行</span><br><span class="line"></span><br><span class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:56</span><span class="selector-pseudo">:11.814</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ⑤当程序被推送到后台的时候调用</span><br></pre></td></tr></table></figure>
 <p>再次打开程序：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:57</span><span class="selector-pseudo">:19.200</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ⑥当程序从后台将要重新回到前台时候调用</div><div class="line"></div><div class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:57</span><span class="selector-pseudo">:19.201</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ④当应用程序进入活动状态执行</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:57</span><span class="selector-pseudo">:19.200</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ⑥当程序从后台将要重新回到前台时候调用</span><br><span class="line"></span><br><span class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:57</span><span class="selector-pseudo">:19.201</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ④当应用程序进入活动状态执行</span><br></pre></td></tr></table></figure>
 <h4 id="3-加载应用程序进入前台"><a href="#3-加载应用程序进入前台" class="headerlink" title="3. 加载应用程序进入前台"></a>3. 加载应用程序进入前台</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-2.png" alt="iOS 应用生命周期"></p>
 <h4 id="4-加载应用程序进入后台"><a href="#4-加载应用程序进入后台" class="headerlink" title="4. 加载应用程序进入后台"></a>4. 加载应用程序进入后台</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-3.png" alt="iOS 应用生命周期"></p>
 <h4 id="5-基于警告式响应中断"><a href="#5-基于警告式响应中断" class="headerlink" title="5. 基于警告式响应中断"></a>5. 基于警告式响应中断</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-4.png" alt="iOS 应用生命周期"></p>
@@ -173,7 +441,7 @@
 <p>释放尽可能释放的内存。</p>
 <p><code>- (void)applicationDidEnterBackground:(UIApplication *)application</code> 方法有大概5秒的时间让你完成这些任务。如果超过时间还有未完成的任务，你的程序就会被终止而且从内存中清除。</p>
 <p>如果还需要长时间的运行任务，可以在该方法中调用</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[application <span class="keyword">beginBackgroundTaskWithExpirationHandler:^&#123;</span></div><div class="line">        </div><div class="line">        NSLog(@<span class="string">"begin Background Task With Expiration Handler"</span>)<span class="comment">;</span></div><div class="line">        </div><div class="line">    &#125;]<span class="comment">;</span></div></pre></td></tr></table></figure>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[<span class="name">application</span> beginBackgroundTaskWithExpirationHandler:^&#123;</span><br><span class="line">        </span><br><span class="line">        NSLog(<span class="name">@</span><span class="string">"begin Background Task With Expiration Handler"</span>)<span class="comment">;</span></span><br><span class="line">        </span><br><span class="line">    &#125;]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <p>应用程序在后台时的内存使用：请求后台运行时间和启动线程来运行长时间运行的任务。</p>
 <p>在后台时，每个应用程序都应该释放最大的内存。系统努力的保持更多的应用程序在后台同时 运行。不过当内存不足时，会终止一些挂起的程序来回收内存，那些内存最大的程序首先被终止。</p>
 <p>事实上，应用程序应该的对象如果不再使用了，那就应该尽快的去掉强引用，这样编译器可以回收这些内存。如果你想缓存一些对象提升程序的性能，你可以在进入后台时，把这些对象去掉强引用。</p>
@@ -214,330 +482,434 @@
 <p>用户操作设备，相关的操作事件被系统生成并通过UIKit的指定端口分发。事件在内部排成队列，一个个的分发到Main run loop 去做处理。UIApplication对象是第一个接收到时间的对象，它决定事件如何被处理。触摸事件分发到主窗口，窗口再分发到对应出发触摸事件的View。其他的事件通过其他途径分发给其他对象变量做处理。 </p>
 <p>大部分的事件可以在你的应用里分发，类似于触摸事件，远程操控事件（线控耳机等）都是由app的 responder objects 对象处理的。Responder objects 在你的app里到处都是，比如：UIApplication 对象，view对象，view controller 对象，都是resopnder objects。大部分事件的目标都指定了resopnder object，不过事件也可以传递给其他对象。比如，如果view对象不处理事件，可以传给父类view或者view controller。</p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-7.png" alt="iOS 应用生命周期"></p>
-<p>英文原文：<a href="https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/ManagingYourApplicationsFlow/ManagingYourApplicationsFlow.html#//apple_ref/doc/uid/TP40007072-CH4-SW20" target="_blank" rel="external">App States and Multitasking</a><br>译文出处：<a href="http://www.cnblogs.com/EverNight/p/3818570.html" target="_blank" rel="external">iOS App的生命周期</a></p>
+<p>英文原文：<a href="https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/ManagingYourApplicationsFlow/ManagingYourApplicationsFlow.html#//apple_ref/doc/uid/TP40007072-CH4-SW20" target="_blank" rel="noopener">App States and Multitasking</a><br>译文出处：<a href="http://www.cnblogs.com/EverNight/p/3818570.html" target="_blank" rel="noopener">iOS App的生命周期</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Aaron
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://linfuyan.com/lifecycle-of-an-ios-application/" title="iOS App 生命周期">http://linfuyan.com/lifecycle-of-an-ios-application/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
 
       </div>
-      <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/lifecycle-of-an-ios-application/" data-id="cj6iohr47003eyync3m0ju4gm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
-        
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/应用程序/">应用程序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/生命周期/">生命周期</a></li></ul>
-
-      </footer>
-      
-  
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- linfuyan.com.article_bottom -->
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:100%;height:100px"
-         data-ad-client="ca-pub-3371913913447815"
-         data-ad-slot="5753141673"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  
-
-
-      
-        
-<nav id="article-nav">
-  
-    <a href="/generating-ssh-keys/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <p class="article-nav-title">
-        
-          生成 SSH 密钥
-        
-      </p>
-      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-  
-  
-    <a href="/a-successful-git-branching-model/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">一个成功的 Git 分支模型</p>
-      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-    </a>
-  
-</nav>
-
-      
-      
-        <div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-      
-    </div>
-  </article>
-  
-
-  
-  <section id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="post-lifecycle-of-an-ios-application" data-title="iOS App 生命周期" data-url="http://linfuyan.com/lifecycle-of-an-ios-application/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:'linfuyan'};
-      (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-      })();
-      </script>
-    <!-- 多说公共JS代码 end -->
-  </section>
-  
-
-            </div>
-          </section>
-          <aside id="sidebar">
-  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-  <div class="sidebar-top">
-    <p>关注我 :</p>
-    <ul class="social-links">
-      
-        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
-      
-        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
-      
-    </ul>
-  </div>
-  <!-- 
     
-<nav id="article-nav">
-  
-    <a href="/generating-ssh-keys/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <p class="article-nav-title">
-        
-          生成 SSH 密钥
-        
-      </p>
-      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-  
-  
-    <a href="/a-successful-git-branching-model/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">一个成功的 Git 分支模型</p>
-      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-    </a>
-  
-</nav>
 
-   -->
-  <div class="widgets-container">
-    
+    <footer class="post-footer">
       
-  <div class="widget-wrap">
-  	
-      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/> 
-     
-    
-      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Android-iOS-qq-group.png" width="100%" height="100%"/>
-    
-  </div>
-
-    
-      
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul id="recent-post" class="">
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/mindmap-laravel-start-guide/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/%e7%b2%be%e8%bf%9b%e8%84%91%e5%9b%be%e4%b9%8bLaravel%e5%85%a5%e9%97%a8%e6%8c%87%e5%8d%97.jpg
-)" alt="Laravel思维导图之Laravel入门指南" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/后端/">后端</a></p>
-              <p class="item-title"><a href="/mindmap-laravel-start-guide/" class="title">Laravel思维导图之Laravel入门指南</a></p>
-              <p class="item-date"><time datetime="2017-08-06T12:48:00.000Z" itemprop="datePublished">2017-08-06</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/mindmap-php-base/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/精进脑图之PHP基础.png
-)" alt="十五张思维导图带你快速学习PHP语言基础" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/后端/">后端</a></p>
-              <p class="item-title"><a href="/mindmap-php-base/" class="title">十五张思维导图带你快速学习PHP语言基础</a></p>
-              <p class="item-date"><time datetime="2017-08-03T12:48:00.000Z" itemprop="datePublished">2017-08-03</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/weapp-https/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/wxapp-https-debug.png
-)" alt="【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/微信/">微信</a></p>
-              <p class="item-title"><a href="/weapp-https/" class="title">【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程</a></p>
-              <p class="item-date"><time datetime="2017-05-25T06:26:00.000Z" itemprop="datePublished">2017-05-25</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/android-kotlin-get-started/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-new-project_2x.png
-)" alt="在 Android 上开始使用 Kotlin" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
-              <p class="item-title"><a href="/android-kotlin-get-started/" class="title">在 Android 上开始使用 Kotlin</a></p>
-              <p class="item-date"><time datetime="2017-05-18T04:00:00.000Z" itemprop="datePublished">2017-05-18</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/android-kotlin/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
-              <p class="item-title"><a href="/android-kotlin/" class="title">Kotlin 成为 Android 官方语言，看看官方怎么说？</a></p>
-              <p class="item-date"><time datetime="2017-05-18T03:21:00.000Z" itemprop="datePublished">2017-05-18</time></p>
-            </div>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget-wrap widget-list">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">34</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/后端/">后端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/微信/">微信</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget-wrap widget-list">
-    <h3 class="widget-title">链接</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="http://uprogrammer.cn">优程</a>
-          </li>
-        
-          <li>
-            <a href="http://hexo.io">Hexo</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-
-    
-  </div>
-</aside>
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+            <a href="/tags/应用程序/" rel="tag"># 应用程序</a>
+          
+            <a href="/tags/生命周期/" rel="tag"># 生命周期</a>
+          
         </div>
-      </div>
-    </div>
-    <footer id="footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/a-successful-git-branching-model/" rel="next" title="一个成功的 Git 分支模型">
+                <i class="fa fa-chevron-left"></i> 一个成功的 Git 分支模型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/generating-ssh-keys/" rel="prev" title="生成 SSH 密钥">
+                生成 SSH 密钥 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
   
-  <div class="container">
-    <div class="container-inner">
-      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-      <div class="credit">
-        <h1 class="logo-wrap">
-          <a href="/" class="logo"></a>
-        </h1>
-        <p>&copy; 2017 linfuyan</p>
-        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
-        <p>
-        <!-- CNZZ 统计 -->
-        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
-        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
-        </p>
-        <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
-      </div>
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
     </div>
   </div>
-</footer>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Aaron</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">220</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/linfuyan" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-应用程序的状态"><span class="nav-text">1. 应用程序的状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-各个程序运行状态时代理的回调"><span class="nav-text">2. 各个程序运行状态时代理的回调</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-加载应用程序进入前台"><span class="nav-text">3. 加载应用程序进入前台</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-加载应用程序进入后台"><span class="nav-text">4. 加载应用程序进入后台</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-基于警告式响应中断"><span class="nav-text">5. 基于警告式响应中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-进入后台运行"><span class="nav-text">6. 进入后台运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-返回前台运行"><span class="nav-text">7. 返回前台运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-程序终止"><span class="nav-text">8. 程序终止</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-The-Main-Run-Loop-主运行循环"><span class="nav-text">9. The Main Run Loop 主运行循环</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+  <div class="footer-custom">Hosted by <a href="https://pages.coding.me" style="font-weight:bold">Coding Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1256375489&web_id=1256375489" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
-
-  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
-
-
-
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
-  <script src="/scrollLoading/main.js"></script>
-
-
-<script src="/js/html-patch.js"></script>
-<script src="/js/script.js"></script>
+    
 
   </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

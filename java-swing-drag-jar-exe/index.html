@@ -1,123 +1,385 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>Java Swing 代码打包成 Windows 上的 exe 文件 | 悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="年前抽空给朋友做了个小东西。具体功能就不说了。对于他的最终需求，概括的说就是：需要一个满足功能的在 windows 上的 .exe 文件。桌面开发我不熟，后来基于 Java Swing 给实现了。在实现过程中，几个关键点记下来做备忘。
 
-拖拽文件到界面的输入框中，后续对文件进行处理。简化一下，拖拽文件到输入框，并获取文件路径。
-项目的依赖是用 Gradle 来管理的，功能实现依赖第三方 jar，最">
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="swing,shadowJar,launch4j," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="阿阿燃" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="年前抽空给朋友做了个小东西。具体功能就不说了。对于他的最终需求，概括的说就是：需要一个满足功能的在 windows 上的 .exe 文件。桌面开发我不熟，后来基于 Java Swing 给实现了。在实现过程中，几个关键点记下来做备忘。  拖拽文件到界面的输入框中，后续对文件进行处理。简化一下，拖拽文件到输入框，并获取文件路径。 项目的依赖是用 Gradle 来管理的，功能实现依赖第三方 jar，最">
+<meta name="keywords" content="swing,shadowJar,launch4j">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Swing 代码打包成 Windows 上的 exe 文件">
 <meta property="og:url" content="http://linfuyan.com/java-swing-drag-jar-exe/index.html">
-<meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
-<meta property="og:description" content="年前抽空给朋友做了个小东西。具体功能就不说了。对于他的最终需求，概括的说就是：需要一个满足功能的在 windows 上的 .exe 文件。桌面开发我不熟，后来基于 Java Swing 给实现了。在实现过程中，几个关键点记下来做备忘。
-
-拖拽文件到界面的输入框中，后续对文件进行处理。简化一下，拖拽文件到输入框，并获取文件路径。
-项目的依赖是用 Gradle 来管理的，功能实现依赖第三方 jar，最">
+<meta property="og:site_name" content="阿阿燃">
+<meta property="og:description" content="年前抽空给朋友做了个小东西。具体功能就不说了。对于他的最终需求，概括的说就是：需要一个满足功能的在 windows 上的 .exe 文件。桌面开发我不熟，后来基于 Java Swing 给实现了。在实现过程中，几个关键点记下来做备忘。  拖拽文件到界面的输入框中，后续对文件进行处理。简化一下，拖拽文件到输入框，并获取文件路径。 项目的依赖是用 Gradle 来管理的，功能实现依赖第三方 jar，最">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jar2exe-1.png">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jar2exe-2.png">
 <meta property="og:updated_time" content="2017-03-16T05:35:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Swing 代码打包成 Windows 上的 exe 文件">
-<meta name="twitter:description" content="年前抽空给朋友做了个小东西。具体功能就不说了。对于他的最终需求，概括的说就是：需要一个满足功能的在 windows 上的 .exe 文件。桌面开发我不熟，后来基于 Java Swing 给实现了。在实现过程中，几个关键点记下来做备忘。
-
-拖拽文件到界面的输入框中，后续对文件进行处理。简化一下，拖拽文件到输入框，并获取文件路径。
-项目的依赖是用 Gradle 来管理的，功能实现依赖第三方 jar，最">
+<meta name="twitter:description" content="年前抽空给朋友做了个小东西。具体功能就不说了。对于他的最终需求，概括的说就是：需要一个满足功能的在 windows 上的 .exe 文件。桌面开发我不熟，后来基于 Java Swing 给实现了。在实现过程中，几个关键点记下来做备忘。  拖拽文件到界面的输入框中，后续对文件进行处理。简化一下，拖拽文件到输入框，并获取文件路径。 项目的依赖是用 Gradle 来管理的，功能实现依赖第三方 jar，最">
 <meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jar2exe-1.png">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-
-  <link rel="stylesheet" href="/css/style.css">
-  
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  
-    <link rel="stylesheet" href="/scrollLoading/style.css">
-  
-  
 
 
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://linfuyan.com/java-swing-drag-jar-exe/"/>
+
+
+
+
+
+  <title>Java Swing 代码打包成 Windows 上的 exe 文件 | 阿阿燃</title>
   
 
-<!--  
-    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
-    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-   -->
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+
+
 </head>
 
-<body>
-  <div id="wrap">
-    <header id="header">
-  <div id="header-outer" class="outer">
-    <div class="container">
-      <div class="container-inner">
-        <div id="header-title">
-          <h1 class="logo-wrap">
-            <a href="/" class="logo"></a>
-          </h1>
-          
-            <h2 class="subtitle-wrap">
-              <p class="subtitle">关注但不限于 Android、iOS、nodejs</p>
-            </h2>
-          
-        </div>
-        <div id="header-inner" class="nav-container">
-          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-          <div class="nav-container-inner">
-            <ul id="main-nav">
-              
-                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
-              
-                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/导航/">导航</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Web前端/">Web前端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/nodejs/">nodejs</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/后端/">后端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/微信/">微信</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/">教程</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ngrok/">ngrok</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
-                  
-            </ul>
-            <nav id="sub-nav">
-              <div id="search-form-wrap">
-                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://linfuyan.com"></form>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阿阿燃</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-</header>
-    <div class="container">
-      <div class="main-body container-inner">
-        <div class="main-body-inner">
-          <section id="main">
-            <div class="main-body-header">
 
-              <h1 class="header"><a class="page-title-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/开发技术/经验实践/">经验实践</a></h1>
-            </div>
-            <div class="main-body-content">
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/java-swing-drag-jar-exe/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java Swing 代码打包成 Windows 上的 exe 文件</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
               
-  <article id="post-java-swing-drag-jar-exe" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-      <!--  -->
-      
-        <header class="article-header">
-          
-  
-    <h1 class="article-title" itemprop="name">
-      Java Swing 代码打包成 Windows 上的 exe 文件
-    </h1>
-  
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-16T13:30:00+08:00">
+                2017-03-16
+              </time>
+            
 
-        </header>
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-16T13:35:25+08:00">
+                2017-03-16
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/经验实践/" itemprop="url" rel="index">
+                    <span itemprop="name">经验实践</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-      <p class="article-byline">
-        <a href="/java-swing-drag-jar-exe/" class="article-date">
-  <time datetime="2017-03-16T05:30:00.000Z" itemprop="datePublished">2017-03-16</time>
-</a>
-      </p>
-      <div class="article-entry" itemprop="articleBody">
+      
+
+      
         <p>年前抽空给朋友做了个小东西。具体功能就不说了。对于他的最终需求，概括的说就是：需要一个满足功能的在 windows 上的 .exe 文件。桌面开发我不熟，后来基于 Java Swing 给实现了。在实现过程中，几个关键点记下来做备忘。</p>
 <ol>
 <li>拖拽文件到界面的输入框中，后续对文件进行处理。简化一下，拖拽文件到输入框，并获取文件路径。</li>
@@ -126,13 +388,13 @@
 </ol>
 <a id="more"></a>
 <h2 id="1-实现拖拽文件到指定控件，并获取文件路径"><a href="#1-实现拖拽文件到指定控件，并获取文件路径" class="headerlink" title="1. 实现拖拽文件到指定控件，并获取文件路径"></a>1. 实现拖拽文件到指定控件，并获取文件路径</h2><p>直接上核心代码，具体看注释。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.datatransfer.DataFlavor;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.dnd.DnDConstants;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.dnd.DropTarget;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.dnd.DropTargetAdapter;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.dnd.DropTargetDropEvent;</span></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 拖拽文件到控件,并处理</div><div class="line">     * @param component 要接受拖拽的控件</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> <span class="keyword">void</span> drag(Component component) &#123;</div><div class="line"></div><div class="line">        <span class="keyword">new</span> DropTarget(component, DnDConstants.ACTION_COPY_OR_MOVE, <span class="keyword">new</span> DropTargetAdapter() &#123;</div><div class="line"></div><div class="line">            <span class="comment">// 重写适配器的drop方法,实现自己需要的逻辑</span></div><div class="line">            @Override</div><div class="line">            <span class="keyword">public</span> <span class="keyword">void</span> drop(DropTargetDropEvent event) &#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    <span class="comment">// 如果拖入的文件格式受支持</span></div><div class="line">                    <span class="keyword">if</span> (event.isDataFlavorSupported(DataFlavor.javaFileListFlavor)) &#123;</div><div class="line">                        <span class="comment">// 接收拖拽来的数据</span></div><div class="line">                        event.acceptDrop(DnDConstants.ACTION_COPY_OR_MOVE);</div><div class="line">                        <span class="comment">// 读取传递过来的数据</span></div><div class="line">                        java.util.List&lt;File&gt; list = (java.util.List&lt;File&gt;) (event.getTransferable().getTransferData(DataFlavor.javaFileListFlavor));</div><div class="line">                        <span class="comment">// 对传递过来的数据做处理</span></div><div class="line">                        <span class="comment">// do what you want to do</span></div><div class="line">                        event.dropComplete(<span class="literal">true</span>); <span class="comment">// 指示拖拽操作已完成</span></div><div class="line">                    &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        event.rejectDrop(); <span class="comment">// 否则拒绝拖拽来的数据</span></div><div class="line">                    &#125;</div><div class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h2 id="2-通过-Gradle-制作可执行的-jar-文件"><a href="#2-通过-Gradle-制作可执行的-jar-文件" class="headerlink" title="2. 通过 Gradle 制作可执行的 jar 文件"></a>2. 通过 Gradle 制作可执行的 jar 文件</h2><p>参考这里：<a href="http://stackoverflow.com/questions/21721119/creating-runnable-jar-with-gradle" target="_blank" rel="external">Creating runnable JAR with Gradle</a></p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.datatransfer.DataFlavor;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.dnd.DnDConstants;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.dnd.DropTarget;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.dnd.DropTargetAdapter;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.dnd.DropTargetDropEvent;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 拖拽文件到控件,并处理</span></span><br><span class="line"><span class="comment">     * @param component 要接受拖拽的控件</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> drag(Component component) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> DropTarget(component, DnDConstants.ACTION_COPY_OR_MOVE, <span class="keyword">new</span> DropTargetAdapter() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 重写适配器的drop方法,实现自己需要的逻辑</span></span><br><span class="line">            @Override</span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> drop(DropTargetDropEvent event) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="comment">// 如果拖入的文件格式受支持</span></span><br><span class="line">                    <span class="keyword">if</span> (event.isDataFlavorSupported(DataFlavor.javaFileListFlavor)) &#123;</span><br><span class="line">                        <span class="comment">// 接收拖拽来的数据</span></span><br><span class="line">                        event.acceptDrop(DnDConstants.ACTION_COPY_OR_MOVE);</span><br><span class="line">                        <span class="comment">// 读取传递过来的数据</span></span><br><span class="line">                        java.util.List&lt;File&gt; list = (java.util.List&lt;File&gt;) (event.getTransferable().getTransferData(DataFlavor.javaFileListFlavor));</span><br><span class="line">                        <span class="comment">// 对传递过来的数据做处理</span></span><br><span class="line">                        <span class="comment">// do what you want to do</span></span><br><span class="line">                        event.dropComplete(<span class="literal">true</span>); <span class="comment">// 指示拖拽操作已完成</span></span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        event.rejectDrop(); <span class="comment">// 否则拒绝拖拽来的数据</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-通过-Gradle-制作可执行的-jar-文件"><a href="#2-通过-Gradle-制作可执行的-jar-文件" class="headerlink" title="2. 通过 Gradle 制作可执行的 jar 文件"></a>2. 通过 Gradle 制作可执行的 jar 文件</h2><p>参考这里：<a href="http://stackoverflow.com/questions/21721119/creating-runnable-jar-with-gradle" target="_blank" rel="noopener">Creating runnable JAR with Gradle</a></p>
 <p>里面提到了两种方案，一种是直接使用 application 插件，另一种是 shadowJar 插件。</p>
 <p>我最终采用了 shadowJar 的方式实现，核心代码如下：</p>
-<figure class="highlight roboconf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">    <span class="attribute">repositories &#123;</span></div><div class="line">        maven &#123;</div><div class="line">            url "https://plugins<span class="variable">.gradle</span><span class="variable">.org</span>/m2/"</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath "com<span class="variable">.github</span><span class="variable">.jengelman</span><span class="variable">.gradle</span><span class="variable">.plugins</span>:shadow:1.2.4"</div><div class="line">        classpath 'gradle<span class="variable">.plugin</span><span class="variable">.edu</span><span class="variable">.sc</span><span class="variable">.seis</span><span class="variable">.gradle</span>:launch4j:2.3.0'</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">apply plugin: 'java'</div><div class="line">apply plugin: 'com<span class="variable">.github</span><span class="variable">.johnrengelman</span><span class="variable">.shadow</span>'</div><div class="line"></div><div class="line">mainClassName = "your<span class="variable">.main</span><span class="variable">.ClassName</span>"</div><div class="line"></div><div class="line">shadowJar &#123;</div><div class="line">    baseName = 'your_jar_name'</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight roboconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    <span class="attribute">repositories &#123;</span></span><br><span class="line"><span class="attribute">        maven &#123;</span></span><br><span class="line"><span class="attribute">            url "https</span>://plugins<span class="variable">.gradle</span><span class="variable">.org</span>/m2/"</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath "com<span class="variable">.github</span><span class="variable">.jengelman</span><span class="variable">.gradle</span><span class="variable">.plugins</span>:shadow:1.2.4"</span><br><span class="line">        classpath 'gradle<span class="variable">.plugin</span><span class="variable">.edu</span><span class="variable">.sc</span><span class="variable">.seis</span><span class="variable">.gradle</span>:launch4j:2.3.0'</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">apply plugin: 'java'</span><br><span class="line">apply plugin: 'com<span class="variable">.github</span><span class="variable">.johnrengelman</span><span class="variable">.shadow</span>'</span><br><span class="line"></span><br><span class="line">mainClassName = "your<span class="variable">.main</span><span class="variable">.ClassName</span>"</span><br><span class="line"></span><br><span class="line">shadowJar &#123;</span><br><span class="line">    baseName = 'your_jar_name'</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>打包的命令行如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew shadowJar</div></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">./gradlew</span> shadowJar</span><br></pre></td></tr></table></figure>
 <p>完成后，就可以在 build/libs 目录下找到 <code>*-all.jar</code>。</p>
 <p>使用 <code>java -jar your-app-all.jar</code> 运行，看下你的程序已经跑起来了。</p>
 <h2 id="3-将-jar-制作成-windows-下的-exe-文件"><a href="#3-将-jar-制作成-windows-下的-exe-文件" class="headerlink" title="3. 将 jar 制作成 windows 下的 exe 文件"></a>3. 将 jar 制作成 windows 下的 exe 文件</h2><p>网上找了很多这方面的工具，最终我发现 launch4j 真是个好用的东西。</p>
@@ -146,328 +408,432 @@
 <p>到这里，最终打包的 exe 是可以运行了。不过 jre 包和 exe 文件是分开的。可以把这些东西，放在一个文件夹下再压缩，最后分发给用户。</p>
 <p>还可以把  jre 一起打包到 exe 中。以后有时间我在处理。</p>
 
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Aaron
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://linfuyan.com/java-swing-drag-jar-exe/" title="Java Swing 代码打包成 Windows 上的 exe 文件">http://linfuyan.com/java-swing-drag-jar-exe/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
       </div>
-      <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/java-swing-drag-jar-exe/" data-id="cj6iohr440035yyncbkwstt30" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
-        
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/launch4j/">launch4j</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shadowJar/">shadowJar</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swing/">swing</a></li></ul>
-
-      </footer>
-      
-  
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- linfuyan.com.article_bottom -->
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:100%;height:100px"
-         data-ad-client="ca-pub-3371913913447815"
-         data-ad-slot="5753141673"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  
-
-
-      
-        
-<nav id="article-nav">
-  
-    <a href="/android-kotlin/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <p class="article-nav-title">
-        
-          Kotlin 成为 Android 官方语言，看看官方怎么说？
-        
-      </p>
-      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-  
-  
-    <a href="/raspberrypi-day1/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">树莓派折腾记之第一天</p>
-      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-    </a>
-  
-</nav>
-
-      
-      
-        <div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-      
-    </div>
-  </article>
-  
-
-  
-  <section id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="post-java-swing-drag-jar-exe" data-title="Java Swing 代码打包成 Windows 上的 exe 文件" data-url="http://linfuyan.com/java-swing-drag-jar-exe/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:'linfuyan'};
-      (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-      })();
-      </script>
-    <!-- 多说公共JS代码 end -->
-  </section>
-  
-
-            </div>
-          </section>
-          <aside id="sidebar">
-  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-  <div class="sidebar-top">
-    <p>关注我 :</p>
-    <ul class="social-links">
-      
-        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
-      
-        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
-      
-    </ul>
-  </div>
-  <!-- 
     
-<nav id="article-nav">
-  
-    <a href="/android-kotlin/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <p class="article-nav-title">
-        
-          Kotlin 成为 Android 官方语言，看看官方怎么说？
-        
-      </p>
-      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-  
-  
-    <a href="/raspberrypi-day1/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">树莓派折腾记之第一天</p>
-      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-    </a>
-  
-</nav>
 
-   -->
-  <div class="widgets-container">
-    
+    <footer class="post-footer">
       
-  <div class="widget-wrap">
-  	
-      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/> 
-     
-    
-      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Android-iOS-qq-group.png" width="100%" height="100%"/>
-    
-  </div>
-
-    
-      
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul id="recent-post" class="">
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/mindmap-laravel-start-guide/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/%e7%b2%be%e8%bf%9b%e8%84%91%e5%9b%be%e4%b9%8bLaravel%e5%85%a5%e9%97%a8%e6%8c%87%e5%8d%97.jpg
-)" alt="Laravel思维导图之Laravel入门指南" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/后端/">后端</a></p>
-              <p class="item-title"><a href="/mindmap-laravel-start-guide/" class="title">Laravel思维导图之Laravel入门指南</a></p>
-              <p class="item-date"><time datetime="2017-08-06T12:48:00.000Z" itemprop="datePublished">2017-08-06</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/mindmap-php-base/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/精进脑图之PHP基础.png
-)" alt="十五张思维导图带你快速学习PHP语言基础" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/后端/">后端</a></p>
-              <p class="item-title"><a href="/mindmap-php-base/" class="title">十五张思维导图带你快速学习PHP语言基础</a></p>
-              <p class="item-date"><time datetime="2017-08-03T12:48:00.000Z" itemprop="datePublished">2017-08-03</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/weapp-https/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/wxapp-https-debug.png
-)" alt="【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/微信/">微信</a></p>
-              <p class="item-title"><a href="/weapp-https/" class="title">【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程</a></p>
-              <p class="item-date"><time datetime="2017-05-25T06:26:00.000Z" itemprop="datePublished">2017-05-25</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/android-kotlin-get-started/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-new-project_2x.png
-)" alt="在 Android 上开始使用 Kotlin" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
-              <p class="item-title"><a href="/android-kotlin-get-started/" class="title">在 Android 上开始使用 Kotlin</a></p>
-              <p class="item-date"><time datetime="2017-05-18T04:00:00.000Z" itemprop="datePublished">2017-05-18</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/android-kotlin/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
-              <p class="item-title"><a href="/android-kotlin/" class="title">Kotlin 成为 Android 官方语言，看看官方怎么说？</a></p>
-              <p class="item-date"><time datetime="2017-05-18T03:21:00.000Z" itemprop="datePublished">2017-05-18</time></p>
-            </div>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget-wrap widget-list">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">34</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/后端/">后端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/微信/">微信</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget-wrap widget-list">
-    <h3 class="widget-title">链接</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="http://uprogrammer.cn">优程</a>
-          </li>
-        
-          <li>
-            <a href="http://hexo.io">Hexo</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-
-    
-  </div>
-</aside>
+        <div class="post-tags">
+          
+            <a href="/tags/swing/" rel="tag"># swing</a>
+          
+            <a href="/tags/shadowJar/" rel="tag"># shadowJar</a>
+          
+            <a href="/tags/launch4j/" rel="tag"># launch4j</a>
+          
         </div>
-      </div>
-    </div>
-    <footer id="footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/raspberrypi-day1/" rel="next" title="树莓派折腾记之第一天">
+                <i class="fa fa-chevron-left"></i> 树莓派折腾记之第一天
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/android-kotlin/" rel="prev" title="Kotlin 成为 Android 官方语言，看看官方怎么说？">
+                Kotlin 成为 Android 官方语言，看看官方怎么说？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
   
-  <div class="container">
-    <div class="container-inner">
-      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-      <div class="credit">
-        <h1 class="logo-wrap">
-          <a href="/" class="logo"></a>
-        </h1>
-        <p>&copy; 2017 linfuyan</p>
-        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
-        <p>
-        <!-- CNZZ 统计 -->
-        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
-        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
-        </p>
-        <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
-      </div>
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
     </div>
   </div>
-</footer>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Aaron</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">220</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/linfuyan" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-实现拖拽文件到指定控件，并获取文件路径"><span class="nav-text">1. 实现拖拽文件到指定控件，并获取文件路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-通过-Gradle-制作可执行的-jar-文件"><span class="nav-text">2. 通过 Gradle 制作可执行的 jar 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-将-jar-制作成-windows-下的-exe-文件"><span class="nav-text">3. 将 jar 制作成 windows 下的 exe 文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+  <div class="footer-custom">Hosted by <a href="https://pages.coding.me" style="font-weight:bold">Coding Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1256375489&web_id=1256375489" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
-
-  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
-
-
-
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
-  <script src="/scrollLoading/main.js"></script>
-
-
-<script src="/js/html-patch.js"></script>
-<script src="/js/script.js"></script>
+    
 
   </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

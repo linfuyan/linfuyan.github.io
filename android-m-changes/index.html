@@ -1,119 +1,384 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>Android 6.0 新功能及主要 API 变更 | 悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="伴随着新的特性和功能， Android 6.0 (API 级别 23)带来了一系列系统和 API 行为的变更。这篇文章中将介绍一些在应用程序中需要理解和注意的主要变更点。
 
-如果你之前已经发布过 Android 应用程序，要意识到这些变更对应用程序的影响。">
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Android,Marshmallow,6,更新,API,变更,新功能,特性," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="阿阿燃" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="伴随着新的特性和功能， Android 6.0 (API 级别 23)带来了一系列系统和 API 行为的变更。这篇文章中将介绍一些在应用程序中需要理解和注意的主要变更点。  如果你之前已经发布过 Android 应用程序，要意识到这些变更对应用程序的影响。">
+<meta name="keywords" content="Android,Marshmallow,6,更新,API,变更,新功能,特性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 6.0 新功能及主要 API 变更">
 <meta property="og:url" content="http://linfuyan.com/android-m-changes/index.html">
-<meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
-<meta property="og:description" content="伴随着新的特性和功能， Android 6.0 (API 级别 23)带来了一系列系统和 API 行为的变更。这篇文章中将介绍一些在应用程序中需要理解和注意的主要变更点。
-
-如果你之前已经发布过 Android 应用程序，要意识到这些变更对应用程序的影响。">
+<meta property="og:site_name" content="阿阿燃">
+<meta property="og:description" content="伴随着新的特性和功能， Android 6.0 (API 级别 23)带来了一系列系统和 API 行为的变更。这篇文章中将介绍一些在应用程序中需要理解和注意的主要变更点。  如果你之前已经发布过 Android 应用程序，要意识到这些变更对应用程序的影响。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/text-selection.gif">
 <meta property="og:updated_time" content="2015-11-09T10:02:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 6.0 新功能及主要 API 变更">
-<meta name="twitter:description" content="伴随着新的特性和功能， Android 6.0 (API 级别 23)带来了一系列系统和 API 行为的变更。这篇文章中将介绍一些在应用程序中需要理解和注意的主要变更点。
-
-如果你之前已经发布过 Android 应用程序，要意识到这些变更对应用程序的影响。">
+<meta name="twitter:description" content="伴随着新的特性和功能， Android 6.0 (API 级别 23)带来了一系列系统和 API 行为的变更。这篇文章中将介绍一些在应用程序中需要理解和注意的主要变更点。  如果你之前已经发布过 Android 应用程序，要意识到这些变更对应用程序的影响。">
 <meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/text-selection.gif">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-
-  <link rel="stylesheet" href="/css/style.css">
-  
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  
-    <link rel="stylesheet" href="/scrollLoading/style.css">
-  
-  
 
 
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://linfuyan.com/android-m-changes/"/>
+
+
+
+
+
+  <title>Android 6.0 新功能及主要 API 变更 | 阿阿燃</title>
   
 
-<!--  
-    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
-    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-   -->
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+
+
 </head>
 
-<body>
-  <div id="wrap">
-    <header id="header">
-  <div id="header-outer" class="outer">
-    <div class="container">
-      <div class="container-inner">
-        <div id="header-title">
-          <h1 class="logo-wrap">
-            <a href="/" class="logo"></a>
-          </h1>
-          
-            <h2 class="subtitle-wrap">
-              <p class="subtitle">关注但不限于 Android、iOS、nodejs</p>
-            </h2>
-          
-        </div>
-        <div id="header-inner" class="nav-container">
-          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-          <div class="nav-container-inner">
-            <ul id="main-nav">
-              
-                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
-              
-                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/导航/">导航</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Web前端/">Web前端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/nodejs/">nodejs</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/后端/">后端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/微信/">微信</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/">教程</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ngrok/">ngrok</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
-                  
-            </ul>
-            <nav id="sub-nav">
-              <div id="search-form-wrap">
-                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://linfuyan.com"></form>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阿阿燃</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-</header>
-    <div class="container">
-      <div class="main-body container-inner">
-        <div class="main-body-inner">
-          <section id="main">
-            <div class="main-body-header">
 
-              <h1 class="header"><a class="page-title-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/开发技术/Android/">Android</a></h1>
-            </div>
-            <div class="main-body-content">
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/android-m-changes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android 6.0 新功能及主要 API 变更</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
               
-  <article id="post-android-m-changes" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-      <!--  -->
-      
-        <header class="article-header">
-          
-  
-    <h1 class="article-title" itemprop="name">
-      Android 6.0 新功能及主要 API 变更
-    </h1>
-  
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-10T11:52:00+08:00">
+                2015-10-10
+              </time>
+            
 
-        </header>
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2015-11-09T18:02:37+08:00">
+                2015-11-09
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-      <p class="article-byline">
-        <a href="/android-m-changes/" class="article-date">
-  <time datetime="2015-10-10T03:52:00.000Z" itemprop="datePublished">2015-10-10</time>
-</a>
-      </p>
-      <div class="article-entry" itemprop="articleBody">
+      
+
+      
         <p>伴随着新的特性和功能， Android 6.0 (API 级别 23)带来了一系列系统和 API 行为的变更。这篇文章中将介绍一些在应用程序中需要理解和注意的主要变更点。</p>
 <blockquote>
 <p>如果你之前已经发布过 Android 应用程序，要意识到这些变更对应用程序的影响。</p>
@@ -121,7 +386,7 @@
 <a id="more"></a>
 <h2 id="运行时权限"><a href="#运行时权限" class="headerlink" title="运行时权限"></a>运行时权限</h2><p>这个版本中引入了新的权限模型，现在用户可以在运行时直接管理应用程序的权限。这个模型基于用户对权限控制的更多可见性，同时为应用程序的开发者提供更流畅的应用安装和自动升级。用户可以为已安装的每个应用程序独立的授予或者取消权限。</p>
 <p>在运行于目标版本 Android 6.0 (API 级别 23) 及以上的应用程序中，必须在运行时检查并请求权限。通过新的 <code>checkSelfPermission()</code> 方法来确定你的应用程序是否已经被授权。通过新的 <code>requestPermissions()</code> 方法来请求权限。即使你的应用程序运行的目标版本不是 Android 6.0 (API 级别 23)，你也应该在新的授权模型下来测试应用程序。</p>
-<p>在应用程序中支持新的权限模型的更多详细信息，可以查看<a href="https://developer.android.com/training/permissions/index.html" target="_blank" rel="external">使用系统权限</a>。如何在应用程序中使用权限，相关提示可以查看<a href="https://developer.android.com/training/permissions/best-practices.html#testing" target="_blank" rel="external">权限最佳实践</a>。</p>
+<p>在应用程序中支持新的权限模型的更多详细信息，可以查看<a href="https://developer.android.com/training/permissions/index.html" target="_blank" rel="noopener">使用系统权限</a>。如何在应用程序中使用权限，相关提示可以查看<a href="https://developer.android.com/training/permissions/best-practices.html#testing" target="_blank" rel="noopener">权限最佳实践</a>。</p>
 <h2 id="休眠与应用挂起-Doze-and-App-Standby"><a href="#休眠与应用挂起-Doze-and-App-Standby" class="headerlink" title="休眠与应用挂起( Doze and App Standby )"></a>休眠与应用挂起( Doze and App Standby )</h2><p>这个版本为空闲的设备和应用程序引入了电源节能优化。这个特性将影响所有应用程序，故确保自己的应用程序在这些新模式下进行测试。</p>
 <ul>
 <li><p><strong>休眠</strong>：如果用户将设备拔下，并将其静置，关闭屏幕，经过一段时间，设备将进入休眠模式。这时候，设备试图让系统保持在一个睡眠的状态。这种模式下，设备周期性的恢复平常的操作，以便应用程序同步，系统则可以处理一些延时的操作。</p>
@@ -129,16 +394,16 @@
 <li><p><strong>应用挂起</strong>：应用挂起则允许系统当用户不再使用应用程序时，将其定义为空闲。当用户经过一段时间没有触摸应用程序时，系统可以做这个决定。设备被拔线时，系统禁用网络访问，停止应用程序的同步及操作，则被认为是空闲。</p>
 </li>
 </ul>
-<p>学习更多关于电源节能的变更，查看<a href="https://developer.android.com/training/monitoring-device-state/doze-standby.html" target="_blank" rel="external">对休眠与应用挂起的优化</a>。</p>
+<p>学习更多关于电源节能的变更，查看<a href="https://developer.android.com/training/monitoring-device-state/doze-standby.html" target="_blank" rel="noopener">对休眠与应用挂起的优化</a>。</p>
 <h2 id="移除-Apache-HTTP-客户端"><a href="#移除-Apache-HTTP-客户端" class="headerlink" title="移除 Apache HTTP 客户端"></a>移除 Apache HTTP 客户端</h2><p>Android 6.0 发布版移除了对 Apache HTTP 客户端的支持。如果你的应用程序使用该客户端，并且目标运行版本为 Android 2.3 (API 级别9) 及以上，需要使用 <code>HttpURLConnection</code> 类来代替。这个 API 更加的高效，因为它通过对用户透明的压缩、响应缓存来减少网络开销，并最小化电量消耗。要继续使用 Apache HTTP 的 API，你需要在 <code>build.gradle</code> 文件中声明下面的编译期依赖：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="section">android</span> &#123;</div><div class="line">    <span class="attribute">useLibrary</span> <span class="string">'org.apache.http.legacy'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="BoringSSL"><a href="#BoringSSL" class="headerlink" title="BoringSSL"></a>BoringSSL</h2><p>Android 从 OpenSSL 转移到了 <a href="https://boringssl.googlesource.com/boringssl/" target="_blank" rel="external">BoringSSL</a> 库。如果你在应用程序中使用 Android NDK，千万不要将加密库链接到除 NDK API 之外的任何库，如 <code>libcrypto.so</code> 和 <code>libssl.so</code>。这些库不是公开 API，有可能在没有收到通知的情况下在发布版和设备间发生变更或中断。这种情况你将把自己暴露在安全威胁下。你应该修改自己的本地代码来通过 JNI 调用 Java 加密 API 或者静态链接你选择的一个加密库。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">android</span> &#123;</span><br><span class="line">    <span class="attribute">useLibrary</span> <span class="string">'org.apache.http.legacy'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="BoringSSL"><a href="#BoringSSL" class="headerlink" title="BoringSSL"></a>BoringSSL</h2><p>Android 从 OpenSSL 转移到了 <a href="https://boringssl.googlesource.com/boringssl/" target="_blank" rel="noopener">BoringSSL</a> 库。如果你在应用程序中使用 Android NDK，千万不要将加密库链接到除 NDK API 之外的任何库，如 <code>libcrypto.so</code> 和 <code>libssl.so</code>。这些库不是公开 API，有可能在没有收到通知的情况下在发布版和设备间发生变更或中断。这种情况你将把自己暴露在安全威胁下。你应该修改自己的本地代码来通过 JNI 调用 Java 加密 API 或者静态链接你选择的一个加密库。</p>
 <h2 id="访问硬件标识符"><a href="#访问硬件标识符" class="headerlink" title="访问硬件标识符"></a>访问硬件标识符</h2><p>为了给用户更多的数据保护，从这个版本开始， Android 移除了通过 WiFi 和蓝牙 API 来在应用程序中可编程的访问本地硬件标示符。现在 <code>WifiInfo.getMacAddress()</code> 和 <code>BluetoothAdapter.getAddress()</code> 方法都将返回 <code>02:00:00:00:00:00</code> 常量。</p>
 <p>要通过蓝牙和 WiFi 扫描来访问附近外部设备的硬件标示符，应用程序需要 <code>ACCESS_FINE_LOCATION</code> 和 <code>ACCESS_COARSE_LOCATION</code> 权限：</p>
 <ul>
-<li><a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html#getScanResults\(\" target="_blank" rel="external"><code>WifiManager.getScanResults()</code></a>)</li>
-<li><a href="https://developer.android.com/reference/android/bluetooth/BluetoothDevice.html#ACTION_FOUND" target="_blank" rel="external"><code>BluetoothDevice.ACTION_FOUND</code></a></li>
-<li><a href="https://developer.android.com/reference/android/bluetooth/le/BluetoothLeScanner.html#startScan\(android.bluetooth.le.ScanCallback\" target="_blank" rel="external"><code>BluetoothLeScanner.startScan()</code></a>)</li>
+<li><a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html#getScanResults\(\" target="_blank" rel="noopener"><code>WifiManager.getScanResults()</code></a>)</li>
+<li><a href="https://developer.android.com/reference/android/bluetooth/BluetoothDevice.html#ACTION_FOUND" target="_blank" rel="noopener"><code>BluetoothDevice.ACTION_FOUND</code></a></li>
+<li><a href="https://developer.android.com/reference/android/bluetooth/le/BluetoothLeScanner.html#startScan\(android.bluetooth.le.ScanCallback\" target="_blank" rel="noopener"><code>BluetoothLeScanner.startScan()</code></a>)</li>
 </ul>
 <blockquote>
 <p><strong>注意：</strong>在一个运行 Android 6.0 (API 级别 23) 的设备初始化后台的 WiFi 或蓝牙扫描时，操作对于外部设备是可见的，且被赋予一个随机的 MAC 地址。</p>
@@ -146,7 +411,7 @@
 <h2 id="通知"><a href="#通知" class="headerlink" title="通知"></a>通知</h2><p>这个版本移除了 <code>Notification.setLatestEventInfo()</code> 方法。使用 Notification.Builder 类来代替构造方法。要重复的更新通知，要重用 Notification.Builder 实例。调用 build() 方法来获取更新过的 Notification 实例。</p>
 <p><code>adb shell dumpsys nnotification</code> 命令不在答应通知文本。使用 <code>adb shell dumpsys notification --noredcat</code> 命令来在同志对象中打印文本。</p>
 <h2 id="AudioManager-变更"><a href="#AudioManager-变更" class="headerlink" title="AudioManager 变更"></a>AudioManager 变更</h2><p>通过 AudioManager 类来直接设置音量或者使流静音已经不再支持。 setStreamSolo() 方法被弃用，你需要调用 requestAudioFocus() 来代替。类似的， setStreamMute() 方法被弃用，替换为 adjustStreamVolume() 方法并传递方向值 ADJUST_MUTE 或 ADJUST_UNMUTE。</p>
-<h2 id="文本选择"><a href="#文本选择" class="headerlink" title="文本选择"></a>文本选择</h2><p>当用户在应用程序中选择文本时，你可以在<a href="http://www.google.com/design/spec/patterns/selection.html#selection-text-selection" target="_blank" rel="external">悬浮工具栏</a>中显示文本选择工作，如剪切、复制、粘贴。用户交互实现与<a href="https://developer.android.com/guide/topics/ui/menus.html#CABforViews" target="_blank" rel="external">为独立视图启动上下文动作模式</a>中描述的上下文动作栏类似。</p>
+<h2 id="文本选择"><a href="#文本选择" class="headerlink" title="文本选择"></a>文本选择</h2><p>当用户在应用程序中选择文本时，你可以在<a href="http://www.google.com/design/spec/patterns/selection.html#selection-text-selection" target="_blank" rel="noopener">悬浮工具栏</a>中显示文本选择工作，如剪切、复制、粘贴。用户交互实现与<a href="https://developer.android.com/guide/topics/ui/menus.html#CABforViews" target="_blank" rel="noopener">为独立视图启动上下文动作模式</a>中描述的上下文动作栏类似。</p>
 <p>为文本选择实现悬浮工具栏，需要在已存在的应用程序中做如下修改：</p>
 <ol>
 <li><p>在 View 或者 Activity 对象中，通过修改 <code>startActionMode(Callback)</code> 为 <code>startActionMode(Callback, ActionMode.TYPE_FLOATING)</code> 来改变 ActionMode。 </p>
@@ -161,7 +426,7 @@
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/text-selection.gif" alt="文本选择"></p>
 <p>如果你在使用 Android 22.2 修订版的兼容包，悬浮工具栏不是向后兼容的，且使用默认的 ActionMode 对象。这导致悬浮工具栏无法显示。在 AppCompatActivity 中启用 ActionMode，首先调用 getDelegate() ，然后在返回的 AppCompatDelegate 对象中调用 setHandleNativeActionModesEnabled()，并设置输入参数为 <code>false</code>。这个调用为框架返回可控的 ActionMode 对象。在运行 Android 6.0 (API 级别 23) 的设备上，这允许框架支持 ActionBar 或悬浮工具栏模式。在 Android 5.1 (API 级别 22) 或更低版本，只有 ActionBar 是支持的。</p>
 <h2 id="浏览器书签变更"><a href="#浏览器书签变更" class="headerlink" title="浏览器书签变更"></a>浏览器书签变更</h2><p>这个版本移除了对全局书签的支持。 <code>android.provider.Browser.getAllBookmark()</code> 和 <code>android.provider.Browser.saveBookmark()</code> 方法被移除。同样的， <code>READ_HISTORY_BOOKMARKS</code> 和 <code>WRITE_HISTORY_BOOKMARKS</code> 权限被移除。如果你的应用程序的目标运行版本为 Android 6.0 (API 级别 23) 或者更高，不要从全局提供者访问书签或者使用书签权限。现在，你的应用程序需要内部保存书签数据。</p>
-<h2 id="Android-Keystore-变更"><a href="#Android-Keystore-变更" class="headerlink" title="Android Keystore 变更"></a>Android Keystore 变更</h2><p>在这个版本中， <a href="https://developer.android.com/training/articles/keystore.html" target="_blank" rel="external">Android Keystore 提供器</a> 不在支持 DSA。 ECDSA 则仍然被支持。</p>
+<h2 id="Android-Keystore-变更"><a href="#Android-Keystore-变更" class="headerlink" title="Android Keystore 变更"></a>Android Keystore 变更</h2><p>在这个版本中， <a href="https://developer.android.com/training/articles/keystore.html" target="_blank" rel="noopener">Android Keystore 提供器</a> 不在支持 DSA。 ECDSA 则仍然被支持。</p>
 <p>当安全锁屏被禁用或重置时，不要求加密的 key 将不再被删除。要求加密的 key 则会在这些事件中被删除。</p>
 <h2 id="Wi-Fi-和-网络变更"><a href="#Wi-Fi-和-网络变更" class="headerlink" title="Wi-Fi 和 网络变更"></a>Wi-Fi 和 网络变更</h2><p>这个版本为 Wi-Fi 和 网络 API 引入了下面的行为变更：</p>
 <ul>
@@ -179,10 +444,10 @@
 <li><p>改变当前用户会导致之前用户账号的应用程序中活动那个的摄像头客户端被中断。对摄像头的访问是被当前设备用户所限制的。实际上，这意味着当用户切换到不同的账户下时，原来的”访客”账号所使用的摄像头子系统是不可能继续运行的。</p>
 </li>
 </ul>
-<h2 id="运行时"><a href="#运行时" class="headerlink" title="运行时"></a>运行时</h2><p>通过 newInstance() 方法 ART 运行时现在正确的实现了访问规则。这个变更修复了之前版本中 Dalvik 检查访问规则时的错误。如果你的应用程序使用 newInstance() 方法，且你想要覆盖访问检查，调用 setAccessible() 方便，并设置参数为 <code>true</code>。如果你的应用程序使用 <a href="https://developer.android.com/tools/support-library/features.html#v7-appcompat" target="_blank" rel="external">v7 兼容库</a> 和 <a href="https://developer.android.com/tools/support-library/features.html#v7-recyclerview" target="_blank" rel="external">v7 recyclerview 库</a>。你需要升级应用程序中的相关库到最新版本。否则，需要确保 XML 中所引用的自定义类已经被升级，其构造方法是可访问的。</p>
+<h2 id="运行时"><a href="#运行时" class="headerlink" title="运行时"></a>运行时</h2><p>通过 newInstance() 方法 ART 运行时现在正确的实现了访问规则。这个变更修复了之前版本中 Dalvik 检查访问规则时的错误。如果你的应用程序使用 newInstance() 方法，且你想要覆盖访问检查，调用 setAccessible() 方便，并设置参数为 <code>true</code>。如果你的应用程序使用 <a href="https://developer.android.com/tools/support-library/features.html#v7-appcompat" target="_blank" rel="noopener">v7 兼容库</a> 和 <a href="https://developer.android.com/tools/support-library/features.html#v7-recyclerview" target="_blank" rel="noopener">v7 recyclerview 库</a>。你需要升级应用程序中的相关库到最新版本。否则，需要确保 XML 中所引用的自定义类已经被升级，其构造方法是可访问的。</p>
 <p>这个版本升级了动态链接器的行为。动态连接器现在可以理解库的 <code>soname</code> 和 它的路径之间的区别，且实现了通过 <code>soname</code> 来搜索。在加载时，之前可用的应用程序可能会被提示具有不可用的 <code>DT_NEEDED</code> 条目(通常是在构建机器文件系统中的绝对路径)。</p>
 <p><code>dlopen(3) RTLD_LOCAL</code> 标志现在被正确实现了。 <code>RTLD_LOCAL</code> 是默认的，因此调用 <code>dlopen(3)</code> 是不明确使用 <code>RTLD_LOCAL</code> 是有效的(除非应用之前有明确使用 <code>RTLD_GLOBAL</code> )。使用 <code>RTLD_LOCAL</code> ，标记在调用 <code>dlopen(3)</code> 加载库之前是不可用的(这与被 <code>DT_NEEDED</code> 条目引用恰恰相反)。</p>
-<p>在之前版本的 Android，如果你的应用请求系统来加载包含文本重定位段的动态链接库，系统会显示警告，但允许继续加载库。从这个版本开始，如果你的目标运行 SDK 版本为 23 或以上，系统会拒绝这个库。为了辅助检测库是否被成功加载，应用程序需要为 <code>dlopen(3)</code> 失败添加日志，并在 <code>dlerror(3)</code> 返回值中包含问题的描述文本。学习更多关于如何处理文本重定位段，可以查看这个<a href="https://wiki.gentoo.org/wiki/Hardened/Textrels_Guide" target="_blank" rel="external">指南</a>。</p>
+<p>在之前版本的 Android，如果你的应用请求系统来加载包含文本重定位段的动态链接库，系统会显示警告，但允许继续加载库。从这个版本开始，如果你的目标运行 SDK 版本为 23 或以上，系统会拒绝这个库。为了辅助检测库是否被成功加载，应用程序需要为 <code>dlopen(3)</code> 失败添加日志，并在 <code>dlerror(3)</code> 返回值中包含问题的描述文本。学习更多关于如何处理文本重定位段，可以查看这个<a href="https://wiki.gentoo.org/wiki/Hardened/Textrels_Guide" target="_blank" rel="noopener">指南</a>。</p>
 <h2 id="APK-验证"><a href="#APK-验证" class="headerlink" title="APK 验证"></a>APK 验证</h2><p>Android 平台现在执行更加严格的 APK 验证。如果一个文件在清单文件中被声明，但在 APK 中却没有，那么这个 APK 被认为是无效的。如果任意的内容被移除， APK 需要重新签名。</p>
 <h2 id="USB-连接"><a href="#USB-连接" class="headerlink" title="USB 连接"></a>USB 连接</h2><p>通过 USB 端口的设备连接现在默认被设置为充电模式。想要通过 USB 连接来访问设备和它的内容，用户需要为这些交互提供明确的授权。如果你的应用程序支持用户通过 USB 端口与设备交互，需要确保这些交互被明确启用。</p>
 <h2 id="Android-for-Work-变更"><a href="#Android-for-Work-变更" class="headerlink" title="Android for Work 变更"></a>Android for Work 变更</h2><p>这个版本包括下面的 Android for Work 行为变更：</p>
@@ -235,330 +500,444 @@
 </ul>
 </li>
 </ul>
-<p>原文：<a href="https://developer.android.com/about/versions/marshmallow/android-6.0-changes.html" target="_blank" rel="external">Android 6.0 Changes</a></p>
+<p>原文：<a href="https://developer.android.com/about/versions/marshmallow/android-6.0-changes.html" target="_blank" rel="noopener">Android 6.0 Changes</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Aaron
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://linfuyan.com/android-m-changes/" title="Android 6.0 新功能及主要 API 变更">http://linfuyan.com/android-m-changes/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
 
       </div>
-      <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/android-m-changes/" data-id="cj6iohr23000iyyncxjx4jx67" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
-        
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/6/">6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Marshmallow/">Marshmallow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/变更/">变更</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/新功能/">新功能</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/更新/">更新</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/特性/">特性</a></li></ul>
-
-      </footer>
-      
-  
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- linfuyan.com.article_bottom -->
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:100%;height:100px"
-         data-ad-client="ca-pub-3371913913447815"
-         data-ad-slot="5753141673"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  
-
-
-      
-        
-<nav id="article-nav">
-  
-    <a href="/keep-pages-at-your-hexo-blog/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <p class="article-nav-title">
-        
-          Hexo 如何保持页面文件不被渲染
-        
-      </p>
-      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-  
-  
-    <a href="/iOS-scheme-and-configuration-setting/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">iOS 配置 scheme 及 configuration</p>
-      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-    </a>
-  
-</nav>
-
-      
-      
-        <div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-      
-    </div>
-  </article>
-  
-
-  
-  <section id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="post-android-m-changes" data-title="Android 6.0 新功能及主要 API 变更" data-url="http://linfuyan.com/android-m-changes/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:'linfuyan'};
-      (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-      })();
-      </script>
-    <!-- 多说公共JS代码 end -->
-  </section>
-  
-
-            </div>
-          </section>
-          <aside id="sidebar">
-  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-  <div class="sidebar-top">
-    <p>关注我 :</p>
-    <ul class="social-links">
-      
-        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
-      
-        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
-      
-    </ul>
-  </div>
-  <!-- 
     
-<nav id="article-nav">
-  
-    <a href="/keep-pages-at-your-hexo-blog/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <p class="article-nav-title">
-        
-          Hexo 如何保持页面文件不被渲染
-        
-      </p>
-      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-  
-  
-    <a href="/iOS-scheme-and-configuration-setting/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">iOS 配置 scheme 及 configuration</p>
-      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-    </a>
-  
-</nav>
 
-   -->
-  <div class="widgets-container">
-    
+    <footer class="post-footer">
       
-  <div class="widget-wrap">
-  	
-      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/> 
-     
-    
-      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Android-iOS-qq-group.png" width="100%" height="100%"/>
-    
-  </div>
-
-    
-      
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul id="recent-post" class="">
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/mindmap-laravel-start-guide/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/%e7%b2%be%e8%bf%9b%e8%84%91%e5%9b%be%e4%b9%8bLaravel%e5%85%a5%e9%97%a8%e6%8c%87%e5%8d%97.jpg
-)" alt="Laravel思维导图之Laravel入门指南" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/后端/">后端</a></p>
-              <p class="item-title"><a href="/mindmap-laravel-start-guide/" class="title">Laravel思维导图之Laravel入门指南</a></p>
-              <p class="item-date"><time datetime="2017-08-06T12:48:00.000Z" itemprop="datePublished">2017-08-06</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/mindmap-php-base/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/精进脑图之PHP基础.png
-)" alt="十五张思维导图带你快速学习PHP语言基础" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/后端/">后端</a></p>
-              <p class="item-title"><a href="/mindmap-php-base/" class="title">十五张思维导图带你快速学习PHP语言基础</a></p>
-              <p class="item-date"><time datetime="2017-08-03T12:48:00.000Z" itemprop="datePublished">2017-08-03</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/weapp-https/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/wxapp-https-debug.png
-)" alt="【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/微信/">微信</a></p>
-              <p class="item-title"><a href="/weapp-https/" class="title">【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程</a></p>
-              <p class="item-date"><time datetime="2017-05-25T06:26:00.000Z" itemprop="datePublished">2017-05-25</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/android-kotlin-get-started/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-new-project_2x.png
-)" alt="在 Android 上开始使用 Kotlin" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
-              <p class="item-title"><a href="/android-kotlin-get-started/" class="title">在 Android 上开始使用 Kotlin</a></p>
-              <p class="item-date"><time datetime="2017-05-18T04:00:00.000Z" itemprop="datePublished">2017-05-18</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/android-kotlin/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
-              <p class="item-title"><a href="/android-kotlin/" class="title">Kotlin 成为 Android 官方语言，看看官方怎么说？</a></p>
-              <p class="item-date"><time datetime="2017-05-18T03:21:00.000Z" itemprop="datePublished">2017-05-18</time></p>
-            </div>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget-wrap widget-list">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">34</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/后端/">后端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/微信/">微信</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget-wrap widget-list">
-    <h3 class="widget-title">链接</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="http://uprogrammer.cn">优程</a>
-          </li>
-        
-          <li>
-            <a href="http://hexo.io">Hexo</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-
-    
-  </div>
-</aside>
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/Marshmallow/" rel="tag"># Marshmallow</a>
+          
+            <a href="/tags/6/" rel="tag"># 6</a>
+          
+            <a href="/tags/更新/" rel="tag"># 更新</a>
+          
+            <a href="/tags/API/" rel="tag"># API</a>
+          
+            <a href="/tags/变更/" rel="tag"># 变更</a>
+          
+            <a href="/tags/新功能/" rel="tag"># 新功能</a>
+          
+            <a href="/tags/特性/" rel="tag"># 特性</a>
+          
         </div>
-      </div>
-    </div>
-    <footer id="footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/iOS-scheme-and-configuration-setting/" rel="next" title="iOS 配置 scheme 及 configuration">
+                <i class="fa fa-chevron-left"></i> iOS 配置 scheme 及 configuration
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/keep-pages-at-your-hexo-blog/" rel="prev" title="Hexo 如何保持页面文件不被渲染">
+                Hexo 如何保持页面文件不被渲染 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
   
-  <div class="container">
-    <div class="container-inner">
-      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-      <div class="credit">
-        <h1 class="logo-wrap">
-          <a href="/" class="logo"></a>
-        </h1>
-        <p>&copy; 2017 linfuyan</p>
-        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
-        <p>
-        <!-- CNZZ 统计 -->
-        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
-        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
-        </p>
-        <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
-      </div>
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
     </div>
   </div>
-</footer>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Aaron</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">220</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/linfuyan" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时权限"><span class="nav-text">运行时权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#休眠与应用挂起-Doze-and-App-Standby"><span class="nav-text">休眠与应用挂起( Doze and App Standby )</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移除-Apache-HTTP-客户端"><span class="nav-text">移除 Apache HTTP 客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BoringSSL"><span class="nav-text">BoringSSL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问硬件标识符"><span class="nav-text">访问硬件标识符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通知"><span class="nav-text">通知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AudioManager-变更"><span class="nav-text">AudioManager 变更</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本选择"><span class="nav-text">文本选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器书签变更"><span class="nav-text">浏览器书签变更</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-Keystore-变更"><span class="nav-text">Android Keystore 变更</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Wi-Fi-和-网络变更"><span class="nav-text">Wi-Fi 和 网络变更</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#摄像头服务变更"><span class="nav-text">摄像头服务变更</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时"><span class="nav-text">运行时</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APK-验证"><span class="nav-text">APK 验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#USB-连接"><span class="nav-text">USB 连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-for-Work-变更"><span class="nav-text">Android for Work 变更</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+  <div class="footer-custom">Hosted by <a href="https://pages.coding.me" style="font-weight:bold">Coding Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1256375489&web_id=1256375489" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
-
-  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
-
-
-
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
-  <script src="/scrollLoading/main.js"></script>
-
-
-<script src="/js/html-patch.js"></script>
-<script src="/js/script.js"></script>
+    
 
   </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

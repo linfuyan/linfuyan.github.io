@@ -1,709 +1,2337 @@
 <!DOCTYPE html>
-<html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
-  <title>悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="悠城札记是一个努力日臻优秀的程序员的学习心得和整理，是关注 Android 开发，iOS 开发，nodejs 技术学习，但又涉及其他相关技术领域的 hexo 博客。">
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="阿阿燃, uprogrammer, 有程, java, Android, web" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="阿阿燃" type="application/atom+xml" />
+
+
+
+
+
+
 <meta property="og:type" content="website">
-<meta property="og:title" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
+<meta property="og:title" content="阿阿燃">
 <meta property="og:url" content="http://linfuyan.com/page/2/index.html">
-<meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
-<meta property="og:description" content="悠城札记是一个努力日臻优秀的程序员的学习心得和整理，是关注 Android 开发，iOS 开发，nodejs 技术学习，但又涉及其他相关技术领域的 hexo 博客。">
+<meta property="og:site_name" content="阿阿燃">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
-<meta name="twitter:description" content="悠城札记是一个努力日臻优秀的程序员的学习心得和整理，是关注 Android 开发，iOS 开发，nodejs 技术学习，但又涉及其他相关技术领域的 hexo 博客。">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-
-  <link rel="stylesheet" href="/css/style.css">
-  
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  
-    <link rel="stylesheet" href="/scrollLoading/style.css">
-  
-  
+<meta name="twitter:title" content="阿阿燃">
 
 
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://linfuyan.com/page/2/"/>
+
+
+
+
+
+  <title>阿阿燃</title>
   
 
-<!--  
-    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
-    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-   -->
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+
+
 </head>
 
-<body>
-  <div id="wrap">
-    <header id="header">
-  <div id="header-outer" class="outer">
-    <div class="container">
-      <div class="container-inner">
-        <div id="header-title">
-          <h1 class="logo-wrap">
-            <a href="/" class="logo"></a>
-          </h1>
-          
-            <h2 class="subtitle-wrap">
-              <p class="subtitle">关注但不限于 Android、iOS、nodejs</p>
-            </h2>
-          
-        </div>
-        <div id="header-inner" class="nav-container">
-          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-          <div class="nav-container-inner">
-            <ul id="main-nav">
-              
-                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
-              
-                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/导航/">导航</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Web前端/">Web前端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/nodejs/">nodejs</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/后端/">后端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/微信/">微信</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/">教程</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ngrok/">ngrok</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
-                  
-            </ul>
-            <nav id="sub-nav">
-              <div id="search-form-wrap">
-                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://linfuyan.com"></form>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阿阿燃</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-</header>
-    <div class="container">
-      <div class="main-body container-inner">
-        <div class="main-body-inner">
-          <section id="main">
-            <div class="main-body-header">
 
-              <h1 class="header"><em class="page-title-link" data-url="home">主页</em></h1>
-            </div>
-            <div class="main-body-content">
-              
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
   
+
   
-    
-    
+    <ul id="menu" class="menu">
       
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year"><i class="icon fa fa-calendar-o"></i>2016</a>
-        </div>
-        <div class="archives">
-    
-    
-    
-      <div class="article-row">
-    
         
-  <article class="article article-summary">
-    <div class="article-summary-inner">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
       
-<a href="/locale_error_unsupported_locale_setting/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/FAQ/">FAQ</a></p>
-        <p class="date"><time datetime="2016-10-22T03:30:24.000Z" itemprop="datePublished">2016-10-22</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/locale_error_unsupported_locale_setting/" class="title">解决pip install时unsupported locale setting错误</a>
-      </h2>
-      <p class="article-excerpt">
         
-        今天在安装 Shadowsocks 时，使用 pip install 命令出现了下面这个错误：
-123456789# pip install shadowsocksTraceback (most recent call last):  File "/usr/bin/pip", line 11, in &lt;module&gt;    sys.exit(main())  File "/usr/li
-      </p>
-    </div>
-  </article>
-
-    
-  
-    
-    
-    
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
       
-<a href="/shadowsocks-with-digitalocean/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_1.png
-)" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网" class="thumbnail-image"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></p>
-        <p class="date"><time datetime="2016-10-22T01:25:00.000Z" itemprop="datePublished">2016-10-22</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/shadowsocks-with-digitalocean/" class="title">在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网</a>
-      </h2>
-      <p class="article-excerpt">
         
-        如果下面这些情形你经常遇到：
-
-
-经常会折腾各种各样的 Web 应用(Java、nodejs、python等各种语言环境)，但是国内的云服务无法提供对应的环境。
-你只是临时的折腾这些应用，并不会长期的运营这些服务。国内的云服务费用昂贵，并需要持续较长时间购买。
-虽然可能是临时或者短时间折腾这些服务，你也希望可以有稳定的 IP 或者域名来访问服务。而国内的云服务域名需要备案，而你却懒得折腾这些。
-你
-      </p>
-    </div>
-  </article>
-
-    
-      </div>
-    
-  
-    
-    
-    
-    
-      <div class="article-row">
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
       
-<a href="/$q_and_promise_in_angular/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Web前端/">Web前端</a></p>
-        <p class="date"><time datetime="2016-07-06T08:17:10.000Z" itemprop="datePublished">2016-07-06</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/$q_and_promise_in_angular/" class="title">形象的讲解 angular 中的 $q 与 promise</a>
-      </h2>
-      <p class="article-excerpt">
         
-        promise 不是 angular 首创的，作为一种编程模式，它出现在…1976年，比 javascript 还要古老得多。promise 全称是 Futures and promises。具体的可以参见 http://en.wikipedia.org/wiki/Futures_and_promises。
-而在 javascript 世界中，一个广泛流行的库叫做 Q 地址是 https://github.com/kriskowal/q，而 angular 中的 $q 就是从它引入的。 promise 解决的是异步编程的问题，对于生活在同步编程世界中的程序员来说，它可能比较难于理解，这也构成了 angular 入门门槛之一，本文将用生活中的一个例子对此做一个形象的讲解。
-      </p>
-    </div>
-  </article>
-
-    
-  
-    
-    
-    
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
       
-<a href="/React+ReactRouter+Redux+Webpack打造SPA/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
 
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Web前端/">Web前端</a></p>
-        <p class="date"><time datetime="2016-06-26T14:30:00.000Z" itemprop="datePublished">2016-06-26</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/React+ReactRouter+Redux+Webpack打造SPA/" class="title">React + React Router + Redux + Webpack 开发 SPA</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        前段时间要做一个 Web app，于是对 ReactJS 作了些学习。没想到水比较深，由此探索了一套用于开发 SPA 的相关技术： React + React Router + Redex + Webpack。
-这里先占个坑，后续再细写。相关的学习资料如下：
-ReactJS 入门教程中文版
-React Router 中文文档
-Redux 中文文档
-Webpack 中文手册
-
-      </p>
-    </div>
-  </article>
-
-    
-      </div>
-    
-  
-    
-    
-    
-    
-      <div class="article-row">
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/grab-web-page-by-cheerio-and-render-via-ejs/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/free-shadowsocks.png
-)" alt="实例：使用 cheerio 抓取网页数据，并通过 ejs 模板输出静态页面" class="thumbnail-image"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/nodejs/">nodejs</a></p>
-        <p class="date"><time datetime="2016-04-10T02:33:38.000Z" itemprop="datePublished">2016-04-10</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/grab-web-page-by-cheerio-and-render-via-ejs/" class="title">实例：使用 cheerio 抓取网页数据，并通过 ejs 模板输出静态页面</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        这篇文章中，我将使用 cheerio 从 http://ss.uprogrammer.cn 上抓取到免费的 shadowsocks 账号，然后通过 ejs 模板，输出成新的网页。
-cheerio 是 nodejs 的抓取页面模块，为服务器特别定制的，快速、灵活、实施的 jquery 核心实现，适合各种 Web 爬虫程序。详见: https://github.com/cheeriojs/cheeri
-      </p>
-    </div>
-  </article>
-
-    
-  
-    
-    
-    
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/manipulating-url-using-javascript-without-freshing-the-page/" class="thumbnail">
-  
-    <span style="background-image:url(https://raw.githubusercontent.com/jaywcjlove/FED/gh-pages/img/fed.gif
-)" alt="如何通过 JS 来修改浏览器地址" class="thumbnail-image"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/FAQ/">FAQ</a></p>
-        <p class="date"><time datetime="2016-04-04T07:07:03.000Z" itemprop="datePublished">2016-04-04</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/manipulating-url-using-javascript-without-freshing-the-page/" class="title">如何通过 JS 来修改浏览器地址</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        今天看到 jsdig.com 上的效果，发现随着输入的变化，浏览器地址栏中的地址会发生变化，很好奇。效果如下图：
-
-所以找了些资料。
-现在的浏览器，可以在不刷新页面的情况下修改浏览器 URL。在浏览过程中，可以将浏览历史储存起来，当点击浏览器后退按钮的时候，还可以从浏览历史上获得回退的信息。主要的工作原理呢，是通过 History 对象的 pushState() 实现的。
-直接上测试的代码：
-12
-      </p>
-    </div>
-  </article>
-
-    
-      </div>
-    
-  
-    
-    
-    
-    
-      <div class="article-row">
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/publish_your_module_to_npm/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/nodejs/">nodejs</a></p>
-        <p class="date"><time datetime="2016-04-04T02:10:10.000Z" itemprop="datePublished">2016-04-04</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/publish_your_module_to_npm/" class="title">如何使用 npm 打包发布 nodejs 程序包</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        昨天写了个 gitbook 的 cnzz 统计插件，源码见这里，想要发布出来，再通过 npm install 的形式安装。
-具体的步骤如下：
-1. 在 npm 官网 https://www.npmjs.org 申请一个账号，并且进行必要的验证。
-
-刚开始用的是网易邮箱注册，但似乎收不到官方的验证邮件，后来改用了 Gmail，可以注册了。
-
-2. 增加刚申请完成的用户名到 npm 环境中。
-1234
-      </p>
-    </div>
-  </article>
-
-    
-  
-    
-    
-    
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/create_springmvc_project_base_on_gradle_use_intellij_idea/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/intellij_idea.png
-)" alt="在 IntelliJ IDEA 上创建基于 Gradle 的 SpringMVC 实例" class="thumbnail-image"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a></p>
-        <p class="date"><time datetime="2016-03-22T03:15:02.000Z" itemprop="datePublished">2016-03-22</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/create_springmvc_project_base_on_gradle_use_intellij_idea/" class="title">在 IntelliJ IDEA 上创建基于 Gradle 的 SpringMVC 实例</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        注意：需要 IntelliJ IDEA 的 Ultimate 版本，用 Community 版本是不行的，因为需要支持 Web 项目。 Ultimate 版本是收费的，网上有破解。
-
-我把具体的过程录制成了视频：
-
-
-如果想要看高清的视频，可以扫描页面上的公众号二维码，关注并回复”firstspringmvc”来获取原始视频链接。
-参考：
-intellij + gradle + tomcat + 
-      </p>
-    </div>
-  </article>
-
-    
-      </div>
-    
-  
-    
-    
-    
-    
-      <div class="article-row">
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/install_mysql_via_brew_on_osx_eicapitan/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/软件工具/LAMP/">LAMP</a></p>
-        <p class="date"><time datetime="2016-03-01T13:00:00.000Z" itemprop="datePublished">2016-03-01</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/install_mysql_via_brew_on_osx_eicapitan/" class="title">Mac OSX 10.11 通过 HomeBrew 安装 MySQL</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        在 Mac OSX 升级到 EICapitan 之后，原来安装的 MySQL 就多多少少出现了问题。于是决定重装：
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647$ brew install mysql==&gt; Installing dependencies for my
-      </p>
-    </div>
-  </article>
-
-    
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year"><i class="icon fa fa-calendar-o"></i>2015</a>
-        </div>
-        <div class="archives">
-    
-    
-    
-      <div class="article-row">
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/install-mongodb-on-mac-os-x/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/nodejs/">nodejs</a></p>
-        <p class="date"><time datetime="2015-12-21T09:02:00.000Z" itemprop="datePublished">2015-12-21</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/install-mongodb-on-mac-os-x/" class="title">Mac OS X 上安装 MongoDB</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        参考：Install MongoDB on OS X
-Mac OS X 的系统版本：EI Capitan (10.11.1)
-这里采用 HomeBrew 来安装 MongoDB。
-      </p>
-    </div>
-  </article>
-
-    
-  
-  
-    </div></section>
-  
-  
-  
-  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- linfuyan 归档 -->
-	<ins class="adsbygoogle"
-      style="display:block"
-      data-ad-client="ca-pub-3371913913447815"
-      data-ad-slot="7630205884"
-      data-ad-format="auto"></ins>
-	<script>
-	  (adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
-  
-
-
-  
-    <nav id="page-nav">
-      <span class="pages">第 2 页，共 9 页</span>
-      <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
-    </nav>
-  
-
-
-            </div>
-          </section>
-          <aside id="sidebar">
-  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-  <div class="sidebar-top">
-    <p>关注我 :</p>
-    <ul class="social-links">
-      
-        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
-      
-        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
       
     </ul>
-  </div>
-  <!--  -->
-  <div class="widgets-container">
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
     
       
-  <div class="widget-wrap">
-  	
-      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/> 
-     
-    
-      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Android-iOS-qq-group.png" width="100%" height="100%"/>
-    
-  </div>
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/locale_error_unsupported_locale_setting/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
 
     
-      
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul id="recent-post" class="">
+      <header class="post-header">
+
         
-          <li>
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/locale_error_unsupported_locale_setting/" itemprop="url">解决pip install时unsupported locale setting错误</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
             
-            <div class="item-thumbnail">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
               
-<a href="/mindmap-laravel-start-guide/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/%e7%b2%be%e8%bf%9b%e8%84%91%e5%9b%be%e4%b9%8bLaravel%e5%85%a5%e9%97%a8%e6%8c%87%e5%8d%97.jpg
-)" alt="Laravel思维导图之Laravel入门指南" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/后端/">后端</a></p>
-              <p class="item-title"><a href="/mindmap-laravel-start-guide/" class="title">Laravel思维导图之Laravel入门指南</a></p>
-              <p class="item-date"><time datetime="2017-08-06T12:48:00.000Z" itemprop="datePublished">2017-08-06</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
+                <span class="post-meta-item-text">发表于</span>
               
-<a href="/mindmap-php-base/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/精进脑图之PHP基础.png
-)" alt="十五张思维导图带你快速学习PHP语言基础" class="thumbnail-image"></span>
-  
-</a>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-22T11:30:24+08:00">
+                2016-10-22
+              </time>
+            
 
-            </div>
             
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/后端/">后端</a></p>
-              <p class="item-title"><a href="/mindmap-php-base/" class="title">十五张思维导图带你快速学习PHP语言基础</a></p>
-              <p class="item-date"><time datetime="2017-08-03T12:48:00.000Z" itemprop="datePublished">2017-08-03</time></p>
-            </div>
-          </li>
-        
-          <li>
+              <span class="post-meta-divider">|</span>
             
-            <div class="item-thumbnail">
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
               
-<a href="/weapp-https/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/wxapp-https-debug.png
-)" alt="【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/微信/">微信</a></p>
-              <p class="item-title"><a href="/weapp-https/" class="title">【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程</a></p>
-              <p class="item-date"><time datetime="2017-05-25T06:26:00.000Z" itemprop="datePublished">2017-05-25</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
+                <span class="post-meta-item-text">更新于&#58;</span>
               
-<a href="/android-kotlin-get-started/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-new-project_2x.png
-)" alt="在 Android 上开始使用 Kotlin" class="thumbnail-image"></span>
-  
-</a>
+              <time title="更新于" itemprop="dateModified" datetime="2016-10-22T11:40:54+08:00">
+                2016-10-22
+              </time>
+            
+          </span>
 
-            </div>
+          
+            <span class="post-category" >
             
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
-              <p class="item-title"><a href="/android-kotlin-get-started/" class="title">在 Android 上开始使用 Kotlin</a></p>
-              <p class="item-date"><time datetime="2017-05-18T04:00:00.000Z" itemprop="datePublished">2017-05-18</time></p>
-            </div>
-          </li>
-        
-          <li>
+              <span class="post-meta-divider">|</span>
             
-            <div class="item-thumbnail">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-<a href="/android-kotlin/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/FAQ/" itemprop="url" rel="index">
+                    <span itemprop="name">FAQ</span>
+                  </a>
+                </span>
 
-            </div>
+                
+                
+              
+            </span>
+          
+
+          
             
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
-              <p class="item-title"><a href="/android-kotlin/" class="title">Kotlin 成为 Android 官方语言，看看官方怎么说？</a></p>
-              <p class="item-date"><time datetime="2017-05-18T03:21:00.000Z" itemprop="datePublished">2017-05-18</time></p>
-            </div>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+          
 
-    
-      
-  <div class="widget-wrap widget-list">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">34</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/后端/">后端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/微信/">微信</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
-    </div>
-  </div>
+          
+          
 
+          
 
-    
-      
-  <div class="widget-wrap widget-list">
-    <h3 class="widget-title">链接</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="http://uprogrammer.cn">优程</a>
-          </li>
-        
-          <li>
-            <a href="http://hexo.io">Hexo</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+          
 
+          
 
-    
-  </div>
-</aside>
         </div>
-      </div>
-    </div>
-    <footer id="footer">
-  
-  <div class="container">
-    <div class="container-inner">
-      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-      <div class="credit">
-        <h1 class="logo-wrap">
-          <a href="/" class="logo"></a>
-        </h1>
-        <p>&copy; 2017 linfuyan</p>
-        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
-        <p>
-        <!-- CNZZ 统计 -->
-        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
-        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
-        </p>
-        <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
-      </div>
-    </div>
-  </div>
-</footer>
+      </header>
     
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
-  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+      
+      
+
+      
+        
+          
+            <p>今天在安装 Shadowsocks 时，使用 <code>pip install</code> 命令出现了下面这个错误：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pip install shadowsocks</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"/usr/bin/pip"</span>, line <span class="number">11</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    sys.<span class="keyword">exit</span>(main())</span><br><span class="line">  File <span class="string">"/usr/lib/python2.7/dist-packages/pip/__init__.py"</span>, line <span class="number">215</span>, <span class="keyword">in</span> main</span><br><span class="line">    locale.setlocale(locale.LC_ALL, <span class="string">''</span>)</span><br><span class="line">  File <span class="string">"/usr/lib/python2.7/locale.py"</span>, line <span class="number">581</span>, <span class="keyword">in</span> setlocale</span><br><span class="line">    return _setlocale(category, locale)</span><br><span class="line">locale.Error: unsupported locale setting</span><br></pre></td></tr></table></figure>
+<p>其实是语言配置错误导致的：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># locale -a</span></span><br><span class="line">locale: Cannot <span class="builtin-name">set</span> LC_CTYPE <span class="keyword">to</span><span class="built_in"> default </span>locale: <span class="literal">No</span> such file <span class="keyword">or</span> directory</span><br><span class="line">C</span><br><span class="line">C.UTF-8</span><br><span class="line">en_AG</span><br><span class="line">en_AG.utf8</span><br><span class="line">en_AU.utf8</span><br><span class="line">en_BW.utf8</span><br><span class="line">en_CA.utf8</span><br><span class="line">en_DK.utf8</span><br><span class="line">en_GB.utf8</span><br><span class="line">en_HK.utf8</span><br><span class="line">en_IE.utf8</span><br><span class="line"><span class="built_in">..</span>.</span><br></pre></td></tr></table></figure>
+<p>解决方案：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">export</span> LC_ALL=C</span></span><br></pre></td></tr></table></figure>
+<p>Done!</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/shadowsocks-with-digitalocean/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/shadowsocks-with-digitalocean/" itemprop="url">在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-22T09:25:00+08:00">
+                2016-10-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2016-10-22T11:38:10+08:00">
+                2016-10-22
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/" itemprop="url" rel="index">
+                    <span itemprop="name">软件工具</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/Shadowsocks/" itemprop="url" rel="index">
+                    <span itemprop="name">Shadowsocks</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>如果下面这些情形你经常遇到：</p>
+<blockquote>
+<ol>
+<li>经常会折腾各种各样的 Web 应用(Java、nodejs、python等各种语言环境)，但是国内的云服务无法提供对应的环境。</li>
+<li>你只是临时的折腾这些应用，并不会长期的运营这些服务。国内的云服务费用昂贵，并需要持续较长时间购买。</li>
+<li>虽然可能是临时或者短时间折腾这些服务，你也希望可以有稳定的 IP 或者域名来访问服务。而国内的云服务域名需要备案，而你却懒得折腾这些。</li>
+<li>你经常有科学上网的需求，却苦于免费的 VPN 不稳定，稳定的却死贵。</li>
+</ol>
+</blockquote>
+<p>那么，可能 DigitalOcean 是你需要的。请往下继续看。否则，你已经可以关闭这个页面了。</p>
+<p>先说说 DigitalOcean：</p>
+<blockquote>
+<ol>
+<li>可以把 DigitalOcean 看做是 VPS，你对上面的环境有完全的支配权，想折腾什么类型的 Web 应用都可以。</li>
+<li>DigitalOcean 通过创建 droplet 来快速搭建基础环境，可视化的管理配置，轻而易举的可以与你的域名绑定。从而快速稳定的访问你的服务。</li>
+<li>DigitalOcean 最低的收费是每月5美刀，并且按照使用时长(每小时结算)收费。创建的 droplet 如果关闭，则不再继续收费。非常适合需要临时折腾的你。而且，通过这个<strong><a href="https://m.do.co/c/c6ceb25187c4" target="_blank" rel="noopener">邀请链接</a></strong>进行注册，将自动赠送10美刀。</li>
+<li>DigitalOcean 的旧金山节点，国内链接速度快，很适合通过搭建 Shadowsocks 来提供稳定靠谱的科学上网服务。</li>
+</ol>
+</blockquote>
+<h2 id="在-DigitalOcean-上配置-droplet"><a href="#在-DigitalOcean-上配置-droplet" class="headerlink" title="在 DigitalOcean 上配置 droplet"></a>在 DigitalOcean 上配置 droplet</h2><p>注册 DigitalOcean 账户就不说了。需要提醒的是，使用 DigitalOcean 需要绑定银行卡。</p>
+<p>新建 droplet 的步骤： </p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_1.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p>1. 选择系统镜像，这里选了 ubuntu 16.04</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_2.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p>2. 选择配置，这里选$5/月</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_3.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p>3. 选择机房位置，旧金山的访问速度比较快</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_4.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p>4. 添加 SSH key，用于后面远程登录的验证。具体操作可以看<a href="https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets" target="_blank" rel="noopener">官方文档</a>或者<a href="http://linfuyan.com/generating-ssh-keys/">生成SSH密钥</a>。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_5.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p>5. 这样，不到1分钟时间，就创建好了一个 droplet，带有固定IP，还可以绑定域名。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_6.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<h2 id="安装并配置-Shadowsocks-服务"><a href="#安装并配置-Shadowsocks-服务" class="headerlink" title="安装并配置 Shadowsocks 服务"></a>安装并配置 Shadowsocks 服务</h2><p>在第一步中配置完 ssh key，就可以远程登录到 DigitalOcean 的 droplet 上，直接用 root 用户即可：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssh</span> root<span class="variable">@your_droplet_ip</span></span><br></pre></td></tr></table></figure>
+<p>刚才我们的 droplet 环境是 ubuntu 16.04，通过如下命令安装 shadowsocks：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get <span class="keyword">install</span> python-pip</span><br><span class="line">pip <span class="keyword">install</span> shadowsocks</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>我遇到了 <code>locale.Error: unsupported locale setting</code> 的问题，解决方案看这里：<a href="https://linfuyan.com/locale_error_unsupported_locale_setting/index.html">解决 pip install 时 locale.Error: unsupported locale setting 错误</a></p>
+</blockquote>
+<p>安装好以后，就可以通过以下指令启动服务：</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssserver -p <span class="number">8836</span> -k `password` -m rc4-md5</span><br><span class="line"></span><br><span class="line"># 或者可以通过以下指令在后台启动shadowsocks的服务：</span><br><span class="line">ssserver -p <span class="number">8843</span> -k `password` -m rc4-md5 -d start</span><br><span class="line">ssserver -p <span class="number">8843</span> -k `password` -m rc4-md5 -d stop</span><br></pre></td></tr></table></figure>
+<p>上面的指令方式不太方便，推荐通过文件配置的方式。新建一个 <code>/etc/shadowsocks.json</code> 文件，内容如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>: <span class="string">"your_droplet_ip"</span>,</span><br><span class="line">    <span class="attr">"server_port"</span>: <span class="number">8388</span>,</span><br><span class="line">    <span class="attr">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"local_port"</span>: <span class="number">1080</span>,</span><br><span class="line">    <span class="attr">"password"</span>: <span class="string">"your_password"</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>: <span class="number">300</span>,</span><br><span class="line">    <span class="attr">"method"</span>: <span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"fast_open"</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来使用下面的指令启动服务：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json</span><br><span class="line"></span><br><span class="line">#或者在后台运行</span><br><span class="line">ssserver -c /etc/shadowsocks<span class="selector-class">.json</span> -d start</span><br><span class="line">ssserver -c /etc/shadowsocks<span class="selector-class">.json</span> -d stop</span><br></pre></td></tr></table></figure>
+<p>以上操作以后，就可以通过各种 Shadowsocks 客户端科学上网啦。稳定又靠谱！</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/$q_and_promise_in_angular/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/$q_and_promise_in_angular/" itemprop="url">形象的讲解 angular 中的 $q 与 promise</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-06T16:17:10+08:00">
+                2016-07-06
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2016-07-06T16:20:45+08:00">
+                2016-07-06
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/Web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">Web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>promise 不是 angular 首创的，作为一种编程模式，它出现在…1976年，比 javascript 还要古老得多。promise 全称是 Futures and promises。具体的可以参见 <a href="http://en.wikipedia.org/wiki/Futures_and_promises" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/Futures_and_promises</a>。</p>
+<p>而在 javascript 世界中，一个广泛流行的库叫做 Q 地址是 <a href="https://github.com/kriskowal/q" target="_blank" rel="noopener">https://github.com/kriskowal/q</a>，而 angular 中的 $q 就是从它引入的。 promise 解决的是异步编程的问题，对于生活在同步编程世界中的程序员来说，它可能比较难于理解，这也构成了 angular 入门门槛之一，本文将用生活中的一个例子对此做一个形象的讲解。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/$q_and_promise_in_angular/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/React+ReactRouter+Redux+Webpack打造SPA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/React+ReactRouter+Redux+Webpack打造SPA/" itemprop="url">React + React Router + Redux + Webpack 开发 SPA</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-26T22:30:00+08:00">
+                2016-06-26
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2016-06-26T22:39:20+08:00">
+                2016-06-26
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/Web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">Web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>前段时间要做一个 Web app，于是对 ReactJS 作了些学习。没想到水比较深，由此探索了一套用于开发 SPA 的相关技术： React + React Router + Redex + Webpack。</p>
+<p>这里先占个坑，后续再细写。相关的学习资料如下：</p>
+<p><a href="http://uprogrammer.cn/react-tutorial-cn/index.html" target="_blank" rel="noopener">ReactJS 入门教程中文版</a></p>
+<p><a href="http://uprogrammer.cn/react-router-cn/index.html" target="_blank" rel="noopener">React Router 中文文档</a></p>
+<p><a href="http://uprogrammer.cn/redux-in-chinese/index.html" target="_blank" rel="noopener">Redux 中文文档</a></p>
+<p><a href="http://uprogrammer.cn/webpack-handbook/index.html" target="_blank" rel="noopener">Webpack 中文手册</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/grab-web-page-by-cheerio-and-render-via-ejs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/grab-web-page-by-cheerio-and-render-via-ejs/" itemprop="url">实例：使用 cheerio 抓取网页数据，并通过 ejs 模板输出静态页面</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-10T10:33:38+08:00">
+                2016-04-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2016-04-10T16:22:18+08:00">
+                2016-04-10
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/nodejs/" itemprop="url" rel="index">
+                    <span itemprop="name">nodejs</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这篇文章中，我将使用 cheerio 从 <a href="http://ss.uprogrammer.cn" target="_blank" rel="noopener">http://ss.uprogrammer.cn</a> 上抓取到免费的 shadowsocks 账号，然后通过 ejs 模板，输出成新的网页。</p>
+<p><strong>cheerio</strong> 是 nodejs 的抓取页面模块，为服务器特别定制的，快速、灵活、实施的 jquery 核心实现，适合各种 Web 爬虫程序。详见: <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">https://github.com/cheeriojs/cheerio</a></p>
+<p><strong>ejs</strong> 是一个 JavaScript 模板库，用来从 JSON 数据中生成 HTML 字符串。详见： <a href="https://github.com/tj/ejs" target="_blank" rel="noopener">https://github.com/tj/ejs</a></p>
+<p>下面的截图中显示，<a href="http://ss.upgrogrammer.cn" target="_blank" rel="noopener">http://ss.upgrogrammer.cn</a> 上有一个免费 shadowsocks 账号的展示区域。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/free-shadowsocks.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
+<p>并且通过 chrome 的审查元素，可以看到相关的源码。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/free-shadowsocks-2.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
+<p>那么，接下来，我们就要抓取这部分内容中的免费 shadowsocks 账号信息。</p>
+<h2 id="新建-nodejs-项目，并安装相关依赖"><a href="#新建-nodejs-项目，并安装相关依赖" class="headerlink" title="新建 nodejs 项目，并安装相关依赖"></a>新建 nodejs 项目，并安装相关依赖</h2><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> init</span><br><span class="line">...</span><br><span class="line"><span class="built_in">npm</span> install cheerio ejs --save</span><br></pre></td></tr></table></figure>
+<p>以下图片显示了通过 <code>npm init</code> 命令创建 nodejs 项目的过程：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/npm_init_project.gif" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
+<h2 id="获取-http-ss-upgrammer-cn-完整网页内容"><a href="#获取-http-ss-upgrammer-cn-完整网页内容" class="headerlink" title="获取 http://ss.upgrammer.cn 完整网页内容"></a>获取 <a href="http://ss.upgrammer.cn" target="_blank" rel="noopener">http://ss.upgrammer.cn</a> 完整网页内容</h2><p>在使用 cheerio 来抓取我们所需的内容之前，我们要通过 http 模块，将完整页面先获取到。</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">download</span>(<span class="params">url, callback</span>) </span>&#123;</span><br><span class="line">	http.get(<span class="built_in">url</span>, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> data = <span class="string">""</span>;</span><br><span class="line">		res.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>) </span>&#123;</span><br><span class="line">			data += chunk;</span><br><span class="line">		&#125;);</span><br><span class="line">		res.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			callback(data);</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;).on(<span class="string">"err"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(e);</span><br><span class="line">		callback(<span class="literal">null</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上的代码片段通过 GET 方法获取对应 url 的数据，并通过 callback 传回。</p>
+<h2 id="从获取到的完整页面中抓取免费账号信息"><a href="#从获取到的完整页面中抓取免费账号信息" class="headerlink" title="从获取到的完整页面中抓取免费账号信息"></a>从获取到的完整页面中抓取免费账号信息</h2><p>通过在浏览器中查看源代码(具体内容其实也就是我们通过上面的 <code>download</code> 函数返回的结构)，我们发现，这个页面结构是非常简单的。</p>
+<ol>
+<li>所有的免费账号信息都在 id 为 <code>account_container</code> 的 <code>&lt;div&gt;</code> 标签中。</li>
+<li>所有的单条账号信息，都在 <code>&lt;div class=&quot;col-md-4 text-center&quot;&gt;...&lt;/div&gt;</code> 中。</li>
+<li>单条账号中的信息，是连续的6个<code>&lt;h4&gt;</code>标签，按照服务器地址、端口号、密码、加密方式、状态、说明的方式存在。 </li>
+</ol>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">download(<span class="string">"http://ss.uprogrammer.cn/"</span>, function(<span class="name">data</span>) &#123;</span><br><span class="line">	if (!data) &#123;</span><br><span class="line">		console.log('no data found')<span class="comment">;</span></span><br><span class="line">		return<span class="comment">;</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    var accounts = []<span class="comment">;</span></span><br><span class="line">    </span><br><span class="line">	$ = cheerio.load(<span class="name">data</span>)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">    // 通过 cheerio 的选择器获取免费账号信息单元</span><br><span class="line">	var ss = $('#account_container &gt; .col-md-4')<span class="comment">;</span></span><br><span class="line">	</span><br><span class="line">	for (<span class="name">var</span> i = <span class="number">0</span><span class="comment">; i &lt; ss.length; i++) &#123;</span></span><br><span class="line">		var s = &#123;&#125;<span class="comment">;</span></span><br><span class="line">		</span><br><span class="line">		// 解析服务器</span><br><span class="line">		var server = $(<span class="name">ss</span>[i]).children().first()<span class="comment">;</span></span><br><span class="line">		s['server'] = server.text().substr(<span class="number">7</span>)<span class="comment">;</span></span><br><span class="line">		console.log(<span class="name">s</span>['server'])<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析端口</span><br><span class="line">		var port = $(<span class="name">server</span>).next()<span class="comment">;</span></span><br><span class="line">		s['port'] = port.text().substr(<span class="number">3</span>)<span class="comment">;</span></span><br><span class="line">		console.log(<span class="name">s</span>['port'])<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析密码</span><br><span class="line">		var password = $(<span class="name">port</span>).next()<span class="comment">;</span></span><br><span class="line">		s['password'] = password.text().substr(<span class="number">4</span>)<span class="comment">;</span></span><br><span class="line">		console.log(<span class="name">s</span>['password'])<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析加密方式</span><br><span class="line">		var encrypt = $(<span class="name">password</span>).next()<span class="comment">;</span></span><br><span class="line">		s['encrypt'] = encrypt.text().substr(<span class="number">5</span>)<span class="comment">;</span></span><br><span class="line">		console.log(<span class="name">s</span>['encrypt'])<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析状态</span><br><span class="line">		var status = $(<span class="name">encrypt</span>).next()<span class="comment">;</span></span><br><span class="line">		s['status'] = status.text().substr(<span class="number">3</span>)<span class="comment">;</span></span><br><span class="line">		console.log(<span class="name">s</span>['status'])<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析说明</span><br><span class="line">		var tip = $(<span class="name">status</span>).next()<span class="comment">;</span></span><br><span class="line">		s['tip'] = tip.text()<span class="comment">;</span></span><br><span class="line">		console.log(<span class="name">s</span>['tip'])<span class="comment">;</span></span><br><span class="line">		</span><br><span class="line">		account.push(<span class="name">s</span>)<span class="comment">;</span></span><br><span class="line">		console.log(<span class="string">"==="</span>)<span class="comment">;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>主要的代码片段如上，最终 <code>account</code> 变量中将保存所有的账号信息。</p>
+<h2 id="将数据通过-ejs-模板渲染成新的页面"><a href="#将数据通过-ejs-模板渲染成新的页面" class="headerlink" title="将数据通过 ejs 模板渲染成新的页面"></a>将数据通过 ejs 模板渲染成新的页面</h2><p>我们需要定义一个模板文件 <code>template.ejs</code>，如下：</p>
+<figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="meta">&lt;!DOCTYPE html&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-CN"</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>实例：使用 cheerio 抓取网页数据，并通过 ejs 模板输出静态页面<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></span></span><br><span class="line"><span class="xml">      </span><span class="vbscript">&lt;% servers.forEach(<span class="keyword">function</span>(<span class="built_in">server</span>)&#123; %&gt;</span><span class="xml"></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">h4</span>&gt;</span>服务器地址:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.<span class="built_in">server</span> %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">h4</span>&gt;</span>端口:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.port %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">h4</span>&gt;</span>密码:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.password %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">h4</span>&gt;</span>加密方式:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.encrypt %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">h4</span>&gt;</span>状态:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.status %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">h4</span>&gt;</span></span><span class="vbscript">&lt;%= <span class="built_in">server</span>.tip %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      </span><span class="vbscript">&lt;% &#125;) %&gt;</span><span class="xml"></span></span><br><span class="line"><span class="xml">  	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>这是一个非常简单的模板文件，只是说明传递数据与模板解析的功能。其中将接收名为 <code>servers</code> 的参数。</p>
+<p>下面我们定义一个 <code>render</code> 函数，读取 <code>template.ejs</code> 模板文件，并根据传入的 <code>servers</code> 参数进行渲染，输出到 <code>index.html</code> 中。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span><span class="params">(accounts)</span> </span>&#123;</span><br><span class="line">	fs.readFile(<span class="string">'./template.ejs'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e, v)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> ret = v.toString();</span><br><span class="line">        </span><br><span class="line">      <span class="keyword">var</span> options = &#123;servers: accounts&#125;</span><br><span class="line">      <span class="keyword">var</span> template = ejs.render(ret, options);</span><br><span class="line">      fs.writeFile(<span class="string">'./index.html'</span>, template, <span class="function"><span class="keyword">function</span> <span class="params">(err)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;         </span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>OK。完成上面的过程，整个程序结构如下：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/demo-cheerio-ejs-structure.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
+<p>最后，在项目根目录中执行 <code>node index.js</code>， 正常在终端中可以看到日志输出，并生成 <code>index.html</code> 文件。通过浏览器打开 <code>index.html</code> 就可以验收成果啦。</p>
+<p>完整的源码见：<a href="https://github.com/linfuyan/demo-cheerio-ejs" target="_blank" rel="noopener">https://github.com/linfuyan/demo-cheerio-ejs</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/manipulating-url-using-javascript-without-freshing-the-page/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/manipulating-url-using-javascript-without-freshing-the-page/" itemprop="url">如何通过 JS 来修改浏览器地址</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-04T15:07:03+08:00">
+                2016-04-04
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2016-04-04T17:25:13+08:00">
+                2016-04-04
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/FAQ/" itemprop="url" rel="index">
+                    <span itemprop="name">FAQ</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天看到 jsdig.com 上的效果，发现随着输入的变化，浏览器地址栏中的地址会发生变化，很好奇。效果如下图：</p>
+<p><img src="https://raw.githubusercontent.com/jaywcjlove/FED/gh-pages/img/fed.gif" alt="jsdig"></p>
+<p>所以找了些资料。</p>
+<p>现在的浏览器，可以在不刷新页面的情况下修改浏览器 URL。在浏览过程中，可以将浏览历史储存起来，当点击浏览器后退按钮的时候，还可以从浏览历史上获得回退的信息。主要的工作原理呢，是通过 History 对象的 pushState() 实现的。</p>
+<p>直接上测试的代码：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">label</span> <span class="attr">id</span>=<span class="string">"counter"</span>&gt;</span>点击按钮查看变化<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"点击"</span> <span class="attr">onclick</span>=<span class="string">"update()"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  	<span class="keyword">var</span> counter = <span class="built_in">document</span>.getElementById(<span class="string">"counter"</span>);</span></span><br><span class="line"><span class="actionscript">   	<span class="keyword">var</span> i = <span class="number">0</span>;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">  	<span class="function"><span class="keyword">function</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">  		<span class="keyword">var</span> stateObject = &#123;id: i&#125;;</span></span><br><span class="line"><span class="actionscript">		<span class="keyword">var</span> title = <span class="string">"Wow Title "</span>+i;</span></span><br><span class="line"><span class="actionscript">		<span class="keyword">var</span> newUrl = <span class="string">"?count="</span>+i;</span></span><br><span class="line"><span class="undefined">		history.pushState(stateObject, title, newUrl);</span></span><br><span class="line"><span class="javascript">		counter.innerHTML = <span class="built_in">window</span>.location.href;</span></span><br><span class="line"><span class="undefined">		i++;</span></span><br><span class="line"><span class="undefined">  	&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">	<span class="built_in">window</span>.addEventListener(<span class="string">'popstate'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">	  readState(event.state);</span></span><br><span class="line"><span class="undefined">	&#125;);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">	<span class="function"><span class="keyword">function</span> <span class="title">readState</span><span class="params">(data)</span></span>&#123;</span></span><br><span class="line"><span class="undefined">	  counter.innerHTML = data.id;</span></span><br><span class="line"><span class="undefined">	&#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>直接把上面的代码保存成静态网页，然后放到 web 服务器下访问就可以了。具体画面如下：</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/via_js_update_window_location_href.gif" alt="如何通过 JS 来修改浏览器地址"></p>
+<p>参考：</p>
+<p><a href="https://hasin.me/2013/10/16/manipulating-url-using-javascript-without-freshing-the-page/" target="_blank" rel="noopener">Manipulating browser URL using Javascript without refreshing the page</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/publish_your_module_to_npm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/publish_your_module_to_npm/" itemprop="url">如何使用 npm 打包发布 nodejs 程序包</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-04T10:10:10+08:00">
+                2016-04-04
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2016-04-04T10:31:16+08:00">
+                2016-04-04
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/nodejs/" itemprop="url" rel="index">
+                    <span itemprop="name">nodejs</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>昨天写了个 gitbook 的 cnzz 统计插件，<a href="https://github.com/linfuyan/gitbook-plugin-cnzz" target="_blank" rel="noopener">源码见这里</a>，想要发布出来，再通过 <code>npm install</code> 的形式安装。</p>
+<p>具体的步骤如下：</p>
+<p>1. 在 npm 官网 <a href="https://www.npmjs.org" target="_blank" rel="noopener">https://www.npmjs.org</a> 申请一个账号，并且进行必要的验证。</p>
+<blockquote>
+<p>刚开始用的是网易邮箱注册，但似乎收不到官方的验证邮件，后来改用了 Gmail，可以注册了。</p>
+</blockquote>
+<p>2. 增加刚申请完成的用户名到 npm 环境中。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm --registry <span class="string">http:</span><span class="comment">//registry.npmjs.org adduser</span></span><br><span class="line"><span class="string">Username:</span> your name</span><br><span class="line"><span class="string">Password:</span> your password</span><br><span class="line"><span class="string">Email:</span> (<span class="keyword">this</span> IS <span class="keyword">public</span>) yourmail<span class="meta">@host</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里要注意所使用的 registry。由于国内的网络环境，之前将默认的 registry 设置成了淘宝的 npm 源。这里需要调整回来。</p>
+</blockquote>
+<p>3. 进入到你的 npm 项目中，通过 <code>npm publish</code> 发布。</p>
+<p>4. 再新建一个项目 nodejs 项目，通过 <code>npm install</code> 验证是否能够安装。</p>
+<p>我在发布过程中，遇到了如下问题：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm ERR! no_perms Private mode enable, only admin can publish <span class="keyword">this</span> <span class="keyword">module</span>: gitbook-plugin-cnzz</span><br></pre></td></tr></table></figure>
+<p>原因就是我默认使用的淘宝的 npm 源，添加了用户，但权限不对，在发布时同样添加 registry 就可以了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/create_springmvc_project_base_on_gradle_use_intellij_idea/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/create_springmvc_project_base_on_gradle_use_intellij_idea/" itemprop="url">在 IntelliJ IDEA 上创建基于 Gradle 的 SpringMVC 实例</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-22T11:15:02+08:00">
+                2016-03-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2016-03-22T11:16:08+08:00">
+                2016-03-22
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/JavaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>注意：需要 IntelliJ IDEA 的 Ultimate 版本，用 Community 版本是不行的，因为需要支持 Web 项目。 Ultimate 版本是收费的，网上有破解。</p>
+<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/intellij_idea.png" alt="IntelliJ IDEA 版本"></p>
+<p>我把具体的过程录制成了视频：</p>
+<iframe frameborder="0" width="100%" height="400" src="http://v.qq.com/iframe/player.html?vid=r0188ue1mgk&tiny=0&auto=0" allowfullscreen></iframe>
+
+<p>如果想要看高清的视频，可以扫描页面上的公众号二维码，关注并回复”firstspringmvc”来获取原始视频链接。</p>
+<p>参考：</p>
+<p><a href="http://note.youdao.com/share/web/file.html?id=f6818219990d6a031ef8b237e12c3ff4&amp;type=note" target="_blank" rel="noopener">intellij + gradle + tomcat + 热加载 + 测试 搭建java web开发环境</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/install_mysql_via_brew_on_osx_eicapitan/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/install_mysql_via_brew_on_osx_eicapitan/" itemprop="url">Mac OSX 10.11 通过 HomeBrew 安装 MySQL</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-01T21:00:00+08:00">
+                2016-03-01
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2016-03-08T22:07:00+08:00">
+                2016-03-08
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/" itemprop="url" rel="index">
+                    <span itemprop="name">软件工具</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/LAMP/" itemprop="url" rel="index">
+                    <span itemprop="name">LAMP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在 Mac OSX 升级到 EICapitan 之后，原来安装的 MySQL 就多多少少出现了问题。于是决定重装：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">$ brew <span class="keyword">install</span> mysql</span><br><span class="line">==&gt; Installing dependencies <span class="keyword">for</span> mysql: openssl</span><br><span class="line">==&gt; Installing mysql dependency: openssl</span><br><span class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/openssl<span class="number">-1.0</span><span class="number">.2</span>e_1.el_capitan</span><br><span class="line">######################################################################## <span class="number">100.0</span>%</span><br><span class="line">==&gt; Pouring openssl<span class="number">-1.0</span><span class="number">.2</span>e_1.el_capitan.bottle.tar.gz</span><br><span class="line">==&gt; Caveats</span><br><span class="line">A CA <span class="keyword">file</span> has been bootstrapped <span class="keyword">using</span> certificates <span class="keyword">from</span> the <span class="keyword">system</span></span><br><span class="line">keychain. <span class="keyword">To</span> <span class="keyword">add</span> additional certificates, place .pem files <span class="keyword">in</span></span><br><span class="line">  /usr/<span class="keyword">local</span>/etc/openssl/certs</span><br><span class="line"></span><br><span class="line"><span class="keyword">and</span> run</span><br><span class="line">  /usr/<span class="keyword">local</span>/opt/openssl/<span class="keyword">bin</span>/c_rehash</span><br><span class="line"></span><br><span class="line">This formula <span class="keyword">is</span> keg-<span class="keyword">only</span>, which means it was <span class="keyword">not</span> symlinked <span class="keyword">into</span> /usr/local.</span><br><span class="line"></span><br><span class="line">Apple has deprecated <span class="keyword">use</span> <span class="keyword">of</span> OpenSSL <span class="keyword">in</span> favor <span class="keyword">of</span> its own TLS <span class="keyword">and</span> crypto libraries</span><br><span class="line"></span><br><span class="line">Generally there <span class="keyword">are</span> <span class="keyword">no</span> consequences <span class="keyword">of</span> this <span class="keyword">for</span> you. <span class="keyword">If</span> you <span class="keyword">build</span> your</span><br><span class="line">own software <span class="keyword">and</span> it requires this formula, you<span class="string">'ll need to add to your</span></span><br><span class="line"><span class="string">build variables:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    LDFLAGS:  -L/usr/local/opt/openssl/lib</span></span><br><span class="line"><span class="string">    CPPFLAGS: -I/usr/local/opt/openssl/include</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">==&gt; Summary</span></span><br><span class="line"><span class="string">🍺  /usr/local/Cellar/openssl/1.0.2e_1: 465 files, 11.9M</span></span><br><span class="line"><span class="string">==&gt; Installing mysql</span></span><br><span class="line"><span class="string">==&gt; Downloading https://homebrew.bintray.com/bottles/mysql-5.7.10.el_capitan.bot</span></span><br><span class="line"><span class="string">######################################################################## 100.0%</span></span><br><span class="line"><span class="string">==&gt; Pouring mysql-5.7.10.el_capitan.bottle.2.tar.gz</span></span><br><span class="line"><span class="string">==&gt; /usr/local/Cellar/mysql/5.7.10/bin/mysqld --initialize-insecure --user=lfy -</span></span><br><span class="line"><span class="string">==&gt; Caveats</span></span><br><span class="line"><span class="string">We'</span>ve installed your MySQL <span class="keyword">database</span> <span class="keyword">without</span> a root password. <span class="keyword">To</span> secure it run:</span><br><span class="line">    mysql_secure_installation</span><br><span class="line"></span><br><span class="line"><span class="keyword">To</span> <span class="keyword">connect</span> run:</span><br><span class="line">    mysql -uroot</span><br><span class="line"></span><br><span class="line"><span class="keyword">To</span> have launchd <span class="keyword">start</span> mysql <span class="keyword">at</span> login:</span><br><span class="line">  <span class="keyword">ln</span> -sfv /usr/<span class="keyword">local</span>/opt/mysql<span class="comment">/*.plist ~/Library/LaunchAgents</span></span><br><span class="line"><span class="comment">Then to load mysql now:</span></span><br><span class="line"><span class="comment">  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</span></span><br><span class="line"><span class="comment">Or, if you don't want/need launchctl, you can just run:</span></span><br><span class="line"><span class="comment">  mysql.server start</span></span><br><span class="line"><span class="comment">==&gt; Summary</span></span><br><span class="line"><span class="comment">🍺  /usr/local/Cellar/mysql/5.7.10: 12,677 files, 433.2M</span></span><br></pre></td></tr></table></figure>
+<p>直接使用 <code>mysql -uroot</code>，出现如下错误提示：</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ERROR </span>2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock'</span><br></pre></td></tr></table></figure>
+<p>原因是 mysql 服务没有启动，故尝试 <code>mysql.server start</code>，结果如下，依然出错。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mysql.server start</span><br><span class="line">Starting MySQL</span><br><span class="line">. ERROR! The<span class="built_in"> server </span>quit without updating PID file (/usr/local/var/mysql/bogon.pid).</span><br></pre></td></tr></table></figure>
+<p>最终的处理方式是：</p>
+<ol>
+<li>通过 <code>mysqld</code> 直接启动 mysql。</li>
+<li>由于 HomeBrew 安装的 mysql 默认root账户没有设置密码，故按照提示输入 <code>mysql_secure_installation</code> 来设置密码。</li>
+<li>设置完成以后，就可以正常操作 mysql 了。</li>
+</ol>
+<p>HomeBrew 安装的 mysql 的数据存储位置为 <code>/usr/local/var/mysql</code>。 可以通过 <code>find / -name databasename</code> 的方式根据数据库名称找到具体位置。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/install-mongodb-on-mac-os-x/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/install-mongodb-on-mac-os-x/" itemprop="url">Mac OS X 上安装 MongoDB</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-21T17:02:00+08:00">
+                2015-12-21
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2015-12-21T17:41:06+08:00">
+                2015-12-21
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/nodejs/" itemprop="url" rel="index">
+                    <span itemprop="name">nodejs</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>参考：<a href="https://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/" target="_blank" rel="noopener">Install MongoDB on OS X</a></p>
+<p><strong>Mac OS X 的系统版本：EI Capitan (10.11.1)</strong></p>
+<p>这里采用 HomeBrew 来安装 MongoDB。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/install-mongodb-on-mac-os-x/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+  </nav>
 
 
 
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Aaron</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">220</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/linfuyan" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
-  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
-  <script src="/scrollLoading/main.js"></script>
+  <span class="post-meta-divider">|</span>
 
 
-<script src="/js/html-patch.js"></script>
-<script src="/js/script.js"></script>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+  <div class="footer-custom">Hosted by <a href="https://pages.coding.me" style="font-weight:bold">Coding Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1256375489&web_id=1256375489" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
 
   </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

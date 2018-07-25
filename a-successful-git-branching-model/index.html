@@ -1,22 +1,94 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>一个成功的 Git 分支模型 | 悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原文来自：A successful Git branching model译文来自：一个成功的 Git 分支模型
-这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。
 
-本文中我会展示一种开发模型，一年前该模型就已经被我用">
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="git,工作流,分支模型," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="阿阿燃" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="原文来自：A successful Git branching model译文来自：一个成功的 Git 分支模型 这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。  本文中我会展示一种开发模型，一年前该模型就已经被我用">
+<meta name="keywords" content="git,工作流,分支模型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一个成功的 Git 分支模型">
 <meta property="og:url" content="http://linfuyan.com/a-successful-git-branching-model/index.html">
-<meta property="og:site_name" content="悠城札记 - 关注但不限于 Android/iOS/nodejs 的 hexo 博客">
-<meta property="og:description" content="原文来自：A successful Git branching model译文来自：一个成功的 Git 分支模型
-这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。
-
-本文中我会展示一种开发模型，一年前该模型就已经被我用">
+<meta property="og:site_name" content="阿阿燃">
+<meta property="og:description" content="原文来自：A successful Git branching model译文来自：一个成功的 Git 分支模型 这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。  本文中我会展示一种开发模型，一年前该模型就已经被我用">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-1.png">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-2.png">
 <meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-3.png">
@@ -26,103 +98,293 @@
 <meta property="og:updated_time" content="2015-08-28T12:03:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个成功的 Git 分支模型">
-<meta name="twitter:description" content="原文来自：A successful Git branching model译文来自：一个成功的 Git 分支模型
-这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。
-
-本文中我会展示一种开发模型，一年前该模型就已经被我用">
+<meta name="twitter:description" content="原文来自：A successful Git branching model译文来自：一个成功的 Git 分支模型 这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。  本文中我会展示一种开发模型，一年前该模型就已经被我用">
 <meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-1.png">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-
-  <link rel="stylesheet" href="/css/style.css">
-  
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  
-    <link rel="stylesheet" href="/scrollLoading/style.css">
-  
-  
 
 
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://linfuyan.com/a-successful-git-branching-model/"/>
+
+
+
+
+
+  <title>一个成功的 Git 分支模型 | 阿阿燃</title>
   
 
-<!--  
-    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
-    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-   -->
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+
+
 </head>
 
-<body>
-  <div id="wrap">
-    <header id="header">
-  <div id="header-outer" class="outer">
-    <div class="container">
-      <div class="container-inner">
-        <div id="header-title">
-          <h1 class="logo-wrap">
-            <a href="/" class="logo"></a>
-          </h1>
-          
-            <h2 class="subtitle-wrap">
-              <p class="subtitle">关注但不限于 Android、iOS、nodejs</p>
-            </h2>
-          
-        </div>
-        <div id="header-inner" class="nav-container">
-          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-          <div class="nav-container-inner">
-            <ul id="main-nav">
-              
-                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
-              
-                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FAQ/">FAQ</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/导航/">导航</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/">开发技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/Web前端/">Web前端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/iOS/">iOS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/nodejs/">nodejs</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/后端/">后端</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/基础理论/">基础理论</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/微信/">微信</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/开发技术/经验实践/">经验实践</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/">教程</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/深度文摘/">深度文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/">软件工具</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Gradle/">Gradle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/LAMP/">LAMP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/jenkins/">jenkins</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ngrok/">ngrok</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/ssh/">ssh</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/软件工具/tomcat/">tomcat</a></li></ul></li></ul>
-                  
-            </ul>
-            <nav id="sub-nav">
-              <div id="search-form-wrap">
-                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://linfuyan.com"></form>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阿阿燃</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-</header>
-    <div class="container">
-      <div class="main-body container-inner">
-        <div class="main-body-inner">
-          <section id="main">
-            <div class="main-body-header">
 
-              <h1 class="header"><a class="page-title-link" href="/categories/软件工具/">软件工具</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/软件工具/Git/">Git</a></h1>
-            </div>
-            <div class="main-body-content">
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/a-successful-git-branching-model/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">一个成功的 Git 分支模型</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
               
-  <article id="post-a-successful-git-branching-model" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-      <!--  -->
-      
-        <header class="article-header">
-          
-  
-    <h1 class="article-title" itemprop="name">
-      一个成功的 Git 分支模型
-    </h1>
-  
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-27T12:34:56+08:00">
+                2015-08-27
+              </time>
+            
 
-        </header>
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2015-08-28T20:03:40+08:00">
+                2015-08-28
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/" itemprop="url" rel="index">
+                    <span itemprop="name">软件工具</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-      <p class="article-byline">
-        <a href="/a-successful-git-branching-model/" class="article-date">
-  <time datetime="2015-08-27T04:34:56.000Z" itemprop="datePublished">2015-08-27</time>
-</a>
-      </p>
-      <div class="article-entry" itemprop="articleBody">
-        <p>原文来自：<a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="external">A successful Git branching model</a><br>译文来自：<a href="http://www.juvenxu.com/2010/11/28/a-successful-git-branching-model/" target="_blank" rel="external">一个成功的 Git 分支模型</a></p>
+      
+
+      
+        <p>原文来自：<a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="noopener">A successful Git branching model</a><br>译文来自：<a href="http://www.juvenxu.com/2010/11/28/a-successful-git-branching-model/" target="_blank" rel="noopener">一个成功的 Git 分支模型</a></p>
 <p>这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。</p>
 <hr>
 <p>本文中我会展示一种开发模型，一年前该模型就已经被我用在所有的项目中（包括工作中的项目和私有项目），结果是非常成功的。我早就想为此写点东西，可直到现在才有时间。本文不会讲述任何项目的细节，只会涉及到分支策略和发布管理。</p>
@@ -161,9 +423,9 @@
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-4.png" alt="一个成功的 Git 分支模型"></p>
 <p>特性分支往往只存在于开发者的仓库中，而不会出现在 origin。</p>
 <h4 id="创建一个特性分支"><a href="#创建一个特性分支" class="headerlink" title="创建一个特性分支"></a>创建一个特性分支</h4><p>开始开发新特性的时候，从 develop 分支创建特性分支。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout -<span class="selector-tag">b</span> myfeature develop</div><div class="line">Switch to <span class="selector-tag">a</span> new branch “myfeature”</div></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -<span class="selector-tag">b</span> myfeature develop</span><br><span class="line">Switch to <span class="selector-tag">a</span> new branch “myfeature”</span><br></pre></td></tr></table></figure>
 <h4 id="合并完成的特性回-develop"><a href="#合并完成的特性回-develop" class="headerlink" title="合并完成的特性回 develop"></a>合并完成的特性回 develop</h4><p>完成的特性应该被合并回 develop 分支以将特性加入到下一个发布版本中：</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">$</span> git checkout develop</div><div class="line">Switch to branch ‘develop’</div><div class="line"><span class="symbol">$</span> git merge –<span class="keyword">no</span>-ff myfeature</div><div class="line"><span class="function"><span class="title">Updating</span></span> ea1b82a.<span class="number">.05e9557</span></div><div class="line">(Summary of changes)</div><div class="line"><span class="symbol">$</span> git branch -d myfeature</div><div class="line">Deleted branch myfeature (was <span class="number">05e9557</span>).</div><div class="line"><span class="symbol">$</span> git push origin develop</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git checkout develop</span></span><br><span class="line">Switch to branch ‘develop’</span><br><span class="line"><span class="meta">$</span><span class="bash"> git merge –no-ff myfeature</span></span><br><span class="line">Updating ea1b82a..05e9557</span><br><span class="line">(Summary of changes)</span><br><span class="line"><span class="meta">$</span><span class="bash"> git branch -d myfeature</span></span><br><span class="line">Deleted branch myfeature (was 05e9557).</span><br><span class="line"><span class="meta">$</span><span class="bash"> git push origin develop</span></span><br></pre></td></tr></table></figure>
 <p>上述代码中的 –no-ff 标记会使合并永远创建一个新的 commit 对象，即使该合并能以 fast-forward 的方式进行。这么做可以避免丢失特性分支存在的历史信息，同时也能清晰的展现一组 commit 一起构成一个特性。比较下面的图：</p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-5.png" alt="一个成功的 Git 分支模型"></p>
 <p>在第2张图中，已经无法一眼从 Git 历史中看到哪些 commit 对象构成了一个特性——你需要阅读日志以获得该信息。在这种情况下，回退（revert）整个特性（一组commit）就会比较麻烦，而如果使用了 –no-diff 就会简单很多。</p>
@@ -174,361 +436,465 @@
 <p>从 develop 分支创建发布分支的时间通常是 develop 分支（差不多）能反映新版本所期望状态的时候。至少说，这是时候版本发布所计划的特性都已经合并回了 develop 分支。而未来其它版本发布计划的特性则不应该合并，它们必须等到当前的版本分支创建好之后才能合并。</p>
 <p>正是在发布分支创建的时候，对应的版本发布才获得一个版本号——不能更早。在该时刻之前， develop 分支反映的是“下一版本”的相关变更，但不知道这“下一版本”到底会成为0.3还是1.0，直到发布分支被创建。版本号是在发布分支创建时，基于项目版本号规则确定的。</p>
 <h4 id="创建一个发布分支"><a href="#创建一个发布分支" class="headerlink" title="创建一个发布分支"></a>创建一个发布分支</h4><p>发布分支从 develop 分支创建。例如，假设1.1.5是当前的产品版本，同时我们即将发布下个版本。develop 分支的状态已经是准备好“下一版本”发布了，我们也决定下个版本是1.2（而不是1.1.6或者2.0）。因此我们创建发布分支，并且为其赋予一个能体现新版本号的名称：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git checkout -<span class="keyword">b</span> releases-<span class="number">1.2</span> develop</div><div class="line">Switched <span class="keyword">to</span> <span class="keyword">a</span> <span class="keyword">new</span> branch “release-<span class="number">1.2</span>”</div><div class="line">$ ./bump-<span class="keyword">version</span>.<span class="keyword">sh</span> <span class="number">1.2</span></div><div class="line">Files modified successfully. <span class="keyword">version</span> bumped <span class="keyword">to</span> <span class="number">1.2</span>.</div><div class="line">$ git commit -<span class="keyword">a</span> -<span class="keyword">m</span> “Bumped <span class="keyword">version</span> <span class="keyword">number</span> <span class="keyword">to</span> <span class="number">1.2</span>”</div><div class="line">[release-<span class="number">1.2</span> <span class="number">74</span>d9424] Bumped <span class="keyword">version</span> <span class="keyword">number</span> <span class="keyword">to</span> <span class="number">1.2</span></div><div class="line"><span class="number">1</span> <span class="keyword">files</span> changed. <span class="number">1</span> insertions(+). <span class="number">1</span> deletions(-)</div></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -<span class="keyword">b</span> releases-<span class="number">1.2</span> develop</span><br><span class="line">Switched <span class="keyword">to</span> <span class="keyword">a</span> <span class="keyword">new</span> branch “release-<span class="number">1.2</span>”</span><br><span class="line">$ ./bump-<span class="keyword">version</span>.<span class="keyword">sh</span> <span class="number">1.2</span></span><br><span class="line">Files modified successfully. <span class="keyword">version</span> bumped <span class="keyword">to</span> <span class="number">1.2</span>.</span><br><span class="line">$ git commit -<span class="keyword">a</span> -<span class="keyword">m</span> “Bumped <span class="keyword">version</span> <span class="keyword">number</span> <span class="keyword">to</span> <span class="number">1.2</span>”</span><br><span class="line">[release-<span class="number">1.2</span> <span class="number">74</span>d9424] Bumped <span class="keyword">version</span> <span class="keyword">number</span> <span class="keyword">to</span> <span class="number">1.2</span></span><br><span class="line"><span class="number">1</span> <span class="keyword">files</span> changed. <span class="number">1</span> insertions(+). <span class="number">1</span> deletions(-)</span><br></pre></td></tr></table></figure>
 <p>创建新分支并转到该分支之后，我们设定版本号。这里的 bump-version.sh 是一个虚构的 shell 脚本，它修改一些本地工作区的文件以体现新的版本号。（当然这也可以手动完成——这里只是说要有一些文件变更）接着，提交新版本号。</p>
 <p>新的发布分支可能存在一段时间，直到该版本明确对外交付。这段时间内，该分支上可能会有一些 bug 的修复（而不是在 develop 分支上）。在该分支上添加新特性是严格禁止的。新特性必须合并到 develop 分支，然后等待下一个版本发布。</p>
 <h4 id="结束一个发布分支"><a href="#结束一个发布分支" class="headerlink" title="结束一个发布分支"></a>结束一个发布分支</h4><p>当发布分支达到一个可以正式发布的状态时，我们就需要执行一些操作。首先，将发布分支合并至 master （记住，我们之前定义 master 分支上的每一个 commit 都对应一个新版本）。接着，master 分支上的 commit 必须被打上标签（tag），以方便将来寻找历史版本。最后，发布分支上的变更需要合并回 develop，这样将来的版本也能包含相关的 bug 修复。</p>
 <p>前两步在 Git 中的操作：</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git checkout <span class="keyword">master</span></div><div class="line"><span class="title">Switched</span> to branch ‘<span class="literal">master</span>’</div><div class="line">$ git merge –no-ff release-<span class="number">1.2</span></div><div class="line">Merge made by recursive.</div><div class="line">(Summary of changes)</div><div class="line">$ git <span class="keyword">tag</span> <span class="title">-a</span> <span class="number">1.2</span></div></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout <span class="literal">master</span></span><br><span class="line">Switched to branch ‘<span class="literal">master</span>’</span><br><span class="line">$ git merge –no-ff release-<span class="number">1.2</span></span><br><span class="line">Merge made by recursive.</span><br><span class="line">(Summary of changes)</span><br><span class="line">$ git <span class="keyword">tag</span> <span class="title">-a</span> <span class="number">1.2</span></span><br></pre></td></tr></table></figure>
 <p>现在版本发布完成了，而且为未来的查阅提供了标签。</p>
 <p><strong>提醒：</strong>你可能同时也会想要用 -s 或者 -u <key> 来对标签进行签名。</key></p>
 <p>为了能保留发布分支上的变更，我们还需要将分支合并回 develop。在 Git 中：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git checkout develop</div><div class="line">Switched to branch ‘develop’</div><div class="line">$ git <span class="keyword">merge</span> –<span class="keyword">no</span>-ff <span class="keyword">release</span><span class="number">-1.2</span></div><div class="line"><span class="keyword">Merge</span> made <span class="keyword">by</span> recursive.</div><div class="line">(Summary <span class="keyword">of</span> changes)</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout develop</span><br><span class="line">Switched to branch ‘develop’</span><br><span class="line">$ git <span class="keyword">merge</span> –<span class="keyword">no</span>-ff <span class="keyword">release</span><span class="number">-1.2</span></span><br><span class="line"><span class="keyword">Merge</span> made <span class="keyword">by</span> recursive.</span><br><span class="line">(Summary <span class="keyword">of</span> changes)</span><br></pre></td></tr></table></figure>
 <p>这一操作可能会导致合并冲突（可能性还很大，因为我们改变了版本号）。如果发现，则修复之并提交。</p>
 <p>现在工作才算真正完成了，最后一步是删除发布分支，因为我们已不再需要它：</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git branch -d <span class="built_in">release</span><span class="number">-1.2</span></div><div class="line">Deleted branch <span class="built_in">release</span><span class="number">-1.2</span> (was ff452fe).</div></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d <span class="built_in">release</span><span class="number">-1.2</span></span><br><span class="line">Deleted branch <span class="built_in">release</span><span class="number">-1.2</span> (was ff452fe).</span><br></pre></td></tr></table></figure>
 <h3 id="热补丁分支"><a href="#热补丁分支" class="headerlink" title="热补丁分支"></a>热补丁分支</h3><p>可能的分支来源：master<br>必须合并回：develop 和 master<br>分支命名约定：hotfix-*</p>
 <p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-6.png" alt="一个成功的 Git 分支模型"></p>
 <p>热补丁分支和发布分支十分类似，它的目的也是发布一个新的产品版本，尽管是不在计划中的版本发布。当产品版本发现未预期的问题的时候，就需要理解着手处理，这个时候就要用到热补丁分支。当产品版本的重大 bug 需要立即解决的时候，我们从对应版本的标签创建出一个热补丁分支。</p>
 <p>使用热补丁分支的主要作用是（ develop 分支上的）团队成员可以继续工作，而另外的人可以在热补丁分支上进行快速的产品 bug 修复。</p>
 <h4 id="创建一个热补丁分支"><a href="#创建一个热补丁分支" class="headerlink" title="创建一个热补丁分支"></a>创建一个热补丁分支</h4><p>热补丁分支从 master 分支创建。例如，假设1.2是当前正在被使用的产品版本，由于一个严重的 bug，产品引起了很多问题。同时，develop 分支还处于不稳定状态，无法发布新的版本。这时我们可以创建一个热补丁分支，并在该分支上修复问题：</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b hotfix<span class="number">-1.2</span><span class="number">.1</span> master</div><div class="line">Switched to a new branch “hotfix<span class="number">-1.2</span><span class="number">.1</span>″</div><div class="line">$ ./bump-version.sh <span class="number">1.2</span><span class="number">.1</span></div><div class="line">Files modified successfully, version bumped to <span class="number">1.2</span><span class="number">.1</span>.</div><div class="line">$ git commit -a -m “Bumped version number to <span class="number">1.2</span><span class="number">.1</span>″</div><div class="line">[hotfix<span class="number">-1.2</span><span class="number">.1</span> <span class="number">41e61</span>bb] Bumped version number to <span class="number">1.2</span><span class="number">.1</span></div><div class="line"><span class="number">1</span> files <span class="section">changed</span>, <span class="number">1</span> insertions(+), <span class="number">1</span> deletions(-)</div></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b hotfix<span class="number">-1.2</span><span class="number">.1</span> master</span><br><span class="line">Switched to a new branch “hotfix<span class="number">-1.2</span><span class="number">.1</span>″</span><br><span class="line">$ ./bump-version.sh <span class="number">1.2</span><span class="number">.1</span></span><br><span class="line">Files modified successfully, version bumped to <span class="number">1.2</span><span class="number">.1</span>.</span><br><span class="line">$ git commit -a -m “Bumped version number to <span class="number">1.2</span><span class="number">.1</span>″</span><br><span class="line">[hotfix<span class="number">-1.2</span><span class="number">.1</span> <span class="number">41e61</span>bb] Bumped version number to <span class="number">1.2</span><span class="number">.1</span></span><br><span class="line"><span class="number">1</span> files <span class="section">changed</span>, <span class="number">1</span> insertions(+), <span class="number">1</span> deletions(-)</span><br></pre></td></tr></table></figure>
 <p>不要忘了在创建热补丁分之后设定一个新的版本号！</p>
 <p>然后，修复 bug 并使用一个或者多个单独的 commit 提交。</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git commit -m “Fixed severe production problem”</div><div class="line">[hotfix<span class="number">-1.2</span><span class="number">.1</span> abbe5d6] Fixed severe production problem</div><div class="line"><span class="number">5</span> files <span class="section">changed</span>, <span class="number">32</span> insertions(+), <span class="number">17</span> deletions(-)</div></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m “Fixed severe production problem”</span><br><span class="line">[hotfix<span class="number">-1.2</span><span class="number">.1</span> abbe5d6] Fixed severe production problem</span><br><span class="line"><span class="number">5</span> files <span class="section">changed</span>, <span class="number">32</span> insertions(+), <span class="number">17</span> deletions(-)</span><br></pre></td></tr></table></figure>
 <h4 id="结束一个热补丁分支"><a href="#结束一个热补丁分支" class="headerlink" title="结束一个热补丁分支"></a>结束一个热补丁分支</h4><p>修复完成后，热补丁分支需要合并回 master，但同时它还需要被合并回 develop，这样相关的修复代码才会同时被包含在下个版本中。这与我们完成发布分支很类似。</p>
 <p>首先，更新 master 分支并打上标签。</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git checkout <span class="keyword">master</span></div><div class="line"><span class="title">Switched</span> to branch ‘<span class="literal">master</span>’</div><div class="line">$ git merge –no-ff hotfix-<span class="number">1.2</span>.<span class="number">1</span></div><div class="line">Merge made by recursive.</div><div class="line">(Summary of changes)</div><div class="line">$ git <span class="keyword">tag</span> <span class="title">-a</span> <span class="number">1.2</span>.<span class="number">1</span></div></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout <span class="literal">master</span></span><br><span class="line">Switched to branch ‘<span class="literal">master</span>’</span><br><span class="line">$ git merge –no-ff hotfix-<span class="number">1.2</span>.<span class="number">1</span></span><br><span class="line">Merge made by recursive.</span><br><span class="line">(Summary of changes)</span><br><span class="line">$ git <span class="keyword">tag</span> <span class="title">-a</span> <span class="number">1.2</span>.<span class="number">1</span></span><br></pre></td></tr></table></figure>
 <p><strong>提醒：</strong>你可能同时也会想要用 -s 或者 -u <key> 来对标签进行签名。</key></p>
 <p>接着，将修复代码合并到 develop：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git checkout develop</div><div class="line">Switched to branch ‘develop’</div><div class="line">$ git <span class="keyword">merge</span> –<span class="keyword">no</span>-ff hotfix<span class="number">-1.2</span><span class="number">.1</span></div><div class="line"><span class="keyword">Merge</span> made <span class="keyword">by</span> recursive.</div><div class="line">(Summary <span class="keyword">of</span> changes)</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout develop</span><br><span class="line">Switched to branch ‘develop’</span><br><span class="line">$ git <span class="keyword">merge</span> –<span class="keyword">no</span>-ff hotfix<span class="number">-1.2</span><span class="number">.1</span></span><br><span class="line"><span class="keyword">Merge</span> made <span class="keyword">by</span> recursive.</span><br><span class="line">(Summary <span class="keyword">of</span> changes)</span><br></pre></td></tr></table></figure>
 <p>这里还有个例外情况，如果这个时候有发布分支存在，热补丁分支的变更则应该合并至发布分支，而不是 develop。将热补丁合并到发布分支，也意味着当发布分支结束的时候，变更最终会被合并到 develop。（如果 develop 上的开发工作急需热补丁并无法等待发布分支完成，这时你也已经可以安全地将热补丁合并到 develop 分支。）</p>
 <p>最后，删除临时的热补丁分支：</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git branch -d hotfix<span class="number">-1.2</span><span class="number">.1</span></div><div class="line">Deleted branch hotfix<span class="number">-1.2</span><span class="number">.1</span> (was abbe5d6).</div></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d hotfix<span class="number">-1.2</span><span class="number">.1</span></span><br><span class="line">Deleted branch hotfix<span class="number">-1.2</span><span class="number">.1</span> (was abbe5d6).</span><br></pre></td></tr></table></figure>
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>虽然这个分支模型中没有什么特别新鲜的东西，但本文起始处的“全景图”事实上在我们的项目中起到了非常大的作用。它帮助建立了优雅的，易理解的概念模型，使得团队成员能够快速建立并理解一个公用的分支和发布过程。</p>
 
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Aaron
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://linfuyan.com/a-successful-git-branching-model/" title="一个成功的 Git 分支模型">http://linfuyan.com/a-successful-git-branching-model/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
       </div>
-      <footer class="article-footer">
-        <!-- <a data-url="http://linfuyan.com/a-successful-git-branching-model/" data-id="cj6iohr1r000ayynci5c3y8uc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>  -->
-        
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分支模型/">分支模型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作流/">工作流</a></li></ul>
-
-      </footer>
-      
-  
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- linfuyan.com.article_bottom -->
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:100%;height:100px"
-         data-ad-client="ca-pub-3371913913447815"
-         data-ad-slot="5753141673"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  
-
-
-      
-        
-<nav id="article-nav">
-  
-    <a href="/lifecycle-of-an-ios-application/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <p class="article-nav-title">
-        
-          iOS App 生命周期
-        
-      </p>
-      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-  
-  
-    <a href="/the-real-value-of-programmers/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">程序员真正的价值</p>
-      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-    </a>
-  
-</nav>
-
-      
-      
-        <div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-      
-    </div>
-  </article>
-  
-
-  
-  <section id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="post-a-successful-git-branching-model" data-title="一个成功的 Git 分支模型" data-url="http://linfuyan.com/a-successful-git-branching-model/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:'linfuyan'};
-      (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-      })();
-      </script>
-    <!-- 多说公共JS代码 end -->
-  </section>
-  
-
-            </div>
-          </section>
-          <aside id="sidebar">
-  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-  <div class="sidebar-top">
-    <p>关注我 :</p>
-    <ul class="social-links">
-      
-        <li><a class="social-tooltip" title="weixin" href="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" target="_blank"><i class="icon fa fa-weixin"></i></a></li>
-      
-        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
-      
-    </ul>
-  </div>
-  <!-- 
     
-<nav id="article-nav">
-  
-    <a href="/lifecycle-of-an-ios-application/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <p class="article-nav-title">
-        
-          iOS App 生命周期
-        
-      </p>
-      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-  
-  
-    <a href="/the-real-value-of-programmers/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">程序员真正的价值</p>
-      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-    </a>
-  
-</nav>
 
-   -->
-  <div class="widgets-container">
-    
+    <footer class="post-footer">
       
-  <div class="widget-wrap">
-  	
-      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="100%" height="100%"/> 
-     
-    
-      <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Android-iOS-qq-group.png" width="100%" height="100%"/>
-    
-  </div>
-
-    
-      
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul id="recent-post" class="">
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/mindmap-laravel-start-guide/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/%e7%b2%be%e8%bf%9b%e8%84%91%e5%9b%be%e4%b9%8bLaravel%e5%85%a5%e9%97%a8%e6%8c%87%e5%8d%97.jpg
-)" alt="Laravel思维导图之Laravel入门指南" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/后端/">后端</a></p>
-              <p class="item-title"><a href="/mindmap-laravel-start-guide/" class="title">Laravel思维导图之Laravel入门指南</a></p>
-              <p class="item-date"><time datetime="2017-08-06T12:48:00.000Z" itemprop="datePublished">2017-08-06</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/mindmap-php-base/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/精进脑图之PHP基础.png
-)" alt="十五张思维导图带你快速学习PHP语言基础" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/后端/">后端</a></p>
-              <p class="item-title"><a href="/mindmap-php-base/" class="title">十五张思维导图带你快速学习PHP语言基础</a></p>
-              <p class="item-date"><time datetime="2017-08-03T12:48:00.000Z" itemprop="datePublished">2017-08-03</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/weapp-https/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/wxapp-https-debug.png
-)" alt="【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/微信/">微信</a></p>
-              <p class="item-title"><a href="/weapp-https/" class="title">【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程</a></p>
-              <p class="item-date"><time datetime="2017-05-25T06:26:00.000Z" itemprop="datePublished">2017-05-25</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/android-kotlin-get-started/" class="thumbnail">
-  
-    <span style="background-image:url(http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-new-project_2x.png
-)" alt="在 Android 上开始使用 Kotlin" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
-              <p class="item-title"><a href="/android-kotlin-get-started/" class="title">在 Android 上开始使用 Kotlin</a></p>
-              <p class="item-date"><time datetime="2017-05-18T04:00:00.000Z" itemprop="datePublished">2017-05-18</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/android-kotlin/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/开发技术/">开发技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/开发技术/Android/">Android</a></p>
-              <p class="item-title"><a href="/android-kotlin/" class="title">Kotlin 成为 Android 官方语言，看看官方怎么说？</a></p>
-              <p class="item-date"><time datetime="2017-05-18T03:21:00.000Z" itemprop="datePublished">2017-05-18</time></p>
-            </div>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget-wrap widget-list">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/导航/">导航</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/">开发技术</a><span class="category-list-count">34</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Android/">Android</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/JavaWeb/">JavaWeb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/Web前端/">Web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/iOS/">iOS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/nodejs/">nodejs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/后端/">后端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/">响应式编程</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/">rxjava</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/响应式编程/rxjava/深入浅出RxJava/">深入浅出RxJava</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/基础理论/">基础理论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/微信/">微信</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发技术/经验实践/">经验实践</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/官方-Material-Design-培训/">官方 Material Design 培训</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度文摘/">深度文摘</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/">软件工具</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/LAMP/">LAMP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/Shadowsocks/">Shadowsocks</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/jenkins/">jenkins</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ngrok/">ngrok</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/ssh/">ssh</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工具/tomcat/">tomcat</a><span class="category-list-count">1</span></li></ul></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget-wrap widget-list">
-    <h3 class="widget-title">链接</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="http://uprogrammer.cn">优程</a>
-          </li>
-        
-          <li>
-            <a href="http://hexo.io">Hexo</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-
-    
-  </div>
-</aside>
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+            <a href="/tags/工作流/" rel="tag"># 工作流</a>
+          
+            <a href="/tags/分支模型/" rel="tag"># 分支模型</a>
+          
         </div>
-      </div>
-    </div>
-    <footer id="footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/the-real-value-of-programmers/" rel="next" title="程序员真正的价值">
+                <i class="fa fa-chevron-left"></i> 程序员真正的价值
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/lifecycle-of-an-ios-application/" rel="prev" title="iOS App 生命周期">
+                iOS App 生命周期 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
   
-  <div class="container">
-    <div class="container-inner">
-      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-      <div class="credit">
-        <h1 class="logo-wrap">
-          <a href="/" class="logo"></a>
-        </h1>
-        <p>&copy; 2017 linfuyan</p>
-        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p> 
-        <p>
-        <!-- CNZZ 统计 -->
-        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
-        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256375489'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256375489%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
-        </p>
-        <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
-      </div>
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
     </div>
   </div>
-</footer>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Aaron</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">220</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/linfuyan" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么是-Git？"><span class="nav-text">为什么是 Git？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#去中心化但仍保持中心化"><span class="nav-text">去中心化但仍保持中心化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要分支"><span class="nav-text">主要分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支持性分支"><span class="nav-text">支持性分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特性分支"><span class="nav-text">特性分支</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个特性分支"><span class="nav-text">创建一个特性分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并完成的特性回-develop"><span class="nav-text">合并完成的特性回 develop</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布分支"><span class="nav-text">发布分支</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个发布分支"><span class="nav-text">创建一个发布分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结束一个发布分支"><span class="nav-text">结束一个发布分支</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#热补丁分支"><span class="nav-text">热补丁分支</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个热补丁分支"><span class="nav-text">创建一个热补丁分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结束一个热补丁分支"><span class="nav-text">结束一个热补丁分支</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-text">小结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+  <div class="footer-custom">Hosted by <a href="https://pages.coding.me" style="font-weight:bold">Coding Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1256375489&web_id=1256375489" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
-
-  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
-
-
-
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-  <script src="/scrollLoading/jquery.scrollLoading.js"></script>
-  <script src="/scrollLoading/main.js"></script>
-
-
-<script src="/js/html-patch.js"></script>
-<script src="/js/script.js"></script>
+    
 
   </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

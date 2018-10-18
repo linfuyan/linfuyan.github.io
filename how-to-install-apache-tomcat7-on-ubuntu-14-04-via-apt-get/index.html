@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="Git,Java,Linux,Apache,Tomcat,Ubuntu,14.04,JDK,Ant,Web," />
+  <meta name="keywords" content="Java,Git,Linux,Apache,Tomcat,Ubuntu,14.04,JDK,Ant,Web," />
 
 
 
@@ -84,21 +84,21 @@
 
 
 <meta name="description" content="翻译自：https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-7-on-ubuntu-14-04-via-apt-get 关于 Apache TomcatApache Tomcat 是一个服务器应用，通常用来部署 Java 应用到 Web 。 Tomcat 是 Java Servlet 与 JSP">
-<meta name="keywords" content="Git,Java,Linux,Apache,Tomcat,Ubuntu,14.04,JDK,Ant,Web">
+<meta name="keywords" content="Java,Git,Linux,Apache,Tomcat,Ubuntu,14.04,JDK,Ant,Web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何在 Ubuntu 14.04 上通过 apt-get 安装 Apache Tomcat 7">
 <meta property="og:url" content="http://linfuyan.com/how-to-install-apache-tomcat7-on-ubuntu-14-04-via-apt-get/index.html">
 <meta property="og:site_name" content="阿阿燃">
 <meta property="og:description" content="翻译自：https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-7-on-ubuntu-14-04-via-apt-get 关于 Apache TomcatApache Tomcat 是一个服务器应用，通常用来部署 Java 应用到 Web 。 Tomcat 是 Java Servlet 与 JSP">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_3.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_1.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_2.png">
-<meta property="og:updated_time" content="2015-09-26T15:46:19.000Z">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/tomcat7_ubuntu1404_3.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/tomcat7_ubuntu1404_1.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/tomcat7_ubuntu1404_2.png">
+<meta property="og:updated_time" content="2018-10-18T12:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何在 Ubuntu 14.04 上通过 apt-get 安装 Apache Tomcat 7">
 <meta name="twitter:description" content="翻译自：https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-7-on-ubuntu-14-04-via-apt-get 关于 Apache TomcatApache Tomcat 是一个服务器应用，通常用来部署 Java 应用到 Web 。 Tomcat 是 Java Servlet 与 JSP">
-<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_3.png">
+<meta name="twitter:image" content="http://img.uprogrammer.cn/static/images/tomcat7_ubuntu1404_3.png">
 
 
 
@@ -316,8 +316,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2015-09-26T23:46:19+08:00">
-                2015-09-26
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
+                2018-10-18
               </time>
             
           </span>
@@ -423,7 +423,7 @@
 <h3 id="步骤六-访问-Web-界面"><a href="#步骤六-访问-Web-界面" class="headerlink" title="步骤六 - 访问 Web 界面"></a>步骤六 - 访问 Web 界面</h3><p>现在，我们已经配置了一个管理员用户，从 Web 浏览器访问 Web 管理器页面。</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//your-ip_address:8080</span></span><br></pre></td></tr></table></figure>
 <p>你可以看到的页面如下：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_3.png" alt="image"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/tomcat7_ubuntu1404_3.png" alt="image"></p>
 <p>从上面可以看到，里面有四个链接到步骤三中安装的软件包：</p>
 <ul>
 <li>tomcat7-docs: Tomcat 的在线文档。通过 <code>http://your_ip_address:8080/docs/</code> 来访问</li>
@@ -432,10 +432,10 @@
 <li>tomcat7-admin (主机管理器): Tomcat 虚拟主机管理器。</li>
 </ul>
 <p>通过打开链接 <code>http://your_ip_address:8080/manager/html</code> ，来查看 Web 应用管理器：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_1.png" alt="image"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/tomcat7_ubuntu1404_1.png" alt="image"></p>
 <p>这个Web应用管理器使用来管理Java应用的。你可以在这里执行应用的启动，停止，重新加载，部署，下架等操作。还可以对应用做一些诊断（如内存泄露）。最后，你服务器的相关信息被显示在页面的最底部。</p>
 <p>通过打开链接 <code>http://your_ip_address:8080/host-manager/html</code> ，来查看虚拟主机管理器：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_2.png" alt="image"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/tomcat7_ubuntu1404_2.png" alt="image"></p>
 <p>在虚拟主机管理页面，你可以为应用程序添加虚拟主机。</p>
 <h3 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h3><p>Tomcat 的安装到此结束。你现在就可以免费得来部署自己的 Web 应用。</p>
 
@@ -473,9 +473,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag"># Git</a>
-          
             <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
           
             <a href="/tags/Linux/" rel="tag"># Linux</a>
           

@@ -91,14 +91,14 @@
 <meta property="og:site_name" content="阿阿燃">
 <meta property="og:description" content="本节基于Android 构建系统概览和从 Android Studio 构建并运行来展示如何基于产品口味和构建类型来使用构建变种。 构建配置基础Android Studio 项目包含一个顶级的构建文件以及每个模块下的一个构建文件。构建文件名为 build.gradle，他们是普通的文本文件，通过 Gradle 的 Android 插件提供的元素，使用 Groovy 语法来配置构建过程。大多数情况下">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-as-gradlesync.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-as-demoflavordirs.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-as-buildvariants.png">
-<meta property="og:updated_time" content="2015-08-31T07:33:07.000Z">
+<meta property="og:image" content="http://img.uprogrammer.cn/uprogrammer-as-gradlesync.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/uprogrammer-as-demoflavordirs.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/uprogrammer-as-buildvariants.png">
+<meta property="og:updated_time" content="2018-10-18T12:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="配置 Gradle 构建">
 <meta name="twitter:description" content="本节基于Android 构建系统概览和从 Android Studio 构建并运行来展示如何基于产品口味和构建类型来使用构建变种。 构建配置基础Android Studio 项目包含一个顶级的构建文件以及每个模块下的一个构建文件。构建文件名为 build.gradle，他们是普通的文本文件，通过 Gradle 的 Android 插件提供的元素，使用 Groovy 语法来配置构建过程。大多数情况下">
-<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-as-gradlesync.png">
+<meta name="twitter:image" content="http://img.uprogrammer.cn/uprogrammer-as-gradlesync.png">
 
 
 
@@ -316,8 +316,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2015-08-31T15:33:07+08:00">
-                2015-08-31
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
+                2018-10-18
               </time>
             
           </span>
@@ -404,7 +404,7 @@
 <blockquote>
 <p><strong>注意：</strong> 当你修改了项目中的构建文件， Android Studio 需要一个项目同步来导入构建配置的改变。点击出现在 Android Studio 黄色通知栏上的 <strong>Sync Now</strong> 按钮来导入这些变化。</p>
 </blockquote>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-as-gradlesync.png" alt="Sync the project in Andriod Studio"></p>
+<p><img src="http://img.uprogrammer.cn/uprogrammer-as-gradlesync.png" alt="Sync the project in Andriod Studio"></p>
 <h3 id="声明依赖"><a href="#声明依赖" class="headerlink" title="声明依赖"></a>声明依赖</h3><p>实例中的 app 模块声明了3个依赖：</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="comment">// Module dependency</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="keyword">project</span>(<span class="string">":lib"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Remote binary dependency</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:19.0.1'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Local binary dependency</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="keyword">fileTree</span>(dir: <span class="string">'libs'</span>, <span class="keyword">include</span>: [<span class="string">'*.jar'</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>每种依赖将在下面描述。构建系统添加所有的 <code>compile</code> 依赖到编译类路径中，并在最终的安装包中包含他们。</p>
@@ -463,7 +463,7 @@
 </li>
 </ol>
 <p>最终的目录结构如下图：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-as-demoflavordirs.png" alt="demo 口味的新源文件夹"> </p>
+<p><img src="http://img.uprogrammer.cn/uprogrammer-as-demoflavordirs.png" alt="demo 口味的新源文件夹"> </p>
 <h4 id="为每种口味添加新的-Activity"><a href="#为每种口味添加新的-Activity" class="headerlink" title="为每种口味添加新的 Activity"></a>为每种口味添加新的 Activity</h4><p>添加 <code>SecondActivity</code> 到 demo 口味：</p>
 <ol>
 <li>在 <code>Project</code> 面板，右击 <code>app</code> 模块并选择 <strong>New &gt; Activity</strong>。</li>
@@ -495,7 +495,7 @@
 <p><strong>注意：</strong>从现在开始，你可以在每种口味上独立的开发 <code>SecondActivity</code>。例如，你可以在 full 口味中为这个 Activity 添加更多的功能。</p>
 </blockquote>
 <p>想要在特定口味上的文件进行工作，点击 IDE 窗口左上角的 <strong>Build Variants</strong>，并在”构建变种”面板选择你想要修改的口味，如下图所示。 Android Studio 会为没有在构建变种面板上选中的口味的源文件中显示错误，但是这不影响构建输出。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-as-buildvariants.png" alt="构建变种面板"> </p>
+<p><img src="http://img.uprogrammer.cn/uprogrammer-as-buildvariants.png" alt="构建变种面板"> </p>
 <h4 id="从主-Activity-启动特定口味的-Activity"><a href="#从主-Activity-启动特定口味的-Activity" class="headerlink" title="从主 Activity 启动特定口味的 Activity"></a>从主 Activity 启动特定口味的 Activity</h4><p>由于特定口味的 Activity (<code>SecondActivity</code>)在两种口味中拥有相同的包名和 activity 名称，可以从所有口味共同的主 Activity 中启动它。修改主 Activity 如下：</p>
 <p>1、 编辑 <code>activity_main.xml</code>，并添加新的按钮到 <code>MainActivity</code>:</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">...</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/button2"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"@string/button2"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:onClick</span>=<span class="string">"onButton2Clicked"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>

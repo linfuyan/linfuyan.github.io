@@ -91,12 +91,12 @@
 <meta property="og:site_name" content="阿阿燃">
 <meta property="og:description" content="Android 构建系统是一个用来构建、测试、运行和打包应用程序的工具箱。构建系统可以作为 Android Studio 菜单中的集成工具运行，也可以独立地从命令行运行。构建系统可以用来：  对构建过程进行自定义，配置和扩展。 使用相同的项目和模块来为应用程序创建拥有不同特性的多个 APK。 跨源的集合来复用代码和资源。  Android 构建系统的灵活性使得可以在不修改应用程序核心源文件的情况下">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-build.png">
-<meta property="og:updated_time" content="2015-08-31T15:06:06.000Z">
+<meta property="og:image" content="http://img.uprogrammer.cn/uprogrammer-build.png">
+<meta property="og:updated_time" content="2018-10-18T12:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 构建系统概览">
 <meta name="twitter:description" content="Android 构建系统是一个用来构建、测试、运行和打包应用程序的工具箱。构建系统可以作为 Android Studio 菜单中的集成工具运行，也可以独立地从命令行运行。构建系统可以用来：  对构建过程进行自定义，配置和扩展。 使用相同的项目和模块来为应用程序创建拥有不同特性的多个 APK。 跨源的集合来复用代码和资源。  Android 构建系统的灵活性使得可以在不修改应用程序核心源文件的情况下">
-<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-build.png">
+<meta name="twitter:image" content="http://img.uprogrammer.cn/uprogrammer-build.png">
 
 
 
@@ -314,8 +314,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2015-08-31T23:06:06+08:00">
-                2015-08-31
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
+                2018-10-18
               </time>
             
           </span>
@@ -390,7 +390,7 @@
 <p>Android 构建系统的灵活性使得可以在不修改应用程序核心源文件的情况下实现这些目标。想要构建一个 Android Studio 项目，参见<a href="https://developer.android.com/tools/building/building-studio.html" target="_blank" rel="noopener">从 Android Studio 构建和运行</a>。想要在 Android Studio 项目中配置自定义的构建设置，参见<a href="http://www.linfuyan.com/configuring-gradle-builds" target="_blank" rel="noopener">配置 Gradle 构建</a>。</p>
 <a id="more"></a>
 <h2 id="构建进程详解"><a href="#构建进程详解" class="headerlink" title="构建进程详解"></a>构建进程详解</h2><p>整个构建过程包含有许多工具和过程产生中间文件，并最终生成一个 .apk 文件。如果你使用 Android Studio 进行开发，那么当你每次为项目或者模块运行 Gradle 构建任务时，完整的构建过程就完成了。由于许多的构建过程是可配置和扩展的，因此理解每个覆盖下发生了对于理解构建过程的灵活性是很有用的。下面的图标描述整个构建中包含的不同的工具和过程：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-build.png" alt="Android 构建工具与过程"></p>
+<p><img src="http://img.uprogrammer.cn/uprogrammer-build.png" alt="Android 构建工具与过程"></p>
 <p>一个典型构建的大概过程如下。构建系统从所有配置的产品修饰、构建类型和依赖中合并资源。如果不同文件夹包含有相同名字或设置的资源，将按照下面的优先级覆盖：依赖覆盖构建类型，构建类型覆盖产品修饰，产品修饰覆盖主源文件夹。</p>
 <ul>
 <li>Android 资源打包工具 (aapt) 处理应用程序的资源文件，例如 <code>AndroidManifest.xml</code> 文件以及 Activity 的 XML 文件等，并编译他们。最终生成 <code>R.java</code>，这样可以在 Java 代码中引用资源。</li>

@@ -91,13 +91,13 @@
 <meta property="og:site_name" content="阿阿燃">
 <meta property="og:description" content="这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。  在应用程序中要创建具备 material design 风格的复杂列表和卡片，可以使用 RecyclerView 和 CardView 组件。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/RecyclerView.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/list_mail.png">
-<meta property="og:updated_time" content="2015-11-03T09:20:03.000Z">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/RecyclerView.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/list_mail.png">
+<meta property="og:updated_time" content="2018-10-18T12:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="创建列表和卡片">
 <meta name="twitter:description" content="这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。  在应用程序中要创建具备 material design 风格的复杂列表和卡片，可以使用 RecyclerView 和 CardView 组件。">
-<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/RecyclerView.png">
+<meta name="twitter:image" content="http://img.uprogrammer.cn/static/images/RecyclerView.png">
 
 
 
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2015-11-03T17:20:03+08:00">
-                2015-11-03
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
+                2018-10-18
               </time>
             
           </span>
@@ -394,7 +394,7 @@
 <li>为公共数据项的操作定义默认动画，如删除或者新增数据项</li>
 </ul>
 <p>你可以灵活地为 RecyclerView 组件定义自定义的布局管理器和动画。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/RecyclerView.png" alt="RecyclerView 组件"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/RecyclerView.png" alt="RecyclerView 组件"></p>
 <p>使用 RecyclerView 组件时，需要制定一个适配器和布局管理器。继承 <code>RecyclerView.Adapter</code> 类来创建一个适配器。具体的实现则依赖于特定的数据集和视图的类型。更多信息，可以查看下面的实例。</p>
 <p><strong>布局管理器</strong>在 RecyclerView 中定位项的视图，并决定当项的视图对用户不可见后何时被复用。要复用(或者回收)一个视图，布局管理器会要求适配从数据集中用一个不同的元素来替换视图的内容。用这种方式来复用视图可以避免由于不必要的视图创建和执行昂贵的 <code>findViewById()</code> 操作，从而提升性能。</p>
 <p>RecyclerView 内置了下面的布局管理器：</p>
@@ -404,7 +404,7 @@
 <li>StaggeredGridLayout：在错落的网格中显示项。</li>
 </ul>
 <p>继承 RecyclerView.LayoutManager 类来创建自定义的布局管理器。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/list_mail.png" alt="Lists with RecyclerView"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/list_mail.png" alt="Lists with RecyclerView"></p>
 <h3 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h3><p>在 RecyclerView 中添加和移除项的动画是默认支持的。要自定义这些动画，继承 RecyclerView.ItemAnimator 类并使用 RecyclerView.setItemAnimator() 方法。</p>
 <h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>下面的代码实例展示如何添加 RecyclerView 到布局：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- A RecyclerView with some commonly used attributes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">android.support.v7.widget.RecyclerView</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:id</span>=<span class="string">"@+id/my_recycler_view"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:scrollbars</span>=<span class="string">"vertical"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>/&gt;</span></span><br></pre></td></tr></table></figure>

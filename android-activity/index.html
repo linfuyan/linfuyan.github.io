@@ -91,13 +91,13 @@
 <meta property="og:site_name" content="阿阿燃">
 <meta property="og:description" content="概览 Activity 是一个提供屏幕的应用程序组件，用户通过它与机器产生交互。 每个 Activity 包含一个窗口( window )，大部分情况下窗口是全屏的，也有可能窗口比屏幕小且在其他窗口的顶部。 一个应用程序由一个或者多个 Activity 组成，这些 Activity 之间是松散的组织在一起的。 每一个 Activity 可以启动其他的 Activity，不同的 Activity 可">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/activity_lifecycle.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/restore_instance.png">
-<meta property="og:updated_time" content="2015-11-09T10:13:53.000Z">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/activity_lifecycle.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/restore_instance.png">
+<meta property="og:updated_time" content="2018-10-18T12:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Activity 详解">
 <meta name="twitter:description" content="概览 Activity 是一个提供屏幕的应用程序组件，用户通过它与机器产生交互。 每个 Activity 包含一个窗口( window )，大部分情况下窗口是全屏的，也有可能窗口比屏幕小且在其他窗口的顶部。 一个应用程序由一个或者多个 Activity 组成，这些 Activity 之间是松散的组织在一起的。 每一个 Activity 可以启动其他的 Activity，不同的 Activity 可">
-<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/activity_lifecycle.png">
+<meta name="twitter:image" content="http://img.uprogrammer.cn/static/images/activity_lifecycle.png">
 
 
 
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2015-11-09T18:13:53+08:00">
-                2015-11-09
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
+                2018-10-18
               </time>
             
           </span>
@@ -509,13 +509,13 @@
 </ul>
 </li>
 </ol>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/activity_lifecycle.png" alt="Activity 生命周期"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/activity_lifecycle.png" alt="Activity 生命周期"></p>
 <h3 id="保存-Activity-状态"><a href="#保存-Activity-状态" class="headerlink" title="保存 Activity 状态"></a>保存 Activity 状态</h3><ol>
 <li>Activity 处于 paused， stopped 时依然存在内存中，所有的数据及状态都存在，因此当被恢复时依然保持退出时的状态。</li>
 <li>但处于 paused， stopped 状态的 Activity 可能会被系统杀掉，从而用户重新打开时，与当时提出时不一样了。为了保证能够还原现场，则需要实现 onSaveInstanceState() 回调方法。</li>
 <li>系统在 Activity 被销毁之前调用 onSaveInstance() ，通过将需要记住的状态通过键值对的形式保存到 Bundle 参数中。当应用程序被系统杀死，并再次被启动时，会将保存的 Bundle 传递到 onCreate() 和 onRestoreInstanceState() 。从这些方法的 Bundle 参数中，就可以获取到 Activity 被销毁前的状态，并据此恢复 Activity。</li>
 </ol>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/restore_instance.png" alt="Activity 恢复实例"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/restore_instance.png" alt="Activity 恢复实例"></p>
 <ol start="4">
 <li>onSaveInstanceState() 并不是在 Activity 被销毁之前一定会被调用。该方法在 onStop() 之前被调用，是否在 onPause() 前则不确定。</li>
 <li>即使你没有实现 onSaveInstanceState() ，在 Activity 的 onSaveInstanceState() 的默认实现中也可以恢复一些状态。由于 onSaveInstanceState() 的默认实现中保存了 UI 的状态，因此，在自己实现 onSaveInstanceState() 时，需要调用父类的 onSaveInstanceState()。</li>

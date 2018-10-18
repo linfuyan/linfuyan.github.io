@@ -6,17 +6,17 @@
     <entry>
       <title><![CDATA[Laravel思维导图之Laravel入门指南]]></title>
       <url>http://linfuyan.com/mindmap-laravel-start-guide/</url>
-      <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/%e7%b2%be%e8%bf%9b%e8%84%91%e5%9b%be%e4%b9%8bLaravel%e5%85%a5%e9%97%a8%e6%8c%87%e5%8d%97.jpg" alt="精进脑图之Laravel入门指南"></p>
+      <content type="html"><![CDATA[<p><img src="http://img.uprogrammer.cn/static/images/%e7%b2%be%e8%bf%9b%e8%84%91%e5%9b%be%e4%b9%8bLaravel%e5%85%a5%e9%97%a8%e6%8c%87%e5%8d%97.jpg" alt="精进脑图之Laravel入门指南"></p>
 <blockquote>
 <p>本系列思维导图整理自 Laravel 5.4 版本官方文档。</p>
 <p>思维导图导出为图片时会导致其变模糊。需要高清的思维导图源文件，请关注微信公众号：<strong>up2048</strong>，并回复“<strong>精进脑图</strong>”来获取。</p>
 </blockquote>
 <p>今天我们就通过 4 张思维导图来快速看 Laravel 5.4 入门指南。</p>
 <a id="more"></a>
-<h2 id="Laravel-安装"><a href="#Laravel-安装" class="headerlink" title="Laravel 安装"></a>Laravel 安装</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Laravel%e5%ae%89%e8%a3%85.png" alt="Laravel 安装"></p>
-<h2 id="Laravel-配置信息"><a href="#Laravel-配置信息" class="headerlink" title="Laravel 配置信息"></a>Laravel 配置信息</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Laravel%e9%85%8d%e7%bd%ae%e4%bf%a1%e6%81%af.png" alt="Laravel 配置信息"></p>
-<h2 id="Laravel-文件夹结构"><a href="#Laravel-文件夹结构" class="headerlink" title="Laravel 文件夹结构"></a>Laravel 文件夹结构</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Laravel%e6%96%87%e4%bb%b6%e5%a4%b9%e7%bb%93%e6%9e%84.png" alt="Laravel 结构"></p>
-<h2 id="Laravel-请求生命周期"><a href="#Laravel-请求生命周期" class="headerlink" title="Laravel 请求生命周期"></a>Laravel 请求生命周期</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Laravel%e8%af%b7%e6%b1%82%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f.png" alt="Laravel 请求生命周期"></p>
+<h2 id="Laravel-安装"><a href="#Laravel-安装" class="headerlink" title="Laravel 安装"></a>Laravel 安装</h2><p><img src="http://img.uprogrammer.cn/static/images/Laravel%e5%ae%89%e8%a3%85.png" alt="Laravel 安装"></p>
+<h2 id="Laravel-配置信息"><a href="#Laravel-配置信息" class="headerlink" title="Laravel 配置信息"></a>Laravel 配置信息</h2><p><img src="http://img.uprogrammer.cn/static/images/Laravel%e9%85%8d%e7%bd%ae%e4%bf%a1%e6%81%af.png" alt="Laravel 配置信息"></p>
+<h2 id="Laravel-文件夹结构"><a href="#Laravel-文件夹结构" class="headerlink" title="Laravel 文件夹结构"></a>Laravel 文件夹结构</h2><p><img src="http://img.uprogrammer.cn/static/images/Laravel%e6%96%87%e4%bb%b6%e5%a4%b9%e7%bb%93%e6%9e%84.png" alt="Laravel 结构"></p>
+<h2 id="Laravel-请求生命周期"><a href="#Laravel-请求生命周期" class="headerlink" title="Laravel 请求生命周期"></a>Laravel 请求生命周期</h2><p><img src="http://img.uprogrammer.cn/static/images/Laravel%e8%af%b7%e6%b1%82%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f.png" alt="Laravel 请求生命周期"></p>
 <h2 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h2><p>接下来，本人会继续对 Laravel 做比较系统的学习，会以思维导图的形式做梳理并于大家分享。这些文章都将首发在微信公众号：up2048 上。欢迎大家扫描下面的二维码，我们一起学习，分享，讨论，反思。</p>
 <p>- EOF -</p>
 <h4 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h4><ul>
@@ -48,7 +48,7 @@
     <entry>
       <title><![CDATA[十五张思维导图带你快速学习PHP语言基础]]></title>
       <url>http://linfuyan.com/mindmap-php-base/</url>
-      <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/精进脑图之PHP基础.png" alt="精进脑图之PHP基础"></p>
+      <content type="html"><![CDATA[<p><img src="http://img.uprogrammer.cn/static/images/精进脑图之PHP基础.png" alt="精进脑图之PHP基础"></p>
 <blockquote>
 <p>在打算系统的学习 Laravel 之前，我抽空看了 PHP 语言基础，并且绘制了各个部分的思维导图，以方便自己从一些图片就可以查看相关知识的全貌。</p>
 <p>这部分思维导图整理自菜鸟教程的 PHP 教程。</p>
@@ -56,21 +56,21 @@
 </blockquote>
 <p>下面我们就通过 15 张思维导图来快速学习 PHP 语言基础。</p>
 <a id="more"></a>
-<h2 id="0x00-PHP-简介"><a href="#0x00-PHP-简介" class="headerlink" title="0x00 PHP 简介"></a>0x00 PHP 简介</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP简介.png" alt="PHP简介"></p>
-<h2 id="0x01-PHP-安装"><a href="#0x01-PHP-安装" class="headerlink" title="0x01 PHP 安装"></a>0x01 PHP 安装</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP安装.png" alt="PHP安装"></p>
-<h2 id="0x02-PHP-语法"><a href="#0x02-PHP-语法" class="headerlink" title="0x02 PHP 语法"></a>0x02 PHP 语法</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP语法.png" alt="PHP语法"></p>
-<h2 id="0x03-PHP-数据类型"><a href="#0x03-PHP-数据类型" class="headerlink" title="0x03 PHP 数据类型"></a>0x03 PHP 数据类型</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP数据类型.png" alt="PHP数据类型"></p>
-<h2 id="0x04-PHP-变量"><a href="#0x04-PHP-变量" class="headerlink" title="0x04 PHP 变量"></a>0x04 PHP 变量</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP变量.png" alt="PHP变量"></p>
-<h2 id="0x05-PHP-数组"><a href="#0x05-PHP-数组" class="headerlink" title="0x05 PHP 数组"></a>0x05 PHP 数组</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP数组.png" alt="PHP数组"></p>
-<h2 id="0x06-PHP-常量"><a href="#0x06-PHP-常量" class="headerlink" title="0x06 PHP 常量"></a>0x06 PHP 常量</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP常量.png" alt="PHP常量"></p>
-<h2 id="0x07-PHP-超级全局变量"><a href="#0x07-PHP-超级全局变量" class="headerlink" title="0x07 PHP 超级全局变量"></a>0x07 PHP 超级全局变量</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP超级全局变量.png" alt="PHP超级全局变量"></p>
-<h2 id="0x08-PHP-魔术变量"><a href="#0x08-PHP-魔术变量" class="headerlink" title="0x08 PHP 魔术变量"></a>0x08 PHP 魔术变量</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP魔术变量.png" alt="PHP魔术变量"></p>
-<h2 id="0x09-PHP-运算符"><a href="#0x09-PHP-运算符" class="headerlink" title="0x09 PHP 运算符"></a>0x09 PHP 运算符</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP运算符.png" alt="PHP运算符"></p>
-<h2 id="0x0A-PHP-流程语句"><a href="#0x0A-PHP-流程语句" class="headerlink" title="0x0A PHP 流程语句"></a>0x0A PHP 流程语句</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP流程语句.png" alt="PHP流程语句"></p>
-<h2 id="0x0B-PHP-函数"><a href="#0x0B-PHP-函数" class="headerlink" title="0x0B PHP 函数"></a>0x0B PHP 函数</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP函数.png" alt="PHP函数"></p>
-<h2 id="0x0C-PHP-命名空间"><a href="#0x0C-PHP-命名空间" class="headerlink" title="0x0C PHP 命名空间"></a>0x0C PHP 命名空间</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP命名空间.png" alt="PHP命名空间"></p>
-<h2 id="0x0D-PHP-面向对象"><a href="#0x0D-PHP-面向对象" class="headerlink" title="0x0D PHP 面向对象"></a>0x0D PHP 面向对象</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP面向对象.png" alt="PHP面向对象"></p>
-<h2 id="0x0E-PHP-错误与异常"><a href="#0x0E-PHP-错误与异常" class="headerlink" title="0x0E PHP 错误与异常"></a>0x0E PHP 错误与异常</h2><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/PHP错误与异常.png" alt="PHP错误与异常"></p>
+<h2 id="0x00-PHP-简介"><a href="#0x00-PHP-简介" class="headerlink" title="0x00 PHP 简介"></a>0x00 PHP 简介</h2><p><img src="http://img.uprogrammer.cn/static/images/PHP简介.png" alt="PHP简介"></p>
+<h2 id="0x01-PHP-安装"><a href="#0x01-PHP-安装" class="headerlink" title="0x01 PHP 安装"></a>0x01 PHP 安装</h2><p><img src="http://img.uprogrammer.cn/static/images/PHP安装.png" alt="PHP安装"></p>
+<h2 id="0x02-PHP-语法"><a href="#0x02-PHP-语法" class="headerlink" title="0x02 PHP 语法"></a>0x02 PHP 语法</h2><p><img src="http://img.uprogrammer.cn/static/images/PHP语法.png" alt="PHP语法"></p>
+<h2 id="0x03-PHP-数据类型"><a href="#0x03-PHP-数据类型" class="headerlink" title="0x03 PHP 数据类型"></a>0x03 PHP 数据类型</h2><p><img src="http://img.uprogrammer.cn/static/images/PHP数据类型.png" alt="PHP数据类型"></p>
+<h2 id="0x04-PHP-变量"><a href="#0x04-PHP-变量" class="headerlink" title="0x04 PHP 变量"></a>0x04 PHP 变量</h2><p><img src="http://img.uprogrammer.cn/static/images/PHP变量.png" alt="PHP变量"></p>
+<h2 id="0x05-PHP-数组"><a href="#0x05-PHP-数组" class="headerlink" title="0x05 PHP 数组"></a>0x05 PHP 数组</h2><p><img src="http://img.uprogrammer.cn/static/images/PHP数组.png" alt="PHP数组"></p>
+<h2 id="0x06-PHP-常量"><a href="#0x06-PHP-常量" class="headerlink" title="0x06 PHP 常量"></a>0x06 PHP 常量</h2><p><img src="http://img.uprogrammer.cn/static/images/PHP常量.png" alt="PHP常量"></p>
+<h2 id="0x07-PHP-超级全局变量"><a href="#0x07-PHP-超级全局变量" class="headerlink" title="0x07 PHP 超级全局变量"></a>0x07 PHP 超级全局变量</h2><p><img src="http://img.uprogrammer.cn/static/images/PHP超级全局变量.png" alt="PHP超级全局变量"></p>
+<h2 id="0x08-PHP-魔术变量"><a href="#0x08-PHP-魔术变量" class="headerlink" title="0x08 PHP 魔术变量"></a>0x08 PHP 魔术变量</h2><p><img src="http://img.uprogrammer.cn/static/images/PHP魔术变量.png" alt="PHP魔术变量"></p>
+<h2 id="0x09-PHP-运算符"><a href="#0x09-PHP-运算符" class="headerlink" title="0x09 PHP 运算符"></a>0x09 PHP 运算符</h2><p><img src="http://img.uprogrammer.cn/static/images/PHP运算符.png" alt="PHP运算符"></p>
+<h2 id="0x0A-PHP-流程语句"><a href="#0x0A-PHP-流程语句" class="headerlink" title="0x0A PHP 流程语句"></a>0x0A PHP 流程语句</h2><p><img src="http://img.uprogrammer.cn/static/images/PHP流程语句.png" alt="PHP流程语句"></p>
+<h2 id="0x0B-PHP-函数"><a href="#0x0B-PHP-函数" class="headerlink" title="0x0B PHP 函数"></a>0x0B PHP 函数</h2><p><img src="http://img.uprogrammer.cn/static/images/PHP函数.png" alt="PHP函数"></p>
+<h2 id="0x0C-PHP-命名空间"><a href="#0x0C-PHP-命名空间" class="headerlink" title="0x0C PHP 命名空间"></a>0x0C PHP 命名空间</h2><p><img src="http://img.uprogrammer.cn/static/images/PHP命名空间.png" alt="PHP命名空间"></p>
+<h2 id="0x0D-PHP-面向对象"><a href="#0x0D-PHP-面向对象" class="headerlink" title="0x0D PHP 面向对象"></a>0x0D PHP 面向对象</h2><p><img src="http://img.uprogrammer.cn/static/images/PHP面向对象.png" alt="PHP面向对象"></p>
+<h2 id="0x0E-PHP-错误与异常"><a href="#0x0E-PHP-错误与异常" class="headerlink" title="0x0E PHP 错误与异常"></a>0x0E PHP 错误与异常</h2><p><img src="http://img.uprogrammer.cn/static/images/PHP错误与异常.png" alt="PHP错误与异常"></p>
 <h2 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h2><p>接下来，本人会对 Laravel 做比较系统的学习，会以思维导图的形式做梳理并于大家分享。这些文章都将首发在微信公众号：up2048 上。欢迎大家扫描下面的二维码，我们一起学习，分享，讨论，反思。</p>
 <h2 id="EOF"><a href="#EOF" class="headerlink" title="- EOF -"></a>- EOF -</h2>]]></content>
       
@@ -106,12 +106,12 @@
 <p>这个的原因和第一个其实是一样的，返回的图片的地址是 <code>http://</code> 开头，或者返回图片路径不对。所有无法加载出来。</p>
 <p>3. 调用 <code>wx.downloadFile/wx.uploadFile</code> 失败</p>
 <p>出现上面这些问题时，终端上的调试信息差不多是这样：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/wxapp-https-debug.png" alt="微信https问题调试"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/wxapp-https-debug.png" alt="微信https问题调试"></p>
 <h2 id="问题缘起"><a href="#问题缘起" class="headerlink" title="问题缘起"></a>问题缘起</h2><p><strong>正式上线的微信小程序仅支持 https 的请求，包括 <code>wx.request</code>, <code>wx.uploadFile</code>, <code>wx.downloadFile</code> 等 API，以及其他支持网络资源的组件，如 <code>&lt;image&gt;</code></strong>。</p>
 <p>具体可以参看相关的 API 说明。</p>
 <p>很多小伙伴儿疑惑，我的小程序接口不是 https 的呀，网上获取到的很多实例代码也都不是，为什么在微信 web 开发者工具里面都可以正常的跑起来呢？有更多的人可能在疑惑，为啥很多实例代码跑起来以后白屏或者图片不显示呢？</p>
 <p>上面提到一个限定：<strong>正式上线的微信小程序</strong>仅支持 https 请求。正式环境为了安全，那开发环境也按照正式环境的标准来要求，就会有很多的不方便了。所以在开发环境下，微信小程序是可以支持 http 请求的，这在微信 web 开发者工具中可以配置。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/wxapp-https-switch.png" alt="微信https开关"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/wxapp-https-switch.png" alt="微信https开关"></p>
 <p>如上图，勾选最后的选项，开发环境下，不需要 https 请求，也能够获取到网络请求的数据了。所以从网络上下载了实例代码的小伙伴儿，如果出现白屏或者图片不显示，检查一下请求的 url，检查一下这块的配置，再跑起来看看是不是已经可以了。</p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>确定了问题是因为没有 https 支持导致的，那接下来该怎么解决呢？</p>
 <p><strong>显然解决方案是为来自服务端的请求加上 https 支持，为 <code>wx.uploadFile</code> 等 API 的请求域名加上 https 支持。</strong></p>
@@ -131,9 +131,9 @@
 <p>针对不同的技术，有其自己特有的 https 配置方案。如果你是这种情况，根据需要查找资料吧。但一般企业应用有更通用的做法。</p>
 <p>最后部署时，一般有 nginx 或者 apache，做反向代理及负载均衡等，然后才访问到真正的服务端业务代码。</p>
 <p>举个例子：我用 Java 开发了后台服务程序，并且跑在 tomcat 上。然后正式对外时，我用 nginx 做反向代理。那么这个看起来就像下面图所示。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/server-deploy-arch.png" alt="服务端部署架构"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/server-deploy-arch.png" alt="服务端部署架构"></p>
 <p>这时，通常就是对 nginx 做支持 https 的配置，以及配置反向代理。</p>
-<h3 id="小程序后台配置"><a href="#小程序后台配置" class="headerlink" title="小程序后台配置"></a>小程序后台配置</h3><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/https-required.png" alt="小程序后台配置 https"></p>
+<h3 id="小程序后台配置"><a href="#小程序后台配置" class="headerlink" title="小程序后台配置"></a>小程序后台配置</h3><p><img src="http://img.uprogrammer.cn/static/images/https-required.png" alt="小程序后台配置 https"></p>
 <p>当服务器的 https 支持配置完成以后，需要在小程序后台中配置上合法的服务器域名。必须针对不同的 API 使用，配置对应的域名。</p>
 <h3 id="修改小程序代码，用-https-访问"><a href="#修改小程序代码，用-https-访问" class="headerlink" title="修改小程序代码，用 https 访问"></a>修改小程序代码，用 https 访问</h3><p>一切准备就绪，接下来就是修改小程序上的请求代码，用 https 访问。再将开发工具上的 https 验证的开发打开。这时候应该程序正常响应了。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上就是 https 配置导致的小程序问题，以及配置 https 支持需要的流程。每个部分都只粗略地提到，之所以没有具体说明，是因为每块都有挺多的内容可以讲。而针对小伙伴儿们不同的环境，又会有各种不同的方案。流程在这里了，每块具体内容大家自己查资料。后续我也可能针对具体内容写一些文章。欢迎到微信公众号“非典型程序员(up2048)”给我留言。</p>
@@ -174,20 +174,20 @@
 <li>在第一个屏幕，选中<strong>包含 Kotlin 支持(Include Kotlin Support)</strong>。就只有这一个唯一的区别。</li>
 <li>点击<strong>下一步(Next)</strong>并继续后面的向导直到结束。</li>
 </ol>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-new-project_2x.png" alt="kotlin-new-project"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/kotlin-new-project_2x.png" alt="kotlin-new-project"></p>
 <p>当你选择了一个 Activity 模板，它将以 Kotlin 代码提供。现在，至于一些<strong>手机和平板</strong>的模板提供了惯用的 Kotlin 代码。其他的则是从 Java 模板自动转化为 Kotlin。你仍然得到的是 Kotlin 代码，但是某些代码没有使用 Kotlin 最佳的语言特性。</p>
 <p>与 Java 文件一样，Kotlin 文件被保存在 <code>src/main/java/</code> 目录下。</p>
 <h2 id="在现有项目中添加-Kotlin"><a href="#在现有项目中添加-Kotlin" class="headerlink" title="在现有项目中添加 Kotlin"></a>在现有项目中添加 Kotlin</h2><p>如果你想要添加 Kotlin 代码到现有的项目中，简单点击<strong>文件(File) &gt; 新建(New)</strong>，并从中选择一个 Android 模板。如果你没有在菜单中看到模板列表，需要先打开<strong>项目(Project)</strong>窗口，并选择你的 App 模块。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/new-template-menu_2x.png" alt="new-template-menu"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/new-template-menu_2x.png" alt="new-template-menu"></p>
 <p>在展示的向导中，为<strong>源代码(Source Language)</strong>选择 Kotlin。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-new-activity_2x.png" alt="kotlin-new-activity"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/kotlin-new-activity_2x.png" alt="kotlin-new-activity"></p>
 <p>继续后面的向导，直到结束。</p>
 <p>此外，你可以点击<strong>文件(File) &gt; 新建(New) &gt; Kotlin文件/类(Kotlin File/Class)</strong>来创建基础文件。<strong>新建Kotlin文件/类</strong>窗口提供了不同文件类型的选择，但不用太在意你选择了那种文件。因为当你以后改变了声明方式， Kotlin 会自动切换文件类型。</p>
 <p>默认情况下，新的 Kotlin 文件会被保存在 <code>src/main/java/</code> 中。你会发现 Kotlin 和 Java 文件在一个位置。如果你更喜欢将 Kotlin 文件与 Java 文件分开，你可以把 Kotlin 文件放到 <code>src/main/kotlin/</code> 目录下。这样做，你需要修改 sourceSets 的配置来包含该目录。</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">   sourceSets &#123;</span><br><span class="line">       main<span class="selector-class">.java</span><span class="selector-class">.srcDirs</span> += <span class="string">'src/main/kotlin'</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="转换现有的-Java-代码为-Kotlin-代码"><a href="#转换现有的-Java-代码为-Kotlin-代码" class="headerlink" title="转换现有的 Java 代码为 Kotlin 代码"></a>转换现有的 Java 代码为 Kotlin 代码</h2><p>在 Android Studio 3.0 中，打开 Java 文件，并且选择<strong>代码(Code) &gt; 转换 Java 文件为 Kotlin 文件</strong>。</p>
 <p>或者创建新的 Kotlin 文件(<strong>File &gt; New &gt; Kotlin File/Class</strong>)，然后粘贴 Java 代码到该文件里，当弹出提示时，点击<strong>是</strong>来转换代码到 Kotlin。你可以选中<strong>下次不再显示该对话框</strong>来取消同样操作时的提示。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kotlin-convert_2x.png" alt="kotlin-convert"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/kotlin-convert_2x.png" alt="kotlin-convert"></p>
 <h2 id="Kotlin-如何来使用-Android-API"><a href="#Kotlin-如何来使用-Android-API" class="headerlink" title="Kotlin 如何来使用 Android API"></a>Kotlin 如何来使用 Android API</h2><p>Kotlin 提供了与 Java 语言完整的互操作性，所以调用 Android API 看起来与 Java 代码几乎一样。此外，你还可以将这些方法调用与Kotlin的语法特征相结合。</p>
 <p>下面是一些如何在 Kotlin 中调用 Android API 的例子，同时对比 Java 的相同代码。</p>
 <p><strong>在 Kotlin 中声明 Activity</strong></p>
@@ -219,9 +219,9 @@
         
         <tags>
             
-            <tag> Kotlin </tag>
-            
             <tag> Android O </tag>
+            
+            <tag> Kotlin </tag>
             
             <tag> Google IO 2017 </tag>
             
@@ -258,9 +258,9 @@
         
         <tags>
             
-            <tag> Kotlin </tag>
-            
             <tag> Android O </tag>
+            
+            <tag> Kotlin </tag>
             
             <tag> Google IO 2017 </tag>
             
@@ -293,8 +293,8 @@
 <p>由于 java 的运行离不开 jre 环境，而除了开发人员，正常用户电脑上基本没有环境。所以我们打包的时候，需要把 jre 一起打包。</p>
 <p>mac 上用 launch4j 来将 jar 打包成在 windows 上运行的 exe，还有一点需要注意，就是用于打包的 jre 必须是 windows 下的。</p>
 <p>最简单的 launch4j 配置只需两步，就可以把 jar 打包成 exe了。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jar2exe-1.png" alt="launch4j 基础配置"></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jar2exe-2.png" alt="launch4j jre 配置"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/jar2exe-1.png" alt="launch4j 基础配置"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/jar2exe-2.png" alt="launch4j jre 配置"></p>
 <p><strong>jre</strong> 要放置在最终打包的 exe 的同级目录下。这边主要是因为打包后的 exe 是通过相对路径来寻找依赖的 jre。如果配置错误，将导致后面的 exe 文件无法运行。</p>
 <p>到这里，最终打包的 exe 是可以运行了。不过 jre 包和 exe 文件是分开的。可以把这些东西，放在一个文件夹下再压缩，最后分发给用户。</p>
 <p>还可以把  jre 一起打包到 exe 中。以后有时间我在处理。</p>
@@ -337,32 +337,32 @@
 <h2 id="Mac-上给树莓派安装-Raspbian"><a href="#Mac-上给树莓派安装-Raspbian" class="headerlink" title="Mac 上给树莓派安装 Raspbian"></a>Mac 上给树莓派安装 Raspbian</h2><p>树莓派支持的系统有很多，官方推荐的是 Raspbian。</p>
 <h3 id="下载系统镜像"><a href="#下载系统镜像" class="headerlink" title="下载系统镜像"></a>下载系统镜像</h3><p>到<a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="noopener">树莓派官网</a>下载 raspbian 的镜像文件。我的是 2017-03-02-raspbian-jessie.zip，1.57 G。解压出来成 2017-03-02-raspbian-jessie.img，有 4.39 G。</p>
 <h3 id="格式化-SD-卡"><a href="#格式化-SD-卡" class="headerlink" title="格式化 SD 卡"></a>格式化 SD 卡</h3><p>使用 Mac 自带的磁盘工具，左侧选中对应的 SD 卡，点击右侧的“抹掉”标签，格式选择“MS-DOS(FAT)”，名称根据自己需要填写。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-format-sdcard.png" alt="格式化 SD 卡"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/mac-raspberry-format-sdcard.png" alt="格式化 SD 卡"></p>
 <h3 id="命令行查看挂载的卷"><a href="#命令行查看挂载的卷" class="headerlink" title="命令行查看挂载的卷"></a>命令行查看挂载的卷</h3><p>打开 Mac 终端，在命令行中输入 <code>df -h</code></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-df-h.png" alt="查看挂载的卷"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/mac-raspberry-df-h.png" alt="查看挂载的卷"></p>
 <p>在这里可以看到挂载的 SD 卡，类似 <code>/dev/disk3s1</code>。</p>
 <h3 id="卸载分区"><a href="#卸载分区" class="headerlink" title="卸载分区"></a>卸载分区</h3><p>在磁盘工具中，同样选中对应的 SD 卡，点击右侧标签上的卸载。</p>
 <p>或者使用命令行工具：</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diskutil unmount <span class="regexp">/dev/</span>disk3s1</span><br></pre></td></tr></table></figure>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-unmount.png" alt="卸载分区"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/mac-raspberry-unmount.png" alt="卸载分区"></p>
 <h3 id="确认-SD-卡设备的标识"><a href="#确认-SD-卡设备的标识" class="headerlink" title="确认 SD 卡设备的标识"></a>确认 SD 卡设备的标识</h3><p>在命令行中输入 <code>diskutil list</code></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-diskutil-list.png" alt="确认SD卡标识"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/mac-raspberry-diskutil-list.png" alt="确认SD卡标识"></p>
 <p>其中，<code>/dev/disk3</code> 就是我们要安装系统的设备。记住这个标识，非常的重要。</p>
 <h3 id="将-Raspbian-镜像写入-SD-卡"><a href="#将-Raspbian-镜像写入-SD-卡" class="headerlink" title="将 Raspbian 镜像写入 SD 卡"></a>将 Raspbian 镜像写入 SD 卡</h3><p>Mac 下使用 dd 命令来将系统镜像写入设备。</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dd <span class="attribute">bs</span>=4m <span class="attribute">if</span>=2017-03-02-raspbian-jessie.img <span class="attribute">of</span>=/dev/disk3</span><br></pre></td></tr></table></figure>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-write-img.png" alt="写入系统镜像"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/mac-raspberry-write-img.png" alt="写入系统镜像"></p>
 <p>if 后面的参数标识镜像文件路径<br>of 后面的参数则是写入设备的标识</p>
 <h3 id="卸载设备"><a href="#卸载设备" class="headerlink" title="卸载设备"></a>卸载设备</h3><p>写完以后，在通过 <code>diskutil unmountDisk</code> 命令卸载 SD 卡。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-raspberry-unmount2.png" alt="卸载设备"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/mac-raspberry-unmount2.png" alt="卸载设备"></p>
 <p>这样，安装有 Raspbian 系统的 SD 卡就准备好了。</p>
 <blockquote>
 <p>以上图示和我实际情况略有出入。是因为我直接使用了其他网友的图片。具体见后面的参考。</p>
 </blockquote>
 <h2 id="点亮树莓派，进入系统"><a href="#点亮树莓派，进入系统" class="headerlink" title="点亮树莓派，进入系统"></a>点亮树莓派，进入系统</h2><p>接下来，把 SD 卡装入树莓派，接上电源，用 HDMI 线连接电视机。打开电源开关，不出意外，一会儿电视机屏幕上就看到树莓派系统的画面了。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/raspberrypi-boot.gif" alt="树莓派开机启动"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/raspberrypi-boot.gif" alt="树莓派开机启动"></p>
 <p>之前看过的很多资料都说点亮系统以后，需要对树莓派进行各种配置。这时候系统却大大出乎我的意料了。因为系统出现树莓派欢迎画面以后，还在继续玩下进行，直到最后直接进入到桌面。这个过程我没有做任何操作。</p>
 <p>就这样，很顺利的进入了系统。后来发现新版的系统默认会用 pi/raspberry 的账户自动登录系统。这个真的很方便，对于树莓派小白来讲，门槛降低了很多。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/raspberrypi-logon.jpeg" alt="自动登录树莓派"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/raspberrypi-logon.jpeg" alt="自动登录树莓派"></p>
 <p>然而接下来，我一下子不知道还能干什么。</p>
 <ol>
 <li>毕竟没有键盘，只有鼠标，系统里面也没有软键盘，根本无法输入。</li>
@@ -381,10 +381,10 @@
 <figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br></pre></td></tr></table></figure>
 <h2 id="通过-VNC-控制树莓派桌面"><a href="#通过-VNC-控制树莓派桌面" class="headerlink" title="通过 VNC 控制树莓派桌面"></a>通过 VNC 控制树莓派桌面</h2><p>在网上看到很多篇关于远程控制树莓派桌面的文章，都是说需要安装 <code>tightvncserver</code>。其实是不需要的，新版的系统上已经内置了 vnc 服务 <code>RealVNC</code>，我们上面的设置中开启 vnc 就可以了。</p>
 <p>而 <a href="https://www.realvnc.com/download/viewer/" target="_blank" rel="noopener">RealVNC</a> 在很多平台下都有客户端，包括 Mac，iOS，Android。我在 Mac 和 iOS 里都下载了 VNC Viewer 客户端，简单配置以后，就可以对树莓派进行远程桌面控制了。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/nvc-on-mac.jpeg" alt="mac vnc 客户端"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/nvc-on-mac.jpeg" alt="mac vnc 客户端"></p>
 <div align="center">mac 上的 VNC Viewer</div>
 
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/vnc-on-ios.png" alt="ios vnc 客户端"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/vnc-on-ios.png" alt="ios vnc 客户端"></p>
 <div align="center">iOS 上的 VNC Viewer</div>
 
 <h2 id="安装-kodi，打造多媒体控制中心"><a href="#安装-kodi，打造多媒体控制中心" class="headerlink" title="安装 kodi，打造多媒体控制中心"></a>安装 kodi，打造多媒体控制中心</h2><p>网上大多数的教程都是说可以通过安装 <code>xbmc</code> 来将树莓派打造成多媒体控制中心。简单说就类似一个电视盒子。</p>
@@ -407,16 +407,16 @@
 <li>导航到 系统(System) | 设置(Setting) | 外观(Appearance) | 皮肤(Skin)</li>
 <li>修改皮肤的字体设置为 “基于 Arial(Arial based)”</li>
 </ol>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/launch-kodi.jpeg" alt="kodi启动"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/launch-kodi.jpeg" alt="kodi启动"></p>
 <h3 id="通过安装-kodi-的客户端，在手机上控制-kodi"><a href="#通过安装-kodi-的客户端，在手机上控制-kodi" class="headerlink" title="通过安装 kodi 的客户端，在手机上控制 kodi"></a>通过安装 kodi 的客户端，在手机上控制 kodi</h3><p>可以在手机上下载 kodi 客户端来实现屏幕的控制。比如 iphone 在 AppStore 上搜索 kodi 就可以了。</p>
 <p>要打开 kodi 的客户端控制，需要在 kodi 上进行配置。</p>
 <p>1. 配置 Web 服务器</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kodi-setting1.jpg" alt="配置 Web 服务器"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/kodi-setting1.jpg" alt="配置 Web 服务器"></p>
 <p>2. 开启 Zeroconf 协议</p>
 <p>同样在 kodi 客户端上进行连接服务器的配置。 </p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kodi-on-iphone.jpeg" alt="kodi客户端iphone"> <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kodi-operator-on-iphone" alt="kodi iphone遥控器"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/kodi-on-iphone.jpeg" alt="kodi客户端iphone"> <img src="http://img.uprogrammer.cn/static/images/kodi-operator-on-iphone" alt="kodi iphone遥控器"></p>
 <p>下面是用 kodi 打开搜狐视频播放影片的截屏。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/kodi-movie.jpeg" alt="kodi播放影片"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/kodi-movie.jpeg" alt="kodi播放影片"></p>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>总的来讲，今天的收获还是很大的。</p>
 <ol>
 <li>点亮系统比我想象的要简单。</li>
@@ -442,7 +442,7 @@
       <title><![CDATA[macOS Sierra 上通过 docker 安装 seafile 搭建家庭云盘]]></title>
       <url>http://linfuyan.com/macOS-Sierra-docker-seafile/</url>
       <content type="html"><![CDATA[<p>先上效果图。下图是 mac 客户端与 web 服务器的配合使用录屏。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/seafile.gif" alt="macOS-sierra-docker-seafile-demo"></p>
+<p><img src="http://img.uprogrammer.cn/seafile.gif" alt="macOS-sierra-docker-seafile-demo"></p>
 <h2 id="〇、前言"><a href="#〇、前言" class="headerlink" title="〇、前言"></a>〇、前言</h2><ol>
 <li>安装 docker 比较简单。直接从<a href="https://www.docker.com/products/docker#/mac" target="_blank" rel="noopener">官网</a>下载安装文件，双击安装就可以了。和普通的 macOS app 一样。</li>
 <li>对于 docker 操作要有基础的了解。可以参考 <a href="http://uprogrammer.cn/docker_practice/index.html" target="_blank" rel="noopener">docker 从入门到实践</a>。正常按照文中的步骤就可以顺利完成。</li>
@@ -523,7 +523,7 @@
 <p>以上，你在浏览器中输入 <code>127.0.0.1:8000</code>， 就可以看到 seafile 网站了。通过之前填写的管理员账户登录，就可以开始体验私有云的功能啦。</p>
 <h2 id="六、问题"><a href="#六、问题" class="headerlink" title="六、问题"></a>六、问题</h2><h3 id="1-客户端无法下载-上传？"><a href="#1-客户端无法下载-上传？" class="headerlink" title="1. 客户端无法下载/上传？"></a>1. 客户端无法下载/上传？</h3><p>Seafile 可以支持桌面客户端、网页版、Android、iOS 客户端。客户端上设置你的服务器地址，用网站上配置的账号，就可以使用了。如果遇到无法上传、下载文件的问题。用管理员账号，进入系统管理后台-&gt;设置中，修改 <code>SERVICE_URL</code> 和 <code>FILE_SERVER_ROOT</code>。前者用作网站访问链接，会影响到分享的文件URL；后者则影响文件同步。两者需要都能够被访问到。因此，地址是内网的，你出了局域网就访问不到了。</p>
 <h3 id="2-专业版如何获取？"><a href="#2-专业版如何获取？" class="headerlink" title="2. 专业版如何获取？"></a>2. 专业版如何获取？</h3><p>专业版的获取方法，请扫下面的二维码关注公众号，并回复 <code>seafilepro</code>。</p>
-<p><div align="center"><br>    <img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="80%"><br>    <span>关注公众号，回复 seafilepro</span></div></p>
+<p><div align="center"><br>    <img src="http://img.uprogrammer.cn/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" width="80%"><br>    <span>关注公众号，回复 seafilepro</span></div></p>
 <div>
 
 
@@ -751,17 +751,17 @@
 </blockquote>
 <h2 id="在-DigitalOcean-上配置-droplet"><a href="#在-DigitalOcean-上配置-droplet" class="headerlink" title="在 DigitalOcean 上配置 droplet"></a>在 DigitalOcean 上配置 droplet</h2><p>注册 DigitalOcean 账户就不说了。需要提醒的是，使用 DigitalOcean 需要绑定银行卡。</p>
 <p>新建 droplet 的步骤： </p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_1.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/ss_do_1.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
 <p>1. 选择系统镜像，这里选了 ubuntu 16.04</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_2.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/ss_do_2.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
 <p>2. 选择配置，这里选$5/月</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_3.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/ss_do_3.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
 <p>3. 选择机房位置，旧金山的访问速度比较快</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_4.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/ss_do_4.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
 <p>4. 添加 SSH key，用于后面远程登录的验证。具体操作可以看<a href="https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets" target="_blank" rel="noopener">官方文档</a>或者<a href="http://linfuyan.com/generating-ssh-keys/">生成SSH密钥</a>。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_5.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/ss_do_5.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
 <p>5. 这样，不到1分钟时间，就创建好了一个 droplet，带有固定IP，还可以绑定域名。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ss_do_6.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/ss_do_6.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
 <h2 id="安装并配置-Shadowsocks-服务"><a href="#安装并配置-Shadowsocks-服务" class="headerlink" title="安装并配置 Shadowsocks 服务"></a>安装并配置 Shadowsocks 服务</h2><p>在第一步中配置完 ssh key，就可以远程登录到 DigitalOcean 的 droplet 上，直接用 root 用户即可：</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssh</span> root<span class="variable">@your_droplet_ip</span></span><br></pre></td></tr></table></figure>
 <p>刚才我们的 droplet 环境是 ubuntu 16.04，通过如下命令安装 shadowsocks：</p>
@@ -892,13 +892,13 @@
 <p><strong>cheerio</strong> 是 nodejs 的抓取页面模块，为服务器特别定制的，快速、灵活、实施的 jquery 核心实现，适合各种 Web 爬虫程序。详见: <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">https://github.com/cheeriojs/cheerio</a></p>
 <p><strong>ejs</strong> 是一个 JavaScript 模板库，用来从 JSON 数据中生成 HTML 字符串。详见： <a href="https://github.com/tj/ejs" target="_blank" rel="noopener">https://github.com/tj/ejs</a></p>
 <p>下面的截图中显示，<a href="http://ss.upgrogrammer.cn" target="_blank" rel="noopener">http://ss.upgrogrammer.cn</a> 上有一个免费 shadowsocks 账号的展示区域。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/free-shadowsocks.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/free-shadowsocks.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
 <p>并且通过 chrome 的审查元素，可以看到相关的源码。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/free-shadowsocks-2.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/free-shadowsocks-2.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
 <p>那么，接下来，我们就要抓取这部分内容中的免费 shadowsocks 账号信息。</p>
 <h2 id="新建-nodejs-项目，并安装相关依赖"><a href="#新建-nodejs-项目，并安装相关依赖" class="headerlink" title="新建 nodejs 项目，并安装相关依赖"></a>新建 nodejs 项目，并安装相关依赖</h2><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> init</span><br><span class="line">...</span><br><span class="line"><span class="built_in">npm</span> install cheerio ejs --save</span><br></pre></td></tr></table></figure>
 <p>以下图片显示了通过 <code>npm init</code> 命令创建 nodejs 项目的过程：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/npm_init_project.gif" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/npm_init_project.gif" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
 <h2 id="获取-http-ss-upgrammer-cn-完整网页内容"><a href="#获取-http-ss-upgrammer-cn-完整网页内容" class="headerlink" title="获取 http://ss.upgrammer.cn 完整网页内容"></a>获取 <a href="http://ss.upgrammer.cn" target="_blank" rel="noopener">http://ss.upgrammer.cn</a> 完整网页内容</h2><p>在使用 cheerio 来抓取我们所需的内容之前，我们要通过 http 模块，将完整页面先获取到。</p>
 <figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">download</span>(<span class="params">url, callback</span>) </span>&#123;</span><br><span class="line">	http.get(<span class="built_in">url</span>, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> data = <span class="string">""</span>;</span><br><span class="line">		res.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>) </span>&#123;</span><br><span class="line">			data += chunk;</span><br><span class="line">		&#125;);</span><br><span class="line">		res.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			callback(data);</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;).on(<span class="string">"err"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(e);</span><br><span class="line">		callback(<span class="literal">null</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以上的代码片段通过 GET 方法获取对应 url 的数据，并通过 callback 传回。</p>
@@ -916,7 +916,7 @@
 <p>下面我们定义一个 <code>render</code> 函数，读取 <code>template.ejs</code> 模板文件，并根据传入的 <code>servers</code> 参数进行渲染，输出到 <code>index.html</code> 中。</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span><span class="params">(accounts)</span> </span>&#123;</span><br><span class="line">	fs.readFile(<span class="string">'./template.ejs'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e, v)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> ret = v.toString();</span><br><span class="line">        </span><br><span class="line">      <span class="keyword">var</span> options = &#123;servers: accounts&#125;</span><br><span class="line">      <span class="keyword">var</span> template = ejs.render(ret, options);</span><br><span class="line">      fs.writeFile(<span class="string">'./index.html'</span>, template, <span class="function"><span class="keyword">function</span> <span class="params">(err)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;         </span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>OK。完成上面的过程，整个程序结构如下：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/demo-cheerio-ejs-structure.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/demo-cheerio-ejs-structure.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
 <p>最后，在项目根目录中执行 <code>node index.js</code>， 正常在终端中可以看到日志输出，并生成 <code>index.html</code> 文件。通过浏览器打开 <code>index.html</code> 就可以验收成果啦。</p>
 <p>完整的源码见：<a href="https://github.com/linfuyan/demo-cheerio-ejs" target="_blank" rel="noopener">https://github.com/linfuyan/demo-cheerio-ejs</a></p>
 ]]></content>
@@ -962,7 +962,7 @@
 <p>直接上测试的代码：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">label</span> <span class="attr">id</span>=<span class="string">"counter"</span>&gt;</span>点击按钮查看变化<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"点击"</span> <span class="attr">onclick</span>=<span class="string">"update()"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  	<span class="keyword">var</span> counter = <span class="built_in">document</span>.getElementById(<span class="string">"counter"</span>);</span></span><br><span class="line"><span class="actionscript">   	<span class="keyword">var</span> i = <span class="number">0</span>;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">  	<span class="function"><span class="keyword">function</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">  		<span class="keyword">var</span> stateObject = &#123;id: i&#125;;</span></span><br><span class="line"><span class="actionscript">		<span class="keyword">var</span> title = <span class="string">"Wow Title "</span>+i;</span></span><br><span class="line"><span class="actionscript">		<span class="keyword">var</span> newUrl = <span class="string">"?count="</span>+i;</span></span><br><span class="line"><span class="undefined">		history.pushState(stateObject, title, newUrl);</span></span><br><span class="line"><span class="javascript">		counter.innerHTML = <span class="built_in">window</span>.location.href;</span></span><br><span class="line"><span class="undefined">		i++;</span></span><br><span class="line"><span class="undefined">  	&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">	<span class="built_in">window</span>.addEventListener(<span class="string">'popstate'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">	  readState(event.state);</span></span><br><span class="line"><span class="undefined">	&#125;);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">	<span class="function"><span class="keyword">function</span> <span class="title">readState</span><span class="params">(data)</span></span>&#123;</span></span><br><span class="line"><span class="undefined">	  counter.innerHTML = data.id;</span></span><br><span class="line"><span class="undefined">	&#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>直接把上面的代码保存成静态网页，然后放到 web 服务器下访问就可以了。具体画面如下：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/via_js_update_window_location_href.gif" alt="如何通过 JS 来修改浏览器地址"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/via_js_update_window_location_href.gif" alt="如何通过 JS 来修改浏览器地址"></p>
 <p>参考：</p>
 <p><a href="https://hasin.me/2013/10/16/manipulating-url-using-javascript-without-freshing-the-page/" target="_blank" rel="noopener">Manipulating browser URL using Javascript without refreshing the page</a></p>
 ]]></content>
@@ -1036,7 +1036,7 @@
       <title><![CDATA[在 IntelliJ IDEA 上创建基于 Gradle 的 SpringMVC 实例]]></title>
       <url>http://linfuyan.com/create_springmvc_project_base_on_gradle_use_intellij_idea/</url>
       <content type="html"><![CDATA[<p>注意：需要 IntelliJ IDEA 的 Ultimate 版本，用 Community 版本是不行的，因为需要支持 Web 项目。 Ultimate 版本是收费的，网上有破解。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/intellij_idea.png" alt="IntelliJ IDEA 版本"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/intellij_idea.png" alt="IntelliJ IDEA 版本"></p>
 <p>我把具体的过程录制成了视频：</p>
 <iframe frameborder="0" width="100%" height="400" src="http://v.qq.com/iframe/player.html?vid=r0188ue1mgk&tiny=0&auto=0" allowfullscreen></iframe>
 
@@ -1099,9 +1099,9 @@
             
             <tag> MySQL </tag>
             
-            <tag> HomeBrew </tag>
-            
             <tag> Mac </tag>
+            
+            <tag> HomeBrew </tag>
             
             <tag> OSX </tag>
             
@@ -1147,11 +1147,11 @@
         
         <tags>
             
-            <tag> HomeBrew </tag>
+            <tag> MongoDB </tag>
             
             <tag> Mac </tag>
             
-            <tag> MongoDB </tag>
+            <tag> HomeBrew </tag>
             
         </tags>
         
@@ -1163,7 +1163,7 @@
       <content type="html"><![CDATA[<blockquote>
 <p>著作权归作者所有。<br>商业转载请联系作者获得授权，非商业转载请注明出处。<br>作者：郑昀<br>链接：<a href="http://zhuanlan.zhihu.com/zhengyun/20270317" target="_blank" rel="noopener">http://zhuanlan.zhihu.com/zhengyun/20270317</a><br>来源：知乎</p>
 </blockquote>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/bingshanyijiao.jpg" alt="技术高手如何炼成？"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/bingshanyijiao.jpg" alt="技术高手如何炼成？"></p>
 <p>面试的时候，我会问面试者，你日常如何构建自己的知识体系，如何让自己更高更快更强？多数工程师并没有深入地思考过这个问题，基本上是零敲碎打，随机性大。本着不能让你白来一趟的精神，好为人师的我会娓娓道来：</p>
 <h2 id="第一阶段-认真构建完整的知识体系"><a href="#第一阶段-认真构建完整的知识体系" class="headerlink" title="第一阶段 认真构建完整的知识体系"></a>第一阶段 认真构建完整的知识体系</h2><p>十几年前我投身软件行业的时候，光是讲解数据库原理、操作系统、TCP/IP、组网、算法等等基础知识的英文原版书摞起来就等身，认认真真看完，各种上手实践，入行后，读遍 C++ 各种经典著作，读遍各种协议原文，认认真真打基础。很多工程师都说自己平常就是在某些 IT 门户上看看推荐的博文或新闻，我说这属于典型的零敲碎打，不够刺激。</p>
 <p>聊到这时，我会举一个例子，<strong>为什么要阅读长篇小说，因为中短篇小说就像用针扎你，而长篇小说就像把你装进一个沙袋里吊起来，从四面八方用狼牙棒打你，酣畅淋漓。</strong>构建可用的知识体系，就得读书，书是有体系结构的，你关心不关心，现阶段你用到用不到，它都讲到了，从头到尾看几遍，针扎得透透的。</p>
@@ -1292,7 +1292,7 @@
 <li>SIP消息之逐项讲解_by_zhengyun.ppt</li>
 </ol>
 <p>为什么要写出来、讲出来呢？因为有一个学习金字塔理论，如下图所示：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/xuexijinzita.png" alt="学习金字塔"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/xuexijinzita.png" alt="学习金字塔"></p>
 <p>我们读过的事情能够记住学习内容的10%，<br>我们听过的事情能够记住20%，<br>我们看过的事情能够记住30%，<br>我们听过和看过的事情能够记住50%——如看影像/看展览/看演示/现场观摩，<br>我们说过的事情能够记住70%——如参与讨论/发言，<br><strong>我们说过和做过的事情能够记住90%——如做报告，给别人讲，亲身体验，动手做。</strong></p>
 <p>这也就是我在《<a href="http://www.cnblogs.com/zhengyun_ustc/p/rightThings.html" target="_blank" rel="noopener">窝窝研发过去几年做对了哪些事</a>》中阐述的管理方法：我们从入职之后就有意识地训练大家，让大家能够公开陈述、清晰表达。所以，试用期内，新人必须做一次技术分享和一次技术评审，面对各方的 challenge；预研的中间和结尾都要有分享会；平时也要定期组织技术讲座。</p>
 <h2 id="第三阶段-疯狂回答技术问题"><a href="#第三阶段-疯狂回答技术问题" class="headerlink" title="第三阶段 疯狂回答技术问题"></a>第三阶段 疯狂回答技术问题</h2><p>知识体系慢慢构建，与业务相关的抽象 Topic 也在探索中。但这还不够。因为你亲身接触到的世界太小，可能不足以构成挑战，你可能意识不到自己缺多少知识和技能，不利于你分析问题、提出问题和解决问题的能力培养。</p>
@@ -1532,11 +1532,11 @@
             
             <tag> Android </tag>
             
+            <tag> Java </tag>
+            
             <tag> 代码 </tag>
             
             <tag> 规范 </tag>
-            
-            <tag> Java </tag>
             
             <tag> 实践 </tag>
             
@@ -1997,13 +1997,13 @@ alpha = (aLongBooleanExpression)
         
         <tags>
             
-            <tag> 指南 </tag>
+            <tag> Java </tag>
             
             <tag> 规范 </tag>
             
-            <tag> Google </tag>
+            <tag> 指南 </tag>
             
-            <tag> Java </tag>
+            <tag> Google </tag>
             
             <tag> 编码 </tag>
             
@@ -2257,13 +2257,13 @@ alpha = (aLongBooleanExpression)
         
         <tags>
             
-            <tag> iOS </tag>
-            
             <tag> 代码 </tag>
             
-            <tag> 指南 </tag>
-            
             <tag> 规范 </tag>
+            
+            <tag> iOS </tag>
+            
+            <tag> 指南 </tag>
             
             <tag> Objective-C </tag>
             
@@ -3017,17 +3017,17 @@ alpha = (aLongBooleanExpression)
             
             <tag> 编程 </tag>
             
+            <tag> 代码 </tag>
+            
+            <tag> 规范 </tag>
+            
             <tag> iOS </tag>
             
             <tag> Ojbective-C </tag>
             
-            <tag> 代码 </tag>
-            
             <tag> 风格 </tag>
             
             <tag> 指南 </tag>
-            
-            <tag> 规范 </tag>
             
             <tag> Cocoa </tag>
             
@@ -3043,16 +3043,16 @@ alpha = (aLongBooleanExpression)
 <p>Task 是用户在执行特定工作时与之交互的一系列 Activity 集合。 Activity 被排列在后退栈中，以每个 Activity 被打开的顺序排列。</p>
 <p>对于大部分 Task 而言，设备的主屏幕都是起始位置。当用户触摸应用程序启动器或者主屏幕上的快捷方式时，应用程序的 Task 进入前台。如果应用程序的 Task 不存在(即应用程序最近没有被使用)，那么新的 Task 将被创建，并且应用程序打开的主 Activity 将作为 Task 的根 Activity。</p>
 <p>当当前 Activity 启动另外的 Activity ， 新的 Activity 将被推到栈顶并获取焦点。之前的 Activity 仍然在栈中，但是被停止的。当 Activity 被停止时，系统保持了它的用户界面的当前状态。当用户按下返回按钮，当前 Activity 被从栈顶弹出，之前的 Activity 则恢复为之前 UI 所保存下来的状态。 栈中的 Activity 不会被重新排列，只能够被推入到栈中或者从栈中弹出。当被当前 Activity 启动时推入栈中，用户按下后退键时从栈中弹出。后退栈的操作遵循后进先出的原则。下图可视化的展示了随着时间推移 Activity 与后退栈中的关系。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_backstack.png" alt=""></p>
+<p><img src="http://img.uprogrammer.cn/static/images/diagram_backstack.png" alt=""></p>
 <p>如果用户继续按返回键，每个 Activity 都会从栈中被弹出来展示上一个 Activity ，直到回到主屏幕(或者回到运行 Task 开始的 Activity )。当所有的 Activity 从栈中移出， Task 就不存在了。</p>
 <p>Task 是一个相互结合的单元，当用户启动新的 Task 或者通过按下 Home 键来返回主屏幕时，原来的 Task 进入后台。一旦进入后台， Task 中的所有 Activity 被停止，但是 Task 的后退栈中是完整的，只是失去了焦点。一个 Task 可以重新回到前台以便用户打开。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_multitasking.png" alt=""></p>
+<p><img src="http://img.uprogrammer.cn/static/images/diagram_multitasking.png" alt=""></p>
 <p>假设，当前的 Task A 包含 3 个 Activity 在它的栈中，即当前 Activity 下有另外两个。用户按下 Home 键，从应用程序启动器新的应用程序。当主屏幕显示， Task A 进入后台。当新的应用程序启动，系统为新的应用程序启动了 Task B (其中包含自己 Activity 的栈)。在新的应用程序中玩了不久，用户再次回到主屏幕，并选择了先前 Task A 中启动的应用程序。这是 Task A 进入前台，堆栈中的 3 个 Activity 都是完整的，栈顶的 Activity 被恢复。这种情况下，用户可以通过返回主屏幕，再点击应用程序图标来启动。这是 Android 上多任务的一个实例。</p>
 <blockquote>
 <p>注意：多个 Task 可以同时被维持在后台。但如果用户同时运行太多的后台任务，系统会为了回收内存而销毁后台的 Activity ，这会引起 Activity 状态的丢失。</p>
 </blockquote>
 <p>由于后退栈中的 Activity 永远不会被重排，如果你的应用程序允许用户从多个 Activity 中启动一个特殊的 Activity ，那么，新的 Activity 实例将被创建并推入栈中，而不是将之前的其他 Activity 实例放到顶部。这样，应用程序中的一个 Activity 可能被实例化多次，如下图所示。当用户使用返回键导航回去时，每个 Activity 的实例将按照被打开的顺序来展示。但是，如果你不想让一个 Activity 被实例化多次，你可以修改这些行为。具体怎么做，在下一节的[管理  Task] 中介绍。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_multiple_instances.png" alt=""></p>
+<p><img src="http://img.uprogrammer.cn/static/images/diagram_multiple_instances.png" alt=""></p>
 <p>总结一下 Activity 和 Task 的默认行为：</p>
 <ol>
 <li>当 Activity A 启动 Activity B 时， Activity A 被停止，但系统保存了它的状态，包括滚动的位置和输入的文本等。如果用户在 Activity B 时按下返回键， Activity A 会返回到其原来保存的状态。</li>
@@ -3120,7 +3120,7 @@ alpha = (aLongBooleanExpression)
 <p>除了系统不再启动其他的 Activity 到持有实例的 Task 中，其他的和 “singleTask” 一样。 这个 Activity 是它的 Task 的唯一成员。任何由它打开的 Activity 在一个独立的 Task 。</p>
 <p>另外一个实例， Android 浏览器应用程序声明网页浏览器的 Activity 需要永远在自己的 Task 中打开，即在 <code>&lt;activity&gt;</code> 元素中指定 singleTask 启动模式。这意味着，如果你的应用程序要打开 Android 浏览器，它的 Activity 与你的应用程序将在不同的 Task 中。不论新的 Task 启动浏览器，或者浏览器已经有一个运行在后台的 Task， Task 将被带到前台处理新的 Intent 。</p>
 <p>不论 Activity 是在新的 Task 中启动还是在相同的 Task 中启动，返回按钮总是能让用户返回到之前的 Activity 。如果你启动了一个指定 singleTask 启动模式的 Activity ，恰好这时有个 Activity 的实例在后台 Task 中，整个 Task 将进入前台。这种情况下，后退栈中包含在 Task 中的所有 Activity 进入前台，在栈的顶部。下图展示了这个过程。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_backstack_singletask_multiactivity.png" alt=""></p>
+<p><img src="http://img.uprogrammer.cn/static/images/diagram_backstack_singletask_multiactivity.png" alt=""></p>
 <p>更多的在清单中使用启动模式的信息，可以查看 <a href=""><activity>元素</activity></a> 相关文档，这里讨论更多关于 launchMode 属性及可接受的值。</p>
 <blockquote>
 <p><strong>注意</strong>：Activity 中通过 launchMode 属性指定的行为，可以通过启动 Activity 的意图的 flag 来覆盖。 </p>
@@ -3329,13 +3329,13 @@ alpha = (aLongBooleanExpression)
 </ul>
 </li>
 </ol>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/activity_lifecycle.png" alt="Activity 生命周期"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/activity_lifecycle.png" alt="Activity 生命周期"></p>
 <h3 id="保存-Activity-状态"><a href="#保存-Activity-状态" class="headerlink" title="保存 Activity 状态"></a>保存 Activity 状态</h3><ol>
 <li>Activity 处于 paused， stopped 时依然存在内存中，所有的数据及状态都存在，因此当被恢复时依然保持退出时的状态。</li>
 <li>但处于 paused， stopped 状态的 Activity 可能会被系统杀掉，从而用户重新打开时，与当时提出时不一样了。为了保证能够还原现场，则需要实现 onSaveInstanceState() 回调方法。</li>
 <li>系统在 Activity 被销毁之前调用 onSaveInstance() ，通过将需要记住的状态通过键值对的形式保存到 Bundle 参数中。当应用程序被系统杀死，并再次被启动时，会将保存的 Bundle 传递到 onCreate() 和 onRestoreInstanceState() 。从这些方法的 Bundle 参数中，就可以获取到 Activity 被销毁前的状态，并据此恢复 Activity。</li>
 </ol>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/restore_instance.png" alt="Activity 恢复实例"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/restore_instance.png" alt="Activity 恢复实例"></p>
 <ol start="4">
 <li>onSaveInstanceState() 并不是在 Activity 被销毁之前一定会被调用。该方法在 onStop() 之前被调用，是否在 onPause() 前则不确定。</li>
 <li>即使你没有实现 onSaveInstanceState() ，在 Activity 的 onSaveInstanceState() 的默认实现中也可以恢复一些状态。由于 onSaveInstanceState() 的默认实现中保存了 UI 的状态，因此，在自己实现 onSaveInstanceState() 时，需要调用父类的 onSaveInstanceState()。</li>
@@ -3449,11 +3449,11 @@ alpha = (aLongBooleanExpression)
 <a id="more"></a>
 <p>既然如此，我们以 hueman 主题下在文章末尾配置多说评论框为例作一下说明。</p>
 <p>首先，你需要注册一个<a href="http://duoshuo.com" target="_blank" rel="noopener">多说</a>账号并新建一个站点。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/duoshuo-create-site.png" alt="多说创建站点"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/duoshuo-create-site.png" alt="多说创建站点"></p>
 <p>站点创建完成以后，会跳出代码模板的页面，如下：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/duoshuo-comment-template.png" alt="多说代码模板"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/duoshuo-comment-template.png" alt="多说代码模板"></p>
 <p>左侧选择”获取代码”的这栏，然后选中”通用代码”。这就是我们评论框的代码模板，后面我们需要找到合适的地方，将其插入到 hueman 主题中的文章模板里。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/hueman-article.png" alt="hueman 文章代码"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/hueman-article.png" alt="hueman 文章代码"></p>
 <p>在 hueman 主题中，文章的模板在 <code>hueman -&gt; layout -&gt; _partial -&gt; post -&gt; article.ejs</code>  下面。看到上图中，第一个红框圈住的部分，是主题自带的 disqus 评论框的配置。当然我们没有在<strong>项目目录</strong>下的 <code>_config.yml</code> 中配置 disqus_shortname，所以它是不生效的，在咱们的文章页面中看不到。</p>
 <figure class="highlight erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%</span></span></span><span class="ruby"> <span class="keyword">if</span> (post.comments &amp;&amp; config.disqus_shortname)&#123; </span><span class="xml"><span class="tag">%&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">section</span> <span class="attr">id</span>=<span class="string">"comments"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"disqus_thread"</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">noscript</span>&gt;</span>Please enable JavaScript to view the <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"//disqus.com/?ref_noscript"</span>&gt;</span>comments powered by Disqus.<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">noscript</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%</span></span></span><span class="ruby"> &#125; </span><span class="xml"><span class="tag">%&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p>找到上面这个文章末尾的位置，仿照上面的逻辑判断代码，把多说评论框模板代码添加进来，如上图中的第二个红框圈住的部分。</p>
@@ -3469,7 +3469,7 @@ alpha = (aLongBooleanExpression)
 <p>替换成：</p>
 <figure class="highlight erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ds-thread"</span> <span class="attr">data-thread-key</span>=<span class="string">"&lt;%=</span></span></span><span class="ruby"> post.layout </span><span class="xml"><span class="tag"><span class="string">%&gt;-&lt;%=</span></span></span><span class="ruby"> post.slug </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">data-title</span>=<span class="string">"&lt;%=</span></span></span><span class="ruby"> post.title </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">data-url</span>=<span class="string">"&lt;%=</span></span></span><span class="ruby"> page.permalink </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p>其中， <code>post.layout</code>， <code>post.slug</code>， <code>post.title</code>， <code>page.permalink</code> 都是 Hexo 的内置变量。具体可以查看<a href="https://hexo.io/zh-cn/docs/variables.html" target="_blank" rel="noopener">这里</a>。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/duoshuo-article-management.png" alt="多说文章管理"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/duoshuo-article-management.png" alt="多说文章管理"></p>
 <p>这样就为 Hexo 站点添加上多说评论框啦，如果还需要在其他的位置添加，过程类似。总结下步骤：</p>
 <ol>
 <li>注册多说账号，创建新站点。</li>
@@ -3708,7 +3708,7 @@ alpha = (aLongBooleanExpression)
 <li>changeImageTransform - 动画改变图片的尺寸和缩放。</li>
 </ul>
 <p>如果应用程序中开启了活动转场效果，进入或退出活动时默认的 cross-fading 转场效果将被激活。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/SceneTransition.png" alt="带有共享元素的转场效果"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/SceneTransition.png" alt="带有共享元素的转场效果"></p>
 <h3 id="指定自定义转场效果"><a href="#指定自定义转场效果" class="headerlink" title="指定自定义转场效果"></a>指定自定义转场效果</h3><p>首先，定义一个风格继承自 material 主题，并设置 <code>android:windowContentTransitions</code> 属性来开启窗口内容转场。你也可以在风格定义中指定进场，退场和共享元素转场效果。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"BaseAppTheme"</span> <span class="attr">parent</span>=<span class="string">"android:Theme.Material"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml"> <span class="comment">&lt;!-- 开启窗口内容转场 --&gt;</span></span></span><br><span class="line"><span class="xml"> <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowContentTransitions"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="xml"> <span class="comment">&lt;!-- 指定进场/退场效果 --&gt;</span></span></span><br><span class="line"><span class="xml"> <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowEnterTransition"</span>&gt;</span>@transition/explode<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml"> <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowExitTransition"</span>&gt;</span>@transition/explode<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="xml"> <span class="comment">&lt;!-- 指定共享元素转场 --&gt;</span></span></span><br><span class="line"><span class="xml"> <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowSharedElementEnterTransition"</span>&gt;</span></span></span><br><span class="line"><span class="css">   @<span class="keyword">transition</span>/<span class="keyword">change_image_transform</span>&lt;/<span class="keyword">item</span>&gt;</span></span><br><span class="line"><span class="xml"> <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowSharedElementExitTransition"</span>&gt;</span></span></span><br><span class="line"><span class="css">   @<span class="keyword">transition</span>/<span class="keyword">change_image_transform</span>&lt;/<span class="keyword">item</span>&gt;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>这个例子中 <code>change_image_transform</code> 转场效果定义如下：</p>
@@ -3879,7 +3879,7 @@ alpha = (aLongBooleanExpression)
 <blockquote>
 <p>Z = elevation + translationZ</p>
 </blockquote>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/shadows-depth.png" alt="不同视图海拔的阴影"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/shadows-depth.png" alt="不同视图海拔的阴影"></p>
 <p>在布局定义中设置视图的海拔，使用 <code>android:elevation</code> 属性。在活动的代码中设置视图的海拔，使用 View.setElevation() 方法。</p>
 <p>设置视图的变换使用 View.setTranslationZ() 方法。</p>
 <p>新的 ViewPropertyAnimator.z() 和 ViewPropertyAnimator.translationZ() 方法使得视图海拔的动画变得简单。更多信息可以查看开发者指南中的 ViewPropertyAnimator 和 Property Animation。</p>
@@ -3945,7 +3945,7 @@ alpha = (aLongBooleanExpression)
 <li>为公共数据项的操作定义默认动画，如删除或者新增数据项</li>
 </ul>
 <p>你可以灵活地为 RecyclerView 组件定义自定义的布局管理器和动画。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/RecyclerView.png" alt="RecyclerView 组件"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/RecyclerView.png" alt="RecyclerView 组件"></p>
 <p>使用 RecyclerView 组件时，需要制定一个适配器和布局管理器。继承 <code>RecyclerView.Adapter</code> 类来创建一个适配器。具体的实现则依赖于特定的数据集和视图的类型。更多信息，可以查看下面的实例。</p>
 <p><strong>布局管理器</strong>在 RecyclerView 中定位项的视图，并决定当项的视图对用户不可见后何时被复用。要复用(或者回收)一个视图，布局管理器会要求适配从数据集中用一个不同的元素来替换视图的内容。用这种方式来复用视图可以避免由于不必要的视图创建和执行昂贵的 <code>findViewById()</code> 操作，从而提升性能。</p>
 <p>RecyclerView 内置了下面的布局管理器：</p>
@@ -3955,7 +3955,7 @@ alpha = (aLongBooleanExpression)
 <li>StaggeredGridLayout：在错落的网格中显示项。</li>
 </ul>
 <p>继承 RecyclerView.LayoutManager 类来创建自定义的布局管理器。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/list_mail.png" alt="Lists with RecyclerView"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/list_mail.png" alt="Lists with RecyclerView"></p>
 <h3 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h3><p>在 RecyclerView 中添加和移除项的动画是默认支持的。要自定义这些动画，继承 RecyclerView.ItemAnimator 类并使用 RecyclerView.setItemAnimator() 方法。</p>
 <h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>下面的代码实例展示如何添加 RecyclerView 到布局：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- A RecyclerView with some commonly used attributes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">android.support.v7.widget.RecyclerView</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:id</span>=<span class="string">"@+id/my_recycler_view"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:scrollbars</span>=<span class="string">"vertical"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
@@ -4016,7 +4016,7 @@ alpha = (aLongBooleanExpression)
 </ul>
 <a id="more"></a>
 <p>使用调色板，你可以根据自己的品牌标识来自定义 material 主题的外观。可以通过主题属性来为状态栏和 action bar 着色，如下图所示。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/ThemeColors.png" alt="自定义 material 主题"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/ThemeColors.png" alt="自定义 material 主题"></p>
 <p>系统组件拥有新的设计以及触摸反馈动画。你可以自定义应用程序的调色板，触摸反馈动画以及活动转场效果。</p>
 <p>Material 主题定义如下：</p>
 <ul>
@@ -4025,8 +4025,8 @@ alpha = (aLongBooleanExpression)
 <li><code>@android:style/Theme.Material.Light.DarkActionBar</code></li>
 </ul>
 <p>可使用的 material 风格列表，可以查看 R.style 的 API 引用。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/MaterialDark.png" alt="图1 深色 material 主题"></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/MaterialLight.png" alt="图2 浅色 material 主题"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/MaterialDark.png" alt="图1 深色 material 主题"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/MaterialLight.png" alt="图2 浅色 material 主题"></p>
 <blockquote>
 <p><strong>注意：</strong> Material 主题仅仅在 Android 5.0 (API 21) 及以上系统版本可用。 <a href="https://developer.android.com/tools/support-library/features.html#v7" target="_blank" rel="noopener">Support V7 兼容包</a> 为一些组件提供了具备 material 设计风格的主题，以及自定义调色板的支持。更多信息，可以查看<a href="http://www.linfuyan.com/material-design-training/maintaining-compatibility/" target="_blank" rel="noopener">保持兼容性</a>。</p>
 </blockquote>
@@ -4238,7 +4238,7 @@ alpha = (aLongBooleanExpression)
       <url>http://linfuyan.com/git-cmd-user-guide/</url>
       <content type="html"><![CDATA[<p>下面整理一下自己在开发过程中经常使用到的 Git 命令。使用 GUI 工具的同学，也可以对照起来看看。</p>
 <a id="more"></a>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/%e5%b8%b8%e7%94%a8Git%e5%91%bd%e4%bb%a4%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b.png" alt="常用 Git 命令使用教程"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/%e5%b8%b8%e7%94%a8Git%e5%91%bd%e4%bb%a4%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b.png" alt="常用 Git 命令使用教程"></p>
 <h2 id="Git-配置"><a href="#Git-配置" class="headerlink" title="Git 配置"></a>Git 配置</h2><p>1. 在安装完成 Git 后，开始正式使用前，是需要有一些全局设置的，如用户名、邮箱。</p>
 <p>设置的主要命令是 <code>git config</code>:</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user<span class="selector-class">.name</span> <span class="string">"your name"</span>  	<span class="comment">// 设置全局用户名</span></span><br><span class="line">git config --global user<span class="selector-class">.email</span> <span class="string">"your email"</span>	<span class="comment">// 设置邮箱</span></span><br></pre></td></tr></table></figure>
@@ -4247,60 +4247,60 @@ alpha = (aLongBooleanExpression)
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> color.ui <span class="literal">true</span>		<span class="comment">// 让 Git 显示不同的颜色</span></span><br><span class="line">git config core.ignorecase <span class="literal">true</span>			<span class="comment">// 让 Git 对仓库中的文件大小写敏感</span></span><br></pre></td></tr></table></figure>
 <p>3. 查看所有的已经做出的配置：</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>-l</span><br></pre></td></tr></table></figure>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-config.gif" alt="git config"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/git-config.gif" alt="git config"></p>
 <h2 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h2><h3 id="创建-Git-版本库"><a href="#创建-Git-版本库" class="headerlink" title="创建 Git 版本库"></a>创建 Git 版本库</h3><p>在本地创建 Git 版本库，需要使用 <code>git init</code> 命令。</p>
 <p>首先，你需要新建一个存放版本库的目录，然后进入到该目录所在路径，然后执行：</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git init</span></span><br></pre></td></tr></table></figure>
 <p>然后查看目录结构中，就可以看到包含有 <code>.git</code> 子目录，这就说明创建版本库成功了。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-init.gif" alt="git init"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/git-init.gif" alt="git init"></p>
 <h3 id="将文件添加到版本库"><a href="#将文件添加到版本库" class="headerlink" title="将文件添加到版本库"></a>将文件添加到版本库</h3><p>要将一个文件纳入到版本库管理，首先要将其添加到暂存区(这里不做深入介绍)，然后才能提交到仓库中。</p>
 <p>1. 将文件添加到暂存区，使用的是 <code>git add</code>：</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span><span class="bash"> Readme.md		// 添加单个文件到暂存区</span></span><br><span class="line"><span class="bash">git add .				// 将当前目录下所有修改添加到暂存区，除按照规则忽略的之外</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注意：这边空文件夹是不会被添加到暂存区中的。</p>
 </blockquote>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-add.gif" alt="git add"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/git-add.gif" alt="git add"></p>
 <p>2. 将暂存区中的文件，提交到仓库中。需要使用 <code>git commit</code>：</p>
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit		<span class="comment">// 如果暂存区有文件，则将其中的文件提交到仓库</span></span><br><span class="line">git commit -m 'your comments' 		<span class="comment">// 带评论提交，用于说明提交内容、变更、作用等</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注意：这边直接用 <code>git commit</code> 提交，会先弹出添加评论的页面。</p>
 </blockquote>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-commit.gif" alt="git commit"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/git-commit.gif" alt="git commit"></p>
 <h3 id="查看仓库的状态"><a href="#查看仓库的状态" class="headerlink" title="查看仓库的状态"></a>查看仓库的状态</h3><p>不论我们是新建了文件，将文件加入暂存区，或者其他的修改等等，我们都可以通过：</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git status</span></span><br></pre></td></tr></table></figure>
 <p>来随时查看仓库中文件的状态。这个应该是使用 Git 做版本控制过程中，我使用最多的一个命令。</p>
 <h3 id="查看仓库中的具体修改"><a href="#查看仓库中的具体修改" class="headerlink" title="查看仓库中的具体修改"></a>查看仓库中的具体修改</h3><p>很经常的，我们对某个文件做了修改，但过不久就忘记了。这时候就可以通过 <code>git diff</code> 来查看具体的修改内容。</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git diff	<span class="comment">// 查看版本库中所有的改动</span></span><br><span class="line">git diff Readme<span class="selector-class">.md</span>		<span class="comment">// 查看具体文件的改动</span></span><br></pre></td></tr></table></figure>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-diff.gif" alt="git diff"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/git-diff.gif" alt="git diff"></p>
 <h3 id="查看提交历史记录"><a href="#查看提交历史记录" class="headerlink" title="查看提交历史记录"></a>查看提交历史记录</h3><p>有的时候，你会需要查看自己做过哪些提交，来回顾自己完成的部分。或者需要寻找某个具体的提交来查看当时的代码。这里需要用到：</p>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> <span class="comment">	// 显示所有提交的历史记录</span></span><br><span class="line">git <span class="built_in">log</span> <span class="comment">--pretty=oneline	// 单行显示提交历史记录的内容</span></span><br></pre></td></tr></table></figure>
 <p>在 <code>git log</code> 的输出内容中，可以看到每次提交的 ID，是一个 40 位的字符串。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-log.gif" alt="git log"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/git-log.gif" alt="git log"></p>
 <h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><p>有了 <code>git log</code> 来查看提交的历史记录，我们就可以通过 <code>git reset --hard</code> 来回退到我们需要的特定版本，然后使用当时的代码进行各种操作。</p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset <span class="params">--hard</span> HEAD^		<span class="string">//</span> 回退到上一个提交版本</span><br><span class="line">git reset <span class="params">--hard</span> HEAD^^		<span class="string">//</span> 回退到上上一个提交版本</span><br><span class="line">git reset <span class="params">--hard</span> 'commit_id'	<span class="string">//</span> 会退到 commit_id 指定的提交版本</span><br></pre></td></tr></table></figure>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-reset-1.gif" alt="git reset --hard"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/git-reset-1.gif" alt="git reset --hard"></p>
 <h3 id="回到未来的某个提交"><a href="#回到未来的某个提交" class="headerlink" title="回到未来的某个提交"></a>回到未来的某个提交</h3><p>当退回到某个提交的版本以后，再通过 <code>git log</code> 是无法显示在这之后的提交信息的。但是，通过 <code>git reflog</code> 可以获取到操作命令的历史。</p>
 <p>因此，想要回到未来的某个提交，先通过 <code>git reflog</code> 从历史命令中找到想要回到的提交版本的 ID，然后通过 <code>git reset --hard</code> 来切换。</p>
 <figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">git </span><span class="string">reflog</span></span><br><span class="line"><span class="string">git </span><span class="string">reset </span><span class="built_in">--hard</span> <span class="string">'commit_id'</span></span><br></pre></td></tr></table></figure>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-reflog.gif" alt="git reflog"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/git-reflog.gif" alt="git reflog"></p>
 <h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><p>撤销修改同样包括两方面的内容，由于仓库中的文件在提交之前，可能在工作区中，尚未在版本控制范围内，也可能在暂存区中。</p>
 <p>1. 丢弃工作区中文件的修改</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- Readme<span class="selector-class">.md</span>	<span class="comment">// 如果 Readme.md 文件在工作区，则丢弃其修改</span></span><br><span class="line">git checkout -- .			<span class="comment">// 丢弃当前目录下所有工作区中文件的修改</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注意： <code>git checkout --</code> 中的 <code>--</code> 是必须的。</p>
 </blockquote>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-checkout-1.gif" alt="git checkout --"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/git-checkout-1.gif" alt="git checkout --"></p>
 <p>2. 丢弃已经进入暂存区的修改</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span> Readme.md 	// 将 Readme.md 恢复到 <span class="keyword">HEAD</span> 提交版本的状态</span><br></pre></td></tr></table></figure>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-reset-head.gif" alt="git reset HEAD"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/git-reset-head.gif" alt="git reset HEAD"></p>
 <h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p>在文件未添加到暂存区之前，对想删除文件可以直接物理删除。或者通过 <code>git checkout -- file</code> 来丢弃。如果文件已经被提交，则需要 <code>git rm</code> 来删除：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm Readme<span class="selector-class">.md</span> 	<span class="comment">// 删除已经被提交过的 Readme.md</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注意： <code>git rm</code> 只能删除已经提交到版本库中的文件。其他状态的文件直接用这个命令操作是出错的。</p>
 </blockquote>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/git-rm.gif" alt="git rm"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/git-rm.gif" alt="git rm"></p>
 <p><strong><code>git rm</code> 与 先 rm 然后 <code>git add</code> 的区别</strong></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/rm-and-git-add.gif" alt="rm and git add"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/rm-and-git-add.gif" alt="rm and git add"></p>
 <p>更详细的可以参考：<a href="http://yang3wei.github.io/blog/2013/02/03/git-rm-he-rm-de-qu-bie/" target="_blank" rel="noopener">“git rm” 和 “rm” 的区别</a></p>
 <blockquote>
 <p>注意：上图中的结果是在 git 1.9.1 版本上的操作。在 git 2.0 以上两者没有区别了。</p>
@@ -4410,7 +4410,7 @@ alpha = (aLongBooleanExpression)
     <entry>
       <title><![CDATA[不懂技术的人不要对懂技术的人说这很容易实现]]></title>
       <url>http://linfuyan.com/im-sure-it-will-only-take-you-a-few-days-to-code/</url>
-      <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/non-technical-people-cant-estimate-developmen.jpg" alt=""></p>
+      <content type="html"><![CDATA[<p><img src="http://img.uprogrammer.cn/static/images/non-technical-people-cant-estimate-developmen.jpg" alt=""></p>
 <p>“这个网站相当简单，所有你需要做的就是完成 X，Y，Z。你看起来应该是技术很好，所以，我相信，你不需要花费太多时间就能把它搭建起来。”</p>
 <p>我时不时的就会收到这样的 Email 。写这些邮件的人几乎都是跟技术不沾边的人，或正在研究他们的第一个产品。起初，当听到人们这样的话，我总是十分的恼怒。他们在跟谁辩论软件开发所需要的时间？但后来我意识到，即使我自己对自己的项目预测要花去多少开发时间,我也是一筹莫展。如果连我自己都做不好，我何必对那些人恼怒呢？</p>
 <a id="more"></a>
@@ -4530,7 +4530,7 @@ alpha = (aLongBooleanExpression)
 <li><p>如果矩形位置不在有效，并且这是需要刷新的唯一元素，则调用 invalidateContentRect() 方法。</p>
 </li>
 </ol>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/text-selection.gif" alt="文本选择"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/text-selection.gif" alt="文本选择"></p>
 <p>如果你在使用 Android 22.2 修订版的兼容包，悬浮工具栏不是向后兼容的，且使用默认的 ActionMode 对象。这导致悬浮工具栏无法显示。在 AppCompatActivity 中启用 ActionMode，首先调用 getDelegate() ，然后在返回的 AppCompatDelegate 对象中调用 setHandleNativeActionModesEnabled()，并设置输入参数为 <code>false</code>。这个调用为框架返回可控的 ActionMode 对象。在运行 Android 6.0 (API 级别 23) 的设备上，这允许框架支持 ActionBar 或悬浮工具栏模式。在 Android 5.1 (API 级别 22) 或更低版本，只有 ActionBar 是支持的。</p>
 <h2 id="浏览器书签变更"><a href="#浏览器书签变更" class="headerlink" title="浏览器书签变更"></a>浏览器书签变更</h2><p>这个版本移除了对全局书签的支持。 <code>android.provider.Browser.getAllBookmark()</code> 和 <code>android.provider.Browser.saveBookmark()</code> 方法被移除。同样的， <code>READ_HISTORY_BOOKMARKS</code> 和 <code>WRITE_HISTORY_BOOKMARKS</code> 权限被移除。如果你的应用程序的目标运行版本为 Android 6.0 (API 级别 23) 或者更高，不要从全局提供者访问书签或者使用书签权限。现在，你的应用程序需要内部保存书签数据。</p>
 <h2 id="Android-Keystore-变更"><a href="#Android-Keystore-变更" class="headerlink" title="Android Keystore 变更"></a>Android Keystore 变更</h2><p>在这个版本中， <a href="https://developer.android.com/training/articles/keystore.html" target="_blank" rel="noopener">Android Keystore 提供器</a> 不在支持 DSA。 ECDSA 则仍然被支持。</p>
@@ -4645,15 +4645,15 @@ alpha = (aLongBooleanExpression)
       <title><![CDATA[iOS 配置 scheme 及 configuration]]></title>
       <url>http://linfuyan.com/iOS-scheme-and-configuration-setting/</url>
       <content type="html"><![CDATA[<h4 id="新建共享-scheme"><a href="#新建共享-scheme" class="headerlink" title="新建共享 scheme"></a>新建共享 scheme</h4><p>Xcode -&gt; Manage schemes…</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/scheme-manage-1.png" alt=""></p>
+<p><img src="http://img.uprogrammer.cn/static/images/scheme-manage-1.png" alt=""></p>
 <p>点击左下角的 + 来添加新的 scheme。添加成功以后，勾选新的 scheme 后面的 Shared 将scheme 设置为共享，这样在版本控制系统中可以包含这个项目设置。参与协作的人获得这份代码，就可以共享这个 scheme。</p>
-<h4 id="新建-Configuration"><a href="#新建-Configuration" class="headerlink" title="新建 Configuration"></a>新建 Configuration</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/scheme-manage-2.png" alt=""></p>
+<h4 id="新建-Configuration"><a href="#新建-Configuration" class="headerlink" title="新建 Configuration"></a>新建 Configuration</h4><p><img src="http://img.uprogrammer.cn/static/images/scheme-manage-2.png" alt=""></p>
 <ol>
 <li>打开项目 Project 的 info 标签。</li>
 <li>点击2中的 <code>+</code>，选择 <code>Duplicate &quot;Release&quot; Configuraton</code>。</li>
 <li>修改新建的 Configuration 的名称，本文中为 InHouse。</li>
 </ol>
-<h4 id="设置-Configuration-对应的签名及-Profile"><a href="#设置-Configuration-对应的签名及-Profile" class="headerlink" title="设置 Configuration 对应的签名及 Profile"></a>设置 Configuration 对应的签名及 Profile</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/scheme-manage-3.png" alt=""></p>
+<h4 id="设置-Configuration-对应的签名及-Profile"><a href="#设置-Configuration-对应的签名及-Profile" class="headerlink" title="设置 Configuration 对应的签名及 Profile"></a>设置 Configuration 对应的签名及 Profile</h4><p><img src="http://img.uprogrammer.cn/static/images/scheme-manage-3.png" alt=""></p>
 <ol>
 <li>打开项目中 Target 的 Build Setting 标签。</li>
 <li>在 Code Signing 栏目中设置对应的签名和 Profile，其中2和3是 Jenkins 打包中需要用到的，设置为正式签名及企业账号导出的 Profile。</li>
@@ -4699,15 +4699,15 @@ alpha = (aLongBooleanExpression)
 <p>这些其实都不是新东西。这些在 underscore.js，ECMAScript 5.1， LINQ，Guava 等当中都是司空见惯的东西。它来自函数式编程范式。</p>
 <a id="more"></a>
 <p>现在来考虑包含鼠标位置信息的点击事件。如果你把这些事件画在一条时间轴上，则看起来像这样：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/2_minute_rx_1.png" alt="click event with cursor position data on a timeline"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/2_minute_rx_1.png" alt="click event with cursor position data on a timeline"></p>
 <p>这是个事件流( <em>stream</em> of <em>event</em> )，或者叫” <strong>Observable</strong> “。</p>
 <p>这些点击事件来自于鼠标，因此整个事件流是不可变的，这种情况下，当它被定义，你无法从中添加或者删除。</p>
 <p>但是，如果我们仅仅对 <code>x &lt; 250</code> 的点击事件感兴趣呢？我们能否通过过滤来建立一个新的流，就像我们之前对数组所做的那样呢？</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/2_minute_rx_1.png" alt="click event with cursor position data on a timeline"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/2_minute_rx_1.png" alt="click event with cursor position data on a timeline"></p>
 <blockquote>
 <p>filter((event) -&gt; event.x &lt; 250)</p>
 </blockquote>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/2_minute_rx_2.png" alt="click event after filter"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/2_minute_rx_2.png" alt="click event after filter"></p>
 <p>既然这样，不可变数组与 <strong>Obserable</strong> 有什么不同呢？不仅仅这样，你可以应用 map、 filter、 reduce 等操作到这两者上。对于 <strong>Obserable</strong> ，你还可以应用这些操作： <code>merge</code>,  <code>delay</code>,  <code>concat</code>,  <code>buffer</code>,  <code>distinct</code>,  <code>first</code>,  <code>last</code>,  <code>zip</code>,  <code>startWith</code>,  <code>window</code>,  <code>takeUntil</code>,  <code>skip</code>,  <code>scan</code>,  <code>sample</code>,  <code>amb</code>,  <code>join</code>,  <code>flatMap</code> 等。</p>
 <p><strong>把它想象成异步的不可变数组。</strong></p>
 <p>在 underscore.js 中 Rx 被认为是事件。但想一想，到底什么是事件呢？你的应用中的大部分东西能否是个事件呢？</p>
@@ -4780,7 +4780,7 @@ alpha = (aLongBooleanExpression)
 <h3 id="步骤六-访问-Web-界面"><a href="#步骤六-访问-Web-界面" class="headerlink" title="步骤六 - 访问 Web 界面"></a>步骤六 - 访问 Web 界面</h3><p>现在，我们已经配置了一个管理员用户，从 Web 浏览器访问 Web 管理器页面。</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//your-ip_address:8080</span></span><br></pre></td></tr></table></figure>
 <p>你可以看到的页面如下：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_3.png" alt="image"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/tomcat7_ubuntu1404_3.png" alt="image"></p>
 <p>从上面可以看到，里面有四个链接到步骤三中安装的软件包：</p>
 <ul>
 <li>tomcat7-docs: Tomcat 的在线文档。通过 <code>http://your_ip_address:8080/docs/</code> 来访问</li>
@@ -4789,10 +4789,10 @@ alpha = (aLongBooleanExpression)
 <li>tomcat7-admin (主机管理器): Tomcat 虚拟主机管理器。</li>
 </ul>
 <p>通过打开链接 <code>http://your_ip_address:8080/manager/html</code> ，来查看 Web 应用管理器：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_1.png" alt="image"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/tomcat7_ubuntu1404_1.png" alt="image"></p>
 <p>这个Web应用管理器使用来管理Java应用的。你可以在这里执行应用的启动，停止，重新加载，部署，下架等操作。还可以对应用做一些诊断（如内存泄露）。最后，你服务器的相关信息被显示在页面的最底部。</p>
 <p>通过打开链接 <code>http://your_ip_address:8080/host-manager/html</code> ，来查看虚拟主机管理器：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/tomcat7_ubuntu1404_2.png" alt="image"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/tomcat7_ubuntu1404_2.png" alt="image"></p>
 <p>在虚拟主机管理页面，你可以为应用程序添加虚拟主机。</p>
 <h3 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h3><p>Tomcat 的安装到此结束。你现在就可以免费得来部署自己的 Web 应用。</p>
 ]]></content>
@@ -4808,9 +4808,9 @@ alpha = (aLongBooleanExpression)
         
         <tags>
             
-            <tag> Git </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Git </tag>
             
             <tag> Linux </tag>
             
@@ -4862,7 +4862,7 @@ alpha = (aLongBooleanExpression)
 </ul>
 <p>部署一个 CI 系统需要的最低要求是，一个可获取的源代码仓库，一个包含构建脚本的项目。</p>
 <p>CI 系统的基本结构，如下：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jenkins-basic-structure.jpg" alt="image"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/jenkins-basic-structure.jpg" alt="image"></p>
 <p>该系统的各个组成部分是按如下顺序发挥作用的：</p>
 <ol>
 <li>开发这检入代码到源代码仓库。</li>
@@ -4912,7 +4912,7 @@ alpha = (aLongBooleanExpression)
       <url>http://linfuyan.com/hexo-your-blog/add-weixin-qrcode-to-hueman-sidebar/</url>
       <content type="html"><![CDATA[<p>这篇文章中，我们来在 Hueman 主题的侧边栏中添加微信公众号的二维码。</p>
 <p>1. 找到 themes/hueman 下的配置文件 _config.yml，添加 weixin 变量配置为二维码地址。</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置关注微信公众号</span></span><br><span class="line">weixin: http:<span class="regexp">//</span><span class="number">7</span>sbydj.com1.z0.glb.clouddn.com<span class="regexp">/static/im</span>ages<span class="regexp">/qrcode_for_gh_3ad92a8fc23c_860.jpg</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置关注微信公众号</span></span><br><span class="line">weixin: http:<span class="regexp">//img</span>.uprogrammer.cn<span class="regexp">/static/im</span>ages<span class="regexp">/qrcode_for_gh_3ad92a8fc23c_860.jpg</span></span><br></pre></td></tr></table></figure>
 <p>2. 在 themes/huema/layout/_widget 目录下新建 weixin.ejs 文件，添加如下代码</p>
 <figure class="highlight erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%</span></span></span><span class="ruby"> <span class="keyword">if</span> (theme.weixin)&#123; </span><span class="xml"><span class="tag">%&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"widget-wrap"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"&lt;%=</span></span></span><span class="ruby"> theme.weixin </span><span class="xml"><span class="tag"><span class="string">%&gt;"</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span>/&gt;</span>  </span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%</span></span></span><span class="ruby"> &#125; </span><span class="xml"><span class="tag">%&gt;</span></span></span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -4922,7 +4922,7 @@ alpha = (aLongBooleanExpression)
 <figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">widgets:</span><br><span class="line">-<span class="ruby"> weixin</span></span><br><span class="line"><span class="ruby">- recent_posts</span></span><br><span class="line"><span class="ruby">- tagcloud</span></span><br><span class="line"><span class="ruby">- category</span></span><br><span class="line"><span class="ruby">- archive</span></span><br><span class="line"><span class="ruby">- tag</span></span><br><span class="line"><span class="ruby">- links</span></span><br></pre></td></tr></table></figure>
 <h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p>本节中通过将微信公众账号的二维码作为一个组件( weixin.ejs )，利用 hueman 主题已有的侧边栏配置，非常方便的实现了微信公众账号二维码的添加。</p>
 <p>同时也欢迎大家关注：非典型程序员</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" alt="非典型程序员"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/qrcode_for_gh_3ad92a8fc23c_860.jpg" alt="非典型程序员"></p>
 ]]></content>
       
         <categories>
@@ -4957,7 +4957,7 @@ alpha = (aLongBooleanExpression)
 <li>声明式</li>
 </ul>
 <p>事实上，凡是非命令式的编程都可归为声明式编程。因此，命令式、函数式和逻辑式是最核心的三种范式。为清楚起见，我们用一幅图来表示它们之间的关系。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/categaries-of-programming-paradigm.jpg" alt="编程范式的简单分类"></p>
+<p><img src="http://img.uprogrammer.cn/categaries-of-programming-paradigm.jpg" alt="编程范式的简单分类"></p>
 <p>与命令式编程相对的声明式编程（ declarative programming ）。顾名思义，声明式编程由若干规范（ specification ）的声明组成的，即一系列陈述句：‘已知这，求解那’，强调‘做什么’而非‘怎么做’。声明式编程是人脑思维方式的抽象，即利用数理逻辑或既定规范对已知条件进行推理或运算。</p>
 <a id="more"></a>
 <h4 id="声明式编程的发源"><a href="#声明式编程的发源" class="headerlink" title="声明式编程的发源"></a>声明式编程的发源</h4><p>声明式编程发轫于人工智能的研究，主要包括函数式编程（ functional programming ，简称 FP ）和逻辑式编程（ logic programming ，简称 LP ）。其中，函数式编程将计算描述为数学函数的求值，而逻辑式编程通过提供一系列事实和规则来推导或论证结论。</p>
@@ -5077,7 +5077,7 @@ alpha = (aLongBooleanExpression)
 <p>你可以马上做一些验证来确定一起如预期进行。在浏览器中输入你服务器的公网IP地址：</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//your_server_IP_address</span></span><br></pre></td></tr></table></figure>
 <p>你将看到默认的 Ubuntu 14.04 Apache 页面，这个页面展示的目的是出于测试及显示信息。看起来他是这样的：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/default_apache.png" alt="image"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/default_apache.png" alt="image"></p>
 <p>如果你看到这个页面，说明你的 web 服务器正确安装了。</p>
 <h4 id="如何找到你的服务器的公网-IP-地址"><a href="#如何找到你的服务器的公网-IP-地址" class="headerlink" title="如何找到你的服务器的公网 IP 地址"></a>如何找到你的服务器的公网 IP 地址</h4><p>如果你不知道服务器的公网IP地址是什么，可以有多重方式来找到。通常，这个地址是你用来通过SSH来连接你的服务器的。</p>
 <p>在命令行下，有一些方法来找到。首先，你可以使用 <code>iproute2</code> 工具来获取地址，输入以下命令：</p>
@@ -5142,7 +5142,7 @@ alpha = (aLongBooleanExpression)
 <p>你需要访问的地址如下：</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//your_server_IP_address/info.php</span></span><br></pre></td></tr></table></figure>
 <p>你看到的页面显示如下：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/default_php.png" alt="image"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/default_php.png" alt="image"></p>
 <p>这个页面给出了你 web 服务器上的 PHP 信息。这对于你调试，并确保配置信息正确非常有用。</p>
 <p>如果这个成功，那么 PHP 已经可以正常运行。</p>
 <p>测试完毕，你需要删除这个文件。因为，这会向未授权用户泄露你服务器的信息。输入以下命令：</p>
@@ -5182,23 +5182,23 @@ alpha = (aLongBooleanExpression)
       <url>http://linfuyan.com/why-are-software-development-task-estimations-regularly-off-by-a-factor-of-2-3/</url>
       <content type="html"><![CDATA[<p>有国外开发者在 Quora 提了这个问题：“为什么软件开发周期通常是预期的两三倍？” 并补充问：“这是开发人员的错误？ 是管理失误？ 是因为做事方法不对， 或者说缺乏好的方法？还是说这就是软件开发流程的特点？” Michael Wolfe 在2012年1月28日给的回复，非常经典，截至我们发布时已有8016个赞。以下是译文。</p>
 <p>让我们先沿着海岸线，从旧金山（SF）走路去洛杉矶（LA），去拜访我们住在Newport Beach的朋友，我拿出地图在上面画出了行进路线。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/gcgl01.png" alt="为什么预期的软件开发周期总是不够？"></p>
+<p><img src="http://img.uprogrammer.cn/gcgl01.png" alt="为什么预期的软件开发周期总是不够？"></p>
 <p>全程大约有400英里，如果我们每天走10小时每小时4公里的话，只用10天就可以到达目的地。立刻打电话给我们的朋友预定下周六的晚餐，告诉他们下周六晚上六点我们一定会准时出现，朋友们已经等不及了！</p>
 <p>第二天清晨，我们带着准备冒险的兴奋起床，背起行囊，拿出地图，准备计划我们冒险的第一天，看一眼地图，噢，不！</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/gcgl02.png" alt="为什么预期的软件开发周期总是不够？"></p>
+<p><img src="http://img.uprogrammer.cn/gcgl02.png" alt="为什么预期的软件开发周期总是不够？"></p>
 <p>哇，海岸线上有这么多迂回曲折的线路。每天行进40英里的话，10天后只能勉强到达Half Moon Bay（半月湾？）。这趟旅行至少有500英里，而不是400。赶紧打电话给我们的朋友，将晚餐顺延至下下周周二。人还是应该现实一点。朋友们有点失望，不过仍然盼望见到我们，况且花 12 天从 SF 到 LA 也不赖。</p>
 <p>把不开心的事丢到一边，准备出发。两小时过后，我们才刚刚走出动物园。出了什么事？我们低头看了一下脚下的路：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/gcg03.jpg" alt="为什么预期的软件开发周期总是不够？"></p>
+<p><img src="http://img.uprogrammer.cn/gcg03.jpg" alt="为什么预期的软件开发周期总是不够？"></p>
 <p>天哪，这样走路也太慢了！有沙子、海水、阶梯、溪流，还有海边愤怒的海狮！这样我们只能按每小时2公里的速度前进，只有我们预估一般的速度。要么我们现在每天走20小时，要么再把晚餐推迟一个星期。好吧，让我们各退一步：每天走12个小时，把晚餐安排到下下周的周末。只好再打电话给朋友告诉他们这个情况。朋友们有些不高兴，但还是表示可以，到时候见。</p>
 <p>在辛苦走了12小时后，我们准备在 Moss Beach 扎营休息。靠，要把帐篷在风中立起来根本不可能。直到半夜才开始休息。不过没什么大不了：明天在加快点速度就可以了。</p>
 <p>第二天早上睡过头了，早上10点才醒，起来浑身酸痛精疲力尽。艹，今天没法走12个小时了，先走10个小时，明天可以走14个小时。收拾东西出发。</p>
 <p>再缓慢行进了几个小时之后，我发现伙伴脚有点跛。妈的，是水泡。必须现在解决它，在这些问题开始减慢我们的速度前，必须将它们扼杀在萌芽状态。我慢跑了45分钟到达内陆3英里远的Pescadero，买了一些创可贴再快速跑回去给朋友包扎了一下。我快累坏了，太阳也快下山了，又浪费了一天的时间。到我们准备休息前今天只走了6英里。但是我们确实需要补充一下供给。一切都很好，明天我们就能赶上。</p>
 <p>第二天醒来，扎紧脚上的绷带准备出发。转角之后突然发现，靠！这是个啥？</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/gcgl04.jpg" alt="为什么预期的软件开发周期总是不够？"></p>
+<p><img src="http://img.uprogrammer.cn/gcgl04.jpg" alt="为什么预期的软件开发周期总是不够？"></p>
 <p>你妹的地图上怎么没标出它！现在我们只能往内陆走3英里，绕过这些被联邦政府用栅栏保护起来的区域，中途迷路了两次，在中午前才好不容易又回到了海岸线。今天的时间过了一大半，而我们才前进了差不多1英里。好吧，不过我们不会再打电话给朋友推迟了，今天我们会一直走到午夜试着赶上进度。</p>
 <p>晚上在大雾里断断续续地睡了一夜。一大早被我的伙伴叫醒，他一阵阵的头疼，还有点发烧，我问他能不能坚持一下。“你在想什么呢，混蛋，我已经连续三天在这么冷的雾中赶路，没有休息过了。“好吧，今天看来只能黄了，只能在原地好好恢复了。现在我们已经有经验了，今天好好休息明天再走14个小时，还有几天的时间，我们一定能够做到！</p>
 <p>第二天我们昏昏沉沉地起来了。我看了一眼随身的地图：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/gcgl05.png" alt="为什么预期的软件开发周期总是不够？"></p>
+<p><img src="http://img.uprogrammer.cn/gcgl05.png" alt="为什么预期的软件开发周期总是不够？"></p>
 <p>天啊！我们已经走了10天旅程里的第5天还没有离开海湾区域！太荒唐了！我们要重新估计一下准确的时间再打给朋友，搞不好会被骂，但至少得找一个现实一点的目标。</p>
 <p>同伴说，我们在四天里走了40英里，这趟旅程至少又600英里，那就至少要60天，安全一点的说法说不定要70天，“没门…是，以前我是没走路从SF去过LA，但肯定不会要70天的时间，如果告诉他们我们要到复活节才能到，那要被他们笑死的“，我说。</p>
 <p>我接着说，“如果你能保证每天走16个小时，我们就能把落下的时间补回来！我知道很困难，但现在是最关键的时刻，别抱怨了！”伙伴对我吼道 “一开始又不是我告诉别人下周日我们就能到的！因为你犯的这个错差点要我的命！”</p>
@@ -5256,9 +5256,9 @@ alpha = (aLongBooleanExpression)
             
             <tag> Hexo </tag>
             
-            <tag> 安装 </tag>
-            
             <tag> 错误 </tag>
+            
+            <tag> 安装 </tag>
             
             <tag> 解决方案 </tag>
             
@@ -5307,7 +5307,7 @@ alpha = (aLongBooleanExpression)
       <url>http://linfuyan.com/iOS-skills/</url>
       <content type="html"><![CDATA[<p>以下是和团队小伙伴们一起整理的 iOS 开发中涉及到技能。贴出来，一方面希望能够获取更多的建议，用来完善目前团队的技术组成；另一方面，比对这些技能，有感兴趣的同学，且觉得能够胜任，愿意来<a href="http://www.feibo.cn/" target="_blank" rel="noopener">我们公司</a>一试的同学，欢迎投简历。</p>
 <p>同时，<a href="http://www.linfuyan.com/Android-skills" target="_blank" rel="noopener">Android 技能</a>请猛戳这里。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/iOS-skills.png" alt="iOS 技能树"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/iOS-skills.png" alt="iOS 技能树"></p>
 ]]></content>
       
         <categories>
@@ -5340,7 +5340,7 @@ alpha = (aLongBooleanExpression)
       <url>http://linfuyan.com/Android-skills/</url>
       <content type="html"><![CDATA[<p>以下是和团队小伙伴们一起整理的 Android 开发中涉及到技能。贴出来，一方面希望能够获取更多的建议，用来完善目前团队的技术组成；另一方面，比对这些技能，有感兴趣的同学，且觉得能够胜任，愿意来<a href="http://www.feibo.cn/" target="_blank" rel="noopener">我们公司</a>一试的同学，欢迎投简历。</p>
 <p>同时，<a href="http://www.linfuyan.com/iOS-skills" target="_blank" rel="noopener">iOS 技能</a>请猛戳这里。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/Android-skills.png" alt="Android 技能树"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/Android-skills.png" alt="Android 技能树"></p>
 ]]></content>
       
         <categories>
@@ -5376,7 +5376,7 @@ alpha = (aLongBooleanExpression)
 <p>这时候需要重启 boot2docker：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> boot2docker stop</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> boot2docker start</span></span><br></pre></td></tr></table></figure>
 <p>然后根据提示设置变量，如下图：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/mac-docker-tls.png" alt="在 Mac 上通过 boot2docker 启动 docker 时异常"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/mac-docker-tls.png" alt="在 Mac 上通过 boot2docker 启动 docker 时异常"></p>
 <p>OK，最后在终端中输入：<code>docker version</code> 验证是否成功。</p>
 ]]></content>
       
@@ -5463,7 +5463,7 @@ alpha = (aLongBooleanExpression)
 <h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>所有必备的应用程序安装完以后，就可用 npm 安装 Hexo 了。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install -g hexo-cli		// 安装 Hexo 程序</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mkdir blog					// 新建博客目录</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> blog						// 到博客目录下</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo init						// 初始化 Hexo 博客目录</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install 					// 安装依赖和插件</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo s						// 启动服务器在本地进行预览</span></span><br></pre></td></tr></table></figure>
 <p>在浏览器中打开 <code>http://localhost:4000</code>，看到博客首页的话，至此安装就完成了。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/hexo-preview.png" alt="hexo 预览"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/hexo-preview.png" alt="hexo 预览"></p>
 <blockquote>
 <p>为了说明问题，上面的截图是后面补的。 </p>
 </blockquote>
@@ -5986,22 +5986,22 @@ alpha = (aLongBooleanExpression)
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Art				<span class="string">//</span> 项目目录</span><br><span class="line">    |<span class="params">--Art</span>		<span class="string">//</span> 实际项目源码目录</span><br><span class="line">    	|<span class="params">--Art</span></span><br><span class="line">    	|<span class="params">--project</span>.xcdoeproj</span><br><span class="line">    	|<span class="params">--project</span>.xcworkspace</span><br><span class="line">    	|<span class="params">--Podfile</span></span><br><span class="line">    	|--<span class="string">...</span></span><br><span class="line">    |<span class="params">--bin</span>			<span class="string">//</span> 存放部分二进制文件的目录，实际中并未使用</span><br><span class="line">    |<span class="params">--doc</span>			<span class="string">//</span> 本项目相关的文档目录</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h3 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h3><p>使用具有配置权限的用户登录 Jenkins，选择”新建”，”构建一个自由风格的软件项目”，并确定。这里新建了一个名为 <code>iOS-project-ci</code> 的 job。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-1.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p><img src="http://img.uprogrammer.cn/iOS-project-ci-1.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
 <h3 id="配置构建基本信息"><a href="#配置构建基本信息" class="headerlink" title="配置构建基本信息"></a>配置构建基本信息</h3><p>填写相关 job 的信息，如名称、描述。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-2.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p><img src="http://img.uprogrammer.cn/iOS-project-ci-2.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
 <p>可以选择构建过程，并进行一些设置。这里选择”参数化构建过程”，添加一个 <code>Text Parameter</code>，并做相关设置。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-3.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-4.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p><img src="http://img.uprogrammer.cn/iOS-project-ci-3.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p><img src="http://img.uprogrammer.cn/iOS-project-ci-4.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
 <p>高级项目选项，本文中没有做任何设置。</p>
 <h3 id="配置项目源码"><a href="#配置项目源码" class="headerlink" title="配置项目源码"></a>配置项目源码</h3><p>源码管理中选择 Git，配置仓库地址，认证账户，需要构建的分支等。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-5.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p><img src="http://img.uprogrammer.cn/iOS-project-ci-5.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
 <p>根据项目需要构建触发器，本文中没有做任何设置，项目的构建由用户手动触发。</p>
 <h3 id="配置构建过程"><a href="#配置构建过程" class="headerlink" title="配置构建过程"></a>配置构建过程</h3><h4 id="配置-CocoaPods"><a href="#配置-CocoaPods" class="headerlink" title="配置 CocoaPods"></a>配置 CocoaPods</h4><p>由于本文中项目代码目录没有在根目录下，且使用 CocoaPods 进行依赖管理，故先增加一个 Shell 脚本的构建步骤。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-6.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p><img src="http://img.uprogrammer.cn/iOS-project-ci-6.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
 <p>其中 <code>cd Art</code> 是进入到 Podfile 文件所在目录，即实际项目源码目录。 <code>pod install</code> 用于更新实际项目的源码依赖。完整的 pod 更新可能会很好使，可以考虑 <code>pod install --no-repo-update</code></p>
 <h4 id="配置-Xcode-integration"><a href="#配置-Xcode-integration" class="headerlink" title="配置 Xcode integration"></a>配置 Xcode integration</h4><p>新增 Xcode integration 构建过程</p>
 <p><strong>基础配置</strong></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-7.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p><img src="http://img.uprogrammer.cn/iOS-project-ci-7.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
 <ol>
 <li>本文的项目中使用 <code>workspace</code>， 所以 Target 可以不填。</li>
 <li>Configuration 是在 Xcode 中的配置，默认有 Debug 和 Release，这里的 InHouse 为我自己在项目中的配置，使用企业签名的对应用进行打包。</li>
@@ -6010,14 +6010,14 @@ alpha = (aLongBooleanExpression)
 <li>这里设置 构建过程输出目录。其中 $WORKSPACE 为 Jenkins 提供的系统变量，为构建根目录。</li>
 </ol>
 <p><strong>代码签名及密钥配置</strong></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-8.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p><img src="http://img.uprogrammer.cn/iOS-project-ci-8.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
 <p>本文中采用在 Xcode 项目中新增共享 scheme 的方式，在 scheme 内部对代码签名和 Profile 做了配置，同时 Jenkins 所在的 Mac OSX 中有对应的证书和 Profile，所以1，2中不需要做特殊配置，如果配置，将替换 scheme中的配置。</p>
 <p>在打包的过程中，命令会由于系统的安全设置提醒输入密码，3中可以设置密钥所在路径及系统用户密码。</p>
 <blockquote>
 <p>具体如何新增共享 scheme 及配置，可以查看<a href="http://" target="_blank" rel="noopener">iOS 配置 scheme 和 configuration</a></p>
 </blockquote>
 <p><strong>Xcode 高级构建配置</strong></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-9.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p><img src="http://img.uprogrammer.cn/iOS-project-ci-9.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
 <ol>
 <li>这里的 <code>Art-Ci</code> 就是我在 Xcode 项目中新建的 scheme。</li>
 <li>本文中的项目包含有 workspace，这里设置对应路径，注意不需要带上 .xcworkspace 后缀。</li>
@@ -6027,12 +6027,12 @@ alpha = (aLongBooleanExpression)
 </ol>
 <h4 id="发布到-fir-im"><a href="#发布到-fir-im" class="headerlink" title="发布到 fir.im"></a>发布到 fir.im</h4><p>添加一个 Shell 构建步骤，输入如下命令：</p>
 <p><code>fir p $WORKSPACE/build/art_$BUILD_NUMBER.ipa -c &quot;$release_note&quot;</code></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-10.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p><img src="http://img.uprogrammer.cn/iOS-project-ci-10.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
 <p>这里发布到 fir.im，使用了其官方提供的 fir-cli 工具。 <code>$WORKSPACE/build/art_$BUILD_NUMBER.ipa</code> 获取到最终打包的 .ipa 文件路径， $release_note 为我们在”带参数构建”中添加的参数。 fir-cli 的使用，具体查看<a href="http://blog.fir.im/fir_cli/" target="_blank" rel="noopener">官方工具 fir-cli 使用说明</a></p>
 <p>完成以上配置，应用并保存配置。</p>
 <h4 id="添加其他构建后步骤"><a href="#添加其他构建后步骤" class="headerlink" title="添加其他构建后步骤"></a>添加其他构建后步骤</h4><p>可以在构建完成以后，配置邮件通知等操作以便及时将构建结果通知到相应的人员。</p>
-<h4 id="启动构建"><a href="#启动构建" class="headerlink" title="启动构建"></a>启动构建</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-11.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/iOS-project-ci-12.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<h4 id="启动构建"><a href="#启动构建" class="headerlink" title="启动构建"></a>启动构建</h4><p><img src="http://img.uprogrammer.cn/iOS-project-ci-11.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
+<p><img src="http://img.uprogrammer.cn/iOS-project-ci-12.png" alt="Jenkins、Git、CocoaPods、Fir.im 实现 iOS 应用持续集成"></p>
 <p>设置参数，点击”开始构建”，构建过程便被触发。如果构建成功，最终 iOS 应用将被发布到 fir.im 上，并进行访问。例如，本文中的项目最终可以通过 <a href="http://fir.im/yiwai" target="_blank" rel="noopener">http://fir.im/yiwai</a> 来访问并下载安装。</p>
 ]]></content>
       
@@ -6151,7 +6151,7 @@ alpha = (aLongBooleanExpression)
     <entry>
       <title><![CDATA[生成 SSH 密钥]]></title>
       <url>http://linfuyan.com/generating-ssh-keys/</url>
-      <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/800px-SSH_Communications_Security_logo.svg.png" alt="生成 SSH 密钥"></p>
+      <content type="html"><![CDATA[<p><img src="http://img.uprogrammer.cn/800px-SSH_Communications_Security_logo.svg.png" alt="生成 SSH 密钥"></p>
 <p>Git 仓库可以通过 git:// 来访问，目前类似 Github，Gitcafe，Coding等基于 Git 的托管服务都提供有配置 SSH 密钥，来访问托管仓库的功能。本文中将通过为 Github 账号配置 SSH 密钥来访问仓库为例，说明 SSH 密钥配置过程。</p>
 <p>SSH 密钥是用于识别信任的电脑的一种方式，可以免去输入密码。下面的步骤将带你生成一个 SSH 密钥，并将其添加到你的 Github 账号。</p>
 <a id="more"></a>
@@ -6237,7 +6237,7 @@ alpha = (aLongBooleanExpression)
 <p><code>Active</code>(激活)：程序在前台运行而且接收到了事件。这也是前台的一个正常的模式。</p>
 <p><code>Backgroud</code>(后台)：程序在后台而且能执行代码，大多数程序进入这个状态后会在在这个状态上停留一会。时间到之后会进入挂起状态(Suspended)。有的程序经过特殊的请求后可以长期处于Backgroud状态。</p>
 <p><code>Suspended</code>(挂起)：程序在后台不能执行代码。系统会自动把程序变成这个状态而且不会发出通知。当挂起时，程序还是停留在内存中的，当系统内存低时，系统就把挂起的程序清除掉，为前台程序提供更多的内存。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-1.png" alt="iOS 应用生命周期"></p>
+<p><img src="http://img.uprogrammer.cn/ios-app-lifecycle-1.png" alt="iOS 应用生命周期"></p>
 <h4 id="2-各个程序运行状态时代理的回调"><a href="#2-各个程序运行状态时代理的回调" class="headerlink" title="2. 各个程序运行状态时代理的回调"></a>2. 各个程序运行状态时代理的回调</h4><p><strong>2.1 告诉代理进程启动但还没进入状态保存</strong></p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application willFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"①告诉代理进程启动但还没进入状态保存"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>2.2 告诉代理启动基本完成程序准备开始运行</strong></p>
@@ -6260,9 +6260,9 @@ alpha = (aLongBooleanExpression)
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:56</span><span class="selector-pseudo">:11.756</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ③当应用程序将要入非活动状态执行</span><br><span class="line"></span><br><span class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:56</span><span class="selector-pseudo">:11.814</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ⑤当程序被推送到后台的时候调用</span><br></pre></td></tr></table></figure>
 <p>再次打开程序：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:57</span><span class="selector-pseudo">:19.200</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ⑥当程序从后台将要重新回到前台时候调用</span><br><span class="line"></span><br><span class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:57</span><span class="selector-pseudo">:19.201</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ④当应用程序进入活动状态执行</span><br></pre></td></tr></table></figure>
-<h4 id="3-加载应用程序进入前台"><a href="#3-加载应用程序进入前台" class="headerlink" title="3. 加载应用程序进入前台"></a>3. 加载应用程序进入前台</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-2.png" alt="iOS 应用生命周期"></p>
-<h4 id="4-加载应用程序进入后台"><a href="#4-加载应用程序进入后台" class="headerlink" title="4. 加载应用程序进入后台"></a>4. 加载应用程序进入后台</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-3.png" alt="iOS 应用生命周期"></p>
-<h4 id="5-基于警告式响应中断"><a href="#5-基于警告式响应中断" class="headerlink" title="5. 基于警告式响应中断"></a>5. 基于警告式响应中断</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-4.png" alt="iOS 应用生命周期"></p>
+<h4 id="3-加载应用程序进入前台"><a href="#3-加载应用程序进入前台" class="headerlink" title="3. 加载应用程序进入前台"></a>3. 加载应用程序进入前台</h4><p><img src="http://img.uprogrammer.cn/ios-app-lifecycle-2.png" alt="iOS 应用生命周期"></p>
+<h4 id="4-加载应用程序进入后台"><a href="#4-加载应用程序进入后台" class="headerlink" title="4. 加载应用程序进入后台"></a>4. 加载应用程序进入后台</h4><p><img src="http://img.uprogrammer.cn/ios-app-lifecycle-3.png" alt="iOS 应用生命周期"></p>
+<h4 id="5-基于警告式响应中断"><a href="#5-基于警告式响应中断" class="headerlink" title="5. 基于警告式响应中断"></a>5. 基于警告式响应中断</h4><p><img src="http://img.uprogrammer.cn/ios-app-lifecycle-4.png" alt="iOS 应用生命周期"></p>
 <p>当出现这种中断时，我们需要在<code>- (void)applicationWillResignActive:(UIApplication *)application</code> 方法中进行如下操作：</p>
 <ol>
 <li><p>停止timer 和其他周期性的任务</p>
@@ -6279,7 +6279,7 @@ alpha = (aLongBooleanExpression)
 </li>
 </ol>
 <p>当程序回到active状态，我们需要在<code>- (void)applicationDidBecomeActive:(UIApplication *)application</code> 方法中重新开始上述任务。不过游戏要回到暂停状态，不能自动开始。</p>
-<h4 id="6-进入后台运行"><a href="#6-进入后台运行" class="headerlink" title="6. 进入后台运行"></a>6. 进入后台运行</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-5.png" alt="iOS 应用生命周期"></p>
+<h4 id="6-进入后台运行"><a href="#6-进入后台运行" class="headerlink" title="6. 进入后台运行"></a>6. 进入后台运行</h4><p><img src="http://img.uprogrammer.cn/ios-app-lifecycle-5.png" alt="iOS 应用生命周期"></p>
 <p>当应用程序进入后台时，我们应该做些什么？</p>
 <p>保存用户数据或状态信息，所有没写到磁盘的文件或信息，在进入后台时，最后都写到磁盘去，因为程序可能在后台被杀死。</p>
 <p>释放尽可能释放的内存。</p>
@@ -6307,7 +6307,7 @@ alpha = (aLongBooleanExpression)
 <li><p>去掉系统管理数据缓存强引用</p>
 </li>
 </ol>
-<h4 id="7-返回前台运行"><a href="#7-返回前台运行" class="headerlink" title="7. 返回前台运行"></a>7. 返回前台运行</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-6.png" alt="iOS 应用生命周期"></p>
+<h4 id="7-返回前台运行"><a href="#7-返回前台运行" class="headerlink" title="7. 返回前台运行"></a>7. 返回前台运行</h4><p><img src="http://img.uprogrammer.cn/ios-app-lifecycle-6.png" alt="iOS 应用生命周期"></p>
 <p>在暂停状态的应用程序必须准备处理任何排队的通知时，它返回到前台或后台执行状态。暂停的应用程序不执行任何代码，因此不能处理与方向的变化，时间的变化，偏好的变化，以及许多其他会影响应用程序的外观或状态的通知。为了确保这些更改不会丢失，系统排队许多相关的通知，并把它们传递给应用程序，只要它开始再次执行代码（无论是在前景或背景）。为了防止由偏快转为超载与它恢复时通知您的应用程序，该系统凝聚事件，并提供一个单一的通知（每个相关类型），反映了净变化，因为你的应用程序被暂停。</p>
 <h4 id="8-程序终止"><a href="#8-程序终止" class="headerlink" title="8. 程序终止"></a>8. 程序终止</h4><p>程序只要符合以下情况之一，只要进入后台或挂起状态就会终止：</p>
 <ol>
@@ -6325,7 +6325,7 @@ alpha = (aLongBooleanExpression)
 <h4 id="9-The-Main-Run-Loop-主运行循环"><a href="#9-The-Main-Run-Loop-主运行循环" class="headerlink" title="9. The Main Run Loop 主运行循环"></a>9. The Main Run Loop 主运行循环</h4><p>Main Run Loop负责处理用户相关的事件。UIApplication对象在程序启动时启动main run Loop，它处理事件和更新视图的界面。看Main Run Loop就知道，它是运行在程序的主线程上的。这样保证了接收到用户相关操作的事件是按顺序处理的。 </p>
 <p>用户操作设备，相关的操作事件被系统生成并通过UIKit的指定端口分发。事件在内部排成队列，一个个的分发到Main run loop 去做处理。UIApplication对象是第一个接收到时间的对象，它决定事件如何被处理。触摸事件分发到主窗口，窗口再分发到对应出发触摸事件的View。其他的事件通过其他途径分发给其他对象变量做处理。 </p>
 <p>大部分的事件可以在你的应用里分发，类似于触摸事件，远程操控事件（线控耳机等）都是由app的 responder objects 对象处理的。Responder objects 在你的app里到处都是，比如：UIApplication 对象，view对象，view controller 对象，都是resopnder objects。大部分事件的目标都指定了resopnder object，不过事件也可以传递给其他对象。比如，如果view对象不处理事件，可以传给父类view或者view controller。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-7.png" alt="iOS 应用生命周期"></p>
+<p><img src="http://img.uprogrammer.cn/ios-app-lifecycle-7.png" alt="iOS 应用生命周期"></p>
 <p>英文原文：<a href="https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/ManagingYourApplicationsFlow/ManagingYourApplicationsFlow.html#//apple_ref/doc/uid/TP40007072-CH4-SW20" target="_blank" rel="noopener">App States and Multitasking</a><br>译文出处：<a href="http://www.cnblogs.com/EverNight/p/3818570.html" target="_blank" rel="noopener">iOS App的生命周期</a></p>
 ]]></content>
       
@@ -6358,14 +6358,14 @@ alpha = (aLongBooleanExpression)
 <hr>
 <p>本文中我会展示一种开发模型，一年前该模型就已经被我用在所有的项目中（包括工作中的项目和私有项目），结果是非常成功的。我早就想为此写点东西，可直到现在才有时间。本文不会讲述任何项目的细节，只会涉及到分支策略和发布管理。</p>
 <a id="more"></a>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-1.png" alt="一个成功的 Git 分支模型"></p>
+<p><img src="http://img.uprogrammer.cn/git-branch-1.png" alt="一个成功的 Git 分支模型"></p>
 <p>本文使用 Git 作为所有源码的版本控制工具。</p>
 <h2 id="为什么是-Git？"><a href="#为什么是-Git？" class="headerlink" title="为什么是 Git？"></a>为什么是 Git？</h2><p>要全面了解 Git 与其它集中式版本控制系统相比的优劣，可以参考这个页面。这方面的争论可谓是硝烟弥漫。作为一个开发者，所有这些工具中我最钟情于 Git。Git 的的确确改变了人们考虑合并及分支的方式。在我之前所处的经典 CVS/Subversion 世界中，合并/分支总是被认为是有点可怕的事情（“小心合并冲突，丫会恶心到你”），因此你只应偶尔干这种事情。</p>
 <p>但有了 Git，这类事情就变得非常简单，分支及合并甚至被认为是你日常版本控制操作的核心之一。例如，在 CVS/Subversion 的书中，分支及合并往往在后面的章节才被介绍（针对高级用户），但在每一本 Git 的书中，该内容已经在前3章中介绍（基础）。</p>
 <p>简单及易重复性带来的好处就是，分支及合并变得不再可怕。版本控制工具本该帮助我们方便的进行和分支及合并操作。</p>
 <p>简单介绍下工具后，让我们来看开发模型。我讲介绍的模型本质上只是一组步骤，每个团队成员都必须遵循这些步骤以形成一个可靠管理的软件开发过程。</p>
 <h3 id="去中心化但仍保持中心化"><a href="#去中心化但仍保持中心化" class="headerlink" title="去中心化但仍保持中心化"></a>去中心化但仍保持中心化</h3><p>在这个分支模型中我们使用的，且被证实工作得很好的仓库配置，其核心是一个中心“真理”仓库。注意只有该仓库才被认为是中心库（由于 Git 是 DVCS [分布式版本控制系统]，在技术层面没有中心库这一东西）。之后我们用 origin 指代该仓库，因为大多数 Git 用户都熟悉这个名称。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-2.png" alt="一个成功的 Git 分支模型"></p>
+<p><img src="http://img.uprogrammer.cn/git-branch-2.png" alt="一个成功的 Git 分支模型"></p>
 <p>每个开发者都对 origin 做 push 和 pull 操作。不过除了这种中心化的 push-pull 关系外，每个开发者还可以从其他开发者或者小组处 pull 变更。例如，可能两个或更多的开发者一起开发一个大的特性，在往 origin 永久性的 push 工作代码之前，他们之间可以执行一些去中心化的操作。在上图中，分别有 Alice 和 Bob、Alice 和 David、Clair 和 David这些小组。</p>
 <p>从技术上来说，这仅仅是 Alice 定义一个 Git remote，名字为 bob，指向 Bob 的仓库，反过来也一样。</p>
 <h3 id="主要分支"><a href="#主要分支" class="headerlink" title="主要分支"></a>主要分支</h3><p>此开发模型的核心主要受现有的模型启发。中心仓库包含了两个主要分支，这两个分支的寿命是无限的：</p>
@@ -6373,7 +6373,7 @@ alpha = (aLongBooleanExpression)
 <li>master</li>
 <li>develop</li>
 </ul>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-3.png" alt="一个成功的 Git 分支模型"></p>
+<p><img src="http://img.uprogrammer.cn/git-branch-3.png" alt="一个成功的 Git 分支模型"></p>
 <p>每个 Git 用于都应该熟悉 origin 上的 master 分支。与 master 分支平行存在的，是另外一个名为 develop 的分支。</p>
 <p>我们认为 origin/develop 分支上的 HEAD 源码反映了开发过程中最新的提交变更。有人会称之为“集成分支”。该分支是自动化每日构建的代码源。</p>
 <p>当 develop 分支上的源码到达一个稳定的状态时，就可以发布版本。所有 develop 上的变更都应该以某种方式合并回 master 分支，并且使用发布版本号打上标签。稍后我们会讨论具体操作细节。</p>
@@ -6389,14 +6389,14 @@ alpha = (aLongBooleanExpression)
 <p>从技术角度来说，这些分支一点都不“特殊”。分支按照我们对其的使用方式进行分类。技术角度它们都一样是平常的 Git 分支。</p>
 <h3 id="特性分支"><a href="#特性分支" class="headerlink" title="特性分支"></a>特性分支</h3><p>可能的分支来源：develop<br>必须合并回：develop<br>分支命令约定：任何除 master, develop, <code>release-*</code>, 或 <code>hotfix-*</code> 以外的名称</p>
 <p>特性分支（有时也被称作 topic 分支）是用来为下一发布版本开发新特性。当开始开发一个特性的时候，该特性会成为哪个发布版本的一部分，往往还不知道。特性分支的重点是，只要特性还在开发，该分支就会一直存在，不过它最终会被合并回 develop 分支（将该特性加入到发布版本中），或者被丢弃（如果试验的结果令人失望）。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-4.png" alt="一个成功的 Git 分支模型"></p>
+<p><img src="http://img.uprogrammer.cn/git-branch-4.png" alt="一个成功的 Git 分支模型"></p>
 <p>特性分支往往只存在于开发者的仓库中，而不会出现在 origin。</p>
 <h4 id="创建一个特性分支"><a href="#创建一个特性分支" class="headerlink" title="创建一个特性分支"></a>创建一个特性分支</h4><p>开始开发新特性的时候，从 develop 分支创建特性分支。</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -<span class="selector-tag">b</span> myfeature develop</span><br><span class="line">Switch to <span class="selector-tag">a</span> new branch “myfeature”</span><br></pre></td></tr></table></figure>
 <h4 id="合并完成的特性回-develop"><a href="#合并完成的特性回-develop" class="headerlink" title="合并完成的特性回 develop"></a>合并完成的特性回 develop</h4><p>完成的特性应该被合并回 develop 分支以将特性加入到下一个发布版本中：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git checkout develop</span></span><br><span class="line">Switch to branch ‘develop’</span><br><span class="line"><span class="meta">$</span><span class="bash"> git merge –no-ff myfeature</span></span><br><span class="line">Updating ea1b82a..05e9557</span><br><span class="line">(Summary of changes)</span><br><span class="line"><span class="meta">$</span><span class="bash"> git branch -d myfeature</span></span><br><span class="line">Deleted branch myfeature (was 05e9557).</span><br><span class="line"><span class="meta">$</span><span class="bash"> git push origin develop</span></span><br></pre></td></tr></table></figure>
 <p>上述代码中的 –no-ff 标记会使合并永远创建一个新的 commit 对象，即使该合并能以 fast-forward 的方式进行。这么做可以避免丢失特性分支存在的历史信息，同时也能清晰的展现一组 commit 一起构成一个特性。比较下面的图：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-5.png" alt="一个成功的 Git 分支模型"></p>
+<p><img src="http://img.uprogrammer.cn/git-branch-5.png" alt="一个成功的 Git 分支模型"></p>
 <p>在第2张图中，已经无法一眼从 Git 历史中看到哪些 commit 对象构成了一个特性——你需要阅读日志以获得该信息。在这种情况下，回退（revert）整个特性（一组commit）就会比较麻烦，而如果使用了 –no-diff 就会简单很多。</p>
 <p>是的，这么做会造成一些（空的） commit 对象，但这么做是利大于弊的。</p>
 <p>可惜的是，我没能找到方法让 –no-diff 成为默认的 git merge 行为参数，但其实应该这么做。</p>
@@ -6419,7 +6419,7 @@ alpha = (aLongBooleanExpression)
 <p>现在工作才算真正完成了，最后一步是删除发布分支，因为我们已不再需要它：</p>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d <span class="built_in">release</span><span class="number">-1.2</span></span><br><span class="line">Deleted branch <span class="built_in">release</span><span class="number">-1.2</span> (was ff452fe).</span><br></pre></td></tr></table></figure>
 <h3 id="热补丁分支"><a href="#热补丁分支" class="headerlink" title="热补丁分支"></a>热补丁分支</h3><p>可能的分支来源：master<br>必须合并回：develop 和 master<br>分支命名约定：hotfix-*</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-6.png" alt="一个成功的 Git 分支模型"></p>
+<p><img src="http://img.uprogrammer.cn/git-branch-6.png" alt="一个成功的 Git 分支模型"></p>
 <p>热补丁分支和发布分支十分类似，它的目的也是发布一个新的产品版本，尽管是不在计划中的版本发布。当产品版本发现未预期的问题的时候，就需要理解着手处理，这个时候就要用到热补丁分支。当产品版本的重大 bug 需要立即解决的时候，我们从对应版本的标签创建出一个热补丁分支。</p>
 <p>使用热补丁分支的主要作用是（ develop 分支上的）团队成员可以继续工作，而另外的人可以在热补丁分支上进行快速的产品 bug 修复。</p>
 <h4 id="创建一个热补丁分支"><a href="#创建一个热补丁分支" class="headerlink" title="创建一个热补丁分支"></a>创建一个热补丁分支</h4><p>热补丁分支从 master 分支创建。例如，假设1.2是当前正在被使用的产品版本，由于一个严重的 bug，产品引起了很多问题。同时，develop 分支还处于不稳定状态，无法发布新的版本。这时我们可以创建一个热补丁分支，并在该分支上修复问题：</p>
@@ -6463,7 +6463,7 @@ alpha = (aLongBooleanExpression)
     <entry>
       <title><![CDATA[程序员真正的价值]]></title>
       <url>http://linfuyan.com/the-real-value-of-programmers/</url>
-      <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/14064631_iVnR.jpg" alt="程序员真正的价值"></p>
+      <content type="html"><![CDATA[<p><img src="http://img.uprogrammer.cn/14064631_iVnR.jpg" alt="程序员真正的价值"></p>
 <blockquote>
 <p>问：池老师，我是个不爱互动的人，但是您所有的文章我都看了，非常感谢您的引导，我入手了人生第一台 MBP。现在问题来了，但是找不到更合适的人解答，只能求助于您了，如果您有时间的话。问题是这样的：我有个32bit unix file（开启一个服务进程），在 Mac 上执行时错误提示是：exec format error，但是在 Linux 服务器却可以执行，为何？Mac 上有可以运行的方案吗？期待您的回复，不胜感激。</p>
 </blockquote>
@@ -6525,7 +6525,7 @@ alpha = (aLongBooleanExpression)
     <entry>
       <title><![CDATA[如何辨认身边的聪明人？]]></title>
       <url>http://linfuyan.com/how-to-identify-smart-people-around-you/</url>
-      <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/cmr.jpg" alt="如何辨认身边的聪明人？"></p>
+      <content type="html"><![CDATA[<p><img src="http://img.uprogrammer.cn/cmr.jpg" alt="如何辨认身边的聪明人？"></p>
 <p>谢邀。</p>
 <p>我来谈一下个人分辨周围聪明人的一些主要标准。</p>
 <p>首先要明确的是一些基本原则。</p>
@@ -6596,7 +6596,7 @@ alpha = (aLongBooleanExpression)
     <entry>
       <title><![CDATA[团队做代码评审中审查清单的使用实践]]></title>
       <url>http://linfuyan.com/stop-more-bugs-with-our-code-review-checklist/</url>
-      <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/062749_2Ex2_12.gif" alt="团队做代码评审中审查清单的使用实践"></p>
+      <content type="html"><![CDATA[<p><img src="http://img.uprogrammer.cn/062749_2Ex2_12.gif" alt="团队做代码评审中审查清单的使用实践"></p>
 <p>在我们关于高效代码审查的博文中，我们建议使用一个检查清单。在代码审查中，检查清单是一个非常好的工具——它们保证了审查可以在你的团队中始终如一的进行。它们也是一种保证常见问题能够被发现并被解决的便利方式。</p>
 <p>软件工程学院的研究表明，程序员们会犯15-20种常见的错误。所以，通过把这些错误加入到检查清单当中，你可以确保不论什么时候，只要这些错误发生了，你就能发现它们，并且可以帮助你杜绝这些错误。</p>
 <a id="more"></a>
@@ -6710,7 +6710,7 @@ alpha = (aLongBooleanExpression)
     <entry>
       <title><![CDATA[为什么Google要执行严格的编码编写规范]]></title>
       <url>http://linfuyan.com/google-coding-standards/</url>
-      <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-编码风格.jpg" alt="为什么Google要执行严格的编码编写规范"></p>
+      <content type="html"><![CDATA[<p><img src="http://img.uprogrammer.cn/uprogrammer-编码风格.jpg" alt="为什么Google要执行严格的编码编写规范"></p>
 <p>本篇是<a href="http://www.linfuyan.com/google-code-review" target="_blank" rel="noopener">谷歌是如何做代码审查的</a>的续篇。</p>
 <p>我们在谷歌所做事情中另外一个让我感到异常有效、有用的制度是严格的编码规范。</p>
 <p>在到Google工作之前，我一直认为编码规范没有什么用处。我坚信这些规范都是官僚制度下产生的浪费大家的编程时间、影响人们开发效率的东西。</p>
@@ -6756,7 +6756,7 @@ alpha = (aLongBooleanExpression)
     <entry>
       <title><![CDATA[Google是如何做代码审查的]]></title>
       <url>http://linfuyan.com/google-code-review/</url>
-      <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-code-review.png" alt="Google是如何做代码审查的"></p>
+      <content type="html"><![CDATA[<p><img src="http://img.uprogrammer.cn/uprogrammer-code-review.png" alt="Google是如何做代码审查的"></p>
 <p>在上一篇文章中提到过，我已经不在Google工作了。我还没有想清楚应该去哪里—有两三个非常好的工作机会摆在我面前。因为在这段做决定时间里，我不再受雇于任何人，我想可以写一些专业性的东西，一些很有趣，但也会在同事和管理工作中导致关系紧张的东西。</p>
 <p>Google是一个非常优秀的公司。他们做出了很多令人称赞的东西—既是公司外部，人们可以看到的东西，也是公司内部。有一些在公司内部并不属于保密的事情，在外部并没有给予足够广泛的讨论。这就是我今天要说的。</p>
 <a id="more"></a>
@@ -6801,7 +6801,7 @@ alpha = (aLongBooleanExpression)
     <entry>
       <title><![CDATA[做这样的 APP 要多久]]></title>
       <url>http://linfuyan.com/how-long-does-developing-an-app-need/</url>
-      <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/how-long-does-developing-a-app-need.jpeg" alt="做这样的 APP 要多久"></p>
+      <content type="html"><![CDATA[<p><img src="http://img.uprogrammer.cn/how-long-does-developing-a-app-need.jpeg" alt="做这样的 APP 要多久"></p>
 <blockquote>
 <p>这是一个“如有雷同，纯属巧合”的故事，外加一些废话，大家请勿对号入座。开始了……</p>
 </blockquote>
@@ -6863,7 +6863,7 @@ alpha = (aLongBooleanExpression)
     <entry>
       <title><![CDATA[以Facebook为案例剖析科技公司应有的工具文化]]></title>
       <url>http://linfuyan.com/tool-culture-for-tech-corporation-like-facebook/</url>
-      <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/facebook-tool.jpg" alt="以Facebook为案例剖析科技公司应有的工具文化"></p>
+      <content type="html"><![CDATA[<p><img src="http://img.uprogrammer.cn/facebook-tool.jpg" alt="以Facebook为案例剖析科技公司应有的工具文化"></p>
 <p>本文由 @王淮 Harry 哥 撰写，摘自他即将出版的新书。王淮是 Facebook 早期员工，中国藉第二位工程师第一位研发经理。</p>
 <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>前段时间和大众点评的 CEO 张涛聊天的时候碰到内部工具这个话题，我们都非常推崇一个优秀的技术公司应有有一个非常强势的工具文化。在工具上，我有很深的体会，我说那不如我把我的理解通过 Facebook 的一些实践例子来阐述一下，希望对科技公司有些帮助。</p>
 <p>不断发展、改进公司的内部工具，可以极大提高每个员工的工作效率，可以减少运营人员的数目；这样既改善了整体协调，又减少了整体开支。</p>
@@ -6910,7 +6910,7 @@ alpha = (aLongBooleanExpression)
     <entry>
       <title><![CDATA[怎样成为全栈工程师（Full Stack Developer）？]]></title>
       <url>http://linfuyan.com/how_to_become_a_full_stack_developer/</url>
-      <content type="html"><![CDATA[<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/how-to-become-a-full-stack-developer.jpg" alt="怎样成为全栈工程师（Full Stack Developer)"></p>
+      <content type="html"><![CDATA[<p><img src="http://img.uprogrammer.cn/how-to-become-a-full-stack-developer.jpg" alt="怎样成为全栈工程师（Full Stack Developer)"></p>
 <blockquote>
 <p>补充一下Full Stack Developer的定义和标准：What is a Full Stack developer ？</p>
 </blockquote>
@@ -6990,7 +6990,7 @@ alpha = (aLongBooleanExpression)
 <blockquote>
 <p><strong>注意：</strong> 当你修改了项目中的构建文件， Android Studio 需要一个项目同步来导入构建配置的改变。点击出现在 Android Studio 黄色通知栏上的 <strong>Sync Now</strong> 按钮来导入这些变化。</p>
 </blockquote>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-as-gradlesync.png" alt="Sync the project in Andriod Studio"></p>
+<p><img src="http://img.uprogrammer.cn/uprogrammer-as-gradlesync.png" alt="Sync the project in Andriod Studio"></p>
 <h3 id="声明依赖"><a href="#声明依赖" class="headerlink" title="声明依赖"></a>声明依赖</h3><p>实例中的 app 模块声明了3个依赖：</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="comment">// Module dependency</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="keyword">project</span>(<span class="string">":lib"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Remote binary dependency</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:19.0.1'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Local binary dependency</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="keyword">fileTree</span>(dir: <span class="string">'libs'</span>, <span class="keyword">include</span>: [<span class="string">'*.jar'</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>每种依赖将在下面描述。构建系统添加所有的 <code>compile</code> 依赖到编译类路径中，并在最终的安装包中包含他们。</p>
@@ -7049,7 +7049,7 @@ alpha = (aLongBooleanExpression)
 </li>
 </ol>
 <p>最终的目录结构如下图：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-as-demoflavordirs.png" alt="demo 口味的新源文件夹"> </p>
+<p><img src="http://img.uprogrammer.cn/uprogrammer-as-demoflavordirs.png" alt="demo 口味的新源文件夹"> </p>
 <h4 id="为每种口味添加新的-Activity"><a href="#为每种口味添加新的-Activity" class="headerlink" title="为每种口味添加新的 Activity"></a>为每种口味添加新的 Activity</h4><p>添加 <code>SecondActivity</code> 到 demo 口味：</p>
 <ol>
 <li>在 <code>Project</code> 面板，右击 <code>app</code> 模块并选择 <strong>New &gt; Activity</strong>。</li>
@@ -7081,7 +7081,7 @@ alpha = (aLongBooleanExpression)
 <p><strong>注意：</strong>从现在开始，你可以在每种口味上独立的开发 <code>SecondActivity</code>。例如，你可以在 full 口味中为这个 Activity 添加更多的功能。</p>
 </blockquote>
 <p>想要在特定口味上的文件进行工作，点击 IDE 窗口左上角的 <strong>Build Variants</strong>，并在”构建变种”面板选择你想要修改的口味，如下图所示。 Android Studio 会为没有在构建变种面板上选中的口味的源文件中显示错误，但是这不影响构建输出。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-as-buildvariants.png" alt="构建变种面板"> </p>
+<p><img src="http://img.uprogrammer.cn/uprogrammer-as-buildvariants.png" alt="构建变种面板"> </p>
 <h4 id="从主-Activity-启动特定口味的-Activity"><a href="#从主-Activity-启动特定口味的-Activity" class="headerlink" title="从主 Activity 启动特定口味的 Activity"></a>从主 Activity 启动特定口味的 Activity</h4><p>由于特定口味的 Activity (<code>SecondActivity</code>)在两种口味中拥有相同的包名和 activity 名称，可以从所有口味共同的主 Activity 中启动它。修改主 Activity 如下：</p>
 <p>1、 编辑 <code>activity_main.xml</code>，并添加新的按钮到 <code>MainActivity</code>:</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">...</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/button2"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"@string/button2"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:onClick</span>=<span class="string">"onButton2Clicked"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -7148,7 +7148,7 @@ alpha = (aLongBooleanExpression)
 <p>Android 构建系统的灵活性使得可以在不修改应用程序核心源文件的情况下实现这些目标。想要构建一个 Android Studio 项目，参见<a href="https://developer.android.com/tools/building/building-studio.html" target="_blank" rel="noopener">从 Android Studio 构建和运行</a>。想要在 Android Studio 项目中配置自定义的构建设置，参见<a href="http://www.linfuyan.com/configuring-gradle-builds" target="_blank" rel="noopener">配置 Gradle 构建</a>。</p>
 <a id="more"></a>
 <h2 id="构建进程详解"><a href="#构建进程详解" class="headerlink" title="构建进程详解"></a>构建进程详解</h2><p>整个构建过程包含有许多工具和过程产生中间文件，并最终生成一个 .apk 文件。如果你使用 Android Studio 进行开发，那么当你每次为项目或者模块运行 Gradle 构建任务时，完整的构建过程就完成了。由于许多的构建过程是可配置和扩展的，因此理解每个覆盖下发生了对于理解构建过程的灵活性是很有用的。下面的图标描述整个构建中包含的不同的工具和过程：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/uprogrammer-build.png" alt="Android 构建工具与过程"></p>
+<p><img src="http://img.uprogrammer.cn/uprogrammer-build.png" alt="Android 构建工具与过程"></p>
 <p>一个典型构建的大概过程如下。构建系统从所有配置的产品修饰、构建类型和依赖中合并资源。如果不同文件夹包含有相同名字或设置的资源，将按照下面的优先级覆盖：依赖覆盖构建类型，构建类型覆盖产品修饰，产品修饰覆盖主源文件夹。</p>
 <ul>
 <li>Android 资源打包工具 (aapt) 处理应用程序的资源文件，例如 <code>AndroidManifest.xml</code> 文件以及 Activity 的 XML 文件等，并编译他们。最终生成 <code>R.java</code>，这样可以在 Java 代码中引用资源。</li>

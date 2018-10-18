@@ -91,13 +91,13 @@
 <meta property="og:site_name" content="阿阿燃">
 <meta property="og:description" content="翻译自：https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04 介绍“ LAMP “组件是一组典型的安装在一起的开源软件，用于服务器搭建动态网站和 Web 应用。实际上，这是一个首字母缩写的组合，代表了 Linux 操作系统安装">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/default_apache.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/default_php.png">
-<meta property="og:updated_time" content="2015-11-02T13:19:33.000Z">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/default_apache.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/default_php.png">
+<meta property="og:updated_time" content="2018-10-18T12:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何在Ubuntu 14.04 上安装Linux, Apache, MySQL, PHP (LAMP)组件">
 <meta name="twitter:description" content="翻译自：https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04 介绍“ LAMP “组件是一组典型的安装在一起的开源软件，用于服务器搭建动态网站和 Web 应用。实际上，这是一个首字母缩写的组合，代表了 Linux 操作系统安装">
-<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/default_apache.png">
+<meta name="twitter:image" content="http://img.uprogrammer.cn/static/images/default_apache.png">
 
 
 
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2015-11-02T21:19:33+08:00">
-                2015-11-02
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
+                2018-10-18
               </time>
             
           </span>
@@ -396,7 +396,7 @@
 <p>你可以马上做一些验证来确定一起如预期进行。在浏览器中输入你服务器的公网IP地址：</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//your_server_IP_address</span></span><br></pre></td></tr></table></figure>
 <p>你将看到默认的 Ubuntu 14.04 Apache 页面，这个页面展示的目的是出于测试及显示信息。看起来他是这样的：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/default_apache.png" alt="image"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/default_apache.png" alt="image"></p>
 <p>如果你看到这个页面，说明你的 web 服务器正确安装了。</p>
 <h4 id="如何找到你的服务器的公网-IP-地址"><a href="#如何找到你的服务器的公网-IP-地址" class="headerlink" title="如何找到你的服务器的公网 IP 地址"></a>如何找到你的服务器的公网 IP 地址</h4><p>如果你不知道服务器的公网IP地址是什么，可以有多重方式来找到。通常，这个地址是你用来通过SSH来连接你的服务器的。</p>
 <p>在命令行下，有一些方法来找到。首先，你可以使用 <code>iproute2</code> 工具来获取地址，输入以下命令：</p>
@@ -461,7 +461,7 @@
 <p>你需要访问的地址如下：</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//your_server_IP_address/info.php</span></span><br></pre></td></tr></table></figure>
 <p>你看到的页面显示如下：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/default_php.png" alt="image"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/default_php.png" alt="image"></p>
 <p>这个页面给出了你 web 服务器上的 PHP 信息。这对于你调试，并确保配置信息正确非常有用。</p>
 <p>如果这个成功，那么 PHP 已经可以正常运行。</p>
 <p>测试完毕，你需要删除这个文件。因为，这会向未授权用户泄露你服务器的信息。输入以下命令：</p>

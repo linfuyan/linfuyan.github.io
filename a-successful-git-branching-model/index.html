@@ -91,17 +91,17 @@
 <meta property="og:site_name" content="阿阿燃">
 <meta property="og:description" content="原文来自：A successful Git branching model译文来自：一个成功的 Git 分支模型 这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。  本文中我会展示一种开发模型，一年前该模型就已经被我用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-1.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-2.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-3.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-4.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-5.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-6.png">
-<meta property="og:updated_time" content="2015-08-28T12:03:40.000Z">
+<meta property="og:image" content="http://img.uprogrammer.cn/git-branch-1.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/git-branch-2.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/git-branch-3.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/git-branch-4.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/git-branch-5.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/git-branch-6.png">
+<meta property="og:updated_time" content="2018-10-18T12:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个成功的 Git 分支模型">
 <meta name="twitter:description" content="原文来自：A successful Git branching model译文来自：一个成功的 Git 分支模型 这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。  本文中我会展示一种开发模型，一年前该模型就已经被我用">
-<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-1.png">
+<meta name="twitter:image" content="http://img.uprogrammer.cn/git-branch-1.png">
 
 
 
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2015-08-28T20:03:40+08:00">
-                2015-08-28
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
+                2018-10-18
               </time>
             
           </span>
@@ -391,14 +391,14 @@
 <hr>
 <p>本文中我会展示一种开发模型，一年前该模型就已经被我用在所有的项目中（包括工作中的项目和私有项目），结果是非常成功的。我早就想为此写点东西，可直到现在才有时间。本文不会讲述任何项目的细节，只会涉及到分支策略和发布管理。</p>
 <a id="more"></a>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-1.png" alt="一个成功的 Git 分支模型"></p>
+<p><img src="http://img.uprogrammer.cn/git-branch-1.png" alt="一个成功的 Git 分支模型"></p>
 <p>本文使用 Git 作为所有源码的版本控制工具。</p>
 <h2 id="为什么是-Git？"><a href="#为什么是-Git？" class="headerlink" title="为什么是 Git？"></a>为什么是 Git？</h2><p>要全面了解 Git 与其它集中式版本控制系统相比的优劣，可以参考这个页面。这方面的争论可谓是硝烟弥漫。作为一个开发者，所有这些工具中我最钟情于 Git。Git 的的确确改变了人们考虑合并及分支的方式。在我之前所处的经典 CVS/Subversion 世界中，合并/分支总是被认为是有点可怕的事情（“小心合并冲突，丫会恶心到你”），因此你只应偶尔干这种事情。</p>
 <p>但有了 Git，这类事情就变得非常简单，分支及合并甚至被认为是你日常版本控制操作的核心之一。例如，在 CVS/Subversion 的书中，分支及合并往往在后面的章节才被介绍（针对高级用户），但在每一本 Git 的书中，该内容已经在前3章中介绍（基础）。</p>
 <p>简单及易重复性带来的好处就是，分支及合并变得不再可怕。版本控制工具本该帮助我们方便的进行和分支及合并操作。</p>
 <p>简单介绍下工具后，让我们来看开发模型。我讲介绍的模型本质上只是一组步骤，每个团队成员都必须遵循这些步骤以形成一个可靠管理的软件开发过程。</p>
 <h3 id="去中心化但仍保持中心化"><a href="#去中心化但仍保持中心化" class="headerlink" title="去中心化但仍保持中心化"></a>去中心化但仍保持中心化</h3><p>在这个分支模型中我们使用的，且被证实工作得很好的仓库配置，其核心是一个中心“真理”仓库。注意只有该仓库才被认为是中心库（由于 Git 是 DVCS [分布式版本控制系统]，在技术层面没有中心库这一东西）。之后我们用 origin 指代该仓库，因为大多数 Git 用户都熟悉这个名称。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-2.png" alt="一个成功的 Git 分支模型"></p>
+<p><img src="http://img.uprogrammer.cn/git-branch-2.png" alt="一个成功的 Git 分支模型"></p>
 <p>每个开发者都对 origin 做 push 和 pull 操作。不过除了这种中心化的 push-pull 关系外，每个开发者还可以从其他开发者或者小组处 pull 变更。例如，可能两个或更多的开发者一起开发一个大的特性，在往 origin 永久性的 push 工作代码之前，他们之间可以执行一些去中心化的操作。在上图中，分别有 Alice 和 Bob、Alice 和 David、Clair 和 David这些小组。</p>
 <p>从技术上来说，这仅仅是 Alice 定义一个 Git remote，名字为 bob，指向 Bob 的仓库，反过来也一样。</p>
 <h3 id="主要分支"><a href="#主要分支" class="headerlink" title="主要分支"></a>主要分支</h3><p>此开发模型的核心主要受现有的模型启发。中心仓库包含了两个主要分支，这两个分支的寿命是无限的：</p>
@@ -406,7 +406,7 @@
 <li>master</li>
 <li>develop</li>
 </ul>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-3.png" alt="一个成功的 Git 分支模型"></p>
+<p><img src="http://img.uprogrammer.cn/git-branch-3.png" alt="一个成功的 Git 分支模型"></p>
 <p>每个 Git 用于都应该熟悉 origin 上的 master 分支。与 master 分支平行存在的，是另外一个名为 develop 的分支。</p>
 <p>我们认为 origin/develop 分支上的 HEAD 源码反映了开发过程中最新的提交变更。有人会称之为“集成分支”。该分支是自动化每日构建的代码源。</p>
 <p>当 develop 分支上的源码到达一个稳定的状态时，就可以发布版本。所有 develop 上的变更都应该以某种方式合并回 master 分支，并且使用发布版本号打上标签。稍后我们会讨论具体操作细节。</p>
@@ -422,14 +422,14 @@
 <p>从技术角度来说，这些分支一点都不“特殊”。分支按照我们对其的使用方式进行分类。技术角度它们都一样是平常的 Git 分支。</p>
 <h3 id="特性分支"><a href="#特性分支" class="headerlink" title="特性分支"></a>特性分支</h3><p>可能的分支来源：develop<br>必须合并回：develop<br>分支命令约定：任何除 master, develop, <code>release-*</code>, 或 <code>hotfix-*</code> 以外的名称</p>
 <p>特性分支（有时也被称作 topic 分支）是用来为下一发布版本开发新特性。当开始开发一个特性的时候，该特性会成为哪个发布版本的一部分，往往还不知道。特性分支的重点是，只要特性还在开发，该分支就会一直存在，不过它最终会被合并回 develop 分支（将该特性加入到发布版本中），或者被丢弃（如果试验的结果令人失望）。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-4.png" alt="一个成功的 Git 分支模型"></p>
+<p><img src="http://img.uprogrammer.cn/git-branch-4.png" alt="一个成功的 Git 分支模型"></p>
 <p>特性分支往往只存在于开发者的仓库中，而不会出现在 origin。</p>
 <h4 id="创建一个特性分支"><a href="#创建一个特性分支" class="headerlink" title="创建一个特性分支"></a>创建一个特性分支</h4><p>开始开发新特性的时候，从 develop 分支创建特性分支。</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -<span class="selector-tag">b</span> myfeature develop</span><br><span class="line">Switch to <span class="selector-tag">a</span> new branch “myfeature”</span><br></pre></td></tr></table></figure>
 <h4 id="合并完成的特性回-develop"><a href="#合并完成的特性回-develop" class="headerlink" title="合并完成的特性回 develop"></a>合并完成的特性回 develop</h4><p>完成的特性应该被合并回 develop 分支以将特性加入到下一个发布版本中：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git checkout develop</span></span><br><span class="line">Switch to branch ‘develop’</span><br><span class="line"><span class="meta">$</span><span class="bash"> git merge –no-ff myfeature</span></span><br><span class="line">Updating ea1b82a..05e9557</span><br><span class="line">(Summary of changes)</span><br><span class="line"><span class="meta">$</span><span class="bash"> git branch -d myfeature</span></span><br><span class="line">Deleted branch myfeature (was 05e9557).</span><br><span class="line"><span class="meta">$</span><span class="bash"> git push origin develop</span></span><br></pre></td></tr></table></figure>
 <p>上述代码中的 –no-ff 标记会使合并永远创建一个新的 commit 对象，即使该合并能以 fast-forward 的方式进行。这么做可以避免丢失特性分支存在的历史信息，同时也能清晰的展现一组 commit 一起构成一个特性。比较下面的图：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-5.png" alt="一个成功的 Git 分支模型"></p>
+<p><img src="http://img.uprogrammer.cn/git-branch-5.png" alt="一个成功的 Git 分支模型"></p>
 <p>在第2张图中，已经无法一眼从 Git 历史中看到哪些 commit 对象构成了一个特性——你需要阅读日志以获得该信息。在这种情况下，回退（revert）整个特性（一组commit）就会比较麻烦，而如果使用了 –no-diff 就会简单很多。</p>
 <p>是的，这么做会造成一些（空的） commit 对象，但这么做是利大于弊的。</p>
 <p>可惜的是，我没能找到方法让 –no-diff 成为默认的 git merge 行为参数，但其实应该这么做。</p>
@@ -452,7 +452,7 @@
 <p>现在工作才算真正完成了，最后一步是删除发布分支，因为我们已不再需要它：</p>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d <span class="built_in">release</span><span class="number">-1.2</span></span><br><span class="line">Deleted branch <span class="built_in">release</span><span class="number">-1.2</span> (was ff452fe).</span><br></pre></td></tr></table></figure>
 <h3 id="热补丁分支"><a href="#热补丁分支" class="headerlink" title="热补丁分支"></a>热补丁分支</h3><p>可能的分支来源：master<br>必须合并回：develop 和 master<br>分支命名约定：hotfix-*</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/git-branch-6.png" alt="一个成功的 Git 分支模型"></p>
+<p><img src="http://img.uprogrammer.cn/git-branch-6.png" alt="一个成功的 Git 分支模型"></p>
 <p>热补丁分支和发布分支十分类似，它的目的也是发布一个新的产品版本，尽管是不在计划中的版本发布。当产品版本发现未预期的问题的时候，就需要理解着手处理，这个时候就要用到热补丁分支。当产品版本的重大 bug 需要立即解决的时候，我们从对应版本的标签创建出一个热补丁分支。</p>
 <p>使用热补丁分支的主要作用是（ develop 分支上的）团队成员可以继续工作，而另外的人可以在热补丁分支上进行快速的产品 bug 修复。</p>
 <h4 id="创建一个热补丁分支"><a href="#创建一个热补丁分支" class="headerlink" title="创建一个热补丁分支"></a>创建一个热补丁分支</h4><p>热补丁分支从 master 分支创建。例如，假设1.2是当前正在被使用的产品版本，由于一个严重的 bug，产品引起了很多问题。同时，develop 分支还处于不稳定状态，无法发布新的版本。这时我们可以创建一个热补丁分支，并在该分支上修复问题：</p>

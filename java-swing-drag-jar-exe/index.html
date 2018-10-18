@@ -91,13 +91,13 @@
 <meta property="og:site_name" content="阿阿燃">
 <meta property="og:description" content="年前抽空给朋友做了个小东西。具体功能就不说了。对于他的最终需求，概括的说就是：需要一个满足功能的在 windows 上的 .exe 文件。桌面开发我不熟，后来基于 Java Swing 给实现了。在实现过程中，几个关键点记下来做备忘。  拖拽文件到界面的输入框中，后续对文件进行处理。简化一下，拖拽文件到输入框，并获取文件路径。 项目的依赖是用 Gradle 来管理的，功能实现依赖第三方 jar，最">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jar2exe-1.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jar2exe-2.png">
-<meta property="og:updated_time" content="2017-03-16T05:35:25.000Z">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/jar2exe-1.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/jar2exe-2.png">
+<meta property="og:updated_time" content="2018-10-18T12:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Swing 代码打包成 Windows 上的 exe 文件">
 <meta name="twitter:description" content="年前抽空给朋友做了个小东西。具体功能就不说了。对于他的最终需求，概括的说就是：需要一个满足功能的在 windows 上的 .exe 文件。桌面开发我不熟，后来基于 Java Swing 给实现了。在实现过程中，几个关键点记下来做备忘。  拖拽文件到界面的输入框中，后续对文件进行处理。简化一下，拖拽文件到输入框，并获取文件路径。 项目的依赖是用 Gradle 来管理的，功能实现依赖第三方 jar，最">
-<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jar2exe-1.png">
+<meta name="twitter:image" content="http://img.uprogrammer.cn/static/images/jar2exe-1.png">
 
 
 
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-03-16T13:35:25+08:00">
-                2017-03-16
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
+                2018-10-18
               </time>
             
           </span>
@@ -404,8 +404,8 @@
 <p>由于 java 的运行离不开 jre 环境，而除了开发人员，正常用户电脑上基本没有环境。所以我们打包的时候，需要把 jre 一起打包。</p>
 <p>mac 上用 launch4j 来将 jar 打包成在 windows 上运行的 exe，还有一点需要注意，就是用于打包的 jre 必须是 windows 下的。</p>
 <p>最简单的 launch4j 配置只需两步，就可以把 jar 打包成 exe了。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jar2exe-1.png" alt="launch4j 基础配置"></p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/jar2exe-2.png" alt="launch4j jre 配置"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/jar2exe-1.png" alt="launch4j 基础配置"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/jar2exe-2.png" alt="launch4j jre 配置"></p>
 <p><strong>jre</strong> 要放置在最终打包的 exe 的同级目录下。这边主要是因为打包后的 exe 是通过相对路径来寻找依赖的 jre。如果配置错误，将导致后面的 exe 文件无法运行。</p>
 <p>到这里，最终打包的 exe 是可以运行了。不过 jre 包和 exe 文件是分开的。可以把这些东西，放在一个文件夹下再压缩，最后分发给用户。</p>
 <p>还可以把  jre 一起打包到 exe 中。以后有时间我在处理。</p>

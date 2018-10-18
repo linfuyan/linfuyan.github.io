@@ -91,15 +91,15 @@
 <meta property="og:site_name" content="阿阿燃">
 <meta property="og:description" content="应用程序通常包含多个 Activity。每个 Activity 围绕用户能够执行的指定动作类型和启动其他 Activity 来设计。例如，一个邮件应用程序有一个用来显示新信息列表的 Activity ，当用户选择一条信息，一个新的 Activity 打开用来查看信息。 一个 Activity 可以打开存在设备上的其他应用程序。例如，你的应用想要发送邮件信息，你可以定义一个意图来执行”发送”动作，并">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_backstack.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_multitasking.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_multiple_instances.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_backstack_singletask_multiactivity.png">
-<meta property="og:updated_time" content="2015-11-09T10:19:03.000Z">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/diagram_backstack.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/diagram_multitasking.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/diagram_multiple_instances.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/diagram_backstack_singletask_multiactivity.png">
+<meta property="og:updated_time" content="2018-10-18T12:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Task 与后退栈解析">
 <meta name="twitter:description" content="应用程序通常包含多个 Activity。每个 Activity 围绕用户能够执行的指定动作类型和启动其他 Activity 来设计。例如，一个邮件应用程序有一个用来显示新信息列表的 Activity ，当用户选择一条信息，一个新的 Activity 打开用来查看信息。 一个 Activity 可以打开存在设备上的其他应用程序。例如，你的应用想要发送邮件信息，你可以定义一个意图来执行”发送”动作，并">
-<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_backstack.png">
+<meta name="twitter:image" content="http://img.uprogrammer.cn/static/images/diagram_backstack.png">
 
 
 
@@ -317,8 +317,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2015-11-09T18:19:03+08:00">
-                2015-11-09
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
+                2018-10-18
               </time>
             
           </span>
@@ -389,16 +389,16 @@
 <p>Task 是用户在执行特定工作时与之交互的一系列 Activity 集合。 Activity 被排列在后退栈中，以每个 Activity 被打开的顺序排列。</p>
 <p>对于大部分 Task 而言，设备的主屏幕都是起始位置。当用户触摸应用程序启动器或者主屏幕上的快捷方式时，应用程序的 Task 进入前台。如果应用程序的 Task 不存在(即应用程序最近没有被使用)，那么新的 Task 将被创建，并且应用程序打开的主 Activity 将作为 Task 的根 Activity。</p>
 <p>当当前 Activity 启动另外的 Activity ， 新的 Activity 将被推到栈顶并获取焦点。之前的 Activity 仍然在栈中，但是被停止的。当 Activity 被停止时，系统保持了它的用户界面的当前状态。当用户按下返回按钮，当前 Activity 被从栈顶弹出，之前的 Activity 则恢复为之前 UI 所保存下来的状态。 栈中的 Activity 不会被重新排列，只能够被推入到栈中或者从栈中弹出。当被当前 Activity 启动时推入栈中，用户按下后退键时从栈中弹出。后退栈的操作遵循后进先出的原则。下图可视化的展示了随着时间推移 Activity 与后退栈中的关系。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_backstack.png" alt=""></p>
+<p><img src="http://img.uprogrammer.cn/static/images/diagram_backstack.png" alt=""></p>
 <p>如果用户继续按返回键，每个 Activity 都会从栈中被弹出来展示上一个 Activity ，直到回到主屏幕(或者回到运行 Task 开始的 Activity )。当所有的 Activity 从栈中移出， Task 就不存在了。</p>
 <p>Task 是一个相互结合的单元，当用户启动新的 Task 或者通过按下 Home 键来返回主屏幕时，原来的 Task 进入后台。一旦进入后台， Task 中的所有 Activity 被停止，但是 Task 的后退栈中是完整的，只是失去了焦点。一个 Task 可以重新回到前台以便用户打开。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_multitasking.png" alt=""></p>
+<p><img src="http://img.uprogrammer.cn/static/images/diagram_multitasking.png" alt=""></p>
 <p>假设，当前的 Task A 包含 3 个 Activity 在它的栈中，即当前 Activity 下有另外两个。用户按下 Home 键，从应用程序启动器新的应用程序。当主屏幕显示， Task A 进入后台。当新的应用程序启动，系统为新的应用程序启动了 Task B (其中包含自己 Activity 的栈)。在新的应用程序中玩了不久，用户再次回到主屏幕，并选择了先前 Task A 中启动的应用程序。这是 Task A 进入前台，堆栈中的 3 个 Activity 都是完整的，栈顶的 Activity 被恢复。这种情况下，用户可以通过返回主屏幕，再点击应用程序图标来启动。这是 Android 上多任务的一个实例。</p>
 <blockquote>
 <p>注意：多个 Task 可以同时被维持在后台。但如果用户同时运行太多的后台任务，系统会为了回收内存而销毁后台的 Activity ，这会引起 Activity 状态的丢失。</p>
 </blockquote>
 <p>由于后退栈中的 Activity 永远不会被重排，如果你的应用程序允许用户从多个 Activity 中启动一个特殊的 Activity ，那么，新的 Activity 实例将被创建并推入栈中，而不是将之前的其他 Activity 实例放到顶部。这样，应用程序中的一个 Activity 可能被实例化多次，如下图所示。当用户使用返回键导航回去时，每个 Activity 的实例将按照被打开的顺序来展示。但是，如果你不想让一个 Activity 被实例化多次，你可以修改这些行为。具体怎么做，在下一节的[管理  Task] 中介绍。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_multiple_instances.png" alt=""></p>
+<p><img src="http://img.uprogrammer.cn/static/images/diagram_multiple_instances.png" alt=""></p>
 <p>总结一下 Activity 和 Task 的默认行为：</p>
 <ol>
 <li>当 Activity A 启动 Activity B 时， Activity A 被停止，但系统保存了它的状态，包括滚动的位置和输入的文本等。如果用户在 Activity B 时按下返回键， Activity A 会返回到其原来保存的状态。</li>
@@ -466,7 +466,7 @@
 <p>除了系统不再启动其他的 Activity 到持有实例的 Task 中，其他的和 “singleTask” 一样。 这个 Activity 是它的 Task 的唯一成员。任何由它打开的 Activity 在一个独立的 Task 。</p>
 <p>另外一个实例， Android 浏览器应用程序声明网页浏览器的 Activity 需要永远在自己的 Task 中打开，即在 <code>&lt;activity&gt;</code> 元素中指定 singleTask 启动模式。这意味着，如果你的应用程序要打开 Android 浏览器，它的 Activity 与你的应用程序将在不同的 Task 中。不论新的 Task 启动浏览器，或者浏览器已经有一个运行在后台的 Task， Task 将被带到前台处理新的 Intent 。</p>
 <p>不论 Activity 是在新的 Task 中启动还是在相同的 Task 中启动，返回按钮总是能让用户返回到之前的 Activity 。如果你启动了一个指定 singleTask 启动模式的 Activity ，恰好这时有个 Activity 的实例在后台 Task 中，整个 Task 将进入前台。这种情况下，后退栈中包含在 Task 中的所有 Activity 进入前台，在栈的顶部。下图展示了这个过程。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/diagram_backstack_singletask_multiactivity.png" alt=""></p>
+<p><img src="http://img.uprogrammer.cn/static/images/diagram_backstack_singletask_multiactivity.png" alt=""></p>
 <p>更多的在清单中使用启动模式的信息，可以查看 <a href=""><activity>元素</activity></a> 相关文档，这里讨论更多关于 launchMode 属性及可接受的值。</p>
 <blockquote>
 <p><strong>注意</strong>：Activity 中通过 launchMode 属性指定的行为，可以通过启动 Activity 的意图的 flag 来覆盖。 </p>

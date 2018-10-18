@@ -91,12 +91,12 @@
 <meta property="og:site_name" content="阿阿燃">
 <meta property="og:description" content="这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。  Material design 中的动画能够让应用程序给予用户对于动作的反馈，提供用户交互的视觉持续性。 Material 主题为按钮和活动转场效果提供默认的动画， Android 5.0 (API 21) 以上版本可以定制这些动画，并创建新的：  触摸反馈 圆">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/SceneTransition.png">
-<meta property="og:updated_time" content="2015-11-03T09:16:28.000Z">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/SceneTransition.png">
+<meta property="og:updated_time" content="2018-10-18T12:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="定义自定义动画">
 <meta name="twitter:description" content="这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。  Material design 中的动画能够让应用程序给予用户对于动作的反馈，提供用户交互的视觉持续性。 Material 主题为按钮和活动转场效果提供默认的动画， Android 5.0 (API 21) 以上版本可以定制这些动画，并创建新的：  触摸反馈 圆">
-<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/SceneTransition.png">
+<meta name="twitter:image" content="http://img.uprogrammer.cn/static/images/SceneTransition.png">
 
 
 
@@ -314,8 +314,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2015-11-03T17:16:28+08:00">
-                2015-11-03
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
+                2018-10-18
               </time>
             
           </span>
@@ -431,7 +431,7 @@
 <li>changeImageTransform - 动画改变图片的尺寸和缩放。</li>
 </ul>
 <p>如果应用程序中开启了活动转场效果，进入或退出活动时默认的 cross-fading 转场效果将被激活。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/SceneTransition.png" alt="带有共享元素的转场效果"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/SceneTransition.png" alt="带有共享元素的转场效果"></p>
 <h3 id="指定自定义转场效果"><a href="#指定自定义转场效果" class="headerlink" title="指定自定义转场效果"></a>指定自定义转场效果</h3><p>首先，定义一个风格继承自 material 主题，并设置 <code>android:windowContentTransitions</code> 属性来开启窗口内容转场。你也可以在风格定义中指定进场，退场和共享元素转场效果。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"BaseAppTheme"</span> <span class="attr">parent</span>=<span class="string">"android:Theme.Material"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml"> <span class="comment">&lt;!-- 开启窗口内容转场 --&gt;</span></span></span><br><span class="line"><span class="xml"> <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowContentTransitions"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="xml"> <span class="comment">&lt;!-- 指定进场/退场效果 --&gt;</span></span></span><br><span class="line"><span class="xml"> <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowEnterTransition"</span>&gt;</span>@transition/explode<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml"> <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowExitTransition"</span>&gt;</span>@transition/explode<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="xml"> <span class="comment">&lt;!-- 指定共享元素转场 --&gt;</span></span></span><br><span class="line"><span class="xml"> <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowSharedElementEnterTransition"</span>&gt;</span></span></span><br><span class="line"><span class="css">   @<span class="keyword">transition</span>/<span class="keyword">change_image_transform</span>&lt;/<span class="keyword">item</span>&gt;</span></span><br><span class="line"><span class="xml"> <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowSharedElementExitTransition"</span>&gt;</span></span></span><br><span class="line"><span class="css">   @<span class="keyword">transition</span>/<span class="keyword">change_image_transform</span>&lt;/<span class="keyword">item</span>&gt;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>这个例子中 <code>change_image_transform</code> 转场效果定义如下：</p>

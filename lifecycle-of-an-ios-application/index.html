@@ -91,18 +91,18 @@
 <meta property="og:site_name" content="阿阿燃">
 <meta property="og:description" content="对于iOS应用程序，关键的是要知道你的应用程序是否正在前台或后台运行。由于系统资源在iOS设备上较为有限，一个应用程序必须在后台与前台有不同的行为。操作系统也会限制你的应用程序在后台的运行，以提高电池寿命，并提高用户与前台应用程序的体验。当应用程序在前台和后台之间切换时，操作系统将会通知您的应用程序。你可以通过这些通知来修改你的应用程序的行为。 当你的应用程序在前台活动时，系统会发送触摸事件给它进">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-1.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-2.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-3.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-4.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-5.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-6.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-7.png">
-<meta property="og:updated_time" content="2015-08-28T11:43:46.000Z">
+<meta property="og:image" content="http://img.uprogrammer.cn/ios-app-lifecycle-1.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/ios-app-lifecycle-2.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/ios-app-lifecycle-3.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/ios-app-lifecycle-4.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/ios-app-lifecycle-5.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/ios-app-lifecycle-6.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/ios-app-lifecycle-7.png">
+<meta property="og:updated_time" content="2018-10-18T12:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS App 生命周期">
 <meta name="twitter:description" content="对于iOS应用程序，关键的是要知道你的应用程序是否正在前台或后台运行。由于系统资源在iOS设备上较为有限，一个应用程序必须在后台与前台有不同的行为。操作系统也会限制你的应用程序在后台的运行，以提高电池寿命，并提高用户与前台应用程序的体验。当应用程序在前台和后台之间切换时，操作系统将会通知您的应用程序。你可以通过这些通知来修改你的应用程序的行为。 当你的应用程序在前台活动时，系统会发送触摸事件给它进">
-<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-1.png">
+<meta name="twitter:image" content="http://img.uprogrammer.cn/ios-app-lifecycle-1.png">
 
 
 
@@ -320,8 +320,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2015-08-28T19:43:46+08:00">
-                2015-08-28
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
+                2018-10-18
               </time>
             
           </span>
@@ -395,7 +395,7 @@
 <p><code>Active</code>(激活)：程序在前台运行而且接收到了事件。这也是前台的一个正常的模式。</p>
 <p><code>Backgroud</code>(后台)：程序在后台而且能执行代码，大多数程序进入这个状态后会在在这个状态上停留一会。时间到之后会进入挂起状态(Suspended)。有的程序经过特殊的请求后可以长期处于Backgroud状态。</p>
 <p><code>Suspended</code>(挂起)：程序在后台不能执行代码。系统会自动把程序变成这个状态而且不会发出通知。当挂起时，程序还是停留在内存中的，当系统内存低时，系统就把挂起的程序清除掉，为前台程序提供更多的内存。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-1.png" alt="iOS 应用生命周期"></p>
+<p><img src="http://img.uprogrammer.cn/ios-app-lifecycle-1.png" alt="iOS 应用生命周期"></p>
 <h4 id="2-各个程序运行状态时代理的回调"><a href="#2-各个程序运行状态时代理的回调" class="headerlink" title="2. 各个程序运行状态时代理的回调"></a>2. 各个程序运行状态时代理的回调</h4><p><strong>2.1 告诉代理进程启动但还没进入状态保存</strong></p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application willFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"①告诉代理进程启动但还没进入状态保存"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>2.2 告诉代理启动基本完成程序准备开始运行</strong></p>
@@ -418,9 +418,9 @@
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:56</span><span class="selector-pseudo">:11.756</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ③当应用程序将要入非活动状态执行</span><br><span class="line"></span><br><span class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:56</span><span class="selector-pseudo">:11.814</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ⑤当程序被推送到后台的时候调用</span><br></pre></td></tr></table></figure>
 <p>再次打开程序：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:57</span><span class="selector-pseudo">:19.200</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ⑥当程序从后台将要重新回到前台时候调用</span><br><span class="line"></span><br><span class="line">2014<span class="selector-tag">-07-01</span> 15<span class="selector-pseudo">:57</span><span class="selector-pseudo">:19.201</span> <span class="selector-tag">LifeCycle</span><span class="selector-attr">[5845:60b]</span> ④当应用程序进入活动状态执行</span><br></pre></td></tr></table></figure>
-<h4 id="3-加载应用程序进入前台"><a href="#3-加载应用程序进入前台" class="headerlink" title="3. 加载应用程序进入前台"></a>3. 加载应用程序进入前台</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-2.png" alt="iOS 应用生命周期"></p>
-<h4 id="4-加载应用程序进入后台"><a href="#4-加载应用程序进入后台" class="headerlink" title="4. 加载应用程序进入后台"></a>4. 加载应用程序进入后台</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-3.png" alt="iOS 应用生命周期"></p>
-<h4 id="5-基于警告式响应中断"><a href="#5-基于警告式响应中断" class="headerlink" title="5. 基于警告式响应中断"></a>5. 基于警告式响应中断</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-4.png" alt="iOS 应用生命周期"></p>
+<h4 id="3-加载应用程序进入前台"><a href="#3-加载应用程序进入前台" class="headerlink" title="3. 加载应用程序进入前台"></a>3. 加载应用程序进入前台</h4><p><img src="http://img.uprogrammer.cn/ios-app-lifecycle-2.png" alt="iOS 应用生命周期"></p>
+<h4 id="4-加载应用程序进入后台"><a href="#4-加载应用程序进入后台" class="headerlink" title="4. 加载应用程序进入后台"></a>4. 加载应用程序进入后台</h4><p><img src="http://img.uprogrammer.cn/ios-app-lifecycle-3.png" alt="iOS 应用生命周期"></p>
+<h4 id="5-基于警告式响应中断"><a href="#5-基于警告式响应中断" class="headerlink" title="5. 基于警告式响应中断"></a>5. 基于警告式响应中断</h4><p><img src="http://img.uprogrammer.cn/ios-app-lifecycle-4.png" alt="iOS 应用生命周期"></p>
 <p>当出现这种中断时，我们需要在<code>- (void)applicationWillResignActive:(UIApplication *)application</code> 方法中进行如下操作：</p>
 <ol>
 <li><p>停止timer 和其他周期性的任务</p>
@@ -437,7 +437,7 @@
 </li>
 </ol>
 <p>当程序回到active状态，我们需要在<code>- (void)applicationDidBecomeActive:(UIApplication *)application</code> 方法中重新开始上述任务。不过游戏要回到暂停状态，不能自动开始。</p>
-<h4 id="6-进入后台运行"><a href="#6-进入后台运行" class="headerlink" title="6. 进入后台运行"></a>6. 进入后台运行</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-5.png" alt="iOS 应用生命周期"></p>
+<h4 id="6-进入后台运行"><a href="#6-进入后台运行" class="headerlink" title="6. 进入后台运行"></a>6. 进入后台运行</h4><p><img src="http://img.uprogrammer.cn/ios-app-lifecycle-5.png" alt="iOS 应用生命周期"></p>
 <p>当应用程序进入后台时，我们应该做些什么？</p>
 <p>保存用户数据或状态信息，所有没写到磁盘的文件或信息，在进入后台时，最后都写到磁盘去，因为程序可能在后台被杀死。</p>
 <p>释放尽可能释放的内存。</p>
@@ -465,7 +465,7 @@
 <li><p>去掉系统管理数据缓存强引用</p>
 </li>
 </ol>
-<h4 id="7-返回前台运行"><a href="#7-返回前台运行" class="headerlink" title="7. 返回前台运行"></a>7. 返回前台运行</h4><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-6.png" alt="iOS 应用生命周期"></p>
+<h4 id="7-返回前台运行"><a href="#7-返回前台运行" class="headerlink" title="7. 返回前台运行"></a>7. 返回前台运行</h4><p><img src="http://img.uprogrammer.cn/ios-app-lifecycle-6.png" alt="iOS 应用生命周期"></p>
 <p>在暂停状态的应用程序必须准备处理任何排队的通知时，它返回到前台或后台执行状态。暂停的应用程序不执行任何代码，因此不能处理与方向的变化，时间的变化，偏好的变化，以及许多其他会影响应用程序的外观或状态的通知。为了确保这些更改不会丢失，系统排队许多相关的通知，并把它们传递给应用程序，只要它开始再次执行代码（无论是在前景或背景）。为了防止由偏快转为超载与它恢复时通知您的应用程序，该系统凝聚事件，并提供一个单一的通知（每个相关类型），反映了净变化，因为你的应用程序被暂停。</p>
 <h4 id="8-程序终止"><a href="#8-程序终止" class="headerlink" title="8. 程序终止"></a>8. 程序终止</h4><p>程序只要符合以下情况之一，只要进入后台或挂起状态就会终止：</p>
 <ol>
@@ -483,7 +483,7 @@
 <h4 id="9-The-Main-Run-Loop-主运行循环"><a href="#9-The-Main-Run-Loop-主运行循环" class="headerlink" title="9. The Main Run Loop 主运行循环"></a>9. The Main Run Loop 主运行循环</h4><p>Main Run Loop负责处理用户相关的事件。UIApplication对象在程序启动时启动main run Loop，它处理事件和更新视图的界面。看Main Run Loop就知道，它是运行在程序的主线程上的。这样保证了接收到用户相关操作的事件是按顺序处理的。 </p>
 <p>用户操作设备，相关的操作事件被系统生成并通过UIKit的指定端口分发。事件在内部排成队列，一个个的分发到Main run loop 去做处理。UIApplication对象是第一个接收到时间的对象，它决定事件如何被处理。触摸事件分发到主窗口，窗口再分发到对应出发触摸事件的View。其他的事件通过其他途径分发给其他对象变量做处理。 </p>
 <p>大部分的事件可以在你的应用里分发，类似于触摸事件，远程操控事件（线控耳机等）都是由app的 responder objects 对象处理的。Responder objects 在你的app里到处都是，比如：UIApplication 对象，view对象，view controller 对象，都是resopnder objects。大部分事件的目标都指定了resopnder object，不过事件也可以传递给其他对象。比如，如果view对象不处理事件，可以传给父类view或者view controller。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/ios-app-lifecycle-7.png" alt="iOS 应用生命周期"></p>
+<p><img src="http://img.uprogrammer.cn/ios-app-lifecycle-7.png" alt="iOS 应用生命周期"></p>
 <p>英文原文：<a href="https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/ManagingYourApplicationsFlow/ManagingYourApplicationsFlow.html#//apple_ref/doc/uid/TP40007072-CH4-SW20" target="_blank" rel="noopener">App States and Multitasking</a><br>译文出处：<a href="http://www.cnblogs.com/EverNight/p/3818570.html" target="_blank" rel="noopener">iOS App的生命周期</a></p>
 
       

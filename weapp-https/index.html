@@ -91,15 +91,15 @@
 <meta property="og:site_name" content="阿阿燃">
 <meta property="og:description" content="最近泡在好几个微信小程序QQ群里，发现大家提的好多问题是由于微信小程序的 https 支持引起的，这篇文章里面对于微信小程序的 https 相关问题做一些说明。  问题汇总哪些情况可能是由于 https 的配置导致的？ 1. 小程序页面出现白屏 大部分的小程序页面需要通过服务器接口返回的数据进行填充之后才能展示，由于 https 的配置错误，导致数据无法获取到，表现在小程序的界面上就是这个页面没">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/wxapp-https-debug.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/wxapp-https-switch.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/server-deploy-arch.png">
-<meta property="og:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/https-required.png">
-<meta property="og:updated_time" content="2017-05-25T06:35:34.000Z">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/wxapp-https-debug.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/wxapp-https-switch.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/server-deploy-arch.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/https-required.png">
+<meta property="og:updated_time" content="2018-10-18T12:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程">
 <meta name="twitter:description" content="最近泡在好几个微信小程序QQ群里，发现大家提的好多问题是由于微信小程序的 https 支持引起的，这篇文章里面对于微信小程序的 https 相关问题做一些说明。  问题汇总哪些情况可能是由于 https 的配置导致的？ 1. 小程序页面出现白屏 大部分的小程序页面需要通过服务器接口返回的数据进行填充之后才能展示，由于 https 的配置错误，导致数据无法获取到，表现在小程序的界面上就是这个页面没">
-<meta name="twitter:image" content="http://7sbydj.com1.z0.glb.clouddn.com/static/images/wxapp-https-debug.png">
+<meta name="twitter:image" content="http://img.uprogrammer.cn/static/images/wxapp-https-debug.png">
 
 
 
@@ -317,8 +317,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-05-25T14:35:34+08:00">
-                2017-05-25
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
+                2018-10-18
               </time>
             
           </span>
@@ -394,12 +394,12 @@
 <p>这个的原因和第一个其实是一样的，返回的图片的地址是 <code>http://</code> 开头，或者返回图片路径不对。所有无法加载出来。</p>
 <p>3. 调用 <code>wx.downloadFile/wx.uploadFile</code> 失败</p>
 <p>出现上面这些问题时，终端上的调试信息差不多是这样：</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/wxapp-https-debug.png" alt="微信https问题调试"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/wxapp-https-debug.png" alt="微信https问题调试"></p>
 <h2 id="问题缘起"><a href="#问题缘起" class="headerlink" title="问题缘起"></a>问题缘起</h2><p><strong>正式上线的微信小程序仅支持 https 的请求，包括 <code>wx.request</code>, <code>wx.uploadFile</code>, <code>wx.downloadFile</code> 等 API，以及其他支持网络资源的组件，如 <code>&lt;image&gt;</code></strong>。</p>
 <p>具体可以参看相关的 API 说明。</p>
 <p>很多小伙伴儿疑惑，我的小程序接口不是 https 的呀，网上获取到的很多实例代码也都不是，为什么在微信 web 开发者工具里面都可以正常的跑起来呢？有更多的人可能在疑惑，为啥很多实例代码跑起来以后白屏或者图片不显示呢？</p>
 <p>上面提到一个限定：<strong>正式上线的微信小程序</strong>仅支持 https 请求。正式环境为了安全，那开发环境也按照正式环境的标准来要求，就会有很多的不方便了。所以在开发环境下，微信小程序是可以支持 http 请求的，这在微信 web 开发者工具中可以配置。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/wxapp-https-switch.png" alt="微信https开关"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/wxapp-https-switch.png" alt="微信https开关"></p>
 <p>如上图，勾选最后的选项，开发环境下，不需要 https 请求，也能够获取到网络请求的数据了。所以从网络上下载了实例代码的小伙伴儿，如果出现白屏或者图片不显示，检查一下请求的 url，检查一下这块的配置，再跑起来看看是不是已经可以了。</p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>确定了问题是因为没有 https 支持导致的，那接下来该怎么解决呢？</p>
 <p><strong>显然解决方案是为来自服务端的请求加上 https 支持，为 <code>wx.uploadFile</code> 等 API 的请求域名加上 https 支持。</strong></p>
@@ -419,9 +419,9 @@
 <p>针对不同的技术，有其自己特有的 https 配置方案。如果你是这种情况，根据需要查找资料吧。但一般企业应用有更通用的做法。</p>
 <p>最后部署时，一般有 nginx 或者 apache，做反向代理及负载均衡等，然后才访问到真正的服务端业务代码。</p>
 <p>举个例子：我用 Java 开发了后台服务程序，并且跑在 tomcat 上。然后正式对外时，我用 nginx 做反向代理。那么这个看起来就像下面图所示。</p>
-<p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/server-deploy-arch.png" alt="服务端部署架构"></p>
+<p><img src="http://img.uprogrammer.cn/static/images/server-deploy-arch.png" alt="服务端部署架构"></p>
 <p>这时，通常就是对 nginx 做支持 https 的配置，以及配置反向代理。</p>
-<h3 id="小程序后台配置"><a href="#小程序后台配置" class="headerlink" title="小程序后台配置"></a>小程序后台配置</h3><p><img src="http://7sbydj.com1.z0.glb.clouddn.com/static/images/https-required.png" alt="小程序后台配置 https"></p>
+<h3 id="小程序后台配置"><a href="#小程序后台配置" class="headerlink" title="小程序后台配置"></a>小程序后台配置</h3><p><img src="http://img.uprogrammer.cn/static/images/https-required.png" alt="小程序后台配置 https"></p>
 <p>当服务器的 https 支持配置完成以后，需要在小程序后台中配置上合法的服务器域名。必须针对不同的 API 使用，配置对应的域名。</p>
 <h3 id="修改小程序代码，用-https-访问"><a href="#修改小程序代码，用-https-访问" class="headerlink" title="修改小程序代码，用 https 访问"></a>修改小程序代码，用 https 访问</h3><p>一切准备就绪，接下来就是修改小程序上的请求代码，用 https 访问。再将开发工具上的 https 验证的开发打开。这时候应该程序正常响应了。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上就是 https 配置导致的小程序问题，以及配置 https 支持需要的流程。每个部分都只粗略地提到，之所以没有具体说明，是因为每块都有挺多的内容可以讲。而针对小伙伴儿们不同的环境，又会有各种不同的方案。流程在这里了，每块具体内容大家自己查资料。后续我也可能针对具体内容写一些文章。欢迎到微信公众号“非典型程序员(up2048)”给我留言。</p>

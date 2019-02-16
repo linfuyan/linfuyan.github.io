@@ -263,6 +263,179 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/springboot-package-to-war/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/springboot-package-to-war/" itemprop="url">SpringBoot 打包成 war</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-16T21:34:00+08:00">
+                2019-02-16
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-16T21:41:59+08:00">
+                2019-02-16
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="pom-xml-修改"><a href="#pom-xml-修改" class="headerlink" title="pom.xml 修改"></a>pom.xml 修改</h2><h3 id="将-jar-修改为-war"><a href="#将-jar-修改为-war" class="headerlink" title="将 jar 修改为 war"></a>将 jar 修改为 war</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>使用 Maven 创建 SpringBoot 项目，默认打包为 jar。</p>
+<h3 id="在-spring-boot-starter-web-依赖中移除-tomcat-模块"><a href="#在-spring-boot-starter-web-依赖中移除-tomcat-模块" class="headerlink" title="在 spring-boot-starter-web 依赖中移除 tomcat 模块"></a>在 <code>spring-boot-starter-web</code> 依赖中移除 tomcat 模块</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>SpringBoot 自带 tomcat，需要移除</p>
+<h3 id="添加-servlet-依赖"><a href="#添加-servlet-依赖" class="headerlink" title="添加 servlet 依赖"></a>添加 servlet 依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="lt-build-gt-节点中的-finalName-修改为-server-context-path-中的路径。"><a href="#lt-build-gt-节点中的-finalName-修改为-server-context-path-中的路径。" class="headerlink" title="&lt;build&gt; 节点中的 finalName 修改为 server.context-path 中的路径。"></a><code>&lt;build&gt;</code> 节点中的 <code>finalName</code> 修改为 server.context-path 中的路径。</h3><figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span></span><br><span class="line"><span class="xml">        ...</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">finalName</span>&gt;</span>$</span><span class="template-variable">&#123;project.name&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">finalName</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="修改-SpringBoot-项目启动类，继承-SpringBootServletInitializer"><a href="#修改-SpringBoot-项目启动类，继承-SpringBootServletInitializer" class="headerlink" title="修改 SpringBoot 项目启动类，继承 SpringBootServletInitializer"></a>修改 SpringBoot 项目启动类，继承 <code>SpringBootServletInitializer</code></h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MySpringBootApplication</span> <span class="keyword">extends</span> <span class="title">SpringBootServletInitializer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="type">SpringApplicationBuilder</span> configure(<span class="type">SpringApplicationBuilder</span> builder) &#123;</span><br><span class="line">        <span class="comment">// 注意这里要指向原先用main方法执行的Application启动类</span></span><br><span class="line">        <span class="keyword">return</span> builder.sources(<span class="type">MySpringBootApplication</span>.<span class="keyword">class</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public static void main(<span class="type">String</span>[] args) &#123;</span><br><span class="line">		<span class="type">SpringApplication</span>.run(<span class="type">MySpringBootApplication</span>.<span class="keyword">class</span>, args);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用-mvn-打包"><a href="#使用-mvn-打包" class="headerlink" title="使用 mvn 打包"></a>使用 <code>mvn</code> 打包</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean package -Dmaven<span class="selector-class">.test</span><span class="selector-class">.skip</span>=true</span><br></pre></td></tr></table></figure>
+<p>在项目的 target 目录下就可以看到 .war 文件</p>
+<h2 id="将-war-文件部署到-tomcat-的-webapps-目录下"><a href="#将-war-文件部署到-tomcat-的-webapps-目录下" class="headerlink" title="将 .war 文件部署到 tomcat 的 webapps 目录下"></a>将 .war 文件部署到 tomcat 的 webapps 目录下</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://linfuyan.com/ubuntu14.04-install-jdk-1.8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1915,228 +2088,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/ubuntu-ngrok/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿阿燃">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/ubuntu-ngrok/" itemprop="url">ubuntu搭建ngrok服务器，尽享内网穿透技术带来的福利</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-19T17:17:00+08:00">
-                2016-12-19
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2016-12-19T22:13:50+08:00">
-                2016-12-19
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/软件工具/" itemprop="url" rel="index">
-                    <span itemprop="name">软件工具</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/软件工具/ngrok/" itemprop="url" rel="index">
-                    <span itemprop="name">ngrok</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>如果你做微信开发，一次又一次的发布、发现错误、调试、发布、发现错误、调试…的循环一定让你个人或是团队感到厌倦；<br>如果你接外包项目，在开发过程中，客户想要看一看开发中的进展，你一定为还没有可预览环境或者搭建环境产生的消耗而苦恼。<br>…<br>这一切的原因仅仅是因为你深处复杂的内网环境，被一个局域网阻断了与外部的直接联系。你一定希望有一样东西，能够冲破这层阻隔，为你的工作提高效率。<br>这篇文章我们介绍 ngrok，一个开源软件，可以用于提供内网穿透。</p>
-<p>以下我记录下ngrok服务的搭建过程。</p>
-<h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><ol>
-<li>需要一个有公网IP的VPS</li>
-<li>需要一个能够自由解析的域名</li>
-</ol>
-<h2 id="二、解析域名"><a href="#二、解析域名" class="headerlink" title="二、解析域名"></a>二、解析域名</h2><p>使用自己的域名，把域名解析到 VPS 的地址，解析方式如下：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ngrok.uprogrammer.cn ----------&gt; A记录到你的 VPS IP</span><br><span class="line">*.ngrok.uprogrammer.cn ----------&gt; CNAME到ngrok.uprogrammer.cn</span><br></pre></td></tr></table></figure>
-<h3 id="三、VPS-服务端安装-go-环境"><a href="#三、VPS-服务端安装-go-环境" class="headerlink" title="三、VPS 服务端安装 go 环境"></a>三、VPS 服务端安装 go 环境</h3><p>因为 ngrok 是由 go 语言开发的，所以需要安装 go 环境。</p>
-<p>1. 从 <a href="https://golang.org/dl/" target="_blank" rel="noopener">go 官网</a>下载最新的 go 版本，并解压到 <code>/usr/local</code> 目录下。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -c https:<span class="comment">//storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz</span></span><br><span class="line">tar -C /usr/local -zxvf go1.<span class="number">7.4</span><span class="selector-class">.linux-amd64</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br></pre></td></tr></table></figure>
-<p>2. 设置相关环境变量</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 可以根据自己需要调整路径  </span><br><span class="line"><span class="keyword">echo</span> <span class="string">'export GOROOT=/usr/local/go'</span> &gt;&gt; /etc/<span class="keyword">profile</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'export PATH=$PATH:$GOROOT/bin'</span> &gt;&gt; /etc/<span class="keyword">profile</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'export GOPATH=$HOME/go'</span> &gt;&gt; /etc/<span class="keyword">profile</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'export GOROOT_BOOTSTRAP=/usr/local/go'</span> &gt;&gt; /etc/<span class="keyword">profile</span></span><br><span class="line"><span class="keyword">source</span> /etc/<span class="keyword">profile</span></span><br></pre></td></tr></table></figure>
-<p>3. 检查是否安装成功</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> <span class="keyword">version</span></span><br></pre></td></tr></table></figure>
-<h3 id="四、安装-Git-环境"><a href="#四、安装-Git-环境" class="headerlink" title="四、安装 Git 环境"></a>四、安装 Git 环境</h3><p>由于我们通过 github 上的源码来安装 ngrok，所以需要先安装下 git。如果已经有 git环境，则直接跳过。</p>
-<p>ubuntu 上可以直接通过 <code>apt-get install git</code> 来安装 git。完成以后，做相应的 git 配置，此处略过。</p>
-<h3 id="五、Ubuntu-安装-ngrok"><a href="#五、Ubuntu-安装-ngrok" class="headerlink" title="五、Ubuntu 安装 ngrok"></a>五、Ubuntu 安装 ngrok</h3><p>1. 下载 ngrok，并修改参数</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/inconshreveable/ngrok.git</span><br><span class="line"><span class="built_in">export</span> GOPATH=/usr/<span class="built_in">local</span>/ngrok/</span><br><span class="line"><span class="built_in">export</span> NGROK_DOMAIN=<span class="string">"ngrok.uprogrammer.cn"</span></span><br><span class="line"><span class="built_in">cd</span> ngrok</span><br></pre></td></tr></table></figure>
-<p>2. 生成证书(必须)</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out rootCA<span class="selector-class">.key</span> <span class="number">2048</span></span><br><span class="line">openssl req -x509 -new -nodes -key rootCA<span class="selector-class">.key</span> -subj <span class="string">"/CN=$NGROK_DOMAIN"</span> -days <span class="number">5000</span> -out rootCA.pem</span><br><span class="line">openssl genrsa -out server<span class="selector-class">.key</span> <span class="number">2048</span></span><br><span class="line">openssl req -new -key server<span class="selector-class">.key</span> -subj <span class="string">"/CN=$NGROK_DOMAIN"</span> -out server.csr</span><br><span class="line">openssl x509 -req -<span class="keyword">in</span> server<span class="selector-class">.csr</span> -CA rootCA<span class="selector-class">.pem</span> -CAkey rootCA<span class="selector-class">.key</span> -CAcreateserial -out server<span class="selector-class">.crt</span> -days <span class="number">5000</span></span><br></pre></td></tr></table></figure>
-<p>3. 将源代码目录下生成的证书文件复制到指定的位置</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp rootCA<span class="selector-class">.pem</span> assets/client/tls/ngrokroot.crt</span><br><span class="line">cp server<span class="selector-class">.crt</span> assets/server/tls/snakeoil.crt</span><br><span class="line">cp server<span class="selector-class">.key</span> assets/server/tls/snakeoil.key</span><br></pre></td></tr></table></figure>
-<p>4. 如果是在国内的服务器，需要执行下面的修改，否则会由于网络原因产生库的依赖问题。香港或者国外的服务器就不需要了。</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/<span class="built_in">local</span>/ngrok/src/ngrok/<span class="built_in">log</span>/logger.<span class="built_in">go</span></span><br><span class="line"><span class="built_in">log</span> <span class="string">"github.com/keepeye/log4go"</span></span><br></pre></td></tr></table></figure>
-<p>5. 编译服务器，这里也同时编译了一个 linux 下的客户端。64位系统使用 amd64，如果是32位，需要修改成 amd386。<br>编译的时候，这里可能会遇到一个坑，后面会讲到。</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/go/src</span><br><span class="line"><span class="attribute">GOOS</span>=linux <span class="attribute">GOARCH</span>=amd64 ./make.bash</span><br><span class="line">cd /usr/local/ngrok/</span><br><span class="line"><span class="attribute">GOOS</span>=linux <span class="attribute">GOARCH</span>=amd64 make release-server release-client</span><br></pre></td></tr></table></figure>
-<p>编译 Mac 64 位客户端</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/go/src</span><br><span class="line"><span class="attribute">GOOS</span>=darwin <span class="attribute">GOARCH</span>=amd64 ./make.bash</span><br><span class="line">cd /usr/local/ngrok/</span><br><span class="line"><span class="attribute">GOOS</span>=darwin <span class="attribute">GOARCH</span>=amd64 make release-client</span><br></pre></td></tr></table></figure>
-<p>编译 Windows 64位客户端</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/go/src</span><br><span class="line"><span class="attribute">GOOS</span>=windows <span class="attribute">GOARCH</span>=amd64 ./make.bash</span><br><span class="line">cd /usr/local/ngrok/</span><br><span class="line"><span class="attribute">GOOS</span>=windows <span class="attribute">GOARCH</span>=amd64 make release-client</span><br></pre></td></tr></table></figure>
-<h2 id="六、服务端运行与使用"><a href="#六、服务端运行与使用" class="headerlink" title="六、服务端运行与使用"></a>六、服务端运行与使用</h2><p>1. 进入服务端目录，服务端程序文件名为 ngrokd，并执行相应命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/ngrok/bin</span><br><span class="line">./ngrokd -domain=<span class="string">"<span class="variable">$NGROK_DOMAIN</span>"</span> -httpAddr=<span class="string">":80"</span></span><br></pre></td></tr></table></figure>
-<p>2. 返回类似如下的结果，则说明服务端运行成功</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[08:09:41 UTC 2016/12/19]</span> <span class="selector-attr">[INFO]</span> (ngrok/log.(*PrefixLogger).<span class="attribute">Info</span>:<span class="number">83</span>) <span class="selector-attr">[registry]</span> <span class="selector-attr">[tun]</span> <span class="selector-tag">No</span> <span class="selector-tag">affinity</span> <span class="selector-tag">cache</span> <span class="selector-tag">specified</span></span><br><span class="line"><span class="selector-attr">[08:09:41 UTC 2016/12/19]</span> <span class="selector-attr">[INFO]</span> (ngrok/log.<span class="attribute">Info</span>:<span class="number">112</span>) <span class="selector-tag">Listening</span> <span class="selector-tag">for</span> <span class="selector-tag">public</span> <span class="selector-tag">http</span> <span class="selector-tag">connections</span> <span class="selector-tag">on</span> <span class="selector-attr">[::]</span><span class="selector-pseudo">:80</span></span><br><span class="line"><span class="selector-attr">[08:09:41 UTC 2016/12/19]</span> <span class="selector-attr">[INFO]</span> (ngrok/log.<span class="attribute">Info</span>:<span class="number">112</span>) <span class="selector-tag">Listening</span> <span class="selector-tag">for</span> <span class="selector-tag">public</span> <span class="selector-tag">https</span> <span class="selector-tag">connections</span> <span class="selector-tag">on</span> <span class="selector-attr">[::]</span><span class="selector-pseudo">:443</span></span><br><span class="line"><span class="selector-attr">[08:09:41 UTC 2016/12/19]</span> <span class="selector-attr">[INFO]</span> (ngrok/log.<span class="attribute">Info</span>:<span class="number">112</span>) <span class="selector-tag">Listening</span> <span class="selector-tag">for</span> <span class="selector-tag">control</span> <span class="selector-tag">and</span> <span class="selector-tag">proxy</span> <span class="selector-tag">connections</span> <span class="selector-tag">on</span> <span class="selector-attr">[::]</span><span class="selector-pseudo">:4443</span></span><br><span class="line"><span class="selector-attr">[08:09:41 UTC 2016/12/19]</span> <span class="selector-attr">[INFO]</span> (ngrok/log.(*PrefixLogger).<span class="attribute">Info</span>:<span class="number">83</span>) <span class="selector-attr">[metrics]</span> <span class="selector-tag">Reporting</span> <span class="selector-tag">every</span> <span class="selector-tag">30</span> <span class="selector-tag">seconds</span></span><br></pre></td></tr></table></figure>
-<h2 id="七、客户端的运行与使用"><a href="#七、客户端的运行与使用" class="headerlink" title="七、客户端的运行与使用"></a>七、客户端的运行与使用</h2><p>1. 把刚刚从 VPS 服务器上生成的客户端服务器下载到本机，可以通过 <code>scp</code> 命令</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp username<span class="variable">@servername</span><span class="symbol">:/path/filename</span> /var/www/local_dir（本地目录）</span><br></pre></td></tr></table></figure>
-<p>mac 客户端的位置：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/ngrok/</span>bin<span class="regexp">/darwin_amd64/</span>ngrok</span><br></pre></td></tr></table></figure>
-<p>windows 客户端的位置：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/ngrok/</span>bin<span class="regexp">/windows_amd64/</span>ngrok.exe</span><br></pre></td></tr></table></figure>
-<p>linux 客户端的位置：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/ngrok/</span>bin<span class="regexp">/ngrok</span></span><br></pre></td></tr></table></figure>
-<p>2. 客户端程序下载到本地以后，在本地同一目录下新建名为 <code>ngrok.cfg</code> 的文件，文件内容如下：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">server_addr:</span> <span class="string">"ngrok.uprogrammer.cn:4443"</span></span><br><span class="line"><span class="string">trust_host_root_certs:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<p>3. 运行客户端</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./ngrok <span class="attribute">-config</span>=./ngrok.cfg <span class="attribute">-subdomain</span>=test 8080</span><br><span class="line"><span class="comment"># -subdomain参数指的是域名，例如这里是test.ngrok.uprogrammer.cn</span></span><br><span class="line"><span class="comment"># 后面的80是指本机端口，这里是指把本机的8080端口开放穿透</span></span><br><span class="line"><span class="comment"># windows运行客户端，请把./改成win风格的目录方式</span></span><br></pre></td></tr></table></figure>
-<p>4. 返回类似如下的结果，则说明客户端运行成功</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Tunnel Status                 online                                                                                                        </span><br><span class="line">Version                       <span class="number">1.7</span>/<span class="number">1.7</span>                                                                                                       </span><br><span class="line">Forwarding                    http://<span class="keyword">test</span>.ngrok.uprogrammer.cn -&gt; <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">8080</span>                                                            </span><br><span class="line">Forwarding                    https://<span class="keyword">test</span>.ngrok.uprogrammer.cn -&gt; <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">8080</span>                                                           </span><br><span class="line">Web Interface                 <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">4040</span>                                                                                                </span><br><span class="line"># Conn                        <span class="number">0</span>                                                                                                             </span><br><span class="line">Avg Conn Time                 <span class="number">0.</span>00ms</span><br></pre></td></tr></table></figure>
-<p>接下来，你就可以运行本地 8080 端口的程序，看一看是不是通过 <code>test.uprogrammer.cn</code> 就可以访问啦，也可以发给局域网之外的人来访问^ ^</p>
-<h2 id="八、可能遇到的坑"><a href="#八、可能遇到的坑" class="headerlink" title="八、可能遇到的坑"></a>八、可能遇到的坑</h2><p>1. 出现以下错误提示：<code>$GOROOT_BOOTSTRAP must not be set to $GOROOT</code></p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##### Building Go bootstrap tool.</span></span><br><span class="line">cmd/dist</span><br><span class="line">ERROR: <span class="variable">$GOROOT_BOOTSTRAP</span> must <span class="keyword">not</span> be <span class="builtin-name">set</span> <span class="keyword">to</span> <span class="variable">$GOROOT</span></span><br><span class="line"><span class="builtin-name">Set</span> <span class="variable">$GOROOT_BOOTSTRAP</span> <span class="keyword">to</span> a working Go tree &gt;= Go 1.4.</span><br></pre></td></tr></table></figure>
-<p>配置的 <code>$GOROOT_BOOTSTRAP</code> 和 <code>$GOROOT</code> 一致导致。可以复制一份 go 的源码到另外的路径，如 <code>/usr/local/go-copy</code>，同时 <code>export GOROOT_BOOTSTRAP=/usr/local/go-copy</code></p>
-<p>2. 客户端可以连上，但域名不完全，显示如下：</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Tunnel Status                 online</span><br><span class="line">Version                       <span class="number">1.7</span>/<span class="number">1.7</span></span><br><span class="line">Forwarding                    http://<span class="keyword">test</span>. -&gt; <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">8080</span></span><br><span class="line">Forwarding                    https://<span class="keyword">test</span>. -&gt; <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">8080</span></span><br><span class="line">Web Interface                 <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">4040</span></span><br><span class="line"># Conn                        <span class="number">0</span></span><br><span class="line">Avg Conn Time                 <span class="number">0.</span>00ms</span><br></pre></td></tr></table></figure>
-<p>这种错误是由于服务端运行时环境变量没有正确配置导致的，可以显示设置域名：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./ngrokd <span class="attribute">-domain</span>=<span class="string">"ngrok.uprogrammer.cn"</span> <span class="attribute">-httpAddr</span>=<span class="string">":80"</span></span><br></pre></td></tr></table></figure>
-<p>3. 如果你对 VPS 服务器已经有其他程序占用 80 端口，而还需要 ngrok 通过80端口做内网穿透的话，可以通过 nginx 来做反向代理。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2189,7 +2140,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">87</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2211,7 +2162,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">221</span>
+                  <span class="site-state-item-count">224</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

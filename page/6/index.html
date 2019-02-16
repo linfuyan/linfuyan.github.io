@@ -263,6 +263,213 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/what-is-jenkins/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/what-is-jenkins/" itemprop="url">什么是 Jenkins?</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-26T23:13:09+08:00">
+                2015-09-26
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
+                2018-10-18
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/" itemprop="url" rel="index">
+                    <span itemprop="name">软件工具</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/jenkins/" itemprop="url" rel="index">
+                    <span itemprop="name">jenkins</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="什么是Jenkins"><a href="#什么是Jenkins" class="headerlink" title="什么是Jenkins"></a>什么是Jenkins</h3><p>Jenkins 是一款一流的应用软件，用于监控重复任务的执行，包括一个软件项目的构建、由 <code>cron</code> 执行的工作等。在此基础之上，Jenkins 现在专注于以下两个方向：</p>
+<ul>
+<li><strong>持续构建/测试软件项目</strong>，类似于 <code>CruiseControl</code> 或者 <code>DamageControl</code> 。简而言之， Jenkins 提供一个使用简单地持续集成系统，使得开发人员更方便的集成项目修改，让用户更容易地获取较新的构建版本。自动化持续构建极大提高了生产力。</li>
+<li><strong>监控外部运行任务的执行</strong>，比如配置在本地或者远程的 <code>cron</code> 或 <code>procmail</code> 任务。拿 <code>cron</code> 举个例子，你将收到的是一些包含输出结果的常规电子邮件，提醒你勤快地处理它们，当它们出错时，也可以第一时间提醒你。 Jenkins 保存这些输出，并使得出现问题时的通知变得简单。</li>
+</ul>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><p>Jenkins 所提供(拥有)的特性如下：</p>
+<ol>
+<li><strong>易于安装</strong>：只需要一个名为 jenkins.war 的 Java jar 包，或者将它发布到 servlet 容器。不需要其他附件安装，不需要数据库。</li>
+<li><strong>易于配置</strong>：整个 Jenkins 的配置都可以通过它友好的 Web 界面来完成。不在需要别扭的 XML 手动配置，如果你依然愿意，可以继续使用。</li>
+<li><strong>修改设置的支持</strong>： Jenkins 可以从 <code>Subversion/CVS</code> 生成一系列的修改列表来完成构建。这种方式也非常的前卫，因为减少了从存储库加载资源的步骤。</li>
+<li><strong>永久的链接地址</strong>： Jenkins 为大部分的页面提供了简洁可读的 URL ，包括诸如” <code>latest build/latest successful build</code> “这样的永久性链接，可以很轻易的从其他地方链接过来。</li>
+<li><strong>RSS/邮件/即时通行集成</strong>：通过 RSS 或者邮件来获取失败时的实时通知，轻而易举地监控构建结果。</li>
+<li><strong>标记构建过程</strong>：当构建完成以后，可以对其进行标记存储。</li>
+<li><strong>JUnit/TestNG 测试报告</strong>： JUnit 的测试报告及历史信息，可以表格形式总结与展示，比如构建在什么时候开始出错等等。历史趋势以图表形式绘制出来。</li>
+<li><strong>分布式构建</strong>： Jenkins 可以分配构建/测试到多台电脑商。</li>
+<li><strong>文件指纹</strong>： Jenkins 可以跟踪那次构建生成了哪些 jar 包，哪些构建使用了哪个版本的 jar 包等等。这些对不是 Jenkins 内部产生的 jar 包也有效，非常适合于项目中的依赖跟踪。</li>
+<li><strong>插件支持</strong>： Jenkins 可以轻易地通过第三方插件进行扩展。你甚至可以为自己的团队使用编写合适的 Jenkins 插件。</li>
+</ol>
+<h3 id="Jenkins-由来"><a href="#Jenkins-由来" class="headerlink" title="Jenkins 由来"></a>Jenkins 由来</h3><p>目前持续集成（ CI ）已成为当前许多软件开发团队在整个软件开发生命周期内侧重于保证代码质量的常见做法。它是一种实践，只在缓和和稳固软件的构建过程，并且能够帮助你的开发团队应对如下挑战：</p>
+<ul>
+<li>软件构建自动化：配置完成后， CI 系统会依照预先定制的时间表，或者针对某一特定事件，对目标软件进行构建。</li>
+<li>构建可持续的自动化检查： CI 系统能持续地获取新增或者修改后签入的源代码，也就是说，当软件开发团队需要周期性的检查新增或修改后的代码时， CI 系统会不断确认这些新代码是否破坏了原有软件的成功构建。这减少了开发者们在检查彼此相互依存的代码中变化情况需要花费的时间和精力。</li>
+<li>构建可持续的自动化测试：构建检查的扩展部分，构建后执行预先制定的一套测试规则，完成后触发通知给相关的当事人。</li>
+<li>生成后后续过程的自动化：当自动化检查和测试成功完成以后，软件构建的周期中可能需要一些额外的任务，诸如生成文档，打包软件，部署构建到一个运行环境或者软件仓库。这样，构件才能更迅速地提供给用户使用。</li>
+</ul>
+<p>部署一个 CI 系统需要的最低要求是，一个可获取的源代码仓库，一个包含构建脚本的项目。</p>
+<p>CI 系统的基本结构，如下：</p>
+<p><img src="http://img.uprogrammer.cn/static/images/jenkins-basic-structure.jpg" alt="image"></p>
+<p>该系统的各个组成部分是按如下顺序发挥作用的：</p>
+<ol>
+<li>开发这检入代码到源代码仓库。</li>
+<li>CI 系统会为每一个项目创建一个单独的工作区。当预设或请求一次新的构建时，它将把源代码仓库的源码存放到对应的工作区。</li>
+<li>CI 系统会在对应的工作区内执行构建过程。</li>
+<li>如果配置存在，构建完成后， CI 系统会在一个新的构建中执行定义的一套测试。完成后出发通知（RSS，邮箱等等）给相关的当事人。</li>
+<li>如果配置存在，在构建成功后，这个构建会被打包并转移到一个部署目标（如应用服务器）或存储为软件仓库中的一个新版本。软件仓库可以是 CI 系统的一部分，也可以是一个外部的仓库，诸如一个文件或者服务器或者像 Java.net 、 SourceForge 之类的网站。</li>
+<li>CI 系统通常会根据请求发起相应地操作，诸如及时构建、生成报告，或者检索一些构建好的构件。</li>
+</ol>
+<p>Jenkins 就是这样的一个 CI 系统。它的主要目标在于监控软件开发流程，快速显示问题。所以能保证开发人员以及相关人员省时省力提高开发效率。</p>
+<p>在整个开发过程中， CI 的作用主要是控制：当系统在代码库中探测到修改是，它将运行构建的任务委托给构建过程本身。如果构建失败了，那么 CI 将通知相关人员，然后继续监视存储库。</p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ol>
+<li><a href="http://www.cnblogs.com/zz0412/p/jenkins01.html" target="_blank" rel="noopener">Jenkins是什么</a></li>
+<li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins" target="_blank" rel="noopener">Meet Jenkins</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://linfuyan.com/hexo-your-blog/add-weixin-qrcode-to-hueman-sidebar/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1769,173 +1976,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/hexo-your-blog/dockerize-hexo-on-mac/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿阿燃">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hexo-your-blog/dockerize-hexo-on-mac/" itemprop="url">Mac OS X 上 使用 Docker 安装 Hexo</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-10T14:57:42+08:00">
-                2015-09-10
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2015-09-16T17:54:01+08:00">
-                2015-09-16
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/软件工具/" itemprop="url" rel="index">
-                    <span itemprop="name">软件工具</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/软件工具/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>这篇中介绍如何在 Mac OS X 上使用 Docker 来安装 Hexo。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1988,7 +2028,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">87</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2010,7 +2050,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">221</span>
+                  <span class="site-state-item-count">224</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

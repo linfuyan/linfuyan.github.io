@@ -263,6 +263,183 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/install_mysql_via_brew_on_osx_eicapitan/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/install_mysql_via_brew_on_osx_eicapitan/" itemprop="url">Mac OSX 10.11 通过 HomeBrew 安装 MySQL</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-01T21:00:00+08:00">
+                2016-03-01
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2016-03-08T22:07:00+08:00">
+                2016-03-08
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/" itemprop="url" rel="index">
+                    <span itemprop="name">软件工具</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/LAMP/" itemprop="url" rel="index">
+                    <span itemprop="name">LAMP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在 Mac OSX 升级到 EICapitan 之后，原来安装的 MySQL 就多多少少出现了问题。于是决定重装：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">$ brew <span class="keyword">install</span> mysql</span><br><span class="line">==&gt; Installing dependencies <span class="keyword">for</span> mysql: openssl</span><br><span class="line">==&gt; Installing mysql dependency: openssl</span><br><span class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/openssl<span class="number">-1.0</span><span class="number">.2</span>e_1.el_capitan</span><br><span class="line">######################################################################## <span class="number">100.0</span>%</span><br><span class="line">==&gt; Pouring openssl<span class="number">-1.0</span><span class="number">.2</span>e_1.el_capitan.bottle.tar.gz</span><br><span class="line">==&gt; Caveats</span><br><span class="line">A CA <span class="keyword">file</span> has been bootstrapped <span class="keyword">using</span> certificates <span class="keyword">from</span> the <span class="keyword">system</span></span><br><span class="line">keychain. <span class="keyword">To</span> <span class="keyword">add</span> additional certificates, place .pem files <span class="keyword">in</span></span><br><span class="line">  /usr/<span class="keyword">local</span>/etc/openssl/certs</span><br><span class="line"></span><br><span class="line"><span class="keyword">and</span> run</span><br><span class="line">  /usr/<span class="keyword">local</span>/opt/openssl/<span class="keyword">bin</span>/c_rehash</span><br><span class="line"></span><br><span class="line">This formula <span class="keyword">is</span> keg-<span class="keyword">only</span>, which means it was <span class="keyword">not</span> symlinked <span class="keyword">into</span> /usr/local.</span><br><span class="line"></span><br><span class="line">Apple has deprecated <span class="keyword">use</span> <span class="keyword">of</span> OpenSSL <span class="keyword">in</span> favor <span class="keyword">of</span> its own TLS <span class="keyword">and</span> crypto libraries</span><br><span class="line"></span><br><span class="line">Generally there <span class="keyword">are</span> <span class="keyword">no</span> consequences <span class="keyword">of</span> this <span class="keyword">for</span> you. <span class="keyword">If</span> you <span class="keyword">build</span> your</span><br><span class="line">own software <span class="keyword">and</span> it requires this formula, you<span class="string">'ll need to add to your</span></span><br><span class="line"><span class="string">build variables:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    LDFLAGS:  -L/usr/local/opt/openssl/lib</span></span><br><span class="line"><span class="string">    CPPFLAGS: -I/usr/local/opt/openssl/include</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">==&gt; Summary</span></span><br><span class="line"><span class="string">🍺  /usr/local/Cellar/openssl/1.0.2e_1: 465 files, 11.9M</span></span><br><span class="line"><span class="string">==&gt; Installing mysql</span></span><br><span class="line"><span class="string">==&gt; Downloading https://homebrew.bintray.com/bottles/mysql-5.7.10.el_capitan.bot</span></span><br><span class="line"><span class="string">######################################################################## 100.0%</span></span><br><span class="line"><span class="string">==&gt; Pouring mysql-5.7.10.el_capitan.bottle.2.tar.gz</span></span><br><span class="line"><span class="string">==&gt; /usr/local/Cellar/mysql/5.7.10/bin/mysqld --initialize-insecure --user=lfy -</span></span><br><span class="line"><span class="string">==&gt; Caveats</span></span><br><span class="line"><span class="string">We'</span>ve installed your MySQL <span class="keyword">database</span> <span class="keyword">without</span> a root password. <span class="keyword">To</span> secure it run:</span><br><span class="line">    mysql_secure_installation</span><br><span class="line"></span><br><span class="line"><span class="keyword">To</span> <span class="keyword">connect</span> run:</span><br><span class="line">    mysql -uroot</span><br><span class="line"></span><br><span class="line"><span class="keyword">To</span> have launchd <span class="keyword">start</span> mysql <span class="keyword">at</span> login:</span><br><span class="line">  <span class="keyword">ln</span> -sfv /usr/<span class="keyword">local</span>/opt/mysql<span class="comment">/*.plist ~/Library/LaunchAgents</span></span><br><span class="line"><span class="comment">Then to load mysql now:</span></span><br><span class="line"><span class="comment">  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</span></span><br><span class="line"><span class="comment">Or, if you don't want/need launchctl, you can just run:</span></span><br><span class="line"><span class="comment">  mysql.server start</span></span><br><span class="line"><span class="comment">==&gt; Summary</span></span><br><span class="line"><span class="comment">🍺  /usr/local/Cellar/mysql/5.7.10: 12,677 files, 433.2M</span></span><br></pre></td></tr></table></figure>
+<p>直接使用 <code>mysql -uroot</code>，出现如下错误提示：</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ERROR </span>2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock'</span><br></pre></td></tr></table></figure>
+<p>原因是 mysql 服务没有启动，故尝试 <code>mysql.server start</code>，结果如下，依然出错。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mysql.server start</span><br><span class="line">Starting MySQL</span><br><span class="line">. ERROR! The<span class="built_in"> server </span>quit without updating PID file (/usr/local/var/mysql/bogon.pid).</span><br></pre></td></tr></table></figure>
+<p>最终的处理方式是：</p>
+<ol>
+<li>通过 <code>mysqld</code> 直接启动 mysql。</li>
+<li>由于 HomeBrew 安装的 mysql 默认root账户没有设置密码，故按照提示输入 <code>mysql_secure_installation</code> 来设置密码。</li>
+<li>设置完成以后，就可以正常操作 mysql 了。</li>
+</ol>
+<p>HomeBrew 安装的 mysql 的数据存储位置为 <code>/usr/local/var/mysql</code>。 可以通过 <code>find / -name databasename</code> 的方式根据数据库名称找到具体位置。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://linfuyan.com/install-mongodb-on-mac-os-x/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3738,163 +3915,6 @@ alpha = (aLongBooleanExpression)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/faq/resolve-the-same-input-jar-is-specified-twice-issue/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿阿燃">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/faq/resolve-the-same-input-jar-is-specified-twice-issue/" itemprop="url">解决 The same input jar is specified twice 问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-02T21:06:00+08:00">
-                2015-11-02
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2015-11-02T21:18:19+08:00">
-                2015-11-02
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/FAQ/" itemprop="url" rel="index">
-                    <span itemprop="name">FAQ</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Execution failed <span class="keyword">for</span> <span class="keyword">task</span> <span class="string">':joke:proguardRelease'</span>.</span><br><span class="line">&gt; java.io.IOException: The same input jar [<span class="regexp">/Users/</span>lfy<span class="regexp">/Develop/gi</span>ts<span class="regexp">/joke-android/</span>joke<span class="regexp">/libs/</span>eventbus.jar] is specified twice.</span><br></pre></td></tr></table></figure>
-<p>今天在打混淆包时，遇到这个错误，刚开始以为是因为有多个项目都引用了 eventbus.jar 库，但当我对项目中的 eventbus.jar 的依赖进行排除时，同样出错。这次报的则是没有 eventbus.jar。 所以打消了我的第一个猜测。</p>
-<p>后来发现，是因为以前在用 eclipse 开发时，混淆配置文件中包含有 <code>-libraryjars libs/eventbus.jar</code> 的配置，用来保持 eventbus.jar 不被混淆。在 Android Studio 中， build.gradle 中声明了对这个 jar 包的依赖，则不需要在混淆配置文件中继续声明。</p>
-<p>在将所有的 <code>-libraryjars libs/*.jar</code> 注释掉以后，项目可以正常混淆了。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3947,7 +3967,7 @@ alpha = (aLongBooleanExpression)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">87</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -3969,7 +3989,7 @@ alpha = (aLongBooleanExpression)
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">221</span>
+                  <span class="site-state-item-count">224</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

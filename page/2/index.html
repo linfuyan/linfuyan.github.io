@@ -263,6 +263,228 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/ubuntu-ngrok/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/ubuntu-ngrok/" itemprop="url">ubuntu搭建ngrok服务器，尽享内网穿透技术带来的福利</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-19T17:17:00+08:00">
+                2016-12-19
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2016-12-19T22:13:50+08:00">
+                2016-12-19
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/" itemprop="url" rel="index">
+                    <span itemprop="name">软件工具</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/ngrok/" itemprop="url" rel="index">
+                    <span itemprop="name">ngrok</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>如果你做微信开发，一次又一次的发布、发现错误、调试、发布、发现错误、调试…的循环一定让你个人或是团队感到厌倦；<br>如果你接外包项目，在开发过程中，客户想要看一看开发中的进展，你一定为还没有可预览环境或者搭建环境产生的消耗而苦恼。<br>…<br>这一切的原因仅仅是因为你深处复杂的内网环境，被一个局域网阻断了与外部的直接联系。你一定希望有一样东西，能够冲破这层阻隔，为你的工作提高效率。<br>这篇文章我们介绍 ngrok，一个开源软件，可以用于提供内网穿透。</p>
+<p>以下我记录下ngrok服务的搭建过程。</p>
+<h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><ol>
+<li>需要一个有公网IP的VPS</li>
+<li>需要一个能够自由解析的域名</li>
+</ol>
+<h2 id="二、解析域名"><a href="#二、解析域名" class="headerlink" title="二、解析域名"></a>二、解析域名</h2><p>使用自己的域名，把域名解析到 VPS 的地址，解析方式如下：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ngrok.uprogrammer.cn ----------&gt; A记录到你的 VPS IP</span><br><span class="line">*.ngrok.uprogrammer.cn ----------&gt; CNAME到ngrok.uprogrammer.cn</span><br></pre></td></tr></table></figure>
+<h3 id="三、VPS-服务端安装-go-环境"><a href="#三、VPS-服务端安装-go-环境" class="headerlink" title="三、VPS 服务端安装 go 环境"></a>三、VPS 服务端安装 go 环境</h3><p>因为 ngrok 是由 go 语言开发的，所以需要安装 go 环境。</p>
+<p>1. 从 <a href="https://golang.org/dl/" target="_blank" rel="noopener">go 官网</a>下载最新的 go 版本，并解压到 <code>/usr/local</code> 目录下。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -c https:<span class="comment">//storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz</span></span><br><span class="line">tar -C /usr/local -zxvf go1.<span class="number">7.4</span><span class="selector-class">.linux-amd64</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br></pre></td></tr></table></figure>
+<p>2. 设置相关环境变量</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 可以根据自己需要调整路径  </span><br><span class="line"><span class="keyword">echo</span> <span class="string">'export GOROOT=/usr/local/go'</span> &gt;&gt; /etc/<span class="keyword">profile</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'export PATH=$PATH:$GOROOT/bin'</span> &gt;&gt; /etc/<span class="keyword">profile</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'export GOPATH=$HOME/go'</span> &gt;&gt; /etc/<span class="keyword">profile</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'export GOROOT_BOOTSTRAP=/usr/local/go'</span> &gt;&gt; /etc/<span class="keyword">profile</span></span><br><span class="line"><span class="keyword">source</span> /etc/<span class="keyword">profile</span></span><br></pre></td></tr></table></figure>
+<p>3. 检查是否安装成功</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> <span class="keyword">version</span></span><br></pre></td></tr></table></figure>
+<h3 id="四、安装-Git-环境"><a href="#四、安装-Git-环境" class="headerlink" title="四、安装 Git 环境"></a>四、安装 Git 环境</h3><p>由于我们通过 github 上的源码来安装 ngrok，所以需要先安装下 git。如果已经有 git环境，则直接跳过。</p>
+<p>ubuntu 上可以直接通过 <code>apt-get install git</code> 来安装 git。完成以后，做相应的 git 配置，此处略过。</p>
+<h3 id="五、Ubuntu-安装-ngrok"><a href="#五、Ubuntu-安装-ngrok" class="headerlink" title="五、Ubuntu 安装 ngrok"></a>五、Ubuntu 安装 ngrok</h3><p>1. 下载 ngrok，并修改参数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/inconshreveable/ngrok.git</span><br><span class="line"><span class="built_in">export</span> GOPATH=/usr/<span class="built_in">local</span>/ngrok/</span><br><span class="line"><span class="built_in">export</span> NGROK_DOMAIN=<span class="string">"ngrok.uprogrammer.cn"</span></span><br><span class="line"><span class="built_in">cd</span> ngrok</span><br></pre></td></tr></table></figure>
+<p>2. 生成证书(必须)</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out rootCA<span class="selector-class">.key</span> <span class="number">2048</span></span><br><span class="line">openssl req -x509 -new -nodes -key rootCA<span class="selector-class">.key</span> -subj <span class="string">"/CN=$NGROK_DOMAIN"</span> -days <span class="number">5000</span> -out rootCA.pem</span><br><span class="line">openssl genrsa -out server<span class="selector-class">.key</span> <span class="number">2048</span></span><br><span class="line">openssl req -new -key server<span class="selector-class">.key</span> -subj <span class="string">"/CN=$NGROK_DOMAIN"</span> -out server.csr</span><br><span class="line">openssl x509 -req -<span class="keyword">in</span> server<span class="selector-class">.csr</span> -CA rootCA<span class="selector-class">.pem</span> -CAkey rootCA<span class="selector-class">.key</span> -CAcreateserial -out server<span class="selector-class">.crt</span> -days <span class="number">5000</span></span><br></pre></td></tr></table></figure>
+<p>3. 将源代码目录下生成的证书文件复制到指定的位置</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp rootCA<span class="selector-class">.pem</span> assets/client/tls/ngrokroot.crt</span><br><span class="line">cp server<span class="selector-class">.crt</span> assets/server/tls/snakeoil.crt</span><br><span class="line">cp server<span class="selector-class">.key</span> assets/server/tls/snakeoil.key</span><br></pre></td></tr></table></figure>
+<p>4. 如果是在国内的服务器，需要执行下面的修改，否则会由于网络原因产生库的依赖问题。香港或者国外的服务器就不需要了。</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/<span class="built_in">local</span>/ngrok/src/ngrok/<span class="built_in">log</span>/logger.<span class="built_in">go</span></span><br><span class="line"><span class="built_in">log</span> <span class="string">"github.com/keepeye/log4go"</span></span><br></pre></td></tr></table></figure>
+<p>5. 编译服务器，这里也同时编译了一个 linux 下的客户端。64位系统使用 amd64，如果是32位，需要修改成 amd386。<br>编译的时候，这里可能会遇到一个坑，后面会讲到。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/go/src</span><br><span class="line"><span class="attribute">GOOS</span>=linux <span class="attribute">GOARCH</span>=amd64 ./make.bash</span><br><span class="line">cd /usr/local/ngrok/</span><br><span class="line"><span class="attribute">GOOS</span>=linux <span class="attribute">GOARCH</span>=amd64 make release-server release-client</span><br></pre></td></tr></table></figure>
+<p>编译 Mac 64 位客户端</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/go/src</span><br><span class="line"><span class="attribute">GOOS</span>=darwin <span class="attribute">GOARCH</span>=amd64 ./make.bash</span><br><span class="line">cd /usr/local/ngrok/</span><br><span class="line"><span class="attribute">GOOS</span>=darwin <span class="attribute">GOARCH</span>=amd64 make release-client</span><br></pre></td></tr></table></figure>
+<p>编译 Windows 64位客户端</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/go/src</span><br><span class="line"><span class="attribute">GOOS</span>=windows <span class="attribute">GOARCH</span>=amd64 ./make.bash</span><br><span class="line">cd /usr/local/ngrok/</span><br><span class="line"><span class="attribute">GOOS</span>=windows <span class="attribute">GOARCH</span>=amd64 make release-client</span><br></pre></td></tr></table></figure>
+<h2 id="六、服务端运行与使用"><a href="#六、服务端运行与使用" class="headerlink" title="六、服务端运行与使用"></a>六、服务端运行与使用</h2><p>1. 进入服务端目录，服务端程序文件名为 ngrokd，并执行相应命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/ngrok/bin</span><br><span class="line">./ngrokd -domain=<span class="string">"<span class="variable">$NGROK_DOMAIN</span>"</span> -httpAddr=<span class="string">":80"</span></span><br></pre></td></tr></table></figure>
+<p>2. 返回类似如下的结果，则说明服务端运行成功</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[08:09:41 UTC 2016/12/19]</span> <span class="selector-attr">[INFO]</span> (ngrok/log.(*PrefixLogger).<span class="attribute">Info</span>:<span class="number">83</span>) <span class="selector-attr">[registry]</span> <span class="selector-attr">[tun]</span> <span class="selector-tag">No</span> <span class="selector-tag">affinity</span> <span class="selector-tag">cache</span> <span class="selector-tag">specified</span></span><br><span class="line"><span class="selector-attr">[08:09:41 UTC 2016/12/19]</span> <span class="selector-attr">[INFO]</span> (ngrok/log.<span class="attribute">Info</span>:<span class="number">112</span>) <span class="selector-tag">Listening</span> <span class="selector-tag">for</span> <span class="selector-tag">public</span> <span class="selector-tag">http</span> <span class="selector-tag">connections</span> <span class="selector-tag">on</span> <span class="selector-attr">[::]</span><span class="selector-pseudo">:80</span></span><br><span class="line"><span class="selector-attr">[08:09:41 UTC 2016/12/19]</span> <span class="selector-attr">[INFO]</span> (ngrok/log.<span class="attribute">Info</span>:<span class="number">112</span>) <span class="selector-tag">Listening</span> <span class="selector-tag">for</span> <span class="selector-tag">public</span> <span class="selector-tag">https</span> <span class="selector-tag">connections</span> <span class="selector-tag">on</span> <span class="selector-attr">[::]</span><span class="selector-pseudo">:443</span></span><br><span class="line"><span class="selector-attr">[08:09:41 UTC 2016/12/19]</span> <span class="selector-attr">[INFO]</span> (ngrok/log.<span class="attribute">Info</span>:<span class="number">112</span>) <span class="selector-tag">Listening</span> <span class="selector-tag">for</span> <span class="selector-tag">control</span> <span class="selector-tag">and</span> <span class="selector-tag">proxy</span> <span class="selector-tag">connections</span> <span class="selector-tag">on</span> <span class="selector-attr">[::]</span><span class="selector-pseudo">:4443</span></span><br><span class="line"><span class="selector-attr">[08:09:41 UTC 2016/12/19]</span> <span class="selector-attr">[INFO]</span> (ngrok/log.(*PrefixLogger).<span class="attribute">Info</span>:<span class="number">83</span>) <span class="selector-attr">[metrics]</span> <span class="selector-tag">Reporting</span> <span class="selector-tag">every</span> <span class="selector-tag">30</span> <span class="selector-tag">seconds</span></span><br></pre></td></tr></table></figure>
+<h2 id="七、客户端的运行与使用"><a href="#七、客户端的运行与使用" class="headerlink" title="七、客户端的运行与使用"></a>七、客户端的运行与使用</h2><p>1. 把刚刚从 VPS 服务器上生成的客户端服务器下载到本机，可以通过 <code>scp</code> 命令</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp username<span class="variable">@servername</span><span class="symbol">:/path/filename</span> /var/www/local_dir（本地目录）</span><br></pre></td></tr></table></figure>
+<p>mac 客户端的位置：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/ngrok/</span>bin<span class="regexp">/darwin_amd64/</span>ngrok</span><br></pre></td></tr></table></figure>
+<p>windows 客户端的位置：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/ngrok/</span>bin<span class="regexp">/windows_amd64/</span>ngrok.exe</span><br></pre></td></tr></table></figure>
+<p>linux 客户端的位置：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/ngrok/</span>bin<span class="regexp">/ngrok</span></span><br></pre></td></tr></table></figure>
+<p>2. 客户端程序下载到本地以后，在本地同一目录下新建名为 <code>ngrok.cfg</code> 的文件，文件内容如下：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">server_addr:</span> <span class="string">"ngrok.uprogrammer.cn:4443"</span></span><br><span class="line"><span class="string">trust_host_root_certs:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<p>3. 运行客户端</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./ngrok <span class="attribute">-config</span>=./ngrok.cfg <span class="attribute">-subdomain</span>=test 8080</span><br><span class="line"><span class="comment"># -subdomain参数指的是域名，例如这里是test.ngrok.uprogrammer.cn</span></span><br><span class="line"><span class="comment"># 后面的80是指本机端口，这里是指把本机的8080端口开放穿透</span></span><br><span class="line"><span class="comment"># windows运行客户端，请把./改成win风格的目录方式</span></span><br></pre></td></tr></table></figure>
+<p>4. 返回类似如下的结果，则说明客户端运行成功</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Tunnel Status                 online                                                                                                        </span><br><span class="line">Version                       <span class="number">1.7</span>/<span class="number">1.7</span>                                                                                                       </span><br><span class="line">Forwarding                    http://<span class="keyword">test</span>.ngrok.uprogrammer.cn -&gt; <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">8080</span>                                                            </span><br><span class="line">Forwarding                    https://<span class="keyword">test</span>.ngrok.uprogrammer.cn -&gt; <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">8080</span>                                                           </span><br><span class="line">Web Interface                 <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">4040</span>                                                                                                </span><br><span class="line"># Conn                        <span class="number">0</span>                                                                                                             </span><br><span class="line">Avg Conn Time                 <span class="number">0.</span>00ms</span><br></pre></td></tr></table></figure>
+<p>接下来，你就可以运行本地 8080 端口的程序，看一看是不是通过 <code>test.uprogrammer.cn</code> 就可以访问啦，也可以发给局域网之外的人来访问^ ^</p>
+<h2 id="八、可能遇到的坑"><a href="#八、可能遇到的坑" class="headerlink" title="八、可能遇到的坑"></a>八、可能遇到的坑</h2><p>1. 出现以下错误提示：<code>$GOROOT_BOOTSTRAP must not be set to $GOROOT</code></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##### Building Go bootstrap tool.</span></span><br><span class="line">cmd/dist</span><br><span class="line">ERROR: <span class="variable">$GOROOT_BOOTSTRAP</span> must <span class="keyword">not</span> be <span class="builtin-name">set</span> <span class="keyword">to</span> <span class="variable">$GOROOT</span></span><br><span class="line"><span class="builtin-name">Set</span> <span class="variable">$GOROOT_BOOTSTRAP</span> <span class="keyword">to</span> a working Go tree &gt;= Go 1.4.</span><br></pre></td></tr></table></figure>
+<p>配置的 <code>$GOROOT_BOOTSTRAP</code> 和 <code>$GOROOT</code> 一致导致。可以复制一份 go 的源码到另外的路径，如 <code>/usr/local/go-copy</code>，同时 <code>export GOROOT_BOOTSTRAP=/usr/local/go-copy</code></p>
+<p>2. 客户端可以连上，但域名不完全，显示如下：</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Tunnel Status                 online</span><br><span class="line">Version                       <span class="number">1.7</span>/<span class="number">1.7</span></span><br><span class="line">Forwarding                    http://<span class="keyword">test</span>. -&gt; <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">8080</span></span><br><span class="line">Forwarding                    https://<span class="keyword">test</span>. -&gt; <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">8080</span></span><br><span class="line">Web Interface                 <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">4040</span></span><br><span class="line"># Conn                        <span class="number">0</span></span><br><span class="line">Avg Conn Time                 <span class="number">0.</span>00ms</span><br></pre></td></tr></table></figure>
+<p>这种错误是由于服务端运行时环境变量没有正确配置导致的，可以显示设置域名：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./ngrokd <span class="attribute">-domain</span>=<span class="string">"ngrok.uprogrammer.cn"</span> <span class="attribute">-httpAddr</span>=<span class="string">":80"</span></span><br></pre></td></tr></table></figure>
+<p>3. 如果你对 VPS 服务器已经有其他程序占用 80 端口，而还需要 ngrok 通过80端口做内网穿透的话，可以通过 nginx 来做反向代理。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://linfuyan.com/add-chinese-support-to-lunrjs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1851,183 +2073,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/install_mysql_via_brew_on_osx_eicapitan/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿阿燃">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/install_mysql_via_brew_on_osx_eicapitan/" itemprop="url">Mac OSX 10.11 通过 HomeBrew 安装 MySQL</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-01T21:00:00+08:00">
-                2016-03-01
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2016-03-08T22:07:00+08:00">
-                2016-03-08
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/软件工具/" itemprop="url" rel="index">
-                    <span itemprop="name">软件工具</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/软件工具/LAMP/" itemprop="url" rel="index">
-                    <span itemprop="name">LAMP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在 Mac OSX 升级到 EICapitan 之后，原来安装的 MySQL 就多多少少出现了问题。于是决定重装：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">$ brew <span class="keyword">install</span> mysql</span><br><span class="line">==&gt; Installing dependencies <span class="keyword">for</span> mysql: openssl</span><br><span class="line">==&gt; Installing mysql dependency: openssl</span><br><span class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/openssl<span class="number">-1.0</span><span class="number">.2</span>e_1.el_capitan</span><br><span class="line">######################################################################## <span class="number">100.0</span>%</span><br><span class="line">==&gt; Pouring openssl<span class="number">-1.0</span><span class="number">.2</span>e_1.el_capitan.bottle.tar.gz</span><br><span class="line">==&gt; Caveats</span><br><span class="line">A CA <span class="keyword">file</span> has been bootstrapped <span class="keyword">using</span> certificates <span class="keyword">from</span> the <span class="keyword">system</span></span><br><span class="line">keychain. <span class="keyword">To</span> <span class="keyword">add</span> additional certificates, place .pem files <span class="keyword">in</span></span><br><span class="line">  /usr/<span class="keyword">local</span>/etc/openssl/certs</span><br><span class="line"></span><br><span class="line"><span class="keyword">and</span> run</span><br><span class="line">  /usr/<span class="keyword">local</span>/opt/openssl/<span class="keyword">bin</span>/c_rehash</span><br><span class="line"></span><br><span class="line">This formula <span class="keyword">is</span> keg-<span class="keyword">only</span>, which means it was <span class="keyword">not</span> symlinked <span class="keyword">into</span> /usr/local.</span><br><span class="line"></span><br><span class="line">Apple has deprecated <span class="keyword">use</span> <span class="keyword">of</span> OpenSSL <span class="keyword">in</span> favor <span class="keyword">of</span> its own TLS <span class="keyword">and</span> crypto libraries</span><br><span class="line"></span><br><span class="line">Generally there <span class="keyword">are</span> <span class="keyword">no</span> consequences <span class="keyword">of</span> this <span class="keyword">for</span> you. <span class="keyword">If</span> you <span class="keyword">build</span> your</span><br><span class="line">own software <span class="keyword">and</span> it requires this formula, you<span class="string">'ll need to add to your</span></span><br><span class="line"><span class="string">build variables:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    LDFLAGS:  -L/usr/local/opt/openssl/lib</span></span><br><span class="line"><span class="string">    CPPFLAGS: -I/usr/local/opt/openssl/include</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">==&gt; Summary</span></span><br><span class="line"><span class="string">🍺  /usr/local/Cellar/openssl/1.0.2e_1: 465 files, 11.9M</span></span><br><span class="line"><span class="string">==&gt; Installing mysql</span></span><br><span class="line"><span class="string">==&gt; Downloading https://homebrew.bintray.com/bottles/mysql-5.7.10.el_capitan.bot</span></span><br><span class="line"><span class="string">######################################################################## 100.0%</span></span><br><span class="line"><span class="string">==&gt; Pouring mysql-5.7.10.el_capitan.bottle.2.tar.gz</span></span><br><span class="line"><span class="string">==&gt; /usr/local/Cellar/mysql/5.7.10/bin/mysqld --initialize-insecure --user=lfy -</span></span><br><span class="line"><span class="string">==&gt; Caveats</span></span><br><span class="line"><span class="string">We'</span>ve installed your MySQL <span class="keyword">database</span> <span class="keyword">without</span> a root password. <span class="keyword">To</span> secure it run:</span><br><span class="line">    mysql_secure_installation</span><br><span class="line"></span><br><span class="line"><span class="keyword">To</span> <span class="keyword">connect</span> run:</span><br><span class="line">    mysql -uroot</span><br><span class="line"></span><br><span class="line"><span class="keyword">To</span> have launchd <span class="keyword">start</span> mysql <span class="keyword">at</span> login:</span><br><span class="line">  <span class="keyword">ln</span> -sfv /usr/<span class="keyword">local</span>/opt/mysql<span class="comment">/*.plist ~/Library/LaunchAgents</span></span><br><span class="line"><span class="comment">Then to load mysql now:</span></span><br><span class="line"><span class="comment">  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</span></span><br><span class="line"><span class="comment">Or, if you don't want/need launchctl, you can just run:</span></span><br><span class="line"><span class="comment">  mysql.server start</span></span><br><span class="line"><span class="comment">==&gt; Summary</span></span><br><span class="line"><span class="comment">🍺  /usr/local/Cellar/mysql/5.7.10: 12,677 files, 433.2M</span></span><br></pre></td></tr></table></figure>
-<p>直接使用 <code>mysql -uroot</code>，出现如下错误提示：</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ERROR </span>2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock'</span><br></pre></td></tr></table></figure>
-<p>原因是 mysql 服务没有启动，故尝试 <code>mysql.server start</code>，结果如下，依然出错。</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mysql.server start</span><br><span class="line">Starting MySQL</span><br><span class="line">. ERROR! The<span class="built_in"> server </span>quit without updating PID file (/usr/local/var/mysql/bogon.pid).</span><br></pre></td></tr></table></figure>
-<p>最终的处理方式是：</p>
-<ol>
-<li>通过 <code>mysqld</code> 直接启动 mysql。</li>
-<li>由于 HomeBrew 安装的 mysql 默认root账户没有设置密码，故按照提示输入 <code>mysql_secure_installation</code> 来设置密码。</li>
-<li>设置完成以后，就可以正常操作 mysql 了。</li>
-</ol>
-<p>HomeBrew 安装的 mysql 的数据存储位置为 <code>/usr/local/var/mysql</code>。 可以通过 <code>find / -name databasename</code> 的方式根据数据库名称找到具体位置。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2080,7 +2125,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">87</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2102,7 +2147,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">221</span>
+                  <span class="site-state-item-count">224</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

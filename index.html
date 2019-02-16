@@ -263,6 +263,166 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/ubuntu14.04-install-jdk-1.8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/ubuntu14.04-install-jdk-1.8/" itemprop="url">ubuntu 14.04 安装 jdk 1.8</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-16T21:23:00+08:00">
+                2019-02-16
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-16T21:24:44+08:00">
+                2019-02-16
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/" itemprop="url" rel="index">
+                    <span itemprop="name">软件工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="删除低版本的-open-jdk"><a href="#删除低版本的-open-jdk" class="headerlink" title="删除低版本的 open jdk"></a>删除低版本的 open jdk</h2><p>ubuntu 14.04 默认的 java 版本为1.7，为了升级到 1.8并保持干净，我们先删除低版本的 open jdk。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> autoremove openjdk-7-jre</span><br></pre></td></tr></table></figure>
+<p>执行完可以通过 <code>java -version</code> 来确认是否已经删除</p>
+<h2 id="从-PPA-源安装-1-8-版本的-jdk"><a href="#从-PPA-源安装-1-8-版本的-jdk" class="headerlink" title="从 PPA 源安装 1.8 版本的 jdk"></a>从 PPA 源安装 1.8 版本的 jdk</h2><p>Oracle java 的 PPA 源： <a href="https://launchpad.net/~webupd8team/+archive/ubuntu/java" target="_blank" rel="noopener">https://launchpad.net/~webupd8team/+archive/ubuntu/java</a></p>
+<p>在 shell 中执行如下命令：</p>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> add-apt-repository </span>ppa:webupd8team/java</span><br><span class="line">// 更新 apt 源</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install oracle-java8-installer</span><br></pre></td></tr></table></figure>
+<p>执行上以上操作，同样可以输入 <code>java -version</code> 来确认是否新版 jdk 已经安装成功。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://linfuyan.com/mindmap-laravel-start-guide/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1977,187 +2137,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/add-chinese-support-to-lunrjs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿阿燃">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/add-chinese-support-to-lunrjs/" itemprop="url">为 lunr.js 添加中文支持</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-09T10:32:00+08:00">
-                2016-11-09
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2016-11-09T17:00:47+08:00">
-                2016-11-09
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/开发技术/" itemprop="url" rel="index">
-                    <span itemprop="name">开发技术</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/开发技术/nodejs/" itemprop="url" rel="index">
-                    <span itemprop="name">nodejs</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>如果你能找到这里，那么你应该是知道 lunr.js 的。 Ok， 那 lunr.js 是什么？<a href="http://lunrjs.com/" target="_blank" rel="noopener">官方网站</a>上说: “Simple full-text search in your browser”。翻译过来就是：浏览器上的简单的纯文本搜索工具。是的，它可以直接在浏览器上运行，不依赖服务端来完成对网页上纯文本的搜索功能，可以极大的提升通过网络服务器请求获取搜索结果时不流畅的搜索体验。用在博客等应用中，真是再好不过。然而，和大部分老外制作的工具一样，对于中文，老外的工具还是水土不服。对于中文网页搜索最大的问题就是，lunr.js 不支持中文搜索，由此还影响到一系列基于 lunr.js 制作的本地搜索工具，如 gitbook 内置的 gitbook-search-plugin 等，所以如果你在使用 gitbook 的搜索功能，发现输入中文出现错误结果不要大惊小怪。</p>
-<p>不多说，以下基于当前 lunr.js 版本（commit id:6a978d1ebf1a0c08e1a76cd4f7f74ad5490e5937），添加了中文支持。</p>
-<p>仓库地址：<a href="https://github.com/linfuyan/lunr.js" target="_blank" rel="noopener">https://github.com/linfuyan/lunr.js</a></p>
-<p>有<a href="https://github.com/linfuyan/lunr.js/tree/un-participle" target="_blank" rel="noopener">未分词的中文支持版本</a>和<a href="https://github.com/linfuyan/lunr.js/tree/un-participle" target="_blank" rel="noopener">分词的中文支持版本</a>，位于仓库中不同的分支。</p>
-<h2 id="未分词的中文支持版本"><a href="#未分词的中文支持版本" class="headerlink" title="未分词的中文支持版本"></a>未分词的中文支持版本</h2><p>中文支持的基本原理是，保证 lunr.js 在分析过程中中文字符不会被转义。因此在 trimmer 函数中对中文字符做过滤。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">lunr.trimmer = <span class="function"><span class="keyword">function</span> (<span class="params">token</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//by ming300 check token is chinese then not replace   </span></span><br><span class="line">  <span class="keyword">if</span>(isChineseChar(token))&#123;</span><br><span class="line">    <span class="keyword">return</span> token;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> token</span><br><span class="line">    .replace(<span class="regexp">/^\W+/</span>, <span class="string">''</span>)</span><br><span class="line">    .replace(<span class="regexp">/\W+$/</span>, <span class="string">''</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> **check it contains Chinese (including Japanese and Korean)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isChineseChar</span>(<span class="params">str</span>)</span>&#123;     </span><br><span class="line">   <span class="keyword">var</span> reg = <span class="regexp">/[\u4E00-\u9FA5\uF900-\uFA2D]/</span>;  </span><br><span class="line">   <span class="keyword">return</span> reg.test(str);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>此外，在分词部分 tokenizer 函数做些调整，添加如下关键代码：</p>
-<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var str = obj.toString().replace(/^<span class="symbol">\s</span>+/, '')</span><br><span class="line"></span><br><span class="line">  for (var i = str.length - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">    if (/<span class="symbol">\S</span>/.test(str.charAt(i))) &#123;</span><br><span class="line">      str = str.substring(0, i + 1)</span><br><span class="line">      break</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  var rs = str</span><br><span class="line">    .split(/[<span class="symbol">\ </span>|<span class="symbol">\~</span>|<span class="symbol">\`</span>|<span class="symbol">\!</span>|<span class="symbol">\@</span>|<span class="symbol">\#</span>|<span class="symbol">\$</span>|<span class="symbol">\%</span>|<span class="symbol">\^</span>|<span class="symbol">\&amp;</span>|<span class="symbol">\*</span>|<span class="symbol">\u</span>FE30-<span class="symbol">\u</span>FFA0|<span class="symbol">\(</span>|<span class="symbol">\)</span>|<span class="symbol">\-</span>|<span class="symbol">\_</span>|<span class="symbol">\+</span>|<span class="symbol">\=</span>|<span class="symbol">\|</span>|<span class="symbol">\\</span>|<span class="symbol">\[</span>|<span class="symbol">\]</span>|<span class="symbol">\&#123;</span>|<span class="symbol">\&#125;</span>|<span class="symbol">\;</span>|<span class="symbol">\:</span>|<span class="symbol">\"</span>|<span class="symbol">\'</span>|<span class="symbol">\,</span>|<span class="symbol">\&lt;</span>|<span class="symbol">\.</span>|<span class="symbol">\&gt;</span>|<span class="symbol">\/</span>|<span class="symbol">\?</span>]+/)</span><br><span class="line">    .map(function (token) &#123;</span><br><span class="line">      var t = token.replace(/[<span class="symbol">\ </span>|<span class="symbol">\~</span>|<span class="symbol">\`</span>|<span class="symbol">\!</span>|<span class="symbol">\@</span>|<span class="symbol">\#</span>|<span class="symbol">\$</span>|<span class="symbol">\%</span>|<span class="symbol">\^</span>|<span class="symbol">\&amp;</span>|<span class="symbol">\*</span>|<span class="symbol">\u</span>FE30-<span class="symbol">\u</span>FFA0|<span class="symbol">\(</span>|<span class="symbol">\)</span>|<span class="symbol">\-</span>|<span class="symbol">\_</span>|<span class="symbol">\+</span>|<span class="symbol">\=</span>|<span class="symbol">\|</span>|<span class="symbol">\\</span>|<span class="symbol">\[</span>|<span class="symbol">\]</span>|<span class="symbol">\&#123;</span>|<span class="symbol">\&#125;</span>|<span class="symbol">\;</span>|<span class="symbol">\:</span>|<span class="symbol">\"</span>|<span class="symbol">\'</span>|<span class="symbol">\,</span>|<span class="symbol">\&lt;</span>|<span class="symbol">\.</span>|<span class="symbol">\&gt;</span>|<span class="symbol">\/</span>|<span class="symbol">\?</span>]/g, '').toLowerCase()</span><br><span class="line">      return t;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-<p>这里仅仅是基于英文中简单的通过空格进行分词的原则。因此会存在比较大的局限性。例如：”中文Chinese and English”，则直接被识别为”中文Chinese”、”and”、”English”，而无法将”中文”和”Chinese”再区分开。</p>
-<p>相较于第二种方案的有点则是没有任何其他依赖，很轻量，适用于网页。而对基于网页标签进行的搜索则比较好，因为，标签本身就是简短，分散的。可以认为是分词好的。</p>
-<h2 id="基于分词的中文支持版本"><a href="#基于分词的中文支持版本" class="headerlink" title="基于分词的中文支持版本"></a>基于分词的中文支持版本</h2><p>这个版本基于node-segment中文分词库，在未分词版本的基础上引入分词。功能自然更强大，不过由于分词库的依赖，导致整个包太大。由于需要读取文件形式的分词库，无法在浏览器上使用，但可以在 nodejs 服务端用。虽然做些修改，可以将分词库作为 js 文件 require 进来，但还是存在包太大的问题。</p>
-<p>关键代码的修改也是在 lunr.js 中的 trimmer 和 tokenizer 方法中。不过需要注意的是，在 package.json 中添加对 node-segment 的依赖。</p>
-<p>感谢以下两个仓库作者。</p>
-<p><a href="https://github.com/ming300/lunr.js/" target="_blank" rel="noopener">https://github.com/ming300/lunr.js/</a></p>
-<p><a href="https://github.com/nandy007/lunr.js" target="_blank" rel="noopener">https://github.com/nandy007/lunr.js</a></p>
-<p>以及以下文章：</p>
-<p><a href="http://blog.songjz.cn/jie-jue-lunr-jsde/" target="_blank" rel="noopener">我的建站路4：解决 lunr.js 的中文支持问题</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2210,7 +2189,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-count">86</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2232,7 +2211,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">220</span>
+                  <span class="site-state-item-count">221</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2286,7 +2265,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

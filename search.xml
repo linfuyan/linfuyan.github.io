@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title><![CDATA[ubuntu 14.04 安装 jdk 1.8]]></title>
+      <url>http://linfuyan.com/ubuntu14.04-install-jdk-1.8/</url>
+      <content type="html"><![CDATA[<h2 id="删除低版本的-open-jdk"><a href="#删除低版本的-open-jdk" class="headerlink" title="删除低版本的 open jdk"></a>删除低版本的 open jdk</h2><p>ubuntu 14.04 默认的 java 版本为1.7，为了升级到 1.8并保持干净，我们先删除低版本的 open jdk。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> autoremove openjdk-7-jre</span><br></pre></td></tr></table></figure>
+<p>执行完可以通过 <code>java -version</code> 来确认是否已经删除</p>
+<h2 id="从-PPA-源安装-1-8-版本的-jdk"><a href="#从-PPA-源安装-1-8-版本的-jdk" class="headerlink" title="从 PPA 源安装 1.8 版本的 jdk"></a>从 PPA 源安装 1.8 版本的 jdk</h2><p>Oracle java 的 PPA 源： <a href="https://launchpad.net/~webupd8team/+archive/ubuntu/java" target="_blank" rel="noopener">https://launchpad.net/~webupd8team/+archive/ubuntu/java</a></p>
+<p>在 shell 中执行如下命令：</p>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> add-apt-repository </span>ppa:webupd8team/java</span><br><span class="line">// 更新 apt 源</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install oracle-java8-installer</span><br></pre></td></tr></table></figure>
+<p>执行上以上操作，同样可以输入 <code>java -version</code> 来确认是否新版 jdk 已经安装成功。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件工具 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ubuntu </tag>
+            
+            <tag> jdk1.8 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Laravel思维导图之Laravel入门指南]]></title>
       <url>http://linfuyan.com/mindmap-laravel-start-guide/</url>
       <content type="html"><![CDATA[<p><img src="http://img.uprogrammer.cn/static/images/%e7%b2%be%e8%bf%9b%e8%84%91%e5%9b%be%e4%b9%8bLaravel%e5%85%a5%e9%97%a8%e6%8c%87%e5%8d%97.jpg" alt="精进脑图之Laravel入门指南"></p>
@@ -35,11 +64,11 @@
         
         <tags>
             
-            <tag> 思维导图 </tag>
-            
             <tag> php </tag>
             
             <tag> laravel </tag>
+            
+            <tag> 思维导图 </tag>
             
         </tags>
         
@@ -85,9 +114,9 @@
         
         <tags>
             
-            <tag> PHP </tag>
-            
             <tag> 思维导图 </tag>
+            
+            <tag> PHP </tag>
             
         </tags>
         
@@ -219,9 +248,9 @@
         
         <tags>
             
-            <tag> Android O </tag>
-            
             <tag> Kotlin </tag>
+            
+            <tag> Android O </tag>
             
             <tag> Google IO 2017 </tag>
             
@@ -258,9 +287,9 @@
         
         <tags>
             
-            <tag> Android O </tag>
-            
             <tag> Kotlin </tag>
+            
+            <tag> Android O </tag>
             
             <tag> Google IO 2017 </tag>
             
@@ -641,13 +670,13 @@
         
         <tags>
             
+            <tag> ubuntu </tag>
+            
             <tag> ngrok </tag>
             
             <tag> 微信开发 </tag>
             
             <tag> 内网穿透 </tag>
-            
-            <tag> ubuntu </tag>
             
         </tags>
         
@@ -1097,11 +1126,11 @@
         
         <tags>
             
+            <tag> HomeBrew </tag>
+            
             <tag> MySQL </tag>
             
             <tag> Mac </tag>
-            
-            <tag> HomeBrew </tag>
             
             <tag> OSX </tag>
             
@@ -1147,11 +1176,11 @@
         
         <tags>
             
-            <tag> MongoDB </tag>
+            <tag> HomeBrew </tag>
             
             <tag> Mac </tag>
             
-            <tag> HomeBrew </tag>
+            <tag> MongoDB </tag>
             
         </tags>
         
@@ -1999,9 +2028,9 @@ alpha = (aLongBooleanExpression)
             
             <tag> Java </tag>
             
-            <tag> 规范 </tag>
-            
             <tag> 指南 </tag>
+            
+            <tag> 规范 </tag>
             
             <tag> Google </tag>
             
@@ -2257,13 +2286,13 @@ alpha = (aLongBooleanExpression)
         
         <tags>
             
-            <tag> 代码 </tag>
-            
-            <tag> 规范 </tag>
-            
             <tag> iOS </tag>
             
             <tag> 指南 </tag>
+            
+            <tag> 代码 </tag>
+            
+            <tag> 规范 </tag>
             
             <tag> Objective-C </tag>
             
@@ -3017,17 +3046,17 @@ alpha = (aLongBooleanExpression)
             
             <tag> 编程 </tag>
             
+            <tag> iOS </tag>
+            
+            <tag> 指南 </tag>
+            
             <tag> 代码 </tag>
             
             <tag> 规范 </tag>
             
-            <tag> iOS </tag>
-            
             <tag> Ojbective-C </tag>
             
             <tag> 风格 </tag>
-            
-            <tag> 指南 </tag>
             
             <tag> Cocoa </tag>
             
@@ -4395,13 +4424,13 @@ alpha = (aLongBooleanExpression)
         
         <tags>
             
-            <tag> 指南 </tag>
-            
             <tag> Git </tag>
             
             <tag> 命令 </tag>
             
             <tag> 教程 </tag>
+            
+            <tag> 指南 </tag>
             
         </tags>
         
@@ -4808,8 +4837,6 @@ alpha = (aLongBooleanExpression)
         
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> Git </tag>
             
             <tag> Linux </tag>
@@ -4821,6 +4848,8 @@ alpha = (aLongBooleanExpression)
             <tag> Ubuntu </tag>
             
             <tag> 14.04 </tag>
+            
+            <tag> Java </tag>
             
             <tag> JDK </tag>
             
@@ -5424,9 +5453,9 @@ alpha = (aLongBooleanExpression)
             
             <tag> Hexo </tag>
             
-            <tag> 博客 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 博客 </tag>
             
             <tag> 安装 </tag>
             
@@ -6047,13 +6076,13 @@ alpha = (aLongBooleanExpression)
         
         <tags>
             
-            <tag> git </tag>
-            
             <tag> iOS </tag>
             
             <tag> 持续集成 </tag>
             
             <tag> jenkins </tag>
+            
+            <tag> git </tag>
             
             <tag> cocoapods </tag>
             
@@ -6956,9 +6985,9 @@ alpha = (aLongBooleanExpression)
         
         <tags>
             
-            <tag> App </tag>
-            
             <tag> Web </tag>
+            
+            <tag> App </tag>
             
             <tag> 全栈工程师 </tag>
             

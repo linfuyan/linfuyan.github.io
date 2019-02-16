@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://linfuyan.com/"/>
-  <updated>2018-10-18T12:14:28.000Z</updated>
+  <updated>2019-02-16T13:24:44.242Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ubuntu 14.04 安装 jdk 1.8</title>
+    <link href="http://linfuyan.com/ubuntu14.04-install-jdk-1.8/"/>
+    <id>http://linfuyan.com/ubuntu14.04-install-jdk-1.8/</id>
+    <published>2019-02-16T13:23:00.000Z</published>
+    <updated>2019-02-16T13:24:44.242Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="删除低版本的-open-jdk"><a href="#删除低版本的-open-jdk" class="headerlink" title="删除低版本的 open jdk"></a>删除低版本的 open jdk</h2><p>ubuntu 14.04 默认的 java 版本为1.7，为了升级到 1.8并保持干净，我们先删除低版本的 open jdk。</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> autoremove openjdk-7-jre</span><br></pre></td></tr></table></figure><p>执行完可以通过 <code>java -version</code> 来确认是否已经删除</p><h2 id="从-PPA-源安装-1-8-版本的-jdk"><a href="#从-PPA-源安装-1-8-版本的-jdk" class="headerlink" title="从 PPA 源安装 1.8 版本的 jdk"></a>从 PPA 源安装 1.8 版本的 jdk</h2><p>Oracle java 的 PPA 源： <a href="https://launchpad.net/~webupd8team/+archive/ubuntu/java" target="_blank" rel="noopener">https://launchpad.net/~webupd8team/+archive/ubuntu/java</a></p><p>在 shell 中执行如下命令：</p><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> add-apt-repository </span>ppa:webupd8team/java</span><br><span class="line">// 更新 apt 源</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install oracle-java8-installer</span><br></pre></td></tr></table></figure><p>执行上以上操作，同样可以输入 <code>java -version</code> 来确认是否新版 jdk 已经安装成功。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;删除低版本的-open-jdk&quot;&gt;&lt;a href=&quot;#删除低版本的-open-jdk&quot; class=&quot;headerlink&quot; title=&quot;删除低版本的 open jdk&quot;&gt;&lt;/a&gt;删除低版本的 open jdk&lt;/h2&gt;&lt;p&gt;ubuntu 14.04 默认的 j
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="ubuntu" scheme="http://linfuyan.com/tags/ubuntu/"/>
+    
+      <category term="jdk1.8" scheme="http://linfuyan.com/tags/jdk1-8/"/>
+    
+  </entry>
   
   <entry>
     <title>Laravel思维导图之Laravel入门指南</title>
@@ -41,11 +68,11 @@
       <category term="后端" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%90%8E%E7%AB%AF/"/>
     
     
-      <category term="思维导图" scheme="http://linfuyan.com/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/"/>
-    
       <category term="php" scheme="http://linfuyan.com/tags/php/"/>
     
       <category term="laravel" scheme="http://linfuyan.com/tags/laravel/"/>
+    
+      <category term="思维导图" scheme="http://linfuyan.com/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/"/>
     
   </entry>
   
@@ -75,9 +102,9 @@
       <category term="后端" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%90%8E%E7%AB%AF/"/>
     
     
-      <category term="PHP" scheme="http://linfuyan.com/tags/PHP/"/>
-    
       <category term="思维导图" scheme="http://linfuyan.com/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/"/>
+    
+      <category term="PHP" scheme="http://linfuyan.com/tags/PHP/"/>
     
   </entry>
   
@@ -139,9 +166,9 @@
       <category term="Android" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Android/"/>
     
     
-      <category term="Android O" scheme="http://linfuyan.com/tags/Android-O/"/>
-    
       <category term="Kotlin" scheme="http://linfuyan.com/tags/Kotlin/"/>
+    
+      <category term="Android O" scheme="http://linfuyan.com/tags/Android-O/"/>
     
       <category term="Google IO 2017" scheme="http://linfuyan.com/tags/Google-IO-2017/"/>
     
@@ -170,9 +197,9 @@
       <category term="Android" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Android/"/>
     
     
-      <category term="Android O" scheme="http://linfuyan.com/tags/Android-O/"/>
-    
       <category term="Kotlin" scheme="http://linfuyan.com/tags/Kotlin/"/>
+    
+      <category term="Android O" scheme="http://linfuyan.com/tags/Android-O/"/>
     
       <category term="Google IO 2017" scheme="http://linfuyan.com/tags/Google-IO-2017/"/>
     
@@ -294,13 +321,13 @@
       <category term="ngrok" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/ngrok/"/>
     
     
+      <category term="ubuntu" scheme="http://linfuyan.com/tags/ubuntu/"/>
+    
       <category term="ngrok" scheme="http://linfuyan.com/tags/ngrok/"/>
     
       <category term="微信开发" scheme="http://linfuyan.com/tags/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/"/>
     
       <category term="内网穿透" scheme="http://linfuyan.com/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
-    
-      <category term="ubuntu" scheme="http://linfuyan.com/tags/ubuntu/"/>
     
   </entry>
   
@@ -635,43 +662,13 @@
       <category term="LAMP" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/LAMP/"/>
     
     
+      <category term="HomeBrew" scheme="http://linfuyan.com/tags/HomeBrew/"/>
+    
       <category term="MySQL" scheme="http://linfuyan.com/tags/MySQL/"/>
     
       <category term="Mac" scheme="http://linfuyan.com/tags/Mac/"/>
     
-      <category term="HomeBrew" scheme="http://linfuyan.com/tags/HomeBrew/"/>
-    
       <category term="OSX" scheme="http://linfuyan.com/tags/OSX/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac OS X 上安装 MongoDB</title>
-    <link href="http://linfuyan.com/install-mongodb-on-mac-os-x/"/>
-    <id>http://linfuyan.com/install-mongodb-on-mac-os-x/</id>
-    <published>2015-12-21T09:02:00.000Z</published>
-    <updated>2015-12-21T09:41:06.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>参考：<a href="https://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/" target="_blank" rel="noopener">Install MongoDB on OS X</a></p><p><strong>Mac OS X 的系统版本：EI Capitan (10.11.1)</strong></p><p>这里采用 HomeBrew 来安装 MongoDB。</p><a id="more"></a> <p>1. 升级 HomeBrew 到最新</p><blockquote><p>brew update</p></blockquote><p>2. 完成以后，通过以下命令安装</p><blockquote><p>brew install mongodb</p></blockquote><p>正常情况下按照上面步骤就可以完成安装，但是我这里遇到了一些问题。</p><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Error: The `brew link` step did <span class="keyword">not</span> complete successfully</span><br><span class="line">The formula built, <span class="keyword">but</span> <span class="keyword">is</span> <span class="keyword">not</span> symlinked <span class="keyword">into</span> /usr/<span class="keyword">local</span></span><br><span class="line">Could <span class="keyword">not</span> symlink .</span><br><span class="line">/usr/<span class="keyword">local</span>/opt <span class="keyword">is</span> <span class="keyword">not</span> writable.</span><br><span class="line"></span><br><span class="line">You can <span class="keyword">try</span> again using:</span><br><span class="line">  brew link scons</span><br></pre></td></tr></table></figure><p>问题的原因就是 <code>/usr/local/opt</code> 目录不可写，正常情况下，在目前的 Mac OS X EI Capitan 上 <code>/usr/local</code> 是可写的，但其他的应用是可以修改其读写权限的。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Error: The /usr/local directory is not writable.</span><br><span class="line">Even if this directory was writable when you installed Homebrew, other</span><br><span class="line">software may <span class="keyword">change</span> permissions <span class="keyword">on</span> this directory. <span class="keyword">Some</span> <span class="keyword">versions</span> <span class="keyword">of</span> the</span><br><span class="line"><span class="string">"InstantOn"</span> component <span class="keyword">of</span> Airfoil <span class="keyword">are</span> known <span class="keyword">to</span> <span class="keyword">do</span> this.</span><br><span class="line"></span><br><span class="line">You should probably <span class="keyword">change</span> the ownership <span class="keyword">and</span> permissions <span class="keyword">of</span> /usr/<span class="keyword">local</span></span><br><span class="line">back <span class="keyword">to</span> your <span class="keyword">user</span> account.</span><br><span class="line">  sudo chown -R $(whoami):<span class="keyword">admin</span> /usr/<span class="keyword">local</span></span><br></pre></td></tr></table></figure><p>按照提示修改一下问题，重新 <code>brew install mongodb</code> 即可。如提示需要 <code>brew link</code>， 则按照提示操作。</p><p>3. 安装完成最终会出现如下提示来以不同方式开启 MongoDB。根据你的需要操作即可。</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">lfys-MacBook-Pro: lfy$ brew install mongodb</span><br><span class="line">==&gt; Downloading https:<span class="comment">//homebrew.bintray.com/bottles/mongodb-3.2.0.el_capitan.bottle.tar.gz</span></span><br><span class="line">Already downloaded: /Library/Caches/Homebrew/mongodb-<span class="number">3.2</span>.<span class="number">0</span><span class="selector-class">.el_capitan</span><span class="selector-class">.bottle</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br><span class="line">==&gt; Pouring mongodb-<span class="number">3.2</span>.<span class="number">0</span><span class="selector-class">.el_capitan</span><span class="selector-class">.bottle</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br><span class="line">==&gt; Caveats</span><br><span class="line">To have launchd start mongodb at login:</span><br><span class="line">  ln -sfv /usr/local/opt/mongodb<span class="comment">/*.plist ~/Library/LaunchAgents</span></span><br><span class="line"><span class="comment">Then to load mongodb now:</span></span><br><span class="line"><span class="comment">  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist</span></span><br><span class="line"><span class="comment">Or, if you don't want/need launchctl, you can just run:</span></span><br><span class="line"><span class="comment">  mongod --config /usr/local/etc/mongod.conf</span></span><br><span class="line"><span class="comment">==&gt; Summary</span></span><br><span class="line"><span class="comment">🍺  /usr/local/Cellar/mongodb/3.2.0: 17 files, 208M</span></span><br></pre></td></tr></table></figure><p>这里我执行了下面的命令：</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --config <span class="regexp">/usr/</span>local<span class="regexp">/etc/m</span>ongod.conf</span><br></pre></td></tr></table></figure><p>4. 在新的终端窗口中输入 <code>mongo</code> 就可以进行 MongoDB 的操作了。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;参考：&lt;a href=&quot;https://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Install MongoDB on OS X&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Mac OS X 的系统版本：EI Capitan (10.11.1)&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;这里采用 HomeBrew 来安装 MongoDB。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="nodejs" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/nodejs/"/>
-    
-    
-      <category term="MongoDB" scheme="http://linfuyan.com/tags/MongoDB/"/>
-    
-      <category term="Mac" scheme="http://linfuyan.com/tags/Mac/"/>
-    
-      <category term="HomeBrew" scheme="http://linfuyan.com/tags/HomeBrew/"/>
     
   </entry>
   

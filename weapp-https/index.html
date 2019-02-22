@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://img.uprogrammer.cn/static/images/wxapp-https-switch.png">
 <meta property="og:image" content="http://img.uprogrammer.cn/static/images/server-deploy-arch.png">
 <meta property="og:image" content="http://img.uprogrammer.cn/static/images/https-required.png">
-<meta property="og:updated_time" content="2018-10-18T12:14:28.000Z">
+<meta property="og:updated_time" content="2019-02-22T01:42:04.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程">
 <meta name="twitter:description" content="最近泡在好几个微信小程序QQ群里，发现大家提的好多问题是由于微信小程序的 https 支持引起的，这篇文章里面对于微信小程序的 https 相关问题做一些说明。  问题汇总哪些情况可能是由于 https 的配置导致的？ 1. 小程序页面出现白屏 大部分的小程序页面需要通过服务器接口返回的数据进行填充之后才能展示，由于 https 的配置错误，导致数据无法获取到，表现在小程序的界面上就是这个页面没">
@@ -317,8 +317,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
-                2018-10-18
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-22T09:42:04+08:00">
+                2019-02-22
               </time>
             
           </span>
@@ -395,6 +395,7 @@
 <p>3. 调用 <code>wx.downloadFile/wx.uploadFile</code> 失败</p>
 <p>出现上面这些问题时，终端上的调试信息差不多是这样：</p>
 <p><img src="http://img.uprogrammer.cn/static/images/wxapp-https-debug.png" alt="微信https问题调试"></p>
+<a id="more"></a>
 <h2 id="问题缘起"><a href="#问题缘起" class="headerlink" title="问题缘起"></a>问题缘起</h2><p><strong>正式上线的微信小程序仅支持 https 的请求，包括 <code>wx.request</code>, <code>wx.uploadFile</code>, <code>wx.downloadFile</code> 等 API，以及其他支持网络资源的组件，如 <code>&lt;image&gt;</code></strong>。</p>
 <p>具体可以参看相关的 API 说明。</p>
 <p>很多小伙伴儿疑惑，我的小程序接口不是 https 的呀，网上获取到的很多实例代码也都不是，为什么在微信 web 开发者工具里面都可以正常的跑起来呢？有更多的人可能在疑惑，为啥很多实例代码跑起来以后白屏或者图片不显示呢？</p>
@@ -568,7 +569,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-count">88</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -590,7 +591,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">224</span>
+                  <span class="site-state-item-count">228</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

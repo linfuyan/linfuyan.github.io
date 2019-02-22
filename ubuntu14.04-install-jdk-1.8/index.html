@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="删除低版本的 open jdkubuntu 14.04 默认的 java 版本为1.7，为了升级到 1.8并保持干净，我们先删除低版本的 open jdk。 1sudo apt-get autoremove openjdk-7-jre 执行完可以通过 java -version 来确认是否已经删除 从 PPA 源安装 1.8 版本的 jdkOracle java 的 PPA 源： https://">
+<meta name="description" content="删除低版本的 open jdkubuntu 14.04 默认的 java 版本为1.7，为了升级到 1.8并保持干净，我们先删除低版本的 open jdk。 1sudo apt-get autoremove openjdk-7-jre 执行完可以通过 java -version 来确认是否已经删除">
 <meta name="keywords" content="ubuntu,jdk1.8">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu 14.04 安装 jdk 1.8">
 <meta property="og:url" content="http://linfuyan.com/ubuntu14.04-install-jdk-1.8/index.html">
 <meta property="og:site_name" content="阿阿燃">
-<meta property="og:description" content="删除低版本的 open jdkubuntu 14.04 默认的 java 版本为1.7，为了升级到 1.8并保持干净，我们先删除低版本的 open jdk。 1sudo apt-get autoremove openjdk-7-jre 执行完可以通过 java -version 来确认是否已经删除 从 PPA 源安装 1.8 版本的 jdkOracle java 的 PPA 源： https://">
+<meta property="og:description" content="删除低版本的 open jdkubuntu 14.04 默认的 java 版本为1.7，为了升级到 1.8并保持干净，我们先删除低版本的 open jdk。 1sudo apt-get autoremove openjdk-7-jre 执行完可以通过 java -version 来确认是否已经删除">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-16T13:24:44.242Z">
+<meta property="og:updated_time" content="2019-02-22T01:41:06.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu 14.04 安装 jdk 1.8">
-<meta name="twitter:description" content="删除低版本的 open jdkubuntu 14.04 默认的 java 版本为1.7，为了升级到 1.8并保持干净，我们先删除低版本的 open jdk。 1sudo apt-get autoremove openjdk-7-jre 执行完可以通过 java -version 来确认是否已经删除 从 PPA 源安装 1.8 版本的 jdkOracle java 的 PPA 源： https://">
+<meta name="twitter:description" content="删除低版本的 open jdkubuntu 14.04 默认的 java 版本为1.7，为了升级到 1.8并保持干净，我们先删除低版本的 open jdk。 1sudo apt-get autoremove openjdk-7-jre 执行完可以通过 java -version 来确认是否已经删除">
 
 
 
@@ -312,8 +312,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-16T21:24:44+08:00">
-                2019-02-16
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-22T09:41:06+08:00">
+                2019-02-22
               </time>
             
           </span>
@@ -371,6 +371,7 @@
         <h2 id="删除低版本的-open-jdk"><a href="#删除低版本的-open-jdk" class="headerlink" title="删除低版本的 open jdk"></a>删除低版本的 open jdk</h2><p>ubuntu 14.04 默认的 java 版本为1.7，为了升级到 1.8并保持干净，我们先删除低版本的 open jdk。</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> autoremove openjdk-7-jre</span><br></pre></td></tr></table></figure>
 <p>执行完可以通过 <code>java -version</code> 来确认是否已经删除</p>
+<a id="more"></a>
 <h2 id="从-PPA-源安装-1-8-版本的-jdk"><a href="#从-PPA-源安装-1-8-版本的-jdk" class="headerlink" title="从 PPA 源安装 1.8 版本的 jdk"></a>从 PPA 源安装 1.8 版本的 jdk</h2><p>Oracle java 的 PPA 源： <a href="https://launchpad.net/~webupd8team/+archive/ubuntu/java" target="_blank" rel="noopener">https://launchpad.net/~webupd8team/+archive/ubuntu/java</a></p>
 <p>在 shell 中执行如下命令：</p>
 <figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> add-apt-repository </span>ppa:webupd8team/java</span><br><span class="line">// 更新 apt 源</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install oracle-java8-installer</span><br></pre></td></tr></table></figure>
@@ -516,7 +517,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-count">88</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -538,7 +539,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">224</span>
+                  <span class="site-state-item-count">228</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

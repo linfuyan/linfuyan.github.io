@@ -4,10 +4,44 @@
   
     
     <entry>
+      <title><![CDATA[env: bash \r: No such file or directory]]></title>
+      <url>http://linfuyan.com/env-bash-r-No-such-file-or-directory/</url>
+      <content type="html"><![CDATA[<p>今天在 mac 下想打包一个 Android apk，执行 <code>./gradlew clean build</code>，报了如下提示：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">en</span><span class="variable">v:</span> bash \r: No such <span class="keyword">file</span> <span class="built_in">or</span> directory</span><br></pre></td></tr></table></figure>
+<p>刚开始一头雾水，之前没有遇到过这个问题，而且这是提示没有什么可以跟踪的信息。在百思不得其解之际想到源码是朋友通过 windows 传给我的，随即想到 dos 下的换行与 unix 下换行不一致的特性。</p>
+<p>所以通过 vi 打开 gradlew 文件，在命令模式下，执行：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="builtin-name">set</span> <span class="attribute">fileformat</span>=unix</span><br></pre></td></tr></table></figure>
+<p>来切换文件格式为unix格式，并保存退出。</p>
+<p>继续在终端中执行 <code>./gradlew clean build</code>，问题就解决了。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> FAQ </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> fileformat </tag>
+            
+            <tag> \r\n </tag>
+            
+            <tag> dos </tag>
+            
+            <tag> unix </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[SpringBoot 打包成 war]]></title>
       <url>http://linfuyan.com/springboot-package-to-war/</url>
       <content type="html"><![CDATA[<h2 id="pom-xml-修改"><a href="#pom-xml-修改" class="headerlink" title="pom.xml 修改"></a>pom.xml 修改</h2><h3 id="将-jar-修改为-war"><a href="#将-jar-修改为-war" class="headerlink" title="将 jar 修改为 war"></a>将 jar 修改为 war</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>使用 Maven 创建 SpringBoot 项目，默认打包为 jar。</p>
+<a id="more"></a>
 <h3 id="在-spring-boot-starter-web-依赖中移除-tomcat-模块"><a href="#在-spring-boot-starter-web-依赖中移除-tomcat-模块" class="headerlink" title="在 spring-boot-starter-web 依赖中移除 tomcat 模块"></a>在 <code>spring-boot-starter-web</code> 依赖中移除 tomcat 模块</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>SpringBoot 自带 tomcat，需要移除</p>
 <h3 id="添加-servlet-依赖"><a href="#添加-servlet-依赖" class="headerlink" title="添加 servlet 依赖"></a>添加 servlet 依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -46,6 +80,7 @@
       <content type="html"><![CDATA[<h2 id="删除低版本的-open-jdk"><a href="#删除低版本的-open-jdk" class="headerlink" title="删除低版本的 open jdk"></a>删除低版本的 open jdk</h2><p>ubuntu 14.04 默认的 java 版本为1.7，为了升级到 1.8并保持干净，我们先删除低版本的 open jdk。</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> autoremove openjdk-7-jre</span><br></pre></td></tr></table></figure>
 <p>执行完可以通过 <code>java -version</code> 来确认是否已经删除</p>
+<a id="more"></a>
 <h2 id="从-PPA-源安装-1-8-版本的-jdk"><a href="#从-PPA-源安装-1-8-版本的-jdk" class="headerlink" title="从 PPA 源安装 1.8 版本的 jdk"></a>从 PPA 源安装 1.8 版本的 jdk</h2><p>Oracle java 的 PPA 源： <a href="https://launchpad.net/~webupd8team/+archive/ubuntu/java" target="_blank" rel="noopener">https://launchpad.net/~webupd8team/+archive/ubuntu/java</a></p>
 <p>在 shell 中执行如下命令：</p>
 <figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> add-apt-repository </span>ppa:webupd8team/java</span><br><span class="line">// 更新 apt 源</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install oracle-java8-installer</span><br></pre></td></tr></table></figure>
@@ -173,6 +208,7 @@
 <p>3. 调用 <code>wx.downloadFile/wx.uploadFile</code> 失败</p>
 <p>出现上面这些问题时，终端上的调试信息差不多是这样：</p>
 <p><img src="http://img.uprogrammer.cn/static/images/wxapp-https-debug.png" alt="微信https问题调试"></p>
+<a id="more"></a>
 <h2 id="问题缘起"><a href="#问题缘起" class="headerlink" title="问题缘起"></a>问题缘起</h2><p><strong>正式上线的微信小程序仅支持 https 的请求，包括 <code>wx.request</code>, <code>wx.uploadFile</code>, <code>wx.downloadFile</code> 等 API，以及其他支持网络资源的组件，如 <code>&lt;image&gt;</code></strong>。</p>
 <p>具体可以参看相关的 API 说明。</p>
 <p>很多小伙伴儿疑惑，我的小程序接口不是 https 的呀，网上获取到的很多实例代码也都不是，为什么在微信 web 开发者工具里面都可以正常的跑起来呢？有更多的人可能在疑惑，为啥很多实例代码跑起来以后白屏或者图片不显示呢？</p>
@@ -234,6 +270,7 @@
 </blockquote>
 <p>Android Studio 3.0 完整的支持 Kotlin，因此下面的这些操作都很方便。包括通过 Kotlin 文件创建新的项目，添加新的 Kotlin 文件到已有项目中，或者将 Java 语言代码转为 Kotlin。同时，你也可以针对 Kotlin 代码来使用所有 Android Studio已有的工具，如自动补全，lint 检查，重构，调试等。</p>
 <p>这篇文章将介绍如何再 Android Studio 中开始使用 Kotlin。</p>
+<a id="more"></a>
 <h2 id="创建新项目来使用-Kotlin"><a href="#创建新项目来使用-Kotlin" class="headerlink" title="创建新项目来使用 Kotlin"></a>创建新项目来使用 Kotlin</h2><p>在新项目中使用 Kotlin，仅需要在新项目向导中一个额外的点击：</p>
 <ol>
 <li>在 Android Studio 中，点击<strong>文件(File) &gt; 新建(New) &gt; 新项目(New Project)</strong>。或者你刚刚打开 Android Studio，看到了 Android Studio 的欢迎窗口，那么点击<strong>开始一个新的 Android Studio 项目</strong>。</li>
@@ -285,9 +322,9 @@
         
         <tags>
             
-            <tag> Kotlin </tag>
-            
             <tag> Android O </tag>
+            
+            <tag> Kotlin </tag>
             
             <tag> Google IO 2017 </tag>
             
@@ -324,9 +361,9 @@
         
         <tags>
             
-            <tag> Kotlin </tag>
-            
             <tag> Android O </tag>
+            
+            <tag> Kotlin </tag>
             
             <tag> Google IO 2017 </tag>
             
@@ -400,6 +437,7 @@
 <li>网线一根</li>
 </ol>
 <p>另外就是我之前买回来的树莓派及配件了。</p>
+<a id="more"></a>
 <h2 id="Mac-上给树莓派安装-Raspbian"><a href="#Mac-上给树莓派安装-Raspbian" class="headerlink" title="Mac 上给树莓派安装 Raspbian"></a>Mac 上给树莓派安装 Raspbian</h2><p>树莓派支持的系统有很多，官方推荐的是 Raspbian。</p>
 <h3 id="下载系统镜像"><a href="#下载系统镜像" class="headerlink" title="下载系统镜像"></a>下载系统镜像</h3><p>到<a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="noopener">树莓派官网</a>下载 raspbian 的镜像文件。我的是 2017-03-02-raspbian-jessie.zip，1.57 G。解压出来成 2017-03-02-raspbian-jessie.img，有 4.39 G。</p>
 <h3 id="格式化-SD-卡"><a href="#格式化-SD-卡" class="headerlink" title="格式化 SD 卡"></a>格式化 SD 卡</h3><p>使用 Mac 自带的磁盘工具，左侧选中对应的 SD 卡，点击右侧的“抹掉”标签，格式选择“MS-DOS(FAT)”，名称根据自己需要填写。</p>
@@ -638,6 +676,7 @@
       <url>http://linfuyan.com/ubuntu-ngrok/</url>
       <content type="html"><![CDATA[<p>如果你做微信开发，一次又一次的发布、发现错误、调试、发布、发现错误、调试…的循环一定让你个人或是团队感到厌倦；<br>如果你接外包项目，在开发过程中，客户想要看一看开发中的进展，你一定为还没有可预览环境或者搭建环境产生的消耗而苦恼。<br>…<br>这一切的原因仅仅是因为你深处复杂的内网环境，被一个局域网阻断了与外部的直接联系。你一定希望有一样东西，能够冲破这层阻隔，为你的工作提高效率。<br>这篇文章我们介绍 ngrok，一个开源软件，可以用于提供内网穿透。</p>
 <p>以下我记录下ngrok服务的搭建过程。</p>
+<a id="more"></a>
 <h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><ol>
 <li>需要一个有公网IP的VPS</li>
 <li>需要一个能够自由解析的域名</li>
@@ -707,13 +746,13 @@
         
         <tags>
             
-            <tag> ubuntu </tag>
-            
             <tag> ngrok </tag>
             
             <tag> 微信开发 </tag>
             
             <tag> 内网穿透 </tag>
+            
+            <tag> ubuntu </tag>
             
         </tags>
         
@@ -726,6 +765,7 @@
 <p>不多说，以下基于当前 lunr.js 版本（commit id:6a978d1ebf1a0c08e1a76cd4f7f74ad5490e5937），添加了中文支持。</p>
 <p>仓库地址：<a href="https://github.com/linfuyan/lunr.js" target="_blank" rel="noopener">https://github.com/linfuyan/lunr.js</a></p>
 <p>有<a href="https://github.com/linfuyan/lunr.js/tree/un-participle" target="_blank" rel="noopener">未分词的中文支持版本</a>和<a href="https://github.com/linfuyan/lunr.js/tree/un-participle" target="_blank" rel="noopener">分词的中文支持版本</a>，位于仓库中不同的分支。</p>
+<a id="more"></a>
 <h2 id="未分词的中文支持版本"><a href="#未分词的中文支持版本" class="headerlink" title="未分词的中文支持版本"></a>未分词的中文支持版本</h2><p>中文支持的基本原理是，保证 lunr.js 在分析过程中中文字符不会被转义。因此在 trimmer 函数中对中文字符做过滤。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">lunr.trimmer = <span class="function"><span class="keyword">function</span> (<span class="params">token</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//by ming300 check token is chinese then not replace   </span></span><br><span class="line">  <span class="keyword">if</span>(isChineseChar(token))&#123;</span><br><span class="line">    <span class="keyword">return</span> token;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> token</span><br><span class="line">    .replace(<span class="regexp">/^\W+/</span>, <span class="string">''</span>)</span><br><span class="line">    .replace(<span class="regexp">/\W+$/</span>, <span class="string">''</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> **check it contains Chinese (including Japanese and Korean)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isChineseChar</span>(<span class="params">str</span>)</span>&#123;     </span><br><span class="line">   <span class="keyword">var</span> reg = <span class="regexp">/[\u4E00-\u9FA5\uF900-\uFA2D]/</span>;  </span><br><span class="line">   <span class="keyword">return</span> reg.test(str);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>此外，在分词部分 tokenizer 函数做些调整，添加如下关键代码：</p>
@@ -815,6 +855,7 @@
 <li>DigitalOcean 的旧金山节点，国内链接速度快，很适合通过搭建 Shadowsocks 来提供稳定靠谱的科学上网服务。</li>
 </ol>
 </blockquote>
+<a id="more"></a>
 <h2 id="在-DigitalOcean-上配置-droplet"><a href="#在-DigitalOcean-上配置-droplet" class="headerlink" title="在 DigitalOcean 上配置 droplet"></a>在 DigitalOcean 上配置 droplet</h2><p>注册 DigitalOcean 账户就不说了。需要提醒的是，使用 DigitalOcean 需要绑定银行卡。</p>
 <p>新建 droplet 的步骤： </p>
 <p><img src="http://img.uprogrammer.cn/static/images/ss_do_1.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
@@ -957,6 +998,7 @@
       <content type="html"><![CDATA[<p>这篇文章中，我将使用 cheerio 从 <a href="http://ss.uprogrammer.cn" target="_blank" rel="noopener">http://ss.uprogrammer.cn</a> 上抓取到免费的 shadowsocks 账号，然后通过 ejs 模板，输出成新的网页。</p>
 <p><strong>cheerio</strong> 是 nodejs 的抓取页面模块，为服务器特别定制的，快速、灵活、实施的 jquery 核心实现，适合各种 Web 爬虫程序。详见: <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">https://github.com/cheeriojs/cheerio</a></p>
 <p><strong>ejs</strong> 是一个 JavaScript 模板库，用来从 JSON 数据中生成 HTML 字符串。详见： <a href="https://github.com/tj/ejs" target="_blank" rel="noopener">https://github.com/tj/ejs</a></p>
+<a id="more"></a>
 <p>下面的截图中显示，<a href="http://ss.upgrogrammer.cn" target="_blank" rel="noopener">http://ss.upgrogrammer.cn</a> 上有一个免费 shadowsocks 账号的展示区域。</p>
 <p><img src="http://img.uprogrammer.cn/static/images/free-shadowsocks.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
 <p>并且通过 chrome 的审查元素，可以看到相关的源码。</p>
@@ -1163,11 +1205,11 @@
         
         <tags>
             
+            <tag> Mac </tag>
+            
             <tag> HomeBrew </tag>
             
             <tag> MySQL </tag>
-            
-            <tag> Mac </tag>
             
             <tag> OSX </tag>
             
@@ -1213,11 +1255,11 @@
         
         <tags>
             
-            <tag> HomeBrew </tag>
+            <tag> MongoDB </tag>
             
             <tag> Mac </tag>
             
-            <tag> MongoDB </tag>
+            <tag> HomeBrew </tag>
             
         </tags>
         
@@ -5494,9 +5536,9 @@ alpha = (aLongBooleanExpression)
             
             <tag> 博客 </tag>
             
-            <tag> 安装 </tag>
-            
             <tag> 个人 </tag>
+            
+            <tag> 安装 </tag>
             
         </tags>
         
@@ -5553,9 +5595,9 @@ alpha = (aLongBooleanExpression)
             
             <tag> 博客 </tag>
             
-            <tag> 安装 </tag>
-            
             <tag> 个人 </tag>
+            
+            <tag> 安装 </tag>
             
         </tags>
         
@@ -7272,13 +7314,13 @@ alpha = (aLongBooleanExpression)
         
         <tags>
             
+            <tag> nodejs </tag>
+            
             <tag> 学习 </tag>
             
             <tag> 资源 </tag>
             
             <tag> 汇总 </tag>
-            
-            <tag> nodejs </tag>
             
         </tags>
         
@@ -7299,13 +7341,13 @@ alpha = (aLongBooleanExpression)
         
         <tags>
             
+            <tag> iOS </tag>
+            
             <tag> 学习 </tag>
             
             <tag> 资源 </tag>
             
             <tag> 汇总 </tag>
-            
-            <tag> iOS </tag>
             
         </tags>
         

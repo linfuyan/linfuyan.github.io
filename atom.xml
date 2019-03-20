@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://linfuyan.com/"/>
-  <updated>2019-02-22T01:39:09.140Z</updated>
+  <updated>2019-03-20T13:16:23.761Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>记某店面试题</title>
+    <link href="http://linfuyan.com/interview-moudian/"/>
+    <id>http://linfuyan.com/interview-moudian/</id>
+    <published>2019-03-20T12:11:00.000Z</published>
+    <updated>2019-03-20T13:16:23.761Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="1-有-n-个整数元素的数组，如何获取其中最大的-k-个数？"><a href="#1-有-n-个整数元素的数组，如何获取其中最大的-k-个数？" class="headerlink" title="1. 有 n 个整数元素的数组，如何获取其中最大的 k 个数？"></a>1. 有 n 个整数元素的数组，如何获取其中最大的 k 个数？</h4><p>a. 先对数组的元素进行排序，然后再取其中的 k 个数。时间复杂度主要在排序算法上，可以做到 nlog(n)</p><p>b. 循环 1 - k，每个循环内对数组做一次冒泡取最大值，则时间复杂度 kn</p><p>c. 先取 k 个元素，建立小顶堆，再遍历剩下的元素，如果元素比堆顶大，则放入堆中根据需要调整堆形态。最终堆中的元素就是最大的 k 个。</p><blockquote><p>面试时很自然想到了 a 方案；b 想过，不过现场没有描述清楚；c 是参考了网络上的答案。</p></blockquote><a id="more"></a><h4 id="2-有-n-级台阶，一次可以走-1-步或者-2-步，问有多少种走法？"><a href="#2-有-n-级台阶，一次可以走-1-步或者-2-步，问有多少种走法？" class="headerlink" title="2. 有 n 级台阶，一次可以走 1 步或者 2 步，问有多少种走法？"></a>2. 有 n 级台阶，一次可以走 1 步或者 2 步，问有多少种走法？</h4><p>分析：n=1 的时候，只有走 1 步的方案；n=2 的时候，有走 2 个 1 步或 1 个 2 步 2个方案；而 n 步可以归纳为走 n-1 步的所有方案和走 n-2 步的所有方案的和。</p><p>a. 递归</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">2</span>) <span class="keyword">return</span> n;</span><br><span class="line">    <span class="keyword">int</span> x = f(n<span class="number">-1</span>) + f(n<span class="number">-2</span>);</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>b. 迭代</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n&lt;=<span class="number">2</span>) <span class="keyword">return</span> n;</span><br><span class="line">    <span class="keyword">int</span> n1 = <span class="number">1</span>, n2 = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> n3 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>; i&lt;=n; i++)&#123;</span><br><span class="line">        n3 = n1 + n2;</span><br><span class="line">        n1 = n2;</span><br><span class="line">        n2 = n3;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> n3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>面试时最先想到的了 a 方案；b 方案脑海中一直没有想起来递归对应的迭代这个词。</p></blockquote><h4 id="3-Mysql-数据库中-一张-user-表，包含-id，name，reg-date（格式：yyyy-MM-dd，如2019-03-20）-字段，使用一条语句找出注册用户个数大于-100-的-reg-data"><a href="#3-Mysql-数据库中-一张-user-表，包含-id，name，reg-date（格式：yyyy-MM-dd，如2019-03-20）-字段，使用一条语句找出注册用户个数大于-100-的-reg-data" class="headerlink" title="3. Mysql 数据库中 一张 user 表，包含 id，name，reg_date（格式：yyyy-MM-dd，如2019-03-20） 字段，使用一条语句找出注册用户个数大于 100 的 reg_data"></a>3. Mysql 数据库中 一张 user 表，包含 id，name，reg_date（格式：yyyy-MM-dd，如2019-03-20） 字段，使用一条语句找出注册用户个数大于 100 的 reg_data</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">select </span><br><span class="line">    reg_date, total</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    (select </span><br><span class="line">        reg_date, count(*) as total </span><br><span class="line">    <span class="keyword">from</span><span class="built_in"> user </span></span><br><span class="line">   <span class="built_in"> group </span>by reg_date) as tmp </span><br><span class="line">where total &gt; 100 </span><br><span class="line">order by total desc;</span><br></pre></td></tr></table></figure><blockquote><p>面试时没有给出这条语句，group by 与 order by 各想了一部分，没有拼成一条语句。回来后用实例测试了一下。平时在应用中基本走简单查询。</p></blockquote><h4 id="4-数据库事务相关，如下："><a href="#4-数据库事务相关，如下：" class="headerlink" title="4. 数据库事务相关，如下："></a>4. 数据库事务相关，如下：</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">a</span> <span class="string">=</span> <span class="number">4</span><span class="string">;</span></span><br><span class="line"></span><br><span class="line"><span class="string">//</span> <span class="string">开启事务</span></span><br><span class="line"><span class="string">a</span> <span class="string">=</span> <span class="number">5</span><span class="string">;</span> <span class="bullet">----</span> <span class="string">①</span></span><br><span class="line"><span class="bullet">-</span><span class="bullet">--②</span></span><br><span class="line"><span class="string">a</span> <span class="string">=</span> <span class="number">6</span><span class="string">;</span> <span class="meta">---</span> <span class="string">③</span></span><br><span class="line"><span class="string">//</span> <span class="string">提交事务</span></span><br></pre></td></tr></table></figure><p>问线程 A 运行到②时，线程 B 将读取到 a 的值是多少？</p><blockquote><p>面试时想到了数据库的事务隔离级别。未提交读、读已提交（不可重复读）、可重复读、串行化。<br>答曰：未提交读时结果是 5，读已提交时是 4。</p></blockquote><p>拓展：<a href="https://www.cnblogs.com/huanongying/p/7021555.html" target="_blank" rel="noopener">MySQL的四种事务隔离级别</a></p><h4 id="5-100-的阶乘的最终结果有多少个-0？"><a href="#5-100-的阶乘的最终结果有多少个-0？" class="headerlink" title="5. 100 的阶乘的最终结果有多少个 0？"></a>5. 100 的阶乘的最终结果有多少个 0？</h4><p>最终的结果是 24 个。</p><p>每个 5 和 10，会使结果多一个 0，其中 25，50，75，100 会多两个，所以 10 个 5 + 10 个 10 + 4 = 24 个。</p><blockquote><p>面试时给了 22 个的结果。未考虑到 25 和 75。</p></blockquote><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>题目 1，2，5 都是网上现成的题目，其实还是比较简单的。工作 10 年，很久没有参加面试了，也没有遇到面这些题目的。没有准备到，回答时只能根据自己临时的思路，回答的不尽如人意，比较遗憾。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;1-有-n-个整数元素的数组，如何获取其中最大的-k-个数？&quot;&gt;&lt;a href=&quot;#1-有-n-个整数元素的数组，如何获取其中最大的-k-个数？&quot; class=&quot;headerlink&quot; title=&quot;1. 有 n 个整数元素的数组，如何获取其中最大的 k 个数？&quot;&gt;&lt;/a&gt;1. 有 n 个整数元素的数组，如何获取其中最大的 k 个数？&lt;/h4&gt;&lt;p&gt;a. 先对数组的元素进行排序，然后再取其中的 k 个数。时间复杂度主要在排序算法上，可以做到 nlog(n)&lt;/p&gt;
+&lt;p&gt;b. 循环 1 - k，每个循环内对数组做一次冒泡取最大值，则时间复杂度 kn&lt;/p&gt;
+&lt;p&gt;c. 先取 k 个元素，建立小顶堆，再遍历剩下的元素，如果元素比堆顶大，则放入堆中根据需要调整堆形态。最终堆中的元素就是最大的 k 个。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;面试时很自然想到了 a 方案；b 想过，不过现场没有描述清楚；c 是参考了网络上的答案。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="面试" scheme="http://linfuyan.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>env: bash \r: No such file or directory</title>
@@ -639,43 +666,6 @@
       <category term="JavaScript" scheme="http://linfuyan.com/tags/JavaScript/"/>
     
       <category term="浏览器地址" scheme="http://linfuyan.com/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9C%B0%E5%9D%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何使用 npm 打包发布 nodejs 程序包</title>
-    <link href="http://linfuyan.com/publish_your_module_to_npm/"/>
-    <id>http://linfuyan.com/publish_your_module_to_npm/</id>
-    <published>2016-04-04T02:10:10.000Z</published>
-    <updated>2016-04-04T02:31:16.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>昨天写了个 gitbook 的 cnzz 统计插件，<a href="https://github.com/linfuyan/gitbook-plugin-cnzz" target="_blank" rel="noopener">源码见这里</a>，想要发布出来，再通过 <code>npm install</code> 的形式安装。</p><p>具体的步骤如下：</p><p>1. 在 npm 官网 <a href="https://www.npmjs.org" target="_blank" rel="noopener">https://www.npmjs.org</a> 申请一个账号，并且进行必要的验证。</p><blockquote><p>刚开始用的是网易邮箱注册，但似乎收不到官方的验证邮件，后来改用了 Gmail，可以注册了。</p></blockquote><p>2. 增加刚申请完成的用户名到 npm 环境中。</p><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm --registry <span class="string">http:</span><span class="comment">//registry.npmjs.org adduser</span></span><br><span class="line"><span class="string">Username:</span> your name</span><br><span class="line"><span class="string">Password:</span> your password</span><br><span class="line"><span class="string">Email:</span> (<span class="keyword">this</span> IS <span class="keyword">public</span>) yourmail<span class="meta">@host</span></span><br></pre></td></tr></table></figure><blockquote><p>这里要注意所使用的 registry。由于国内的网络环境，之前将默认的 registry 设置成了淘宝的 npm 源。这里需要调整回来。</p></blockquote><p>3. 进入到你的 npm 项目中，通过 <code>npm publish</code> 发布。</p><p>4. 再新建一个项目 nodejs 项目，通过 <code>npm install</code> 验证是否能够安装。</p><p>我在发布过程中，遇到了如下问题：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm ERR! no_perms Private mode enable, only admin can publish <span class="keyword">this</span> <span class="keyword">module</span>: gitbook-plugin-cnzz</span><br></pre></td></tr></table></figure><p>原因就是我默认使用的淘宝的 npm 源，添加了用户，但权限不对，在发布时同样添加 registry 就可以了。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;昨天写了个 gitbook 的 cnzz 统计插件，&lt;a href=&quot;https://github.com/linfuyan/gitbook-plugin-cnzz&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;源码见这里&lt;/a&gt;，想要发布出来，再通过 &lt;
-      
-    
-    </summary>
-    
-      <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="nodejs" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/nodejs/"/>
-    
-    
-      <category term="nodejs" scheme="http://linfuyan.com/tags/nodejs/"/>
-    
-      <category term="npm" scheme="http://linfuyan.com/tags/npm/"/>
-    
-      <category term="打包" scheme="http://linfuyan.com/tags/%E6%89%93%E5%8C%85/"/>
-    
-      <category term="发布" scheme="http://linfuyan.com/tags/%E5%8F%91%E5%B8%83/"/>
-    
-      <category term="gitbook" scheme="http://linfuyan.com/tags/gitbook/"/>
-    
-      <category term="cnzz" scheme="http://linfuyan.com/tags/cnzz/"/>
     
   </entry>
   

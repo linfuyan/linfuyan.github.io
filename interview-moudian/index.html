@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="面试," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="阿阿燃" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="1. 有 n 个整数元素的数组，如何获取其中最大的 k 个数？a. 先对数组的元素进行排序，然后再取其中的 k 个数。时间复杂度主要在排序算法上，可以做到 nlog(n) b. 循环 1 - k，每个循环内对数组做一次冒泡取最大值，则时间复杂度 kn c. 先取 k 个元素，建立小顶堆，再遍历剩下的元素，如果元素比堆顶大，则放入堆中根据需要调整堆形态。最终堆中的元素就是最大的 k 个。  面试时很">
+<meta name="keywords" content="面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记某店面试题">
+<meta property="og:url" content="http://linfuyan.com/interview-moudian/index.html">
+<meta property="og:site_name" content="阿阿燃">
+<meta property="og:description" content="1. 有 n 个整数元素的数组，如何获取其中最大的 k 个数？a. 先对数组的元素进行排序，然后再取其中的 k 个数。时间复杂度主要在排序算法上，可以做到 nlog(n) b. 循环 1 - k，每个循环内对数组做一次冒泡取最大值，则时间复杂度 kn c. 先取 k 个元素，建立小顶堆，再遍历剩下的元素，如果元素比堆顶大，则放入堆中根据需要调整堆形态。最终堆中的元素就是最大的 k 个。  面试时很">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-20T13:16:23.761Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记某店面试题">
+<meta name="twitter:description" content="1. 有 n 个整数元素的数组，如何获取其中最大的 k 个数？a. 先对数组的元素进行排序，然后再取其中的 k 个数。时间复杂度主要在排序算法上，可以做到 nlog(n) b. 循环 1 - k，每个循环内对数组做一次冒泡取最大值，则时间复杂度 kn c. 先取 k 个元素，建立小顶堆，再遍历剩下的元素，如果元素比堆顶大，则放入堆中根据需要调整堆形态。最终堆中的元素就是最大的 k 个。  面试时很">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://linfuyan.com/interview-moudian/"/>
+
+
+
+
+
+  <title>记某店面试题 | 阿阿燃</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阿阿燃</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/interview-moudian/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">记某店面试题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-20T20:11:00+08:00">
+                2019-03-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-20T21:16:23+08:00">
+                2019-03-20
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="1-有-n-个整数元素的数组，如何获取其中最大的-k-个数？"><a href="#1-有-n-个整数元素的数组，如何获取其中最大的-k-个数？" class="headerlink" title="1. 有 n 个整数元素的数组，如何获取其中最大的 k 个数？"></a>1. 有 n 个整数元素的数组，如何获取其中最大的 k 个数？</h4><p>a. 先对数组的元素进行排序，然后再取其中的 k 个数。时间复杂度主要在排序算法上，可以做到 nlog(n)</p>
+<p>b. 循环 1 - k，每个循环内对数组做一次冒泡取最大值，则时间复杂度 kn</p>
+<p>c. 先取 k 个元素，建立小顶堆，再遍历剩下的元素，如果元素比堆顶大，则放入堆中根据需要调整堆形态。最终堆中的元素就是最大的 k 个。</p>
+<blockquote>
+<p>面试时很自然想到了 a 方案；b 想过，不过现场没有描述清楚；c 是参考了网络上的答案。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="2-有-n-级台阶，一次可以走-1-步或者-2-步，问有多少种走法？"><a href="#2-有-n-级台阶，一次可以走-1-步或者-2-步，问有多少种走法？" class="headerlink" title="2. 有 n 级台阶，一次可以走 1 步或者 2 步，问有多少种走法？"></a>2. 有 n 级台阶，一次可以走 1 步或者 2 步，问有多少种走法？</h4><p>分析：n=1 的时候，只有走 1 步的方案；n=2 的时候，有走 2 个 1 步或 1 个 2 步 2个方案；而 n 步可以归纳为走 n-1 步的所有方案和走 n-2 步的所有方案的和。</p>
+<p>a. 递归</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">2</span>) <span class="keyword">return</span> n;</span><br><span class="line">    <span class="keyword">int</span> x = f(n<span class="number">-1</span>) + f(n<span class="number">-2</span>);</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>b. 迭代</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n&lt;=<span class="number">2</span>) <span class="keyword">return</span> n;</span><br><span class="line">    <span class="keyword">int</span> n1 = <span class="number">1</span>, n2 = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> n3 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>; i&lt;=n; i++)&#123;</span><br><span class="line">        n3 = n1 + n2;</span><br><span class="line">        n1 = n2;</span><br><span class="line">        n2 = n3;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> n3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>面试时最先想到的了 a 方案；b 方案脑海中一直没有想起来递归对应的迭代这个词。</p>
+</blockquote>
+<h4 id="3-Mysql-数据库中-一张-user-表，包含-id，name，reg-date（格式：yyyy-MM-dd，如2019-03-20）-字段，使用一条语句找出注册用户个数大于-100-的-reg-data"><a href="#3-Mysql-数据库中-一张-user-表，包含-id，name，reg-date（格式：yyyy-MM-dd，如2019-03-20）-字段，使用一条语句找出注册用户个数大于-100-的-reg-data" class="headerlink" title="3. Mysql 数据库中 一张 user 表，包含 id，name，reg_date（格式：yyyy-MM-dd，如2019-03-20） 字段，使用一条语句找出注册用户个数大于 100 的 reg_data"></a>3. Mysql 数据库中 一张 user 表，包含 id，name，reg_date（格式：yyyy-MM-dd，如2019-03-20） 字段，使用一条语句找出注册用户个数大于 100 的 reg_data</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">select </span><br><span class="line">    reg_date, total</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    (select </span><br><span class="line">        reg_date, count(*) as total </span><br><span class="line">    <span class="keyword">from</span><span class="built_in"> user </span></span><br><span class="line">   <span class="built_in"> group </span>by reg_date) as tmp </span><br><span class="line">where total &gt; 100 </span><br><span class="line">order by total desc;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>面试时没有给出这条语句，group by 与 order by 各想了一部分，没有拼成一条语句。回来后用实例测试了一下。平时在应用中基本走简单查询。</p>
+</blockquote>
+<h4 id="4-数据库事务相关，如下："><a href="#4-数据库事务相关，如下：" class="headerlink" title="4. 数据库事务相关，如下："></a>4. 数据库事务相关，如下：</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">a</span> <span class="string">=</span> <span class="number">4</span><span class="string">;</span></span><br><span class="line"></span><br><span class="line"><span class="string">//</span> <span class="string">开启事务</span></span><br><span class="line"><span class="string">a</span> <span class="string">=</span> <span class="number">5</span><span class="string">;</span> <span class="bullet">----</span> <span class="string">①</span></span><br><span class="line"><span class="bullet">-</span><span class="bullet">--②</span></span><br><span class="line"><span class="string">a</span> <span class="string">=</span> <span class="number">6</span><span class="string">;</span> <span class="meta">---</span> <span class="string">③</span></span><br><span class="line"><span class="string">//</span> <span class="string">提交事务</span></span><br></pre></td></tr></table></figure>
+<p>问线程 A 运行到②时，线程 B 将读取到 a 的值是多少？</p>
+<blockquote>
+<p>面试时想到了数据库的事务隔离级别。未提交读、读已提交（不可重复读）、可重复读、串行化。<br>答曰：未提交读时结果是 5，读已提交时是 4。</p>
+</blockquote>
+<p>拓展：<a href="https://www.cnblogs.com/huanongying/p/7021555.html" target="_blank" rel="noopener">MySQL的四种事务隔离级别</a></p>
+<h4 id="5-100-的阶乘的最终结果有多少个-0？"><a href="#5-100-的阶乘的最终结果有多少个-0？" class="headerlink" title="5. 100 的阶乘的最终结果有多少个 0？"></a>5. 100 的阶乘的最终结果有多少个 0？</h4><p>最终的结果是 24 个。</p>
+<p>每个 5 和 10，会使结果多一个 0，其中 25，50，75，100 会多两个，所以 10 个 5 + 10 个 10 + 4 = 24 个。</p>
+<blockquote>
+<p>面试时给了 22 个的结果。未考虑到 25 和 75。</p>
+</blockquote>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>题目 1，2，5 都是网上现成的题目，其实还是比较简单的。工作 10 年，很久没有参加面试了，也没有遇到面这些题目的。没有准备到，回答时只能根据自己临时的思路，回答的不尽如人意，比较遗憾。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Aaron
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://linfuyan.com/interview-moudian/" title="记某店面试题">http://linfuyan.com/interview-moudian/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/env-bash-r-No-such-file-or-directory/" rel="next" title="env: bash \r: No such file or directory">
+                <i class="fa fa-chevron-left"></i> env: bash \r: No such file or directory
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Aaron</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">89</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">229</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/linfuyan" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-有-n-个整数元素的数组，如何获取其中最大的-k-个数？"><span class="nav-text">1. 有 n 个整数元素的数组，如何获取其中最大的 k 个数？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-有-n-级台阶，一次可以走-1-步或者-2-步，问有多少种走法？"><span class="nav-text">2. 有 n 级台阶，一次可以走 1 步或者 2 步，问有多少种走法？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Mysql-数据库中-一张-user-表，包含-id，name，reg-date（格式：yyyy-MM-dd，如2019-03-20）-字段，使用一条语句找出注册用户个数大于-100-的-reg-data"><span class="nav-text">3. Mysql 数据库中 一张 user 表，包含 id，name，reg_date（格式：yyyy-MM-dd，如2019-03-20） 字段，使用一条语句找出注册用户个数大于 100 的 reg_data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-数据库事务相关，如下："><span class="nav-text">4. 数据库事务相关，如下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-100-的阶乘的最终结果有多少个-0？"><span class="nav-text">5. 100 的阶乘的最终结果有多少个 0？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+  <div class="footer-custom">Hosted by <a href="https://pages.coding.me" style="font-weight:bold">Coding Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1256375489&web_id=1256375489" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

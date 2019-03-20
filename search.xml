@@ -4,6 +4,57 @@
   
     
     <entry>
+      <title><![CDATA[记某店面试题]]></title>
+      <url>http://linfuyan.com/interview-moudian/</url>
+      <content type="html"><![CDATA[<h4 id="1-有-n-个整数元素的数组，如何获取其中最大的-k-个数？"><a href="#1-有-n-个整数元素的数组，如何获取其中最大的-k-个数？" class="headerlink" title="1. 有 n 个整数元素的数组，如何获取其中最大的 k 个数？"></a>1. 有 n 个整数元素的数组，如何获取其中最大的 k 个数？</h4><p>a. 先对数组的元素进行排序，然后再取其中的 k 个数。时间复杂度主要在排序算法上，可以做到 nlog(n)</p>
+<p>b. 循环 1 - k，每个循环内对数组做一次冒泡取最大值，则时间复杂度 kn</p>
+<p>c. 先取 k 个元素，建立小顶堆，再遍历剩下的元素，如果元素比堆顶大，则放入堆中根据需要调整堆形态。最终堆中的元素就是最大的 k 个。</p>
+<blockquote>
+<p>面试时很自然想到了 a 方案；b 想过，不过现场没有描述清楚；c 是参考了网络上的答案。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="2-有-n-级台阶，一次可以走-1-步或者-2-步，问有多少种走法？"><a href="#2-有-n-级台阶，一次可以走-1-步或者-2-步，问有多少种走法？" class="headerlink" title="2. 有 n 级台阶，一次可以走 1 步或者 2 步，问有多少种走法？"></a>2. 有 n 级台阶，一次可以走 1 步或者 2 步，问有多少种走法？</h4><p>分析：n=1 的时候，只有走 1 步的方案；n=2 的时候，有走 2 个 1 步或 1 个 2 步 2个方案；而 n 步可以归纳为走 n-1 步的所有方案和走 n-2 步的所有方案的和。</p>
+<p>a. 递归</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">2</span>) <span class="keyword">return</span> n;</span><br><span class="line">    <span class="keyword">int</span> x = f(n<span class="number">-1</span>) + f(n<span class="number">-2</span>);</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>b. 迭代</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n&lt;=<span class="number">2</span>) <span class="keyword">return</span> n;</span><br><span class="line">    <span class="keyword">int</span> n1 = <span class="number">1</span>, n2 = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> n3 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>; i&lt;=n; i++)&#123;</span><br><span class="line">        n3 = n1 + n2;</span><br><span class="line">        n1 = n2;</span><br><span class="line">        n2 = n3;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> n3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>面试时最先想到的了 a 方案；b 方案脑海中一直没有想起来递归对应的迭代这个词。</p>
+</blockquote>
+<h4 id="3-Mysql-数据库中-一张-user-表，包含-id，name，reg-date（格式：yyyy-MM-dd，如2019-03-20）-字段，使用一条语句找出注册用户个数大于-100-的-reg-data"><a href="#3-Mysql-数据库中-一张-user-表，包含-id，name，reg-date（格式：yyyy-MM-dd，如2019-03-20）-字段，使用一条语句找出注册用户个数大于-100-的-reg-data" class="headerlink" title="3. Mysql 数据库中 一张 user 表，包含 id，name，reg_date（格式：yyyy-MM-dd，如2019-03-20） 字段，使用一条语句找出注册用户个数大于 100 的 reg_data"></a>3. Mysql 数据库中 一张 user 表，包含 id，name，reg_date（格式：yyyy-MM-dd，如2019-03-20） 字段，使用一条语句找出注册用户个数大于 100 的 reg_data</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">select </span><br><span class="line">    reg_date, total</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    (select </span><br><span class="line">        reg_date, count(*) as total </span><br><span class="line">    <span class="keyword">from</span><span class="built_in"> user </span></span><br><span class="line">   <span class="built_in"> group </span>by reg_date) as tmp </span><br><span class="line">where total &gt; 100 </span><br><span class="line">order by total desc;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>面试时没有给出这条语句，group by 与 order by 各想了一部分，没有拼成一条语句。回来后用实例测试了一下。平时在应用中基本走简单查询。</p>
+</blockquote>
+<h4 id="4-数据库事务相关，如下："><a href="#4-数据库事务相关，如下：" class="headerlink" title="4. 数据库事务相关，如下："></a>4. 数据库事务相关，如下：</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">a</span> <span class="string">=</span> <span class="number">4</span><span class="string">;</span></span><br><span class="line"></span><br><span class="line"><span class="string">//</span> <span class="string">开启事务</span></span><br><span class="line"><span class="string">a</span> <span class="string">=</span> <span class="number">5</span><span class="string">;</span> <span class="bullet">----</span> <span class="string">①</span></span><br><span class="line"><span class="bullet">-</span><span class="bullet">--②</span></span><br><span class="line"><span class="string">a</span> <span class="string">=</span> <span class="number">6</span><span class="string">;</span> <span class="meta">---</span> <span class="string">③</span></span><br><span class="line"><span class="string">//</span> <span class="string">提交事务</span></span><br></pre></td></tr></table></figure>
+<p>问线程 A 运行到②时，线程 B 将读取到 a 的值是多少？</p>
+<blockquote>
+<p>面试时想到了数据库的事务隔离级别。未提交读、读已提交（不可重复读）、可重复读、串行化。<br>答曰：未提交读时结果是 5，读已提交时是 4。</p>
+</blockquote>
+<p>拓展：<a href="https://www.cnblogs.com/huanongying/p/7021555.html" target="_blank" rel="noopener">MySQL的四种事务隔离级别</a></p>
+<h4 id="5-100-的阶乘的最终结果有多少个-0？"><a href="#5-100-的阶乘的最终结果有多少个-0？" class="headerlink" title="5. 100 的阶乘的最终结果有多少个 0？"></a>5. 100 的阶乘的最终结果有多少个 0？</h4><p>最终的结果是 24 个。</p>
+<p>每个 5 和 10，会使结果多一个 0，其中 25，50，75，100 会多两个，所以 10 个 5 + 10 个 10 + 4 = 24 个。</p>
+<blockquote>
+<p>面试时给了 22 个的结果。未考虑到 25 和 75。</p>
+</blockquote>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>题目 1，2，5 都是网上现成的题目，其实还是比较简单的。工作 10 年，很久没有参加面试了，也没有遇到面这些题目的。没有准备到，回答时只能根据自己临时的思路，回答的不尽如人意，比较遗憾。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 开发技术 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 面试 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[env: bash \r: No such file or directory]]></title>
       <url>http://linfuyan.com/env-bash-r-No-such-file-or-directory/</url>
       <content type="html"><![CDATA[<p>今天在 mac 下想打包一个 Android apk，执行 <code>./gradlew clean build</code>，报了如下提示：</p>

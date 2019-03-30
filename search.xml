@@ -4,6 +4,68 @@
   
     
     <entry>
+      <title><![CDATA[开启 Mac 自带的 Apache，配置 PHP 和虚拟主机]]></title>
+      <url>http://linfuyan.com/mac_apache_php_enable/</url>
+      <content type="html"><![CDATA[<p>Mac 系统本身就预装了 Apache 和 PHP 。分别通过 <code>apachectl -version</code> 和 <code>php -v</code> 进行查看。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">➜  apachectl -version</span><br><span class="line">Server version: Apache/2.4.34 (Unix)</span><br><span class="line">Server built:   Aug 17 2018 18:35:43</span><br><span class="line">➜  php -v</span><br><span class="line">PHP 7.1.23 (cli) (built: Nov  7 2018 18:20:35) ( NTS )</span><br><span class="line">Copyright (c) 1997-2018 The PHP Group</span><br><span class="line">Zend Engine v3.1.0, Copyright (c) 1998-2018 Zend Technologies</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="Apache-相关命令"><a href="#Apache-相关命令" class="headerlink" title="Apache 相关命令"></a>Apache 相关命令</h3><p>启动：<code>sudo apachectl start</code></p>
+<p>停止：<code>sudo apachectl stop</code></p>
+<p>重启：<code>sudo apachectl restart</code></p>
+<p>查看版本号：<code>sudo apachectl -v</code></p>
+<h3 id="添加-php-模块"><a href="#添加-php-模块" class="headerlink" title="添加 php 模块"></a>添加 php 模块</h3><p>通过 vi 打开 apache 的配置文件，配置文件需要超级权限才能进行读写。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">vi</span> /etc/apache2/httpd.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
+<p>找到下面这行</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># LoadModule php7_module libexec/apache2/libphp7.so</span></span><br></pre></td></tr></table></figure>
+<p>去掉前面的 <code>#</code> 注释。</p>
+<p>保存，退出，重启 apache 就可以生效了。</p>
+<h3 id="配置-mysite-虚拟站点"><a href="#配置-mysite-虚拟站点" class="headerlink" title="配置 mysite 虚拟站点"></a>配置 mysite 虚拟站点</h3><h4 id="1-新建一个文件夹，作为你虚拟站点的物理存储位置"><a href="#1-新建一个文件夹，作为你虚拟站点的物理存储位置" class="headerlink" title="1. 新建一个文件夹，作为你虚拟站点的物理存储位置"></a>1. 新建一个文件夹，作为你虚拟站点的物理存储位置</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -<span class="selector-tag">p</span> /Users/your_user/...your_site</span><br></pre></td></tr></table></figure>
+<h4 id="2-在-httpd-conf-中开启虚拟主机支持"><a href="#2-在-httpd-conf-中开启虚拟主机支持" class="headerlink" title="2. 在 httpd.conf 中开启虚拟主机支持"></a>2. 在 <code>httpd.conf</code> 中开启虚拟主机支持</h4><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">vi</span> /etc/apache2/httpd.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
+<p>找到下面这行</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">Include</span> /private/etc/apache2/extra/httpd-vhosts.conf</span></span><br></pre></td></tr></table></figure>
+<p>去掉前面的 <code>#</code> 注释。</p>
+<h4 id="3-添加-DocumentRoot"><a href="#3-添加-DocumentRoot" class="headerlink" title="3. 添加 DocumentRoot"></a>3. 添加 DocumentRoot</h4><p>找到 <code>httpd.conf</code> 中的如下内容</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DocumentRoot <span class="string">"/Library/WebServer/Documents"</span></span><br><span class="line">&lt;Directory <span class="string">"/Library/WebServer/Documents"</span> &gt;</span><br><span class="line"><span class="string">...</span></span><br><span class="line">&lt;<span class="string">/Directory</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>复制一份，直接添加到这段后面。</p>
+<p>修改其中的 <code>/Library/WebServer/Documents</code> 为上面建好的文件夹路径 <code>/Users/your_user/...your_site</code>。</p>
+<p>保存，退出 <code>httpd.conf</code>。</p>
+<h4 id="4-添加虚拟主机配置"><a href="#4-添加虚拟主机配置" class="headerlink" title="4. 添加虚拟主机配置"></a>4. 添加虚拟主机配置</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi <span class="regexp">/etc/</span>apache2<span class="regexp">/extra/</span>httpd-vhost.conf</span><br></pre></td></tr></table></figure>
+<p>在最后添加如下代码：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 'localhost' 虚拟主机</span></span><br><span class="line"><span class="section">&lt;VirtualHost *:80&gt;</span></span><br><span class="line">    <span class="attribute"><span class="nomarkup">DocumentRoot</span></span> <span class="string">"/Library/WebServer/Documents"</span></span><br><span class="line">    <span class="attribute"><span class="nomarkup">ServerName</span></span> localhost</span><br><span class="line">    <span class="attribute">ErrorLog</span> <span class="string">"/private/var/log/apache2/localhost-error_log"</span></span><br><span class="line">    <span class="attribute">CustomLog</span> <span class="string">"/private/var/log/apache2/localhost-access_log"</span> common </span><br><span class="line"><span class="section">&lt;/VirtualHost&gt;</span></span><br><span class="line"><span class="comment"># 'mysite' 虚拟主机</span></span><br><span class="line"><span class="section">&lt;VirtualHost *:80&gt;</span></span><br><span class="line">    <span class="attribute"><span class="nomarkup">DocumentRoot</span></span> <span class="string">"/Users/your_user/...your_site"</span></span><br><span class="line">    <span class="attribute"><span class="nomarkup">ServerName</span></span> mysite</span><br><span class="line">    <span class="attribute">ErrorLog</span> <span class="string">"/private/var/log/apache2/mysite-error_log"</span></span><br><span class="line">    <span class="attribute">CustomLog</span> <span class="string">"/private/var/log/apache2/mysite-access_log"</span> common </span><br><span class="line"><span class="section">&lt;/VirtualHost&gt;</span></span><br></pre></td></tr></table></figure>
+<p>保存退出。重启 apache 服务。</p>
+<h4 id="5-修改-etc-hosts"><a href="#5-修改-etc-hosts" class="headerlink" title="5. 修改 /etc/hosts"></a>5. 修改 <code>/etc/hosts</code></h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi <span class="regexp">/etc/</span>hosts</span><br></pre></td></tr></table></figure>
+<p>添加 <code>127.0.0.1 mysite</code>，保存退出。</p>
+<h4 id="6-添加-info-php"><a href="#6-添加-info-php" class="headerlink" title="6. 添加 info.php"></a>6. 添加 info.php</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi <span class="regexp">/Users/y</span>our_user<span class="regexp">/...your_site/i</span>nfo.php</span><br></pre></td></tr></table></figure>
+<p><code>info.php</code> 内容如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> phpinfo();</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>保存退出。</p>
+<h4 id="7-浏览器中测试"><a href="#7-浏览器中测试" class="headerlink" title="7. 浏览器中测试"></a>7. 浏览器中测试</h4><p>在浏览器中输入 <a href="http://mysite/info.php]" target="_blank" rel="noopener">http://mysite/info.php</a>，查看结果。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件工具 </category>
+            
+            <category> LAMP </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Apache </tag>
+            
+            <tag> Mac </tag>
+            
+            <tag> PHP </tag>
+            
+            <tag> VirtualHost </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[docker 搭建 zookeeper 集群]]></title>
       <url>http://linfuyan.com/docker-zookeeper-cluster/</url>
       <content type="html"><![CDATA[<h2 id="1-Zookeeper-基本使用"><a href="#1-Zookeeper-基本使用" class="headerlink" title="1. Zookeeper 基本使用"></a>1. Zookeeper 基本使用</h2><h3 id="下载-zookeeper-镜像"><a href="#下载-zookeeper-镜像" class="headerlink" title="下载 zookeeper 镜像"></a>下载 zookeeper 镜像</h3><p>默认下载最新版本，指定版本可以在 zookeeper 后面添加 tag，如 <code>zookeeper:latest</code></p>

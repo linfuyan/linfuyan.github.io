@@ -4,6 +4,67 @@
   
     
     <entry>
+      <title><![CDATA[解决 ssh 连接因闲置时间过长导致掉线的问题]]></title>
+      <url>http://linfuyan.com/ssh-disconnect/</url>
+      <content type="html"><![CDATA[<h3 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h3><p>修改 <code>/etc/ssh/sshd_config</code></p>
+<p>找到如下两行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ClientAliveInterval 0</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ClientAliveCountMax 3</span></span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 客户端每隔多少秒向服务发送一个心跳数据</span></span><br><span class="line">ClientAliveInterval 30 </span><br><span class="line"><span class="meta">#</span><span class="bash"> 客户端多少秒没有相应，服务器自动断掉连接</span></span><br><span class="line">ClientAliveCountMax 86400</span><br></pre></td></tr></table></figure>
+<p>重启 sshd 服务</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">service sshd restart</span></span><br></pre></td></tr></table></figure>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p><a href="https://www.cnblogs.com/wanghetao/p/3872919.html" target="_blank" rel="noopener">解决ssh登录后闲置时间过长而断开连接</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件工具 </category>
+            
+            <category> ssh </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ssh </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Mac 下 SSH 通过 .pem 登录]]></title>
+      <url>http://linfuyan.com/mac-ssh-with-pem/</url>
+      <content type="html"><![CDATA[<p>1. 基础命令如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -<span class="selector-tag">i</span> key<span class="selector-class">.pem</span> </span><br><span class="line">ssh -<span class="selector-tag">i</span> key<span class="selector-class">.pem</span> root@ip</span><br></pre></td></tr></table></figure>
+<p>如果出现报错，说明文件的权限太大了，修改下权限。</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod <span class="number">600</span> <span class="type">key</span>.pem</span><br></pre></td></tr></table></figure>
+<p>2. 通过 ssh-add 添加 .pem 文件</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-<span class="keyword">add</span><span class="bash"> -k key.pem</span></span><br></pre></td></tr></table></figure>
+<p>这样就可以通过 <code>ssh root@ip</code> 直接登录了。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件工具 </category>
+            
+            <category> ssh </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ssh </tag>
+            
+            <tag> 密钥 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[开启 Mac 自带的 Apache，配置 PHP 和虚拟主机]]></title>
       <url>http://linfuyan.com/mac_apache_php_enable/</url>
       <content type="html"><![CDATA[<p>Mac 系统本身就预装了 Apache 和 PHP 。分别通过 <code>apachectl -version</code> 和 <code>php -v</code> 进行查看。</p>

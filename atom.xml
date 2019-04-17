@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://linfuyan.com/"/>
-  <updated>2019-03-30T01:32:27.025Z</updated>
+  <updated>2019-04-17T06:34:23.323Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -15,6 +15,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决 ssh 连接因闲置时间过长导致掉线的问题</title>
+    <link href="http://linfuyan.com/ssh-disconnect/"/>
+    <id>http://linfuyan.com/ssh-disconnect/</id>
+    <published>2019-04-17T06:26:00.000Z</published>
+    <updated>2019-04-17T06:34:23.323Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h3><p>修改 <code>/etc/ssh/sshd_config</code></p><p>找到如下两行：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ClientAliveInterval 0</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ClientAliveCountMax 3</span></span><br></pre></td></tr></table></figure><p>修改为</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 客户端每隔多少秒向服务发送一个心跳数据</span></span><br><span class="line">ClientAliveInterval 30 </span><br><span class="line"><span class="meta">#</span><span class="bash"> 客户端多少秒没有相应，服务器自动断掉连接</span></span><br><span class="line">ClientAliveCountMax 86400</span><br></pre></td></tr></table></figure><p>重启 sshd 服务</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">service sshd restart</span></span><br></pre></td></tr></table></figure><h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p><a href="https://www.cnblogs.com/wanghetao/p/3872919.html" target="_blank" rel="noopener">解决ssh登录后闲置时间过长而断开连接</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;方案一&quot;&gt;&lt;a href=&quot;#方案一&quot; class=&quot;headerlink&quot; title=&quot;方案一&quot;&gt;&lt;/a&gt;方案一&lt;/h3&gt;&lt;p&gt;修改 &lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;找到如下两行：&lt;/p&gt;
+&lt;figure cl
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="ssh" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/ssh/"/>
+    
+    
+      <category term="ssh" scheme="http://linfuyan.com/tags/ssh/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac 下 SSH 通过 .pem 登录</title>
+    <link href="http://linfuyan.com/mac-ssh-with-pem/"/>
+    <id>http://linfuyan.com/mac-ssh-with-pem/</id>
+    <published>2019-04-17T06:12:00.000Z</published>
+    <updated>2019-04-17T06:19:39.375Z</updated>
+    
+    <content type="html"><![CDATA[<p>1. 基础命令如下：</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -<span class="selector-tag">i</span> key<span class="selector-class">.pem</span> </span><br><span class="line">ssh -<span class="selector-tag">i</span> key<span class="selector-class">.pem</span> root@ip</span><br></pre></td></tr></table></figure><p>如果出现报错，说明文件的权限太大了，修改下权限。</p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod <span class="number">600</span> <span class="type">key</span>.pem</span><br></pre></td></tr></table></figure><p>2. 通过 ssh-add 添加 .pem 文件</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-<span class="keyword">add</span><span class="bash"> -k key.pem</span></span><br></pre></td></tr></table></figure><p>这样就可以通过 <code>ssh root@ip</code> 直接登录了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1. 基础命令如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/s
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="ssh" scheme="http://linfuyan.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/ssh/"/>
+    
+    
+      <category term="ssh" scheme="http://linfuyan.com/tags/ssh/"/>
+    
+      <category term="密钥" scheme="http://linfuyan.com/tags/%E5%AF%86%E9%92%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>开启 Mac 自带的 Apache，配置 PHP 和虚拟主机</title>
@@ -589,77 +648,6 @@
       <category term="DigitalOcean" scheme="http://linfuyan.com/tags/DigitalOcean/"/>
     
       <category term="Shadowsocks" scheme="http://linfuyan.com/tags/Shadowsocks/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>形象的讲解 angular 中的 $q 与 promise</title>
-    <link href="http://linfuyan.com/$q_and_promise_in_angular/"/>
-    <id>http://linfuyan.com/$q_and_promise_in_angular/</id>
-    <published>2016-07-06T08:17:10.000Z</published>
-    <updated>2016-07-06T08:20:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>promise 不是 angular 首创的，作为一种编程模式，它出现在…1976年，比 javascript 还要古老得多。promise 全称是 Futures and promises。具体的可以参见 <a href="http://en.wikipedia.org/wiki/Futures_and_promises" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/Futures_and_promises</a>。</p><p>而在 javascript 世界中，一个广泛流行的库叫做 Q 地址是 <a href="https://github.com/kriskowal/q" target="_blank" rel="noopener">https://github.com/kriskowal/q</a>，而 angular 中的 $q 就是从它引入的。 promise 解决的是异步编程的问题，对于生活在同步编程世界中的程序员来说，它可能比较难于理解，这也构成了 angular 入门门槛之一，本文将用生活中的一个例子对此做一个形象的讲解。</p><a id="more"></a><p>假设有一个家具厂，而它有一个 VIP 客户张先生。</p><p>有一天张先生需要一个豪华衣柜，于是，他打电话给家具厂说我需要一个衣柜，回头做好了给我送来，这个操作就叫 $q.defer，也就是延期，因为这个衣柜不是现在要的，所以张先生这是在发起一个可延期的请求。</p><p>同时，家具厂给他留下了一个回执号，并对他说：我们做好了会给您送过去，放心吧。这叫做 promise，也就是承诺。</p><p>这样，这个 defer 算是正式创建了，于是他把这件事记录在自己的日记上，并且同时记录了回执号，这叫做 deferred，也就是已延期事件。</p><p>现在，张先生就不用再去想着这件事了，该做什么做什么，这就是“异步”的含义。</p><p>假设家具厂在一周后做完了这个衣柜，并如约送到了张先生家（包邮哦，亲），这就叫做 deferred.resolve (衣柜)，也就是“已解决”。而这时候张先生只要签收一下这个（衣柜）参数就行了，当然，这个“邮包”中也不一定只有衣柜，还可以包含别的东西，比如厂家宣传资料、产品名录等。整个过程中轻松愉快，谁也没等谁，没有浪费任何时间。</p><p>假设家具厂在评估后发现这个规格的衣柜我们做不了，那么它就需要 deferred.reject (理由)，也就是“拒绝”。拒绝没有时间限制，可以发生在给出承诺之后的任何时候，甚至可能发生在快做完的时候。而且拒绝时候的参数也不仅仅限于理由，还可以包含一个道歉信，违约金之类的，总之，你想给他什么就给他什么，如果你觉得不会惹恼客户，那么不给也没关系。</p><p>假设家具厂发现，自己正好有一个符合张先生要求的存货，它就可以用 $q.when (现有衣柜)来把这个承诺给张先生，这件事就立即被解决了，皆大欢喜，张先生可不在乎你是从头做的还是现有的成品，只会惊叹于你们的效率之高。</p><p>假设这个家具厂对客户格外的细心，它还可能通过 deferred.notify (进展情况)给张先生发送进展情况的“通知”。</p><p>这样，整个异步流程就圆满完成，无论成功或者失败，张先生都没有往里面投入任何额外的时间成本。</p><p>好，我们再扩展一下这个故事：</p><p>张先生这次需要做一个桌子，三把椅子，一张席梦思，但是他不希望今天收到个桌子，明天收到个椅子，后天又得签收一次席梦思，而是希望家具厂做好了之后一次性送过来，但是他下单的时候又是分别下单的，那么他就可以重新跟家具厂要一个包含上述三个承诺的新承诺，这就是 $q.all (桌子承诺，椅子承诺，席梦思承诺)，这样，他就不用再关注以前的三个承诺了，直接等待这个新的承诺完成，到时候只要一次性签收了前面的这些承诺就行了。</p><blockquote><p>原文：<a href="http://www.ngnice.com/posts/126ee9cf6ddb68" target="_blank" rel="noopener">形象的讲解angular中的$q与promise</a></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;promise 不是 angular 首创的，作为一种编程模式，它出现在…1976年，比 javascript 还要古老得多。promise 全称是 Futures and promises。具体的可以参见 &lt;a href=&quot;http://en.wikipedia.org/wiki/Futures_and_promises&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://en.wikipedia.org/wiki/Futures_and_promises&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;而在 javascript 世界中，一个广泛流行的库叫做 Q 地址是 &lt;a href=&quot;https://github.com/kriskowal/q&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/kriskowal/q&lt;/a&gt;，而 angular 中的 $q 就是从它引入的。 promise 解决的是异步编程的问题，对于生活在同步编程世界中的程序员来说，它可能比较难于理解，这也构成了 angular 入门门槛之一，本文将用生活中的一个例子对此做一个形象的讲解。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="Web前端" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Web%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="angular" scheme="http://linfuyan.com/tags/angular/"/>
-    
-      <category term="$q" scheme="http://linfuyan.com/tags/q/"/>
-    
-      <category term="promise" scheme="http://linfuyan.com/tags/promise/"/>
-    
-      <category term="defer" scheme="http://linfuyan.com/tags/defer/"/>
-    
-      <category term="异步" scheme="http://linfuyan.com/tags/%E5%BC%82%E6%AD%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React + React Router + Redux + Webpack 开发 SPA</title>
-    <link href="http://linfuyan.com/React+ReactRouter+Redux+Webpack%E6%89%93%E9%80%A0SPA/"/>
-    <id>http://linfuyan.com/React+ReactRouter+Redux+Webpack打造SPA/</id>
-    <published>2016-06-26T14:30:00.000Z</published>
-    <updated>2016-06-26T14:39:20.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>前段时间要做一个 Web app，于是对 ReactJS 作了些学习。没想到水比较深，由此探索了一套用于开发 SPA 的相关技术： React + React Router + Redex + Webpack。</p><p>这里先占个坑，后续再细写。相关的学习资料如下：</p><p><a href="http://uprogrammer.cn/react-tutorial-cn/index.html" target="_blank" rel="noopener">ReactJS 入门教程中文版</a></p><p><a href="http://uprogrammer.cn/react-router-cn/index.html" target="_blank" rel="noopener">React Router 中文文档</a></p><p><a href="http://uprogrammer.cn/redux-in-chinese/index.html" target="_blank" rel="noopener">Redux 中文文档</a></p><p><a href="http://uprogrammer.cn/webpack-handbook/index.html" target="_blank" rel="noopener">Webpack 中文手册</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;前段时间要做一个 Web app，于是对 ReactJS 作了些学习。没想到水比较深，由此探索了一套用于开发 SPA 的相关技术： React + React Router + Redex + Webpack。&lt;/p&gt;
-&lt;p&gt;这里先占个坑，后续再细写。相关的学习资料如下：&lt;
-      
-    
-    </summary>
-    
-      <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="Web前端" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Web%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="ReactJS" scheme="http://linfuyan.com/tags/ReactJS/"/>
-    
-      <category term="React Router" scheme="http://linfuyan.com/tags/React-Router/"/>
-    
-      <category term="Redux" scheme="http://linfuyan.com/tags/Redux/"/>
-    
-      <category term="Flux" scheme="http://linfuyan.com/tags/Flux/"/>
-    
-      <category term="Webpack" scheme="http://linfuyan.com/tags/Webpack/"/>
-    
-      <category term="SPA" scheme="http://linfuyan.com/tags/SPA/"/>
     
   </entry>
   

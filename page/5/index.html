@@ -263,6 +263,165 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/faq/hexo-qiniu-sync-typeerror-arguments-to-path-join-must-be-strings/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/faq/hexo-qiniu-sync-typeerror-arguments-to-path-join-must-be-strings/" itemprop="url">Hexo 使用七牛云同步插件 hexo-qiniu-sync 出错</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-31T06:45:20+08:00">
+                2015-10-31
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2015-10-31T19:23:12+08:00">
+                2015-10-31
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/FAQ/" itemprop="url" rel="index">
+                    <span itemprop="name">FAQ</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>安装完 hexo-qiniu-sync 插件，运行出现以下错误：</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">INFO  Now start qiniu sync.</span><br><span class="line">FATAL Something's wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span><br><span class="line">TypeError: <span class="keyword">Arguments</span> to path.join must be strings</span><br><span class="line">    <span class="built_in">at</span> Object.posix.join (path.js:<span class="number">488</span>:<span class="number">13</span>)</span><br><span class="line">    <span class="built_in">at</span> sync (/Users/lfy/ihaowu/node_modules/hexo-qiniu-sync/sync.js:<span class="number">110</span>:<span class="number">26</span>)</span><br><span class="line">    <span class="built_in">at</span> Object.sync (/Users/lfy/ihaowu/node_modules/hexo-qiniu-sync/sync.js:<span class="number">113</span>:<span class="number">13</span>)</span><br><span class="line">    <span class="built_in">at</span> <span class="keyword">Function</span>.commands.sync (/Users/lfy/ihaowu/node_modules/hexo-qiniu-sync/cmd.js:<span class="number">28</span>:<span class="number">14</span>)</span><br><span class="line">    <span class="built_in">at</span> Hexo.&lt;anonymous&gt; (/Users/lfy/ihaowu/node_modules/hexo-qiniu-sync/index.js:<span class="number">122</span>:<span class="number">11</span>)</span><br><span class="line">    <span class="built_in">at</span> Hexo.tryCatcher (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/util.js:<span class="number">26</span>:<span class="number">23</span>)</span><br><span class="line">    <span class="built_in">at</span> Hexo.ret (eval <span class="built_in">at</span> &lt;anonymous&gt; (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/promisify.js:<span class="number">163</span>:<span class="number">12</span>), &lt;anonymous&gt;:<span class="number">13</span>:<span class="number">39</span>)</span><br><span class="line">    <span class="built_in">at</span> /Users/lfy/ihaowu/node_modules/hexo/lib/hexo/index.js:<span class="number">192</span>:<span class="number">9</span></span><br><span class="line">    <span class="built_in">at</span> tryCatcher (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/util.js:<span class="number">26</span>:<span class="number">23</span>)</span><br><span class="line">    <span class="built_in">at</span> Promise._resolveFromResolver (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/promise.js:<span class="number">480</span>:<span class="number">31</span>)</span><br><span class="line">    <span class="built_in">at</span> new Promise (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/promise.js:<span class="number">70</span>:<span class="number">37</span>)</span><br><span class="line">    <span class="built_in">at</span> Hexo.call (/Users/lfy/ihaowu/node_modules/hexo/lib/hexo/index.js:<span class="number">188</span>:<span class="number">10</span>)</span><br><span class="line">    <span class="built_in">at</span> runHexoCommand (/usr/local/lib/node_modules/hexo/node_modules/hexo-cli/lib/index.js:<span class="number">58</span>:<span class="number">17</span>)</span><br><span class="line">    <span class="built_in">at</span> tryCatcher (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/util.js:<span class="number">26</span>:<span class="number">23</span>)</span><br><span class="line">    <span class="built_in">at</span> Promise._settlePromiseFromHandler (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/promise.js:<span class="number">507</span>:<span class="number">31</span>)</span><br><span class="line">    <span class="built_in">at</span> Promise._settlePromiseAt (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/promise.js:<span class="number">581</span>:<span class="number">18</span>)</span><br><span class="line">    <span class="built_in">at</span> Promise._settlePromises (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/promise.js:<span class="number">697</span>:<span class="number">14</span>)</span><br><span class="line">    <span class="built_in">at</span> Async._drainQueue (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/async.js:<span class="number">123</span>:<span class="number">16</span>)</span><br><span class="line">    <span class="built_in">at</span> Async._drainQueues (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/async.js:<span class="number">133</span>:<span class="number">10</span>)</span><br><span class="line">    <span class="built_in">at</span> <span class="keyword">Immediate</span>.Async.drainQueues [<span class="built_in">as</span> _onImmediate] (/Users/lfy/ihaowu/node_modules/hexo/node_modules/bluebird/js/main/async.js:<span class="number">15</span>:<span class="number">14</span>)</span><br><span class="line">    <span class="built_in">at</span> processImmediate [<span class="built_in">as</span> _immediateCallback] (timers.js:<span class="number">367</span>:<span class="number">17</span>)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/faq/hexo-qiniu-sync-typeerror-arguments-to-path-join-must-be-strings/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://linfuyan.com/material-design-training/maintaining-compatibility/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1840,175 +1999,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/git-cmd-user-guide/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿阿燃">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/git-cmd-user-guide/" itemprop="url">常用 Git 命令使用教程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-14T10:00:00+08:00">
-                2015-10-14
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
-                2018-10-18
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/软件工具/" itemprop="url" rel="index">
-                    <span itemprop="name">软件工具</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/软件工具/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>下面整理一下自己在开发过程中经常使用到的 Git 命令。使用 GUI 工具的同学，也可以对照起来看看。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/git-cmd-user-guide/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2061,7 +2051,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">93</span>
+                  <span class="site-state-item-count">94</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2083,7 +2073,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">233</span>
+                  <span class="site-state-item-count">235</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

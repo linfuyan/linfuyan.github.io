@@ -263,6 +263,182 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/ios-cer-appid-push-profile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/ios-cer-appid-push-profile/" itemprop="url">iOS 开发者证书制作、App ID 与推送配置及 Provisioning Profiles 创建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-08T21:59:00+08:00">
+                2015-09-08
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T15:51:20+08:00">
+                2018-10-18
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>1. <strong>开发者证书</strong></p>
+<p>分为开发和发布两种，类型为 <code>iPhone Development</code>， <code>iPhone Distribution</code>。这个是最基础的，开发证书用于真机调试，发布证书则用于上传到 AppStore，是一个基础证书，用来证明开发者身份。</p>
+<p>2. <strong>App ID</strong></p>
+<p>这是每一个应用的独立标识，在设置项中可以配置该应用的权限，比如是否用到了 PassBook，GameCenter，以及更为场景的 push 服务。如果选中了 push 服务，那么就可以创建生成下面第3条所提到的推送证书，所以，在所有和推送相关的配置中，首先要做的就是先开通支持推送服务的 App ID。</p>
+<p>3. <strong>推送证书</strong></p>
+<p>分为开发和发布两种，类型分别为 <code>Apple Development iOS Push Services</code>， <code>Apple Production iOS Push Services</code>，该证书在 App ID 配置中创建生成，和开发者证书一样，放在服务端程序上。</p>
+<p>4. <strong>Provisioning Porfiles</strong></p>
+<p>在后续部分中，简称为 profile 文件。该文件将 App ID，开发者证书，硬件绑定在一起。在开发者中心配置好后可以添加到 Xcode 上，也可以直接在 Xcode 上连接开发者中心生成，真机调试时需要在 profile 文件中添加真机的 <code>udid</code>，是真机调试和上架 AppStore 所必需的。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/ios-cer-appid-push-profile/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://linfuyan.com/reactivex-operator/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1878,170 +2054,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/how-to-identify-smart-people-around-you/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿阿燃">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/how-to-identify-smart-people-around-you/" itemprop="url">如何辨认身边的聪明人？</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-24T16:04:27+08:00">
-                2015-08-24
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
-                2018-10-18
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度文摘/" itemprop="url" rel="index">
-                    <span itemprop="name">深度文摘</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://img.uprogrammer.cn/cmr.jpg" alt="如何辨认身边的聪明人？"></p>
-<p>谢邀。</p>
-<p>我来谈一下个人分辨周围聪明人的一些主要标准。</p>
-<p>首先要明确的是一些基本原则。</p>
-<p><strong>首先，具有特定领域的专业知识不代表聪明。</strong>比如一个下水道工人和一个挖掘机工人，各自都是各自职业领域的老手，哪个更聪明？这就不好说了。所以分辨的标准不应该是针对特定领域的，而应该是普适的。</p>
-<p><strong>再比如看学历，也不一定靠谱。</strong>我们抛开盖茨、乔布斯这些辍学的不谈，一个本科生和一个博士生哪个聪明？这也不好说，说不定本科生本科期间就做出了不错的科研成果，但是本科毕业没有继续做科研而直接去工作了，那他一定比博士生笨或者聪明吗？说不准的。</p>
-<p><strong>还有比如看出身，也不靠谱。</strong>因为个人经历和交友圈的关系，我周围的很多朋友都是名校出身，北清复交牛剑HYPS什么的很多，很多聚会上名校学生的数量远比非名校的多，那这种情况下出身本身就不具有太大的分辨性。虽然名校出来的普遍会让人觉得聪明点（具体原因可以参考下文），但是即使是同一个学校出来的人，也会有很容易被识别出来的聪明程度的差别。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/how-to-identify-smart-people-around-you/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2094,7 +2106,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">93</span>
+                  <span class="site-state-item-count">94</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2116,7 +2128,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">233</span>
+                  <span class="site-state-item-count">235</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

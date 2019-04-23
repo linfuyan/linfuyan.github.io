@@ -83,22 +83,22 @@
 
 
 
-<meta name="description" content="项目代码生成项目通过 start.spring.io 生成项目代码，添加 web, actuator, eureka server 依赖。  解压源码包，在 idea 中打开项目。 在 application.properties 中添加以下内容： 123456spring.application.name=spring-cloud-eureka-server# 表示是否注册自身到eureka服务">
+<meta name="description" content="项目代码生成项目通过 start.spring.io 生成项目代码，添加 web, actuator, eureka server 依赖。  解压源码包，在 idea 中打开项目。">
 <meta name="keywords" content="springcloud,eureka">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建 spring cloud eureka server 高可用集群">
 <meta property="og:url" content="http://linfuyan.com/build-spring-cloud-eureka-server-ha/index.html">
 <meta property="og:site_name" content="阿阿燃">
-<meta property="og:description" content="项目代码生成项目通过 start.spring.io 生成项目代码，添加 web, actuator, eureka server 依赖。  解压源码包，在 idea 中打开项目。 在 application.properties 中添加以下内容： 123456spring.application.name=spring-cloud-eureka-server# 表示是否注册自身到eureka服务">
+<meta property="og:description" content="项目代码生成项目通过 start.spring.io 生成项目代码，添加 web, actuator, eureka server 依赖。  解压源码包，在 idea 中打开项目。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.uprogrammer.cn/15560087270363.jpg">
 <meta property="og:image" content="http://img.uprogrammer.cn/15560094309585.jpg">
 <meta property="og:image" content="http://img.uprogrammer.cn/15560104281048.jpg">
 <meta property="og:image" content="http://img.uprogrammer.cn/15560104567968.jpg">
-<meta property="og:updated_time" content="2019-04-23T09:38:38.510Z">
+<meta property="og:updated_time" content="2019-04-23T09:40:32.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建 spring cloud eureka server 高可用集群">
-<meta name="twitter:description" content="项目代码生成项目通过 start.spring.io 生成项目代码，添加 web, actuator, eureka server 依赖。  解压源码包，在 idea 中打开项目。 在 application.properties 中添加以下内容： 123456spring.application.name=spring-cloud-eureka-server# 表示是否注册自身到eureka服务">
+<meta name="twitter:description" content="项目代码生成项目通过 start.spring.io 生成项目代码，添加 web, actuator, eureka server 依赖。  解压源码包，在 idea 中打开项目。">
 <meta name="twitter:image" content="http://img.uprogrammer.cn/15560087270363.jpg">
 
 
@@ -317,7 +317,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-23T17:38:38+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-23T17:40:32+08:00">
                 2019-04-23
               </time>
             
@@ -387,6 +387,7 @@
         <h2 id="项目代码"><a href="#项目代码" class="headerlink" title="项目代码"></a>项目代码</h2><h3 id="生成项目"><a href="#生成项目" class="headerlink" title="生成项目"></a>生成项目</h3><p>通过 <a href="http://start.spring.io" target="_blank" rel="noopener">start.spring.io</a> 生成项目代码，添加 <code>web</code>, <code>actuator</code>, <code>eureka server</code> 依赖。</p>
 <p><img src="http://img.uprogrammer.cn/15560087270363.jpg" alt="通过 start.spring.io 生成代码"></p>
 <p>解压源码包，在 idea 中打开项目。</p>
+<a id="more"></a>
 <p>在 <code>application.properties</code> 中添加以下内容：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spring.application.name=spring-cloud-eureka-server</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 表示是否注册自身到eureka服务器，默认为 <span class="literal">true</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> eureka.client.register-with-eureka=<span class="literal">false</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 是否从eureka上获取注册信息，默认为 <span class="literal">true</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> eureka.client.fetch-registry=<span class="literal">false</span></span></span><br></pre></td></tr></table></figure>
 <h3 id="创建不同实例配置"><a href="#创建不同实例配置" class="headerlink" title="创建不同实例配置"></a>创建不同实例配置</h3><p>新建 <code>application-server1.properties</code>，<code>application-server2.properties</code>，<code>application-server3.properties</code> 三个文件，用于配置 3 个 eureka server 实例。</p>

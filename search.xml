@@ -4,6 +4,38 @@
   
     
     <entry>
+      <title><![CDATA[xxx.app 已损坏，打不开。您应该将它移到废纸篓]]></title>
+      <url>http://linfuyan.com/xxx-app-is-broken/</url>
+      <content type="html"><![CDATA[<p>Mac 在安装一些 app 的时候，由于自身安全机制，会出现类似如下的提示：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cornerstone<span class="selector-class">.app</span> 已损坏，打不开。您应该将它移到废纸篓。</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>如果你要继续安装，需要打开<code>系统偏好设置-安全性与隐私-通用</code>，在<code>允许从以下位置下载应用中</code>选择<code>任何来源</code>。之后就可以正常安装了。</p>
+<p>如果上面的操作没有看到<code>任何来源</code>的选项。通过以下命令开启。</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl <span class="comment">--master-disable</span></span><br></pre></td></tr></table></figure>
+<p>安装完成以后，通过以下命令隐藏<code>任何来源</code>选项。</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl <span class="comment">--master-enable</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> FAQ </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 安装 </tag>
+            
+            <tag> mac </tag>
+            
+            <tag> 安全 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[搭建 spring cloud eureka server 高可用集群]]></title>
       <url>http://linfuyan.com/build-spring-cloud-eureka-server-ha/</url>
       <content type="html"><![CDATA[<h2 id="项目代码"><a href="#项目代码" class="headerlink" title="项目代码"></a>项目代码</h2><h3 id="生成项目"><a href="#生成项目" class="headerlink" title="生成项目"></a>生成项目</h3><p>通过 <a href="http://start.spring.io" target="_blank" rel="noopener">start.spring.io</a> 生成项目代码，添加 <code>web</code>, <code>actuator</code>, <code>eureka server</code> 依赖。</p>

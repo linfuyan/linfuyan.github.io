@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://linfuyan.com/"/>
-  <updated>2019-04-23T09:40:32.348Z</updated>
+  <updated>2019-05-13T06:41:01.090Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>xxx.app 已损坏，打不开。您应该将它移到废纸篓</title>
+    <link href="http://linfuyan.com/xxx-app-is-broken/"/>
+    <id>http://linfuyan.com/xxx-app-is-broken/</id>
+    <published>2019-05-13T06:32:00.000Z</published>
+    <updated>2019-05-13T06:41:01.090Z</updated>
+    
+    <content type="html"><![CDATA[<p>Mac 在安装一些 app 的时候，由于自身安全机制，会出现类似如下的提示：</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cornerstone<span class="selector-class">.app</span> 已损坏，打不开。您应该将它移到废纸篓。</span><br></pre></td></tr></table></figure><a id="more"></a><p>如果你要继续安装，需要打开<code>系统偏好设置-安全性与隐私-通用</code>，在<code>允许从以下位置下载应用中</code>选择<code>任何来源</code>。之后就可以正常安装了。</p><p>如果上面的操作没有看到<code>任何来源</code>的选项。通过以下命令开启。</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl <span class="comment">--master-disable</span></span><br></pre></td></tr></table></figure><p>安装完成以后，通过以下命令隐藏<code>任何来源</code>选项。</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl <span class="comment">--master-enable</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Mac 在安装一些 app 的时候，由于自身安全机制，会出现类似如下的提示：&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Cornerstone&lt;span class=&quot;selector-class&quot;&gt;.app&lt;/span&gt; 已损坏，打不开。您应该将它移到废纸篓。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="FAQ" scheme="http://linfuyan.com/categories/FAQ/"/>
+    
+    
+      <category term="安装" scheme="http://linfuyan.com/tags/%E5%AE%89%E8%A3%85/"/>
+    
+      <category term="mac" scheme="http://linfuyan.com/tags/mac/"/>
+    
+      <category term="安全" scheme="http://linfuyan.com/tags/%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>搭建 spring cloud eureka server 高可用集群</title>
@@ -602,34 +629,6 @@
       <category term="分词" scheme="http://linfuyan.com/tags/%E5%88%86%E8%AF%8D/"/>
     
       <category term="node-segment" scheme="http://linfuyan.com/tags/node-segment/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决pip install时unsupported locale setting错误</title>
-    <link href="http://linfuyan.com/locale_error_unsupported_locale_setting/"/>
-    <id>http://linfuyan.com/locale_error_unsupported_locale_setting/</id>
-    <published>2016-10-22T03:30:24.000Z</published>
-    <updated>2016-10-22T03:40:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天在安装 Shadowsocks 时，使用 <code>pip install</code> 命令出现了下面这个错误：</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pip install shadowsocks</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"/usr/bin/pip"</span>, line <span class="number">11</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    sys.<span class="keyword">exit</span>(main())</span><br><span class="line">  File <span class="string">"/usr/lib/python2.7/dist-packages/pip/__init__.py"</span>, line <span class="number">215</span>, <span class="keyword">in</span> main</span><br><span class="line">    locale.setlocale(locale.LC_ALL, <span class="string">''</span>)</span><br><span class="line">  File <span class="string">"/usr/lib/python2.7/locale.py"</span>, line <span class="number">581</span>, <span class="keyword">in</span> setlocale</span><br><span class="line">    return _setlocale(category, locale)</span><br><span class="line">locale.Error: unsupported locale setting</span><br></pre></td></tr></table></figure><p>其实是语言配置错误导致的：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># locale -a</span></span><br><span class="line">locale: Cannot <span class="builtin-name">set</span> LC_CTYPE <span class="keyword">to</span><span class="built_in"> default </span>locale: <span class="literal">No</span> such file <span class="keyword">or</span> directory</span><br><span class="line">C</span><br><span class="line">C.UTF-8</span><br><span class="line">en_AG</span><br><span class="line">en_AG.utf8</span><br><span class="line">en_AU.utf8</span><br><span class="line">en_BW.utf8</span><br><span class="line">en_CA.utf8</span><br><span class="line">en_DK.utf8</span><br><span class="line">en_GB.utf8</span><br><span class="line">en_HK.utf8</span><br><span class="line">en_IE.utf8</span><br><span class="line"><span class="built_in">..</span>.</span><br></pre></td></tr></table></figure><p>解决方案：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">export</span> LC_ALL=C</span></span><br></pre></td></tr></table></figure><p>Done!</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;今天在安装 Shadowsocks 时，使用 &lt;code&gt;pip install&lt;/code&gt; 命令出现了下面这个错误：&lt;/p&gt;
-&lt;figure class=&quot;highlight awk&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span c
-      
-    
-    </summary>
-    
-      <category term="FAQ" scheme="http://linfuyan.com/categories/FAQ/"/>
-    
-    
-      <category term="pip" scheme="http://linfuyan.com/tags/pip/"/>
-    
-      <category term="locale" scheme="http://linfuyan.com/tags/locale/"/>
     
   </entry>
   

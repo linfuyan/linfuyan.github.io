@@ -4,6 +4,105 @@
   
     
     <entry>
+      <title><![CDATA[mysql 中身份证字段脱敏]]></title>
+      <url>http://linfuyan.com/desensitization-in-mysql/</url>
+      <content type="html"><![CDATA[<p>在数据的使用与传输过程中，经常需要将敏感信息脱敏的过程。比如需要将用户信息表中的身份证号码中间 几位进行隐藏等等。</p>
+<h2 id="脱敏方法"><a href="#脱敏方法" class="headerlink" title="脱敏方法"></a>脱敏方法</h2><p>mysql 中常用的脱敏方法有以下两种。</p>
+<h3 id="CONCAT-、LEFT-和-RIGHT-字符串函数组合使用"><a href="#CONCAT-、LEFT-和-RIGHT-字符串函数组合使用" class="headerlink" title="CONCAT()、LEFT() 和 RIGHT() 字符串函数组合使用"></a>CONCAT()、LEFT() 和 RIGHT() 字符串函数组合使用</h3><ul>
+<li>CONCAT(str1, str2, …)：返回结果为连接参数产生的字符串</li>
+<li>LEFT(str, len)：返回从字符串 str 开始的最左 len 字符</li>
+<li>RIGHT(str, len)：从字符串 str 开始，返回最右 len 字符</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="keyword">CONCAT</span>(<span class="keyword">LEFT</span>(identity_card_no, <span class="number">6</span>), <span class="string">'********'</span> , <span class="keyword">RIGHT</span>(identity_card_no, <span class="number">4</span>))</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">users</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="INSERT"><a href="#INSERT" class="headerlink" title="INSERT()"></a>INSERT()</h3><ul>
+<li>INSERT(str, pos, len, newstr)：返回字符串 str, 其子字符串起始于 pos 位置和长期被字符串 newstr 取代的 len 字符</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="keyword">INSERT</span>(identity_card_no, <span class="number">7</span>, <span class="number">8</span>, <span class="string">'********'</span>)</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">users</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="从查询结果中更新数据"><a href="#从查询结果中更新数据" class="headerlink" title="从查询结果中更新数据"></a>从查询结果中更新数据</h2><pre><code># update select 语句（注意：必须使用 inner join）
+# 语法 update ta inner join (select yy from tb) tc on ta.id = tc.id set ta.xx = tc.yy
+
+-- 行政处罚信息表
+UPDATE T_XYXX_XZCFXX ori
+INNER JOIN (
+SELECT
+  uuid,
+  INSERT ( FDDBR, 1, 1, &apos;*&apos; ) AS NAME,
+  CONCAT(
+  &apos;000000&apos;,
+  &apos;****&apos;,
+  RIGHT ( FDDBRZJHM, 8 ) 
+  ) AS idcardno 
+FROM
+  T_XYXX_XZCFXX 
+  ) nosense ON ori.uuid = nosense.uuid 
+  SET ori.FDDBR = nosense.NAME,
+  ori.FDDBRZJHM = nosense.idcardno;
+</code></pre>]]></content>
+      
+        <categories>
+            
+            <category> FAQ </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> mysql </tag>
+            
+            <tag> 身份证 </tag>
+            
+            <tag> 脱敏 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[从代码组织看团队治理之案例一]]></title>
+      <url>http://linfuyan.com/code-organize-and-team-management-one/</url>
+      <content type="html"><![CDATA[<p><img src="http://img.uprogrammer.cn/15579278505835.jpg" alt="微服务代码组织"></p>
+<p>这是一张打满马赛克的图。</p>
+<p>嗯，把你的思绪拉回来先。我来介绍下团队的一些简单背景。</p>
+<a id="more"></a>
+<p>我们部门在基于 spring cloud 做微服务的实践。业务上在公司内部相对独立，部门内部有几个团队负责不同的项目。在部门内部希望生产的代码等可以跨几个团队共用，以满足不同项目快速开发的需求。</p>
+<p>开头的图片展示的是其中一个团队目前代码的组织方式。</p>
+<ul>
+<li>xxxx-yyyy-config 项目是分布式配置中心。</li>
+<li>xxxx-yyyy-zuul 项目是 API 网关。</li>
+<li>xxxx-yyyy-eureka 项目是服务注册中心。</li>
+<li>xxxx-yyyy-fileupload、xxxx-yyyy-workflow 等是提供特定功能的微服务。</li>
+<li>xxxx-yyyy-common 项目，从命名上来看，是一个提供公共功能的服务。在其中 <code>xxxx.yyyy.common.feign</code> 包下聚合了其他微服务所实现能力的声明。</li>
+</ul>
+<p>在一个团队内部，这样的设计具有一定的合理性。</p>
+<p>将这个团队作为一个内聚的单元，通过 common 项目来聚合内部各个微服务提供的能力，统一暴露，很好的使用了一个外观模式。外部不比关心内部实现细节，只需专注在接口上。对内部来讲，各个服务的能力汇总到 common 中，便于管理。</p>
+<p>但是，请回顾一下之前我提到的团队的背景。这个团队只是部门中的一个，其生产的代码需要能在部门中共享与复用。</p>
+<p>这时的 common 项目却对部门其他团队关上了门。纵然这个团队生产的多数代码可以通过复制的形式减少其他团队的工作量，但由于 common 包含了众多这个团队业务本身的东西，在其他团队中使用时必定需要做较大的调整。</p>
+<p>是时候打破 common 这扇门了，让门内已有的微服务走入到其他团队中。那该怎么做呢？</p>
+<p>每个微服务对外声明自己的能力，不聚合在 common 中。每个微服务独立维护。内部负责实现自己对外声明的能力，外部使用微服务声明能力的接口。调整一下代码的组织，实例如下：</p>
+<p><img src="http://img.uprogrammer.cn/15579307669911.jpg" alt=""></p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">|- xxx-yyy-zzz                       // 主项目</span></span><br><span class="line">  <span class="string">|- xxx-yyy-zzz-api               // 子项目，负责声明微服务提供的能力，Feign 接口</span></span><br><span class="line">  <span class="string">|- xxx-yyy-zzz-service         // 实现微服务对外承诺的能力</span></span><br></pre></td></tr></table></figure>
+<p>这样，每个微服务成为高内聚的单元，可以供其他团队复用。微服务的维护人员，不必局限在原来小团队中，而是放眼整个部门，同时专注维护微服务本身。在团队治理上，也打破了原来几个团队之间的无形屏障。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 技术管理 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 代码组织 </tag>
+            
+            <tag> 团队管理 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[xxx.app 已损坏，打不开。您应该将它移到废纸篓]]></title>
       <url>http://linfuyan.com/xxx-app-is-broken/</url>
       <content type="html"><![CDATA[<p>Mac 在安装一些 app 的时候，由于自身安全机制，会出现类似如下的提示：</p>
@@ -25,9 +124,9 @@
         
         <tags>
             
-            <tag> 安装 </tag>
-            
             <tag> mac </tag>
+            
+            <tag> 安装 </tag>
             
             <tag> 安全 </tag>
             
@@ -264,11 +363,11 @@
         
         <tags>
             
-            <tag> docker </tag>
-            
             <tag> 分布式架构 </tag>
             
             <tag> zookeeper </tag>
+            
+            <tag> docker </tag>
             
         </tags>
         
@@ -508,9 +607,9 @@
         
         <tags>
             
-            <tag> 思维导图 </tag>
-            
             <tag> PHP </tag>
+            
+            <tag> 思维导图 </tag>
             
         </tags>
         
@@ -1068,13 +1167,13 @@
         
         <tags>
             
+            <tag> ubuntu </tag>
+            
             <tag> ngrok </tag>
             
             <tag> 微信开发 </tag>
             
             <tag> 内网穿透 </tag>
-            
-            <tag> ubuntu </tag>
             
         </tags>
         
@@ -1150,79 +1249,6 @@
             <tag> pip </tag>
             
             <tag> locale </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网]]></title>
-      <url>http://linfuyan.com/shadowsocks-with-digitalocean/</url>
-      <content type="html"><![CDATA[<p>如果下面这些情形你经常遇到：</p>
-<blockquote>
-<ol>
-<li>经常会折腾各种各样的 Web 应用(Java、nodejs、python等各种语言环境)，但是国内的云服务无法提供对应的环境。</li>
-<li>你只是临时的折腾这些应用，并不会长期的运营这些服务。国内的云服务费用昂贵，并需要持续较长时间购买。</li>
-<li>虽然可能是临时或者短时间折腾这些服务，你也希望可以有稳定的 IP 或者域名来访问服务。而国内的云服务域名需要备案，而你却懒得折腾这些。</li>
-<li>你经常有科学上网的需求，却苦于免费的 VPN 不稳定，稳定的却死贵。</li>
-</ol>
-</blockquote>
-<p>那么，可能 DigitalOcean 是你需要的。请往下继续看。否则，你已经可以关闭这个页面了。</p>
-<p>先说说 DigitalOcean：</p>
-<blockquote>
-<ol>
-<li>可以把 DigitalOcean 看做是 VPS，你对上面的环境有完全的支配权，想折腾什么类型的 Web 应用都可以。</li>
-<li>DigitalOcean 通过创建 droplet 来快速搭建基础环境，可视化的管理配置，轻而易举的可以与你的域名绑定。从而快速稳定的访问你的服务。</li>
-<li>DigitalOcean 最低的收费是每月5美刀，并且按照使用时长(每小时结算)收费。创建的 droplet 如果关闭，则不再继续收费。非常适合需要临时折腾的你。而且，通过这个<strong><a href="https://m.do.co/c/c6ceb25187c4" target="_blank" rel="noopener">邀请链接</a></strong>进行注册，将自动赠送10美刀。</li>
-<li>DigitalOcean 的旧金山节点，国内链接速度快，很适合通过搭建 Shadowsocks 来提供稳定靠谱的科学上网服务。</li>
-</ol>
-</blockquote>
-<a id="more"></a>
-<h2 id="在-DigitalOcean-上配置-droplet"><a href="#在-DigitalOcean-上配置-droplet" class="headerlink" title="在 DigitalOcean 上配置 droplet"></a>在 DigitalOcean 上配置 droplet</h2><p>注册 DigitalOcean 账户就不说了。需要提醒的是，使用 DigitalOcean 需要绑定银行卡。</p>
-<p>新建 droplet 的步骤： </p>
-<p><img src="http://img.uprogrammer.cn/static/images/ss_do_1.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
-<p>1. 选择系统镜像，这里选了 ubuntu 16.04</p>
-<p><img src="http://img.uprogrammer.cn/static/images/ss_do_2.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
-<p>2. 选择配置，这里选$5/月</p>
-<p><img src="http://img.uprogrammer.cn/static/images/ss_do_3.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
-<p>3. 选择机房位置，旧金山的访问速度比较快</p>
-<p><img src="http://img.uprogrammer.cn/static/images/ss_do_4.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
-<p>4. 添加 SSH key，用于后面远程登录的验证。具体操作可以看<a href="https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets" target="_blank" rel="noopener">官方文档</a>或者<a href="http://linfuyan.com/generating-ssh-keys/">生成SSH密钥</a>。</p>
-<p><img src="http://img.uprogrammer.cn/static/images/ss_do_5.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
-<p>5. 这样，不到1分钟时间，就创建好了一个 droplet，带有固定IP，还可以绑定域名。</p>
-<p><img src="http://img.uprogrammer.cn/static/images/ss_do_6.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
-<h2 id="安装并配置-Shadowsocks-服务"><a href="#安装并配置-Shadowsocks-服务" class="headerlink" title="安装并配置 Shadowsocks 服务"></a>安装并配置 Shadowsocks 服务</h2><p>在第一步中配置完 ssh key，就可以远程登录到 DigitalOcean 的 droplet 上，直接用 root 用户即可：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssh</span> root<span class="variable">@your_droplet_ip</span></span><br></pre></td></tr></table></figure>
-<p>刚才我们的 droplet 环境是 ubuntu 16.04，通过如下命令安装 shadowsocks：</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get <span class="keyword">install</span> python-pip</span><br><span class="line">pip <span class="keyword">install</span> shadowsocks</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>我遇到了 <code>locale.Error: unsupported locale setting</code> 的问题，解决方案看这里：<a href="https://linfuyan.com/locale_error_unsupported_locale_setting/index.html">解决 pip install 时 locale.Error: unsupported locale setting 错误</a></p>
-</blockquote>
-<p>安装好以后，就可以通过以下指令启动服务：</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssserver -p <span class="number">8836</span> -k `password` -m rc4-md5</span><br><span class="line"></span><br><span class="line"># 或者可以通过以下指令在后台启动shadowsocks的服务：</span><br><span class="line">ssserver -p <span class="number">8843</span> -k `password` -m rc4-md5 -d start</span><br><span class="line">ssserver -p <span class="number">8843</span> -k `password` -m rc4-md5 -d stop</span><br></pre></td></tr></table></figure>
-<p>上面的指令方式不太方便，推荐通过文件配置的方式。新建一个 <code>/etc/shadowsocks.json</code> 文件，内容如下：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>: <span class="string">"your_droplet_ip"</span>,</span><br><span class="line">    <span class="attr">"server_port"</span>: <span class="number">8388</span>,</span><br><span class="line">    <span class="attr">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"local_port"</span>: <span class="number">1080</span>,</span><br><span class="line">    <span class="attr">"password"</span>: <span class="string">"your_password"</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>: <span class="number">300</span>,</span><br><span class="line">    <span class="attr">"method"</span>: <span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"fast_open"</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>接下来使用下面的指令启动服务：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json</span><br><span class="line"></span><br><span class="line">#或者在后台运行</span><br><span class="line">ssserver -c /etc/shadowsocks<span class="selector-class">.json</span> -d start</span><br><span class="line">ssserver -c /etc/shadowsocks<span class="selector-class">.json</span> -d stop</span><br></pre></td></tr></table></figure>
-<p>以上操作以后，就可以通过各种 Shadowsocks 客户端科学上网啦。稳定又靠谱！</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 软件工具 </category>
-            
-            <category> Shadowsocks </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 科学上网 </tag>
-            
-            <tag> DigitalOcean </tag>
-            
-            <tag> Shadowsocks </tag>
             
         </tags>
         
@@ -1527,11 +1553,11 @@
         
         <tags>
             
-            <tag> Mac </tag>
-            
             <tag> HomeBrew </tag>
             
             <tag> MySQL </tag>
+            
+            <tag> Mac </tag>
             
             <tag> OSX </tag>
             
@@ -1577,11 +1603,11 @@
         
         <tags>
             
-            <tag> MongoDB </tag>
+            <tag> HomeBrew </tag>
             
             <tag> Mac </tag>
             
-            <tag> HomeBrew </tag>
+            <tag> MongoDB </tag>
             
         </tags>
         
@@ -4653,9 +4679,9 @@ alpha = (aLongBooleanExpression)
         
         <tags>
             
-            <tag> 技术交流 </tag>
-            
             <tag> 团队管理 </tag>
+            
+            <tag> 技术交流 </tag>
             
             <tag> 分享 </tag>
             
@@ -5686,9 +5712,9 @@ alpha = (aLongBooleanExpression)
             
             <tag> Hexo </tag>
             
-            <tag> 错误 </tag>
-            
             <tag> 安装 </tag>
+            
+            <tag> 错误 </tag>
             
             <tag> 解决方案 </tag>
             
@@ -5854,13 +5880,13 @@ alpha = (aLongBooleanExpression)
             
             <tag> Hexo </tag>
             
+            <tag> 安装 </tag>
+            
             <tag> Docker </tag>
             
             <tag> 博客 </tag>
             
             <tag> 个人 </tag>
-            
-            <tag> 安装 </tag>
             
         </tags>
         
@@ -5915,11 +5941,11 @@ alpha = (aLongBooleanExpression)
             
             <tag> Hexo </tag>
             
+            <tag> 安装 </tag>
+            
             <tag> 博客 </tag>
             
             <tag> 个人 </tag>
-            
-            <tag> 安装 </tag>
             
         </tags>
         
@@ -7636,13 +7662,13 @@ alpha = (aLongBooleanExpression)
         
         <tags>
             
-            <tag> nodejs </tag>
-            
             <tag> 学习 </tag>
             
             <tag> 资源 </tag>
             
             <tag> 汇总 </tag>
+            
+            <tag> nodejs </tag>
             
         </tags>
         
@@ -7663,13 +7689,13 @@ alpha = (aLongBooleanExpression)
         
         <tags>
             
-            <tag> iOS </tag>
-            
             <tag> 学习 </tag>
             
             <tag> 资源 </tag>
             
             <tag> 汇总 </tag>
+            
+            <tag> iOS </tag>
             
         </tags>
         

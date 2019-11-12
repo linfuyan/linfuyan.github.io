@@ -263,6 +263,207 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/hexo-your-blog/install-hexo-on-mac/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hexo-your-blog/install-hexo-on-mac/" itemprop="url">Mac OS X 上 Hexo 安装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-10T14:38:20+08:00">
+                2015-09-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
+                2018-10-18
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/" itemprop="url" rel="index">
+                    <span itemprop="name">软件工具</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+    <div style="font-size: 20px;padding: 10px;height: 60px; line-height:60px;background: #eeeeee;">
+    阿里云产品限时红包，最高 <span style="font-size: 30px;color: red;">￥1888</span> 元，<a href="https://chuangke.aliyun.com/invite?userCode=nf6ezhzq" target="_blank">立即领取</a>。
+    </div>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>这篇文章描述 Mac OS X 环境下的 Hexo 安装，其他的系统环境安装略有不同。可以参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方文档</a>。</p>
+</blockquote>
+<h2 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h2><p>Hexo 依赖于 Node.js 及 Git，故在安装 Hexo 前必须检查并安装 Node.js 及 Git。</p>
+<h3 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h3><p>安装 Git 的方法也是多种多样，这边简单提一下，大家可以寻着这些思路来自己完成 Git 的安装。</p>
+<p><strong>方案一、</strong>通过 Xcode 来安装 Git</p>
+<ol>
+<li>从 AppStore 下载 Xcode。</li>
+<li>打开 Xcode -&gt; Preferences 点击下载选项，下载 Command Line Tools 安装。</li>
+</ol>
+<p><strong>方案二、</strong>安装 SourceTree 等客户端。</p>
+<p><strong>方案三、</strong>通过 <a href="http://code.google.com/p/git-osx-installer/" target="_blank" rel="noopener">git-osx-installer</a> 安装。</p>
+<p>安装完成以后，在终端中输入 <code>git --version</code> 查看 Git 版本，来确认是否安装成功。</p>
+<blockquote>
+<p>在开始 Git 的使用之前，需要有一些公共的参数配置，如 username， email 等。这些不在本文讨论范围。</p>
+</blockquote>
+<h3 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h3><p>node.js 的安装也是方法多样，这里简单提下思路。</p>
+<p><strong>方案一、</strong><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">官方</a>的 .pkg 文件安装，个人觉得是最方便的。</p>
+<p><strong>方案二、</strong>下载 <a href="https://github.com/nodejs/node" target="_blank" rel="noopener">node.js 源码</a>，自己编译。</p>
+<p><strong>方案三、</strong>通过 Homebrew 安装。</p>
+<p><strong>方案四、</strong>通过 nvm 安装。</p>
+<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>所有必备的应用程序安装完以后，就可用 npm 安装 Hexo 了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install -g hexo-cli		// 安装 Hexo 程序</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mkdir blog					// 新建博客目录</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> blog						// 到博客目录下</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo init						// 初始化 Hexo 博客目录</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install 					// 安装依赖和插件</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo s						// 启动服务器在本地进行预览</span></span><br></pre></td></tr></table></figure>
+<p>在浏览器中打开 <code>http://localhost:4000</code>，看到博客首页的话，至此安装就完成了。</p>
+<p><img src="http://img.uprogrammer.cn/static/images/hexo-preview.png" alt="hexo 预览"></p>
+<blockquote>
+<p>为了说明问题，上面的截图是后面补的。 </p>
+</blockquote>
+<p>这节也比较简单，也可以查看<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">Hexo 官网</a>的对应章节。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://linfuyan.com/hexo-your-blog/hexo-introduce/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1952,186 +2153,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/a-successful-git-branching-model/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿阿燃">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/a-successful-git-branching-model/" itemprop="url">一个成功的 Git 分支模型</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-27T12:34:56+08:00">
-                2015-08-27
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
-                2018-10-18
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/软件工具/" itemprop="url" rel="index">
-                    <span itemprop="name">软件工具</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/软件工具/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-    <div style="font-size: 20px;padding: 10px;height: 60px; line-height:60px;background: #eeeeee;">
-    阿里云产品限时红包，最高 <span style="font-size: 30px;color: red;">￥1888</span> 元，<a href="https://chuangke.aliyun.com/invite?userCode=nf6ezhzq" target="_blank">立即领取</a>。
-    </div>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>原文来自：<a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="noopener">A successful Git branching model</a><br>译文来自：<a href="http://www.juvenxu.com/2010/11/28/a-successful-git-branching-model/" target="_blank" rel="noopener">一个成功的 Git 分支模型</a></p>
-<p>这是作者在2010年5月的一篇博文，作者所处的团队进行了一系列的 Git 实践，并总结出文章中的 Git 工作流，再到后来基于此开发了 Git 工作流工具 Git flow，在现在看来，对于初接触 Git 的团队仍然是绝好的指导。</p>
-<hr>
-<p>本文中我会展示一种开发模型，一年前该模型就已经被我用在所有的项目中（包括工作中的项目和私有项目），结果是非常成功的。我早就想为此写点东西，可直到现在才有时间。本文不会讲述任何项目的细节，只会涉及到分支策略和发布管理。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/a-successful-git-branching-model/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2184,7 +2205,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">95</span>
+                  <span class="site-state-item-count">96</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2206,7 +2227,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">237</span>
+                  <span class="site-state-item-count">239</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

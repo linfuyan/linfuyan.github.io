@@ -75,13 +75,14 @@ FROM
 <li>xxxx-yyyy-common 项目，从命名上来看，是一个提供公共功能的服务。在其中 <code>xxxx.yyyy.common.feign</code> 包下聚合了其他微服务所实现能力的声明。</li>
 </ul>
 <p>在一个团队内部，这样的设计具有一定的合理性。</p>
-<p>将这个团队作为一个内聚的单元，通过 common 项目来聚合内部各个微服务提供的能力，统一暴露，很好的使用了一个外观模式。外部不比关心内部实现细节，只需专注在接口上。对内部来讲，各个服务的能力汇总到 common 中，便于管理。</p>
+<p>将这个团队作为一个内聚的单元，通过 common 项目来聚合内部各个微服务提供的能力，统一暴露，很好的使用了一个外观模式。外部不必关心内部实现细节，只需专注在接口上。对内部来讲，各个服务的能力汇总到 common 中，便于管理。</p>
 <p>但是，请回顾一下之前我提到的团队的背景。这个团队只是部门中的一个，其生产的代码需要能在部门中共享与复用。</p>
 <p>这时的 common 项目却对部门其他团队关上了门。纵然这个团队生产的多数代码可以通过复制的形式减少其他团队的工作量，但由于 common 包含了众多这个团队业务本身的东西，在其他团队中使用时必定需要做较大的调整。</p>
 <p>是时候打破 common 这扇门了，让门内已有的微服务走入到其他团队中。那该怎么做呢？</p>
 <p>每个微服务对外声明自己的能力，不聚合在 common 中。每个微服务独立维护。内部负责实现自己对外声明的能力，外部使用微服务声明能力的接口。调整一下代码的组织，实例如下：</p>
 <p><img src="http://img.uprogrammer.cn/15579307669911.jpg" alt=""></p>
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">|- xxx-yyy-zzz                       // 主项目</span></span><br><span class="line">  <span class="string">|- xxx-yyy-zzz-api               // 子项目，负责声明微服务提供的能力，Feign 接口</span></span><br><span class="line">  <span class="string">|- xxx-yyy-zzz-service         // 实现微服务对外承诺的能力</span></span><br></pre></td></tr></table></figure>
+<p>如上面代码块中的显示，api 子项目负责声明微服务提供的能力，以 Feign 接口的形式暴露，可以独立打包为 jar，并需要的项目引用。service 子项目负责实现微服务声明的能力。</p>
 <p>这样，每个微服务成为高内聚的单元，可以供其他团队复用。微服务的维护人员，不必局限在原来小团队中，而是放眼整个部门，同时专注维护微服务本身。在团队治理上，也打破了原来几个团队之间的无形屏障。</p>
 ]]></content>
       

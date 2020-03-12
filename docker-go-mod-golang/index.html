@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="阿阿燃, uprogrammer, 有程, java, Android, web" />
+  <meta name="keywords" content="docker,golang,html2md," />
 
 
 
@@ -83,17 +83,18 @@
 
 
 
-<meta name="description" content="docker 中运行 go mod 管理 golang 项目及交叉编译最近在找一个将 html 转化为 md 的工具，后来发现 html2md 这个项目还不错，打算基于它做些改造。不过 html2md 是个 golang 项目，而我自己不想在电脑上安装 golang 环境，故便考虑通过 docker 来编译这个项目。以下对过程做些记录。  说明：下文中的 $go-lab 为自己电脑上的某个目录。">
+<meta name="description" content="最近在找一个将 html 转化为 md 的工具，后来发现 html2md 这个项目还不错，打算基于它做些改造。不过 html2md 是个 golang 项目，而我自己不想在电脑上安装 golang 环境，故便考虑通过 docker 来编译这个项目。以下对过程做些记录。">
+<meta name="keywords" content="docker,golang,html2md">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿阿燃">
+<meta property="og:title" content="docker 中运行 go mod 管理 golang 项目及交叉编译">
 <meta property="og:url" content="http://linfuyan.com/docker-go-mod-golang/index.html">
 <meta property="og:site_name" content="阿阿燃">
-<meta property="og:description" content="docker 中运行 go mod 管理 golang 项目及交叉编译最近在找一个将 html 转化为 md 的工具，后来发现 html2md 这个项目还不错，打算基于它做些改造。不过 html2md 是个 golang 项目，而我自己不想在电脑上安装 golang 环境，故便考虑通过 docker 来编译这个项目。以下对过程做些记录。  说明：下文中的 $go-lab 为自己电脑上的某个目录。">
+<meta property="og:description" content="最近在找一个将 html 转化为 md 的工具，后来发现 html2md 这个项目还不错，打算基于它做些改造。不过 html2md 是个 golang 项目，而我自己不想在电脑上安装 golang 环境，故便考虑通过 docker 来编译这个项目。以下对过程做些记录。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-18T07:53:22.867Z">
+<meta property="og:updated_time" content="2020-03-12T14:53:04.208Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿阿燃">
-<meta name="twitter:description" content="docker 中运行 go mod 管理 golang 项目及交叉编译最近在找一个将 html 转化为 md 的工具，后来发现 html2md 这个项目还不错，打算基于它做些改造。不过 html2md 是个 golang 项目，而我自己不想在电脑上安装 golang 环境，故便考虑通过 docker 来编译这个项目。以下对过程做些记录。  说明：下文中的 $go-lab 为自己电脑上的某个目录。">
+<meta name="twitter:title" content="docker 中运行 go mod 管理 golang 项目及交叉编译">
+<meta name="twitter:description" content="最近在找一个将 html 转化为 md 的工具，后来发现 html2md 这个项目还不错，打算基于它做些改造。不过 html2md 是个 golang 项目，而我自己不想在电脑上安装 golang 环境，故便考虑通过 docker 来编译这个项目。以下对过程做些记录。">
 
 
 
@@ -129,7 +130,7 @@
 
 
 
-  <title> | 阿阿燃</title>
+  <title>docker 中运行 go mod 管理 golang 项目及交叉编译 | 阿阿燃</title>
   
 
 
@@ -284,7 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">docker 中运行 go mod 管理 golang 项目及交叉编译</h1>
         
 
         <div class="post-meta">
@@ -312,12 +313,45 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-02-18T15:53:22+08:00">
-                2020-02-18
+              <time title="更新于" itemprop="dateModified" datetime="2020-03-12T22:53:04+08:00">
+                2020-03-12
               </time>
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -354,14 +388,15 @@
       
 
       
-        <h1 id="docker-中运行-go-mod-管理-golang-项目及交叉编译"><a href="#docker-中运行-go-mod-管理-golang-项目及交叉编译" class="headerlink" title="docker 中运行 go mod 管理 golang 项目及交叉编译"></a>docker 中运行 go mod 管理 golang 项目及交叉编译</h1><p>最近在找一个将 html 转化为 md 的工具，后来发现 <a href="https://github.com/TruthHun/html2md" target="_blank" rel="noopener">html2md</a> 这个项目还不错，打算基于它做些改造。不过 html2md 是个 golang 项目，而我自己不想在电脑上安装 golang 环境，故便考虑通过 docker 来编译这个项目。以下对过程做些记录。</p>
+        <p>最近在找一个将 html 转化为 md 的工具，后来发现 <a href="https://github.com/TruthHun/html2md" target="_blank" rel="noopener">html2md</a> 这个项目还不错，打算基于它做些改造。不过 html2md 是个 golang 项目，而我自己不想在电脑上安装 golang 环境，故便考虑通过 docker 来编译这个项目。以下对过程做些记录。</p>
+<a id="more"></a>
 <blockquote>
 <p>说明：下文中的 <code>$go-lab</code> 为自己电脑上的某个目录。</p>
 </blockquote>
 <h2 id="docker-中安装-golang-环境"><a href="#docker-中安装-golang-环境" class="headerlink" title="docker 中安装 golang 环境"></a>docker 中安装 golang 环境</h2><p>下载镜像</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull golang</span><br></pre></td></tr></table></figure>
 <p>新建 gopath 目录及项目源码目录 projects，将在运行容器时做映射</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker 中默认 /go 为 gopath</span></span><br><span class="line">mkdir $go-lab/go </span><br><span class="line"><span class="meta">#</span><span class="bash"> 用于存放 golang 项目源码</span></span><br><span class="line">mkdir $go-lab/projects</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> docker 中默认 /go 为 gopath</span><br><span class="line">mkdir $go-lab/go </span><br><span class="line"><span class="meta">#</span> 用于存放 golang 项目源码</span><br><span class="line">mkdir $go-lab/projects</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>需要将项目源码目录与 gopath 目录分开，这是 go mod 的要求。</p>
 </blockquote>
@@ -375,7 +410,7 @@
 <p><strong>关键</strong>：GOPROXY 代理最好要设置，因为 golang 的许多依赖是被 GFW 给墙了，不设置带来会导致依赖无法下载。</p>
 </blockquote>
 <h2 id="编译-go-mod-管理的项目"><a href="#编译-go-mod-管理的项目" class="headerlink" title="编译 go mod 管理的项目"></a>编译 go mod 管理的项目</h2><p>下载依赖</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /root/html2md</span><br><span class="line"><span class="meta">#</span><span class="bash"> 下载依赖包，内容会存放在容器内 /go/pkg/mod 目录中</span></span><br><span class="line">go mod tidy</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /root/html2md</span><br><span class="line"><span class="meta">#</span> 下载依赖包，内容会存放在容器内 /go/pkg/mod 目录中</span><br><span class="line">go mod tidy</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><code>go mod init project_name</code>： 用 go mod 初始化目录</p>
 <p><code>go mod tidy</code>： 会同步依赖包，添加需要的，移除多余的</p>
@@ -383,7 +418,7 @@
 <p><code>go clean -modcache</code>： 清除缓存</p>
 </blockquote>
 <p>编写 golang 项目，引用 html2md 库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir $go-lab/demo</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建 html2md.go 文件</span></span><br><span class="line">vi $go-lab/demo/html2md.go</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir $go-lab/demo</span><br><span class="line"><span class="meta">#</span> 创建 html2md.go 文件</span><br><span class="line">vi $go-lab/demo/html2md.go</span><br></pre></td></tr></table></figure>
 <p><code>html2md.go</code> 文件内容如下</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"os"</span></span><br><span class="line">    <span class="string">"io/ioutil"</span></span><br><span class="line">    <span class="string">"github.com/TruthHun/html2md"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    args := os.Args</span><br><span class="line">    <span class="keyword">if</span> args == <span class="literal">nil</span> || <span class="built_in">len</span>(args) &lt; <span class="number">2</span> &#123;</span><br><span class="line">        Usage()</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    input := args[<span class="number">1</span>]</span><br><span class="line">    output := args[<span class="number">2</span>]</span><br><span class="line">    fmt.Println(<span class="string">"input file is: "</span>, input, <span class="string">"\noutput file is: "</span>, output)</span><br><span class="line"></span><br><span class="line">    b, _ := ioutil.ReadFile(input)</span><br><span class="line">    md := html2md.Convert(<span class="keyword">string</span>(b))</span><br><span class="line">    ioutil.WriteFile(output, []<span class="keyword">byte</span>(md), <span class="number">0777</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Usage = <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">"Usagge: ---"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>编译项目</p>
@@ -397,7 +432,7 @@
 <p>查看是否正确生成 code.md</p>
 </blockquote>
 <h2 id="交叉编译"><a href="#交叉编译" class="headerlink" title="交叉编译"></a>交叉编译</h2><p>golang 提供了完备的交叉编译环境。docker 中直接通过 <code>go build</code> 生成的执行文件只能在 linux 环境下运行。通过交叉编译，可以很方便的编译在 mac 或者 windows 下运行的可执行文件。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译 mac 可用的可执行文件，生成 html2md</span></span><br><span class="line">CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build html2md.go</span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译 windows 下的可执行文件，生成 html2md.exe</span></span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build html2md.go</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 编译 mac 可用的可执行文件，生成 html2md</span><br><span class="line">CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build html2md.go</span><br><span class="line"><span class="meta">#</span> 编译 windows 下的可执行文件，生成 html2md.exe</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build html2md.go</span><br></pre></td></tr></table></figure>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnblogs.com/rxbook/p/7081499.html" target="_blank" rel="noopener">Go语言获取命令行参数</a></p>
 <p><a href="https://www.cnblogs.com/GodBug/p/7890311.html" target="_blank" rel="noopener">go build 不同系统下的可执行文件</a></p>
 <p><a href="https://studygolang.com/articles/26335" target="_blank" rel="noopener">五分钟用Docker快速搭建Go开发环境</a></p>
@@ -424,7 +459,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://linfuyan.com/docker-go-mod-golang/" title="">http://linfuyan.com/docker-go-mod-golang/</a>
+    <a href="http://linfuyan.com/docker-go-mod-golang/" title="docker 中运行 go mod 管理 golang 项目及交叉编译">http://linfuyan.com/docker-go-mod-golang/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -436,6 +471,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/docker/" rel="tag"># docker</a>
+          
+            <a href="/tags/golang/" rel="tag"># golang</a>
+          
+            <a href="/tags/html2md/" rel="tag"># html2md</a>
+          
+        </div>
       
 
       
@@ -537,7 +582,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">97</span>
+                  <span class="site-state-item-count">99</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -548,7 +593,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -559,7 +604,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">234</span>
+                  <span class="site-state-item-count">245</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -609,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#docker-中运行-go-mod-管理-golang-项目及交叉编译"><span class="nav-text">docker 中运行 go mod 管理 golang 项目及交叉编译</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-中安装-golang-环境"><span class="nav-text">docker 中安装 golang 环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-docker-容器中运行"><span class="nav-text">在 docker 容器中运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译-go-mod-管理的项目"><span class="nav-text">编译 go mod 管理的项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交叉编译"><span class="nav-text">交叉编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-中安装-golang-环境"><span class="nav-text">docker 中安装 golang 环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-docker-容器中运行"><span class="nav-text">在 docker 容器中运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译-go-mod-管理的项目"><span class="nav-text">编译 go mod 管理的项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交叉编译"><span class="nav-text">交叉编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

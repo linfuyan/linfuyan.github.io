@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="nodejs,科学上网,cheerio,网页抓取,爬虫,ejs,模板,shadowsocks," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="阿阿燃" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="这篇文章中，我将使用 cheerio 从 http://ss.uprogrammer.cn 上抓取到免费的 shadowsocks 账号，然后通过 ejs 模板，输出成新的网页。 cheerio 是 nodejs 的抓取页面模块，为服务器特别定制的，快速、灵活、实施的 jquery 核心实现，适合各种 Web 爬虫程序。详见: https://github.com/cheeriojs/cheeri">
+<meta name="keywords" content="nodejs,科学上网,cheerio,网页抓取,爬虫,ejs,模板,shadowsocks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实例：使用 cheerio 抓取网页数据，并通过 ejs 模板输出静态页面">
+<meta property="og:url" content="http://linfuyan.com/grab-web-page-by-cheerio-and-render-via-ejs/index.html">
+<meta property="og:site_name" content="阿阿燃">
+<meta property="og:description" content="这篇文章中，我将使用 cheerio 从 http://ss.uprogrammer.cn 上抓取到免费的 shadowsocks 账号，然后通过 ejs 模板，输出成新的网页。 cheerio 是 nodejs 的抓取页面模块，为服务器特别定制的，快速、灵活、实施的 jquery 核心实现，适合各种 Web 爬虫程序。详见: https://github.com/cheeriojs/cheeri">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/free-shadowsocks.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/free-shadowsocks-2.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/npm_init_project.gif">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/images/demo-cheerio-ejs-structure.png">
+<meta property="og:updated_time" content="2019-02-22T01:48:05.353Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="实例：使用 cheerio 抓取网页数据，并通过 ejs 模板输出静态页面">
+<meta name="twitter:description" content="这篇文章中，我将使用 cheerio 从 http://ss.uprogrammer.cn 上抓取到免费的 shadowsocks 账号，然后通过 ejs 模板，输出成新的网页。 cheerio 是 nodejs 的抓取页面模块，为服务器特别定制的，快速、灵活、实施的 jquery 核心实现，适合各种 Web 爬虫程序。详见: https://github.com/cheeriojs/cheeri">
+<meta name="twitter:image" content="http://img.uprogrammer.cn/static/images/free-shadowsocks.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://linfuyan.com/grab-web-page-by-cheerio-and-render-via-ejs/"/>
+
+
+
+
+
+  <title>实例：使用 cheerio 抓取网页数据，并通过 ejs 模板输出静态页面 | 阿阿燃</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阿阿燃</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/grab-web-page-by-cheerio-and-render-via-ejs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">实例：使用 cheerio 抓取网页数据，并通过 ejs 模板输出静态页面</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-10T10:33:38+08:00">
+                2016-04-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-22T09:48:05+08:00">
+                2019-02-22
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/nodejs/" itemprop="url" rel="index">
+                    <span itemprop="name">nodejs</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+    <div style="font-size: 20px;padding: 10px;height: 60px; line-height:60px;background: #eeeeee;">
+    阿里云产品限时红包，最高 <span style="font-size: 30px;color: red;">￥1888</span> 元，<a href="https://chuangke.aliyun.com/invite?userCode=nf6ezhzq" target="_blank">立即领取</a>。
+    </div>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这篇文章中，我将使用 cheerio 从 <a href="http://ss.uprogrammer.cn" target="_blank" rel="noopener">http://ss.uprogrammer.cn</a> 上抓取到免费的 shadowsocks 账号，然后通过 ejs 模板，输出成新的网页。</p>
+<p><strong>cheerio</strong> 是 nodejs 的抓取页面模块，为服务器特别定制的，快速、灵活、实施的 jquery 核心实现，适合各种 Web 爬虫程序。详见: <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">https://github.com/cheeriojs/cheerio</a></p>
+<p><strong>ejs</strong> 是一个 JavaScript 模板库，用来从 JSON 数据中生成 HTML 字符串。详见： <a href="https://github.com/tj/ejs" target="_blank" rel="noopener">https://github.com/tj/ejs</a></p>
+<a id="more"></a>
+<p>下面的截图中显示，<a href="http://ss.upgrogrammer.cn" target="_blank" rel="noopener">http://ss.upgrogrammer.cn</a> 上有一个免费 shadowsocks 账号的展示区域。</p>
+<p><img src="http://img.uprogrammer.cn/static/images/free-shadowsocks.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
+<p>并且通过 chrome 的审查元素，可以看到相关的源码。</p>
+<p><img src="http://img.uprogrammer.cn/static/images/free-shadowsocks-2.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
+<p>那么，接下来，我们就要抓取这部分内容中的免费 shadowsocks 账号信息。</p>
+<h2 id="新建-nodejs-项目，并安装相关依赖"><a href="#新建-nodejs-项目，并安装相关依赖" class="headerlink" title="新建 nodejs 项目，并安装相关依赖"></a>新建 nodejs 项目，并安装相关依赖</h2><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> init</span><br><span class="line">...</span><br><span class="line"><span class="built_in">npm</span> install cheerio ejs --save</span><br></pre></td></tr></table></figure>
+<p>以下图片显示了通过 <code>npm init</code> 命令创建 nodejs 项目的过程：</p>
+<p><img src="http://img.uprogrammer.cn/static/images/npm_init_project.gif" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
+<h2 id="获取-http-ss-upgrammer-cn-完整网页内容"><a href="#获取-http-ss-upgrammer-cn-完整网页内容" class="headerlink" title="获取 http://ss.upgrammer.cn 完整网页内容"></a>获取 <a href="http://ss.upgrammer.cn" target="_blank" rel="noopener">http://ss.upgrammer.cn</a> 完整网页内容</h2><p>在使用 cheerio 来抓取我们所需的内容之前，我们要通过 http 模块，将完整页面先获取到。</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">download</span>(<span class="params">url, callback</span>) </span>&#123;</span><br><span class="line">	http.get(<span class="built_in">url</span>, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> data = <span class="string">""</span>;</span><br><span class="line">		res.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>) </span>&#123;</span><br><span class="line">			data += chunk;</span><br><span class="line">		&#125;);</span><br><span class="line">		res.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			callback(data);</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;).on(<span class="string">"err"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(e);</span><br><span class="line">		callback(<span class="literal">null</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上的代码片段通过 GET 方法获取对应 url 的数据，并通过 callback 传回。</p>
+<h2 id="从获取到的完整页面中抓取免费账号信息"><a href="#从获取到的完整页面中抓取免费账号信息" class="headerlink" title="从获取到的完整页面中抓取免费账号信息"></a>从获取到的完整页面中抓取免费账号信息</h2><p>通过在浏览器中查看源代码(具体内容其实也就是我们通过上面的 <code>download</code> 函数返回的结构)，我们发现，这个页面结构是非常简单的。</p>
+<ol>
+<li>所有的免费账号信息都在 id 为 <code>account_container</code> 的 <code>&lt;div&gt;</code> 标签中。</li>
+<li>所有的单条账号信息，都在 <code>&lt;div class=&quot;col-md-4 text-center&quot;&gt;...&lt;/div&gt;</code> 中。</li>
+<li>单条账号中的信息，是连续的6个<code>&lt;h4&gt;</code>标签，按照服务器地址、端口号、密码、加密方式、状态、说明的方式存在。 </li>
+</ol>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">download(<span class="string">"http://ss.uprogrammer.cn/"</span>, function(<span class="name">data</span>) &#123;</span><br><span class="line">	if (!data) &#123;</span><br><span class="line">		console.log('no data found')<span class="comment">;</span></span><br><span class="line">		return<span class="comment">;</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    var accounts = []<span class="comment">;</span></span><br><span class="line">    </span><br><span class="line">	$ = cheerio.load(<span class="name">data</span>)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">    // 通过 cheerio 的选择器获取免费账号信息单元</span><br><span class="line">	var ss = $('#account_container &gt; .col-md-4')<span class="comment">;</span></span><br><span class="line">	</span><br><span class="line">	for (<span class="name">var</span> i = <span class="number">0</span><span class="comment">; i &lt; ss.length; i++) &#123;</span></span><br><span class="line">		var s = &#123;&#125;<span class="comment">;</span></span><br><span class="line">		</span><br><span class="line">		// 解析服务器</span><br><span class="line">		var server = $(<span class="name">ss</span>[i]).children().first()<span class="comment">;</span></span><br><span class="line">		s['server'] = server.text().substr(<span class="number">7</span>)<span class="comment">;</span></span><br><span class="line">		console.log(<span class="name">s</span>['server'])<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析端口</span><br><span class="line">		var port = $(<span class="name">server</span>).next()<span class="comment">;</span></span><br><span class="line">		s['port'] = port.text().substr(<span class="number">3</span>)<span class="comment">;</span></span><br><span class="line">		console.log(<span class="name">s</span>['port'])<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析密码</span><br><span class="line">		var password = $(<span class="name">port</span>).next()<span class="comment">;</span></span><br><span class="line">		s['password'] = password.text().substr(<span class="number">4</span>)<span class="comment">;</span></span><br><span class="line">		console.log(<span class="name">s</span>['password'])<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析加密方式</span><br><span class="line">		var encrypt = $(<span class="name">password</span>).next()<span class="comment">;</span></span><br><span class="line">		s['encrypt'] = encrypt.text().substr(<span class="number">5</span>)<span class="comment">;</span></span><br><span class="line">		console.log(<span class="name">s</span>['encrypt'])<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析状态</span><br><span class="line">		var status = $(<span class="name">encrypt</span>).next()<span class="comment">;</span></span><br><span class="line">		s['status'] = status.text().substr(<span class="number">3</span>)<span class="comment">;</span></span><br><span class="line">		console.log(<span class="name">s</span>['status'])<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析说明</span><br><span class="line">		var tip = $(<span class="name">status</span>).next()<span class="comment">;</span></span><br><span class="line">		s['tip'] = tip.text()<span class="comment">;</span></span><br><span class="line">		console.log(<span class="name">s</span>['tip'])<span class="comment">;</span></span><br><span class="line">		</span><br><span class="line">		account.push(<span class="name">s</span>)<span class="comment">;</span></span><br><span class="line">		console.log(<span class="string">"==="</span>)<span class="comment">;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>主要的代码片段如上，最终 <code>account</code> 变量中将保存所有的账号信息。</p>
+<h2 id="将数据通过-ejs-模板渲染成新的页面"><a href="#将数据通过-ejs-模板渲染成新的页面" class="headerlink" title="将数据通过 ejs 模板渲染成新的页面"></a>将数据通过 ejs 模板渲染成新的页面</h2><p>我们需要定义一个模板文件 <code>template.ejs</code>，如下：</p>
+<figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="meta">&lt;!DOCTYPE html&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-CN"</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>实例：使用 cheerio 抓取网页数据，并通过 ejs 模板输出静态页面<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></span></span><br><span class="line"><span class="xml">      </span><span class="vbscript">&lt;% servers.forEach(<span class="keyword">function</span>(<span class="built_in">server</span>)&#123; %&gt;</span><span class="xml"></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">h4</span>&gt;</span>服务器地址:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.<span class="built_in">server</span> %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">h4</span>&gt;</span>端口:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.port %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">h4</span>&gt;</span>密码:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.password %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">h4</span>&gt;</span>加密方式:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.encrypt %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">h4</span>&gt;</span>状态:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.status %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">h4</span>&gt;</span></span><span class="vbscript">&lt;%= <span class="built_in">server</span>.tip %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      </span><span class="vbscript">&lt;% &#125;) %&gt;</span><span class="xml"></span></span><br><span class="line"><span class="xml">  	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>这是一个非常简单的模板文件，只是说明传递数据与模板解析的功能。其中将接收名为 <code>servers</code> 的参数。</p>
+<p>下面我们定义一个 <code>render</code> 函数，读取 <code>template.ejs</code> 模板文件，并根据传入的 <code>servers</code> 参数进行渲染，输出到 <code>index.html</code> 中。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span><span class="params">(accounts)</span> </span>&#123;</span><br><span class="line">	fs.readFile(<span class="string">'./template.ejs'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e, v)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> ret = v.toString();</span><br><span class="line">        </span><br><span class="line">      <span class="keyword">var</span> options = &#123;servers: accounts&#125;</span><br><span class="line">      <span class="keyword">var</span> template = ejs.render(ret, options);</span><br><span class="line">      fs.writeFile(<span class="string">'./index.html'</span>, template, <span class="function"><span class="keyword">function</span> <span class="params">(err)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;         </span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>OK。完成上面的过程，整个程序结构如下：</p>
+<p><img src="http://img.uprogrammer.cn/static/images/demo-cheerio-ejs-structure.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
+<p>最后，在项目根目录中执行 <code>node index.js</code>， 正常在终端中可以看到日志输出，并生成 <code>index.html</code> 文件。通过浏览器打开 <code>index.html</code> 就可以验收成果啦。</p>
+<p>完整的源码见：<a href="https://github.com/linfuyan/demo-cheerio-ejs" target="_blank" rel="noopener">https://github.com/linfuyan/demo-cheerio-ejs</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Aaron
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://linfuyan.com/grab-web-page-by-cheerio-and-render-via-ejs/" title="实例：使用 cheerio 抓取网页数据，并通过 ejs 模板输出静态页面">http://linfuyan.com/grab-web-page-by-cheerio-and-render-via-ejs/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nodejs/" rel="tag"># nodejs</a>
+          
+            <a href="/tags/科学上网/" rel="tag"># 科学上网</a>
+          
+            <a href="/tags/cheerio/" rel="tag"># cheerio</a>
+          
+            <a href="/tags/网页抓取/" rel="tag"># 网页抓取</a>
+          
+            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
+          
+            <a href="/tags/ejs/" rel="tag"># ejs</a>
+          
+            <a href="/tags/模板/" rel="tag"># 模板</a>
+          
+            <a href="/tags/shadowsocks/" rel="tag"># shadowsocks</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/manipulating-url-using-javascript-without-freshing-the-page/" rel="next" title="如何通过 JS 来修改浏览器地址">
+                <i class="fa fa-chevron-left"></i> 如何通过 JS 来修改浏览器地址
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/React+ReactRouter+Redux+Webpack打造SPA/" rel="prev" title="React + React Router + Redux + Webpack 开发 SPA">
+                React + React Router + Redux + Webpack 开发 SPA <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Aaron</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">245</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/linfuyan" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建-nodejs-项目，并安装相关依赖"><span class="nav-text">新建 nodejs 项目，并安装相关依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取-http-ss-upgrammer-cn-完整网页内容"><span class="nav-text">获取 http://ss.upgrammer.cn 完整网页内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从获取到的完整页面中抓取免费账号信息"><span class="nav-text">从获取到的完整页面中抓取免费账号信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将数据通过-ejs-模板渲染成新的页面"><span class="nav-text">将数据通过 ejs 模板渲染成新的页面</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+  <div class="footer-custom">Hosted by <a href="https://pages.coding.me" style="font-weight:bold">Coding Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1256375489&web_id=1256375489" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

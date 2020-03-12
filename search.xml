@@ -37,16 +37,17 @@
     </entry>
     
     <entry>
-      <title></title>
+      <title><![CDATA[docker 中运行 go mod 管理 golang 项目及交叉编译]]></title>
       <url>http://linfuyan.com/docker-go-mod-golang/</url>
-      <content type="html"><![CDATA[<h1 id="docker-中运行-go-mod-管理-golang-项目及交叉编译"><a href="#docker-中运行-go-mod-管理-golang-项目及交叉编译" class="headerlink" title="docker 中运行 go mod 管理 golang 项目及交叉编译"></a>docker 中运行 go mod 管理 golang 项目及交叉编译</h1><p>最近在找一个将 html 转化为 md 的工具，后来发现 <a href="https://github.com/TruthHun/html2md" target="_blank" rel="noopener">html2md</a> 这个项目还不错，打算基于它做些改造。不过 html2md 是个 golang 项目，而我自己不想在电脑上安装 golang 环境，故便考虑通过 docker 来编译这个项目。以下对过程做些记录。</p>
+      <content type="html"><![CDATA[<p>最近在找一个将 html 转化为 md 的工具，后来发现 <a href="https://github.com/TruthHun/html2md" target="_blank" rel="noopener">html2md</a> 这个项目还不错，打算基于它做些改造。不过 html2md 是个 golang 项目，而我自己不想在电脑上安装 golang 环境，故便考虑通过 docker 来编译这个项目。以下对过程做些记录。</p>
+<a id="more"></a>
 <blockquote>
 <p>说明：下文中的 <code>$go-lab</code> 为自己电脑上的某个目录。</p>
 </blockquote>
 <h2 id="docker-中安装-golang-环境"><a href="#docker-中安装-golang-环境" class="headerlink" title="docker 中安装 golang 环境"></a>docker 中安装 golang 环境</h2><p>下载镜像</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull golang</span><br></pre></td></tr></table></figure>
 <p>新建 gopath 目录及项目源码目录 projects，将在运行容器时做映射</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker 中默认 /go 为 gopath</span></span><br><span class="line">mkdir $go-lab/go </span><br><span class="line"><span class="meta">#</span><span class="bash"> 用于存放 golang 项目源码</span></span><br><span class="line">mkdir $go-lab/projects</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> docker 中默认 /go 为 gopath</span><br><span class="line">mkdir $go-lab/go </span><br><span class="line"><span class="meta">#</span> 用于存放 golang 项目源码</span><br><span class="line">mkdir $go-lab/projects</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>需要将项目源码目录与 gopath 目录分开，这是 go mod 的要求。</p>
 </blockquote>
@@ -60,7 +61,7 @@
 <p><strong>关键</strong>：GOPROXY 代理最好要设置，因为 golang 的许多依赖是被 GFW 给墙了，不设置带来会导致依赖无法下载。</p>
 </blockquote>
 <h2 id="编译-go-mod-管理的项目"><a href="#编译-go-mod-管理的项目" class="headerlink" title="编译 go mod 管理的项目"></a>编译 go mod 管理的项目</h2><p>下载依赖</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /root/html2md</span><br><span class="line"><span class="meta">#</span><span class="bash"> 下载依赖包，内容会存放在容器内 /go/pkg/mod 目录中</span></span><br><span class="line">go mod tidy</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /root/html2md</span><br><span class="line"><span class="meta">#</span> 下载依赖包，内容会存放在容器内 /go/pkg/mod 目录中</span><br><span class="line">go mod tidy</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><code>go mod init project_name</code>： 用 go mod 初始化目录</p>
 <p><code>go mod tidy</code>： 会同步依赖包，添加需要的，移除多余的</p>
@@ -68,7 +69,7 @@
 <p><code>go clean -modcache</code>： 清除缓存</p>
 </blockquote>
 <p>编写 golang 项目，引用 html2md 库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir $go-lab/demo</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建 html2md.go 文件</span></span><br><span class="line">vi $go-lab/demo/html2md.go</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir $go-lab/demo</span><br><span class="line"><span class="meta">#</span> 创建 html2md.go 文件</span><br><span class="line">vi $go-lab/demo/html2md.go</span><br></pre></td></tr></table></figure>
 <p><code>html2md.go</code> 文件内容如下</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"os"</span></span><br><span class="line">    <span class="string">"io/ioutil"</span></span><br><span class="line">    <span class="string">"github.com/TruthHun/html2md"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    args := os.Args</span><br><span class="line">    <span class="keyword">if</span> args == <span class="literal">nil</span> || <span class="built_in">len</span>(args) &lt; <span class="number">2</span> &#123;</span><br><span class="line">        Usage()</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    input := args[<span class="number">1</span>]</span><br><span class="line">    output := args[<span class="number">2</span>]</span><br><span class="line">    fmt.Println(<span class="string">"input file is: "</span>, input, <span class="string">"\noutput file is: "</span>, output)</span><br><span class="line"></span><br><span class="line">    b, _ := ioutil.ReadFile(input)</span><br><span class="line">    md := html2md.Convert(<span class="keyword">string</span>(b))</span><br><span class="line">    ioutil.WriteFile(output, []<span class="keyword">byte</span>(md), <span class="number">0777</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Usage = <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">"Usagge: ---"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>编译项目</p>
@@ -82,7 +83,7 @@
 <p>查看是否正确生成 code.md</p>
 </blockquote>
 <h2 id="交叉编译"><a href="#交叉编译" class="headerlink" title="交叉编译"></a>交叉编译</h2><p>golang 提供了完备的交叉编译环境。docker 中直接通过 <code>go build</code> 生成的执行文件只能在 linux 环境下运行。通过交叉编译，可以很方便的编译在 mac 或者 windows 下运行的可执行文件。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译 mac 可用的可执行文件，生成 html2md</span></span><br><span class="line">CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build html2md.go</span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译 windows 下的可执行文件，生成 html2md.exe</span></span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build html2md.go</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 编译 mac 可用的可执行文件，生成 html2md</span><br><span class="line">CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build html2md.go</span><br><span class="line"><span class="meta">#</span> 编译 windows 下的可执行文件，生成 html2md.exe</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build html2md.go</span><br></pre></td></tr></table></figure>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnblogs.com/rxbook/p/7081499.html" target="_blank" rel="noopener">Go语言获取命令行参数</a></p>
 <p><a href="https://www.cnblogs.com/GodBug/p/7890311.html" target="_blank" rel="noopener">go build 不同系统下的可执行文件</a></p>
 <p><a href="https://studygolang.com/articles/26335" target="_blank" rel="noopener">五分钟用Docker快速搭建Go开发环境</a></p>
@@ -91,6 +92,24 @@
 <p><a href="https://www.cnblogs.com/wt11/p/11340386.html" target="_blank" rel="noopener">go安装以及使用gomod、 goland设置</a></p>
 ]]></content>
       
+        <categories>
+            
+            <category> 开发技术 </category>
+            
+            <category> 后端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> golang </tag>
+            
+            <tag> html2md </tag>
+            
+        </tags>
         
     </entry>
     
@@ -1347,6 +1366,79 @@ FROM
     </entry>
     
     <entry>
+      <title><![CDATA[在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网]]></title>
+      <url>http://linfuyan.com/shadowsocks-with-digitalocean/</url>
+      <content type="html"><![CDATA[<p>如果下面这些情形你经常遇到：</p>
+<blockquote>
+<ol>
+<li>经常会折腾各种各样的 Web 应用(Java、nodejs、python等各种语言环境)，但是国内的云服务无法提供对应的环境。</li>
+<li>你只是临时的折腾这些应用，并不会长期的运营这些服务。国内的云服务费用昂贵，并需要持续较长时间购买。</li>
+<li>虽然可能是临时或者短时间折腾这些服务，你也希望可以有稳定的 IP 或者域名来访问服务。而国内的云服务域名需要备案，而你却懒得折腾这些。</li>
+<li>你经常有科学上网的需求，却苦于免费的 VPN 不稳定，稳定的却死贵。</li>
+</ol>
+</blockquote>
+<p>那么，可能 DigitalOcean 是你需要的。请往下继续看。否则，你已经可以关闭这个页面了。</p>
+<p>先说说 DigitalOcean：</p>
+<blockquote>
+<ol>
+<li>可以把 DigitalOcean 看做是 VPS，你对上面的环境有完全的支配权，想折腾什么类型的 Web 应用都可以。</li>
+<li>DigitalOcean 通过创建 droplet 来快速搭建基础环境，可视化的管理配置，轻而易举的可以与你的域名绑定。从而快速稳定的访问你的服务。</li>
+<li>DigitalOcean 最低的收费是每月5美刀，并且按照使用时长(每小时结算)收费。创建的 droplet 如果关闭，则不再继续收费。非常适合需要临时折腾的你。而且，通过这个<strong><a href="https://m.do.co/c/c6ceb25187c4" target="_blank" rel="noopener">邀请链接</a></strong>进行注册，将自动赠送10美刀。</li>
+<li>DigitalOcean 的旧金山节点，国内链接速度快，很适合通过搭建 Shadowsocks 来提供稳定靠谱的科学上网服务。</li>
+</ol>
+</blockquote>
+<a id="more"></a>
+<h2 id="在-DigitalOcean-上配置-droplet"><a href="#在-DigitalOcean-上配置-droplet" class="headerlink" title="在 DigitalOcean 上配置 droplet"></a>在 DigitalOcean 上配置 droplet</h2><p>注册 DigitalOcean 账户就不说了。需要提醒的是，使用 DigitalOcean 需要绑定银行卡。</p>
+<p>新建 droplet 的步骤： </p>
+<p><img src="http://img.uprogrammer.cn/static/images/ss_do_1.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p>1. 选择系统镜像，这里选了 ubuntu 16.04</p>
+<p><img src="http://img.uprogrammer.cn/static/images/ss_do_2.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p>2. 选择配置，这里选$5/月</p>
+<p><img src="http://img.uprogrammer.cn/static/images/ss_do_3.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p>3. 选择机房位置，旧金山的访问速度比较快</p>
+<p><img src="http://img.uprogrammer.cn/static/images/ss_do_4.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p>4. 添加 SSH key，用于后面远程登录的验证。具体操作可以看<a href="https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets" target="_blank" rel="noopener">官方文档</a>或者<a href="http://linfuyan.com/generating-ssh-keys/">生成SSH密钥</a>。</p>
+<p><img src="http://img.uprogrammer.cn/static/images/ss_do_5.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<p>5. 这样，不到1分钟时间，就创建好了一个 droplet，带有固定IP，还可以绑定域名。</p>
+<p><img src="http://img.uprogrammer.cn/static/images/ss_do_6.png" alt="在DigitalOcean上搭建Shadowsocks来实现稳定靠谱的科学上网"></p>
+<h2 id="安装并配置-Shadowsocks-服务"><a href="#安装并配置-Shadowsocks-服务" class="headerlink" title="安装并配置 Shadowsocks 服务"></a>安装并配置 Shadowsocks 服务</h2><p>在第一步中配置完 ssh key，就可以远程登录到 DigitalOcean 的 droplet 上，直接用 root 用户即可：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssh</span> root<span class="variable">@your_droplet_ip</span></span><br></pre></td></tr></table></figure>
+<p>刚才我们的 droplet 环境是 ubuntu 16.04，通过如下命令安装 shadowsocks：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get <span class="keyword">install</span> python-pip</span><br><span class="line">pip <span class="keyword">install</span> shadowsocks</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>我遇到了 <code>locale.Error: unsupported locale setting</code> 的问题，解决方案看这里：<a href="https://linfuyan.com/locale_error_unsupported_locale_setting/index.html">解决 pip install 时 locale.Error: unsupported locale setting 错误</a></p>
+</blockquote>
+<p>安装好以后，就可以通过以下指令启动服务：</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssserver -p <span class="number">8836</span> -k `password` -m rc4-md5</span><br><span class="line"></span><br><span class="line"># 或者可以通过以下指令在后台启动shadowsocks的服务：</span><br><span class="line">ssserver -p <span class="number">8843</span> -k `password` -m rc4-md5 -d start</span><br><span class="line">ssserver -p <span class="number">8843</span> -k `password` -m rc4-md5 -d stop</span><br></pre></td></tr></table></figure>
+<p>上面的指令方式不太方便，推荐通过文件配置的方式。新建一个 <code>/etc/shadowsocks.json</code> 文件，内容如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>: <span class="string">"your_droplet_ip"</span>,</span><br><span class="line">    <span class="attr">"server_port"</span>: <span class="number">8388</span>,</span><br><span class="line">    <span class="attr">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"local_port"</span>: <span class="number">1080</span>,</span><br><span class="line">    <span class="attr">"password"</span>: <span class="string">"your_password"</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>: <span class="number">300</span>,</span><br><span class="line">    <span class="attr">"method"</span>: <span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"fast_open"</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来使用下面的指令启动服务：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json</span><br><span class="line"></span><br><span class="line">#或者在后台运行</span><br><span class="line">ssserver -c /etc/shadowsocks<span class="selector-class">.json</span> -d start</span><br><span class="line">ssserver -c /etc/shadowsocks<span class="selector-class">.json</span> -d stop</span><br></pre></td></tr></table></figure>
+<p>以上操作以后，就可以通过各种 Shadowsocks 客户端科学上网啦。稳定又靠谱！</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件工具 </category>
+            
+            <category> Shadowsocks </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> DigitalOcean </tag>
+            
+            <tag> Shadowsocks </tag>
+            
+            <tag> 科学上网 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[形象的讲解 angular 中的 $q 与 promise]]></title>
       <url>http://linfuyan.com/$q_and_promise_in_angular/</url>
       <content type="html"><![CDATA[<p>promise 不是 angular 首创的，作为一种编程模式，它出现在…1976年，比 javascript 还要古老得多。promise 全称是 Futures and promises。具体的可以参见 <a href="http://en.wikipedia.org/wiki/Futures_and_promises" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/Futures_and_promises</a>。</p>
@@ -1427,6 +1519,74 @@ FROM
             <tag> Webpack </tag>
             
             <tag> SPA </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[实例：使用 cheerio 抓取网页数据，并通过 ejs 模板输出静态页面]]></title>
+      <url>http://linfuyan.com/grab-web-page-by-cheerio-and-render-via-ejs/</url>
+      <content type="html"><![CDATA[<p>这篇文章中，我将使用 cheerio 从 <a href="http://ss.uprogrammer.cn" target="_blank" rel="noopener">http://ss.uprogrammer.cn</a> 上抓取到免费的 shadowsocks 账号，然后通过 ejs 模板，输出成新的网页。</p>
+<p><strong>cheerio</strong> 是 nodejs 的抓取页面模块，为服务器特别定制的，快速、灵活、实施的 jquery 核心实现，适合各种 Web 爬虫程序。详见: <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">https://github.com/cheeriojs/cheerio</a></p>
+<p><strong>ejs</strong> 是一个 JavaScript 模板库，用来从 JSON 数据中生成 HTML 字符串。详见： <a href="https://github.com/tj/ejs" target="_blank" rel="noopener">https://github.com/tj/ejs</a></p>
+<a id="more"></a>
+<p>下面的截图中显示，<a href="http://ss.upgrogrammer.cn" target="_blank" rel="noopener">http://ss.upgrogrammer.cn</a> 上有一个免费 shadowsocks 账号的展示区域。</p>
+<p><img src="http://img.uprogrammer.cn/static/images/free-shadowsocks.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
+<p>并且通过 chrome 的审查元素，可以看到相关的源码。</p>
+<p><img src="http://img.uprogrammer.cn/static/images/free-shadowsocks-2.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
+<p>那么，接下来，我们就要抓取这部分内容中的免费 shadowsocks 账号信息。</p>
+<h2 id="新建-nodejs-项目，并安装相关依赖"><a href="#新建-nodejs-项目，并安装相关依赖" class="headerlink" title="新建 nodejs 项目，并安装相关依赖"></a>新建 nodejs 项目，并安装相关依赖</h2><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> init</span><br><span class="line">...</span><br><span class="line"><span class="built_in">npm</span> install cheerio ejs --save</span><br></pre></td></tr></table></figure>
+<p>以下图片显示了通过 <code>npm init</code> 命令创建 nodejs 项目的过程：</p>
+<p><img src="http://img.uprogrammer.cn/static/images/npm_init_project.gif" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
+<h2 id="获取-http-ss-upgrammer-cn-完整网页内容"><a href="#获取-http-ss-upgrammer-cn-完整网页内容" class="headerlink" title="获取 http://ss.upgrammer.cn 完整网页内容"></a>获取 <a href="http://ss.upgrammer.cn" target="_blank" rel="noopener">http://ss.upgrammer.cn</a> 完整网页内容</h2><p>在使用 cheerio 来抓取我们所需的内容之前，我们要通过 http 模块，将完整页面先获取到。</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">download</span>(<span class="params">url, callback</span>) </span>&#123;</span><br><span class="line">	http.get(<span class="built_in">url</span>, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> data = <span class="string">""</span>;</span><br><span class="line">		res.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>) </span>&#123;</span><br><span class="line">			data += chunk;</span><br><span class="line">		&#125;);</span><br><span class="line">		res.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			callback(data);</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;).on(<span class="string">"err"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(e);</span><br><span class="line">		callback(<span class="literal">null</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上的代码片段通过 GET 方法获取对应 url 的数据，并通过 callback 传回。</p>
+<h2 id="从获取到的完整页面中抓取免费账号信息"><a href="#从获取到的完整页面中抓取免费账号信息" class="headerlink" title="从获取到的完整页面中抓取免费账号信息"></a>从获取到的完整页面中抓取免费账号信息</h2><p>通过在浏览器中查看源代码(具体内容其实也就是我们通过上面的 <code>download</code> 函数返回的结构)，我们发现，这个页面结构是非常简单的。</p>
+<ol>
+<li>所有的免费账号信息都在 id 为 <code>account_container</code> 的 <code>&lt;div&gt;</code> 标签中。</li>
+<li>所有的单条账号信息，都在 <code>&lt;div class=&quot;col-md-4 text-center&quot;&gt;...&lt;/div&gt;</code> 中。</li>
+<li>单条账号中的信息，是连续的6个<code>&lt;h4&gt;</code>标签，按照服务器地址、端口号、密码、加密方式、状态、说明的方式存在。 </li>
+</ol>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">download(<span class="string">"http://ss.uprogrammer.cn/"</span>, function(<span class="name">data</span>) &#123;</span><br><span class="line">	if (!data) &#123;</span><br><span class="line">		console.log('no data found')<span class="comment">;</span></span><br><span class="line">		return<span class="comment">;</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    var accounts = []<span class="comment">;</span></span><br><span class="line">    </span><br><span class="line">	$ = cheerio.load(<span class="name">data</span>)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">    // 通过 cheerio 的选择器获取免费账号信息单元</span><br><span class="line">	var ss = $('#account_container &gt; .col-md-4')<span class="comment">;</span></span><br><span class="line">	</span><br><span class="line">	for (<span class="name">var</span> i = <span class="number">0</span><span class="comment">; i &lt; ss.length; i++) &#123;</span></span><br><span class="line">		var s = &#123;&#125;<span class="comment">;</span></span><br><span class="line">		</span><br><span class="line">		// 解析服务器</span><br><span class="line">		var server = $(<span class="name">ss</span>[i]).children().first()<span class="comment">;</span></span><br><span class="line">		s['server'] = server.text().substr(<span class="number">7</span>)<span class="comment">;</span></span><br><span class="line">		console.log(<span class="name">s</span>['server'])<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析端口</span><br><span class="line">		var port = $(<span class="name">server</span>).next()<span class="comment">;</span></span><br><span class="line">		s['port'] = port.text().substr(<span class="number">3</span>)<span class="comment">;</span></span><br><span class="line">		console.log(<span class="name">s</span>['port'])<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析密码</span><br><span class="line">		var password = $(<span class="name">port</span>).next()<span class="comment">;</span></span><br><span class="line">		s['password'] = password.text().substr(<span class="number">4</span>)<span class="comment">;</span></span><br><span class="line">		console.log(<span class="name">s</span>['password'])<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析加密方式</span><br><span class="line">		var encrypt = $(<span class="name">password</span>).next()<span class="comment">;</span></span><br><span class="line">		s['encrypt'] = encrypt.text().substr(<span class="number">5</span>)<span class="comment">;</span></span><br><span class="line">		console.log(<span class="name">s</span>['encrypt'])<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析状态</span><br><span class="line">		var status = $(<span class="name">encrypt</span>).next()<span class="comment">;</span></span><br><span class="line">		s['status'] = status.text().substr(<span class="number">3</span>)<span class="comment">;</span></span><br><span class="line">		console.log(<span class="name">s</span>['status'])<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        // 解析说明</span><br><span class="line">		var tip = $(<span class="name">status</span>).next()<span class="comment">;</span></span><br><span class="line">		s['tip'] = tip.text()<span class="comment">;</span></span><br><span class="line">		console.log(<span class="name">s</span>['tip'])<span class="comment">;</span></span><br><span class="line">		</span><br><span class="line">		account.push(<span class="name">s</span>)<span class="comment">;</span></span><br><span class="line">		console.log(<span class="string">"==="</span>)<span class="comment">;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>主要的代码片段如上，最终 <code>account</code> 变量中将保存所有的账号信息。</p>
+<h2 id="将数据通过-ejs-模板渲染成新的页面"><a href="#将数据通过-ejs-模板渲染成新的页面" class="headerlink" title="将数据通过 ejs 模板渲染成新的页面"></a>将数据通过 ejs 模板渲染成新的页面</h2><p>我们需要定义一个模板文件 <code>template.ejs</code>，如下：</p>
+<figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="meta">&lt;!DOCTYPE html&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-CN"</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>实例：使用 cheerio 抓取网页数据，并通过 ejs 模板输出静态页面<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></span></span><br><span class="line"><span class="xml">      </span><span class="vbscript">&lt;% servers.forEach(<span class="keyword">function</span>(<span class="built_in">server</span>)&#123; %&gt;</span><span class="xml"></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">h4</span>&gt;</span>服务器地址:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.<span class="built_in">server</span> %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">h4</span>&gt;</span>端口:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.port %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">h4</span>&gt;</span>密码:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.password %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">h4</span>&gt;</span>加密方式:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.encrypt %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">h4</span>&gt;</span>状态:</span><span class="vbscript">&lt;%= <span class="built_in">server</span>.status %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">h4</span>&gt;</span></span><span class="vbscript">&lt;%= <span class="built_in">server</span>.tip %&gt;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      </span><span class="vbscript">&lt;% &#125;) %&gt;</span><span class="xml"></span></span><br><span class="line"><span class="xml">  	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>这是一个非常简单的模板文件，只是说明传递数据与模板解析的功能。其中将接收名为 <code>servers</code> 的参数。</p>
+<p>下面我们定义一个 <code>render</code> 函数，读取 <code>template.ejs</code> 模板文件，并根据传入的 <code>servers</code> 参数进行渲染，输出到 <code>index.html</code> 中。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span><span class="params">(accounts)</span> </span>&#123;</span><br><span class="line">	fs.readFile(<span class="string">'./template.ejs'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e, v)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> ret = v.toString();</span><br><span class="line">        </span><br><span class="line">      <span class="keyword">var</span> options = &#123;servers: accounts&#125;</span><br><span class="line">      <span class="keyword">var</span> template = ejs.render(ret, options);</span><br><span class="line">      fs.writeFile(<span class="string">'./index.html'</span>, template, <span class="function"><span class="keyword">function</span> <span class="params">(err)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;         </span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>OK。完成上面的过程，整个程序结构如下：</p>
+<p><img src="http://img.uprogrammer.cn/static/images/demo-cheerio-ejs-structure.png" alt="http://ss.uprogrammer.cn 科学上网，免费shadowsocks账号"></p>
+<p>最后，在项目根目录中执行 <code>node index.js</code>， 正常在终端中可以看到日志输出，并生成 <code>index.html</code> 文件。通过浏览器打开 <code>index.html</code> 就可以验收成果啦。</p>
+<p>完整的源码见：<a href="https://github.com/linfuyan/demo-cheerio-ejs" target="_blank" rel="noopener">https://github.com/linfuyan/demo-cheerio-ejs</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 开发技术 </category>
+            
+            <category> nodejs </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> nodejs </tag>
+            
+            <tag> 科学上网 </tag>
+            
+            <tag> cheerio </tag>
+            
+            <tag> 网页抓取 </tag>
+            
+            <tag> 爬虫 </tag>
+            
+            <tag> ejs </tag>
+            
+            <tag> 模板 </tag>
+            
+            <tag> shadowsocks </tag>
             
         </tags>
         

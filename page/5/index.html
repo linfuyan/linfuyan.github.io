@@ -263,6 +263,504 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/android-activity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/android-activity/" itemprop="url">Android Activity 详解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-04T18:05:39+08:00">
+                2015-11-04
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
+                2018-10-18
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+    <div style="font-size: 20px;padding: 10px;height: 60px; line-height:60px;background: #eeeeee;">
+    阿里云产品限时红包，最高 <span style="font-size: 30px;color: red;">￥1888</span> 元，<a href="https://chuangke.aliyun.com/invite?userCode=nf6ezhzq" target="_blank">立即领取</a>。
+    </div>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><ol>
+<li>Activity 是一个提供屏幕的应用程序组件，用户通过它与机器产生交互。</li>
+<li>每个 Activity 包含一个窗口( window )，大部分情况下窗口是全屏的，也有可能窗口比屏幕小且在其他窗口的顶部。</li>
+<li>一个应用程序由一个或者多个 Activity 组成，这些 Activity 之间是松散的组织在一起的。</li>
+<li>每一个 Activity 可以启动其他的 Activity，不同的 Activity 可以执行不同的动作。</li>
+<li>新的 Activity 启动以后，原来的 Activity 会被保留到后退栈中，后退栈遵循基本的后进先出的堆栈机制。在当前 Activity 中按返回键退出，当前 Activity 将被从堆栈中弹出、销毁，之前的 Activity 则被恢复。</li>
+<li>当 Activity 被启动，或者被停止时，都会通过生命周期回调的方式来通知自己的状态变化。这些状态包括被创建、停止、恢复、销毁，每个回调都提供了在特定状态下执行特定任务的时机。</li>
+</ol>
+<h2 id="如何创建-Activity"><a href="#如何创建-Activity" class="headerlink" title="如何创建 Activity"></a>如何创建 Activity</h2><ol>
+<li>创建 Activity 可以通过创建 Activity 的子类，或者一个已经存在的 Activity 子类来实现。</li>
+<li>在创建的子类中实现生命周期的回调方法。其中最重要的是 onCreate 和 onPause。<ul>
+<li>必须实现 onCreate 方法，并且在其中调用 setContentView() 来定义用户布局。</li>
+<li>在 onPause 中提交当前会话中需要被持久化的更改，以避免用户可能不再回来导致的数据丢失。</li>
+</ul>
+</li>
+</ol>
+<h3 id="实现用户界面"><a href="#实现用户界面" class="headerlink" title="实现用户界面"></a>实现用户界面</h3><ol>
+<li>Activity 的用户界面是由一系列的视图层级来提供的。</li>
+<li>视图源自于 View 类的对象。每个视图控制 Activity 的窗口上的特定矩形空间，并响应用户交互。</li>
+<li>用户提供了一系列内置的视图，包括”控件”和”布局”。<ul>
+<li>控件指的是在屏幕上提供的可见、可交互的元素的视图。</li>
+<li>布局源自 ViewGroup， 为它的子类提供唯一的布局模型。</li>
+</ul>
+</li>
+<li>可以实现 View 或者 ViewGroup 的子类来创建自己的控件和布局。</li>
+<li>常用的视图布局定义方式包括：<ul>
+<li>通过资源文件中的 XML 布局，并在 setContentView() 方法中传递资源ID。可以使界面设计的维护和逻辑代码分离。</li>
+<li>通过代码创建 View， 并插入到 ViewGroup 来构建视图层级，然后传递根 ViewGroup 给 setContentView()。</li>
+</ul>
+</li>
+</ol>
+<h3 id="在清单中声明-Activity"><a href="#在清单中声明-Activity" class="headerlink" title="在清单中声明 Activity"></a>在清单中声明 Activity</h3><ol>
+<li>使用 Activity 前，需要在应用清单文件中对其进行声明。在 <code>&lt;application&gt;</code> 元素中添加 <code>&lt;activity&gt;</code> 子元素。</li>
+<li><code>&lt;activity&gt;</code> 元素中还有许多属性用来定义Activity 的标签、图标、主题等， <code>android:name</code> 是唯一必须的属性，用于定义 Activity 的名称。</li>
+<li>Activity 的名称定义以后，不要随便改动。如果改动，可能造成某些功能无法正常使用。</li>
+</ol>
+<h3 id="使用意图过滤器"><a href="#使用意图过滤器" class="headerlink" title="使用意图过滤器"></a>使用意图过滤器</h3><ol>
+<li><code>&lt;activity&gt;</code> 元素通过 <code>&lt;intent-filter&gt;</code> 元素来定义不同的意图过滤器，用来声明其他应用程序如何激活它。</li>
+<li>Android SDK 工具在创建应用程序时自动生成的 Activity 中包含的意图过滤器，声明了 Activity 响应 main 动作，并放在 launcher 类别中。<ul>
+<li><code>&lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;</code> 指定这是应用程序的主入口。</li>
+<li><code>&lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;</code> 指定 Activity 被列在系统的应用程序启动器中，这样用户可以启动它。</li>
+</ul>
+</li>
+<li>如果不允许其他的应用程序来启动 Activity，则不要声明任何的意图过滤器。</li>
+<li>在应用程序内部，可以通过显式的意图来启动想要的 Activity。</li>
+<li>如果定义了意图过滤器，则可以让其他应用程序通过隐式意图来激活 Activity。</li>
+<li><code>&lt;intent-filter&gt;</code> 元素中包含有 <code>&lt;action&gt;</code> 元素及可选的 <code>&lt;category&gt;</code> 或者 <code>&lt;data&gt;</code>，这些元素一同指定了 Activity 能响应的意图类型。</li>
+</ol>
+<h2 id="启动一个-Activity"><a href="#启动一个-Activity" class="headerlink" title="启动一个 Activity"></a>启动一个 Activity</h2><ol>
+<li>通过 startActivity() 方法来启动 Activity， 并传递一个 Intent 意图对象。</li>
+<li>Intent 对象通过两种方式描述想要启动的 Activity：<ul>
+<li>准确的 Activity 对象。</li>
+<li>想要执行的动作类型。系统会自动选择合适的 Activity， 可能来自其他的应用程序。</li>
+</ul>
+</li>
+<li>Intent 还可以传递少量的数据给即将启动的 Activity。</li>
+<li>使用类名来启动已知的 Activity：</li>
+</ol>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Intent</span> <span class="keyword">intent</span> = new <span class="keyword">Intent</span>(this, SignInActivity.<span class="keyword">class</span>);</span><br><span class="line">startActivity(<span class="keyword">intent</span>);</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>使用 Intent 来描述要执行的动作，系统从其他应用程序中选择打开合适的 Activity， 如果有多个 Activity， 则由用户来选择：</li>
+</ol>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Intent</span> <span class="keyword">intent</span> = new <span class="keyword">Intent</span>(<span class="keyword">Intent</span>.ACTION_SEND);</span><br><span class="line"><span class="keyword">intent</span>.putExtra(<span class="keyword">Intent</span>.EXTRA_EMAIL, recipientArray);</span><br><span class="line">startActivity(<span class="keyword">intent</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="为结果启动-Activity"><a href="#为结果启动-Activity" class="headerlink" title="为结果启动 Activity"></a>为结果启动 Activity</h3><ol>
+<li>如果启动一个 Activity， 并期望从新的 Activity 上接收一个结果，则使用 startActivityForResult()。</li>
+<li>要接收新 Activity 上的结果，需要在原 Activity 上实现 onActivityResult() 方法，从其中的 Intent 参数中获取返回结果。</li>
+<li>onActivityResult() 方法处理 Activity 返回结果：<ul>
+<li>处理成功，则 resultCode 为 RESULT_OK。</li>
+<li>需要检查 requestCode 是否与 startActivityForResult() 的第二个参数匹配。</li>
+<li>返回的结果以 Intent 带回。</li>
+</ul>
+</li>
+</ol>
+<h2 id="关闭-Activity"><a href="#关闭-Activity" class="headerlink" title="关闭 Activity"></a>关闭 Activity</h2><p>通过 finish() 和 finishActivity() 来关闭 Activity。实际上由于 Android 系统自己管理 Activity 的生命，你不应该显示的调用这些方法。</p>
+<h2 id="管理-Activity-生命周期"><a href="#管理-Activity-生命周期" class="headerlink" title="管理 Activity 生命周期"></a>管理 Activity 生命周期</h2><ol>
+<li>通过实现回调方法来管理 Activity 的生命周期，可以开发一个健壮且灵活的应用程序。 Activity 的生命周期则直接影响到它所关联的其他 Activity， 任务以及后退栈。</li>
+<li>Activity 的主要状态：<ul>
+<li>Resumed： Activity 处于前台屏幕，且拥有用户焦点。</li>
+<li>Paused：其他 Activity 位于前台，但这个 Activity 还是可见的。其他 Activity 位于顶部且没有覆盖整个屏幕。这时候， Activity 还在内存中，<strong>与窗口管理器关联</strong>，但在内存极低的情况下将被系统杀掉。</li>
+<li>Stopped： Activity 被其他 Activity 完全覆盖，位于后台。这时候， Activity 还在内存中，<strong>与窗口管理器分离</strong>，当需要内存时将被系统杀掉。</li>
+</ul>
+</li>
+<li>当 Activity 被暂停或者被停止，系统可以通过调用 finish() 或者直接删掉进程的方式丢弃它。重新打开时需要重建。</li>
+</ol>
+<h3 id="基础的生命周期方法"><a href="#基础的生命周期方法" class="headerlink" title="基础的生命周期方法"></a>基础的生命周期方法</h3><table>
+<thead>
+<tr>
+<th>生命周期方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onCreate()</td>
+<td>Activity 将被创建。</td>
+</tr>
+<tr>
+<td>onStart()</td>
+<td>Activity 即将可见。</td>
+</tr>
+<tr>
+<td>onResume()</td>
+<td>Activity 已经可见，处于 resumed 状态。</td>
+</tr>
+<tr>
+<td>onPause()</td>
+<td>其他 Activity 可见，自己则即将处于 paused 状态。</td>
+</tr>
+<tr>
+<td>onStop()</td>
+<td>Activity 不在可见，处于 stopped 状态。</td>
+</tr>
+<tr>
+<td>onDestroy()</td>
+<td>Activity 即将被销毁。</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>在实现生命周期方法时，需要调用父类的实现。</li>
+<li>实现这些生命周期方法，你可以监控 3 个嵌套的循环。<ul>
+<li>完整生命：从 onCreate() 到 onDestroy() 。在 onCreate() 中建立全局状态，并在 onDestroy() 中释放资源。</li>
+<li>可见生命：从 onStart() 到 onStop() 。这个过程中，用户可以看到 Activity 并与之交互。</li>
+<li>前台生命：从 onResume() 到 onPause()。</li>
+</ul>
+</li>
+</ol>
+<p><img src="http://img.uprogrammer.cn/static/images/activity_lifecycle.png" alt="Activity 生命周期"></p>
+<h3 id="保存-Activity-状态"><a href="#保存-Activity-状态" class="headerlink" title="保存 Activity 状态"></a>保存 Activity 状态</h3><ol>
+<li>Activity 处于 paused， stopped 时依然存在内存中，所有的数据及状态都存在，因此当被恢复时依然保持退出时的状态。</li>
+<li>但处于 paused， stopped 状态的 Activity 可能会被系统杀掉，从而用户重新打开时，与当时提出时不一样了。为了保证能够还原现场，则需要实现 onSaveInstanceState() 回调方法。</li>
+<li>系统在 Activity 被销毁之前调用 onSaveInstance() ，通过将需要记住的状态通过键值对的形式保存到 Bundle 参数中。当应用程序被系统杀死，并再次被启动时，会将保存的 Bundle 传递到 onCreate() 和 onRestoreInstanceState() 。从这些方法的 Bundle 参数中，就可以获取到 Activity 被销毁前的状态，并据此恢复 Activity。</li>
+</ol>
+<p><img src="http://img.uprogrammer.cn/static/images/restore_instance.png" alt="Activity 恢复实例"></p>
+<ol start="4">
+<li>onSaveInstanceState() 并不是在 Activity 被销毁之前一定会被调用。该方法在 onStop() 之前被调用，是否在 onPause() 前则不确定。</li>
+<li>即使你没有实现 onSaveInstanceState() ，在 Activity 的 onSaveInstanceState() 的默认实现中也可以恢复一些状态。由于 onSaveInstanceState() 的默认实现中保存了 UI 的状态，因此，在自己实现 onSaveInstanceState() 时，需要调用父类的 onSaveInstanceState()。</li>
+<li>由于 onSaveInstanceState() 不保证一定会被调用，因此不能在这个回调中记录 Activity 状态的变换，也不应该使用它来持久化数据，而应该使用 onPause()。</li>
+<li>一个好的，用来测试应用程序恢复状态能力的方法是简单地旋转设备的屏幕方向。</li>
+</ol>
+<h3 id="处理配置改变"><a href="#处理配置改变" class="headerlink" title="处理配置改变"></a>处理配置改变</h3><p>某些设备配置在运行时会发生改变，如屏幕方向、键盘可用性和语言。当这些改变发生时， Android 重建运行中的 Activity (系统调用 onDestroy() 后马上调用 onCreate() )。这个行为被设计用来帮助应用程序适应新的配置，自动为应用程序重新加载已提供的可替换资源，如为不同屏幕方向和尺寸使用的不同布局。</p>
+<p>处理重启的最好方法是使用 onSaveInstanceState() 和 onRestoreInstanceState() (或者 onCreate()) 来保存和恢复 Activity 的状态。</p>
+<h3 id="协调多个-Activity"><a href="#协调多个-Activity" class="headerlink" title="协调多个 Activity"></a>协调多个 Activity</h3><p>当一个 Activity 启动另外一个时，两个 Activity 都会经历生命周期的变换。当另一个 Activity 被创建时，第一个 Activity 将暂停，乃至停止(如果它在后台且可见，则不会停止)。如果两个 Activity 之间共享保存在磁盘上的数据，对于理解在第二个 Activity 创建完成之前，第一个 Activity 不会完全停止是非常重要的。第二个 Activity 的启动过程和第一个 Activity 的停止过程重叠。</p>
+<p>生命周期回调的顺序是被良好定义的，特别是当两个 Activity 在相同的进程中，且一个启动另外一个。下面是当 Activity A 启动 Activity B 时的操作顺序：</p>
+<ol>
+<li>执行 Activity A 的 onPause() 方法。</li>
+<li>Activity B 的 onCreate() ， onStart() 和 onResume() 方法按顺序执行。(这是 Activity 获取了用户焦点)。</li>
+<li>如果 Activity A 不再屏幕上可见， onStop() 方法被执行。</li>
+</ol>
+<p>可预期的生命周期回调顺序使得你可以管理一个 Activity 到另一个的变换信息。例如，你必须在第一个 Activity 停止时对数据库进行写入，这样接下来的 Activity 可以读取，那么你需要在 onPause() 中写入数据库，而不是在 onStop() 中。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://developer.android.com/guide/components/activities.html" target="_blank" rel="noopener">https://developer.android.com/guide/components/activities.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/faq/open-files-via-cmdline-using-sublime-text/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/faq/open-files-via-cmdline-using-sublime-text/" itemprop="url">Mac 上 sublime text 通过命令行打开文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-03T18:28:00+08:00">
+                2015-11-03
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2015-11-03T18:39:01+08:00">
+                2015-11-03
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/FAQ/" itemprop="url" rel="index">
+                    <span itemprop="name">FAQ</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+    <div style="font-size: 20px;padding: 10px;height: 60px; line-height:60px;background: #eeeeee;">
+    阿里云产品限时红包，最高 <span style="font-size: 30px;color: red;">￥1888</span> 元，<a href="https://chuangke.aliyun.com/invite?userCode=nf6ezhzq" target="_blank">立即领取</a>。
+    </div>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在 Mac 上让 sublime text 通过命令行打开文件，可以提升比较高的效率。</p>
+<p>具体过程如下：</p>
+<p>1. 首先，在主用户目录下新建 .bash_alias 文件</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch ~/.bash<span class="number">_</span><span class="keyword">alias</span></span><br></pre></td></tr></table></figure>
+<p>2. 在其中添加如下代码</p>
+<figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alias</span> <span class="title">subl</span>=<span class="comment">'open -a /Applications/"Sublime Text 2.app"'</span></span><br><span class="line"><span class="keyword">alias</span> <span class="title">st</span>=subl</span><br></pre></td></tr></table></figure>
+<p>3. 使配置生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bash_alias</span><br></pre></td></tr></table></figure>
+<p>4. 可以将上面的命令，添加到 <code>~/.bash_profile</code> 中，这样每次启动就自动使上面的配置生效了。</p>
+<p>5. 完成上面步骤，就可以通过如下命令，打开目标文件/目录了：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">st</span> path/<span class="keyword">to</span>/dest/dir_or_file</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>其他的应用也是可以通过类似的方式配置，来提高操作的效率，如下面添加了 mou 来打开文件。</p>
+</blockquote>
+<figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alias</span> <span class="title">mou</span>=<span class="comment">'open -a /Applications/Mou.app'</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://linfuyan.com/faq/resolve-the-same-input-jar-is-specified-twice-issue/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1662,371 +2160,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/material-design-training/creating-lists-and-cards/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿阿燃">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/material-design-training/creating-lists-and-cards/" itemprop="url">创建列表和卡片</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-24T11:00:00+08:00">
-                2015-10-24
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
-                2018-10-18
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/教程/" itemprop="url" rel="index">
-                    <span itemprop="name">教程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/教程/官方-Material-Design-培训/" itemprop="url" rel="index">
-                    <span itemprop="name">官方 Material Design 培训</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-    <div style="font-size: 20px;padding: 10px;height: 60px; line-height:60px;background: #eeeeee;">
-    阿里云产品限时红包，最高 <span style="font-size: 30px;color: red;">￥1888</span> 元，<a href="https://chuangke.aliyun.com/invite?userCode=nf6ezhzq" target="_blank">立即领取</a>。
-    </div>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。</p>
-</blockquote>
-<p>在应用程序中要创建具备 material design 风格的复杂列表和卡片，可以使用 RecyclerView 和 CardView 组件。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/material-design-training/creating-lists-and-cards/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/material-design-training/using-the-material-theme/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿阿燃">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/material-design-training/using-the-material-theme/" itemprop="url">使用 Material 主题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-24T10:00:35+08:00">
-                2015-10-24
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
-                2018-10-18
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/教程/" itemprop="url" rel="index">
-                    <span itemprop="name">教程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/教程/官方-Material-Design-培训/" itemprop="url" rel="index">
-                    <span itemprop="name">官方 Material Design 培训</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-    <div style="font-size: 20px;padding: 10px;height: 60px; line-height:60px;background: #eeeeee;">
-    阿里云产品限时红包，最高 <span style="font-size: 30px;color: red;">￥1888</span> 元，<a href="https://chuangke.aliyun.com/invite?userCode=nf6ezhzq" target="_blank">立即领取</a>。
-    </div>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。</p>
-</blockquote>
-<p>新的 material 主题提供：</p>
-<ul>
-<li>可以设置调色板的系统组件。</li>
-<li>系统组件的触摸反馈动画。</li>
-<li>活动转场效果动画。</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/material-design-training/using-the-material-theme/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2079,7 +2212,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">97</span>
+                  <span class="site-state-item-count">99</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2090,7 +2223,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2101,7 +2234,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">234</span>
+                  <span class="site-state-item-count">245</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

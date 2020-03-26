@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://linfuyan.com/"/>
-  <updated>2020-03-12T14:41:30.133Z</updated>
+  <updated>2020-03-26T03:00:27.542Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mybatis PageHelper 自动添加 limit 引发的血案</title>
+    <link href="http://linfuyan.com/mybatis-pagehelper-limit/"/>
+    <id>http://linfuyan.com/mybatis-pagehelper-limit/</id>
+    <published>2020-03-26T02:40:49.952Z</published>
+    <updated>2020-03-26T03:00:27.542Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="现象描述"><a href="#现象描述" class="headerlink" title="现象描述"></a>现象描述</h2><p>在浏览器上多次刷新同一个页面，发现同一区域的数据会时多时少。</p><p>查看接口响应发现同一接口多次请求会返回不一样的数据。</p><a id="more"></a><h3 id="正常情况"><a href="#正常情况" class="headerlink" title="正常情况"></a>正常情况</h3><p>页面显示</p><p><img src="http://img.uprogrammer.cn/static/20200326101334.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p><p>接口响应</p><p><img src="http://img.uprogrammer.cn/static/20200326101452.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p><h3 id="异常情况"><a href="#异常情况" class="headerlink" title="异常情况"></a>异常情况</h3><p>页面显示</p><p><img src="http://img.uprogrammer.cn/static/20200326101614.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p><p>接口响应</p><p><img src="http://img.uprogrammer.cn/static/20200326101650.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p><p>正常接口响应与异常接口响应数据量对比</p><p><img src="http://img.uprogrammer.cn/static/20200326101753.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p><h2 id="问题定位"><a href="#问题定位" class="headerlink" title="问题定位"></a>问题定位</h2><h3 id="猜测一：负载均衡问题"><a href="#猜测一：负载均衡问题" class="headerlink" title="猜测一：负载均衡问题"></a>猜测一：负载均衡问题</h3><p>多个不同版本的应用实例，代码实现或者数据库数据不同导致。</p><p>经过排查，开发和测试环境都存在一样的问题，并且这两个环境都是单实例的。</p><h3 id="猜测二：代码逻辑有误"><a href="#猜测二：代码逻辑有误" class="headerlink" title="猜测二：代码逻辑有误"></a>猜测二：代码逻辑有误</h3><p>走查了代码，发现这里只是一个简单的单表查询，并没有复杂逻辑。</p><p>同时针对单个接口反复测试，无法重现响应数据时多时少的问题。</p><p>目前看，这块的代码并没有很直观的错误。</p><h3 id="猜测三：sql-多次执行返回不同结果"><a href="#猜测三：sql-多次执行返回不同结果" class="headerlink" title="猜测三：sql 多次执行返回不同结果"></a>猜测三：sql 多次执行返回不同结果</h3><p>使用查询语句，多次重试，没有复现异常。</p><h3 id="猜测四："><a href="#猜测四：" class="headerlink" title="猜测四："></a>猜测四：</h3><p>经过猜测二、三的排查，怀疑是页面上多个请求同时发起共同导致的问题。</p><p>于是反复刷新页面，查看后端日志，发现正常情况与异常情况时执行的 sql 不一致。</p><p><strong>异常情况下，会在正常的 sql 后面添加 <code>limit</code> 子句。</strong></p><p><img src="http://img.uprogrammer.cn/static/20200326101902.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p><p>到这里，我只能猜测是 mybatis 动态生成的 sql 有问题。</p><p>那么什么原因导致会在正常的 sql 后添加 limit 子句，并且这个 <code>5</code> 是从哪里来的呢？</p><h2 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h2><p>在度娘上以 “mybatis 自动添加 limit” 为关键字搜索，发现由于 PageHelper 插件自动添加 limit 的问题很多。</p><p>在 <a href="https://github.com/pagehelper/Mybatis-PageHelper" target="_blank" rel="noopener">Mybatis-PageHelper</a> 的<a href="https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/HowToUse.md" target="_blank" rel="noopener">使用方法</a>文章中有如下说明：</p><p><img src="http://img.uprogrammer.cn/static/20200326101959.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p><p><img src="http://img.uprogrammer.cn/static/20200326102043.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p><p>由此，<strong>可能的原因是在这个页面上的其他请求带有分页，同时由于后端对 Mybatis PageHelper 的使用不规范导致。</strong></p><p>页面上有分页的请求</p><p><img src="http://img.uprogrammer.cn/static/20200326102135.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p><p>在排查了该接口的代码后发现：代码中调用 <code>PageHelper.startPage</code> 方法的地方与真正执行查询的代码中间有很多复杂的业务处理。</p><p>问题原因基本清楚了。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol><li>永久的解决方案：规范 <code>PageHelper.startPage</code> 方法的使用，只在真实查询要执行前，调用该方法，确保安全分页。</li><li>临时的解决方案：在出现问题的查询前面，调用 <code>PageHelper.clearPage</code></li></ol><p>目前按照临时解决方案进行了处理，反复测试以后，问题得到了解决。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;现象描述&quot;&gt;&lt;a href=&quot;#现象描述&quot; class=&quot;headerlink&quot; title=&quot;现象描述&quot;&gt;&lt;/a&gt;现象描述&lt;/h2&gt;&lt;p&gt;在浏览器上多次刷新同一个页面，发现同一区域的数据会时多时少。&lt;/p&gt;
+&lt;p&gt;查看接口响应发现同一接口多次请求会返回不一样的数据。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="后端" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="mybatis" scheme="http://linfuyan.com/tags/mybatis/"/>
+    
+      <category term="pagehelper" scheme="http://linfuyan.com/tags/pagehelper/"/>
+    
+      <category term="limit" scheme="http://linfuyan.com/tags/limit/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux 查看占用端口的进程</title>
@@ -580,39 +609,6 @@
       <category term="Android O" scheme="http://linfuyan.com/tags/Android-O/"/>
     
       <category term="Google IO 2017" scheme="http://linfuyan.com/tags/Google-IO-2017/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java Swing 代码打包成 Windows 上的 exe 文件</title>
-    <link href="http://linfuyan.com/java-swing-drag-jar-exe/"/>
-    <id>http://linfuyan.com/java-swing-drag-jar-exe/</id>
-    <published>2017-03-16T05:30:00.000Z</published>
-    <updated>2018-10-18T12:14:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>年前抽空给朋友做了个小东西。具体功能就不说了。对于他的最终需求，概括的说就是：需要一个满足功能的在 windows 上的 .exe 文件。桌面开发我不熟，后来基于 Java Swing 给实现了。在实现过程中，几个关键点记下来做备忘。</p><ol><li>拖拽文件到界面的输入框中，后续对文件进行处理。简化一下，拖拽文件到输入框，并获取文件路径。</li><li>项目的依赖是用 Gradle 来管理的，功能实现依赖第三方 jar，最终需要打包成一个可执行 jar。</li><li>将制作好的 jar 打包成 .exe 文件。</li></ol><a id="more"></a><h2 id="1-实现拖拽文件到指定控件，并获取文件路径"><a href="#1-实现拖拽文件到指定控件，并获取文件路径" class="headerlink" title="1. 实现拖拽文件到指定控件，并获取文件路径"></a>1. 实现拖拽文件到指定控件，并获取文件路径</h2><p>直接上核心代码，具体看注释。</p><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.datatransfer.DataFlavor;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.dnd.DnDConstants;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.dnd.DropTarget;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.dnd.DropTargetAdapter;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> java.awt.dnd.DropTargetDropEvent;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 拖拽文件到控件,并处理</span></span><br><span class="line"><span class="comment">     * @param component 要接受拖拽的控件</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> drag(Component component) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> DropTarget(component, DnDConstants.ACTION_COPY_OR_MOVE, <span class="keyword">new</span> DropTargetAdapter() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 重写适配器的drop方法,实现自己需要的逻辑</span></span><br><span class="line">            @Override</span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> drop(DropTargetDropEvent event) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="comment">// 如果拖入的文件格式受支持</span></span><br><span class="line">                    <span class="keyword">if</span> (event.isDataFlavorSupported(DataFlavor.javaFileListFlavor)) &#123;</span><br><span class="line">                        <span class="comment">// 接收拖拽来的数据</span></span><br><span class="line">                        event.acceptDrop(DnDConstants.ACTION_COPY_OR_MOVE);</span><br><span class="line">                        <span class="comment">// 读取传递过来的数据</span></span><br><span class="line">                        java.util.List&lt;File&gt; list = (java.util.List&lt;File&gt;) (event.getTransferable().getTransferData(DataFlavor.javaFileListFlavor));</span><br><span class="line">                        <span class="comment">// 对传递过来的数据做处理</span></span><br><span class="line">                        <span class="comment">// do what you want to do</span></span><br><span class="line">                        event.dropComplete(<span class="literal">true</span>); <span class="comment">// 指示拖拽操作已完成</span></span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        event.rejectDrop(); <span class="comment">// 否则拒绝拖拽来的数据</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><h2 id="2-通过-Gradle-制作可执行的-jar-文件"><a href="#2-通过-Gradle-制作可执行的-jar-文件" class="headerlink" title="2. 通过 Gradle 制作可执行的 jar 文件"></a>2. 通过 Gradle 制作可执行的 jar 文件</h2><p>参考这里：<a href="http://stackoverflow.com/questions/21721119/creating-runnable-jar-with-gradle" target="_blank" rel="noopener">Creating runnable JAR with Gradle</a></p><p>里面提到了两种方案，一种是直接使用 application 插件，另一种是 shadowJar 插件。</p><p>我最终采用了 shadowJar 的方式实现，核心代码如下：</p><figure class="highlight roboconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    <span class="attribute">repositories &#123;</span></span><br><span class="line"><span class="attribute">        maven &#123;</span></span><br><span class="line"><span class="attribute">            url "https</span>://plugins<span class="variable">.gradle</span><span class="variable">.org</span>/m2/"</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath "com<span class="variable">.github</span><span class="variable">.jengelman</span><span class="variable">.gradle</span><span class="variable">.plugins</span>:shadow:1.2.4"</span><br><span class="line">        classpath 'gradle<span class="variable">.plugin</span><span class="variable">.edu</span><span class="variable">.sc</span><span class="variable">.seis</span><span class="variable">.gradle</span>:launch4j:2.3.0'</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">apply plugin: 'java'</span><br><span class="line">apply plugin: 'com<span class="variable">.github</span><span class="variable">.johnrengelman</span><span class="variable">.shadow</span>'</span><br><span class="line"></span><br><span class="line">mainClassName = "your<span class="variable">.main</span><span class="variable">.ClassName</span>"</span><br><span class="line"></span><br><span class="line">shadowJar &#123;</span><br><span class="line">    baseName = 'your_jar_name'</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>打包的命令行如下：</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">./gradlew</span> shadowJar</span><br></pre></td></tr></table></figure><p>完成后，就可以在 build/libs 目录下找到 <code>*-all.jar</code>。</p><p>使用 <code>java -jar your-app-all.jar</code> 运行，看下你的程序已经跑起来了。</p><h2 id="3-将-jar-制作成-windows-下的-exe-文件"><a href="#3-将-jar-制作成-windows-下的-exe-文件" class="headerlink" title="3. 将 jar 制作成 windows 下的 exe 文件"></a>3. 将 jar 制作成 windows 下的 exe 文件</h2><p>网上找了很多这方面的工具，最终我发现 launch4j 真是个好用的东西。</p><p>我使用的是 launch4j 的 mac 版。这东西是跨平台的。</p><p>由于 java 的运行离不开 jre 环境，而除了开发人员，正常用户电脑上基本没有环境。所以我们打包的时候，需要把 jre 一起打包。</p><p>mac 上用 launch4j 来将 jar 打包成在 windows 上运行的 exe，还有一点需要注意，就是用于打包的 jre 必须是 windows 下的。</p><p>最简单的 launch4j 配置只需两步，就可以把 jar 打包成 exe了。</p><p><img src="http://img.uprogrammer.cn/static/images/jar2exe-1.png" alt="launch4j 基础配置"></p><p><img src="http://img.uprogrammer.cn/static/images/jar2exe-2.png" alt="launch4j jre 配置"></p><p><strong>jre</strong> 要放置在最终打包的 exe 的同级目录下。这边主要是因为打包后的 exe 是通过相对路径来寻找依赖的 jre。如果配置错误，将导致后面的 exe 文件无法运行。</p><p>到这里，最终打包的 exe 是可以运行了。不过 jre 包和 exe 文件是分开的。可以把这些东西，放在一个文件夹下再压缩，最后分发给用户。</p><p>还可以把  jre 一起打包到 exe 中。以后有时间我在处理。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;年前抽空给朋友做了个小东西。具体功能就不说了。对于他的最终需求，概括的说就是：需要一个满足功能的在 windows 上的 .exe 文件。桌面开发我不熟，后来基于 Java Swing 给实现了。在实现过程中，几个关键点记下来做备忘。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;拖拽文件到界面的输入框中，后续对文件进行处理。简化一下，拖拽文件到输入框，并获取文件路径。&lt;/li&gt;
-&lt;li&gt;项目的依赖是用 Gradle 来管理的，功能实现依赖第三方 jar，最终需要打包成一个可执行 jar。&lt;/li&gt;
-&lt;li&gt;将制作好的 jar 打包成 .exe 文件。&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="经验实践" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E7%BB%8F%E9%AA%8C%E5%AE%9E%E8%B7%B5/"/>
-    
-    
-      <category term="swing" scheme="http://linfuyan.com/tags/swing/"/>
-    
-      <category term="shadowJar" scheme="http://linfuyan.com/tags/shadowJar/"/>
-    
-      <category term="launch4j" scheme="http://linfuyan.com/tags/launch4j/"/>
     
   </entry>
   

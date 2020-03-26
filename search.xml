@@ -4,6 +4,71 @@
   
     
     <entry>
+      <title><![CDATA[Mybatis PageHelper 自动添加 limit 引发的血案]]></title>
+      <url>http://linfuyan.com/mybatis-pagehelper-limit/</url>
+      <content type="html"><![CDATA[<h2 id="现象描述"><a href="#现象描述" class="headerlink" title="现象描述"></a>现象描述</h2><p>在浏览器上多次刷新同一个页面，发现同一区域的数据会时多时少。</p>
+<p>查看接口响应发现同一接口多次请求会返回不一样的数据。</p>
+<a id="more"></a>
+<h3 id="正常情况"><a href="#正常情况" class="headerlink" title="正常情况"></a>正常情况</h3><p>页面显示</p>
+<p><img src="http://img.uprogrammer.cn/static/20200326101334.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p>
+<p>接口响应</p>
+<p><img src="http://img.uprogrammer.cn/static/20200326101452.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p>
+<h3 id="异常情况"><a href="#异常情况" class="headerlink" title="异常情况"></a>异常情况</h3><p>页面显示</p>
+<p><img src="http://img.uprogrammer.cn/static/20200326101614.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p>
+<p>接口响应</p>
+<p><img src="http://img.uprogrammer.cn/static/20200326101650.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p>
+<p>正常接口响应与异常接口响应数据量对比</p>
+<p><img src="http://img.uprogrammer.cn/static/20200326101753.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p>
+<h2 id="问题定位"><a href="#问题定位" class="headerlink" title="问题定位"></a>问题定位</h2><h3 id="猜测一：负载均衡问题"><a href="#猜测一：负载均衡问题" class="headerlink" title="猜测一：负载均衡问题"></a>猜测一：负载均衡问题</h3><p>多个不同版本的应用实例，代码实现或者数据库数据不同导致。</p>
+<p>经过排查，开发和测试环境都存在一样的问题，并且这两个环境都是单实例的。</p>
+<h3 id="猜测二：代码逻辑有误"><a href="#猜测二：代码逻辑有误" class="headerlink" title="猜测二：代码逻辑有误"></a>猜测二：代码逻辑有误</h3><p>走查了代码，发现这里只是一个简单的单表查询，并没有复杂逻辑。</p>
+<p>同时针对单个接口反复测试，无法重现响应数据时多时少的问题。</p>
+<p>目前看，这块的代码并没有很直观的错误。</p>
+<h3 id="猜测三：sql-多次执行返回不同结果"><a href="#猜测三：sql-多次执行返回不同结果" class="headerlink" title="猜测三：sql 多次执行返回不同结果"></a>猜测三：sql 多次执行返回不同结果</h3><p>使用查询语句，多次重试，没有复现异常。</p>
+<h3 id="猜测四："><a href="#猜测四：" class="headerlink" title="猜测四："></a>猜测四：</h3><p>经过猜测二、三的排查，怀疑是页面上多个请求同时发起共同导致的问题。</p>
+<p>于是反复刷新页面，查看后端日志，发现正常情况与异常情况时执行的 sql 不一致。</p>
+<p><strong>异常情况下，会在正常的 sql 后面添加 <code>limit</code> 子句。</strong></p>
+<p><img src="http://img.uprogrammer.cn/static/20200326101902.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p>
+<p>到这里，我只能猜测是 mybatis 动态生成的 sql 有问题。</p>
+<p>那么什么原因导致会在正常的 sql 后添加 limit 子句，并且这个 <code>5</code> 是从哪里来的呢？</p>
+<h2 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h2><p>在度娘上以 “mybatis 自动添加 limit” 为关键字搜索，发现由于 PageHelper 插件自动添加 limit 的问题很多。</p>
+<p>在 <a href="https://github.com/pagehelper/Mybatis-PageHelper" target="_blank" rel="noopener">Mybatis-PageHelper</a> 的<a href="https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/HowToUse.md" target="_blank" rel="noopener">使用方法</a>文章中有如下说明：</p>
+<p><img src="http://img.uprogrammer.cn/static/20200326101959.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p>
+<p><img src="http://img.uprogrammer.cn/static/20200326102043.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p>
+<p>由此，<strong>可能的原因是在这个页面上的其他请求带有分页，同时由于后端对 Mybatis PageHelper 的使用不规范导致。</strong></p>
+<p>页面上有分页的请求</p>
+<p><img src="http://img.uprogrammer.cn/static/20200326102135.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p>
+<p>在排查了该接口的代码后发现：代码中调用 <code>PageHelper.startPage</code> 方法的地方与真正执行查询的代码中间有很多复杂的业务处理。</p>
+<p>问题原因基本清楚了。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol>
+<li>永久的解决方案：规范 <code>PageHelper.startPage</code> 方法的使用，只在真实查询要执行前，调用该方法，确保安全分页。</li>
+<li>临时的解决方案：在出现问题的查询前面，调用 <code>PageHelper.clearPage</code></li>
+</ol>
+<p>目前按照临时解决方案进行了处理，反复测试以后，问题得到了解决。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 开发技术 </category>
+            
+            <category> 后端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> mybatis </tag>
+            
+            <tag> pagehelper </tag>
+            
+            <tag> limit </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Linux 查看占用端口的进程]]></title>
       <url>http://linfuyan.com/linux-port-taken-up/</url>
       <content type="html"><![CDATA[<p>在 linux 上，我们经常会遇到端口被占用，导致应用程序无法启动的情况，这时候就需要知道到底是哪个进程或是哪个程序占用了这个端口，以便进行后面的处理。</p>

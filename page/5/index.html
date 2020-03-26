@@ -263,6 +263,314 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/task-and-back-stack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/task-and-back-stack/" itemprop="url">Android Task 与后退栈解析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-10T00:17:00+08:00">
+                2015-11-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
+                2018-10-18
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+    <div style="font-size: 20px;padding: 10px;height: 60px; line-height:60px;background: #eeeeee;">
+    阿里云产品限时红包，最高 <span style="font-size: 30px;color: red;">￥1888</span> 元，<a href="https://chuangke.aliyun.com/invite?userCode=nf6ezhzq" target="_blank">立即领取</a>。
+    </div>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>应用程序通常包含多个 Activity。每个 Activity 围绕用户能够执行的指定动作类型和启动其他 Activity 来设计。例如，一个邮件应用程序有一个用来显示新信息列表的 Activity ，当用户选择一条信息，一个新的 Activity 打开用来查看信息。</p>
+<p>一个 Activity 可以打开存在设备上的其他应用程序。例如，你的应用想要发送邮件信息，你可以定义一个意图来执行”发送”动作，并包含一些如邮箱地址和信息的数据。其他应用程序的 Activity 声明自己能够处理这种类型的意图，并打开。这个例子中，意图是想要发送邮件，因此邮件应用的创作 Activity 启动(如果多个 Activity 支持相同的意图，系统将让用户来选择)。当邮件发送完成，这个 Activity 退出，看起来就像是自己应用程序的一部分， Android 通过将这些 Activity 保存在相同的 Task 中来维持一致的用户体验。</p>
+<p>Task 是用户在执行特定工作时与之交互的一系列 Activity 集合。 Activity 被排列在后退栈中，以每个 Activity 被打开的顺序排列。</p>
+<p>对于大部分 Task 而言，设备的主屏幕都是起始位置。当用户触摸应用程序启动器或者主屏幕上的快捷方式时，应用程序的 Task 进入前台。如果应用程序的 Task 不存在(即应用程序最近没有被使用)，那么新的 Task 将被创建，并且应用程序打开的主 Activity 将作为 Task 的根 Activity。</p>
+<p>当当前 Activity 启动另外的 Activity ， 新的 Activity 将被推到栈顶并获取焦点。之前的 Activity 仍然在栈中，但是被停止的。当 Activity 被停止时，系统保持了它的用户界面的当前状态。当用户按下返回按钮，当前 Activity 被从栈顶弹出，之前的 Activity 则恢复为之前 UI 所保存下来的状态。 栈中的 Activity 不会被重新排列，只能够被推入到栈中或者从栈中弹出。当被当前 Activity 启动时推入栈中，用户按下后退键时从栈中弹出。后退栈的操作遵循后进先出的原则。下图可视化的展示了随着时间推移 Activity 与后退栈中的关系。</p>
+<p><img src="http://img.uprogrammer.cn/static/images/diagram_backstack.png" alt=""></p>
+<p>如果用户继续按返回键，每个 Activity 都会从栈中被弹出来展示上一个 Activity ，直到回到主屏幕(或者回到运行 Task 开始的 Activity )。当所有的 Activity 从栈中移出， Task 就不存在了。</p>
+<p>Task 是一个相互结合的单元，当用户启动新的 Task 或者通过按下 Home 键来返回主屏幕时，原来的 Task 进入后台。一旦进入后台， Task 中的所有 Activity 被停止，但是 Task 的后退栈中是完整的，只是失去了焦点。一个 Task 可以重新回到前台以便用户打开。</p>
+<p><img src="http://img.uprogrammer.cn/static/images/diagram_multitasking.png" alt=""></p>
+<p>假设，当前的 Task A 包含 3 个 Activity 在它的栈中，即当前 Activity 下有另外两个。用户按下 Home 键，从应用程序启动器新的应用程序。当主屏幕显示， Task A 进入后台。当新的应用程序启动，系统为新的应用程序启动了 Task B (其中包含自己 Activity 的栈)。在新的应用程序中玩了不久，用户再次回到主屏幕，并选择了先前 Task A 中启动的应用程序。这是 Task A 进入前台，堆栈中的 3 个 Activity 都是完整的，栈顶的 Activity 被恢复。这种情况下，用户可以通过返回主屏幕，再点击应用程序图标来启动。这是 Android 上多任务的一个实例。</p>
+<blockquote>
+<p>注意：多个 Task 可以同时被维持在后台。但如果用户同时运行太多的后台任务，系统会为了回收内存而销毁后台的 Activity ，这会引起 Activity 状态的丢失。</p>
+</blockquote>
+<p>由于后退栈中的 Activity 永远不会被重排，如果你的应用程序允许用户从多个 Activity 中启动一个特殊的 Activity ，那么，新的 Activity 实例将被创建并推入栈中，而不是将之前的其他 Activity 实例放到顶部。这样，应用程序中的一个 Activity 可能被实例化多次，如下图所示。当用户使用返回键导航回去时，每个 Activity 的实例将按照被打开的顺序来展示。但是，如果你不想让一个 Activity 被实例化多次，你可以修改这些行为。具体怎么做，在下一节的[管理  Task] 中介绍。</p>
+<p><img src="http://img.uprogrammer.cn/static/images/diagram_multiple_instances.png" alt=""></p>
+<p>总结一下 Activity 和 Task 的默认行为：</p>
+<ol>
+<li>当 Activity A 启动 Activity B 时， Activity A 被停止，但系统保存了它的状态，包括滚动的位置和输入的文本等。如果用户在 Activity B 时按下返回键， Activity A 会返回到其原来保存的状态。</li>
+<li>当用户按下 Home 键离开 Task ，当前的 Activity 及它所在的 Task 进入后台。系统保持 Task 中每个 Activity 的状态。如果用户通过选择启动图标再次启动 Task ， Task 进入前台，并且在栈顶部的 Activity 被恢复。</li>
+<li>如果用户按下返回键，当前的 Activity 被从栈中弹出并销毁。栈中之前的 Activity 被恢复。当 Activity 被销毁，系统不在保持 Activity 的状态。</li>
+<li>Activity 可以被实例化多次，即使是来自其他的 Task 。</li>
+</ol>
+<h2 id="保存-Activity-状态"><a href="#保存-Activity-状态" class="headerlink" title="保存 Activity 状态"></a>保存 Activity 状态</h2><p>如上面所讨论的，当 Activity 被停止时，系统的默认行为会保留其状态。这样子，当用户导航回到之前的 Activity 时，将展示之前离开时留下的界面。尽管如此，当 Activity 即将被销毁或者必须要重建时，你依然可以使用回调方法来保持 Activity 的状态。</p>
+<p>当系统停止某个 Activity 时，如果需要恢复系统的内存，系统将完全的销毁 Activity 。这种情况下， Activity 状态相关的信息便丢失了。但系统依然知道在后退栈中有 Activity 的一个位置，当 Activity 被带到前台时系统需要重建它，而不是恢复它。为了避免丢失用户以完成的工作，需要在 Activity 中通过实现 onSaveInstanceState() 方法来主动保持状态。</p>
+<p>关于如何来保存 Activity 的状态的更多信息，可以查看 Activity 相关文档。</p>
+<h2 id="管理-Task"><a href="#管理-Task" class="headerlink" title="管理 Task"></a>管理 Task</h2><p>上面描述的 Android 管理 Task 和后退栈的方式-将所有成功打开的 Activity 放在同一个 Task 及后进先出的堆栈中-在大部分应用程序中工作正常，也不需要担心 Activity 如何与 Task 相关联，以及如何存在后退栈中。有的时候，你想要中断这种普通的行为。也许你想要应用程序中的一个 Activity 打开时开启一个新的 Task ，而不是被放在当前 Task 中。也许你启动一个 Activity 时，想要把已经存在的实例带到前台，而不是在顶上创建一个新的实例。也许你想当用户离开 Task 的时候，后退栈中除了根 Activity 之外的清空其他 Activity 。</p>
+<p>通过清单文件中 <code>&lt;activity&gt;</code> 元素的属性以及传递给 startActivity() 的 Intent 中的 flag 可以完成上面的工作，甚至更多其他工作。</p>
+<p>可以使用的 <code>&lt;activity&gt;</code> 元素主要属性包括：</p>
+<ul>
+<li>taskAffinity</li>
+<li>launchMode</li>
+<li>allowTaskReparenting</li>
+<li>clearTaskOnLaunch</li>
+<li>alwaysRetainTaskState</li>
+<li>finishOnTaskLaunch</li>
+</ul>
+<p>可以使用的主要 Intent 的 flag 包括：</p>
+<ul>
+<li>FLAG_ACTIVITY_NEW_TASK</li>
+<li>FLAG_ACTIVITY_CLEAR_TOP</li>
+<li>FLAG_ACTIVITY_SINGLE_TOP</li>
+</ul>
+<p>接下来的章节中，你将看到如何使用这些清单属性和 Intent 的 flag 来定义 Activity 如何与 Task 关联以及他们在后退栈中的行为。</p>
+<blockquote>
+<p><strong>警告：</strong> 大部分应用程序不应该干扰 Activity 和 Task 的默认行为。如果你觉得非常有必要修改这些默认行为，那么需要做出警告，并测试 Activity 启动以及通过返回键从其他 Activity 或 Task 返回的情况。测试导航是否会和用户所期待的行为冲突。</p>
+</blockquote>
+<h3 id="定义启动模式"><a href="#定义启动模式" class="headerlink" title="定义启动模式"></a>定义启动模式</h3><p>启动模式用来定义一个新的 Activity 实例如何与当前的 Task 关联。可以通过两种方式来定义不同的启动模式：</p>
+<ul>
+<li>使用清单文件：当你在清单文件中声明一个 Activity 时，可以指定 Activity 在启动时如何关联 Task。</li>
+<li>使用 Intent flag ：调用 startActivity() 时，可以在 Intent 中包含 flag 来声明新的 Activity 与当前 Task 如何关联。</li>
+</ul>
+<p>这样，如果 Activity A 启动 Activity B ， Activity B 可以在它的清单中定义如何与当前 Task 关联， Activity A 同样可以请求 Activity B 如何与当前 Task 关联。如果都定义了 Activity B 如何与 Task 关联， Activity A 中通过 Intent 定义的请求优先于 Activity 在清单中定义的请求。</p>
+<blockquote>
+<p><strong>注意</strong>：某些在清单文件中有效的启动模式，在 Intent 中的 flag 是无效的，同样，某些 Intent 中有效的启动模式在清单里定义是无效的。</p>
+</blockquote>
+<p><strong>使用清单文件</strong></p>
+<p>在清单文件中申明 Activity 时，使用 <code>&lt;activity&gt;</code> 元素的 launchMode 属性可以指定 Activity 如何与 Task 关联：</p>
+<ul>
+<li>“standard”（默认模式）</li>
+</ul>
+<p>系统创建新的 Activity 实例，这个实例位于启动它的 Activity 相同的栈，并且将意图传递给它。 Activity 可以被实例化多次，每个实例可以属于不同的 Task ，一个 Task 也能有多个实例。</p>
+<ul>
+<li>“singleTop”</li>
+</ul>
+<p>如果 Activity 的实例已经存在于当前 Task 的顶部，系统通过调用实例的 onNewIntent() 方法来传递意图到实例，而不是为 Activity 创建一个新的实例。 Activity 可以被实例化多次，每个实例可以属于不同的 Task ，一个 Task 可以有多个实例(除非后退栈顶部的 Activity 不是一个已经存在的 Activity 实例)。</p>
+<p>例如，假设一个 Task 的后退栈包含根 Activity A ， Activity B ， Activity C 以及 Activity D 在顶部。一个意图到达 Activity D 。如果 D 的启动模式为 “standard” ，新的类实例将被启动，堆栈变成 A-B-C-D-D 。如果 D 的启动模式为 “singleTop” ，已经存在的 D 实例将通过 onNewIntent() 接收意图，一次它还在栈顶，而栈依然是 A-B-C-D 。如果一个意图到达 B ，新的 B 的实例被添加到堆栈中，即使它的启动模式是 “singleTop” 。</p>
+<blockquote>
+<p><strong>注意</strong>：当新的 Activity 实例被创建，用户可以按下返回按钮来返回到之前的 Activity 。但是当已经存在的 Activity 实例处理了新的 Intent ，用户无法按下返回键返回到通过 onNewIntent() 到来新的 Intent 前的 Activity 状态。</p>
+</blockquote>
+<ul>
+<li>“singleTask”</li>
+</ul>
+<p>系统创建新的 Task 并在新的 Task 的根实例化 Activity 。如果已经有 Activity 的实例存在于独立的 Task 中，系统通过调用 onNewIntent() 将 Intent 路由到已存在的实例，而不是创建一个新的实例。每次只能有一个 Activity 的实例存在。</p>
+<blockquote>
+<p><strong>注意</strong>：虽然 Activity 在新的 Task 中打开，后退按钮依然可以返回到用户之前的 Activity 。</p>
+</blockquote>
+<ul>
+<li>“singleInstance”</li>
+</ul>
+<p>除了系统不再启动其他的 Activity 到持有实例的 Task 中，其他的和 “singleTask” 一样。 这个 Activity 是它的 Task 的唯一成员。任何由它打开的 Activity 在一个独立的 Task 。</p>
+<p>另外一个实例， Android 浏览器应用程序声明网页浏览器的 Activity 需要永远在自己的 Task 中打开，即在 <code>&lt;activity&gt;</code> 元素中指定 singleTask 启动模式。这意味着，如果你的应用程序要打开 Android 浏览器，它的 Activity 与你的应用程序将在不同的 Task 中。不论新的 Task 启动浏览器，或者浏览器已经有一个运行在后台的 Task， Task 将被带到前台处理新的 Intent 。</p>
+<p>不论 Activity 是在新的 Task 中启动还是在相同的 Task 中启动，返回按钮总是能让用户返回到之前的 Activity 。如果你启动了一个指定 singleTask 启动模式的 Activity ，恰好这时有个 Activity 的实例在后台 Task 中，整个 Task 将进入前台。这种情况下，后退栈中包含在 Task 中的所有 Activity 进入前台，在栈的顶部。下图展示了这个过程。</p>
+<p><img src="http://img.uprogrammer.cn/static/images/diagram_backstack_singletask_multiactivity.png" alt=""></p>
+<p>更多的在清单中使用启动模式的信息，可以查看 <a href=""><activity>元素</activity></a> 相关文档，这里讨论更多关于 launchMode 属性及可接受的值。</p>
+<blockquote>
+<p><strong>注意</strong>：Activity 中通过 launchMode 属性指定的行为，可以通过启动 Activity 的意图的 flag 来覆盖。 </p>
+</blockquote>
+<p><strong>使用意图 flag</strong></p>
+<p>启动一个 Activity 时，可以通过在 startActivity() 中传递意图的 flag 来修改 Activity 与 Task 之间的默认关联。可以用来修改默认行为的 flag 包括：</p>
+<ul>
+<li>FLAG_ACTIVITY_NEW_TASK</li>
+</ul>
+<p>在新的 Task 中启动 Activity 。如果要启动的 Activity 已经有在运行的 Task ， Task 将带着最后被保存的状态到前台， Activity 在 onNewIntent() 中接收新的意图。</p>
+<p>这产生的效果与上节讨论的 “singleTask” 启动模式一致。</p>
+<ul>
+<li>FLAG_ACTIVITY_SINGLE_TOP</li>
+</ul>
+<p>如果被启动的 Activity 是当前 Activity (即在后退栈的顶部)，已存在的实例调用 onNewIntent() ，而不是创建一个新的 Activity 实例。</p>
+<p>这产生的效果与上节讨论的 “singleTop” 启动模式一致。 </p>
+<ul>
+<li>FLAG_ACTIVITY_CLEAR_TOP</li>
+</ul>
+<p>如果被启动的 Activity 已经在当前 Task 中，那么所有在其顶部的 Activity 将被销毁，意图将通过 onNewIntent() 传递到被恢复的 Activity 实例，而不是创建一个新的实例。</p>
+<p>没有启动模式可以产生这种行为。</p>
+<p>FLAG_ACTIVITY_CLEAR_TOP 经常和 FLAG_ACTIVITY_NEW_TASK 结合使用。当在一起使用时，这些 flag 是一种在其他 Task 中定位已存在 Activity，并将其放入可以响应意图位置的方式。</p>
+<h3 id="处理-affinities"><a href="#处理-affinities" class="headerlink" title="处理 affinities"></a>处理 affinities</h3><p>Affinity 表明 Activity 优先属于哪个 Task 。默认情况下，来自同一个应用程序的 Activity 相互间拥有一个 Affinity 。因此，同一个应用程序的 Activity 优先在同一个 Task 中。尽管如此，你可以修改一个 Activity 的默认 Affinity 。不同应用程序中定义的 Activity 可以共享一个 Affinity ，同一个应用程序中定义的 Activity 也可以被分配在不同的 Task Affinity 中。</p>
+<p>通过给定 <code>&lt;activity&gt;</code> 元素的 taskAffinity 属性可以修改 Activity 的 Affinity 。</p>
+<p>taskAffinity 属性是一个字符串，必须与申明在 <code>&lt;manifest&gt;</code> 元素中的默认包名不同。因为系统使用这个名称来识别应用程序的默认 Task Affinity 。</p>
+<p>两种情况下使用 Affinity：</p>
+<ul>
+<li>当启动 Activity 的意图包含 FLAG_ACTIVITY_NEW_TASK flag 时。</li>
+</ul>
+<p>默认情况下，新的 Activity 被启动在调用 startActivity() 方法的 Activity 所在 Task 。被推入到调用者相同的后退栈。但如果传递给 startActivity() 的意图中包含 FLAG_ACTIVITY_NEW_TASK flag ，系统寻找另外的 Task 来存放 Activity 。通常是一个新的 Task 。但也不是必须的。当已经存在存在一个 Task 拥有相同的 Affinity 时， Activity 被启动到这个 Task 中，没有时，才启动新的 Task 。</p>
+<p>如果这个 flag 使得 Activity 启动到新的 Task 中，用户又按下 Home 键离开它，这里将有许多种方式来让用户导航回 Task 。某些入口（如通知管理器）总是在外部 Task 中启动 Activity ，而不是在自己内部，因此调用 startActivity() 总是在意图中传递 FLAG_ACTIVITY_NEW_ACTIVITY 。如果你需要一个 Activity 可以被外部的入口调用，则使用这个 flag ，需要注意的是用户有独立的方式来返回到启动的 Task ，如通过启动器图标。</p>
+<ul>
+<li>当一个 Activity 有 allowTaskReparenting 属性并设置为 true 。</li>
+</ul>
+<h3 id="清空后退栈"><a href="#清空后退栈" class="headerlink" title="清空后退栈"></a>清空后退栈</h3><p>如果用户离开 Task 一段时间，系统将清空 Task 中除根 Activity 之外的所有 Activity 。当用户再次回到 Task ，只有根 Activity 将被回复。系统行为之所以如此，是因为在经历一段相对长的时间，用户将放弃之前所做的一些事情，而返回 Task 是为了开始其他新的事情。</p>
+<p>这里有一些 Activity 的属性可以用来修改这个行为：</p>
+<ul>
+<li>alwaysRetainTaskState</li>
+</ul>
+<p>如果在 Task 的根 Activity 中将这个属性设置为 true ，上面提到的默认行为将不会发生。 即时经过很长一段时间， Task 也将在栈中保持所有的 Activity 。</p>
+<ul>
+<li>clearTaskOnLaunch</li>
+</ul>
+<p>如果在 Task 的根 Activity 中将这个属性设置为 true ，无论用户离开 Task 或是返回它，堆栈将被清空只剩下根 Activity。换句话说，这与 alwaysRetainTaskState 刚刚相反。即时在离开很短的时间，用户也将返回 Task 的初始状态。</p>
+<ul>
+<li>finishOnTaskLaunch</li>
+</ul>
+<p>这个属性类似 clearTaskOnLaunch ，但是这个仅作用于单个 Activity ，而不是整个 Task 。这能引起任何 Activity 消失，包括根 Activity 。当它被设置为 true ， Activity 仅仅为当前会话维持 Task 的部分。如果用户离开或者过会儿返回 Task 都不在了。</p>
+<h3 id="启动-Task"><a href="#启动-Task" class="headerlink" title="启动 Task"></a>启动 Task</h3><p>通过给定某个 Activity 包含 “android.intent.action.MAIN” 为指定动作， “android.intent.category.LAUNCHER” 为指定类别的意图过滤器，可以将 Activity 作为 Task 的入口。实例如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">...</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span> <span class="attr">...</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这种类型的意图过滤器在应用程序启动器上显示 Activity 的图标和标签。由于这种原因，”singleTask” 和 “singleInstance” 两种启动模式标记 Activity 初始化 Task 只能在 Activity 拥有 ACTION_MAIN 和 CATEGORY_LAUNCHER 过滤器时使用。想象一下如果没有这些过滤器将发生什么：一个意图启动了 “singleTask” 的 Activity ，初始化了 Task ，用户在这个 Task 上玩耍了一段时间，然后按下了 Home 键。Task 就进入了后台且不可见。现在用户无法再返回到 Task ，因为应用程序启动器上没有显示…</p>
+<p>在那些不需要用户返回到 Activity 的情况，设置 <code>&lt;activity&gt;</code> 元素的 finishOnTaskLaunch 为 true 。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://developer.android.com/guide/components/tasks-and-back-stack.html" target="_blank" rel="noopener">https://developer.android.com/guide/components/tasks-and-back-stack.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://linfuyan.com/android-activity/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1976,190 +2284,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/material-design-training/defining-shadows-and-clipping-views/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿阿燃">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/material-design-training/defining-shadows-and-clipping-views/" itemprop="url">定义阴影与裁剪视图</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-24T12:00:00+08:00">
-                2015-10-24
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T20:14:28+08:00">
-                2018-10-18
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/教程/" itemprop="url" rel="index">
-                    <span itemprop="name">教程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/教程/官方-Material-Design-培训/" itemprop="url" rel="index">
-                    <span itemprop="name">官方 Material Design 培训</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-    <div style="font-size: 20px;padding: 10px;height: 60px; line-height:60px;background: #eeeeee;">
-    阿里云产品限时红包，最高 <span style="font-size: 30px;color: red;">￥1888</span> 元，<a href="https://chuangke.aliyun.com/invite?userCode=nf6ezhzq" target="_blank">立即领取</a>。
-    </div>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>这是来自 Google 官方的 Material Design 培训教程的翻译，受个人水平所限，难免有翻译不对的地方，欢迎交流指正。</p>
-</blockquote>
-<p>Material design 为 UI 元素引入了海拔的概念。海拔能够帮助用户理解每个元素的相对重要程度，并关注正在运行的任务。</p>
-<p>视图的海拔有 Z 属性来表示，决定它的阴影的视觉展示：拥有更高 Z 值的视图打造更大，更软的阴影。拥有更高 Z 值的视图会挡住低 Z 值的视图，视图的 Z 值多少并不影响视图的尺寸。</p>
-<p>阴影由被抬起视图的父视图来绘制，并默认由父视图进行视图裁剪。</p>
-<p>在某些动作中，当控件临时上升到其他普通视图之上时。海拔对于创建动画非常有用。</p>
-<p>Material design 中海拔相关的更多信息，可以查看 <a href="http://www.google.com/design/spec/what-is-material/objects-in-3d-space.html" target="_blank" rel="noopener">3D 空间中的物体</a>。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/material-design-training/defining-shadows-and-clipping-views/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2212,7 +2336,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-count">100</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2234,7 +2358,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">245</span>
+                  <span class="site-state-item-count">248</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

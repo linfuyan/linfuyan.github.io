@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="mybatis,pagehelper,limit," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="阿阿燃" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="现象描述在浏览器上多次刷新同一个页面，发现同一区域的数据会时多时少。 查看接口响应发现同一接口多次请求会返回不一样的数据。">
+<meta name="keywords" content="mybatis,pagehelper,limit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mybatis PageHelper 自动添加 limit 引发的血案">
+<meta property="og:url" content="http://linfuyan.com/mybatis-pagehelper-limit/index.html">
+<meta property="og:site_name" content="阿阿燃">
+<meta property="og:description" content="现象描述在浏览器上多次刷新同一个页面，发现同一区域的数据会时多时少。 查看接口响应发现同一接口多次请求会返回不一样的数据。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/20200326101334.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/20200326101452.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/20200326101614.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/20200326101650.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/20200326101753.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/20200326101902.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/20200326101959.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/20200326102043.png">
+<meta property="og:image" content="http://img.uprogrammer.cn/static/20200326102135.png">
+<meta property="og:updated_time" content="2020-03-26T03:00:27.542Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mybatis PageHelper 自动添加 limit 引发的血案">
+<meta name="twitter:description" content="现象描述在浏览器上多次刷新同一个页面，发现同一区域的数据会时多时少。 查看接口响应发现同一接口多次请求会返回不一样的数据。">
+<meta name="twitter:image" content="http://img.uprogrammer.cn/static/20200326101334.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://linfuyan.com/mybatis-pagehelper-limit/"/>
+
+
+
+
+
+  <title>Mybatis PageHelper 自动添加 limit 引发的血案 | 阿阿燃</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阿阿燃</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/mybatis-pagehelper-limit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Mybatis PageHelper 自动添加 limit 引发的血案</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-26T10:40:49+08:00">
+                2020-03-26
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-03-26T11:00:27+08:00">
+                2020-03-26
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+    <div style="font-size: 20px;padding: 10px;height: 60px; line-height:60px;background: #eeeeee;">
+    阿里云产品限时红包，最高 <span style="font-size: 30px;color: red;">￥1888</span> 元，<a href="https://chuangke.aliyun.com/invite?userCode=nf6ezhzq" target="_blank">立即领取</a>。
+    </div>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="现象描述"><a href="#现象描述" class="headerlink" title="现象描述"></a>现象描述</h2><p>在浏览器上多次刷新同一个页面，发现同一区域的数据会时多时少。</p>
+<p>查看接口响应发现同一接口多次请求会返回不一样的数据。</p>
+<a id="more"></a>
+<h3 id="正常情况"><a href="#正常情况" class="headerlink" title="正常情况"></a>正常情况</h3><p>页面显示</p>
+<p><img src="http://img.uprogrammer.cn/static/20200326101334.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p>
+<p>接口响应</p>
+<p><img src="http://img.uprogrammer.cn/static/20200326101452.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p>
+<h3 id="异常情况"><a href="#异常情况" class="headerlink" title="异常情况"></a>异常情况</h3><p>页面显示</p>
+<p><img src="http://img.uprogrammer.cn/static/20200326101614.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p>
+<p>接口响应</p>
+<p><img src="http://img.uprogrammer.cn/static/20200326101650.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p>
+<p>正常接口响应与异常接口响应数据量对比</p>
+<p><img src="http://img.uprogrammer.cn/static/20200326101753.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p>
+<h2 id="问题定位"><a href="#问题定位" class="headerlink" title="问题定位"></a>问题定位</h2><h3 id="猜测一：负载均衡问题"><a href="#猜测一：负载均衡问题" class="headerlink" title="猜测一：负载均衡问题"></a>猜测一：负载均衡问题</h3><p>多个不同版本的应用实例，代码实现或者数据库数据不同导致。</p>
+<p>经过排查，开发和测试环境都存在一样的问题，并且这两个环境都是单实例的。</p>
+<h3 id="猜测二：代码逻辑有误"><a href="#猜测二：代码逻辑有误" class="headerlink" title="猜测二：代码逻辑有误"></a>猜测二：代码逻辑有误</h3><p>走查了代码，发现这里只是一个简单的单表查询，并没有复杂逻辑。</p>
+<p>同时针对单个接口反复测试，无法重现响应数据时多时少的问题。</p>
+<p>目前看，这块的代码并没有很直观的错误。</p>
+<h3 id="猜测三：sql-多次执行返回不同结果"><a href="#猜测三：sql-多次执行返回不同结果" class="headerlink" title="猜测三：sql 多次执行返回不同结果"></a>猜测三：sql 多次执行返回不同结果</h3><p>使用查询语句，多次重试，没有复现异常。</p>
+<h3 id="猜测四："><a href="#猜测四：" class="headerlink" title="猜测四："></a>猜测四：</h3><p>经过猜测二、三的排查，怀疑是页面上多个请求同时发起共同导致的问题。</p>
+<p>于是反复刷新页面，查看后端日志，发现正常情况与异常情况时执行的 sql 不一致。</p>
+<p><strong>异常情况下，会在正常的 sql 后面添加 <code>limit</code> 子句。</strong></p>
+<p><img src="http://img.uprogrammer.cn/static/20200326101902.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p>
+<p>到这里，我只能猜测是 mybatis 动态生成的 sql 有问题。</p>
+<p>那么什么原因导致会在正常的 sql 后添加 limit 子句，并且这个 <code>5</code> 是从哪里来的呢？</p>
+<h2 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h2><p>在度娘上以 “mybatis 自动添加 limit” 为关键字搜索，发现由于 PageHelper 插件自动添加 limit 的问题很多。</p>
+<p>在 <a href="https://github.com/pagehelper/Mybatis-PageHelper" target="_blank" rel="noopener">Mybatis-PageHelper</a> 的<a href="https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/HowToUse.md" target="_blank" rel="noopener">使用方法</a>文章中有如下说明：</p>
+<p><img src="http://img.uprogrammer.cn/static/20200326101959.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p>
+<p><img src="http://img.uprogrammer.cn/static/20200326102043.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p>
+<p>由此，<strong>可能的原因是在这个页面上的其他请求带有分页，同时由于后端对 Mybatis PageHelper 的使用不规范导致。</strong></p>
+<p>页面上有分页的请求</p>
+<p><img src="http://img.uprogrammer.cn/static/20200326102135.png" alt="Mybatis PageHelper 自动添加 limit 引发的血案"></p>
+<p>在排查了该接口的代码后发现：代码中调用 <code>PageHelper.startPage</code> 方法的地方与真正执行查询的代码中间有很多复杂的业务处理。</p>
+<p>问题原因基本清楚了。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol>
+<li>永久的解决方案：规范 <code>PageHelper.startPage</code> 方法的使用，只在真实查询要执行前，调用该方法，确保安全分页。</li>
+<li>临时的解决方案：在出现问题的查询前面，调用 <code>PageHelper.clearPage</code></li>
+</ol>
+<p>目前按照临时解决方案进行了处理，反复测试以后，问题得到了解决。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Aaron
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://linfuyan.com/mybatis-pagehelper-limit/" title="Mybatis PageHelper 自动添加 limit 引发的血案">http://linfuyan.com/mybatis-pagehelper-limit/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mybatis/" rel="tag"># mybatis</a>
+          
+            <a href="/tags/pagehelper/" rel="tag"># pagehelper</a>
+          
+            <a href="/tags/limit/" rel="tag"># limit</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/linux-port-taken-up/" rel="next" title="Linux 查看占用端口的进程">
+                <i class="fa fa-chevron-left"></i> Linux 查看占用端口的进程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Aaron</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">100</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">248</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/linfuyan" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#现象描述"><span class="nav-text">现象描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正常情况"><span class="nav-text">正常情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常情况"><span class="nav-text">异常情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题定位"><span class="nav-text">问题定位</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#猜测一：负载均衡问题"><span class="nav-text">猜测一：负载均衡问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#猜测二：代码逻辑有误"><span class="nav-text">猜测二：代码逻辑有误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#猜测三：sql-多次执行返回不同结果"><span class="nav-text">猜测三：sql 多次执行返回不同结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#猜测四："><span class="nav-text">猜测四：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原因分析"><span class="nav-text">原因分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-text">解决方案</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+  <div class="footer-custom">Hosted by <a href="https://pages.coding.me" style="font-weight:bold">Coding Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1256375489&web_id=1256375489" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

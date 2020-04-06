@@ -7,6 +7,7 @@
       <title><![CDATA[Elasticsearch 高可用集群搭建]]></title>
       <url>http://linfuyan.com/es-cluster-ha/</url>
       <content type="html"><![CDATA[<p>以下我们将基于 elasticsearch-6.6.0 版本，在单机上部署 3 个节点组成的集群。3个节点都用作候选主节点，且同时作为数据节点。</p>
+<a id="more"></a>
 <h2 id="集群搭建"><a href="#集群搭建" class="headerlink" title="集群搭建"></a>集群搭建</h2><ol>
 <li><p>下载 elasticsearch-6.6.0 二进制包，解压，复制 3 份，分别命名为 es1， es2， es3。</p>
 </li>
@@ -56,7 +57,7 @@
 <li>对 <code>app_jgus</code> 索引的查询依然可以正常进行，因为 <code>app_jgus</code> 的每个主分片都有 1 个副本，剩余 2 个节点中保存有所有的索引数据。</li>
 <li>索引 <code>app_jgus_yn</code> 由于没有为主分片生成副本，随 es3 节点失败，缺少了 2 个主分片，缺失的分片数据将无法被操作。</li>
 </ul>
-<p><img src="/Users/linfuyan/Library/Application Support/typora-user-images/image-20200406094513667.png" alt="集群中节点挂了"></p>
+<p><img src="http://img.uprogrammer.cn/static/20200406224952.png" alt="集群中节点挂了"></p>
 <h3 id="步骤三"><a href="#步骤三" class="headerlink" title="步骤三"></a>步骤三</h3><ul>
 <li>重启 es3 节点，刷新查看集群状态</li>
 </ul>
@@ -776,9 +777,9 @@ FROM
         
         <tags>
             
-            <tag> springboot </tag>
-            
             <tag> 打包 </tag>
+            
+            <tag> springboot </tag>
             
             <tag> maven </tag>
             
@@ -850,11 +851,11 @@ FROM
         
         <tags>
             
+            <tag> 思维导图 </tag>
+            
             <tag> php </tag>
             
             <tag> laravel </tag>
-            
-            <tag> 思维导图 </tag>
             
         </tags>
         
@@ -1840,9 +1841,9 @@ FROM
             
             <tag> nodejs </tag>
             
-            <tag> 打包 </tag>
-            
             <tag> npm </tag>
+            
+            <tag> 打包 </tag>
             
             <tag> 发布 </tag>
             
@@ -6248,11 +6249,11 @@ alpha = (aLongBooleanExpression)
             
             <tag> 安装 </tag>
             
+            <tag> Docker </tag>
+            
             <tag> 博客 </tag>
             
             <tag> 个人 </tag>
-            
-            <tag> Docker </tag>
             
         </tags>
         

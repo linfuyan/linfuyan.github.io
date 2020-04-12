@@ -263,6 +263,172 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/keep-pages-at-your-hexo-blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/keep-pages-at-your-hexo-blog/" itemprop="url">Hexo 如何保持页面文件不被渲染</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-11T00:35:14+08:00">
+                2015-10-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2015-10-11T00:50:54+08:00">
+                2015-10-11
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/FAQ/" itemprop="url" rel="index">
+                    <span itemprop="name">FAQ</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+    <div style="font-size: 20px;padding: 10px;height: 60px; line-height:60px;background: #eeeeee;">
+    阿里云产品限时红包，最高 <span style="font-size: 30px;color: red;">￥1888</span> 元，<a href="https://chuangke.aliyun.com/invite?userCode=nf6ezhzq" target="_blank">立即领取</a>。
+    </div>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>假设要保持 keep.html 文件原样输出，不被渲染：</p>
+<p>1. 将 keep.html 文件放在 <code>source</code> 目录下。</p>
+<p>2. 打开 <code>_confi.yml</code> 配置文件，添加 <code>skip_render:</code>，并声明 keep.html 文件如下：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">skip_render</span>: <span class="meta">keep</span>.html</span><br></pre></td></tr></table></figure>
+<p>3. 如果需要保持多个文件，可以按照如下声明：</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip_render: <span class="string">[file1, files, ...]</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://linfuyan.com/android-m-changes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1940,173 +2106,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/faq/install-hexo-occur-connot-find-module-error/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿阿燃">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/faq/install-hexo-occur-connot-find-module-error/" itemprop="url">Hexo 安装出现 Cannot find module 错误</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-19T14:46:57+08:00">
-                2015-09-19
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2015-09-19T14:59:38+08:00">
-                2015-09-19
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/FAQ/" itemprop="url" rel="index">
-                    <span itemprop="name">FAQ</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-    <div style="font-size: 20px;padding: 10px;height: 60px; line-height:60px;background: #eeeeee;">
-    阿里云产品限时红包，最高 <span style="font-size: 30px;color: red;">￥1888</span> 元，<a href="https://chuangke.aliyun.com/invite?userCode=nf6ezhzq" target="_blank">立即领取</a>。
-    </div>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在安装 Hexo 的过程中，有时会遇到下面的错误：</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">&#123; [Error: Cannot <span class="built_in">find</span> <span class="keyword">module</span> <span class="string">'./build/Release/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br><span class="line">&#123; [Error: Cannot <span class="built_in">find</span> <span class="keyword">module</span> <span class="string">'./build/default/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br><span class="line">&#123; [Error: Cannot <span class="built_in">find</span> <span class="keyword">module</span> <span class="string">'./build/Debug/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br></pre></td></tr></table></figure>
-<p>从提示上看，问题的原因是缺少某些库，估计是由于天朝网络的问题，导致某些库没有完成下载就停止了。</p>
-<p>可以换一个<a href="http://www.linfuyan.com/faq/npm-taobao-registry/" target="_blank" rel="noopener">国内的 npm 源</a>，然后重新安装 Hexo：</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> install hexo —<span class="literal">no</span>-optional</span><br></pre></td></tr></table></figure>
-<p>原文：<a href="http://segmentfault.com/a/1190000002979092#articleHeader5" target="_blank" rel="noopener">http://segmentfault.com/a/1190000002979092#articleHeader5</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2159,7 +2158,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">101</span>
+                  <span class="site-state-item-count">102</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2181,7 +2180,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">250</span>
+                  <span class="site-state-item-count">255</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

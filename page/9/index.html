@@ -263,6 +263,206 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/reactivex-observable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/reactivex-observable/" itemprop="url">ReactiveX 之 Observable</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-07T21:06:12+08:00">
+                2015-09-07
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2015-10-13T23:18:21+08:00">
+                2015-10-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/" itemprop="url" rel="index">
+                    <span itemprop="name">开发技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/响应式编程/" itemprop="url" rel="index">
+                    <span itemprop="name">响应式编程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发技术/响应式编程/rxjava/" itemprop="url" rel="index">
+                    <span itemprop="name">rxjava</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+    <div style="font-size: 20px;padding: 10px;height: 60px; line-height:60px;background: #eeeeee;">
+    阿里云产品限时红包，最高 <span style="font-size: 30px;color: red;">￥1888</span> 元，<a href="https://chuangke.aliyun.com/invite?userCode=nf6ezhzq" target="_blank">立即领取</a>。
+    </div>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>原文：<a href="http://reactivex.io/documentation/observable.html" target="_blank" rel="noopener">http://reactivex.io/documentation/observable.html</a></p>
+<p>对译文有建议，请发邮件或下方评论给我，万分感谢。</p>
+</blockquote>
+<blockquote>
+<p>更新历史：1月13日</p>
+</blockquote>
+<p>在RxJava中一个对象实现了<em>Observer</em>接口则被一个<em>Observable</em>类对象所订阅。订阅者则针对<em>Obserable</em>对象产生的值（包括项及项的序列）做响应。这种模式便利了异步操作，因为不用在等待<em>Obserable</em>产生对象时进行阻塞，它以订阅者的形式创建了一个哨兵，用于在<em>Observable</em>在将来的时间产生任何输出时提供合适的响应。</p>
+<p>这篇文章解释什么是响应式模式以及什么是<em>Observable</em>与观察者(观察者怎样对<em>Observable</em>进行订阅)。</p>
+<blockquote>
+<p>文档中的解释将采用”marble diagrams”的形式。下图说明”marble diagrams”怎样展示<em>Observable</em>以及<em>Observable</em>之间的转换。</p>
+<p><img src="http://reactivex.io/assets/operators/legend.png" alt="Observables"></p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/reactivex-observable/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://linfuyan.com/grokking-rxjava-part-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1907,187 +2107,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/faq/java8-excecution-failed-for-task-compileDebugJava/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿阿燃">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/faq/java8-excecution-failed-for-task-compileDebugJava/" itemprop="url">Mac OSX 上 Android Studio 编译使用 JAVA8 及 retrolambda 的项目出错解决方案</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-22T13:09:27+08:00">
-                2015-08-22
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2015-11-03T16:35:47+08:00">
-                2015-11-03
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/FAQ/" itemprop="url" rel="index">
-                    <span itemprop="name">FAQ</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-    <div style="font-size: 20px;padding: 10px;height: 60px; line-height:60px;background: #eeeeee;">
-    阿里云产品限时红包，最高 <span style="font-size: 30px;color: red;">￥1888</span> 元，<a href="https://chuangke.aliyun.com/invite?userCode=nf6ezhzq" target="_blank">立即领取</a>。
-    </div>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>问题发生环境及表现：</p>
-<ol>
-<li>Mac OSX Yosemite 系统</li>
-<li>项目中使用 retrolambda 及 java8</li>
-<li>在 Android Studio 中直接 build 时出现如下错误：</li>
-</ol>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">编译器 (<span class="number">1.8</span><span class="number">.0</span>_40) 中出现异常错误。 如果在 Bug Parade 中没有找到该错误, 请在 Java Developer Connection (http:<span class="comment">//java.sun.com/webapps/bugreport) 中建立 Bug。请在报告中附上您的程序和以下诊断信息。谢谢。</span></span><br><span class="line">com.sun.tools.javac.<span class="built_in">code</span>.Symbol$CompletionFailure: 找不到java.lang.invoke.MethodType的类文件</span><br><span class="line"><span class="built_in">Error</span>:Execution failed <span class="keyword">for</span> task ':app:_compileDebugJava'.</span><br><span class="line">&gt; Compilation failed; see the compiler <span class="built_in">error</span> <span class="keyword">output</span> <span class="keyword">for</span> details.</span><br></pre></td></tr></table></figure>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FAILURE: </span>Build failed with an exception.</span><br><span class="line"></span><br><span class="line">* What went wrong:</span><br><span class="line">Execution failed for task ':app:_compileDebugJava'.</span><br><span class="line">&gt; Compilation failed; see the compiler error output for details.</span><br></pre></td></tr></table></figure>
-<p>问题探索及解决方案：</p>
-<ol>
-<li>首先确保根据 <a href="https://github.com/evant/gradle-retrolambda" target="_blank" rel="noopener"> gradle-retrolambda 官方文档</a>正确配置</li>
-<li>在系统中设置 JAVA8_HOME 等环境变量。设置完成以后在正常情况下在终端中可以正常编译。</li>
-<li>这时在 Android Studio 中直接 build 依然不行，原因是 Android Studio 在启动过程中不会读取 <code>/home/user/.bash_profile</code> 或 <code>/home/user/.bashrc</code>，因此 <code>build.gradle</code> 中 retrolambda 的配置无法获取正确的 JAVA8_HOME 路径。</li>
-<li>可行的解决方案：<ul>
-<li>通过终端重新启动 Android Studio，这样可以读取 <code>/home/user/.bash_profile</code> 或 <code>/home/user/.bashrc</code> 中设置的环境变量</li>
-<li>设置系统级的环境变量，如在 <code>/etc/profile</code> 中添加 JAVA8_HOME</li>
-</ul>
-</li>
-</ol>
-<p>参考：<a href="https://github.com/evant/gradle-retrolambda/issues/17" target="_blank" rel="noopener">https://github.com/evant/gradle-retrolambda/issues/17</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2140,7 +2159,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">101</span>
+                  <span class="site-state-item-count">102</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2162,7 +2181,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">250</span>
+                  <span class="site-state-item-count">255</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -263,6 +263,185 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/mac-ssh-with-pem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阿燃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mac-ssh-with-pem/" itemprop="url">Mac 下 SSH 通过 .pem 登录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-17T14:12:00+08:00">
+                2019-04-17
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-17T14:19:39+08:00">
+                2019-04-17
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/" itemprop="url" rel="index">
+                    <span itemprop="name">软件工具</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/ssh/" itemprop="url" rel="index">
+                    <span itemprop="name">ssh</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+    <div style="font-size: 20px;padding: 10px;height: 60px; line-height:60px;background: #eeeeee;">
+    阿里云产品限时红包，最高 <span style="font-size: 30px;color: red;">￥1888</span> 元，<a href="https://chuangke.aliyun.com/invite?userCode=nf6ezhzq" target="_blank">立即领取</a>。
+    </div>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1. 基础命令如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -<span class="selector-tag">i</span> key<span class="selector-class">.pem</span> </span><br><span class="line">ssh -<span class="selector-tag">i</span> key<span class="selector-class">.pem</span> root@ip</span><br></pre></td></tr></table></figure>
+<p>如果出现报错，说明文件的权限太大了，修改下权限。</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod <span class="number">600</span> <span class="type">key</span>.pem</span><br></pre></td></tr></table></figure>
+<p>2. 通过 ssh-add 添加 .pem 文件</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-<span class="keyword">add</span><span class="bash"> -k key.pem</span></span><br></pre></td></tr></table></figure>
+<p>这样就可以通过 <code>ssh root@ip</code> 直接登录了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://linfuyan.com/mac_apache_php_enable/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1845,187 +2024,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linfuyan.com/android-kotlin-get-started/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿阿燃">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/android-kotlin-get-started/" itemprop="url">在 Android 上开始使用 Kotlin</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-18T12:00:00+08:00">
-                2017-05-18
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-22T09:43:10+08:00">
-                2019-02-22
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/开发技术/" itemprop="url" rel="index">
-                    <span itemprop="name">开发技术</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/开发技术/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-    <div style="font-size: 20px;padding: 10px;height: 60px; line-height:60px;background: #eeeeee;">
-    阿里云产品限时红包，最高 <span style="font-size: 30px;color: red;">￥1888</span> 元，<a href="https://chuangke.aliyun.com/invite?userCode=nf6ezhzq" target="_blank">立即领取</a>。
-    </div>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>本文翻译自：<a href="https://developer.android.com/kotlin/get-started.html" target="_blank" rel="noopener">https://developer.android.com/kotlin/get-started.html</a></p>
-</blockquote>
-<p>Android Studio 3.0 完整的支持 Kotlin，因此下面的这些操作都很方便。包括通过 Kotlin 文件创建新的项目，添加新的 Kotlin 文件到已有项目中，或者将 Java 语言代码转为 Kotlin。同时，你也可以针对 Kotlin 代码来使用所有 Android Studio已有的工具，如自动补全，lint 检查，重构，调试等。</p>
-<p>这篇文章将介绍如何再 Android Studio 中开始使用 Kotlin。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/android-kotlin-get-started/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2078,7 +2076,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">101</span>
+                  <span class="site-state-item-count">102</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2100,7 +2098,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">250</span>
+                  <span class="site-state-item-count">255</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

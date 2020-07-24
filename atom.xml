@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://linfuyan.com/"/>
-  <updated>2020-04-12T15:13:22.334Z</updated>
+  <updated>2020-07-24T01:52:33.771Z</updated>
   <id>http://linfuyan.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux 常用文本操作</title>
+    <link href="http://linfuyan.com/text_ops_in_linux/"/>
+    <id>http://linfuyan.com/text_ops_in_linux/</id>
+    <published>2020-07-24T01:52:33.771Z</published>
+    <updated>2020-07-24T01:52:33.771Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>列出包含特定文本的文件</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在 dir 目录下查找包含 content 的文件</span></span><br><span class="line">grep -r 'content' dir</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在 dir 目录下查找包含 content 的文件，仅列出文件名</span></span><br><span class="line">grep -rl 'content' dir</span><br></pre></td></tr></table></figure><ol start="2"><li>查找特定文本在文件的行数</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -n 'SET timestamp=15925248..' slow.log</span><br></pre></td></tr></table></figure><ol start="3"><li>读取文件前后特定行的文本</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 读取 slow.log 文件前 100 行文本</span></span><br><span class="line">head -n 100 slow.log</span><br><span class="line"><span class="meta">#</span><span class="bash"> 读取 slow.log 文本后 100 行文本</span></span><br><span class="line">tail -n 100 slow.log</span><br></pre></td></tr></table></figure><ol start="4"><li>截取文本中第 from 行到 to 行之间的文本</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -n 'from,to'p slow.log</span><br></pre></td></tr></table></figure><ol start="5"><li>获取文件中特定行的文本</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -n 'row'p slow.log</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;列出包含特定文本的文件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span clas
+      
+    
+    </summary>
+    
+      <category term="FAQ" scheme="http://linfuyan.com/categories/FAQ/"/>
+    
+    
+      <category term="linux" scheme="http://linfuyan.com/tags/linux/"/>
+    
+      <category term="文本" scheme="http://linfuyan.com/tags/%E6%96%87%E6%9C%AC/"/>
+    
+  </entry>
   
   <entry>
     <title>docker 安装 Prometheus 和 Grafana 实现对 Springcloud 微服务的监控</title>
@@ -566,47 +596,9 @@
       <category term="后端" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%90%8E%E7%AB%AF/"/>
     
     
-      <category term="PHP" scheme="http://linfuyan.com/tags/PHP/"/>
-    
       <category term="思维导图" scheme="http://linfuyan.com/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/"/>
     
-  </entry>
-  
-  <entry>
-    <title>【小白必读】微信小程序 https 支持导致的问题及配置 https 支持的流程</title>
-    <link href="http://linfuyan.com/weapp-https/"/>
-    <id>http://linfuyan.com/weapp-https/</id>
-    <published>2017-05-25T06:26:00.000Z</published>
-    <updated>2019-02-22T01:42:04.171Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>最近泡在好几个微信小程序QQ群里，发现大家提的好多问题是由于微信小程序的 https 支持引起的，这篇文章里面对于微信小程序的 https 相关问题做一些说明。</p></blockquote><h2 id="问题汇总"><a href="#问题汇总" class="headerlink" title="问题汇总"></a>问题汇总</h2><p>哪些情况可能是由于 https 的配置导致的？</p><p>1. 小程序页面出现白屏</p><p>大部分的小程序页面需要通过服务器接口返回的数据进行填充之后才能展示，由于 https 的配置错误，导致数据无法获取到，表现在小程序的界面上就是这个页面没有数据，看起来白屏。有的小伙伴儿在开发的时候是能拿到数据，显示没有问题的，而提交审核以后却因为没有显示数据而不通过，就是这个原因。</p><p>2. 应该显示图片的部分没有内容显示</p><p>这个的原因和第一个其实是一样的，返回的图片的地址是 <code>http://</code> 开头，或者返回图片路径不对。所有无法加载出来。</p><p>3. 调用 <code>wx.downloadFile/wx.uploadFile</code> 失败</p><p>出现上面这些问题时，终端上的调试信息差不多是这样：</p><p><img src="http://img.uprogrammer.cn/static/images/wxapp-https-debug.png" alt="微信https问题调试"></p><a id="more"></a><h2 id="问题缘起"><a href="#问题缘起" class="headerlink" title="问题缘起"></a>问题缘起</h2><p><strong>正式上线的微信小程序仅支持 https 的请求，包括 <code>wx.request</code>, <code>wx.uploadFile</code>, <code>wx.downloadFile</code> 等 API，以及其他支持网络资源的组件，如 <code>&lt;image&gt;</code></strong>。</p><p>具体可以参看相关的 API 说明。</p><p>很多小伙伴儿疑惑，我的小程序接口不是 https 的呀，网上获取到的很多实例代码也都不是，为什么在微信 web 开发者工具里面都可以正常的跑起来呢？有更多的人可能在疑惑，为啥很多实例代码跑起来以后白屏或者图片不显示呢？</p><p>上面提到一个限定：<strong>正式上线的微信小程序</strong>仅支持 https 请求。正式环境为了安全，那开发环境也按照正式环境的标准来要求，就会有很多的不方便了。所以在开发环境下，微信小程序是可以支持 http 请求的，这在微信 web 开发者工具中可以配置。</p><p><img src="http://img.uprogrammer.cn/static/images/wxapp-https-switch.png" alt="微信https开关"></p><p>如上图，勾选最后的选项，开发环境下，不需要 https 请求，也能够获取到网络请求的数据了。所以从网络上下载了实例代码的小伙伴儿，如果出现白屏或者图片不显示，检查一下请求的 url，检查一下这块的配置，再跑起来看看是不是已经可以了。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>确定了问题是因为没有 https 支持导致的，那接下来该怎么解决呢？</p><p><strong>显然解决方案是为来自服务端的请求加上 https 支持，为 <code>wx.uploadFile</code> 等 API 的请求域名加上 https 支持。</strong></p><p>为微信小程序配置 https 支持的步骤如下：</p><ol><li>具有部署服务端代码的空间及访问服务的域名</li><li>根据需要申请到域名对应的 https 证书</li><li>配置 web 服务器，使其支持 https</li><li>微信小程序后台配置对应的域名</li><li>微信小程序代码上的请求链接修改为 https</li></ol><h3 id="空间和域名"><a href="#空间和域名" class="headerlink" title="空间和域名"></a>空间和域名</h3><p>你的服务端代码最终是要部署到空间或者云服务器上的。最终上线的微信小程序服务器必须有域名，IP 地址是不支持的。所以你还必须有个域名。</p><p>空间/云服务器，域名哪里来，怎么申请，就不说了。如果你在公司，应该有专门的人来搞这个，或者已经都有了。如果你是个人，以前没接触过，可能需要花时间了解一下。</p><h3 id="https-证书申请"><a href="#https-证书申请" class="headerlink" title="https 证书申请"></a>https 证书申请</h3><p>有了域名，就可以针对域名申请 https 证书了。支持 https 的证书有许多这种，现在网上可以申请到免费的 https 证书。阿里云、七牛、腾讯云、let’s encrypt 等都有。具体这里也不展开。</p><h3 id="web-服务器配置"><a href="#web-服务器配置" class="headerlink" title="web 服务器配置"></a>web 服务器配置</h3><p>一般服务部署以后，是通过 web 服务器才访问到的。由于使用的技术五花八门，而你可能只接触到了开发环境，对最后的上线不太了解。这里只大略提一下。</p><p>大部分的开发人员，如果是 Java 开发后台，可能开发测试是在 tomcat 上跑的，本地测试经常访问 <code>http://localhost:8080</code> 这样；如果是 php，可能用的 phpstorm，运行起来以后，也是直接带个本地地址访问；又或者是 nodejs 的，命令行启动以后，内置的服务器就跑起来可以访问了；总而言之，最后的部署环境和开发时是不一样的。</p><p>针对不同的技术，有其自己特有的 https 配置方案。如果你是这种情况，根据需要查找资料吧。但一般企业应用有更通用的做法。</p><p>最后部署时，一般有 nginx 或者 apache，做反向代理及负载均衡等，然后才访问到真正的服务端业务代码。</p><p>举个例子：我用 Java 开发了后台服务程序，并且跑在 tomcat 上。然后正式对外时，我用 nginx 做反向代理。那么这个看起来就像下面图所示。</p><p><img src="http://img.uprogrammer.cn/static/images/server-deploy-arch.png" alt="服务端部署架构"></p><p>这时，通常就是对 nginx 做支持 https 的配置，以及配置反向代理。</p><h3 id="小程序后台配置"><a href="#小程序后台配置" class="headerlink" title="小程序后台配置"></a>小程序后台配置</h3><p><img src="http://img.uprogrammer.cn/static/images/https-required.png" alt="小程序后台配置 https"></p><p>当服务器的 https 支持配置完成以后，需要在小程序后台中配置上合法的服务器域名。必须针对不同的 API 使用，配置对应的域名。</p><h3 id="修改小程序代码，用-https-访问"><a href="#修改小程序代码，用-https-访问" class="headerlink" title="修改小程序代码，用 https 访问"></a>修改小程序代码，用 https 访问</h3><p>一切准备就绪，接下来就是修改小程序上的请求代码，用 https 访问。再将开发工具上的 https 验证的开发打开。这时候应该程序正常响应了。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上就是 https 配置导致的小程序问题，以及配置 https 支持需要的流程。每个部分都只粗略地提到，之所以没有具体说明，是因为每块都有挺多的内容可以讲。而针对小伙伴儿们不同的环境，又会有各种不同的方案。流程在这里了，每块具体内容大家自己查资料。后续我也可能针对具体内容写一些文章。欢迎到微信公众号“非典型程序员(up2048)”给我留言。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;最近泡在好几个微信小程序QQ群里，发现大家提的好多问题是由于微信小程序的 https 支持引起的，这篇文章里面对于微信小程序的 https 相关问题做一些说明。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;问题汇总&quot;&gt;&lt;a href=&quot;#问题汇总&quot; class=&quot;headerlink&quot; title=&quot;问题汇总&quot;&gt;&lt;/a&gt;问题汇总&lt;/h2&gt;&lt;p&gt;哪些情况可能是由于 https 的配置导致的？&lt;/p&gt;
-&lt;p&gt;1. 小程序页面出现白屏&lt;/p&gt;
-&lt;p&gt;大部分的小程序页面需要通过服务器接口返回的数据进行填充之后才能展示，由于 https 的配置错误，导致数据无法获取到，表现在小程序的界面上就是这个页面没有数据，看起来白屏。有的小伙伴儿在开发的时候是能拿到数据，显示没有问题的，而提交审核以后却因为没有显示数据而不通过，就是这个原因。&lt;/p&gt;
-&lt;p&gt;2. 应该显示图片的部分没有内容显示&lt;/p&gt;
-&lt;p&gt;这个的原因和第一个其实是一样的，返回的图片的地址是 &lt;code&gt;http://&lt;/code&gt; 开头，或者返回图片路径不对。所有无法加载出来。&lt;/p&gt;
-&lt;p&gt;3. 调用 &lt;code&gt;wx.downloadFile/wx.uploadFile&lt;/code&gt; 失败&lt;/p&gt;
-&lt;p&gt;出现上面这些问题时，终端上的调试信息差不多是这样：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://img.uprogrammer.cn/static/images/wxapp-https-debug.png&quot; alt=&quot;微信https问题调试&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="开发技术" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="微信" scheme="http://linfuyan.com/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%BE%AE%E4%BF%A1/"/>
-    
-    
-      <category term="微信" scheme="http://linfuyan.com/tags/%E5%BE%AE%E4%BF%A1/"/>
-    
-      <category term="小程序" scheme="http://linfuyan.com/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-      <category term="https" scheme="http://linfuyan.com/tags/https/"/>
+      <category term="PHP" scheme="http://linfuyan.com/tags/PHP/"/>
     
   </entry>
   

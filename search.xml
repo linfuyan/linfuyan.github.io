@@ -4,6 +4,48 @@
   
     
     <entry>
+      <title><![CDATA[Linux 常用文本操作]]></title>
+      <url>http://linfuyan.com/text_ops_in_linux/</url>
+      <content type="html"><![CDATA[<ol>
+<li>列出包含特定文本的文件</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在 dir 目录下查找包含 content 的文件</span></span><br><span class="line">grep -r 'content' dir</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在 dir 目录下查找包含 content 的文件，仅列出文件名</span></span><br><span class="line">grep -rl 'content' dir</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>查找特定文本在文件的行数</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -n 'SET timestamp=15925248..' slow.log</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>读取文件前后特定行的文本</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 读取 slow.log 文件前 100 行文本</span></span><br><span class="line">head -n 100 slow.log</span><br><span class="line"><span class="meta">#</span><span class="bash"> 读取 slow.log 文本后 100 行文本</span></span><br><span class="line">tail -n 100 slow.log</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>截取文本中第 from 行到 to 行之间的文本</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -n 'from,to'p slow.log</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>获取文件中特定行的文本</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -n 'row'p slow.log</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> FAQ </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> 文本 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[docker 安装 Prometheus 和 Grafana 实现对 Springcloud 微服务的监控]]></title>
       <url>http://linfuyan.com/docker-prometheus-grafana-microservice/</url>
       <content type="html"><![CDATA[<p>目前我们团队实施的项目后端采用了基于 Springcloud 的微服务，其中 Eureka 用作注册中心，其他服务作为 Eureka 客户端接入。采用 Prometheus 和 Grafana 可以有效的监控微服务的运行情况。</p>
@@ -1021,9 +1063,9 @@ FROM
         
         <tags>
             
-            <tag> PHP </tag>
-            
             <tag> 思维导图 </tag>
+            
+            <tag> PHP </tag>
             
         </tags>
         
@@ -1157,9 +1199,9 @@ FROM
         
         <tags>
             
-            <tag> Android O </tag>
-            
             <tag> Kotlin </tag>
+            
+            <tag> Android O </tag>
             
             <tag> Google IO 2017 </tag>
             
@@ -1196,9 +1238,9 @@ FROM
         
         <tags>
             
-            <tag> Android O </tag>
-            
             <tag> Kotlin </tag>
+            
+            <tag> Android O </tag>
             
             <tag> Google IO 2017 </tag>
             
@@ -1581,13 +1623,13 @@ FROM
         
         <tags>
             
+            <tag> ubuntu </tag>
+            
             <tag> ngrok </tag>
             
             <tag> 微信开发 </tag>
             
             <tag> 内网穿透 </tag>
-            
-            <tag> ubuntu </tag>
             
         </tags>
         
@@ -2040,11 +2082,11 @@ FROM
         
         <tags>
             
-            <tag> Mac </tag>
-            
             <tag> HomeBrew </tag>
             
             <tag> MySQL </tag>
+            
+            <tag> Mac </tag>
             
             <tag> OSX </tag>
             
@@ -2090,11 +2132,11 @@ FROM
         
         <tags>
             
-            <tag> MongoDB </tag>
+            <tag> HomeBrew </tag>
             
             <tag> Mac </tag>
             
-            <tag> HomeBrew </tag>
+            <tag> MongoDB </tag>
             
         </tags>
         
@@ -6369,9 +6411,9 @@ alpha = (aLongBooleanExpression)
             
             <tag> 安装 </tag>
             
-            <tag> 博客 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 博客 </tag>
             
             <tag> 个人 </tag>
             
